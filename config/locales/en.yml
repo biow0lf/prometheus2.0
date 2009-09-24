@@ -1,0 +1,88 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  packager:
+    bugs:
+      allbugs: "all bugs"
+      bugs: "all opened bugs"
+
+  srpm:
+    group: "Group"
+
+    main: "Main"
+    changelog: "Changelog"
+    spec: "Spec"
+    patches: "Patches"
+    sources: "Sources"
+    download: "Download"
+    gear: "Gear"
+    bugsandfr: "Bugs and FR"
+    repocop: "Repocop"
+
+    main_title: "information about SRPM"
+    changelog_title: "full changelog"
+    spec_title: "spec"
+    patches_title: "patches"
+    sources_title: "sources"
+    download_title: "download latest version"
+    gear_title: "this package in gear repositories"
+    bugsandfr_title: "list of bugs and feature requests"
+    repocop_title: "repocop bugreport"
+
+    curversion: "Current version"
+    builddate: "Build date"
+    size: "Size"
+    homepage: "Home page"
+    license: "License"
+    summary: "Summary"
+    description: "Description"
+    curmaintainer: "Current maintainer"
+    contributors: "List of contributors"
+    listrpms: "List of rpms provided by this srpm"
+    acl: "ACL"
+
+
+  home: "Home"
+  news: "News"
+  packages: "Packages"
+  maintainers: "Maintainers"
+  security: "Security"
+  about: "About"
+  rss: "RSS"
+  wiki: "Wiki"
+  blog: "Blog"
+  mailinglist: "Mailing list"
+  ago: "ago"
+  menu:
+    main: "Main"
+    changelog: "Changelog"
+    spec: "Spec"
+    patches: "Patches"
+    sources: "Sources"
+    download: "Download"
+    gear: "Gear"
+    bugs: "Bugs &amp; FR"
+    repocop: "Repocop"
+  menu2:
+    info: "Information"
+    packages: "Packages"
+    gear: "Gear"
+    bugs: "Bugs &amp; FR"
+    repocop: "Repocop"
+  package:
+    name: "Name:"
+    version: "Version:"
+    release: "Release:"
+    epoch: "Epoch:"
+    summary: "Summary:"
+    license: "License:"
+    group: "Group:"
+    packager: "Packager:"
+    url: "Url:"
+    builddate: "Build date:"
+    size: "Size:"
+    description: "Description:"
+    acl: "ACL:"
+  main:
+    welcome: "Welcome!"

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: http://sisyphus.heroku.com/sitemap.xml
+Sitemap: http://sisyphus.heroku.com/sitemap_basic.xml
+Sitemap: http://sisyphus.heroku.com/sitemap_en1.xml
+Sitemap: http://sisyphus.heroku.com/sitemap_en2.xml
+Sitemap: http://sisyphus.heroku.com/sitemap_ru1.xml
+Sitemap: http://sisyphus.heroku.com/sitemap_ru2.xml

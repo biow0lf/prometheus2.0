@@ -1,0 +1,113 @@
+<% title "Sisyphus 2.0 - Package " + h(params[:name]) + " - All bugs" %>
+<% url "/srpm/" + h(params[:branch]) + '/' + h(params[:name]) + "/allbugs" %>
+<% srpm_count @package_counter %>
+
+<!--
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="ALT Linux repositories">
+ALT Linux repos
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')"  />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Sisyphus/glibc/allbugs">S:</a></td><td style="text-align: right;">2.10.1-alt6</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch5/glibc/allbugs">5.0:</a></td>
+<td style="text-align: right;">2.9-alt5</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch41/glibc/allbugs">4.1:</a></td>
+
+<td style="text-align: right;">2.5.1-alt4</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch4/glibc/allbugs">4.0:</a></td>
+<td style="text-align: right;">2.5-alt4</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch3/glibc/allbugs">3.0:</a></td>
+<td style="text-align: right;">2.3.5-alt5</td></tr>
+
+</table>
+</div><br />
+
+<div class="headleft">
+<div class="headright" title="Other repositories">
+Other repositories
+
+</div>
+<img id="otherREPO" src="/images/collapse.gif" class="close" onclick="imgSwap('otherREPO')"  />
+</div>
+<div id="otherREPODiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+<tr><td style="text-align: left;"><a class="news" href="ftp://ftp.gnu.org/gnu/glibc/glibc-2.7.tar.gz">Upstream:</a></td><td style="text-align: right;">2.7</td></tr>
+</table>
+</div><br />
+</div>-->
+
+<div style="height:3em;"> 
+    <div id="rpmtop">
+        <b style="font-size:9pt;">Group :: System/Base</b><br />
+
+        <div class="header" style="letter-spacing:1px;">Source RPM: <%= h(params[:name]) %></div>
+    </div>
+<!--    <div id="nav">
+    <b>Navigation</b><br />
+    <a href="/en/srpm/glib">
+	<img src="/images/stock_left.png" style="border: 0px" alt="&lt;"
+	title="previous srpm of this packager" />
+</a>
+ &nbsp;
+
+<a href="/en/srpm/gmp" class="news">
+	<img src="/images/stock_right.png" style="border: 0px" alt="&gt;"
+	title="next srpm of this packager" />
+</a>
+ &nbsp;  &nbsp;
+
+<a href="/en/srpm/gettext" class="news">
+	<img src="/images/stock_left-with-subpoints.png" style="border: 0px" alt="&lt;&lt;"
+	title="previous srpm of this group" />
+</a>
+ &nbsp;
+
+<a href="/en/srpm/glusterfs" class="news">
+
+	<img src="/images/stock_right-with-subpoints.png" style="border: 0px" alt="&gt;&gt;"
+	title="next srpm of this group" />
+</a>
+
+    </div>-->
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/gear" class="news" title="this package in gear repositories">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Bugs and FR</b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/repocop" class="news" title="Repocop bugreport">Repocop</a>&nbsp;</span><p class="news" /><br />
+
+<b>Total:</b> <%=h @allbugs.size %> (<span style='color:red'><%=h @bugs.size %></span>|<%=h @allbugs.size - @bugs.size %>)
+
+<div style="text-align:left;margin-left:2em;margin-top:1.5em;">
+<span class="tabunsel">&nbsp;<%= link_to 'open', '/' + h(params[:locale]) + '/srpm/' + h(params[:branch]) + '/' + h(params[:name]) + '/bugs', :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;total&nbsp;</span>
+</div>
+<table id="bugs" cellspacing="0" cellpadding="3">
+<tr>
+<th>id</th>
+<th>severity</th>
+<th>status</th>
+<th>resolution</th>
+<th>reporter</th>
+<th>summary</th>
+</tr>
+
+<% @allbugs.each do |b| %>
+<tr>
+  <td><%= link_to h(b.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(b.bug_id), :class => 'news', :target => '_blank' %></td>
+  <td><%=h b.bug_severity %></td>
+  <td><%=h b.bug_status %></td>
+  <td><%=h b.resolution %></td>
+  <td><%=h b.reporter.gsub('@', ' at ') %></td>
+  <td style="text-align:left">
+    <%=h b.short_desc %>
+  </td>
+</tr>
+<% end %>
+
+</table>
+
+

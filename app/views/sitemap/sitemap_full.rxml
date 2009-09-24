@@ -1,0 +1,23 @@
+xml.instruct! :xml, :version=>"1.0"
+xml.sitemapindex(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") {
+  xml.sitemap {
+    xml.loc 'http://sisyphus.heroku.com/sitemap_basic.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://sisyphus.heroku.com/sitemap_en1.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://sisyphus.heroku.com/sitemap_en2.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://sisyphus.heroku.com/sitemap_ru1.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://sisyphus.heroku.com/sitemap_ru2.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+}

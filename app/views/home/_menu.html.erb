@@ -1,0 +1,11 @@
+<b><%= link_to_unless_current t('menu.main'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) %></b>
+<b><%= link_to_unless_current t('menu.changelog'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/changelog' %></b>
+<b><%= link_to_unless_current t('menu.spec'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/spec' %></b>
+<!--
+<b><%= link_to_unless_current t('menu.patches'), '/' + h(params[:locale]) +  '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/patches' %></b>
+<b><%= link_to_unless_current t('menu.sources'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/sources' %></b>
+-->
+<b><%= link_to_unless_current t('menu.download'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/get' %></b>
+<b><%= link_to_unless_current t('menu.gear'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/gear' %></b>
+<b><%= link_to_unless_current t('menu.bugs'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/bugs' %></b>
+<b><%= link_to_unless_current t('menu.repocop'), '/' + h(params[:locale]) + '/srpm/' + h(@srpm.branch) + '/' + h(@srpm.name) + '/repocop' %></b>

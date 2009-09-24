@@ -1,0 +1,47 @@
+<% title "Sisyphus 2.0 - Package " + h(@srpm.name) %>
+
+<h1>Source RPM: <%=h @srpm.name %></h1>
+
+<br />
+
+<%= render(:partial => "home/menu") %>
+
+<hr />
+
+<div class="name"><b>Name:</b> <%=h @srpm.name %></div>
+<div class="version"><b>Version:</b> <%=h @srpm.version %></div>
+<div class="release"><b>Release:</b> <%=h @srpm.release %></div>
+<% if @srpm.epoch != nil %>
+<div class="epoch"><b>Epoch:</b> <%=h @srpm.epoch %></div>
+<% end %>
+
+<br />
+
+<div class="summary"><b>Summary:</b> <%=h @srpm.summary %></div>
+<div class="license"><b>License:</b> <%=h @srpm.license %></div>
+<div class="group"><b>Group:</b> <%=h @srpm.group.name %></div>
+<div class="packager"><b>Packager:</b> <%= link_to h(@srpm.packager.name), '/' + h(params[:locale]) + '/packager/' + h(@srpm.packager.login) %></div>
+<% if @srpm.url != nil %>
+<div class="url"><b>Url:</b> <%= link_to @srpm.url, @srpm.url %></div>
+<% end %>
+
+<br />
+
+<div class="buildtime"><b>Build date:</b> <%=h @srpm.buildtime %> (<%=h time_ago_in_words(@srpm.buildtime) %> <%= t 'ago' %>)</div>
+<div class="size"><b>Size:</b> <%=h @srpm.size %></div>
+
+<br />
+
+<div class="description"><b>Description:</b>
+	<%= simple_format @srpm.description %>
+</div>
+
+<br />
+
+<div class="acl"><b>ACL:</b>
+<ul>
+	<% @acl.each do |a| %>
+	<li><%=h a.login %></li>
+	<% end %>
+</ul>
+</div>

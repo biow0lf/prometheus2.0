@@ -1,0 +1,113 @@
+<% srpm_count @package_counter %>
+
+<% if @srpm != nil %>
+<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Repocop" %>
+<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/repocop" %>
+
+<!--
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="ALT Linux repositories">
+ALT Linux repos
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')"  />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Sisyphus/evince/repocop">S:</a></td><td style="text-align: right;">2.26.2-alt1</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch5/evince/repocop">5.0:</a></td>
+<td style="text-align: right;">2.26.1-alt1</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch41/evince/repocop">4.1:</a></td>
+
+<td style="text-align: right;">2.22.2-alt0.M41.1</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch4/evince/repocop">4.0:</a></td>
+<td style="text-align: right;">2.19.92-alt1</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch3/evince/repocop">3.0:</a></td>
+<td style="text-align: right;">0.3.2-alt0.1</td></tr>
+
+</table>
+</div><br />
+
+<div class="headleft">
+<div class="headright" title="Other repositories">
+Other repositories
+
+</div>
+<img id="otherREPO" src="/images/collapse.gif" class="close" onclick="imgSwap('otherREPO')"  />
+</div>
+<div id="otherREPODiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+<tr><td style="text-align: left;"><a class="news" href="http://ftp.gnome.org/pub/gnome/sources/evince/2.22/evince-2.22.0.tar.gz">Upstream:</a></td><td style="text-align: right;">2.22.0</td></tr>
+</table>
+</div><br />
+</div>-->
+
+<div style="height:3em;"> 
+    <div id="rpmtop">
+        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group %></b><br />
+
+        <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
+    </div>
+<!--    <div id="nav">
+    <b>Navigation</b><br />
+    <a href="/en/srpm/ekiga">
+	<img src="/images/stock_left.png" style="border: 0px" alt="&lt;"
+	title="previous srpm of this packager" />
+</a>
+ &nbsp;
+
+<a href="/en/srpm/ffmpeg2theora" class="news">
+	<img src="/images/stock_right.png" style="border: 0px" alt="&gt;"
+	title="next srpm of this packager" />
+</a>
+ &nbsp;  &nbsp;
+
+<a href="/en/srpm/epdfview" class="news">
+	<img src="/images/stock_left-with-subpoints.png" style="border: 0px" alt="&lt;&lt;"
+	title="previous srpm of this group" />
+</a>
+ &nbsp;
+
+<a href="/en/srpm/evince-gtk" class="news">
+
+	<img src="/images/stock_right-with-subpoints.png" style="border: 0px" alt="&gt;&gt;"
+	title="next srpm of this group" />
+</a>
+
+    </div>-->
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="this package in gear repositories">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="List of bugs and feature requests">Bugs and FR</a>&nbsp;</span><span class="current">&nbsp;<b>Repocop</b>&nbsp;</span><p class="news" /><br />
+
+</div>
+<table id="bugs" cellspacing="0" cellpadding="3">
+<tr>
+<th>package id</th>
+<th>status</th>
+<th>test</th>
+<th>message</th>
+</tr>
+
+<% if @reports.size != 0 %>
+  <% @reports.each do |r| %>
+    <% if r.status != 'skip' %>
+      <tr>
+        <td><%=h r.name %></td>
+        <td><img src="/images/<%=h r.status %>.png"><br/><%=h r.status %></td>
+        <td><%=h r.testname %></td>
+        <td style="text-align:left">
+          <%=h r.message %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+<% end %>
+
+</table>
+
+<% else %>
+error [stats.pl:52] name=<%=h params[:name] %>
+<% end %>
+

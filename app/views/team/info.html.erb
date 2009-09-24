@@ -1,0 +1,77 @@
+<% srpm_count @package_counter %>
+
+<% if @team != nil %>
+<% title "Sisyphus 2.0 - Team - " + @team.login[1..-1] %>
+<% url "/team/" + h(@team.login) %>
+
+<div class="header">Команда: <%=h @team.name %></div>
+<p class="break" />
+<b>Информация: </b><div class="para">  </div>
+<p class="break" />
+<% if @leader != nil %>
+<b>Team leader: </b><%=h @leader.login %>
+<p class="break" />
+<% end %>
+<b>Участники команды: </b>
+<ul>
+  <% @members.each do |member| %>
+    <li><%=h member.login %></li>
+  <% end %>
+</ul>
+
+<p class="break" />
+
+<b>List of packages:</b> [ <%=h @srpms.size %> ]<br /><br />
+
+<table id="bugs" cellspacing="0" cellpadding="3">
+<tr>
+<th>repo<br/>cop<br/>
+	<a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
+</th><th>
+	&nbsp; пакет &nbsp;<br /><a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+
+</th><th>
+	текущая<br />версия
+</th><th>
+	время сборки
+</th><th>
+	возраст,<br /><i>недель</i><br /><a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+</th><th>
+	Url
+</th><th>
+	О пакете
+
+</th>
+</tr>
+
+<% @srpms.each do |s| %>
+<tr>
+<td>
+  <%= link_to h(s.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(s.name) + '/repocop', :class => 'repocoplink', :title => 'list of repocop messages' %>
+<!--  <a class="repocoplink" href="/ru/srpm/Sisyphus/emacs-apel/repocop" title="подробный отчет repocop о пакете"><img src="../../../img/ok.png" alt="ok"></a>-->
+</td>
+<td class="strange">
+  <%= link_to h(s.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(s.name), :class => 'news', :title => 'detailed information about RPM' %>
+</td>
+<td><%=h s.version %>-<%=h s.release %></td>
+<td>
+  <%=h s.buildtime %>
+</td>
+<td>
+  <%=h time_ago_in_words(s.buildtime) %> <%= t 'ago' %>
+</td>
+<td>
+  <% if s.url != nil %><%= link_to s.url, s.url, :class => 'news' %><% else %>&nbsp;<% end %>
+</td>
+<td style="text-align:left;">
+  <%=h s.summary %>
+</td>
+</tr>
+
+<% end %>
+
+</table>
+
+<% else %>
+error [packager.pl:48]
+<% end %>

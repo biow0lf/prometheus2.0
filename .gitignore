@@ -1,0 +1,15 @@
+log/*.log
+db/development.sqlite3
+db/test.sqlite3
+.DS_Store
+.sass-cache/*
+._*
+*~
+vendor/plugins/russian/.git/*
+vendor/plugins/russian/.gitignore
+vendor/plugins/searchlogic/.git/*
+vendor/plugins/searchlogic/.gitignore
+vendor/plugins/exception_notification/.git/*
+vendor/plugins/exception_notification/.gitignore
+vendor/plugins/action_mailer_optional_tls/.git/*
+vendor/plugins/action_mailer_optional_tls/.gitignore

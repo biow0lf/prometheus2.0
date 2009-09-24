@@ -1,0 +1,48 @@
+xml.instruct! :xml, :version=>"1.0"
+xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") {
+  @srpms.each do |s|
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name + '/changelog'
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name + '/spec'
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name + '/gear'
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name + '/bugs'
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name + '/allbugs'
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+    xml.url {
+      xml.loc 'http://sisyphus.heroku.com/en/srpm/Sisyphus/' + s.name + '/repocop'
+      xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+      xml.changefreq("daily")
+      xml.priority(1)
+    }
+  end
+}
+

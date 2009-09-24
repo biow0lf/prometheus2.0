@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  version: MyString
+  release: MyString
+  weeks: 1
+  login: MyString
+
+two:
+  name: MyString
+  version: MyString
+  release: MyString
+  weeks: 1
+  login: MyString

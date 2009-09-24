@@ -1,0 +1,194 @@
+<% srpm_count @package_counter %>
+
+<% if @srpm != nil %>
+<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Download" %>
+<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/get" %>
+
+<!--
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="ALT Linux repositories">
+ALT Linux repos
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')"  />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Sisyphus/ruby/get">S:</a></td><td style="text-align: right;">1.9.1-alt1.20090727</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch5/ruby/get">5.0:</a></td>
+<td style="text-align: right;">1.8.7-alt7</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch41/ruby/get">4.1:</a></td>
+<td style="text-align: right;">1.8.7-alt0.M41.4</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch4/ruby/get">4.0:</a></td>
+<td style="text-align: right;">1.8.6-alt2.M40.2</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch3/ruby/get">3.0:</a></td>
+<td style="text-align: right;">1.8.2-alt7</td></tr>
+
+</table>
+</div><br />
+</div>-->
+
+<div style="height:3em;">
+	    <div id="rpmtop">
+	        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group %></b><br />
+	        <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
+	    </div>
+	    <!--<div id="nav">
+	    <b>Navigation</b><br />
+	    <a href="/en/srpm/rpm-build-ruby">
+		<img src="/images/stock_left.png" style="border: 0px" alt="&lt;"
+		title="previous srpm of this packager" />
+	</a>
+	 &nbsp;
+
+	<a href="/en/srpm/ruby-actionmailer" class="news">
+		<img src="/images/stock_right.png" style="border: 0px" alt="&gt;"
+		title="next srpm of this packager" />
+	</a>
+	 &nbsp;  &nbsp;
+
+	<a href="/en/srpm/rails-plugin-will_paginate" class="news">
+		<img src="/images/stock_left-with-subpoints.png" style="border: 0px" alt="&lt;&lt;"
+		title="previous srpm of this group" />
+	</a>
+	 &nbsp;
+
+	<a href="/en/srpm/ruby-actionmailer" class="news">
+		<img src="/images/stock_right-with-subpoints.png" style="border: 0px" alt="&gt;&gt;"
+		title="next srpm of this group" />
+	</a>
+
+	</div>-->
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h t('srpm.main_title') %>"><%=h t('srpm.main') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h t('srpm.changelog_title') %>"><%=h t('srpm.changelog') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h t('srpm.spec_title') %>"><%=h t('srpm.spec') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/patches" class="news" title="<%=h t('srpm.patches_title') %>"><%=h t('srpm.patches') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/sources" class="news" title="<%=h t('srpm.sources_title') %>"><%=h t('srpm.sources') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h t('srpm.download') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h t('srpm.gear_title') %>"><%=h t('srpm.gear') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h t('srpm.bugsandfr_title') %>"><%=h t('srpm.bugsandfr') %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h t('srpm.repocop_title') %>"><%=h t('srpm.repocop') %></a>&nbsp;</span>
+
+<script type="text/javascript">
+<!--
+function changeHref (val){
+  <% counter = 0 %>
+  url<%=h counter %> = "<%=h '/Sisyphus/files/SRPMS/' + @srpm.filename %>";
+  <% counter += 1 %>
+
+  <% if @i586.size != 0 %>
+    <% @i586.each do |i| %>
+      url<%=h counter %> = "<%=h '/Sisyphus/files/i586/RPMS/' + i.filename %>";
+      <% counter += 1 %>
+	<% end %>
+  <% end %>
+
+  <% if @noarch.size != 0 %>
+    <% @noarch.each do |n| %>
+      url<%=h counter %> = "<%=h '/Sisyphus/files/noarch/RPMS/' + n.filename %>";
+      <% counter += 1 %>
+	<% end %>
+  <% end %>
+
+  <% if @x86_64.size != 0 %>
+    <% @x86_64.each do |x| %>
+      url<%=h counter %> = "<%=h '/Sisyphus/files/x86_64/RPMS/' + x.filename %>";
+      <% counter += 1 %>
+	<% end %>
+  <% end %>
+	
+  for (i=0; i < <%=h counter %> ; i++) {
+    a = document.getElementById("pack_"+i);
+	switch (val) {
+	  case "0":	 a.href = "ftp://ftp.altlinux.org/pub/distributions/ALTLinux"+eval("url"+i); break;
+	  case "1":	 a.href = "ftp://ftp.anyhost.ru/pub/altlinux"+eval("url"+i); break;
+	  case "2":	 a.href = "ftp://ftp.chg.ru/pub/Linux/ALTLinux"+eval("url"+i); break;
+	  case "3":	 a.href = "ftp://ftp.ilim.ru/pub/Linux/Distrib/ALTLinux"+eval("url"+i); break;
+	  case "4":	 a.href = "ftp://ftp.impb.psn.ru/pub/distributions/ALTLinux"+eval("url"+i); break;
+	  case "5":	 a.href = "ftp://ftp.linux.kiev.ua/pub/Linux/ALT"+eval("url"+i); break;
+	  case "6":	 a.href = "ftp://ftp.mobicomk.ru/pub/distributions/ALTLinux"+eval("url"+i); break;
+	  case "7":	 a.href = "ftp://ftp.unixcenter.ru/ALTLinux"+eval("url"+i); break;
+	  case "8":	 a.href = "ftp://linux4u.jinr.ru/pub/ALTLinux"+eval("url"+i); break;
+	  case "9":	 a.href = "ftp://mirror.yandex.ru/altlinux"+eval("url"+i); break;
+	  case "10": a.href = "http://mirror.yandex.ru/altlinux"+eval("url"+i); break;
+	}
+  }
+}
+-->
+</script>
+<p />
+
+&nbsp;<b>Choose a mirror:</b>
+<select name="mirror" onchange="changeHref(this.value)" class="top-name" style="margin-left:1em;">
+  <option value="0" selected="selected">ftp.altlinux.org</option>
+  <option value="1">ftp.anyhost.ru</option>
+  <option value="2">ftp.chg.ru</option>
+  <option value="3">ftp.ilim.ru</option>
+  <option value="4">ftp.impb.psn.ru</option>
+  <option value="5">ftp.linux.kiev.ua</option>
+  <option value="6">ftp.mobicomk.ru</option>
+  <option value="7">ftp.unixcenter.ru</option>
+  <option value="8">linux4u.jinr.ru</option>
+  <option value="9">mirror.yandex.ru</option>
+  <option value="10">mirror.yandex.ru</option>
+</select>
+<p />
+
+<table>
+  <tr>
+	<td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+	  <b>&middot;</b>
+		<a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%=h @srpm.filename %>" class="news"><%=h @srpm.filename %></a>
+	</td>
+	<td style="text-align:right;">
+		<b><%= number_to_human_size(@srpm.size) %></b>
+	</td>
+  </tr>
+
+<% counter = 1 %>
+
+<% if @i586.size != 0 %>
+  <tr><td><br><b>i586:</b></td></tr>
+  <% @i586.each do |i| %>
+  <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+		<b>&middot;</b>
+	    <a id="pack_<%=h counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%=h i.filename %>" class="news">
+		  <%=h i.filename %>
+		</a>
+		</td><td style="text-align:right;">
+			<b><%= number_to_human_size(i.size) %></b>
+		</td></tr>
+	    <% counter += 1 %>	
+  <% end %>
+<% end %>
+
+<% if @noarch.size != 0 %>
+  <tr><td><br><b>noarch:</b></td></tr>
+  <% @noarch.each do |n| %>
+  <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+		<b>&middot;</b>
+		<a id="pack_<%=h counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%=h n.filename %>" class="news"><%=h n.filename %>
+		</a>
+	</td><td style="text-align:right;">
+		<b><%= number_to_human_size(n.size) %></b>
+	</td></tr>
+	<% counter += 1 %>
+  <% end %>
+<% end %>
+
+<% if @x86_64.size != 0 %>
+  <tr><td><br><b>x86_64:</b></td></tr>
+  <% @x86_64.each do |x| %>
+  <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+		<b>&middot;</b>
+		<a id="pack_<%=h counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%=h x.filename %>" class="news"><%=h x.filename %>
+		</a>
+	</td><td style="text-align:right;">
+		<b><%= number_to_human_size(x.size) %></b>
+	</td></tr>
+	<% counter += 1 %>
+  <% end %>
+<% end %>
+
+</table>
+
+<% else %>
+error [stats.pl:52] name=<%=h params[:name] %>
+<% end %>
+

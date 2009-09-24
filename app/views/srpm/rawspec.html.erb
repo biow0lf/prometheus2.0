@@ -1,0 +1,78 @@
+<% srpm_count @package_counter %>
+
+<% if @srpm != nil %>
+<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Spec" %>
+<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/spec" %>
+
+<div id="rightbar">
+<!--
+<div class="headleft">
+<div class="headright" title="ALT Linux repositories">
+ALT Linux repos
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')"  />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Sisyphus/ruby/spec">S:</a></td><td style="text-align: right;">1.9.1-alt1.20090727</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch5/ruby/spec">5.0:</a></td>
+<td style="text-align: right;">1.8.7-alt7</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch41/ruby/spec">4.1:</a></td>
+<td style="text-align: right;">1.8.7-alt0.M41.4</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch4/ruby/spec">4.0:</a></td>
+<td style="text-align: right;">1.8.6-alt2.M40.2</td></tr>
+<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch3/ruby/spec">3.0:</a></td>
+<td style="text-align: right;">1.8.2-alt7</td></tr>
+
+</table>
+</div><br />-->
+</div>
+
+<div style="height:3em;">
+    <div id="rpmtop">
+        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
+    </div>
+
+<!--
+    <div id="nav">
+    <b>Navigation</b><br />
+    <a href="/en/srpm/rpm-build-ruby">
+	<img src="/images/stock_left.png" style="border: 0px" alt="&lt;"
+	title="previous srpm of this packager" />
+</a>
+ &nbsp;
+
+<a href="/en/srpm/ruby-actionmailer" class="news">
+	<img src="/images/stock_right.png" style="border: 0px" alt="&gt;"
+	title="next srpm of this packager" />
+</a>
+ &nbsp;  &nbsp;
+
+<a href="/en/srpm/rails-plugin-will_paginate" class="news">
+	<img src="/images/stock_left-with-subpoints.png" style="border: 0px" alt="&lt;&lt;"
+	title="previous srpm of this group" />
+</a>
+ &nbsp;
+
+<a href="/en/srpm/ruby-actionmailer" class="news">
+	<img src="/images/stock_right-with-subpoints.png" style="border: 0px" alt="&gt;&gt;"
+	title="next srpm of this group" />
+</a>
+
+    </div>
+-->
+
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h t('srpm.main_title') %>"><%=h t('srpm.main') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h t('srpm.changelog_title') %>"><%=h t('srpm.changelog') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h t('srpm.spec') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/patches" class="news" title="<%=h t('srpm.patches_title') %>"><%=h t('srpm.patches') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/sources" class="news" title="<%=h t('srpm.sources_title') %>"><%=h t('srpm.sources') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h t('srpm.download_title') %>"><%=h t('srpm.download') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h t('srpm.gear_title') %>"><%=h t('srpm.gear') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h t('srpm.bugsandfr_title') %>"><%=h t('srpm.bugsandfr') %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h t('srpm.repocop_title') %>"><%=h t('srpm.repocop') %></a>&nbsp;</span><p class="news" />
+<div id="rawspec">
+<%= simple_format h @srpm.rawspec.gsub('@altlinux', ' at altlinux') %>
+</div>
+
+<% else %>
+error [stats.pl:52] name=<%=h params[:name] %>
+<% end %>
+

@@ -1,0 +1,43 @@
+<% srpm_count @package_counter %>
+
+<% if @packager != nil %>
+<% title "Sisyphus 2.0 - Maintainer - " + @packager.login + " - Bugs and FR" %>
+<% url "/packager/" + h(@packager.login) + "/bugs" %>
+
+<div class="header">Майнтейнер: <%=h @packager.name %></div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере">Информация</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="просмотреть пакеты, собранные майнтейнером">Пакеты</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Bugs and FR</b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="news" /><br />
+<b>Всего записей:</b> <%=h @allbugs.size %> (<span style='color:red'><%=h @bugs.size %></span>|<%=h @allbugs.size - @bugs.size %>)
+
+<div style="text-align:left;margin-left:2em;margin-top:1.5em;">
+<span class="tabsel">&nbsp;открытые баги&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to t('packager.bugs.allbugs'), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/allbugs', :class => 'news' %>&nbsp;</span>
+<table id="bugs" cellspacing="0" cellpadding="3">
+<tr>
+<th>id</th>
+<th>пакет</th>
+<th>серьёзность</th>
+<th>статус</th>
+<th>сообщено</th>
+<th>описание</th>
+</tr>
+
+<% @bugs.each do |b| %>
+<tr>
+  <td>
+    <%= link_to h(b.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(b.bug_id), :class => 'news' %>
+  </td>
+  <td><%=h b.component %></td>
+  <td><%=h b.bug_severity %></td>
+  <td><%=h b.bug_status %></td>
+  <td><%=h b.reporter.gsub('@', ' at ') %></td>
+  <td><%=h b.short_desc %></td>
+</tr>
+<% end %>
+
+</table>
+
+<% else %>
+error [packager.pl:48]
+<% end %>
+

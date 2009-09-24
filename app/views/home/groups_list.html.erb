@@ -1,0 +1,37 @@
+<% title "Sisyphus 2.0 - Packages" %>
+<% url "/packages" %>
+<% srpm_count @package_counter %>
+
+<script type="text/javascript">
+<!--
+offImg = new Image(); offImg.src="/images/plus.gif";
+onImg  = new Image(); onImg.src="/images/minus.gif";
+
+function showGrp(dirid){
+    if ( el = document.getElementById("dir"+dirid) ){
+        if (el.style.display == "none"){
+            el.style.display = "block";
+            document.images['img'+dirid].src = onImg.src;
+        } else {
+            el.style.display = "none";
+            document.images['img'+dirid].src = offImg.src;
+        }
+    }
+}
+-->
+</script>
+
+<div class="header">Группы пакетов</div>
+<p class="break" />
+
+<div style="font-size:12pt;">
+<% @groups.each do |g| %>
+
+<!--<div class="groupname"><b><%= link_to h(g.name), '/' + h(params[:locale]) + '/packages/' + h(g.name) %></b></div>-->
+
+<%= link_to h(g.name), '/' + h(params[:locale]) + '/packages/' + h(g.name), :class => 'news', :style => 'margin-left:14px;' %> (<%=h g.counter %>)<br />
+
+<% end %>
+
+</div>
+

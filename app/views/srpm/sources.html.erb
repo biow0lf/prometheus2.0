@@ -1,0 +1,10 @@
+<% srpm_count @package_counter %>
+
+<% if @srpm != nil %>
+<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/sources" %>
+
+TODO
+<% else %>
+error [stats.pl:52] name=<%=h params[:name] %>
+<% end %>
+

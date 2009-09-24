@@ -1,0 +1,6 @@
+<b><%= link_to_unless_current t('menu2.info'), '/' + h(params[:locale]) +  '/packager/' + h(@packager.login) %></b>
+<b><%= link_to_unless_current t('menu2.packages'), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/srpms' %></b>
+<b><%= link_to_unless_current t('menu2.gear'), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/gear' %></b>
+<b><%= link_to_unless_current t('menu2.bugs'), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/bugs' %></b>
+<b><%= link_to_unless_current t('menu2.repocop'), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/repocop' %></b>
+

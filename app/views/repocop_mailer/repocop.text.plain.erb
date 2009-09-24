@@ -1,0 +1,15 @@
+Hello, <%= @user.name %>
+
+Repocop logs:
+<% @reports.each do |r| %>
+Name: <%=h r.name %>
+Version: <%=h r.version %>
+Release: <%=h r.release %>
+Arch: <%=h r.arch %>
+Testname: <%=h r.testname %>
+Status: <%=h r.status %>
+Message: <%=h r.message %>
+
+<% end %>
+
+WBR, Sisyphus 2.0 Bot:)

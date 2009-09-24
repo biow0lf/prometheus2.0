@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  filename: MyString
+  sourcepackage: MyString
+  name: MyString
+  version: MyString
+  release: MyString
+  group: MyString
+  packager_id: 1
+  epoch: MyString
+  arch: MyString
+  summary: MyString
+  license: MyString
+  url: MyString
+  description: MyText
+  vendor: MyString
+  distribution: MyString
+  buildtime: 2009-08-24 01:58:14
+  size: MyString
+  branch: MyString
+
+two:
+  filename: MyString
+  sourcepackage: MyString
+  name: MyString
+  version: MyString
+  release: MyString
+  group: MyString
+  packager_id: 1
+  epoch: MyString
+  arch: MyString
+  summary: MyString
+  license: MyString
+  url: MyString
+  description: MyText
+  vendor: MyString
+  distribution: MyString
+  buildtime: 2009-08-24 01:58:14
+  size: MyString
+  branch: MyString

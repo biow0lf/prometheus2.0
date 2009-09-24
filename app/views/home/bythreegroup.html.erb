@@ -1,0 +1,19 @@
+<% title "Sisyphus 2.0 - Packages - " + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
+<% url "/packages/" + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
+<% srpm_count @package_counter %>
+
+<div class="header">Group :: <%=h params[:group] %>/<%=h params[:group2] %>/<%=h params[:group3] %></div><p class="news" />
+
+<% @srpms.each do |s| %>
+<p class="news" />
+<span class="news-date-new"><%= link_to h(s.name), '/' + h(params[:locale])  + '/srpm/Sisyphus/' + h(s.name), :class => 'news', :title => 'detailed information about the package' %>
+</span><br /><br />
+<b>Maintainer: </b><% if s.packager.team == true %><%= link_to h(s.packager.name), '/' + h(params[:locale]) + '/team/' + h(s.packager.login)[1..-1], :class => 'news' %> <% else %> <%= link_to h(s.packager.name), '/' + h(params[:locale]) + '/packager/' + h(s.packager.login), :class => 'news' %><% end %><br />
+<b>Current version:</b> <span class="news-text"><%=h s.version %>-<%=h s.release %></span><br />
+<b>Build time:</b> <span class="news-text"><%=h s.buildtime %> (<%=h time_ago_in_words(s.buildtime) %> <%= t 'ago' %>)</span><br />
+<b>Summary:</b> <span class="news-text"><%=h s.summary %></span><br />
+
+<b>Changes:</b> <div class="para">TODO</div>
+
+<% end %>
+

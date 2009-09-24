@@ -1,0 +1,30 @@
+<% title "Sisyphus 2.0 - Maintainers" %>
+<% url "/people" %>
+<% srpm_count @package_counter %>
+
+<table width="100%" style="font-size:10pt;">
+<tr><th>Майнтейнеры</th><th>Команды разработчиков</th></tr>
+<tr>
+<td valign="top">
+<% @packagers.each do |packager| %>
+  <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
+    <div style="float:left">
+      <%= link_to h(packager.name), '/' + h(params[:locale]) + '/packager/' + h(packager.login), :class => 'news' %> (<%=h packager.login %>)
+    </div>
+    <div style="float:right"> <%=h packager.counter %></div>
+  </div>
+<% end %>
+</td>
+<td valign="top">
+<% @teams.each do |team| %>
+  <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
+    <div style="float:left">
+      <%= link_to h(team.name), '/' + h(params[:locale]) + '/team/' + h(team.login[1..-1]), :class => 'news' %> (<%=h team.login[1..-1] %>)
+    </div>
+    <div style="float:right"> <%=h team. counter %></div>
+  </div>
+<% end %>
+</td>
+</tr>
+</table>
+

@@ -1,0 +1,18 @@
+Total: <%=h @top15.size %>
+
+<br /><br />
+
+<table border="1">
+<tr>
+  <td>Name:</td>
+  <td>#:</td>
+</tr>
+
+<% @top15.each do |t| %>
+<tr>
+  <td><%= link_to h(t.name), '/' + h(params[:locale]) + '/packager/' + h(t.login) %></td>
+  <td><%=h t.counter %></td>
+</tr>
+<% end %>
+
+</table>

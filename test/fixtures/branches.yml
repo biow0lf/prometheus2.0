@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fullname: MyString
+  urlname: MyString
+  http_srpms_url: MyString
+  ftp_srpms_url: MyString
+  http_noarch_url: MyString
+  ftp_noarch_url: MyString
+  http_i586_url: MyString
+  ftp_i586_url: MyString
+  http_x86_64_url: MyString
+  ftp_x86_64_url: MyString
+  acl_packages_url: MyString
+  acl_groups_url: MyString
+
+two:
+  fullname: MyString
+  urlname: MyString
+  http_srpms_url: MyString
+  ftp_srpms_url: MyString
+  http_noarch_url: MyString
+  ftp_noarch_url: MyString
+  http_i586_url: MyString
+  ftp_i586_url: MyString
+  http_x86_64_url: MyString
+  ftp_x86_64_url: MyString
+  acl_packages_url: MyString
+  acl_groups_url: MyString
