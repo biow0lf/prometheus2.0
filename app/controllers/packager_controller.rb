@@ -25,7 +25,9 @@ class PackagerController < ApplicationController
                               :conditions => { :login => params[:login].downcase }
     if @packager != nil
       @srpms = Srpm.find :all,
-                         :conditions => { :packager_id => @packager.id },
+                         :conditions => {
+                           :packager_id => @packager.id,
+                           :branch => 'Sisyphus' },
                          :order => 'name ASC'
     end
   end
