@@ -112,7 +112,7 @@ class HomeController < ApplicationController
                                        AND packagers.team = false
                                        AND acls.branch = 'Sisyphus'
                                        GROUP BY packagers.name, packagers.login
-                                       ORDER BY 1 DESC")
+                                       ORDER BY packagers.name ASC")
 
     @teams = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
                                           packagers.name AS name,
@@ -122,7 +122,7 @@ class HomeController < ApplicationController
                                    AND packagers.team = true
                                    AND acls.branch = 'Sisyphus'
                                    GROUP BY packagers.name, packagers.login
-                                   ORDER BY 1 DESC")
+                                   ORDER BY packagers.name ASC")
   end
 
 end
