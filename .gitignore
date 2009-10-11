@@ -13,3 +13,6 @@ vendor/plugins/exception_notification/.git/*
 vendor/plugins/exception_notification/.gitignore
 vendor/plugins/action_mailer_optional_tls/.git/*
 vendor/plugins/action_mailer_optional_tls/.gitignore
+vendor/plugins/coercionlogic/.git/*
+vendor/plugins/coercionlogic/.gitignore
+

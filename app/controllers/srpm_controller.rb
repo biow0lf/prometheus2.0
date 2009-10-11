@@ -10,6 +10,10 @@ class SrpmController < ApplicationController
                         :branch => params[:branch] }
 
     if @srpm != nil
+      @allsrpms = Srpm.find :all,
+                            :conditions => { :name => params[:name] },
+                            :order => 'branch ASC'
+
       if params[:branch] == 'Sisyphus'
         @acl = Acl.find :all,
                         :conditions => {
@@ -28,10 +32,9 @@ class SrpmController < ApplicationController
         @packager = Packager.find :first,
                                   :conditions => { :login => @leader.login }
       end
+    else
+      render :action => "nosuchpackage"      
     end
-    @allsrpms = Srpm.find :all,
-                          :conditions => { :name => params[:name] },
-                          :order => 'branch ASC'
   end
 
   def changelog
@@ -41,6 +44,9 @@ class SrpmController < ApplicationController
                         :name => params[:name],
                         :branch => params[:branch] }
     #@changelogs = Changelog.find(:all, :conditions => { :srpm_id => @srpm.id})
+    if @srpm == nil
+      render :action => "nosuchpackage"
+    end
   end
 
   def rawspec
@@ -49,6 +55,9 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => params[:branch] }
+    if @srpm == nil
+      render :action => "nosuchpackage"
+    end
   end
 
   def patches
@@ -57,6 +66,9 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => params[:branch] }
+    if @srpm == nil
+      render :action => "nosuchpackage"
+    end
   end
 
   def sources
@@ -65,6 +77,9 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => params[:branch] }
+    if @srpm == nil
+      render :action => "nosuchpackage"                    
+    end
   end
 
   def download
@@ -94,6 +109,8 @@ class SrpmController < ApplicationController
                                :sourcepackage => @srpm.filename,
                                :arch => 'x86_64' },
                              :order => 'name ASC'
+    else
+      render :action => "nosuchpackage"
     end
   end
 
@@ -103,9 +120,13 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => params[:branch] }
-    @gitrepos = Gitrepos.find :all,
-                              :conditions => { :package => params[:name] },
-                              :order => 'lastchange DESC'
+    if @srpm != nil
+      @gitrepos = Gitrepos.find :all,
+                                :conditions => { :package => params[:name] },
+                                :order => 'lastchange DESC'
+    else
+      render :action => "nosuchpackage"
+    end
   end
 
   def bugs
@@ -152,7 +173,11 @@ class SrpmController < ApplicationController
                                 :srcname => @srpm.name,
                                 :srcversion => @srpm.version,
                                 :srcrel => @srpm.release }
+    else
+      render :action => "nosuchpackage"
     end
   end
-
+  
+  def nosuchpackage
+  end
 end

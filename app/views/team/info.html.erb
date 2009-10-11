@@ -1,6 +1,4 @@
 <% srpm_count @package_counter %>
-
-<% if @team != nil %>
 <% title "Sisyphus 2.0 - Team - " + @team.login[1..-1] %>
 <% url "/team/" + h(@team.login) %>
 
@@ -71,7 +69,3 @@
 <% end %>
 
 </table>
-
-<% else %>
-error [packager.pl:48]
-<% end %>

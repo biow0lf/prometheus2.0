@@ -1,6 +1,4 @@
 <% srpm_count @package_counter %>
-
-<% if @srpm != nil %>
 <% title "Sisyphus 2.0 - Package " + h(@srpm.name) %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) %>
 
@@ -124,8 +122,4 @@
 <% end %>
 
 </div>
-
-<% else %>
-error [stats.pl:52] name=<%=h params[:name] %>
-<% end %>
 

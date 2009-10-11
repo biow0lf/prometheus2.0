@@ -9,11 +9,6 @@ class TeamController < ApplicationController
                             :login => '@' + params[:name],
                             :team => true }
     if @team != nil
-#      @members = Team.find_by_sql ["SELECT DISTINCT packagers.name, teams.login
-#                                   FROM packagers, teams
-#                                   WHERE teams.name = ?
-#                                   AND teams.branch = 'Sisyphus'", '@' + params[:name]]
-
       @members = Team.find :all,
                            :conditions => {
                              :name => '@' + params[:name],
@@ -26,7 +21,11 @@ class TeamController < ApplicationController
       @srpms = Srpm.find :all,
                          :conditions => { :packager_id => @team.id },
                          :order => 'name ASC'
+    else
+      render :action => "nosuchteam"
     end
   end
-
+  
+  def nosuchteam
+  end
 end
