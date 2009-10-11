@@ -1,6 +1,4 @@
 <% srpm_count @package_counter %>
-
-<% if @packager != nil %>
 <% title "Sisyphus 2.0 - Maintainer - " + @packager.login %>
 <% url "/packager/" + h(@packager.login) %>
 
@@ -12,8 +10,4 @@
 <p class="break" />
 <b>Количество пакетов собранных маинтейнером:</b> <%=h @acl.size %><br/>
 <b>Количество пакетов для которых leader:</b> <%=h @leader.size %>
-
-<% else %>
-error [packager.pl:48]
-<% end %>
 

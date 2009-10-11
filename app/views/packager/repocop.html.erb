@@ -1,6 +1,4 @@
 <% srpm_count @package_counter %>
-
-<% if @packager != nil %>
 <% title "Sisyphus 2.0 - Maintainer - " + @packager.login + " - Repocop" %>
 <% url "/packager/" + h(@packager.login) + "/repocop" %>
 
@@ -34,10 +32,5 @@
 
 <% else %>
 no data
-<% end %>
-
-
-<% else %>
-error [packager.pl:48]
 <% end %>
 

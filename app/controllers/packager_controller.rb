@@ -17,6 +17,9 @@ class PackagerController < ApplicationController
                     :conditions => {
                       :login => params[:login],
                       :branch => 'Sisyphus' }
+    if @packager == nil
+      render :action => "nosuchpackager"
+    end
   end
 
   def srpms
@@ -29,6 +32,8 @@ class PackagerController < ApplicationController
                            :packager_id => @packager.id,
                            :branch => 'Sisyphus' },
                          :order => 'name ASC'
+    else
+      render :action => "nosuchpackager"
     end
   end
 
@@ -39,6 +44,9 @@ class PackagerController < ApplicationController
     @gitrepos = Gitrepos.find :all,
                               :conditions => { :login => params[:login].downcase },
                               :order => 'package ASC'
+    if @packager == nil
+      render :action => "nosuchpackager"
+    end
   end
 
   def bugs
@@ -88,7 +96,12 @@ class PackagerController < ApplicationController
       @reports = Repocop.find :all,
                               :conditions => [ "srpms.packager_id = ? AND repocops.status <> 'ok' AND repocops.status <> 'skip' ", @packager.id ],
                               :joins => 'LEFT JOIN srpms ON repocops.srcname = srpms.name AND repocops.srcversion = srpms.version AND repocops.srcrel = srpms.release'
+    else
+      render :action => "nosuchpackager"
     end
+  end
+
+  def nosuchpackager
   end
 
 end

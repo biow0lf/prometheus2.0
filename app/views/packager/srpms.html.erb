@@ -1,6 +1,4 @@
 <% srpm_count @package_counter %>
-
-<% if @packager != nil %>
 <% title "Sisyphus 2.0 - Maintainer - " + @packager.login + " - Packages" %>
 <% url "/packager/" + h(@packager.login) + "/srpms" %>
 
@@ -79,9 +77,4 @@
 
 </tr>
 </table>
-
-
-<% else %>
-error [packager.pl:48]
-<% end %>
 
