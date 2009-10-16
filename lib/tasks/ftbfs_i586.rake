@@ -1,5 +1,6 @@
 require 'open-uri'
 
+namespace :sisyphus do
 desc "Import list of ftbfs packages on i586 to database"
 task :ftbfs_i586 => :environment do
   puts "import ftbfs_i586"
@@ -25,4 +26,4 @@ task :ftbfs_i586 => :environment do
   end
   puts Time.now
 end
-
+end

@@ -1,3 +1,4 @@
+namespace :sisyphus do
 task :specfiles => :environment do
   puts Time.now
 
@@ -18,4 +19,5 @@ task :specfiles => :environment do
   end
 
   puts Time.now
+end
 end

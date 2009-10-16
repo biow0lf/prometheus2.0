@@ -1,5 +1,6 @@
 require 'open-uri'
 
+namespace :sisyphus do
 desc "Import all teams from Sisyphus to database"
 task :teams => :environment do
   puts "import teams"
@@ -25,4 +26,4 @@ task :teams => :environment do
   end
   puts Time.now
 end
-
+end

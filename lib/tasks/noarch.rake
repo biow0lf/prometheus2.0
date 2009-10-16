@@ -1,5 +1,6 @@
 require 'rpm'
 
+namespace :sisyphus do
 task :noarch => :environment do
   puts Time.now
   puts "import noarch.rpm's"
@@ -70,4 +71,4 @@ task :noarch => :environment do
 
   puts Time.now
 end
-
+end

@@ -1,5 +1,6 @@
 require 'open-uri'
 
+namespace :sisyphus do
 desc "Import groups to database"
 task :groups => :environment do
   puts "import groups"
@@ -17,4 +18,4 @@ task :groups => :environment do
   end
   puts Time.now
 end
-
+end

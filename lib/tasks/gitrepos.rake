@@ -1,5 +1,6 @@
 require 'open-uri'
 
+namespace :sisyphus do
 desc "Import all git repos to database"
 task :gitrepos => :environment do
   puts "import gitrepos"
@@ -21,4 +22,4 @@ task :gitrepos => :environment do
   end
   puts Time.now
 end
-
+end
