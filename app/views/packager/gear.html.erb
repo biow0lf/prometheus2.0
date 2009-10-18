@@ -1,5 +1,5 @@
 <% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Maintainer - " + @packager.login + " - Gear" %>
+<% title "Sisyphus 2.0 &mdash; Maintainer &mdash; " + @packager.name + " &mdash; Gear" %>
 <% url "/packager/" + h(@packager.login) + "/gear" %>
 
 <div class="header">Маинтейнер: <%=h @packager.name %></div>
@@ -11,7 +11,7 @@
 <table style="pretty">
   <% @gitrepos.each do |g| %>
     <tr>
-	  <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
+      <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
         <%= link_to h(g.package), 'http://git.altlinux.org/people/' + h(g.login) + '/packages/?p=' + h(g.package) + '.git', :class => 'news' %>
       </td>
       <td><%=h g.lastchange %></td>
