@@ -22,7 +22,7 @@ task :srpms => :environment do
     packager_email = packager_email.downcase
 
     packager_email = packager_email.gsub(' at altlinux.ru', '@altlinux.org')
-    packager_email =  packager_email.gsub(' at altlinux.org', '@altlinux.org')
+    packager_email = packager_email.gsub(' at altlinux.org', '@altlinux.org')
     packager_email = packager_email.gsub(' at altlinux dot org', '@altlinux.org')
     packager_email = packager_email.gsub(' at altlinux dot ru', '@altlinux.org')
     packager_email = packager_email.gsub(' at packages.altlinux.org', '@packages.altlinux.org')
