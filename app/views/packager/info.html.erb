@@ -1,13 +1,11 @@
 <% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Maintainer - " + @packager.login %>
+<% title "Sisyphus 2.0 &mdash; Maintainer &mdash; " + @packager.name %>
 <% url "/packager/" + h(@packager.login) %>
 
-<div class="header">Маинтейнер: <%=h @packager.name %></div>
+<div class="header">Маинтейнер: <%=h @packager.name -%></div>
 <p class="break" />
 <span class="current">&nbsp;<b>Информация</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="просмотреть пакеты, собранные майнтейнером">Пакеты</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="break" />
 <b>Информация: </b><div class="para">  </div>
 
 <p class="break" />
-<b>Количество пакетов собранных маинтейнером:</b> <%=h @acl.size %><br/>
-<b>Количество пакетов для которых leader:</b> <%=h @leader.size %>
-
+<b>Количество пакетов собранных маинтейнером:</b> <%=h @acl.size -%>
