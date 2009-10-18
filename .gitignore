@@ -1,3 +1,5 @@
+db/seeds.rb.local
+db/schema.rb
 log/*.log
 db/development.sqlite3
 db/test.sqlite3
