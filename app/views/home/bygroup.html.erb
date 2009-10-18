@@ -1,9 +1,8 @@
-<% title "Sisyphus 2.0 - Packages - " + h(params[:group]) %>
-<% url "/packages/" + h(params[:group]) %>
 <% srpm_count @package_counter %>
+<% title "Sisyphus 2.0 &mdash; Packages &mdash; " + h(params[:group]) %>
+<% url "/packages/" + h(params[:group]) %>
 
 <div class="header">Group :: <%=h params[:group] %></div><p class="news" />
-
 
 <% @srpms.each do |s| %>
 <p class="news" />
@@ -17,4 +16,3 @@
 <b>Changes:</b> <div class="para">TODO</div>
 
 <% end %>
-

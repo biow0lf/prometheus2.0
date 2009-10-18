@@ -1,6 +1,6 @@
-<% title "Sisyphus 2.0 - Packages - " + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
-<% url "/packages/" + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
 <% srpm_count @package_counter %>
+<% title "Sisyphus 2.0 &mdash; Packages &mdash; " + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
+<% url "/packages/" + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
 
 <div class="header">Group :: <%=h params[:group] %>/<%=h params[:group2] %>/<%=h params[:group3] %></div><p class="news" />
 
@@ -16,4 +16,3 @@
 <b>Changes:</b> <div class="para">TODO</div>
 
 <% end %>
-
