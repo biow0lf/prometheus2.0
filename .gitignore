@@ -17,4 +17,6 @@ vendor/plugins/action_mailer_optional_tls/.git/*
 vendor/plugins/action_mailer_optional_tls/.gitignore
 vendor/plugins/coercionlogic/.git/*
 vendor/plugins/coercionlogic/.gitignore
+vendor/plugins/brazilian-rails/.git/*
+vendor/plugins/brazilian-rails/.gitignore
 
