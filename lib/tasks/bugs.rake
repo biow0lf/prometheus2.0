@@ -6,6 +6,7 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 $KCODE="UTF8"
 
+namespace :sisyphus do
 desc "Import all bugs to database"
 task :bugs => :environment do
   puts "import bugs"
@@ -37,4 +38,4 @@ task :bugs => :environment do
   end
   puts Time.now
 end
-
+end

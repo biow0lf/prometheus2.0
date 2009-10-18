@@ -1,5 +1,6 @@
 require 'open-uri'
 
+namespace :sisyphus do
 desc "Import all ACL for packages from Sisyphus to database (leaders)"
 task :leaders => :environment do
   puts "import leaders"
@@ -19,4 +20,4 @@ task :leaders => :environment do
   end
   puts Time.now
 end
-
+end

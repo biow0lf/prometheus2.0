@@ -1,5 +1,6 @@
 require 'open-uri'
 
+namespace :sisyphus do
 desc "Import repocop reports to database"
 task :repocop => :environment do
   puts "import repocop reports"
@@ -27,4 +28,4 @@ task :repocop => :environment do
   end
   puts Time.now
 end
-
+end

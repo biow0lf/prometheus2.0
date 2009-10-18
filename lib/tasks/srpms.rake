@@ -1,5 +1,6 @@
 require 'rpm'
 
+namespace :sisyphus do
 task :srpms => :environment do
   puts Time.now
   puts "import src.rpm's"
@@ -69,4 +70,4 @@ task :srpms => :environment do
 
   puts Time.now
 end
-
+end
