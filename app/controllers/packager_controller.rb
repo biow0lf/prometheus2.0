@@ -7,11 +7,6 @@ class PackagerController < ApplicationController
                               :conditions => {
                                 :login => params[:login].downcase,
                                 :team => false }
-    @leader = Leader.find :all,
-                          :select => 'package',
-                          :conditions => {
-                            :login => params[:login].downcase,
-                            :branch => 'Sisyphus' }
     @acl = Acl.find :all,
                     :select => 'package',
                     :conditions => {
@@ -26,13 +21,7 @@ class PackagerController < ApplicationController
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => { :login => params[:login].downcase }
-    if @packager != nil
-      @srpms = Srpm.find :all,
-                         :conditions => {
-                           :packager_id => @packager.id,
-                           :branch => 'Sisyphus' },
-                         :order => 'name ASC'
-    else
+    if @packager == nil
       render :action => "nosuchpackager"
     end
   end
@@ -64,6 +53,9 @@ class PackagerController < ApplicationController
                           :assigned_to => params[:login].downcase + '@altlinux.org',
                           :product => 'Sisyphus' },
                         :order => "bug_id DESC"
+    if @packager == nil
+      render :action => "nosuchpackager"
+    end
   end
 
   def allbugs
@@ -81,6 +73,9 @@ class PackagerController < ApplicationController
                           :assigned_to => params[:login].downcase + '@altlinux.org',
                           :product => 'Sisyphus' },
                         :order => "bug_id DESC"
+    if @packager == nil
+      render :action => "nosuchpackager"
+    end
   end
 
   def repocop
@@ -97,6 +92,7 @@ class PackagerController < ApplicationController
                               :conditions => [ "srpms.packager_id = ? AND repocops.status <> 'ok' AND repocops.status <> 'skip' ", @packager.id ],
                               :joins => 'LEFT JOIN srpms ON repocops.srcname = srpms.name AND repocops.srcversion = srpms.version AND repocops.srcrel = srpms.release'
     else
+#    if @packager == nil
       render :action => "nosuchpackager"
     end
   end
