@@ -16,7 +16,9 @@ task :acls => :environment do
       package = line.split[0]
       #(1..line.split.count).each do |i|
       for i in 1..line.split.count-1
-        Acl.create(:package => package, :login => line.split[i], :branch => 'Sisyphus')
+        login = line.split[i]
+        login = 'php-coder' if login == 'php_coder'
+        Acl.create(:package => package, :login => login, :branch => 'Sisyphus')
       end
     end
   end
