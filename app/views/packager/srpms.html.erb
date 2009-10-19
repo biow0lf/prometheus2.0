@@ -1,11 +1,11 @@
 <% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Maintainer - " + @packager.login + " - Packages" %>
+<% title "Sisyphus 2.0 &mdash; Maintainer &mdash; " + @packager.name + " &mdash; Packages" %>
 <% url "/packager/" + h(@packager.login) + "/srpms" %>
 
 <div class="header">Майнтейнер: <%=h @packager.name %></div>
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере">Информация</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Пакеты</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="break" />
-<b>Список пакетов, собранных майнтейнером:</b> [<%=h @srpms.size %>] <br /><br />
+<b>Список пакетов, собранных майнтейнером:</b> [<%=h @packager.acls.size %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
@@ -47,30 +47,31 @@
 </tr>
 -->
 
-<% @srpms.each do |s| %>
+<%# @srpms.each do |s| %>
+<% @packager.srpms.each do |srpm| %>
 <tr>
 <td>
 <!-- <a class="repocoplink" href="/ru/srpm/Sisyphus/PyPanel/repocop" title="подробный отчет repocop о пакете">-->
-  <%= link_to '<img src="/images/ok.png" alt="ok">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(s.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+  <%= link_to '<img src="/images/ok.png" alt="ok">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
 </td>
 <td class="strange">
 <!--  <a class="news" href="/ru/srpm/Sisyphus/PyPanel" title="подробная информация о пакете">PyPanel</a>-->
-   <%= link_to h(s.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(s.name), :class => 'news' %>
+   <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
 </td>
 <td>
-  <%=h s.version %>-<%=h s.release %>
+  <%=h srpm.version %>-<%=h srpm.release %>
 </td>
 <td>
-  <%=h s.buildtime %>
+  <%=h srpm.buildtime %>
 </td>
 <td>
-  <%=h time_ago_in_words(s.buildtime) %> <%= t 'ago' %>
+  <%=h time_ago_in_words(srpm.buildtime) %> <%= t 'ago' %>
 </td>
 <td>
-  <% if s.url != nil %><%= link_to s.url[0..27] + '...', s.url, :class => 'news' %><% else %>&nbsp;<% end %>
+  <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
 </td>
 <td style="text-align:left;">
-  <%=h s.summary %>
+  <%=h srpm.summary %>
 </td>
 </tr>
 <% end %>
