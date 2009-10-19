@@ -18,6 +18,7 @@ task :acls => :environment do
       for i in 1..line.split.count-1
         login = line.split[i]
         login = 'php-coder' if login == 'php_coder'
+        login = '@vim-plugins' if login == '@vim_plugins'
         Acl.create(:package => package, :login => login, :branch => 'Sisyphus')
       end
     end
