@@ -19,4 +19,8 @@ vendor/plugins/coercionlogic/.git/*
 vendor/plugins/coercionlogic/.gitignore
 vendor/plugins/brazilian-rails/.git/*
 vendor/plugins/brazilian-rails/.gitignore
+vendor/plugins/action_mailer_optional_tls/
+vendor/plugins/exception_notification/
+vendor/plugins/russian/
+vendor/plugins/searchlogic/
 
