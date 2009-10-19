@@ -1,7 +1,5 @@
 <% srpm_count @package_counter %>
-
-<% if @srpm != nil %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Repocop" %>
+<% title "Sisyphus 2.0 &mdash; Package " + h(@srpm.name) + " &mdash; Repocop" %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/repocop" %>
 
 <!--
@@ -90,24 +88,17 @@ Other repositories
 <th>message</th>
 </tr>
 
-<% if @reports.size != 0 %>
-  <% @reports.each do |r| %>
-    <% if r.status != 'skip' %>
-      <tr>
-        <td><%=h r.name %></td>
-        <td><img src="/images/<%=h r.status %>.png"><br/><%=h r.status %></td>
-        <td><%=h r.testname %></td>
-        <td style="text-align:left">
-          <%=h r.message %>
-        </td>
-      </tr>
-    <% end %>
+<% @srpm.repocops.each do |repocop| %>
+  <% if repocop.status != 'skip' %>
+    <tr>
+      <td><%=h repocop.name %></td>
+      <td><img src="/images/<%=h repocop.status %>.png"><br/><%=h repocop.status %></td>
+      <td><%=h repocop.testname %></td>
+      <td style="text-align:left">
+        <%=h repocop.message %>
+      </td>
+    </tr>
   <% end %>
 <% end %>
 
 </table>
-
-<% else %>
-error [stats.pl:52] name=<%=h params[:name] %>
-<% end %>
-

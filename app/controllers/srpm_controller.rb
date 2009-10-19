@@ -33,7 +33,7 @@ class SrpmController < ApplicationController
                                   :conditions => { :login => @leader.login }
       end
     else
-      render :action => "nosuchpackage"      
+      render :action => "nosuchpackage"
     end
   end
 
@@ -78,7 +78,7 @@ class SrpmController < ApplicationController
                         :name => params[:name],
                         :branch => params[:branch] }
     if @srpm == nil
-      render :action => "nosuchpackage"                    
+      render :action => "nosuchpackage"
     end
   end
 
@@ -167,17 +167,11 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => params[:branch] }
-    if @srpm != nil
-      @reports = Repocop.find :all,
-                              :conditions => {
-                                :srcname => @srpm.name,
-                                :srcversion => @srpm.version,
-                                :srcrel => @srpm.release }
-    else
+    if @srpm == nil
       render :action => "nosuchpackage"
     end
   end
-  
+
   def nosuchpackage
   end
 end
