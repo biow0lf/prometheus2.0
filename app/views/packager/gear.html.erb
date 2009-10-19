@@ -12,6 +12,7 @@
   <% @gitrepos.each do |g| %>
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
+        <% g.login = 'php_coder' if g.login == 'php-coder' %>
         <%= link_to h(g.package), 'http://git.altlinux.org/people/' + h(g.login) + '/packages/?p=' + h(g.package) + '.git', :class => 'news' %>
       </td>
       <td><%=h g.lastchange %></td>
