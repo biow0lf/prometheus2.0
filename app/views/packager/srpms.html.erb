@@ -51,11 +51,16 @@
 <% @packager.srpms.each do |srpm| %>
 <tr>
 <td>
-<!-- <a class="repocoplink" href="/ru/srpm/Sisyphus/PyPanel/repocop" title="подробный отчет repocop о пакете">-->
-  <%= link_to '<img src="/images/ok.png" alt="ok">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+<% repocop_status = 'ok' %>
+<% srpm.repocops.each do |repocop| %>
+<% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'fail' if repocop.status == 'fail' %>
+<% end %>
+  <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
 </td>
 <td class="strange">
-<!--  <a class="news" href="/ru/srpm/Sisyphus/PyPanel" title="подробная информация о пакете">PyPanel</a>-->
    <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
 </td>
 <td>
@@ -78,4 +83,3 @@
 
 </tr>
 </table>
-
