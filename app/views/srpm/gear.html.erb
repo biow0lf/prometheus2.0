@@ -1,7 +1,5 @@
 <% srpm_count @package_counter %>
-
-<% if @srpm != nil %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Gear" %>
+<% title "Sisyphus 2.0 &mdash; Package " + h(@srpm.name) + " &mdash; Gear" %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/gear" %>
 
 <!--
@@ -87,8 +85,3 @@ Other repositories
 <% end %>
 </div>
 </div>
-
-<% else %>
-error [stats.pl:52] name=<%=h params[:name] %>
-<% end %>
-

@@ -1,7 +1,5 @@
 <% srpm_count @package_counter %>
-
-<% if @srpm != nil %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Spec" %>
+<% title "Sisyphus 2.0 &mdash; Package " + h(@srpm.name) + " &mdash; Spec" %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/spec" %>
 
 <div id="rightbar">
@@ -71,8 +69,4 @@ ALT Linux repos
 <div id="rawspec">
 <%= simple_format h @srpm.rawspec.gsub('@altlinux', ' at altlinux') %>
 </div>
-
-<% else %>
-error [stats.pl:52] name=<%=h params[:name] %>
-<% end %>
 

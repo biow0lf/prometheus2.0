@@ -1,7 +1,5 @@
 <% srpm_count @package_counter %>
-
-<% if @srpm != nil %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Changelog" %>
+<% title "Sisyphus 2.0 &mdash; Package " + h(@srpm.name) + " &mdash; Changelog" %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/changelog" %>
 
 <!--
@@ -84,8 +82,4 @@ TODO
   <br />
 <#% end %#>
 -->
-
-<% else %>
-error [stats.pl:52] name=<%=h params[:name] %>
-<% end %>
 
