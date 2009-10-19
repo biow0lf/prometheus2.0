@@ -4,6 +4,8 @@ class CreateAcls < ActiveRecord::Migration
       t.string :package
       t.string :login
       t.string :branch
+      t.integer :packager_id
+      t.integer :srpm_id
 
       t.timestamps
     end
