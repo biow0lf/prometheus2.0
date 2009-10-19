@@ -7,4 +7,6 @@ class Srpm < ActiveRecord::Base
   validates_presence_of :filename, :name, :version, :release, :group, :summary, :license, :branch, :buildtime, :rawspec, :size
 #  belongs_to :group
   belongs_to :packager
+
+  has_many :repocops
 end

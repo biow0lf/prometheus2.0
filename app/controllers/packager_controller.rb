@@ -82,17 +82,7 @@ class PackagerController < ApplicationController
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => { :login => params[:login].downcase }
-
-    if @packager != nil
-      @srpms = Srpm.find :all,
-                         :conditions => {
-                           :packager_id => @packager.id,
-                           :branch => 'Sisyphus' }
-      @reports = Repocop.find :all,
-                              :conditions => [ "srpms.packager_id = ? AND repocops.status <> 'ok' AND repocops.status <> 'skip' ", @packager.id ],
-                              :joins => 'LEFT JOIN srpms ON repocops.srcname = srpms.name AND repocops.srcversion = srpms.version AND repocops.srcrel = srpms.release'
-    else
-#    if @packager == nil
+    if @packager == nil
       render :action => "nosuchpackager"
     end
   end

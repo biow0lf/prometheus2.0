@@ -8,7 +8,6 @@
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="information about maintainer">Information</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="packages which was built by this maintainer">Packages</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Bugs/FR statstics assigned to this maintainer">Bugs and FR</a>&nbsp;</span><span class="current">&nbsp;<b>Repocop</b>&nbsp;</span><p class="break" />
 <b>Repocop messages:</b><br /><br />
 
-<% if @reports.size != 0 %>
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
 <th>package</th>
@@ -17,20 +16,17 @@
 <th>message</th>
 </tr>
 
-<% @reports.each do |r| %>
+<% @packager.srpms.each do |srpm| %>
+  <% srpm.repocops.each do |repocop| %>
   <tr>
     <td class="strange">
-      <%= link_to h(r.name) + '-' + h(r.version) + '-' + h(r.release) + '.' + h(r.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(r.name), :class => 'news', :title => 'detailed information about RPM' %>
+      <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
     </td>
-    <td><img src="/images/<%=h r.status %>.png"><br /><%=h r.status %></td>
-    <td><%=h r.testname %></td>
-    <td style="text-align:left"><%=h r.message %></td>
+    <td><img src="/images/<%=h repocop.status %>.png"><br /><%=h repocop.status %></td>
+    <td><%=h repocop.testname %></td>
+    <td style="text-align:left"><%=h repocop.message %></td>
   </tr>
+  <% end %>
 <% end %>
 
 </table>
-
-<% else %>
-no data
-<% end %>
-

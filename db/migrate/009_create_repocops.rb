@@ -12,6 +12,8 @@ class CreateRepocops < ActiveRecord::Migration
       t.string :status
       t.text :message
 
+      t.integer :srpm_id
+
       t.timestamps
     end
 

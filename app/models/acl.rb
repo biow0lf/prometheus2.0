@@ -4,5 +4,4 @@ class Acl < ActiveRecord::Base
 
   belongs_to :packager
   belongs_to :srpm
-#  belongs_to :repocop
 end
