@@ -9,7 +9,7 @@ task :repocop => :environment do
   Repocop.transaction do
     Repocop.delete_all
 
-    url = "http://repocop.altlinux.org/pub/repocop/heroku/heroku.txt"
+    url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt"
     f = open(URI.escape(url)).read
 
     f.each_line do |line|
