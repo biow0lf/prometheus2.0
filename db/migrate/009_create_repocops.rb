@@ -20,6 +20,7 @@ class CreateRepocops < ActiveRecord::Migration
     add_index :repocops, :srcname
     add_index :repocops, :srcversion
     add_index :repocops, :srcrel
+    add_index :repocops, :srpm_id
   end
 
   def self.down
