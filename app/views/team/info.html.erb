@@ -19,50 +19,56 @@
 
 <p class="break" />
 
-<b>List of packages:</b> [ <%=h @srpms.size %> ]<br /><br />
+<b>List of packages:</b> [ <%=h @acls.count %> ]<br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
 <th>repo<br/>cop<br/>
-	<a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
-</th><th>
-	&nbsp; пакет &nbsp;<br /><a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
-
-</th><th>
-	текущая<br />версия
-</th><th>
-	время сборки
-</th><th>
-	возраст,<br /><i>недель</i><br /><a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
-</th><th>
-	Url
-</th><th>
-	О пакете
-
+<a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
 </th>
+<th>&nbsp; пакет &nbsp;<br />
+<a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+</th>
+<th>текущая<br />версия</th>
+<th>время сборки</th>
+<th>возраст,<br /><i>недель</i><br />
+<a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+</th>
+<th>Url</th>
+<th>О пакете</th>
 </tr>
 
-<% @srpms.each do |s| %>
+<% @team.srpms.each do |srpm| %>
 <tr>
 <td>
-  <%= link_to h(s.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(s.name) + '/repocop', :class => 'repocoplink', :title => 'list of repocop messages' %>
-<!--  <a class="repocoplink" href="/ru/srpm/Sisyphus/emacs-apel/repocop" title="подробный отчет repocop о пакете"><img src="../../../img/ok.png" alt="ok"></a>-->
+<% repocop_status = 'skip' %>
+<% srpm.repocops.each do |repocop| %>
+<% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
+<% repocop_status = 'fail' if repocop.status == 'fail' %>
+<% end %>
+  <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+
+<!--  <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'list of repocop messages' %>
+  <%=h srpm.name  %>-->
 </td>
 <td class="strange">
-  <%= link_to h(s.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(s.name), :class => 'news', :title => 'detailed information about RPM' %>
+  <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
 </td>
-<td><%=h s.version %>-<%=h s.release %></td>
+<td><%=h srpm.version %>-<%=h srpm.release %></td>
 <td>
-  <%=h s.buildtime %>
-</td>
-<td>
-  <%=h time_ago_in_words(s.buildtime) %> <%= t 'ago' %>
+  <%=h srpm.buildtime %>
 </td>
 <td>
-  <% if s.url != nil %><%= link_to s.url, s.url, :class => 'news' %><% else %>&nbsp;<% end %>
+  <%=h time_ago_in_words(srpm.buildtime) %> <%= t 'ago' %>
+</td>
+<td>
+  <% if srpm.url != nil %><%= link_to srpm.url, srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
 </td>
 <td style="text-align:left;">
-  <%=h s.summary %>
+  <%=h srpm.summary %>
 </td>
 </tr>
 

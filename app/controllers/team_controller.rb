@@ -8,6 +8,12 @@ class TeamController < ApplicationController
                           :conditions => {
                             :login => '@' + params[:name],
                             :team => true }
+#
+#
+#    @team = Packager.find :first,
+#                          :conditions => {
+#                            :login => '@' + params[:name],
+#                            :team => true }
     if @team != nil
       @members = Team.find :all,
                            :conditions => {
@@ -18,14 +24,17 @@ class TeamController < ApplicationController
                             :name => '@' + params[:name],
                             :branch => 'Sisyphus',
                             :leader => true }
-      @srpms = Srpm.find :all,
-                         :conditions => { :packager_id => @team.id },
-                         :order => 'name ASC'
+      @acls = Acl.find :all,
+                       :conditions => { :packager_id => @team.id },
+                       :order => 'package ASC'
+#      @srpms = Srpm.find :all,
+#                         :conditions => { :packager_id => @team.id },
+#                         :order => 'name ASC'
     else
       render :action => "nosuchteam"
     end
   end
-  
+
   def nosuchteam
   end
 end
