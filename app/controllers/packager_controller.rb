@@ -20,7 +20,9 @@ class PackagerController < ApplicationController
   def srpms
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
-                              :conditions => { :login => params[:login].downcase }
+                              :conditions => {
+                                :login => params[:login].downcase,
+                                :team => false }
     if @packager == nil
       render :action => "nosuchpackager"
     end
@@ -29,7 +31,9 @@ class PackagerController < ApplicationController
   def gear
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
-                              :conditions => { :login => params[:login].downcase }
+                              :conditions => {
+                                :login => params[:login].downcase,
+                                :team => false }
     @gitrepos = Gitrepos.find :all,
                               :conditions => { :login => params[:login].downcase },
                               :order => 'package ASC'
@@ -41,7 +45,9 @@ class PackagerController < ApplicationController
   def bugs
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
-                              :conditions => { :login => params[:login].downcase }
+                              :conditions => {
+                                :login => params[:login].downcase,
+                                :team => false }
     @bugs = Bug.find :all,
                      :conditions => {
                        :assigned_to => params[:login].downcase + '@altlinux.org',
@@ -61,7 +67,9 @@ class PackagerController < ApplicationController
   def allbugs
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
-                              :conditions => { :login => params[:login].downcase }
+                              :conditions => {
+                                :login => params[:login].downcase,
+                                :team => false }
     @bugs = Bug.find :all,
                      :conditions => {
                        :assigned_to => params[:login].downcase + '@altlinux.org',
@@ -81,7 +89,9 @@ class PackagerController < ApplicationController
   def repocop
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
-                              :conditions => { :login => params[:login].downcase }
+                              :conditions => {
+                                :login => params[:login].downcase,
+                                :team => false }
     if @packager == nil
       render :action => "nosuchpackager"
     end
