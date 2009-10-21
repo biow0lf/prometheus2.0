@@ -51,8 +51,9 @@
 <% @packager.srpms.each do |srpm| %>
 <tr>
 <td>
-<% repocop_status = 'ok' %>
+<% repocop_status = 'skip' %>
 <% srpm.repocops.each do |repocop| %>
+<% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
 <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
 <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
 <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
