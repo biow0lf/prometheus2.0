@@ -18,6 +18,7 @@
 
 <% @packager.srpms.each do |srpm| %>
   <% srpm.repocops.each do |repocop| %>
+  <% if repocop.status != 'skip' and repocop.status != 'ok' %>
   <tr>
     <td class="strange">
       <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
@@ -26,6 +27,7 @@
     <td><%=h repocop.testname %></td>
     <td style="text-align:left"><%=h repocop.message %></td>
   </tr>
+  <% end %>
   <% end %>
 <% end %>
 
