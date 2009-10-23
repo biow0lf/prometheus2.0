@@ -1,5 +1,25 @@
 == Welcome to Prometheus 2.0
 
+== Setup and run
+
+Install:
+* Ruby 1.9
+* Ruby on Rails 2.3.4
+* PostgreSQL (with other databases it doesn't tested)
+
+Init database:
+* rake db:create
+* rake db:migrate
+* rake db:seed
+* rake sisyphus:groups
+* rake sisyphus:srpms
+* rake sisyphus:bugs
+* rake sisyphus:gitrepos
+* rake sisyphus:acls
+* rake sisyphus:repocop
+* rake sisyphus:leaders
+* rake sisyphus:teams
+
 == LICENSE:
 
 (The MIT License)
