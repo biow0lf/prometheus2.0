@@ -13,19 +13,33 @@ task :repocop => :environment do
     f = open(URI.escape(url)).read
 
     f.each_line do |line|
-      Repocop.create(:name       => line.split('|||')[0],
-                     :version    => line.split('|||')[1],
-                     :release    => line.split('|||')[2],
-                     :arch       => line.split('|||')[3],
-                     :srcname    => line.split('|||')[4],
-                     :srcversion => line.split('|||')[5],
-                     :srcrel     => line.split('|||')[6],
-                     :testname   => line.split('|||')[7],
-                     :status     => line.split('|||')[8],
-                     :message    => line.split('|||')[9]
-                     )
+
+      srpm = Srpm.find :first, :select => "id", :conditions => { :branch => 'Sisyphus', :name => line.split('|||')[4] }
+      if srpm != nil
+        Repocop.create(:srpm_id    => srpm.id,
+                       :name       => line.split('|||')[0],
+                       :version    => line.split('|||')[1],
+                       :release    => line.split('|||')[2],
+                       :arch       => line.split('|||')[3],
+                       :srcname    => line.split('|||')[4],
+                       :srcversion => line.split('|||')[5],
+                       :srcrel     => line.split('|||')[6],
+                       :testname   => line.split('|||')[7],
+                       :status     => line.split('|||')[8],
+                       :message    => line.split('|||')[9]
+                       )
+      end
     end
   end
+
+#  Repocop.all.each do |repocop|
+#      srpm = Srpm.find :first, :conditions => { :branch => 'Sisyphus', :name => repocop.srcname }
+#          if srpm != nil
+#                repocop.srpm_id = srpm.id
+#                      repocop.save!
+#                          end
+#                            end
+
   puts Time.now
 end
 end
