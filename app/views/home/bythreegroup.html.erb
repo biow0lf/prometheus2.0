@@ -1,5 +1,5 @@
 <% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Packages - " + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
+<% title h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) + " - Group - Prometheus 2.0" %>
 <% url "/packages/" + h(params[:group]) + '/' + h(params[:group2]) + '/' + h(params[:group3]) %>
 
 <div class="header">Group :: <%=h params[:group] %>/<%=h params[:group2] %>/<%=h params[:group3] %></div><p class="news" />
