@@ -9,6 +9,8 @@ task :acls => :environment do
   Acl.transaction do
     Acl.delete_all
 
+    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus'}
+
     url = "http://git.altlinux.org/acl/list.packages.sisyphus"
     f = open(URI.escape(url)).read
 
@@ -22,7 +24,7 @@ task :acls => :environment do
         login = 'p_solntsev' if login == 'psolntsev'
 
         packager = Packager.find :first, :conditions => { :login => login }
-        srpm = Srpm.find :first, :conditions => { :branch => 'Sisyphus', :name => package }
+        srpm = Srpm.find :first, :conditions => { :branch_id => branch.id, :name => package }
 #        puts login
 #        puts package
 #        puts packager
@@ -32,7 +34,7 @@ task :acls => :environment do
         #FIXME
         if packager != nil
           if srpm != nil
-            Acl.create :package => package, :login => login, :packager_id => packager.id, :srpm_id => srpm.id, :branch => 'Sisyphus'
+            Acl.create :package => package, :login => login, :packager_id => packager.id, :srpm_id => srpm.id, :branch_id => branch.id
           end
         else
           if srpm != nil
@@ -40,7 +42,7 @@ task :acls => :environment do
             puts package
             puts packager
             puts srpm
-            Acl.create :package => package, :login => login, :srpm_id => srpm.id, :branch => 'Sisyphus'
+            Acl.create :package => package, :login => login, :srpm_id => srpm.id, :branch_id => branch.id
           end
           #FIXME
         end
@@ -48,24 +50,6 @@ task :acls => :environment do
       end
     end
   end
-
-#Packager.all.each do |packager|
-#  acls = Acl.find :all, :conditions => { :login => packager.login, :branch => 'Sisyphus' }
-#  if acls != nil
-#    acls.each do |acl|
-#    acl.packager_id = packager.id
-#    acl.save!
-#  end
-#end
-
-#Acl.all.each do |acl|
-#  srpm = Srpm.find :first, :conditions => { :branch => acl.branch, :name => acl.package }
-#  if srpm != nil
-#    acl.srpm_id = srpm.id
-#    acl.save!
-#  end
-#end
-
 
   puts Time.now
 end

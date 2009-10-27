@@ -1,5 +1,5 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Maintainer - " + @packager.name + " - Gear" %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Maintainer &laquo;" + @packager.name + "&raquo; - Gear" %>
 <% url "/packager/" + h(@packager.login) + "/gear" %>
 
 <div class="header">Маинтейнер: <%=h @packager.name %></div>
@@ -7,7 +7,7 @@
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере">Информация</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="просмотреть пакеты, собранные майнтейнером">Пакеты</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Gear</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="break" />
 
 
-<% if @gitrepos.size != 0 %>
+<% if @gitrepos.count != 0 %>
 <table style="pretty">
   <% @gitrepos.each do |g| %>
     <tr>

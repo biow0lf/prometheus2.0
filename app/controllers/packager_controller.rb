@@ -2,7 +2,8 @@ class PackagerController < ApplicationController
   layout "default"
 
   def info
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
@@ -11,14 +12,15 @@ class PackagerController < ApplicationController
                     :select => 'package',
                     :conditions => {
                       :login => params[:login],
-                      :branch => 'Sisyphus' }
+                      :branch_id => @branch.id }
     if @packager == nil
       render :action => "nosuchpackager"
     end
   end
 
   def srpms
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+#    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
@@ -29,7 +31,7 @@ class PackagerController < ApplicationController
   end
 
   def gear
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
@@ -43,7 +45,7 @@ class PackagerController < ApplicationController
   end
 
   def bugs
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
@@ -65,7 +67,7 @@ class PackagerController < ApplicationController
   end
 
   def allbugs
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
@@ -87,7 +89,7 @@ class PackagerController < ApplicationController
   end
 
   def repocop
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,

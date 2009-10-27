@@ -5,7 +5,10 @@ task :srpms => :environment do
   puts Time.now
   puts "import src.rpm's"
 
-  Dir.glob("/path/to/*.src.rpm").each do |f|
+  branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus'}
+
+#  Dir.glob("/path/to/*.src.rpm").each do |f|
+  Dir.glob("/media/sdb7/Sisyphus/Sisyphus/files/SRPMS/*.src.rpm").each do |f|
   begin
     r = RPM::Package::open(f)
     srpm = Srpm.new
@@ -13,7 +16,12 @@ task :srpms => :environment do
     srpm.name = r.name
     srpm.version = r.version.v
     srpm.release = r.version.r
-    srpm.group = r[1016]
+
+    group = Group.find :first, :conditions => { :name => r[1016], :branch_id => branch.id }
+
+    srpm.group_id = group.id
+
+#    srpm.group = r[1016]
 
     packager = r[1015]
     packager_name = packager.split('<')[0].chomp
@@ -58,13 +66,16 @@ task :srpms => :environment do
     srpm.distribution = r[1010]
     srpm.buildtime = Time.at(r[1006])
     srpm.size = File.size(f)
-    srpm.branch = 'Sisyphus'
+#    srpm.branch = 'Sisyphus'
+    srpm.branch_id = branch.id
     srpm.rawspec = 'TODO'
 
     srpm.save!
 
   rescue RuntimeError
     puts "Bad src.rpm -- " + f
+    puts srpm.group_id
+    puts r[1016]
   end
   end
 

@@ -5,7 +5,10 @@ task :noarch => :environment do
   puts Time.now
   puts "import noarch.rpm's"
 
-  Dir.glob("/path/to/*.noarch.rpm").each do |f|
+  branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+
+#  Dir.glob("/path/to/*.noarch.rpm").each do |f|
+  Dir.glob("/media/sdb7/Sisyphus/Sisyphus/files/noarch/RPMS/*.noarch.rpm").each do |f|
   begin
     r = RPM::Package::open(f)
     package = Package.new
@@ -60,7 +63,8 @@ task :noarch => :environment do
     package.distribution = r[1010]
     package.buildtime = Time.at(r[1006])
     package.size = File.size(f)
-    package.branch = 'Sisyphus'
+    #package.branch = 'Sisyphus'
+    package.branch_id = branch.id
 
     package.save!
 

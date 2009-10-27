@@ -6,8 +6,8 @@ class CreateSrpms < ActiveRecord::Migration
       t.string :version
       t.string :release
       t.string :epoch
-      t.string :group
-#      t.integer :group_id
+#      t.string :group
+      t.integer :group_id
       t.integer :packager_id
       t.string :summary
       t.string :license
@@ -17,7 +17,8 @@ class CreateSrpms < ActiveRecord::Migration
       t.string :distribution
       t.datetime :buildtime
       t.string :size
-      t.string :branch
+#      t.string :branch
+      t.integer :branch_id
       t.binary :rawspec
 
       t.timestamps
@@ -25,11 +26,12 @@ class CreateSrpms < ActiveRecord::Migration
 
 #    add_index :srpms, :filename
     add_index :srpms, :name
-    add_index :srpms, :version
-    add_index :srpms, :release
+#    add_index :srpms, :version
+#    add_index :srpms, :release
 #    add_index :srpms, :group
     add_index :srpms, :packager_id
-    add_index :srpms, :branch
+#    add_index :srpms, :branch
+    add_index :srpms, :branch_id
   end
 
   def self.down

@@ -1,6 +1,6 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Repocop" %>
-<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/repocop" %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Package " + h(@srpm.name) + " - Repocop" %>
+<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/repocop" %>
 
 <!--
 <div id="rightbar">
@@ -43,8 +43,7 @@ Other repositories
 
 <div style="height:3em;"> 
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group %></b><br />
-
+        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group.name %></b><br />
         <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
     </div>
 <!--    <div id="nav">
@@ -77,7 +76,7 @@ Other repositories
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="this package in gear repositories">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="List of bugs and feature requests">Bugs and FR</a>&nbsp;</span><span class="current">&nbsp;<b>Repocop</b>&nbsp;</span><p class="news" /><br />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/gear" class="news" title="this package in gear repositories">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/bugs" class="news" title="List of bugs and feature requests">Bugs and FR</a>&nbsp;</span><span class="current">&nbsp;<b>Repocop</b>&nbsp;</span><p class="news" /><br />
 
 </div>
 <table id="bugs" cellspacing="0" cellpadding="3">

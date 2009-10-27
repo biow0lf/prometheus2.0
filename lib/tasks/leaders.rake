@@ -9,13 +9,15 @@ task :leaders => :environment do
   Leader.transaction do
     Leader.delete_all
 
-    url = "http://git.altlinux.org/acl/list.packages.sisyphus"
-    f = open(URI.escape(url)).read
+    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    url = branch.acls_url
 
-    f.each_line do |line|
+    file = open(URI.escape(url)).read
+
+    file.each_line do |line|
       package = line.split[0]
       login = line.split[1]
-      Leader.create(:package => package, :login => login, :branch => 'Sisyphus')
+      Leader.create :package => package, :login => login, :branch_id => branch.id
     end
   end
   puts Time.now

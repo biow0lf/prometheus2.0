@@ -1,5 +1,5 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Team - " + @team.login[1..-1] %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Team &laquo;" + @team.login[1..-1] + "&raquo;" %>
 <% url "/team/" + h(@team.login) %>
 
 <div class="header">Команда: <%=h @team.name %></div>

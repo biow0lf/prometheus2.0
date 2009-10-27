@@ -1,8 +1,6 @@
-<% srpm_count @package_counter %>
-
-<% if @srpm != nil %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Download" %>
-<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/get" %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Package " + h(@srpm.name) + " - Download" %>
+<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/get" %>
 
 <!--
 <div id="rightbar">
@@ -31,7 +29,7 @@ ALT Linux repos
 
 <div style="height:3em;">
 	    <div id="rpmtop">
-	        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group %></b><br />
+	        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group.name %></b><br />
 	        <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
 	    </div>
 	    <!--<div id="nav">
@@ -63,7 +61,7 @@ ALT Linux repos
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h t('srpm.main_title') %>"><%=h t('srpm.main') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h t('srpm.changelog_title') %>"><%=h t('srpm.changelog') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h t('srpm.spec_title') %>"><%=h t('srpm.spec') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/patches" class="news" title="<%=h t('srpm.patches_title') %>"><%=h t('srpm.patches') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/sources" class="news" title="<%=h t('srpm.sources_title') %>"><%=h t('srpm.sources') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h t('srpm.download') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h t('srpm.gear_title') %>"><%=h t('srpm.gear') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h t('srpm.bugsandfr_title') %>"><%=h t('srpm.bugsandfr') %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h t('srpm.repocop_title') %>"><%=h t('srpm.repocop') %></a>&nbsp;</span>
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>" class="news" title="<%=h t('srpm.main_title') %>"><%=h t('srpm.main') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h t('srpm.changelog_title') %>"><%=h t('srpm.changelog') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/spec" class="news" title="<%=h t('srpm.spec_title') %>"><%=h t('srpm.spec') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/patches" class="news" title="<%=h t('srpm.patches_title') %>"><%=h t('srpm.patches') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/sources" class="news" title="<%=h t('srpm.sources_title') %>"><%=h t('srpm.sources') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h t('srpm.download') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/gear" class="news" title="<%=h t('srpm.gear_title') %>"><%=h t('srpm.gear') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h t('srpm.bugsandfr_title') %>"><%=h t('srpm.bugsandfr') %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h t('srpm.repocop_title') %>"><%=h t('srpm.repocop') %></a>&nbsp;</span>
 
 <script type="text/javascript">
 <!--
@@ -72,21 +70,21 @@ function changeHref (val){
   url<%=h counter %> = "<%=h '/Sisyphus/files/SRPMS/' + @srpm.filename %>";
   <% counter += 1 %>
 
-  <% if @i586.size != 0 %>
+  <% if @i586.count != 0 %>
     <% @i586.each do |i| %>
       url<%=h counter %> = "<%=h '/Sisyphus/files/i586/RPMS/' + i.filename %>";
       <% counter += 1 %>
 	<% end %>
   <% end %>
 
-  <% if @noarch.size != 0 %>
+  <% if @noarch.count != 0 %>
     <% @noarch.each do |n| %>
       url<%=h counter %> = "<%=h '/Sisyphus/files/noarch/RPMS/' + n.filename %>";
       <% counter += 1 %>
 	<% end %>
   <% end %>
 
-  <% if @x86_64.size != 0 %>
+  <% if @x86_64.count != 0 %>
     <% @x86_64.each do |x| %>
       url<%=h counter %> = "<%=h '/Sisyphus/files/x86_64/RPMS/' + x.filename %>";
       <% counter += 1 %>
@@ -143,7 +141,7 @@ function changeHref (val){
 
 <% counter = 1 %>
 
-<% if @i586.size != 0 %>
+<% if @i586.count != 0 %>
   <tr><td><br><b>i586:</b></td></tr>
   <% @i586.each do |i| %>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
@@ -158,7 +156,7 @@ function changeHref (val){
   <% end %>
 <% end %>
 
-<% if @noarch.size != 0 %>
+<% if @noarch.count != 0 %>
   <tr><td><br><b>noarch:</b></td></tr>
   <% @noarch.each do |n| %>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
@@ -172,7 +170,7 @@ function changeHref (val){
   <% end %>
 <% end %>
 
-<% if @x86_64.size != 0 %>
+<% if @x86_64.count != 0 %>
   <tr><td><br><b>x86_64:</b></td></tr>
   <% @x86_64.each do |x| %>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
@@ -187,8 +185,4 @@ function changeHref (val){
 <% end %>
 
 </table>
-
-<% else %>
-error [stats.pl:52] name=<%=h params[:name] %>
-<% end %>
 

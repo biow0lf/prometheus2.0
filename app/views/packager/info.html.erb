@@ -1,5 +1,5 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Maintainer - " + @packager.name %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Maintainer &laquo;" + h(@packager.name) + "&raquo;" %>
 <% url "/packager/" + h(@packager.login) %>
 
 <div class="header">Маинтейнер: <%=h @packager.name -%></div>
@@ -8,4 +8,4 @@
 <b>Информация: </b><div class="para">  </div>
 
 <p class="break" />
-<b>Количество пакетов собранных маинтейнером:</b> <%=h @acl.size -%>
+<b>Количество пакетов собранных маинтейнером:</b> <%=h @acl.count -%>

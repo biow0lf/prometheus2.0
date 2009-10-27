@@ -1,6 +1,6 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Package " + h(@srpm.name) + " - Gear" %>
-<% url "/srpm/" + h(params[:branch]) + '/' + h(@srpm.name) + "/gear" %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Package " + h(@srpm.name) + " - Gear" %>
+<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/gear" %>
 
 <!--
 <div id="rightbar">
@@ -41,7 +41,7 @@ Other repositories
 
 <div style="height:3em;">
     <div id="rpmtop">
-        <b style="font-size:9pt;">Group :: System/Base</b><br />
+        <b style="font-size:9pt;">Group :: <%=h @srpm.group.name %></b><br />
         <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
     </div>
 <!--    <div id="nav">
@@ -73,8 +73,8 @@ Other repositories
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Gear</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="List of bugs and feature requests">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="Repocop bugreport">Repocop</a>&nbsp;</span><div>
-<% if @gitrepos.size != 0 %>
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Gear</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/bugs" class="news" title="List of bugs and feature requests">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/repocop" class="news" title="Repocop bugreport">Repocop</a>&nbsp;</span><div>
+<% if @gitrepos.count != 0 %>
 <table style="pretty">
   <% @gitrepos.each do |g| %>
     <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;<!--<a href="http://git.altlinux.org/people/ldv/packages/?p=glibc.git" class="news">Dmitry V. Levin <ldv@altlinux.org></a>-->

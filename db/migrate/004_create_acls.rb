@@ -3,7 +3,7 @@ class CreateAcls < ActiveRecord::Migration
     create_table :acls do |t|
       t.string :package
       t.string :login
-      t.string :branch
+      t.integer :branch_id
       t.integer :packager_id
       t.integer :srpm_id
 

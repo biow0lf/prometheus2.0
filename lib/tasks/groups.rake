@@ -1,7 +1,7 @@
-require 'open-uri'
+#require 'open-uri'
 
 namespace :sisyphus do
-desc "Import groups to database"
+desc "Import RPM groups for Sisyphus to database"
 task :groups => :environment do
   puts "import groups"
   puts Time.now
@@ -9,11 +9,13 @@ task :groups => :environment do
   Group.transaction do
     Group.delete_all
 
-    url = "http://git.altlinux.org/people/ldv/packages/?p=rpm.git;a=blob_plain;f=GROUPS;hb=HEAD"
-    f = open(URI.escape(url)).read
+    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    #url = "http://git.altlinux.org/people/ldv/packages/?p=rpm.git;a=blob_plain;f=GROUPS;hb=HEAD"
+    url = "/usr/lib/rpm/GROUPS"
+    file = open(URI.escape(url)).read
 
-    f.each_line do |line|
-      group = Group.create(:name => line.gsub(/\n/,''), :branch => 'Sisyphus')
+    file.each_line do |line|
+      group = Group.create :name => line.gsub(/\n/,''), :branch_id => branch.id
     end
   end
   puts Time.now

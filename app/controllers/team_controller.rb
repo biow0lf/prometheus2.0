@@ -2,8 +2,8 @@ class TeamController < ApplicationController
   layout "default"
 
   def info
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
-
+    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @team = Packager.find :first,
                           :conditions => {
                             :login => '@' + params[:name],
@@ -12,11 +12,11 @@ class TeamController < ApplicationController
       @members = Team.find :all,
                            :conditions => {
                              :name => '@' + params[:name],
-                             :branch => 'Sisyphus' }
+                             :branch_id => @branch.id }
       @leader = Team.find :first,
                           :conditions => {
                             :name => '@' + params[:name],
-                            :branch => 'Sisyphus',
+                            :branch_id => @branch.id,
                             :leader => true }
     else
       render :action => "nosuchteam"

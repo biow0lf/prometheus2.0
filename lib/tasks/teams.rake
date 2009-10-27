@@ -9,17 +9,18 @@ task :teams => :environment do
   Team.transaction do
     Team.delete_all
 
-    url = "http://git.altlinux.org/acl/list.groups.sisyphus"
-    f = open(URI.escape(url)).read
+    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    url = branch.acls_groups_url
 
-    f.each_line do |line|
+    file = open(URI.escape(url)).read
+
+    file.each_line do |line|
       team_name  = line.split[0]
-      #(1..line.split.count).each do |i|
       for i in 1..line.split.count-1
         if i == 1
-          Team.create(:name => team_name, :login => line.split[i], :leader => true, :branch => 'Sisyphus')
+          Team.create(:name => team_name, :login => line.split[i], :leader => true, :branch_id => branch.id )
         else
-          Team.create(:name => team_name, :login => line.split[i], :leader => false, :branch => 'Sisyphus')
+          Team.create(:name => team_name, :login => line.split[i], :leader => false, :branch_id => branch.id )
         end
       end
     end

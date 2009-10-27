@@ -1,11 +1,11 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Maintainer - " + @packager.name + " - Packages" %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Maintainer &laquo;" + @packager.name + "&raquo; - Packages" %>
 <% url "/packager/" + h(@packager.login) + "/srpms" %>
 
 <div class="header">Майнтейнер: <%=h @packager.name %></div>
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере">Информация</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Пакеты</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="break" />
-<b>Список пакетов, собранных майнтейнером:</b> [<%=h @packager.acls.size %>] <br /><br />
+<b>Список пакетов, собранных майнтейнером:</b> [<%=h @packager.acls.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
@@ -47,7 +47,6 @@
 </tr>
 -->
 
-<%# @srpms.each do |s| %>
 <% @packager.srpms.each do |srpm| %>
 <tr>
 <td>

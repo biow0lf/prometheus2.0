@@ -5,7 +5,10 @@ task :i586 => :environment do
   puts Time.now
   puts "import i586.rpm's"
 
-  Dir.glob("/path/to/*.i586.rpm").each do |f|
+  branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+
+  #Dir.glob("/path/to/*.i586.rpm").each do |f|
+  Dir.glob("/media/sdb7/Sisyphus/Sisyphus/files/i586/RPMS/*.i586.rpm").each do |f|
   begin
     r = RPM::Package::open(f)
     package = Package.new
@@ -60,7 +63,8 @@ task :i586 => :environment do
     package.distribution = r[1010]
     package.buildtime = Time.at(r[1006])
     package.size = File.size(f)
-    package.branch = 'Sisyphus'
+    #package.branch = 'Sisyphus'
+    package.branch_id = branch.id
 
     package.save!
   rescue RuntimeError

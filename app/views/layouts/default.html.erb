@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title><%= yield(:title) || "Sisyphus 2.0" %></title>
+  <title><%= yield(:title) || "Prometheus 2.0" %></title>
 
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta name="description" content="ALT Linux Team - Sisyphus packages info" />
@@ -108,7 +108,7 @@ function show(divnum){
 
 <div id="top-line">
   <div id="vinfo">
-    	<b>Последнее обновление:</b> 18 сентября 2009 | <b>Пакетов: <%= yield(:srpms_counter) || "broken :)" %></b>
+    	<b>Последнее обновление:</b> 25 сентября 2009 | <b>Пакетов: <%= yield(:srpms_counter) || "broken :)" %></b>
     </div>
 
 		<div align="right">	<a href="/en<%= yield(:url) %>" title="English">en</a>	<a href="/ru<%= yield(:url) %>" title="Russian">ru</a>	<!--<a href="/br<%= yield(:url) %>" title="Portuguese (Brasilian)">br</a>-->	</div>
@@ -123,7 +123,7 @@ function show(divnum){
 	</div></li>
 	<li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
 	<div id="dli2">
-		<a href="/news/" title="новости сайта">Новости</a>
+		<%= link_to_unless_current t('news'), '/' + h(params[:locale]) + '/news', :title => t('news_title')  %>
 	</div></li>
 	<li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">
 	<div id="dli3">

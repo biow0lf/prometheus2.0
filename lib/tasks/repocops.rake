@@ -2,19 +2,21 @@ require 'open-uri'
 
 namespace :sisyphus do
 desc "Import repocop reports to database"
-task :repocop => :environment do
+task :repocops => :environment do
   puts "import repocop reports"
   puts Time.now
 
   Repocop.transaction do
     Repocop.delete_all
 
+    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+
     url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt"
     f = open(URI.escape(url)).read
 
     f.each_line do |line|
 
-      srpm = Srpm.find :first, :select => "id", :conditions => { :branch => 'Sisyphus', :name => line.split('|||')[4] }
+      srpm = Srpm.find :first, :select => "id", :conditions => { :branch_id => branch.id, :name => line.split('|||')[4] }
       if srpm != nil
         Repocop.create(:srpm_id    => srpm.id,
                        :name       => line.split('|||')[0],

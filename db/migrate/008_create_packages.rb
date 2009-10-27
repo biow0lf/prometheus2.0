@@ -19,7 +19,8 @@ class CreatePackages < ActiveRecord::Migration
       t.string :distribution
       t.datetime :buildtime
       t.string :size
-      t.string :branch
+#      t.string :branch
+      t.integer :branch_id
 
       t.timestamps
     end

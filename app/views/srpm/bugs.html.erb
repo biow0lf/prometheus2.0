@@ -1,5 +1,5 @@
-<% srpm_count @package_counter %>
-<% title "Sisyphus 2.0 - Package " + h(params[:name]) + " - Bugs" %>
+<% srpm_count @sisyphus.srpms.all.count %>
+<% title "Prometheus 2.0 - Package " + h(params[:name]) + " - Bugs" %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(params[:name]) + "/bugs" %>
 
 <!--
@@ -79,7 +79,7 @@ Other repositories
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>" class="news" title="information about SRPM">Main</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/changelog" class="news" title="full changelog">Changelog</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/spec" class="news" title="spec">Spec</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/patches" class="news" title="patches">Patches</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/sources" class="news" title="Sources">Sources</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/get" class="news" title="download latest version">Download</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/gear" class="news" title="this package in gear repositories">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Bugs and FR</b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/repocop" class="news" title="Repocop bugreport">Repocop</a>&nbsp;</span><p class="news" /><br />
 
-<b>Total:</b> <%=h @allbugs.size %> (<span style='color:red'><%=h @bugs.size %></span>|<%=h @allbugs.size - @bugs.size %>)
+<b>Total:</b> <%=h @allbugs.count %> (<span style='color:red'><%=h @bugs.count %></span>|<%=h @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
 <span class="tabsel">&nbsp;open&nbsp;</span>

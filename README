@@ -5,7 +5,15 @@
 Install:
 * Ruby 1.9
 * Ruby on Rails 2.3.4
-* PostgreSQL (with other databases it doesn't tested)
+* PostgreSQL 8.3 (with other databases it doesn't tested)
+
+Or, under ALT Linux Sisyphus:
+* apt-get install postgresql8.3
+* apt-get install postgresql8.3-server
+* apt-get install ruby
+* apt-get install ruby-rails
+* apt-get install ruby-activerecord-postgresql-adapter
+* apt-get install ruby-activerecord-sqlite3-adapter (for tests)
 
 Init database:
 * rake db:create
@@ -13,10 +21,10 @@ Init database:
 * rake db:seed
 * rake sisyphus:groups
 * rake sisyphus:srpms
+* rake sisyphus:acls
 * rake sisyphus:bugs
 * rake sisyphus:gitrepos
-* rake sisyphus:acls
-* rake sisyphus:repocop
+* rake sisyphus:repocops
 * rake sisyphus:leaders
 * rake sisyphus:teams
 
