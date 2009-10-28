@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
+  init_gettext "prometheus"
+
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
     params[:locale] = 'en' if params[:locale].nil?
