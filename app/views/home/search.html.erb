@@ -1,22 +1,22 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Search" %>
+<% title _("Prometheus 2.0 - Search") %>
 
-<div class="header" style="letter-spacing:1px;">Поиск по сайту</div>
+<div class="header" style="letter-spacing:1px;"><%=h _("Search") %></div>
 <p class="break">
 <form name="findonsite" action="/find.shtml" method=GET>
 <input type="text" name="request" value="<%=h params[:request] %>" size="20">
-<input type="submit" class="top-go" id="subOn" value="искать" onmouseover="m_on('subOn')"  onmouseout="m_off('subOn')">
+<input type="submit" class="top-go" id="subOn" value="<%=h _("search") %>" onmouseover="m_on('subOn')"  onmouseout="m_off('subOn')">
 </form>
 <br /><br />
-По запросу &quot;<b><%=h params[:request] %></b>&quot; было найдено <b><%=h @srpms_count %></b> пакетов:
+<%=h _("On your query") %> &quot;<b><%=h params[:request] %></b>&quot; <%=h _("were found") %> <b><%=h @srpms_count %></b> <%=h _("RPMs:") %>
 
 <p class="break"><br />
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
-<th>пакет</th>
-<th>текущая<br />версия</th>
-<th>сборщик</th>
-<th>о пакете</th>
+  <th><%=h _("package") %></th>
+  <th><%= _("current<br />version") %></th>
+  <th><%=h _("packager") %></th>
+  <th><%=h _("summary") %></th>
 </tr>
 
 <% @srpms.each do |s| %>
