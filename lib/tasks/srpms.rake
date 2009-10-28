@@ -7,8 +7,7 @@ task :srpms => :environment do
 
   branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus'}
 
-#  Dir.glob("/path/to/*.src.rpm").each do |f|
-  Dir.glob("/media/sdb7/Sisyphus/Sisyphus/files/SRPMS/*.src.rpm").each do |f|
+  Dir.glob(branch.srpms_path).each do |f|
   begin
     r = RPM::Package::open(f)
     srpm = Srpm.new

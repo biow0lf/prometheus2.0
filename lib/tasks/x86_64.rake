@@ -7,8 +7,7 @@ task :x86_64 => :environment do
 
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 
-#  Dir.glob("/path/to/*.x86_64.rpm").each do |f|
-  Dir.glob("/media/sdb7/Sisyphus/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm").each do |f|
+  Dir.glob(branch.binary_x86_64_path).each do |f|
   begin
     r = RPM::Package::open(f)
     package = Package.new

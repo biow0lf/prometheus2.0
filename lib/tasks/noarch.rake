@@ -7,8 +7,7 @@ task :noarch => :environment do
 
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 
-#  Dir.glob("/path/to/*.noarch.rpm").each do |f|
-  Dir.glob("/media/sdb7/Sisyphus/Sisyphus/files/noarch/RPMS/*.noarch.rpm").each do |f|
+  Dir.glob(branch.noarch_path).each do |f|
   begin
     r = RPM::Package::open(f)
     package = Package.new
