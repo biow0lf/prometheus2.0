@@ -9,6 +9,10 @@ class CreateAcls < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :acls, :branch_id
+    add_index :acls, :packager_id
+    add_index :acls, :srpm_id
   end
 
   def self.down

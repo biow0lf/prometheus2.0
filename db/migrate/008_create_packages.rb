@@ -7,7 +7,6 @@ class CreatePackages < ActiveRecord::Migration
       t.string :version
       t.string :release
       t.string :group
-#      t.integer :group_id
       t.integer :packager_id
       t.string :epoch
       t.string :arch
@@ -19,11 +18,13 @@ class CreatePackages < ActiveRecord::Migration
       t.string :distribution
       t.datetime :buildtime
       t.string :size
-#      t.string :branch
       t.integer :branch_id
 
       t.timestamps
     end
+
+    add_index :packages, :packager_id
+    add_index :packages, :branch_id
   end
 
   def self.down

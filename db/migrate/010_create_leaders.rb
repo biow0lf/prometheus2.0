@@ -3,11 +3,12 @@ class CreateLeaders < ActiveRecord::Migration
     create_table :leaders do |t|
       t.string :package
       t.string :login
-      #t.string :branch
       t.integer :branch_id
 
       t.timestamps
     end
+
+    add_index :leaders, :branch_id
   end
 
   def self.down
