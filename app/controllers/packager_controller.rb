@@ -3,16 +3,16 @@ class PackagerController < ApplicationController
 
   def info
     @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    #@branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
                                 :team => false }
-    @acl = Acl.find :all,
-                    :select => 'package',
-                    :conditions => {
-                      :login => params[:login],
-                      :branch_id => @branch.id }
+#    @acl = Acl.find :all,
+#                    :select => 'package',
+#                    :conditions => {
+#                      :login => params[:login],
+#                      :branch_id => @branch.id }
     if @packager == nil
       render :action => "nosuchpackager"
     end
