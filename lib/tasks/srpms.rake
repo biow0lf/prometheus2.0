@@ -24,6 +24,7 @@ task :srpms => :environment do
 
     packager = r[1015]
     packager_name = packager.split('<')[0].chomp
+    packager_name.strip!
     packager_email = packager.chop.split('<')[1]
 
     packager_email = packager_email.downcase
