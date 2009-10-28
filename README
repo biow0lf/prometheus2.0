@@ -4,6 +4,7 @@
 
 Install:
 * Ruby 1.9
+* ruby-rpm
 * Ruby on Rails 2.3.4
 * PostgreSQL 8.3 (with other databases it doesn't tested)
 
@@ -11,6 +12,7 @@ Or, under ALT Linux Sisyphus:
 * apt-get install postgresql8.3
 * apt-get install postgresql8.3-server
 * apt-get install ruby
+* apt-get install ruby-rpm
 * apt-get install ruby-rails
 * apt-get install ruby-activerecord-postgresql-adapter
 * apt-get install ruby-activerecord-sqlite3-adapter (for tests)
@@ -27,6 +29,9 @@ Init database:
 * rake sisyphus:repocops
 * rake sisyphus:leaders
 * rake sisyphus:teams
+* rake sisyphus:i586
+* rake sisyphus:noarch
+* rake sisyphus:x86_64
 
 == LICENSE:
 
