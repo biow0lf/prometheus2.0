@@ -19,6 +19,8 @@ class CreateSrpms < ActiveRecord::Migration
       t.integer :branch_id
       t.binary :rawspec
 
+      t.boolean :fresh, :default => false
+
       t.timestamps
     end
 
@@ -26,6 +28,7 @@ class CreateSrpms < ActiveRecord::Migration
     add_index :srpms, :group_id
     add_index :srpms, :packager_id
     add_index :srpms, :branch_id
+    add_index :srpms, :fresh
   end
 
   def self.down
