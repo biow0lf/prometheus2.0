@@ -1,5 +1,5 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Package " + h(@srpm.name) %>
+<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) %>
 <% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) %>
 
 <div id="rightbar">
@@ -28,8 +28,8 @@
 
 <div style="height:3em;">
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group.name %></b><br />
-        <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
+        <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group.name %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%=h @srpm.name %></div>
     </div>
 
 <!--
@@ -65,20 +65,19 @@
 </div>
 <div>
 <p class="break" />
-<span class="current">&nbsp;<b><%=h t('srpm.main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h t('srpm.changelog_title') %>"><%=h t('srpm.changelog') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/spec" class="news" title="<%=h t('srpm.spec_title') %>"><%=h t('srpm.spec') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/patches" class="news" title="<%=h t('srpm.patches_title') %>"><%=h t('srpm.patches') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/sources" class="news" title="<%=h t('srpm.sources_title') %>"><%=h t('srpm.sources') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/get" class="news" title="<%=h t('srpm.download_title') %>"><%=h t('srpm.download') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/gear" class="news" title="<%=h t('srpm.gear_title') %>"><%=h t('srpm.gear') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h t('srpm.bugsandfr_title') %>"><%=h t('srpm.bugsandfr') %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h t('srpm.repocop_title') %>"><%=h t('srpm.repocop') %></a>&nbsp;</span><p class="news" />
-<b><%=h t('srpm.curversion') %>:</b> <span style="text-decoration:underline"><%=h @srpm.version %>-<%=h @srpm.release %></span><br />
-
-<b><%=h t('srpm.builddate') %>:</b> <%=h @srpm.buildtime %> (<%=h time_ago_in_words(@srpm.buildtime) %> <%= t 'ago' %>)<br />
-<b><%=h t('srpm.size') %>:</b> <%= number_to_human_size(@srpm.size) %><br /><br />
+<span class="current">&nbsp;<b><%=h _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/patches" class="news" title="<%=h t('srpm.patches_title') %>"><%=h t('srpm.patches') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/sources" class="news" title="<%=h t('srpm.sources_title') %>"><%=h t('srpm.sources') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/get" class="news" title="<%=h t('srpm.download_title') %>"><%=h t('srpm.download') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/gear" class="news" title="<%=h t('srpm.gear_title') %>"><%=h t('srpm.gear') %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h t('srpm.bugsandfr_title') %>"><%=h t('srpm.bugsandfr') %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h t('srpm.repocop_title') %>"><%=h t('srpm.repocop') %></a>&nbsp;</span><p class="news" />
+<b><%=h _("Current version:") %></b> <span style="text-decoration:underline"><%=h @srpm.version %>-<%=h @srpm.release %></span><br />
+<b><%=h _("Build date:") %></b> <%=h @srpm.buildtime %> (<%=h time_ago_in_words(@srpm.buildtime) %> <%= _("ago") %>)<br />
+<b><%=h _("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
 
 <% if @srpm.url != nil %>
-<b><%=h t('srpm.homepage') %>:</b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news' %><br /><br />
+<b><%=h _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news' %><br /><br />
 <% end %>
 
-<b><%=h t('srpm.license') %>:</b> <span class="news-text"><%=h @srpm.license %></span><br />
+<b><%=h _("License:") %></b> <span class="news-text"><%=h @srpm.license %></span><br />
 
-<b><%=h t('srpm.summary') %>:</b> <span class="news-text"><%=h @srpm.summary %></span><br />
-<b><%=h t('srpm.description') %>:</b> <div class="para"><%= simple_format @srpm.description %></div>
+<b><%=h _("Summary:") %></b> <span class="news-text"><%=h @srpm.summary %></span><br />
+<b><%=h _("Description:") %></b> <div class="para"><%= simple_format @srpm.description %></div>
 <p class="news" />
 <% if @packager != nil %>
 <div class="maintainer"><b><%=h t('srpm.curmaintainer') %>:</b>
@@ -91,7 +90,7 @@
 
 <% if params[:branch] == 'Sisyphus' %>
 
-<b><%= t('srpm.contributors') %>:</b>
+<b><%= _("List of contributors:") %></b>
 
 <div class="para" style="margin-left: 0em;">
   <ul>
@@ -100,7 +99,7 @@
 </div>
 <p class="news" />
 
-<b><%=h t('srpm.listrpms') %>:</b>
+<b><%=h _("List of rpms provided by this srpm:") %></b>
 
 <div class="para" style="margin-left: 0em;">
 <ul>
@@ -109,7 +108,7 @@
 <% end %>
 </ul></div>
 
-<b><%=h t('srpm.acl') %>:</b>
+<b><%=h _("ACL:") %></b>
 
 <div class="para" style="margin-left: 0em;">
   <ul>
