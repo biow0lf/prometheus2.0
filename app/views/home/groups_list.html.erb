@@ -25,11 +25,11 @@ function showGrp(dirid){
 <p class="break" />
 
 <div style="font-size:12pt;">
-<% @groups.each do |g| %>
+<% @groups.each do |group| %>
 
-<!--<div class="groupname"><b><%= link_to h(g.name), '/' + h(params[:locale]) + '/packages/' + h(g.name) %></b></div>-->
+<!--<div class="groupname"><b><%= link_to h(group.name), '/' + h(params[:locale]) + '/packages/' + h(group.name) %></b></div>-->
 
-<%= link_to h(g.name), '/' + h(params[:locale]) + '/packages/' + h(g.name), :class => 'news', :style => 'margin-left:14px;' %> (<%=h g.counter %>)<br />
+<%= link_to h(group.name), '/' + h(params[:locale]) + '/packages/' + h(group.name), :class => 'news', :style => 'margin-left:14px;' %> (<%=h group.counter %>)<br />
 
 <% end %>
 
