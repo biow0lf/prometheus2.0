@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title><%= yield(:title) || "Prometheus 2.0" %></title>
+  <title><%= yield(:title) || _("Prometheus 2.0") %></title>
 
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta name="description" content="ALT Linux Team - Sisyphus packages info" />
@@ -78,115 +78,103 @@ function show(divnum){
 }
 -->
 </script>
-
 </head>
 <body>
 <div id="top">
-	<div id="top-logo">
-		<a href="http://www.altlinux.org/"><img src="/images/altlinux.gif" style="border:0"
-		alt="ALT Linux Team - wiki" title="ALT Linux Team - wiki" /></a>
-	</div>
-	<div id="top-menu">
-		Репозиторий Sisyphus
-	</div>
-	<div id="top-auth">
-        <div id="div1" style="display:block;margin-top:20px;">
-        <form action="/find.shtml" method="get">
+  <div id="top-logo">
+    <a href="http://www.altlinux.org/"><img src="/images/altlinux.gif" style="border:0" alt="ALT Linux Team - wiki" title="ALT Linux Team - wiki" /></a>
+  </div>
+  <div id="top-menu">
+    Репозиторий Sisyphus
+  </div>
+  <div id="top-auth">
+    <div id="div1" style="display:block;margin-top:20px;">
+      <form action="/find.shtml" method="get">
         <table>
-        <tr>
-        <td>
-		<input class="top-name" type="text" name="request" value="" size="18" />
-	</td><td valign="middle">
-            	<input type="submit" class="top-go" id="sub1" value="искать" onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
-	</td>
-	</tr>
+          <tr>
+            <td>
+              <input class="top-name" type="text" name="request" value="" size="18" />
+            </td>
+            <td valign="middle">
+              <input type="submit" class="top-go" id="sub1" value="<%=h _("find") %>" onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
+            </td>
+          </tr>
         </table>
-        </form>
-        </div>
-	</div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <div id="top-line">
   <div id="vinfo">
-    	<b>Последнее обновление:</b> 25 сентября 2009 | <b>Пакетов: <%= yield(:srpms_counter) || "broken :)" %></b>
-    </div>
+    <b><%=h _("Last update:") %></b> 25 сентября 2009 | <b><%=h _("SRPMs:") %> <%= yield(:srpms_counter) || "broken :)" %></b>
+  </div>
 
-		<div align="right">	<a href="/en<%= yield(:url) %>" title="English">en</a>	<a href="/ru<%= yield(:url) %>" title="Russian">ru</a>	<!--<a href="/br<%= yield(:url) %>" title="Portuguese (Brasilian)">br</a>-->	</div>
+  <div align="right">	<a href="/en<%= yield(:url) %>" title="English">en</a>	<a href="/ru<%= yield(:url) %>" title="Russian">ru</a>	<!--<a href="/br<%= yield(:url) %>" title="Portuguese (Brasilian)">br</a>-->	</div>
 
 </div>
 
 <div id="menu" style="text-align:center">
-    <ul>
-	<li onmouseover="m_on('li1')" onmouseout="m_off('li1')" id="li1">
-	<div id="dli1">
-	    <a href="/"  title="главная страница сайта">Главная</a>
-	</div></li>
-	<li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
-	<div id="dli2">
-		<%= link_to_unless_current t('news'), '/' + h(params[:locale]) + '/news', :title => t('news_title')  %>
-	</div></li>
-	<li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">
-	<div id="dli3">
-		<a href="/packages/" title="информация о пакетах">Пакеты</a>
-	</div></li>
-	<li onmouseover="m_on('li4')" onmouseout="m_off('li4')" id="li4">
-	<div id="dli4">
-		<a href="/people/" title="информация о майнтейнерах">Маинтейнеры</a>
-	</div></li>
-	<li onmouseover="m_on('li5')" onmouseout="m_off('li5')" id="li5">
-	<div id="dli5">
-		<a href="/security/" title="Security fixes">Security</a>
-	</div></li>
-	<li onmouseover="m_on('li6')" onmouseout="m_off('li6')" id="li6">
-	<div id="dli6">
-		<a href="/project/" title="проект Prometeus">О проекте</a>
-	</div></li>
-        <li onmouseover="m_on('li7')" onmouseout="m_off('li7')" id="li7">
-        <div id="dli7">
-                <a href="/rss/" title="RSS">RSS</a>
-        </div></li>
-        <li onmouseover="m_on('li8')" onmouseout="m_off('li8')" id="li8">
-        <div id="dli8">
-                <a href="http://www.altlinux.org/Sisyphus" title="общественный сайт sisyphus">Wiki</a>
-        </div></li>
-        <li onmouseover="m_on('li9')" onmouseout="m_off('li9')" id="li9">
-        <div id="dli9">
-                <a href="http://www.livejournal.com/userinfo.bml?user=ru_sisyphus" title="блог о sisyphus">Блог</a>
-        </div></li>
-        <li onmouseover="m_on('li10')" onmouseout="m_off('li10')" id="li10">
-        <div id="dli10">
-                <a href="http://lists.altlinux.org/mailman/listinfo/sisyphus/" title="sisyphus@">Рассылка</a>
-        </div></li>
-    </ul>
-    <a href="http://awards.cnews.ru/2007/#awards11"><img src="/images/cnews.jpg" width="142" height="141" alt="CNews Awards 2007" title="CNews Awards 2007" style="border: 0px" /></a>
+  <ul>
+    <li onmouseover="m_on('li1')" onmouseout="m_off('li1')" id="li1">
+      <div id="dli1">
+        <%= link_to_unless_current _("Home"), '/' + h(params[:locale]), :title => _("site home page") %>
+      </div>
+    </li>
+    <li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
+      <div id="dli2">
+        <%= link_to_unless_current _("News"), '/' + h(params[:locale]) + '/news', :title => _("site news") %>
+      </div>
+    </li>
+    <li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">
+      <div id="dli3">
+        <%= link_to_unless_current _("Packages"), '/' + h(params[:locale]) + '/packages', :title => _("packages information") %>
+      </div>
+    </li>
+    <li onmouseover="m_on('li4')" onmouseout="m_off('li4')" id="li4">
+      <div id="dli4">
+        <%= link_to_unless_current _("Maintainers"), '/' + h(params[:locale]) + '/people', :title => _("maintainers information") %>
+      </div>
+    </li>
+    <li onmouseover="m_on('li5')" onmouseout="m_off('li5')" id="li5">
+      <div id="dli5">
+        <%= link_to_unless_current _("Security"), '/' + h(params[:locale]) + '/security', :title => _("security fixes") %>
+      </div>
+    </li>
+    <li onmouseover="m_on('li6')" onmouseout="m_off('li6')" id="li6">
+      <div id="dli6">
+        <%= link_to_unless_current _("About"), '/' + h(params[:locale]) + '/project', :title => _("about Prometeus project") %>
+      </div>
+    </li>
+    <li onmouseover="m_on('li7')" onmouseout="m_off('li7')" id="li7">
+      <div id="dli7">
+        <a href="/rss/" title="RSS">RSS</a>
+      </div>
+    </li>
+    <li onmouseover="m_on('li8')" onmouseout="m_off('li8')" id="li8">
+      <div id="dli8">
+        <%=h link_to_unless_current _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :title => _("sisyphus public site") %>
+      </div>
+    </li>
+<!--
+    <li onmouseover="m_on('li9')" onmouseout="m_off('li9')" id="li9">
+      <div id="dli9">
+        <a href="http://www.livejournal.com/userinfo.bml?user=ru_sisyphus" title="блог о sisyphus">Блог</a>
+      </div>
+    </li>
+-->
+    <li onmouseover="m_on('li10')" onmouseout="m_off('li10')" id="li10">
+      <div id="dli10">
+        <%= link_to_unless_current _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :title => _("community-en@") %>
+      </div>
+    </li>
+  </ul>
+  <a href="http://awards.cnews.ru/2007/#awards11"><img src="/images/cnews.jpg" width="142" height="141" alt="CNews Awards 2007" title="CNews Awards 2007" style="border: 0px" /></a>
 </div>
 <div id="main-offset">
-		<div id="main-content">
+  <div id="main-content">
 
 <!--
-<div class="header"><h1><%= link_to_unless_current 'Sisyphus 2.0 beta', '/' %></h1></div>
--->
-<!--
-<div class="sidebar">
-  <ul>
-    <li><%= link_to_unless_current t('home'), '/' + h(params[:locale]) %></li>
-    <li><%= link_to_unless_current t('news'), '/' + h(params[:locale]) + '/news'  %></li>
-    <li><%= link_to_unless_current t('packages'), '/' + h(params[:locale]) + '/packages' %></li>
-    <li><%= link_to_unless_current t('maintainers'), '/' + h(params[:locale]) + '/people' %></li>
-    <li><%= link_to_unless_current t('security'), '/' + h(params[:locale]) + '/security' %></li>
-    <li><%= link_to_unless_current t('about'), '/' + h(params[:locale]) + '/project' %></li>
-    <li><%= link_to_unless_current t('rss'), '/' + h(params[:locale]) + '/rss' %></li>
-    <li><%= link_to t('wiki'), 'http://en.altlinux.org/Sisyphus' %></li>
-    <li><%= link_to t('blog'), 'http://www.livejournal.com/userinfo.bml?user=ru_sisyphus' %></li>
-    <li><%= link_to t('mailinglist'), 'http://lists.altlinux.org/mailman/listinfo/sisyphus/' %></li>
-  </ul>
-</div>
--->
-<!--
-<div class="sidebar2">
-<a href="/en<%= yield(:url) %>">English</a><br />
-<a href="/ru<%= yield(:url) %>">Русский</a>
-</div>
 
 <div class="search">
 <% form_tag '/' + params[:locale] + '/search', :method => 'get' do %>
@@ -204,8 +192,8 @@ function show(divnum){
 <!--#endif -->
 </div>
 <div id="bottom">
-	design &amp; coding: <a href="mailto:crux@gorodmasterov.com" class="news">Vladimir Lettiev aka crux</a> &copy; 2004-2005<br />
-	current maintainer: <a href="mailto:liks@altlinux.org" class="news">Andrew Avramenko aka liks</a> &copy; 2007-2008
+  design &amp; coding: <a href="mailto:crux@gorodmasterov.com" class="news">Vladimir Lettiev aka crux</a> &copy; 2004-2005<br />
+  current maintainer: <a href="mailto:liks@altlinux.org" class="news">Andrew Avramenko aka liks</a> &copy; 2007-2008
 </div>
 
 <script type="text/javascript">
@@ -214,7 +202,7 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 </script>
 <script type="text/javascript">
 try {
-var pageTracker = _gat._getTracker("UA-10303675-1");
+var pageTracker = _gat._getTracker("UA-11318937-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
 
