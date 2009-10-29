@@ -1,18 +1,18 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Group - " + h(params[:group]) + '/' + h(params[:group2]) %>
+<% title _("Prometheus 2.0 - Group - ") + h(params[:group]) + '/' + h(params[:group2]) %>
 <% url "/packages/" + h(params[:group]) + '/' + h(params[:group2]) %>
 
-<div class="header">Group :: <%=h params[:group] %>/<%=h params[:group2] %></div><p class="news" />
+<div class="header"><%=h _("Group") %> :: <%=h params[:group] %>/<%=h params[:group2] %></div><p class="news" />
 
 <% @group.srpms.each do |srpm| %>
 <p class="news" />
-<span class="news-date-new"><%= link_to h(srpm.name), '/' + h(params[:locale])  + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about the package' %>
+<span class="news-date-new"><%= link_to h(srpm.name), '/' + h(params[:locale])  + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => _("detailed information about the package") -%>
 </span><br /><br />
-<b>Maintainer: </b><% if srpm.packager.team == true %><%= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/team/' + h(srpm.packager.login)[1..-1], :class => 'news' %> <% else %> <%= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/packager/' + h(srpm.packager.login), :class => 'news' %><% end %><br />
-<b>Current version:</b> <span class="news-text"><%=h srpm.version %>-<%=h srpm.release %></span><br />
-<b>Build time:</b> <span class="news-text"><%=h srpm.buildtime %> (<%=h time_ago_in_words(srpm.buildtime) %> <%= t 'ago' %>)</span><br />
-<b>Summary:</b> <span class="news-text"><%=h srpm.summary %></span><br />
+<b><%=h _("Maintainer:") %></b><% if srpm.packager.team == true %><%= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/team/' + h(srpm.packager.login)[1..-1], :class => 'news' %> <% else %> <%= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/packager/' + h(srpm.packager.login), :class => 'news' %><% end %><br />
+<b><%=h _("Current version:") %></b> <span class="news-text"><%=h srpm.version %>-<%=h srpm.release %></span><br />
+<b><%=h _("Build time:") %></b> <span class="news-text"><%=h srpm.buildtime %> (<%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>)</span><br />
+<b><%=h _("Summary:") %></b> <span class="news-text"><%=h srpm.summary %></span><br />
 
-<b>Changes:</b> <div class="para">TODO</div>
+<b><%=h _("Changes:") %></b> <div class="para">TODO</div>
 
 <% end %>
