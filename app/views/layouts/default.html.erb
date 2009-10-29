@@ -89,7 +89,7 @@ function show(divnum){
   </div>
   <div id="top-auth">
     <div id="div1" style="display:block;margin-top:20px;">
-      <form action="/find.shtml" method="get">
+      <form action="/<%=h params[:locale] %>/find.shtml" method="get">
         <table>
           <tr>
             <td>
@@ -156,13 +156,13 @@ function show(divnum){
         <%= link_to_unless_current _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :title => _("sisyphus public site") %>
       </div>
     </li>
-<!--
+<% if params[:locale] == 'ru' %>
     <li onmouseover="m_on('li9')" onmouseout="m_off('li9')" id="li9">
       <div id="dli9">
         <a href="http://www.livejournal.com/userinfo.bml?user=ru_sisyphus" title="блог о sisyphus">Блог</a>
       </div>
     </li>
--->
+<% end %>
     <li onmouseover="m_on('li10')" onmouseout="m_off('li10')" id="li10">
       <div id="dli10">
         <%= link_to_unless_current _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :title => _("community-en@") %>
@@ -177,7 +177,7 @@ function show(divnum){
 <!--
 
 <div class="search">
-<% form_tag '/' + params[:locale] + '/search', :method => 'get' do %>
+<% form_tag '/' + h(params[:locale]) + '/search', :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search], :size => 15 %>
     <%= submit_tag "Search", :name => nil %>
