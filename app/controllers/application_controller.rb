@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   init_gettext "prometheus"
-  set_locale 'en'
 
   def set_loc
     I18n.locale = params[:locale]
+    params[:locale] = 'en' if params[:locale].nil?
     set_locale params[:locale]
   end
 
