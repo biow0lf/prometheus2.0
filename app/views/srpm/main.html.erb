@@ -80,7 +80,7 @@
 <b><%=h _("Description:") %></b> <div class="para"><%= simple_format @srpm.description %></div>
 <p class="news" />
 <% if @packager != nil %>
-<div class="maintainer"><b><%=h t('srpm.curmaintainer') %>:</b>
+<div class="maintainer"><b><%=h _("Current maintainer:") %></b>
 <% if @packager.team == true %>
   <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/team/' + h(@packager.login[1..-1]), :class => 'news', :title => 'information about maintainer' %><br /><br />
 <% else %>
