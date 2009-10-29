@@ -1,16 +1,16 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Team &laquo;" + @team.login[1..-1] + "&raquo;" %>
-<% url "/team/" + h(@team.login) %>
+<% title _("Prometheus 2.0 - Team &laquo;") + h(@team.login[1..-1]) + _("&raquo;") %>
+<% url "/team/" + h(@team.login[1..-1]) %>
 
-<div class="header">Команда: <%=h @team.name %></div>
+<div class="header"><%=h _("Team:") %> <%=h @team.name %></div>
 <p class="break" />
-<b>Информация: </b><div class="para">  </div>
+<b><%=h _("Information:") %></b> <div class="para">  </div>
 <p class="break" />
 <% if @leader != nil %>
-<b>Team leader: </b><%=h @leader.login %>
+<b><%=h _("Team leader:") %></b> <%=h @leader.login %>
 <p class="break" />
 <% end %>
-<b>Участники команды: </b>
+<b><%=h _("Team members:") %></b>
 <ul>
   <% @members.each do |member| %>
     <li><%=h member.login %></li>
@@ -19,56 +19,57 @@
 
 <p class="break" />
 
-<b>List of packages:</b> [ <%=h @team.srpms.count %> ]<br /><br />
+<b><%=h _("List of packages:") %></b> [ <%=h @team.srpms.count %> ]<br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
-<tr>
-<th>repo<br/>cop<br/>
-<a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
-</th>
-<th>&nbsp; пакет &nbsp;<br />
-<a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
-</th>
-<th>текущая<br />версия</th>
-<th>время сборки</th>
-<th>возраст,<br /><i>недель</i><br />
-<a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
-</th>
-<th>Url</th>
-<th>О пакете</th>
-</tr>
+  <tr>
+    <th>
+      <%= _("repo<br/>cop") %><br/>
+      <a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
+    </th>
+    <th>
+      <%=h _("package") %><br />
+      <a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+    </th>
+    <th><%= _("current<br />version") %></th>
+    <th><%=h _("build time") %></th>
+    <th><%=h _("age") %><br />
+      <a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+    </th>
+    <th><%=h _("Url") %></th>
+    <th><%=h _("Summary") %></th>
+  </tr>
 
-<% @team.srpms.each do |srpm| %>
-<tr>
-<td>
-<% repocop_status = 'skip' %>
-<% srpm.repocops.each do |repocop| %>
-<% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'fail' if repocop.status == 'fail' %>
-<% end %>
-  <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
-</td>
-<td class="strange">
-  <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
-</td>
-<td><%=h srpm.version %>-<%=h srpm.release %></td>
-<td>
-  <%=h srpm.buildtime %>
-</td>
-<td>
-  <%=h time_ago_in_words(srpm.buildtime) %> <%= t 'ago' %>
-</td>
-<td>
-  <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
-</td>
-<td style="text-align:left;">
-  <%=h srpm.summary %>
-</td>
-</tr>
-
-<% end %>
+  <% @team.srpms.each do |srpm| %>
+  <tr>
+    <td>
+      <% repocop_status = 'skip' %>
+      <% srpm.repocops.each do |repocop| %>
+        <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'fail' if repocop.status == 'fail' %>
+      <% end %>
+      <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+    </td>
+    <td class="strange">
+      <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
+    </td>
+    <td><%=h srpm.version %>-<%=h srpm.release %></td>
+    <td>
+      <%=h srpm.buildtime %>
+    </td>
+    <td>
+      <%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>
+    </td>
+    <td>
+      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
+    </td>
+    <td style="text-align:left;">
+      <%=h srpm.summary %>
+    </td>
+  </tr>
+  <% end %>
 
 </table>

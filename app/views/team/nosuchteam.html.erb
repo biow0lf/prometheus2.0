@@ -1,5 +1,5 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Team - error! no such team" %>
+<% title _("Prometheus 2.0 - Team - Error!") %>
 <% url "/team/" + h(params[:name]) %>
 
-<div class="header">Нет такой команды!</div>
+<div class="header"><%=h _("No such team!") %></div>
