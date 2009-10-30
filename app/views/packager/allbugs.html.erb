@@ -2,39 +2,39 @@
 <% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Bugs and FR (All)") %>
 <% url "/packager/" + h(@packager.login) + "/allbugs" %>
 
-<div class="header">Майнтейнер: <%=h @packager.name %></div>
+<div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере">Информация</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="просмотреть пакеты, собранные майнтейнером">Пакеты</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Bugs and FR</b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="news" /><br />
-<b>Всего записей:</b> <%=h @allbugs.count %> (<span style='color:red'><%=h @bugs.count %></span>|<%=h @allbugs.count - @bugs.count %>)
+<b><%=h _("Total records:") %></b> <%=h @allbugs.count %> (<span style='color:red'><%=h @bugs.count %></span>|<%=h @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabunsel">&nbsp;<%= link_to t('packager.bugs.bugs'), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/bugs', :class => 'news' %>&nbsp;</span>
-<span class="tabsel">&nbsp;все баги&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _("open"), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/bugs', :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;<%=h _("total") %>&nbsp;</span>
 </div>
+
 <table id="bugs" cellspacing="0" cellpadding="3">
+  <tr>
+    <th><%=h _("id") %></th>
+    <th><%=h _("package") %></th>
+    <th><%=h _("severity") %></th>
+    <th><%=h _("status") %></th>
+    <th><%=h _("resolution") %></th>
+    <th><%=h _("reporter") %></th>
+    <th><%=h _("summary") %></th>
+  </tr>
 
-<tr>
-<th>id</th>
-<th>пакет</th>
-<th>серьёзность</th>
-<th>статус</th>
-<th>разрешение</th>
-<th>сообщено</th>
-<th>описание</th>
-</tr>
-
-<% @allbugs.each do |b| %>
-<tr>
-  <td>
-    <%= link_to h(b.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(b.bug_id), :class => 'news' %>
-  </td>
-  <td><%=h b.component %></td>
-  <td><%=h b.bug_severity %></td>
-  <td><%=h b.bug_status %></td>
-  <td><%=h b.resolution %></td>
-  <td><%=h b.reporter.gsub('@', ' at ') %></td>
-  <td><%=h b.short_desc %></td>
-</tr>
+<% @allbugs.each do |bug| %>
+  <tr>
+    <td>
+      <%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(bug.bug_id), :class => 'news' %>
+    </td>
+    <td><%=h bug.component %></td>
+    <td><%=h bug.bug_severity %></td>
+    <td><%=h bug.bug_status %></td>
+    <td><%=h bug.resolution %></td>
+    <td><%=h bug.reporter.gsub('@', ' at ') %></td>
+    <td><%=h bug.short_desc %></td>
+  </tr>
 <% end %>
 
 </table>
