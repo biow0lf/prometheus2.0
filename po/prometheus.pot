@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-10-30 17:05+0200\n"
+"POT-Creation-Date: 2009-10-30 17:23+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -928,6 +928,22 @@ msgstr ""
 
 #: app/views/layouts/default.html.erb:110
 msgid "SRPMs:"
+msgstr ""
+
+#: app/views/layouts/default.html.erb:113
+msgid "en"
+msgstr ""
+
+#: app/views/layouts/default.html.erb:113
+msgid "English"
+msgstr ""
+
+#: app/views/layouts/default.html.erb:113
+msgid "ru"
+msgstr ""
+
+#: app/views/layouts/default.html.erb:113
+msgid "Russian"
 msgstr ""
 
 #: app/views/layouts/default.html.erb:121
