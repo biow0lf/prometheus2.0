@@ -1,5 +1,5 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Maintainer &laquo;" + @packager.name + "&raquo; - Bugs and FR" %>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Bugs and FR") %>
 <% url "/packager/" + h(@packager.login) + "/bugs" %>
 
 <div class="header">Майнтейнер: <%=h @packager.name %></div>
