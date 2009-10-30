@@ -25,16 +25,22 @@
   <tr>
     <th>
       <%= _("repo<br/>cop") %><br/>
-      <a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
+      <a href="?sort=status&amp;order=desc">
+        <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
+      </a>
     </th>
     <th>
       <%=h _("package") %><br />
-      <a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+      <a href="?sort=name&amp;order=desc">
+        <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" />
+      </a>
     </th>
     <th><%= _("current<br />version") %></th>
     <th><%=h _("build time") %></th>
     <th><%=h _("age") %><br />
-      <a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+      <a href="?sort=age&amp;order=asc">
+        <img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" />
+      </a>
     </th>
     <th><%=h _("Url") %></th>
     <th><%=h _("Summary") %></th>
@@ -51,7 +57,7 @@
         <% status = 'warn' if repocop.status == 'warn' and status != 'fail' %>
         <% status = 'fail' if repocop.status == 'fail' %>
       <% end %>
-      <%= link_to '<img src="/images/' + status + '.png" alt="' + status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+      <%= link_to '<img src="/images/' + status + '.png" alt="' + status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
       <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
