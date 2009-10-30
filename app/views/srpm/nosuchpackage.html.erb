@@ -1,5 +1,5 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Package - error! no such package" %>
+<% title _("Prometheus 2.0 - Package - Error!") %>
 <% url "/srpm/" + h(params[:branch]) + '/' + h(params[:name]) %>
 
-<div class="header">Нет такого пакета!</div>
+<div class="header"><%=h _("No such package!") %></div>

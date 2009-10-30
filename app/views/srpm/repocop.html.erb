@@ -1,5 +1,5 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Package " + h(@srpm.name) + " - Repocop" %>
+<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Repocop") %>
 <% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/repocop" %>
 
 <!--
@@ -43,8 +43,8 @@ Other repositories
 
 <div style="height:3em;"> 
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h t('srpm.group') %> :: <%=h @srpm.group.name %></b><br />
-        <div class="header" style="letter-spacing:1px;">Source RPM: <%=h @srpm.name %></div>
+        <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group.name %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%=h @srpm.name %></div>
     </div>
 <!--    <div id="nav">
     <b>Navigation</b><br />
@@ -81,16 +81,16 @@ Other repositories
 </div>
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
-<th>package id</th>
-<th>status</th>
-<th>test</th>
-<th>message</th>
+<th><%=h _("package id") %></th>
+<th><%=h _("status") %></th>
+<th><%=h _("test") %></th>
+<th><%=h _("message") %></th>
 </tr>
 
 <% @srpm.repocops.each do |repocop| %>
   <% if repocop.status != 'skip' %>
     <tr>
-      <td><%=h repocop.name %></td>
+      <td><%=h repocop.name %>-<%=h repocop.version %>-<%=h repocop.release %>.<%=h repocop.arch %></td>
       <td><img src="/images/<%=h repocop.status %>.png"><br/><%=h repocop.status %></td>
       <td><%=h repocop.testname %></td>
       <td style="text-align:left">

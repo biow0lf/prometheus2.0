@@ -1,5 +1,5 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Package " + h(@srpm.name) + " - Download" %>
+<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Download") %>
 <% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/get" %>
 
 <!--
