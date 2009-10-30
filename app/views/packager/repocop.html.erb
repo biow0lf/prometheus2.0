@@ -1,19 +1,19 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Maintainer &laquo;" + @packager.name + "&raquo; - Repocop" %>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Repocop") %>
 <% url "/packager/" + h(@packager.login) + "/repocop" %>
 
 <div class="header">Maintainer: <%=h @packager.name %></div>
 
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="information about maintainer">Information</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="packages which was built by this maintainer">Packages</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Bugs/FR statstics assigned to this maintainer">Bugs and FR</a>&nbsp;</span><span class="current">&nbsp;<b>Repocop</b>&nbsp;</span><p class="break" />
-<b>Repocop messages:</b><br /><br />
+<b><%=h _("Repocop messages:") %></b><br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
-<th>package</th>
-<th>status</th>
-<th>test</th>
-<th>message</th>
+<th><%=h _("package") %></th>
+<th><%=h _("status") %></th>
+<th><%=h _("test") %></th>
+<th><%=h _("message") %></th>
 </tr>
 
 <% @packager.srpms.each do |srpm| %>
@@ -23,7 +23,7 @@
     <td class="strange">
       <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
     </td>
-    <td><img src="/images/<%=h repocop.status %>.png"><br /><%=h repocop.status %></td>
+    <td><img src="/images/<%=h repocop.status %>.png" alt="<%=h repocop.status %>" /><br /><%=h repocop.status %></td>
     <td><%=h repocop.testname %></td>
     <td style="text-align:left"><%=h repocop.message %></td>
   </tr>
