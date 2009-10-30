@@ -10,15 +10,21 @@
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
     <th><%= _("repo<br/>cop") %><br/>
-      <a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" /></a>
+      <a href="?sort=status&amp;order=desc">
+        <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="<%=h _("sort by repocop status") %>" alt="<%=h _("sort by repocop status") %>" />
+      </a>
     </th>
     <th><%=h _("package") %><br />
-      <a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+      <a href="?sort=name&amp;order=desc">
+        <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="<%=h _("sort by name") %>" alt="<%=h _("sort by name") %>" />
+      </a>
     </th>
     <th><%= _("current<br />version") %></th>
     <th><%=h _("build time") %></th>
     <th><%= _("age") %><br />
-      <a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+      <a href="?sort=age&amp;order=asc">
+        <img src="/images/stock_navigate-next.png" style="border-width:0px" title="<%=h _("sort by age") %>" alt="<%=h _("sort by age") %>" />
+      </a>
     </th>
     <th><%= _("Url") %></th>
     <th><%=h _("Summary") %></th>
