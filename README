@@ -17,6 +17,9 @@ Or, under ALT Linux Sisyphus:
 * apt-get install ruby-activerecord-postgresql-adapter
 * apt-get install ruby-activerecord-sqlite3-adapter (for tests)
 
+Prepare:
+* rake makemo
+
 Init database:
 * rake db:create
 * rake db:migrate
