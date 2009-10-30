@@ -1,67 +1,42 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Maintainer &laquo;" + @packager.name + "&raquo; - Packages" %>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Packages") %>
 <% url "/packager/" + h(@packager.login) + "/srpms" %>
 
-<div class="header">Майнтейнер: <%=h @packager.name %></div>
+<div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере">Информация</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b>Пакеты</b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру">Bugs and FR</a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях">Repocop</a>&nbsp;</span><p class="break" />
-<b>Список пакетов, собранных майнтейнером:</b> [<%=h @packager.acls.count %>] <br /><br />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях"><%=h _("Repocop") %></a>&nbsp;</span><p class="break" />
+<b><%=h _("List of packages which was built by this maintainer:") %></b> [<%=h @packager.acls.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
-<th>repo<br/>cop<br/>
+<th><%= _("repo<br/>cop") %><br/>
 <a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
 </th>
-<th>&nbsp; пакет &nbsp;<br /><a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+<th><%=h _("package") %><br /><a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
 </th>
-<th>текущая<br />версия</th>
-<th>время сборки</th>
-<th>возраст,<br /><i>недель</i><br /><a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+<th><%= _("current<br />version") %></th>
+<th><%=h _("build time") %></th>
+<th><%= _("age") %><br /><a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
 </th>
-<th>Url</th>
-<th>О пакете</th>
+<th><%= _("Url") %></th>
+<th><%=h _("Summary") %></th>
 </tr>
-
-
-<!--
-<tr>
-<td>
-
-	<a class="repocoplink" href="/ru/srpm/Sisyphus/PyPanel/repocop" title="подробный отчет repocop о пакете">
-	<img src="../../../img/ok.png" alt="ok"></a>
-</td>
-<td class="strange">
-	<a class="news" href="/ru/srpm/Sisyphus/PyPanel" title="подробная информация о пакете">PyPanel</a>
-</td><td>
-	2.4-alt4
-</td><td>
-	2 августа 2009, 02:01
-</td><td>
-	6.4
-
-</td><td>
-	<a href="http://pypanel.sourceforge.net/" class="news">http://pypanel.sourceforge.&hellip;</a>
-</td><td style="text-align:left;">
-	Lightweight panel/taskbar for X11 Window Managers
-</td>
-</tr>
--->
 
 <% @packager.srpms.each do |srpm| %>
 <tr>
 <td>
-<% repocop_status = 'skip' %>
-<% srpm.repocops.each do |repocop| %>
-<% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
-<% repocop_status = 'fail' if repocop.status == 'fail' %>
-<% end %>
+  <% repocop_status = 'skip' %>
+  <% srpm.repocops.each do |repocop| %>
+  <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+  <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+  <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+  <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
+  <% repocop_status = 'fail' if repocop.status == 'fail' %>
+  <% end %>
   <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
 </td>
 <td class="strange">
-   <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
+  <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
 </td>
 <td>
   <%=h srpm.version %>-<%=h srpm.release %>
@@ -70,7 +45,7 @@
   <%=h srpm.buildtime %>
 </td>
 <td>
-  <%=h time_ago_in_words(srpm.buildtime) %> <%= t 'ago' %>
+  <%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>
 </td>
 <td>
   <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
