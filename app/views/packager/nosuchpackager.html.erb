@@ -1,5 +1,6 @@
 <% srpm_count @sisyphus.srpms.all.count %>
-<% title "Prometheus 2.0 - Maintainer - error! no such packager" %>
+<% title _("Prometheus 2.0 - Maintainer - Error! no such packager") %>
 <% url "/packager/" + h(params[:login]) %>
 
-<div class="header">Нет такого маинтейнера!</div>
+<div class="header"><%=h _("No such packager!") %></div>
+
