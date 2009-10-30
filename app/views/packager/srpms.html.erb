@@ -8,53 +8,54 @@
 <b><%=h _("List of packages which was built by this maintainer:") %></b> [<%=h @packager.acls.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
-<tr>
-<th><%= _("repo<br/>cop") %><br/>
-<a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" />
-</th>
-<th><%=h _("package") %><br /><a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
-</th>
-<th><%= _("current<br />version") %></th>
-<th><%=h _("build time") %></th>
-<th><%= _("age") %><br /><a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
-</th>
-<th><%= _("Url") %></th>
-<th><%=h _("Summary") %></th>
-</tr>
+  <tr>
+    <th><%= _("repo<br/>cop") %><br/>
+      <a href="?sort=status&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по статусу repocop" alt="сортировать по статусу repocop" /></a>
+    </th>
+    <th><%=h _("package") %><br />
+      <a href="?sort=name&amp;order=desc"><img src="/images/stock_navigate-prev.png" style="border-width:0px" title="сортировать по имени пакета" alt="сортировать по имени пакета" /></a>
+    </th>
+    <th><%= _("current<br />version") %></th>
+    <th><%=h _("build time") %></th>
+    <th><%= _("age") %><br />
+      <a href="?sort=age&amp;order=asc"><img src="/images/stock_navigate-next.png" style="border-width:0px" title="сортировать по возрасту сборки" alt="сортировать по возрасту сборки" /></a>
+    </th>
+    <th><%= _("Url") %></th>
+    <th><%=h _("Summary") %></th>
+  </tr>
 
-<% @packager.srpms.each do |srpm| %>
-<tr>
-<td>
-  <% repocop_status = 'skip' %>
-  <% srpm.repocops.each do |repocop| %>
-  <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-  <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-  <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-  <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
-  <% repocop_status = 'fail' if repocop.status == 'fail' %>
+  <% @packager.srpms.each do |srpm| %>
+  <tr>
+    <td>
+      <% repocop_status = 'skip' %>
+      <% srpm.repocops.each do |repocop| %>
+        <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
+        <% repocop_status = 'fail' if repocop.status == 'fail' %>
+      <% end %>
+      <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+    </td>
+    <td class="strange">
+      <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
+    </td>
+    <td>
+      <%=h srpm.version %>-<%=h srpm.release %>
+    </td>
+    <td>
+      <%=h srpm.buildtime %>
+    </td>
+    <td>
+      <%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>
+    </td>
+    <td>
+      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
+    </td>
+    <td style="text-align:left;">
+      <%=h srpm.summary %>
+    </td>
+  </tr>
   <% end %>
-  <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
-</td>
-<td class="strange">
-  <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
-</td>
-<td>
-  <%=h srpm.version %>-<%=h srpm.release %>
-</td>
-<td>
-  <%=h srpm.buildtime %>
-</td>
-<td>
-  <%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>
-</td>
-<td>
-  <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
-</td>
-<td style="text-align:left;">
-  <%=h srpm.summary %>
-</td>
-</tr>
-<% end %>
 
-</tr>
 </table>
