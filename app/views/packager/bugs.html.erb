@@ -20,16 +20,16 @@
     <th><%=h _("summary") %></th>
   </tr>
 
-<% @bugs.each do |b| %>
+<% @bugs.each do |bug| %>
   <tr>
     <td>
-      <%= link_to h(b.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(b.bug_id), :class => 'news' %>
+      <%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(bug.bug_id), :class => 'news' %>
     </td>
-    <td><%=h b.component %></td>
-    <td><%=h b.bug_severity %></td>
-    <td><%=h b.bug_status %></td>
-    <td><%=h b.reporter.gsub('@', ' at ') %></td>
-    <td><%=h b.short_desc %></td>
+    <td><%=h bug.component %></td>
+    <td><%=h bug.bug_severity %></td>
+    <td><%=h bug.bug_status %></td>
+    <td><%=h bug.reporter.gsub('@', ' at ') %></td>
+    <td><%=h bug.short_desc %></td>
   </tr>
 <% end %>
 
