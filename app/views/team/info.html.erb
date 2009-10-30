@@ -43,15 +43,15 @@
   <% @team.srpms.each do |srpm| %>
   <tr>
     <td>
-      <% repocop_status = 'skip' %>
+      <% status = 'skip' %>
       <% srpm.repocops.each do |repocop| %>
-        <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-        <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-        <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' %>
-        <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' %>
-        <% repocop_status = 'fail' if repocop.status == 'fail' %>
+        <% status = 'ok' if repocop.status == 'ok' and status != 'info' and status != 'experimental' and status != 'warn' and status != 'fail' %>
+        <% status = 'info' if repocop.status == 'info' and status != 'experimental' and status != 'warn' and status != 'fail' %>
+        <% status = 'experimental' if repocop.status == 'experimental' and status != 'warn' and status != 'fail' %>
+        <% status = 'warn' if repocop.status == 'warn' and status != 'fail' %>
+        <% status = 'fail' if repocop.status == 'fail' %>
       <% end %>
-      <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+      <%= link_to '<img src="/images/' + status + '.png" alt="' + status +'">', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
       <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
