@@ -1,13 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
-  map.connect ':locale/top15', :controller => 'home', :action => 'top15'
-  map.connect 'top15', :controller => 'home', :action => 'top15'
+#  map.connect ':locale/top15', :controller => 'home', :action => 'top15'
+#  map.connect 'top15', :controller => 'home', :action => 'top15'
 
-  map.connect ':locale/stats', :controller => 'home', :action => 'stats'
-  map.connect 'stats', :controller => 'home', :action => 'stats'
+#  map.connect ':locale/stats', :controller => 'home', :action => 'stats'
+#  map.connect 'stats', :controller => 'home', :action => 'stats'
 
   map.connect '/search', :controller => 'home', :action => 'search'
   map.connect ':locale/search', :controller => 'home', :action => 'search'
   map.connect '/find.shtml', :controller => 'home', :action => 'search'
+  map.connect ':locale/find.shtml', :controller => 'home', :action => 'search'
 
   map.connect 'packages', :controller => 'home', :action => 'groups_list'
   map.connect ':locale/packages', :controller => 'home', :action => 'groups_list'
@@ -68,6 +69,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':locale/srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
 #  map.connect 'srpm/:branch/:name/repocop.:format', :controller => 'home', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
 #  map.connect ':locale/srpm/:branch/:name/repocop.:format', :controller => 'home', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
+
+#  map.connect 'repocop', :controller => 'repocop', :action => 'index'
+#  map.connect 'repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
 
   map.connect 'project', :controller => 'home', :action => 'project'
   map.connect ':locale/project', :controller => 'home', :action => 'project'
