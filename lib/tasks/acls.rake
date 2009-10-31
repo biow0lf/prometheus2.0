@@ -12,9 +12,9 @@ task :acls => :environment do
     branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus'}
 
     url = "http://git.altlinux.org/acl/list.packages.sisyphus"
-    f = open(URI.escape(url)).read
+    file = open(URI.escape(url)).read
 
-    f.each_line do |line|
+    file.each_line do |line|
       package = line.split[0]
       #(1..line.split.count).each do |i|
       for i in 1..line.split.count-1
