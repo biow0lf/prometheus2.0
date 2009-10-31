@@ -10,9 +10,9 @@ task :gitrepos => :environment do
     Gitrepos.delete_all
 
     url = "http://git.altlinux.org/people-packages-list"
-    f = open(URI.escape(url)).read
+    file = open(URI.escape(url)).read
 
-    f.each_line do |line|
+    file.each_line do |line|
       gitrepo = line.split[0]
       login = gitrepo.split('/')[2]
       login = 'php-coder' if login == 'php_coder'
