@@ -15,7 +15,7 @@ task :groups => :environment do
     file = open(URI.escape(url)).read
 
     file.each_line do |line|
-      group = Group.create :name => line.gsub(/\n/,''), :branch_id => branch.id
+      Group.create :name => line.gsub(/\n/,''), :branch_id => branch.id
     end
   end
   puts Time.now
