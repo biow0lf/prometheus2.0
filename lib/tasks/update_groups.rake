@@ -8,8 +8,6 @@ task :groups => :environment do
   puts Time.now
 
   ActiveRecord::Base.transaction do
-    Group.delete_all
-
     branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     #url = "http://git.altlinux.org/people/ldv/packages/?p=rpm.git;a=blob_plain;f=GROUPS;hb=HEAD"
     url = "/usr/lib/rpm/GROUPS"
