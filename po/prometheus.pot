@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-01 04:33+0200\n"
+"POT-Creation-Date: 2009-11-01 17:19+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -444,15 +444,15 @@ msgid "Srpm|Rawspec"
 msgstr ""
 
 #: app/models/srpm.rb:-
+msgid "Srpm|Status"
+msgstr ""
+
+#: app/models/srpm.rb:-
 msgid "Srpm|Created at"
 msgstr ""
 
 #: app/models/srpm.rb:-
 msgid "Srpm|Updated at"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Status"
 msgstr ""
 
 #: app/models/leader.rb:-
