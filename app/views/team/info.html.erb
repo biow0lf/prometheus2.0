@@ -21,29 +21,29 @@
 
 <b><%=h _("List of packages:") %></b> [ <%=h @team.srpms.count %> ]<br /><br />
 
-<table id="bugs" cellspacing="0" cellpadding="3">
+<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
   <tr>
-    <th>
+    <th class="nosort">
       <%= _("repo<br/>cop") %><br/>
       <a href="?sort=status&amp;order=desc">
         <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="<%=h _("sort by repocop status") %>" alt="<%=h _("sort by repocop status") %>" />
       </a>
     </th>
-    <th>
+    <th class="sortfirstasc">
       <%=h _("package") %><br />
       <a href="?sort=name&amp;order=desc">
         <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="<%=h _("sort by name") %>" alt="<%=h _("sort by name") %>" />
       </a>
     </th>
-    <th><%= _("current<br />version") %></th>
+    <th class="nosort"><%= _("current<br />version") %></th>
     <th><%=h _("build time") %></th>
     <th><%=h _("age") %><br />
       <a href="?sort=age&amp;order=asc">
         <img src="/images/stock_navigate-next.png" style="border-width:0px" title="<%=h _("sort by age") %>" alt="<%=h _("sort by age") %>" />
       </a>
     </th>
-    <th><%=h _("Url") %></th>
-    <th><%=h _("Summary") %></th>
+    <th class="nosort"><%=h _("Url") %></th>
+    <th class="nosort"><%=h _("Summary") %></th>
   </tr>
 
   <% @team.srpms.each do |srpm| %>
