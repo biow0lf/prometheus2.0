@@ -5,25 +5,25 @@
 <div class="header">Sisyphus</div>
 <p style="text-align:justify">
 <span class="news-text">
-<b>Sisyphus</b> &mdash; ежедневно обновляемый репозиторий пакетов свободных программ <abbr title="Независимая команда разработчиков ALT Linux">ALT&nbsp;Linux&nbsp;Team</abbr>. Участие в Sisyphus открыто для всех желающих. В основе Sisyphus лежат технологии сборки программ и учета зависимостей между ними, а также отработанные процессы по взаимодействию между разработчиками. Для использования Sisyphus достаточно наличие любого дистрибутива ALT&nbsp;Linux и средства управления пакетами программ <b>APT</b>. Sisyphus &mdash; это постоянно развивающийся набор решений, на основе которого возможно создание универсальных или специализированных <b>дистрибутивов Linux</b> и <b>одиночных внедрений</b>.
+<%= _("<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>.") %>
 <br /><br />
-Sisyphus не направлен на удовлетворение нужд конечных пользователей, и его использование может привести к непредсказуемым последствиям. Если вам нужна надежно работающая система, то следует использовать только дистрибутивы ALT&nbsp;Linux и штатные обновления к ним.
+<%=h _("Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system.") %>
 </span>
 </p>
 <p class="break" />
-<div class="header">Последние изменения в пакетной базе</div>
+<div class="header"><%=h _("Latest changes") %></div>
 <!--#include virtual="/cgi-bin/stats.pl?type=lastrpm" -->
 <p class="break" />
 <div style="text-align:center">
-	<a href="/releases" class="news" title="просмотреть список предыдущих релизов пакетов">&raquo; другие трансферы</a>
+	<a href="/releases" class="news" title="<%=h _("previous releases") %>">&raquo; <%=h _("another transfers") %></a>
 </div>
 </div>
 <div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
 	<div class="headleft">
-		<div class="headright" title="выборка лидеров по количеству пакетов">
-			TOP майнтейнеры
+		<div class="headright" title="<%=h _("sort maintainers by amount of packages") %>">
+			<%=h _("TOP maintainers") %>
 		</div>
-		<img id="topMain" src="/images/collapse.gif" class="close" onclick="imgSwap('topMain')" title="свернуть/развернуть окно" alt="свернуть/развернуть окно" />
+		<img id="topMain" src="/images/collapse.gif" class="close" onclick="imgSwap('topMain')" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
 	</div>
 	<div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
 	<table style="font-size:8pt;" width="100%">
@@ -31,7 +31,7 @@ Sisyphus не направлен на удовлетворение нужд ко
         <% @top15.each do |t| %>
           <tr>
             <td style="text-align: left;">
-              <%= link_to h(t.name), '/' + h(params[:locale]) + '/packager/' + h(t.login), :class => 'news', :title => 'information about the packager' %>
+              <%= link_to h(t.name), '/' + h(params[:locale]) + '/packager/' + h(t.login), :class => 'news', :title => _("information about the packager") %>
             </td>
             <td style="text-align: right;"><%=h t.counter %></td>
           </tr>
@@ -41,10 +41,10 @@ Sisyphus не направлен на удовлетворение нужд ко
 	</table>
 </div><br />
     <div class="headleft">
-	    <div class="headright" title="выборка пакетов по количеству релизов за последние пол-года">
-		    TOP пакеты
+	    <div class="headright" title="<%=h _("sort packages by amount of releases in the last half of year") %>">
+		    <%=h _("TOP RPMs") %>
 	    </div>
-	    <img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')" title="свернуть/развернуть окно" alt="свернуть/развернуть окно" />
+	    <img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
     </div>
 	<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 	<table style="font-size:8pt;" width="100%">
@@ -53,13 +53,13 @@ Sisyphus не направлен на удовлетворение нужд ко
 	</table>
 </div><br />
     <div class="headleft">
-	    <div class="headright" title="выборка пакетов по количеству релизов за последние пол-года">
-		    tips &amp; tricks
+	    <div class="headright" title="<%=h _("tips and tricks") %>">
+		    <%=h _("tips &amp; tricks") %>
 	    </div>
-	    <img id="topTips" src="/images/collapse.gif" class="close" onclick="imgSwap('topTips')" title="свернуть/развернуть окно" alt="свернуть/развернуть окно" />
+	    <img id="topTips" src="/images/collapse.gif" class="close" onclick="imgSwap('topTips')" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
     </div>
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-	    <b>Синхронизация Sisyphus</b><br />Q: Как избежать копирования множества пакетов, необходимость которых, лично вам, сомнительна?<br />A: Составьте фильтр для rsync, на основе данной <a href="/rsync.shtml" class="news">формы</a>
+	    <b><%=h _("Sisyphus sync") %></b><br /><%=h _("Q: How can I skip heap of packages if I even don't know why I need them?") %><br /><%= _("A: Create filter for rsync with the help of this") %> <a href="/<%=h params[:locale] %>/rsync.shtml" class="news"><%=h _("form") %></a>
     </div>
 </div>
 
