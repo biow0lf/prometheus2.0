@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-10-30 17:23+0200\n"
+"POT-Creation-Date: 2009-11-01 04:33+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -451,6 +451,10 @@ msgstr ""
 msgid "Srpm|Updated at"
 msgstr ""
 
+#: app/models/srpm.rb:-
+msgid "Srpm|Status"
+msgstr ""
+
 #: app/models/leader.rb:-
 msgid "leader"
 msgstr ""
@@ -825,7 +829,7 @@ msgstr ""
 #: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
 #: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
 #: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-#: app/views/layouts/default.html.erb:131
+#: app/views/layouts/default.html.erb:135
 msgid "Packages"
 msgstr ""
 
@@ -918,100 +922,100 @@ msgstr ""
 msgid "Prometheus 2.0"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:99
+#: app/views/layouts/default.html.erb:103
 msgid "find"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:110
+#: app/views/layouts/default.html.erb:114
 msgid "Last update:"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:110
+#: app/views/layouts/default.html.erb:114
 msgid "SRPMs:"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:113
+#: app/views/layouts/default.html.erb:117
 msgid "en"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:113
+#: app/views/layouts/default.html.erb:117
 msgid "English"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:113
+#: app/views/layouts/default.html.erb:117
 msgid "ru"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:113
+#: app/views/layouts/default.html.erb:117
 msgid "Russian"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:121
+#: app/views/layouts/default.html.erb:125
 msgid "Home"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:121
+#: app/views/layouts/default.html.erb:125
 msgid "site home page"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:126
+#: app/views/layouts/default.html.erb:130
 msgid "News"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:126
+#: app/views/layouts/default.html.erb:130
 msgid "site news"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:131
+#: app/views/layouts/default.html.erb:135
 msgid "packages information"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:136
+#: app/views/layouts/default.html.erb:140
 #: app/views/home/packagers_list.html.erb:6
 msgid "Maintainers"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:136
+#: app/views/layouts/default.html.erb:140
 msgid "maintainers information"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:141
+#: app/views/layouts/default.html.erb:145
 msgid "Security"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:141
+#: app/views/layouts/default.html.erb:145
 msgid "security fixes"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:146
+#: app/views/layouts/default.html.erb:150
 msgid "About"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:146
+#: app/views/layouts/default.html.erb:150
 msgid "about Prometeus project"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:156
+#: app/views/layouts/default.html.erb:160
 msgid "Wiki"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:156
+#: app/views/layouts/default.html.erb:160
 msgid "http://en.altlinux.org/Sisyphus"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:156
+#: app/views/layouts/default.html.erb:160
 msgid "sisyphus public site"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:168
+#: app/views/layouts/default.html.erb:172
 msgid "Mailing list"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:168
+#: app/views/layouts/default.html.erb:172
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:168
+#: app/views/layouts/default.html.erb:172
 msgid "community-en@"
 msgstr ""
 
@@ -1053,6 +1057,88 @@ msgstr ""
 
 #: app/views/home/index.html.erb:2
 msgid "Prometheus 2.0 - Intro"
+msgstr ""
+
+#: app/views/home/index.html.erb:8
+msgid ""
+"<b>Sisyphus</b> is daily updated free software repository by <abbr title="
+"\"Independent ALT Linux development team\">ALT&nbsp;Linux&nbsp;Team</abbr>. "
+"Participation in Sisyphus project is open for anyone. This project is based "
+"upon software packaging and dependency tracking technologies as well as "
+"robust developer collaboration processes. Any ALT&nbsp;Linux distribution "
+"and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a "
+"solution set constantly being under development which can be used to create "
+"universal or specialized <b>Linux distributions</b> or just <b>single "
+"systems</b>."
+msgstr ""
+
+#: app/views/home/index.html.erb:10
+msgid ""
+"Sisyphus is not intended for end users and its usage may result in "
+"unpredictable behaviour. You might want to use ALT Linux distributions and "
+"their usual updates if you want to run a reliable system."
+msgstr ""
+
+#: app/views/home/index.html.erb:14
+msgid "Latest changes"
+msgstr ""
+
+#: app/views/home/index.html.erb:18
+msgid "previous releases"
+msgstr ""
+
+#: app/views/home/index.html.erb:18
+msgid "another transfers"
+msgstr ""
+
+#: app/views/home/index.html.erb:23
+msgid "sort maintainers by amount of packages"
+msgstr ""
+
+#: app/views/home/index.html.erb:24
+msgid "TOP maintainers"
+msgstr ""
+
+#: app/views/home/index.html.erb:26 app/views/home/index.html.erb:47
+#: app/views/home/index.html.erb:59
+msgid "hide/show window"
+msgstr ""
+
+#: app/views/home/index.html.erb:34
+msgid "information about the packager"
+msgstr ""
+
+#: app/views/home/index.html.erb:44
+msgid "sort packages by amount of releases in the last half of year"
+msgstr ""
+
+#: app/views/home/index.html.erb:45
+msgid "TOP RPMs"
+msgstr ""
+
+#: app/views/home/index.html.erb:56
+msgid "tips and tricks"
+msgstr ""
+
+#: app/views/home/index.html.erb:57
+msgid "tips &amp; tricks"
+msgstr ""
+
+#: app/views/home/index.html.erb:62
+msgid "Sisyphus sync"
+msgstr ""
+
+#: app/views/home/index.html.erb:62
+msgid ""
+"Q: How can I skip heap of packages if I even don't know why I need them?"
+msgstr ""
+
+#: app/views/home/index.html.erb:62
+msgid "A: Create filter for rsync with the help of this"
+msgstr ""
+
+#: app/views/home/index.html.erb:62
+msgid "form"
 msgstr ""
 
 #: app/views/home/news.html.erb:2
