@@ -7,27 +7,27 @@
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="просмотреть информацию о майнтейнере"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="Отчет repocop о найденных ошибках и замечаниях"><%=h _("Repocop") %></a>&nbsp;</span><p class="break" />
 <b><%=h _("List of packages which was built by this maintainer:") %></b> [<%=h @packager.acls.count %>] <br /><br />
 
-<table id="bugs" cellspacing="0" cellpadding="3">
+<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
   <tr>
-    <th><%= _("repo<br/>cop") %><br/>
+    <th class="nosort"><%= _("repo<br/>cop") %><br/>
       <a href="?sort=status&amp;order=desc">
         <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="<%=h _("sort by repocop status") %>" alt="<%=h _("sort by repocop status") %>" />
       </a>
     </th>
-    <th><%=h _("package") %><br />
+    <th class="sortfirstasc"><%=h _("package") %><br />
       <a href="?sort=name&amp;order=desc">
         <img src="/images/stock_navigate-prev.png" style="border-width:0px" title="<%=h _("sort by name") %>" alt="<%=h _("sort by name") %>" />
       </a>
     </th>
-    <th><%= _("current<br />version") %></th>
+    <th class="nosort"><%= _("current<br />version") %></th>
     <th><%=h _("build time") %></th>
     <th><%= _("age") %><br />
       <a href="?sort=age&amp;order=asc">
         <img src="/images/stock_navigate-next.png" style="border-width:0px" title="<%=h _("sort by age") %>" alt="<%=h _("sort by age") %>" />
       </a>
     </th>
-    <th><%= _("Url") %></th>
-    <th><%=h _("Summary") %></th>
+    <th class="nosort"><%= _("Url") %></th>
+    <th class="nosort"><%=h _("Summary") %></th>
   </tr>
 
   <% @packager.srpms.each do |srpm| %>
