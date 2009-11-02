@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-01 17:19+0200\n"
+"POT-Creation-Date: 2009-11-02 16:57+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: app/models/package.rb:- app/views/team/info.html.erb:33
 #: app/views/packager/repocop.html.erb:13 app/views/packager/srpms.html.erb:17
 #: app/views/packager/bugs.html.erb:16 app/views/packager/allbugs.html.erb:18
-#: app/views/home/search.html.erb:16
+#: app/views/home/search.html.erb:17
 msgid "package"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Package|Updated at"
 msgstr ""
 
-#: app/models/packager.rb:- app/views/home/search.html.erb:18
+#: app/models/packager.rb:- app/views/home/search.html.erb:19
 msgid "packager"
 msgstr ""
 
@@ -580,7 +580,7 @@ msgid "sort by name"
 msgstr ""
 
 #: app/views/team/info.html.erb:38 app/views/packager/srpms.html.erb:22
-#: app/views/home/search.html.erb:17
+#: app/views/home/search.html.erb:18
 msgid "current<br />version"
 msgstr ""
 
@@ -829,7 +829,7 @@ msgstr ""
 #: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
 #: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
 #: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-#: app/views/layouts/default.html.erb:135
+#: app/views/layouts/default.html.erb:117
 msgid "Packages"
 msgstr ""
 
@@ -886,7 +886,7 @@ msgid "reporter"
 msgstr ""
 
 #: app/views/packager/bugs.html.erb:20 app/views/packager/allbugs.html.erb:23
-#: app/views/home/search.html.erb:19
+#: app/views/home/search.html.erb:20
 msgid "summary"
 msgstr ""
 
@@ -922,100 +922,100 @@ msgstr ""
 msgid "Prometheus 2.0"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:103
+#: app/views/layouts/default.html.erb:85
 msgid "find"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:114
+#: app/views/layouts/default.html.erb:96
 msgid "Last update:"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:114
+#: app/views/layouts/default.html.erb:96
 msgid "SRPMs:"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:117
+#: app/views/layouts/default.html.erb:99
 msgid "en"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:117
+#: app/views/layouts/default.html.erb:99
 msgid "English"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:117
+#: app/views/layouts/default.html.erb:99
 msgid "ru"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:117
+#: app/views/layouts/default.html.erb:99
 msgid "Russian"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:125
+#: app/views/layouts/default.html.erb:107
 msgid "Home"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:125
+#: app/views/layouts/default.html.erb:107
 msgid "site home page"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:130
+#: app/views/layouts/default.html.erb:112
 msgid "News"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:130
+#: app/views/layouts/default.html.erb:112
 msgid "site news"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:135
+#: app/views/layouts/default.html.erb:117
 msgid "packages information"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:140
+#: app/views/layouts/default.html.erb:122
 #: app/views/home/packagers_list.html.erb:6
 msgid "Maintainers"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:140
+#: app/views/layouts/default.html.erb:122
 msgid "maintainers information"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:145
+#: app/views/layouts/default.html.erb:127
 msgid "Security"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:145
+#: app/views/layouts/default.html.erb:127
 msgid "security fixes"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:150
+#: app/views/layouts/default.html.erb:132
 msgid "About"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:150
+#: app/views/layouts/default.html.erb:132
 msgid "about Prometeus project"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:160
+#: app/views/layouts/default.html.erb:142
 msgid "Wiki"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:160
+#: app/views/layouts/default.html.erb:142
 msgid "http://en.altlinux.org/Sisyphus"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:160
+#: app/views/layouts/default.html.erb:142
 msgid "sisyphus public site"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:172
+#: app/views/layouts/default.html.erb:154
 msgid "Mailing list"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:172
+#: app/views/layouts/default.html.erb:154
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:172
+#: app/views/layouts/default.html.erb:154
 msgid "community-en@"
 msgstr ""
 
@@ -1157,23 +1157,23 @@ msgstr ""
 msgid "Prometheus 2.0 - Search"
 msgstr ""
 
-#: app/views/home/search.html.erb:4
+#: app/views/home/search.html.erb:5
 msgid "Search"
 msgstr ""
 
-#: app/views/home/search.html.erb:8
+#: app/views/home/search.html.erb:9
 msgid "search"
 msgstr ""
 
-#: app/views/home/search.html.erb:11
+#: app/views/home/search.html.erb:12
 msgid "On your query"
 msgstr ""
 
-#: app/views/home/search.html.erb:11
+#: app/views/home/search.html.erb:12
 msgid "were found"
 msgstr ""
 
-#: app/views/home/search.html.erb:11
+#: app/views/home/search.html.erb:12
 msgid "RPMs:"
 msgstr ""
 
