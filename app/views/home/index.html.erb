@@ -23,7 +23,7 @@
 		<div class="headright" title="<%=h _("sort maintainers by amount of packages") %>">
 			<%=h _("TOP maintainers") %>
 		</div>
-		<img id="topMain" src="/images/collapse.gif" class="close" onclick="imgSwap('topMain')" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
+		<img id="topMain" src="/images/collapse.gif" class="close" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
 	</div>
 	<div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
 	<table style="font-size:8pt;" width="100%">
@@ -44,7 +44,7 @@
 	    <div class="headright" title="<%=h _("sort packages by amount of releases in the last half of year") %>">
 		    <%=h _("TOP RPMs") %>
 	    </div>
-	    <img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
+	    <img id="topRPM" src="/images/collapse.gif" class="close" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
     </div>
 	<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 	<table style="font-size:8pt;" width="100%">
@@ -56,7 +56,7 @@
 	    <div class="headright" title="<%=h _("tips and tricks") %>">
 		    <%= _("tips &amp; tricks") %>
 	    </div>
-	    <img id="topTips" src="/images/collapse.gif" class="close" onclick="imgSwap('topTips')" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
+	    <img id="topTips" src="/images/collapse.gif" class="close" title="<%=h _("hide/show window") %>" alt="<%=h _("hide/show window") %>" />
     </div>
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
 	    <b><%=h _("Sisyphus sync") %></b><br /><%=h _("Q: How can I skip heap of packages if I even don't know why I need them?") %><br /><%= _("A: Create filter for rsync with the help of this") %> <a href="/<%=h params[:locale] %>/rsync.shtml" class="news"><%=h _("form") %></a>

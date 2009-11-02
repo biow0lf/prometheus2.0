@@ -13,6 +13,8 @@
   <%= javascript_include_tag 'fastinit.js' %>
   <%= javascript_include_tag 'tablekit.js' %>
 
+  <%= javascript_include_tag 'local.js' %>
+
   <!--<link rel="alternate" title="Prometeus RSS" href="rss" type="application/rss+xml" />-->
 
   <%= stylesheet_link_tag 'alt' %>
@@ -20,26 +22,6 @@
 <script type="text/javascript">
 <!--
 
-colImg = new Image(); colImg.src="/images/collapse.gif";
-resImg = new Image(); resImg.src="/images/restore.gif";
-
-function toggleVis(did){
-    di=document.getElementById(did);
-    if (di.style.display == "none"){
-        di.style.display = "block";
-    } else {
-        di.style.display = "none";
-    }
-}
-function imgSwap(imgID) {
-	myimg = document.images[imgID];
-	if (myimg.src == colImg.src) {
-		myimg.src = resImg.src;
-	} else {
-		myimg.src = colImg.src;
-	}
-	toggleVis(imgID+"Div");
-}
 function chText(txt1, txt2, did) {
     di = document.getElementById(did);
     if (di.innerHTML == txt1){
