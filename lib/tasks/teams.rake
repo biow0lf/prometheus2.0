@@ -6,7 +6,7 @@ task :teams => :environment do
   puts "import teams"
   puts Time.now
 
-  Team.transaction do
+  ActiveRecord::Base.transaction do
     Team.delete_all
 
     branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }

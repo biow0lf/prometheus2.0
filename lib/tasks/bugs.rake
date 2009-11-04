@@ -12,7 +12,7 @@ task :bugs => :environment do
   puts "import bugs"
   puts Time.now
 
-  Bug.transaction do
+  ActiveRecord::Base.transaction do
     Bug.delete_all
 
     url = "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"

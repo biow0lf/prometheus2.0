@@ -6,7 +6,7 @@ task :leaders => :environment do
   puts "import leaders"
   puts Time.now
 
-  Leader.transaction do
+  ActiveRecord::Base.transaction do
     Leader.delete_all
 
     branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }

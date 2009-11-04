@@ -6,7 +6,7 @@ task :gitrepos => :environment do
   puts "import gitrepos"
   puts Time.now
 
-  Gitrepos.transaction do
+  ActiveRecord::Base.transaction do
     Gitrepos.delete_all
 
     url = "http://git.altlinux.org/people-packages-list"
