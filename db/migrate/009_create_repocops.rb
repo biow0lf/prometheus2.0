@@ -12,15 +12,12 @@ class CreateRepocops < ActiveRecord::Migration
       t.string :status
       t.text :message
 
-      t.integer :srpm_id
-
       t.timestamps
     end
 
     add_index :repocops, :srcname
     add_index :repocops, :srcversion
     add_index :repocops, :srcrel
-    add_index :repocops, :srpm_id
   end
 
   def self.down
