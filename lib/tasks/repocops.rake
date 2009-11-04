@@ -6,41 +6,19 @@ task :repocops => :environment do
   puts "import repocop reports"
   puts Time.now
 
-  Repocop.transaction do
+  ActiveRecord::Base.transaction do
     Repocop.delete_all
 
-    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-
     url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt"
-    f = open(URI.escape(url)).read
+    file = open(URI.escape(url)).read
 
-    f.each_line do |line|
+    ActiveRecord::Base.connection.execute(file)
 
-      srpm = Srpm.find :first, :select => "id", :conditions => { :branch_id => branch.id, :name => line.split('|||')[4] }
-      if srpm != nil
-        Repocop.create(:srpm_id    => srpm.id,
-                       :name       => line.split('|||')[0],
-                       :version    => line.split('|||')[1],
-                       :release    => line.split('|||')[2],
-                       :arch       => line.split('|||')[3],
-                       :srcname    => line.split('|||')[4],
-                       :srcversion => line.split('|||')[5],
-                       :srcrel     => line.split('|||')[6],
-                       :testname   => line.split('|||')[7],
-                       :status     => line.split('|||')[8],
-                       :message    => line.split('|||')[9]
-                       )
-      end
-    end
+#    file.each_line do |line|
+#      ActiveRecord::Base.connection.execute(line)
+#    end
+
   end
-
-#  Repocop.all.each do |repocop|
-#      srpm = Srpm.find :first, :conditions => { :branch => 'Sisyphus', :name => repocop.srcname }
-#          if srpm != nil
-#                repocop.srpm_id = srpm.id
-#                      repocop.save!
-#                          end
-#                            end
 
   puts Time.now
 end
