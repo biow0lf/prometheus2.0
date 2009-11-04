@@ -13,5 +13,8 @@ class Srpm < ActiveRecord::Base
   has_many :acls
   belongs_to :group
 
-  has_many :repocops
+  has_many :repocops, :finder_sql => 'SELECT * FROM repocops
+                                      WHERE srcname = E\'#{name}\'
+                                      AND srcversion = E\'#{version}\'
+                                      AND srcrel = E\'#{release}\''
 end
