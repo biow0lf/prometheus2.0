@@ -12,11 +12,11 @@ task :repocops => :environment do
     url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt"
     file = open(URI.escape(url)).read
 
-    ActiveRecord::Base.connection.execute(file)
+#    ActiveRecord::Base.connection.execute(file)
 
-#    file.each_line do |line|
-#      ActiveRecord::Base.connection.execute(line)
-#    end
+    file.each_line do |line|
+      ActiveRecord::Base.connection.execute(line)
+    end
 
   end
 
