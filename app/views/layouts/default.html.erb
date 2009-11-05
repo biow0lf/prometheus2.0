@@ -13,7 +13,7 @@
   <%= javascript_include_tag 'fastinit.js' %>
   <%= javascript_include_tag 'tablekit.js' %>
 
-  <%= javascript_include_tag 'local.js' %>
+  <%= javascript_include_tag params[:locale] + '/local.js' %>
 
   <!--<link rel="alternate" title="Prometeus RSS" href="rss" type="application/rss+xml" />-->
 
@@ -93,7 +93,7 @@ function show(divnum){
 
 <div id="top-line">
   <div id="vinfo">
-    <b><%=h _("Last update:") %></b> 25 сентября 2009 | <b><%=h _("SRPMs:") %> <%= yield(:srpms_counter) || "broken :)" %></b>
+    <b><%=h _("Last update:") %></b> <%=h Date.today %> | <b><%=h _("SRPMs:") %> <%= yield(:srpms_counter) || "broken :)" %></b>
   </div>
 
   <div style="text-align: right"><%= link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') %> <%= link_to_unless_current _('ru'), '/ru' + yield(:url), :title => _('Russian') %><!--<a href="/br<%= yield(:url) %>" title="Portuguese (Brasilian)">br</a>--></div>
