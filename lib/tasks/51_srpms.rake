@@ -1,6 +1,6 @@
 require 'rpm'
 
-namespace :51 do
+namespace :"51" do
 desc "Import src.rpm from 5.1 to database"
 task :srpms => :environment do
   puts "import src.rpm's"
