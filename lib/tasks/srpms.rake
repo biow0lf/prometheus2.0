@@ -3,8 +3,8 @@ require 'rpm'
 namespace :sisyphus do
 desc "Import src.rpm from Sisyphus to database"
 task :srpms => :environment do
-  puts Time.now
   puts "import src.rpm's"
+  puts Time.now
 
   branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus'}
 
