@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-02 16:57+0200\n"
+"POT-Creation-Date: 2009-11-06 16:32+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -225,10 +225,6 @@ msgstr ""
 
 #: app/models/repocop.rb:-
 msgid "Repocop|Message"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srpm"
 msgstr ""
 
 #: app/models/repocop.rb:-
@@ -708,6 +704,10 @@ msgstr ""
 msgid " - Gear"
 msgstr ""
 
+#: app/views/srpm/main.html.erb:10
+msgid "hide/show window"
+msgstr ""
+
 #: app/views/srpm/main.html.erb:68
 msgid "full changelog"
 msgstr ""
@@ -1101,7 +1101,7 @@ msgstr ""
 
 #: app/views/home/index.html.erb:26 app/views/home/index.html.erb:47
 #: app/views/home/index.html.erb:59
-msgid "hide/show window"
+msgid "hide window"
 msgstr ""
 
 #: app/views/home/index.html.erb:34

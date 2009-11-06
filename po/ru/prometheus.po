@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-02 16:57+0200\n"
-"PO-Revision-Date: 2009-11-02 17:00+0300\n"
+"POT-Creation-Date: 2009-11-06 16:32+0200\n"
+"PO-Revision-Date: 2009-11-06 16:33+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -229,10 +229,6 @@ msgstr ""
 
 #: app/models/repocop.rb:-
 msgid "Repocop|Message"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srpm"
 msgstr ""
 
 #: app/models/repocop.rb:-
@@ -774,6 +770,10 @@ msgstr "Выберите зеркало:"
 msgid " - Gear"
 msgstr "- Gear"
 
+#: app/views/srpm/main.html.erb:10
+msgid "hide/show window"
+msgstr "свернуть/развернуть окно"
+
 #: app/views/srpm/main.html.erb:68
 msgid "full changelog"
 msgstr ""
@@ -1188,8 +1188,8 @@ msgstr " TOP майнтейнеры "
 #: app/views/home/index.html.erb:26
 #: app/views/home/index.html.erb:47
 #: app/views/home/index.html.erb:59
-msgid "hide/show window"
-msgstr "свернуть/развернуть окно"
+msgid "hide window"
+msgstr "свернуть окно"
 
 #: app/views/home/index.html.erb:34
 msgid "information about the packager"
