@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-06 16:32+0200\n"
-"PO-Revision-Date: 2009-11-06 16:33+0300\n"
+"POT-Creation-Date: 2009-11-06 18:09+0200\n"
+"PO-Revision-Date: 2009-11-06 18:10+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -1015,6 +1015,10 @@ msgstr "Всего пакетов собранных майнтейнером:"
 #: app/views/layouts/default.html.erb:6
 msgid "Prometheus 2.0"
 msgstr "Prometheus 2.0"
+
+#: app/views/layouts/default.html.erb:74
+msgid "Sisyphus repository "
+msgstr "Репозиторий Sisyphus"
 
 #: app/views/layouts/default.html.erb:85
 msgid "find"
