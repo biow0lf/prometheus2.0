@@ -7,9 +7,8 @@ task :acls => :environment do
   puts Time.now
 
   ActiveRecord::Base.transaction do
-    Acl.delete_all
-
     branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    ActiveRecord::Base.connection.execute("DELETE FROM acls WHERE branch_id = " + branch.id.to_s)
 
     url = "http://git.altlinux.org/acl/list.packages.sisyphus"
     file = open(URI.escape(url)).read
