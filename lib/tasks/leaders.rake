@@ -7,11 +7,10 @@ task :leaders => :environment do
   puts Time.now
 
   ActiveRecord::Base.transaction do
-    Leader.delete_all
-
     branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    url = branch.acls_url
+    ActiveRecord::Base.connection.execute("DELETE FROM leaders WHERE branch_id = " + branch.id.to_s)
 
+    url = branch.acls_url
     file = open(URI.escape(url)).read
 
     file.each_line do |line|
