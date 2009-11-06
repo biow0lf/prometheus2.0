@@ -1,15 +1,4 @@
 Event.observe(window, 'load', function() {
-  Event.observe('topTips', 'click', function(){
-    $('topTipsDiv').toggle();
-    if($('topTipsDiv').visible()) {
-      $('topTips').writeAttribute('src', '/images/collapse.gif')
-      $('topTips').writeAttribute('title', 'свернуть окно')
-    } else {
-      $('topTips').writeAttribute('src', '/images/restore.gif')
-      $('topTips').writeAttribute('title', 'развернуть окно')
-    }
-  });
-
   Event.observe('topRPM', 'click', function(){
     $('topRPMDiv').toggle();
     if($('topRPMDiv').visible()) {
@@ -18,6 +7,17 @@ Event.observe(window, 'load', function() {
     } else {
       $('topRPM').writeAttribute('src', '/images/restore.gif')
       $('topRPM').writeAttribute('title', 'развернуть окно')
+    }
+  });
+
+  Event.observe('topTips', 'click', function(){
+    $('topTipsDiv').toggle();
+    if($('topTipsDiv').visible()) {
+      $('topTips').writeAttribute('src', '/images/collapse.gif')
+      $('topTips').writeAttribute('title', 'свернуть окно')
+    } else {
+      $('topTips').writeAttribute('src', '/images/restore.gif')
+      $('topTips').writeAttribute('title', 'развернуть окно')
     }
   });
 
