@@ -47,7 +47,7 @@ ActionController::Routing::Routes.draw do |map|
 #  map.connect 'srpm/:branch/:name', :controller => 'srpm', :action => 'main', :name => nil, :requirements => { :name => /[^/]/ }
 #  map.connect ':locale/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :name => nil, :requirements => { :name => /[^/]/ }
 
-  map.connect 'srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
   map.connect ':locale/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :name => /[^\/]+/ }
   map.connect 'srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :name => /[^\/]+/ }
   map.connect ':locale/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :name => /[^\/]+/ }
