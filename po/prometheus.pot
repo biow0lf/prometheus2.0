@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-06 18:09+0200\n"
+"POT-Creation-Date: 2009-11-07 01:25+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,6 +129,34 @@ msgstr ""
 
 #: app/models/packager.rb:-
 msgid "Packager|Updated at"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "changelog"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "Changelog|Srpm"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "Changelog|Changelogtime"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "Changelog|Changelogname"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "Changelog|Changelogtext"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "Changelog|Created at"
+msgstr ""
+
+#: app/models/changelog.rb:-
+msgid "Changelog|Updated at"
 msgstr ""
 
 #: app/models/branch.rb:-
