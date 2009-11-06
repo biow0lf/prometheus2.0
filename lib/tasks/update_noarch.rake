@@ -9,6 +9,7 @@ task :noarch => :environment do
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 
   ActiveRecord::Base.transaction do
+  ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'noarch' AND branch_id = " + branch.id.to_s)
   Dir.glob(branch.noarch_path).each do |f|
   begin
     r = RPM::Package::open(f)

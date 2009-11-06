@@ -10,6 +10,7 @@ task :srpms => :environment do
   branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus'}
 
   ActiveRecord::Base.transaction do
+  ActiveRecord::Base.connection.execute("DELETE FROM srpms WHERE branch_id = " + branch.id.to_s)
   Dir.glob(branch.srpms_path).each do |file|
   begin
     rpm = RPM::Package::open(file)

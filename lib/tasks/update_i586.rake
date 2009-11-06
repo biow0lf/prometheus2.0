@@ -9,6 +9,7 @@ task :i586 => :environment do
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 
   ActiveRecord::Base.transaction do
+  ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'i586' AND branch_id = " + branch.id.to_s)
   Dir.glob(branch.binary_x86_path).each do |f|
   begin
     r = RPM::Package::open(f)
