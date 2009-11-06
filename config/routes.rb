@@ -49,24 +49,24 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect 'srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
   map.connect ':locale/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/patches', :controller => 'srpm', :action => 'patches', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/patches', :controller => 'srpm', :action => 'patches', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/sources', :controller => 'srpm', :action => 'sources', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/sources', :controller => 'srpm', :action => 'sources', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/gear', :controller => 'srpm', :action => 'gear', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/gear', :controller => 'srpm', :action => 'gear', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/bugs', :controller => 'srpm', :action => 'bugs', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/bugs', :controller => 'srpm', :action => 'bugs', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/allbugs', :controller => 'srpm', :action => 'allbugs', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/allbugs', :controller => 'srpm', :action => 'allbugs', :requirements => { :name => /[^\/]+/ }
-  map.connect 'srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/patches', :controller => 'srpm', :action => 'patches', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/patches', :controller => 'srpm', :action => 'patches', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/sources', :controller => 'srpm', :action => 'sources', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/sources', :controller => 'srpm', :action => 'sources', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/gear', :controller => 'srpm', :action => 'gear', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/gear', :controller => 'srpm', :action => 'gear', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/bugs', :controller => 'srpm', :action => 'bugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/bugs', :controller => 'srpm', :action => 'bugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/allbugs', :controller => 'srpm', :action => 'allbugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/allbugs', :controller => 'srpm', :action => 'allbugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect 'srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
+  map.connect ':locale/srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
 #  map.connect 'srpm/:branch/:name/repocop.:format', :controller => 'home', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
 #  map.connect ':locale/srpm/:branch/:name/repocop.:format', :controller => 'home', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
 
