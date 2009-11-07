@@ -15,7 +15,6 @@
 <% @allsrpms.each do |all|  %>
 <tr>
   <td style="text-align: left;">
-    <a>
     <%= link_to h(all.branch.urlname) + ':', '/' + h(params[:locale]) + '/srpm/' + h(all.branch.urlname) + '/' + h(all.name), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%=h all.version %>-<%=h all.release %></td>
