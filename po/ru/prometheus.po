@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-07 01:38+0200\n"
-"PO-Revision-Date: 2009-11-07 01:52+0300\n"
+"POT-Creation-Date: 2009-11-07 03:44+0200\n"
+"PO-Revision-Date: 2009-11-07 03:45+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -753,6 +753,7 @@ msgstr "Загрузить"
 #: app/views/srpm/rawspec.html.erb:68
 #: app/views/srpm/changelog.html.erb:72
 #: app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8
 #: app/views/packager/srpms.html.erb:7
 #: app/views/packager/bugs.html.erb:7
 #: app/views/packager/allbugs.html.erb:7
@@ -919,6 +920,7 @@ msgid "&raquo; - Gear"
 msgstr "&raquo; - Gear"
 
 #: app/views/packager/gear.html.erb:5
+#: app/views/packager/repocop.html.erb:5
 #: app/views/packager/srpms.html.erb:5
 #: app/views/packager/bugs.html.erb:5
 #: app/views/packager/allbugs.html.erb:5
@@ -934,9 +936,25 @@ msgstr "Маинтейнер:"
 #: app/views/packager/srpms.html.erb:7
 #: app/views/packager/bugs.html.erb:7
 #: app/views/packager/allbugs.html.erb:7
+msgid "information about maintainer"
+msgstr "просмотреть информацию о маинтейнере"
+
+#: app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7
+#: app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
 #: app/views/packager/info.html.erb:7
 msgid "Information"
 msgstr "Информация"
+
+#: app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8
+#: app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "packages which was built by this maintainer"
+msgstr "просмотреть пакеты, собранные майнтейнером"
 
 #: app/views/packager/gear.html.erb:7
 #: app/views/packager/repocop.html.erb:8
@@ -948,13 +966,36 @@ msgstr "Информация"
 msgid "Packages"
 msgstr "Пакеты"
 
+#: app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "Bugs/FR statistics assigned to this maintainer"
+msgstr "Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"
+
+#: app/views/packager/gear.html.erb:7
+#: app/views/packager/srpms.html.erb:7
+#: app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "Repocop bugreport"
+msgstr "Отчет repocop о найденных ошибках и замечаниях"
+
 #: app/views/packager/repocop.html.erb:2
 msgid "&raquo; - Repocop"
 msgstr "&raquo; - Repocop"
 
+#: app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7
+#: app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "gear"
+msgstr "gear"
+
 #: app/views/packager/repocop.html.erb:9
 msgid "Repocop messages:"
-msgstr ""
+msgstr "Сообщения от repocop:"
 
 #: app/views/packager/nosuchpackager.html.erb:2
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
@@ -1019,22 +1060,6 @@ msgstr "&raquo; - Bugs and FR (All)"
 #: app/views/packager/allbugs.html.erb:21
 msgid "resolution"
 msgstr "разрешение"
-
-#: app/views/packager/info.html.erb:7
-msgid "packages which was built by this maintainer"
-msgstr "просмотреть пакеты, собранные майнтейнером"
-
-#: app/views/packager/info.html.erb:7
-msgid "gear"
-msgstr "gear"
-
-#: app/views/packager/info.html.erb:7
-msgid "Bugs/FR statistics assigned to this maintainer"
-msgstr "Статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"
-
-#: app/views/packager/info.html.erb:7
-msgid "Repocop bugreport"
-msgstr "Отчет repocop о найденных ошибках и замечаниях"
 
 #: app/views/packager/info.html.erb:11
 msgid "Packages build by this maintainer:"

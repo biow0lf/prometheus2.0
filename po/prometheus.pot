@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-07 01:38+0200\n"
+"POT-Creation-Date: 2009-11-07 03:44+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -700,9 +700,9 @@ msgstr ""
 #: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
 #: app/views/srpm/main.html.erb:68 app/views/srpm/repocop.html.erb:79
 #: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
-#: app/views/packager/gear.html.erb:7 app/views/packager/srpms.html.erb:7
-#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
-#: app/views/packager/info.html.erb:7
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
 msgid "Gear"
 msgstr ""
 
@@ -841,11 +841,18 @@ msgstr ""
 msgid "&raquo; - Gear"
 msgstr ""
 
-#: app/views/packager/gear.html.erb:5 app/views/packager/srpms.html.erb:5
-#: app/views/packager/bugs.html.erb:5 app/views/packager/allbugs.html.erb:5
-#: app/views/packager/info.html.erb:5 app/views/home/bytwogroup.html.erb:11
+#: app/views/packager/gear.html.erb:5 app/views/packager/repocop.html.erb:5
+#: app/views/packager/srpms.html.erb:5 app/views/packager/bugs.html.erb:5
+#: app/views/packager/allbugs.html.erb:5 app/views/packager/info.html.erb:5
+#: app/views/home/bytwogroup.html.erb:11
 #: app/views/home/bythreegroup.html.erb:11 app/views/home/bygroup.html.erb:11
 msgid "Maintainer:"
+msgstr ""
+
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
+msgid "information about maintainer"
 msgstr ""
 
 #: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
@@ -855,14 +862,37 @@ msgid "Information"
 msgstr ""
 
 #: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "packages which was built by this maintainer"
+msgstr ""
+
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
 #: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
 #: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
 #: app/views/layouts/default.html.erb:117
 msgid "Packages"
 msgstr ""
 
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7 app/views/packager/info.html.erb:7
+msgid "Bugs/FR statistics assigned to this maintainer"
+msgstr ""
+
+#: app/views/packager/gear.html.erb:7 app/views/packager/srpms.html.erb:7
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "Repocop bugreport"
+msgstr ""
+
 #: app/views/packager/repocop.html.erb:2
 msgid "&raquo; - Repocop"
+msgstr ""
+
+#: app/views/packager/repocop.html.erb:8 app/views/packager/srpms.html.erb:7
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "gear"
 msgstr ""
 
 #: app/views/packager/repocop.html.erb:9
@@ -924,22 +954,6 @@ msgstr ""
 
 #: app/views/packager/allbugs.html.erb:21
 msgid "resolution"
-msgstr ""
-
-#: app/views/packager/info.html.erb:7
-msgid "packages which was built by this maintainer"
-msgstr ""
-
-#: app/views/packager/info.html.erb:7
-msgid "gear"
-msgstr ""
-
-#: app/views/packager/info.html.erb:7
-msgid "Bugs/FR statistics assigned to this maintainer"
-msgstr ""
-
-#: app/views/packager/info.html.erb:7
-msgid "Repocop bugreport"
 msgstr ""
 
 #: app/views/packager/info.html.erb:11
