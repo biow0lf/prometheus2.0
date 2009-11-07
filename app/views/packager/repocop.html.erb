@@ -2,10 +2,10 @@
 <% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Repocop") %>
 <% url "/packager/" + h(@packager.login) + "/repocop" %>
 
-<div class="header">Maintainer: <%=h @packager.name %></div>
+<div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="information about maintainer"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="packages which was built by this maintainer"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="gear">Gear</a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="Bugs/FR statstics assigned to this maintainer"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h _("Repocop") %></b>&nbsp;</span><p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="<%=h _("packages which was built by this maintainer") %>"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h _("Repocop") %></b>&nbsp;</span><p class="break" />
 <b><%=h _("Repocop messages:") %></b><br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
