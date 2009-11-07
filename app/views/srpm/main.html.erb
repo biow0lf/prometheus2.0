@@ -12,12 +12,12 @@
 <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
 
-<% @allsrpms.each do |all|  %>
+<% @allsrpms.each do |srpm|  %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to h(all.branch.urlname) + ':', '/' + h(params[:locale]) + '/srpm/' + h(all.branch.urlname) + '/' + h(all.name), :class => 'news' %>
+    <%= link_to h(srpm.branch.urlname) + ':', '/' + h(params[:locale]) + '/srpm/' + h(srpm.branch.urlname) + '/' + h(srpm.name), :class => 'news' %>
   </td>
-  <td style="text-align: right;"><%=h all.version %>-<%=h all.release %></td>
+  <td style="text-align: right;"><%=h srpm.version %>-<%=h srpm.release %></td>
 </tr>
 <% end %>
 
