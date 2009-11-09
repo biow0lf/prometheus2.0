@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/usr/bin/mongrel_rails start -e production -p 80 -d
+cd /srv/www/prometheus2.0/current && /usr/bin/mongrel_rails start -e production -p 80 -d
 #  --environment=production \
 #  --instances=1 \
 #  --address=127.0.0.1 \
