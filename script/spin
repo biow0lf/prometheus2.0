@@ -1,7 +1,7 @@
 #!/bin/sh
 
-/usr/bin/mongrel_rails \
-  --environment=production \
-  --instances=1 \
-  --address=127.0.0.1 \
-  --port=80
+/usr/bin/mongrel_rails start -e production -p 80 -d
+#  --environment=production \
+#  --instances=1 \
+#  --address=127.0.0.1 \
+#  --port=80
