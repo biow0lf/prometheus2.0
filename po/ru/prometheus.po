@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-09 05:39+0200\n"
+"POT-Creation-Date: 2009-11-09 21:04+0300\n"
 "PO-Revision-Date: 2009-11-07 04:35+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -18,547 +18,167 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: app/models/package.rb:- app/views/team/info.html.erb:33
-#: app/views/packager/repocop.html.erb:13 app/views/packager/srpms.html.erb:17
+#: app/views/packager/srpms.html.erb:17 app/views/packager/repocop.html.erb:13
 #: app/views/packager/bugs.html.erb:16 app/views/packager/allbugs.html.erb:18
 #: app/views/home/search.html.erb:17
 msgid "package"
 msgstr "пакет"
 
-#: app/models/package.rb:-
-msgid "Package|Filename"
-msgstr "Package|Filename"
-
-#: app/models/package.rb:-
-msgid "Package|Sourcepackage"
-msgstr "Package|Sourcepackage"
-
-#: app/models/package.rb:-
-msgid "Package|Name"
-msgstr "Package|Name"
-
-#: app/models/package.rb:-
-msgid "Package|Version"
-msgstr "Package|Version"
-
-#: app/models/package.rb:-
-msgid "Package|Release"
-msgstr "Package|Release"
-
-#: app/models/package.rb:-
-msgid "Package|Group"
-msgstr "Package|Group"
-
-#: app/models/package.rb:-
-msgid "Package|Packager"
-msgstr "Package|Packager"
-
-#: app/models/package.rb:-
-msgid "Package|Epoch"
-msgstr "Package|Epoch"
-
-#: app/models/package.rb:-
-msgid "Package|Arch"
-msgstr "Package|Arch"
-
-#: app/models/package.rb:-
-msgid "Package|Summary"
-msgstr "Package|Summary"
-
-#: app/models/package.rb:-
-msgid "Package|License"
-msgstr "Package|License"
-
-#: app/models/package.rb:-
-msgid "Package|Url"
-msgstr "Package|Url"
-
-#: app/models/package.rb:-
-msgid "Package|Description"
-msgstr "Package|Description"
-
-#: app/models/package.rb:-
-msgid "Package|Vendor"
-msgstr "Package|Vendor"
-
-#: app/models/package.rb:-
-msgid "Package|Distribution"
-msgstr "Package|Distribution"
-
-#: app/models/package.rb:-
-msgid "Package|Buildtime"
-msgstr "Package|Buildtime"
-
-#: app/models/package.rb:-
-msgid "Package|Size"
-msgstr "Package|Size"
-
-#: app/models/package.rb:-
-msgid "Package|Branch"
-msgstr "Package|Branch"
-
-#: app/models/package.rb:-
-msgid "Package|Created at"
-msgstr "Package|Created at"
-
-#: app/models/package.rb:-
-msgid "Package|Updated at"
-msgstr "Package|Updated at"
-
-#: app/models/packager.rb:- app/views/home/search.html.erb:19
-msgid "packager"
-msgstr "сборщик"
-
-#: app/models/packager.rb:-
-msgid "Packager|Name"
-msgstr "Packager|Name"
-
-#: app/models/packager.rb:-
-msgid "Packager|Email"
-msgstr "Packager|Email"
-
-#: app/models/packager.rb:-
-msgid "Packager|Login"
-msgstr "Packager|Login"
-
-#: app/models/packager.rb:-
-msgid "Packager|Team"
-msgstr "Packager|Team"
-
-#: app/models/packager.rb:-
-msgid "Packager|Created at"
-msgstr "Packager|Created at"
-
-#: app/models/packager.rb:-
-msgid "Packager|Updated at"
-msgstr "Packager|Updated at"
-
-#: app/models/changelog.rb:-
-msgid "changelog"
-msgstr ""
-
-#: app/models/changelog.rb:-
-msgid "Changelog|Srpm"
-msgstr "Changelog|Srpm"
-
-#: app/models/changelog.rb:-
-msgid "Changelog|Changelogtime"
-msgstr "Changelog|Changelogtime"
-
-#: app/models/changelog.rb:-
-msgid "Changelog|Changelogname"
-msgstr "Changelog|Changelogname"
-
-#: app/models/changelog.rb:-
-msgid "Changelog|Changelogtext"
-msgstr "Changelog|Changelogtext"
-
-#: app/models/changelog.rb:-
-msgid "Changelog|Created at"
-msgstr "Changelog|Created at"
-
-#: app/models/changelog.rb:-
-msgid "Changelog|Updated at"
-msgstr "Changelog|Updated at"
-
-#: app/models/branch.rb:-
-msgid "branch"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Fullname"
-msgstr "Branch|Fullname"
-
-#: app/models/branch.rb:-
-msgid "Branch|Urlname"
-msgstr "Branch|Urlname"
-
-#: app/models/branch.rb:-
-msgid "Branch|Srpms path"
-msgstr "Branch|Srpms path"
-
-#: app/models/branch.rb:-
-msgid "Branch|Binary x86 path"
-msgstr "Branch|Binary x86 path"
-
-#: app/models/branch.rb:-
-msgid "Branch|Noarch path"
-msgstr "Branch|Noarch path"
-
-#: app/models/branch.rb:-
-msgid "Branch|Binary x86 64 path"
-msgstr "Branch|Binary x86 64 path"
-
-#: app/models/branch.rb:-
-msgid "Branch|Acls url"
-msgstr "Branch|Acls url"
-
-#: app/models/branch.rb:-
-msgid "Branch|Leaders url"
-msgstr "Branch|Leaders url"
-
-#: app/models/branch.rb:-
-msgid "Branch|Acls groups url"
-msgstr "Branch|Acls groups url"
-
-#: app/models/branch.rb:-
-msgid "Branch|Altlinux"
-msgstr "Branch|Altlinux"
-
-#: app/models/branch.rb:-
-msgid "Branch|Created at"
-msgstr "Branch|Created at"
-
-#: app/models/branch.rb:-
-msgid "Branch|Updated at"
-msgstr "Branch|Updated at"
-
-#: app/models/repocop.rb:-
-msgid "repocop"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Name"
-msgstr "Repocop|Name"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Version"
-msgstr "Repocop|Version"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Release"
-msgstr "Repocop|Release"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Arch"
-msgstr "Repocop|Arch"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srcname"
-msgstr "Repocop|Srcname"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srcversion"
-msgstr "Repocop|Srcversion"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srcrel"
-msgstr "Repocop|Srcrel"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Testname"
-msgstr "Repocop|Testname"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Status"
-msgstr "Repocop|Status"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Message"
-msgstr "Repocop|Message"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Created at"
-msgstr "Repocop|Created at"
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Updated at"
-msgstr "Repocop|Updated at"
-
-#: app/models/bug.rb:-
-msgid "bug"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Bug"
-msgstr "Bug|Bug"
-
-#: app/models/bug.rb:-
-msgid "Bug|Bug status"
-msgstr "Bug|Bug status"
-
-#: app/models/bug.rb:-
-msgid "Bug|Resolution"
-msgstr "Bug|Resolution"
-
-#: app/models/bug.rb:-
-msgid "Bug|Bug severity"
-msgstr "Bug|Bug severity"
-
-#: app/models/bug.rb:-
-msgid "Bug|Product"
-msgstr "Bug|Product"
-
-#: app/models/bug.rb:-
-msgid "Bug|Component"
-msgstr "Bug|Component"
-
-#: app/models/bug.rb:-
-msgid "Bug|Assigned to"
-msgstr "Bug|Assigned to"
-
-#: app/models/bug.rb:-
-msgid "Bug|Reporter"
-msgstr "Bug|Reporter"
-
-#: app/models/bug.rb:-
-msgid "Bug|Short desc"
-msgstr "Bug|Short desc"
-
-#: app/models/bug.rb:-
-msgid "Bug|Created at"
-msgstr "Bug|Created at"
-
-#: app/models/bug.rb:-
-msgid "Bug|Updated at"
-msgstr "Bug|Updated at"
-
-#: app/models/group.rb:-
-msgid "group"
-msgstr ""
-
-#: app/models/group.rb:-
-msgid "Group|Name"
-msgstr "Group|Name"
-
-#: app/models/group.rb:-
-msgid "Group|Branch"
-msgstr "Group|Branch"
-
-#: app/models/group.rb:-
-msgid "Group|Created at"
-msgstr "Group|Created at"
-
-#: app/models/group.rb:-
-msgid "Group|Updated at"
-msgstr "Group|Updated at"
-
 #: app/models/ftbfs.rb:-
 msgid "ftbf"
 msgstr ""
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Name"
-msgstr "Ftbfs|Name"
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Version"
-msgstr "Ftbfs|Version"
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Release"
-msgstr "Ftbfs|Release"
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Weeks"
-msgstr "Ftbfs|Weeks"
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Login"
-msgstr "Ftbfs|Login"
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Created at"
-msgstr "Ftbfs|Created at"
-
-#: app/models/ftbfs.rb:-
-msgid "Ftbfs|Updated at"
-msgstr "Ftbfs|Updated at"
-
-#: app/models/acl.rb:-
-msgid "acl"
-msgstr ""
-
-#: app/models/acl.rb:-
-msgid "Acl|Package"
-msgstr "Acl|Package"
-
-#: app/models/acl.rb:-
-msgid "Acl|Login"
-msgstr "Acl|Login"
-
-#: app/models/acl.rb:-
-msgid "Acl|Branch"
-msgstr "Acl|Branch"
-
-#: app/models/acl.rb:-
-msgid "Acl|Packager"
-msgstr "Acl|Packager"
-
-#: app/models/acl.rb:-
-msgid "Acl|Srpm"
-msgstr "Acl|Srpm"
-
-#: app/models/acl.rb:-
-msgid "Acl|Created at"
-msgstr "Acl|Created at"
-
-#: app/models/acl.rb:-
-msgid "Acl|Updated at"
-msgstr "Acl|Updated at"
 
 #: app/models/srpm.rb:-
 msgid "srpm"
 msgstr ""
 
-#: app/models/srpm.rb:-
-msgid "Srpm|Filename"
-msgstr "Srpm|Filename"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Name"
-msgstr "Srpm|Name"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Version"
-msgstr "Srpm|Version"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Release"
-msgstr "Srpm|Release"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Epoch"
-msgstr "Srpm|Epoch"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Group"
-msgstr "Srpm|Group"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Packager"
-msgstr "Srpm|Packager"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Summary"
-msgstr "Srpm|Summary"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|License"
-msgstr "Srpm|License"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Url"
-msgstr "Srpm|Url"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Description"
-msgstr "Srpm|Description"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Vendor"
-msgstr "Srpm|Vendor"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Distribution"
-msgstr "Srpm|Distribution"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Buildtime"
-msgstr "Srpm|Buildtime"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Size"
-msgstr "Srpm|Size"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Branch"
-msgstr "Srpm|Branch"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Rawspec"
-msgstr "Srpm|Rawspec"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Status"
-msgstr "Srpm|Status"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Update changelog"
-msgstr "Srpm|Update changelog"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Created at"
-msgstr "Srpm|Created at"
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Updated at"
-msgstr "Srpm|Updated at"
-
-#: app/models/leader.rb:-
-msgid "leader"
+#: app/models/acl.rb:-
+msgid "acl"
 msgstr ""
-
-#: app/models/leader.rb:-
-msgid "Leader|Package"
-msgstr "Leader|Package"
-
-#: app/models/leader.rb:-
-msgid "Leader|Login"
-msgstr "Leader|Login"
-
-#: app/models/leader.rb:-
-msgid "Leader|Branch"
-msgstr "Leader|Branch"
-
-#: app/models/leader.rb:-
-msgid "Leader|Created at"
-msgstr "Leader|Created at"
-
-#: app/models/leader.rb:-
-msgid "Leader|Updated at"
-msgstr "Leader|Updated at"
 
 #: app/models/team.rb:-
 msgid "team"
 msgstr ""
 
-#: app/models/team.rb:-
-msgid "Team|Name"
-msgstr "Team|Name"
-
-#: app/models/team.rb:-
-msgid "Team|Login"
-msgstr "Team|Login"
-
-#: app/models/team.rb:-
-msgid "Team|Branch"
-msgstr "Team|Branch"
-
-#: app/models/team.rb:-
-msgid "Team|Leader"
-msgstr "Team|Leader"
-
-#: app/models/team.rb:-
-msgid "Team|Created at"
-msgstr "Team|Created at"
-
-#: app/models/team.rb:-
-msgid "Team|Updated at"
-msgstr "Team|Updated at"
-
 #: app/models/gitrepos.rb:-
 msgid "gitrepo"
 msgstr ""
 
-#: app/models/gitrepos.rb:-
-msgid "Gitrepos|Package"
-msgstr "Gitrepos|Package"
+#: app/models/group.rb:-
+msgid "group"
+msgstr ""
 
-#: app/models/gitrepos.rb:-
-msgid "Gitrepos|Login"
-msgstr "Gitrepos|Login"
+#: app/models/bug.rb:-
+msgid "bug"
+msgstr ""
 
-#: app/models/gitrepos.rb:-
-msgid "Gitrepos|Lastchange"
-msgstr "Gitrepos|Lastchange"
+#: app/models/packager.rb:- app/views/home/search.html.erb:19
+msgid "packager"
+msgstr "сборщик"
 
-#: app/models/gitrepos.rb:-
-msgid "Gitrepos|Created at"
-msgstr "Gitrepos|Created at"
+#: app/models/leader.rb:-
+msgid "leader"
+msgstr ""
 
-#: app/models/gitrepos.rb:-
-msgid "Gitrepos|Updated at"
-msgstr "Gitrepos|Updated at"
+#: app/models/branch.rb:-
+msgid "branch"
+msgstr ""
+
+#: app/models/repocop.rb:-
+msgid "repocop"
+msgstr ""
+
+#: app/views/layouts/default.html.erb:6
+msgid "Prometheus 2.0"
+msgstr "Prometheus 2.0"
+
+#: app/views/layouts/default.html.erb:74
+msgid "Sisyphus repository "
+msgstr "Репозиторий Sisyphus"
+
+#: app/views/layouts/default.html.erb:85
+msgid "find"
+msgstr "искать"
+
+#: app/views/layouts/default.html.erb:96
+msgid "Last update:"
+msgstr "Последнее обновление:"
+
+#: app/views/layouts/default.html.erb:96
+msgid "SRPMs:"
+msgstr "Пакетов:"
+
+#: app/views/layouts/default.html.erb:99
+msgid "en"
+msgstr "en"
+
+#: app/views/layouts/default.html.erb:99
+msgid "English"
+msgstr "English"
+
+#: app/views/layouts/default.html.erb:99
+msgid "ru"
+msgstr "ru"
+
+#: app/views/layouts/default.html.erb:99
+msgid "Russian"
+msgstr "Russian"
+
+#: app/views/layouts/default.html.erb:107
+msgid "Home"
+msgstr "Главная"
+
+#: app/views/layouts/default.html.erb:107
+msgid "site home page"
+msgstr "главная страница сайта"
+
+#: app/views/layouts/default.html.erb:112
+msgid "News"
+msgstr "Новости"
+
+#: app/views/layouts/default.html.erb:112
+msgid "site news"
+msgstr "новости сайта"
+
+#: app/views/layouts/default.html.erb:117 app/views/packager/srpms.html.erb:7
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "Packages"
+msgstr "Пакеты"
+
+#: app/views/layouts/default.html.erb:117
+msgid "packages information"
+msgstr ""
+
+#: app/views/layouts/default.html.erb:122
+#: app/views/home/packagers_list.html.erb:6
+msgid "Maintainers"
+msgstr "Маинтейнеры"
+
+#: app/views/layouts/default.html.erb:122
+msgid "maintainers information"
+msgstr "информация о маинтейнерах"
+
+#: app/views/layouts/default.html.erb:127
+msgid "Security"
+msgstr "Безопасность"
+
+#: app/views/layouts/default.html.erb:127
+msgid "security fixes"
+msgstr "исправления уязвимостей"
+
+#: app/views/layouts/default.html.erb:132
+msgid "About"
+msgstr "О проекте"
+
+#: app/views/layouts/default.html.erb:132
+msgid "about Prometeus project"
+msgstr "проект Prometeus"
+
+#: app/views/layouts/default.html.erb:142
+msgid "Wiki"
+msgstr "Wiki"
+
+#: app/views/layouts/default.html.erb:142
+msgid "http://en.altlinux.org/Sisyphus"
+msgstr "http://www.altlinux.org/Sisyphus"
+
+#: app/views/layouts/default.html.erb:142
+msgid "sisyphus public site"
+msgstr "общественный сайт sisyphus"
+
+#: app/views/layouts/default.html.erb:154
+msgid "Mailing list"
+msgstr "Рассылка"
+
+#: app/views/layouts/default.html.erb:154
+msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
+msgstr "http://lists.altlinux.org/mailman/listinfo/sisyphus/"
+
+#: app/views/layouts/default.html.erb:154
+msgid "community-en@"
+msgstr "sisyphus@"
 
 #: app/views/team/nosuchteam.html.erb:2
 msgid "Prometheus 2.0 - Team - Error!"
@@ -633,16 +253,191 @@ msgstr "Url"
 msgid "Summary"
 msgstr "О пакете"
 
-#: app/views/team/info.html.erb:70 app/views/srpm/main.html.erb:69
-#: app/views/packager/srpms.html.erb:56 app/views/home/bytwogroup.html.erb:13
-#: app/views/home/bythreegroup.html.erb:13 app/views/home/bygroup.html.erb:13
+#: app/views/team/info.html.erb:70 app/views/packager/srpms.html.erb:56
+#: app/views/srpm/main.html.erb:69 app/views/home/bytwogroup.html.erb:13
+#: app/views/home/bygroup.html.erb:13 app/views/home/bythreegroup.html.erb:13
 msgid "ago"
 msgstr "назад"
 
-#: app/views/srpm/download.html.erb:2 app/views/srpm/gear.html.erb:2
-#: app/views/srpm/main.html.erb:2 app/views/srpm/repocop.html.erb:2
+#: app/views/packager/srpms.html.erb:2 app/views/packager/gear.html.erb:2
+#: app/views/packager/repocop.html.erb:2 app/views/packager/bugs.html.erb:2
+#: app/views/packager/allbugs.html.erb:2 app/views/packager/info.html.erb:2
+msgid "Prometheus 2.0 - Maintainer &laquo;"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;"
+
+#: app/views/packager/srpms.html.erb:2
+msgid "&raquo; - Packages"
+msgstr "&raquo; - Пакеты"
+
+#: app/views/packager/srpms.html.erb:5 app/views/packager/gear.html.erb:5
+#: app/views/packager/repocop.html.erb:5 app/views/packager/bugs.html.erb:5
+#: app/views/packager/allbugs.html.erb:5 app/views/packager/info.html.erb:5
+#: app/views/home/bytwogroup.html.erb:11 app/views/home/bygroup.html.erb:11
+#: app/views/home/bythreegroup.html.erb:11
+msgid "Maintainer:"
+msgstr "Маинтейнер:"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
+msgid "information about maintainer"
+msgstr "просмотреть информацию о маинтейнере"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
+msgid "Information"
+msgstr "Информация"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "gear"
+msgstr "gear"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
+msgid "Gear"
+msgstr "Gear"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8 app/views/packager/info.html.erb:7
+msgid "Bugs/FR statistics assigned to this maintainer"
+msgstr "Статистика по кол-ву bugs/FR, адресованных данному маинтейнеру"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
+msgid "Bugs and FR"
+msgstr "Bugs and FR"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7 app/views/srpm/download.html.erb:64
+#: app/views/srpm/main.html.erb:67 app/views/srpm/rawspec.html.erb:68
+#: app/views/srpm/gear.html.erb:76 app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
+msgid "repocop bugreports"
+msgstr "отчет repocop о найденных ошибках и замечаниях"
+
+#: app/views/packager/srpms.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/repocop.html.erb:8 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
+msgid "Repocop"
+msgstr "Repocop"
+
+#: app/views/packager/srpms.html.erb:8
+msgid "List of packages which was built by this maintainer:"
+msgstr "Список пакетов, собранных маинтейнером:"
+
+#: app/views/packager/gear.html.erb:2
+msgid "&raquo; - Gear"
+msgstr "&raquo; - Gear"
+
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/info.html.erb:7
+msgid "packages which was built by this maintainer"
+msgstr "просмотреть пакеты, собранные маинтейнером"
+
+#: app/views/packager/repocop.html.erb:2
+msgid "&raquo; - Repocop"
+msgstr "&raquo; - Repocop"
+
+#: app/views/packager/repocop.html.erb:9
+msgid "Repocop messages:"
+msgstr "Сообщения от repocop:"
+
+#: app/views/packager/repocop.html.erb:14 app/views/packager/bugs.html.erb:18
+#: app/views/packager/allbugs.html.erb:20 app/views/srpm/repocop.html.erb:85
+#: app/views/srpm/bugs.html.erb:92 app/views/srpm/allbugs.html.erb:92
+msgid "status"
+msgstr "статус"
+
+#: app/views/packager/repocop.html.erb:15 app/views/srpm/repocop.html.erb:86
+msgid "test"
+msgstr "тест"
+
+#: app/views/packager/repocop.html.erb:16 app/views/srpm/repocop.html.erb:87
+msgid "message"
+msgstr "сообщение"
+
+#: app/views/packager/bugs.html.erb:2
+msgid "&raquo; - Bugs and FR"
+msgstr "&raquo; - Bugs and FR"
+
+#: app/views/packager/bugs.html.erb:8 app/views/packager/allbugs.html.erb:8
+msgid "Total records:"
+msgstr "Всего записей:"
+
+#: app/views/packager/bugs.html.erb:11 app/views/packager/allbugs.html.erb:11
+#: app/views/srpm/bugs.html.erb:85 app/views/srpm/allbugs.html.erb:85
+msgid "open"
+msgstr "открытые баги"
+
+#: app/views/packager/bugs.html.erb:12 app/views/packager/allbugs.html.erb:12
+#: app/views/srpm/bugs.html.erb:86 app/views/srpm/allbugs.html.erb:86
+msgid "total"
+msgstr "все баги"
+
+#: app/views/packager/bugs.html.erb:15 app/views/packager/allbugs.html.erb:17
+#: app/views/srpm/bugs.html.erb:90 app/views/srpm/allbugs.html.erb:90
+msgid "id"
+msgstr "id"
+
+#: app/views/packager/bugs.html.erb:17 app/views/packager/allbugs.html.erb:19
+#: app/views/srpm/bugs.html.erb:91 app/views/srpm/allbugs.html.erb:91
+msgid "severity"
+msgstr "серьёзность"
+
+#: app/views/packager/bugs.html.erb:19 app/views/packager/allbugs.html.erb:22
+#: app/views/srpm/bugs.html.erb:93 app/views/srpm/allbugs.html.erb:94
+msgid "reporter"
+msgstr "сообщено"
+
+#: app/views/packager/bugs.html.erb:20 app/views/packager/allbugs.html.erb:23
+#: app/views/srpm/bugs.html.erb:94 app/views/srpm/allbugs.html.erb:95
+#: app/views/home/search.html.erb:20
+msgid "summary"
+msgstr "описание"
+
+#: app/views/packager/nosuchpackager.html.erb:2
+msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
+msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
+
+#: app/views/packager/nosuchpackager.html.erb:5
+msgid "No such packager!"
+msgstr "Нет такого маинтейнера!"
+
+#: app/views/packager/allbugs.html.erb:2
+msgid "&raquo; - Bugs and FR (All)"
+msgstr "&raquo; - Bugs and FR (All)"
+
+#: app/views/packager/allbugs.html.erb:21 app/views/srpm/allbugs.html.erb:93
+msgid "resolution"
+msgstr "разрешение"
+
+#: app/views/packager/info.html.erb:11
+msgid "Packages build by this maintainer:"
+msgstr "Всего пакетов собранных маинтейнером:"
+
+#: app/views/srpm/download.html.erb:2 app/views/srpm/main.html.erb:2
+#: app/views/srpm/rawspec.html.erb:2 app/views/srpm/gear.html.erb:2
+#: app/views/srpm/repocop.html.erb:2 app/views/srpm/changelog.html.erb:2
 #: app/views/srpm/bugs.html.erb:2 app/views/srpm/allbugs.html.erb:2
-#: app/views/srpm/rawspec.html.erb:2 app/views/srpm/changelog.html.erb:2
 msgid "Prometheus 2.0 - Package "
 msgstr "Prometheus 2.0 - Пакет "
 
@@ -650,165 +445,115 @@ msgstr "Prometheus 2.0 - Пакет "
 msgid " - Download"
 msgstr ""
 
-#: app/views/srpm/download.html.erb:32 app/views/srpm/gear.html.erb:44
-#: app/views/srpm/main.html.erb:30 app/views/srpm/repocop.html.erb:46
+#: app/views/srpm/download.html.erb:32 app/views/srpm/main.html.erb:30
+#: app/views/srpm/rawspec.html.erb:32 app/views/srpm/gear.html.erb:44
+#: app/views/srpm/repocop.html.erb:46 app/views/srpm/changelog.html.erb:35
 #: app/views/srpm/bugs.html.erb:46 app/views/srpm/allbugs.html.erb:46
-#: app/views/srpm/rawspec.html.erb:32 app/views/srpm/changelog.html.erb:35
-#: app/views/home/bytwogroup.html.erb:5 app/views/home/bythreegroup.html.erb:5
-#: app/views/home/bygroup.html.erb:5
+#: app/views/home/bytwogroup.html.erb:5 app/views/home/bygroup.html.erb:5
+#: app/views/home/bythreegroup.html.erb:5
 msgid "Group"
 msgstr "Группa"
 
-#: app/views/srpm/download.html.erb:33 app/views/srpm/gear.html.erb:45
-#: app/views/srpm/main.html.erb:31 app/views/srpm/repocop.html.erb:47
+#: app/views/srpm/download.html.erb:33 app/views/srpm/main.html.erb:31
+#: app/views/srpm/rawspec.html.erb:33 app/views/srpm/gear.html.erb:45
+#: app/views/srpm/repocop.html.erb:47 app/views/srpm/changelog.html.erb:36
 #: app/views/srpm/bugs.html.erb:48 app/views/srpm/allbugs.html.erb:48
-#: app/views/srpm/rawspec.html.erb:33 app/views/srpm/changelog.html.erb:36
 msgid "Source RPM:"
 msgstr ""
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/repocop.html.erb:79 app/views/srpm/bugs.html.erb:80
-#: app/views/srpm/allbugs.html.erb:80 app/views/srpm/rawspec.html.erb:68
-#: app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/download.html.erb:64 app/views/srpm/rawspec.html.erb:68
+#: app/views/srpm/gear.html.erb:76 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/changelog.html.erb:72 app/views/srpm/bugs.html.erb:80
+#: app/views/srpm/allbugs.html.erb:80
 msgid "information about SRPM"
 msgstr "просмотреть информацию о пакете"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "Main"
 msgstr "Главная"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/bugs.html.erb:80
+#: app/views/srpm/allbugs.html.erb:80
 msgid "full changelog"
 msgstr "просмотреть полный changelog пакета"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "Changelog"
 msgstr "Изменения"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/gear.html.erb:76 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/changelog.html.erb:72 app/views/srpm/bugs.html.erb:80
+#: app/views/srpm/allbugs.html.erb:80
 msgid "spec"
 msgstr "просмотреть spec пакета"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "Spec"
 msgstr "Спек"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "patches"
 msgstr "просмотреть патчи пакета"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "Patches"
 msgstr "Патчи"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "sources"
 msgstr "sources"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "Sources"
 msgstr "Sources"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
 msgid "Download"
 msgstr "Загрузить"
 
 #: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
-#: app/views/srpm/repocop.html.erb:79 app/views/srpm/bugs.html.erb:80
-#: app/views/srpm/allbugs.html.erb:80 app/views/srpm/rawspec.html.erb:68
-#: app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/changelog.html.erb:72 app/views/srpm/bugs.html.erb:80
+#: app/views/srpm/allbugs.html.erb:80
 msgid "this package in gear repositories"
 msgstr "наличие пакета в репозитариях gear"
 
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-msgid "Gear"
-msgstr "Gear"
-
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
+#: app/views/srpm/download.html.erb:64 app/views/srpm/main.html.erb:67
+#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/gear.html.erb:76
+#: app/views/srpm/repocop.html.erb:79 app/views/srpm/changelog.html.erb:72
 msgid "list of bugs and feature requests"
 msgstr "список багов и предложений по улучшению"
-
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-msgid "Bugs and FR"
-msgstr "Bugs and FR"
-
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/bugs.html.erb:80
-#: app/views/srpm/allbugs.html.erb:80 app/views/srpm/rawspec.html.erb:68
-#: app/views/srpm/changelog.html.erb:72 app/views/packager/gear.html.erb:7
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-msgid "repocop bugreports"
-msgstr "отчет repocop о найденных ошибках и замечаниях"
-
-#: app/views/srpm/download.html.erb:64 app/views/srpm/gear.html.erb:76
-#: app/views/srpm/main.html.erb:67 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/changelog.html.erb:72
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-msgid "Repocop"
-msgstr "Repocop"
 
 #: app/views/srpm/download.html.erb:115
 msgid "Choose a mirror:"
 msgstr "Выберите зеркало:"
-
-#: app/views/srpm/gear.html.erb:2
-msgid " - Gear"
-msgstr " - Gear"
-
-#: app/views/srpm/gear.html.erb:76 app/views/srpm/main.html.erb:67
-#: app/views/srpm/repocop.html.erb:79 app/views/srpm/bugs.html.erb:80
-#: app/views/srpm/allbugs.html.erb:80 app/views/srpm/rawspec.html.erb:68
-#: app/views/srpm/changelog.html.erb:72
-msgid "download latest version"
-msgstr "загрузить последнюю версию пакета"
 
 #: app/views/srpm/main.html.erb:7
 msgid "ALT Linux repositories"
@@ -823,8 +568,15 @@ msgstr ""
 msgid "hide window"
 msgstr "свернуть окно"
 
+#: app/views/srpm/main.html.erb:67 app/views/srpm/rawspec.html.erb:68
+#: app/views/srpm/gear.html.erb:76 app/views/srpm/repocop.html.erb:79
+#: app/views/srpm/changelog.html.erb:72 app/views/srpm/bugs.html.erb:80
+#: app/views/srpm/allbugs.html.erb:80
+msgid "download latest version"
+msgstr "загрузить последнюю версию пакета"
+
 #: app/views/srpm/main.html.erb:68 app/views/home/bytwogroup.html.erb:12
-#: app/views/home/bythreegroup.html.erb:12 app/views/home/bygroup.html.erb:12
+#: app/views/home/bygroup.html.erb:12 app/views/home/bythreegroup.html.erb:12
 msgid "Current version:"
 msgstr "Текущая версия:"
 
@@ -845,7 +597,7 @@ msgid "License:"
 msgstr "Лицензия:"
 
 #: app/views/srpm/main.html.erb:78 app/views/home/bytwogroup.html.erb:14
-#: app/views/home/bythreegroup.html.erb:14 app/views/home/bygroup.html.erb:14
+#: app/views/home/bygroup.html.erb:14 app/views/home/bythreegroup.html.erb:14
 msgid "Summary:"
 msgstr "О пакете:"
 
@@ -871,6 +623,18 @@ msgstr "Список rpm-пакетов, предоставляемый данн
 msgid "ACL:"
 msgstr "ACL:"
 
+#: app/views/srpm/nosuchpackage.html.erb:2
+msgid "Prometheus 2.0 - Package - Error!"
+msgstr "Prometheus 2.0 - Package - Error!"
+
+#: app/views/srpm/nosuchpackage.html.erb:5
+msgid "No such package!"
+msgstr "Нет такого пакета!"
+
+#: app/views/srpm/gear.html.erb:2
+msgid " - Gear"
+msgstr " - Gear"
+
 #: app/views/srpm/repocop.html.erb:2
 msgid " - Repocop"
 msgstr " - Repocop"
@@ -879,19 +643,9 @@ msgstr " - Repocop"
 msgid "package id"
 msgstr "id пакета"
 
-#: app/views/srpm/repocop.html.erb:85 app/views/srpm/bugs.html.erb:92
-#: app/views/srpm/allbugs.html.erb:92 app/views/packager/repocop.html.erb:14
-#: app/views/packager/bugs.html.erb:18 app/views/packager/allbugs.html.erb:20
-msgid "status"
-msgstr "статус"
-
-#: app/views/srpm/repocop.html.erb:86 app/views/packager/repocop.html.erb:15
-msgid "test"
-msgstr "тест"
-
-#: app/views/srpm/repocop.html.erb:87 app/views/packager/repocop.html.erb:16
-msgid "message"
-msgstr "сообщение"
+#: app/views/srpm/changelog.html.erb:2
+msgid " - Changelog"
+msgstr " - Changelog"
 
 #: app/views/srpm/bugs.html.erb:2
 msgid " - Bugs"
@@ -901,259 +655,65 @@ msgstr ""
 msgid "Total:"
 msgstr "Всего записей:"
 
-#: app/views/srpm/bugs.html.erb:85 app/views/srpm/allbugs.html.erb:85
-#: app/views/packager/bugs.html.erb:11 app/views/packager/allbugs.html.erb:11
-msgid "open"
-msgstr "открытые баги"
-
-#: app/views/srpm/bugs.html.erb:86 app/views/srpm/allbugs.html.erb:86
-#: app/views/packager/bugs.html.erb:12 app/views/packager/allbugs.html.erb:12
-msgid "total"
-msgstr "все баги"
-
-#: app/views/srpm/bugs.html.erb:90 app/views/srpm/allbugs.html.erb:90
-#: app/views/packager/bugs.html.erb:15 app/views/packager/allbugs.html.erb:17
-msgid "id"
-msgstr "id"
-
-#: app/views/srpm/bugs.html.erb:91 app/views/srpm/allbugs.html.erb:91
-#: app/views/packager/bugs.html.erb:17 app/views/packager/allbugs.html.erb:19
-msgid "severity"
-msgstr "серьёзность"
-
-#: app/views/srpm/bugs.html.erb:93 app/views/srpm/allbugs.html.erb:94
-#: app/views/packager/bugs.html.erb:19 app/views/packager/allbugs.html.erb:22
-msgid "reporter"
-msgstr "сообщено"
-
-#: app/views/srpm/bugs.html.erb:94 app/views/srpm/allbugs.html.erb:95
-#: app/views/packager/bugs.html.erb:20 app/views/packager/allbugs.html.erb:23
-#: app/views/home/search.html.erb:20
-msgid "summary"
-msgstr "описание"
-
 #: app/views/srpm/allbugs.html.erb:2
 msgid " - All bugs"
 msgstr ""
 
-#: app/views/srpm/allbugs.html.erb:93 app/views/packager/allbugs.html.erb:21
-msgid "resolution"
-msgstr "разрешение"
+#: app/views/home/search.html.erb:2
+msgid "Prometheus 2.0 - Search"
+msgstr "Prometheus 2.0 - Поиск по сайту"
 
-#: app/views/srpm/nosuchpackage.html.erb:2
-msgid "Prometheus 2.0 - Package - Error!"
-msgstr "Prometheus 2.0 - Package - Error!"
-
-#: app/views/srpm/nosuchpackage.html.erb:5
-msgid "No such package!"
-msgstr "Нет такого пакета!"
-
-#: app/views/srpm/changelog.html.erb:2
-msgid " - Changelog"
-msgstr " - Changelog"
-
-#: app/views/packager/gear.html.erb:2 app/views/packager/repocop.html.erb:2
-#: app/views/packager/srpms.html.erb:2 app/views/packager/bugs.html.erb:2
-#: app/views/packager/allbugs.html.erb:2 app/views/packager/info.html.erb:2
-msgid "Prometheus 2.0 - Maintainer &laquo;"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;"
-
-#: app/views/packager/gear.html.erb:2
-msgid "&raquo; - Gear"
-msgstr "&raquo; - Gear"
-
-#: app/views/packager/gear.html.erb:5 app/views/packager/repocop.html.erb:5
-#: app/views/packager/srpms.html.erb:5 app/views/packager/bugs.html.erb:5
-#: app/views/packager/allbugs.html.erb:5 app/views/packager/info.html.erb:5
-#: app/views/home/bytwogroup.html.erb:11
-#: app/views/home/bythreegroup.html.erb:11 app/views/home/bygroup.html.erb:11
-msgid "Maintainer:"
-msgstr "Маинтейнер:"
-
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7
-msgid "information about maintainer"
-msgstr "просмотреть информацию о маинтейнере"
-
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-msgid "Information"
-msgstr "Информация"
-
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
-#: app/views/packager/info.html.erb:7
-msgid "packages which was built by this maintainer"
-msgstr "просмотреть пакеты, собранные маинтейнером"
-
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-#: app/views/layouts/default.html.erb:117
-msgid "Packages"
-msgstr "Пакеты"
-
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/info.html.erb:7
-msgid "Bugs/FR statistics assigned to this maintainer"
-msgstr "Статистика по кол-ву bugs/FR, адресованных данному маинтейнеру"
-
-#: app/views/packager/repocop.html.erb:2
-msgid "&raquo; - Repocop"
-msgstr "&raquo; - Repocop"
-
-#: app/views/packager/repocop.html.erb:8 app/views/packager/srpms.html.erb:7
-#: app/views/packager/bugs.html.erb:7 app/views/packager/allbugs.html.erb:7
-#: app/views/packager/info.html.erb:7
-msgid "gear"
-msgstr "gear"
-
-#: app/views/packager/repocop.html.erb:9
-msgid "Repocop messages:"
-msgstr "Сообщения от repocop:"
-
-#: app/views/packager/nosuchpackager.html.erb:2
-msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
-msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
-
-#: app/views/packager/nosuchpackager.html.erb:5
-msgid "No such packager!"
-msgstr "Нет такого маинтейнера!"
-
-#: app/views/packager/srpms.html.erb:2
-msgid "&raquo; - Packages"
-msgstr "&raquo; - Пакеты"
-
-#: app/views/packager/srpms.html.erb:8
-msgid "List of packages which was built by this maintainer:"
-msgstr "Список пакетов, собранных маинтейнером:"
-
-#: app/views/packager/bugs.html.erb:2
-msgid "&raquo; - Bugs and FR"
-msgstr "&raquo; - Bugs and FR"
-
-#: app/views/packager/bugs.html.erb:8 app/views/packager/allbugs.html.erb:8
-msgid "Total records:"
-msgstr "Всего записей:"
-
-#: app/views/packager/allbugs.html.erb:2
-msgid "&raquo; - Bugs and FR (All)"
-msgstr "&raquo; - Bugs and FR (All)"
-
-#: app/views/packager/info.html.erb:11
-msgid "Packages build by this maintainer:"
-msgstr "Всего пакетов собранных маинтейнером:"
-
-#: app/views/layouts/default.html.erb:6
-msgid "Prometheus 2.0"
-msgstr "Prometheus 2.0"
-
-#: app/views/layouts/default.html.erb:74
-msgid "Sisyphus repository "
-msgstr "Репозиторий Sisyphus"
-
-#: app/views/layouts/default.html.erb:85
-msgid "find"
-msgstr "искать"
-
-#: app/views/layouts/default.html.erb:96
-msgid "Last update:"
-msgstr "Последнее обновление:"
-
-#: app/views/layouts/default.html.erb:96
-msgid "SRPMs:"
-msgstr "Пакетов:"
-
-#: app/views/layouts/default.html.erb:99
-msgid "en"
-msgstr "en"
-
-#: app/views/layouts/default.html.erb:99
-msgid "English"
-msgstr "English"
-
-#: app/views/layouts/default.html.erb:99
-msgid "ru"
-msgstr "ru"
-
-#: app/views/layouts/default.html.erb:99
-msgid "Russian"
-msgstr "Russian"
-
-#: app/views/layouts/default.html.erb:107
-msgid "Home"
-msgstr "Главная"
-
-#: app/views/layouts/default.html.erb:107
-msgid "site home page"
-msgstr "главная страница сайта"
-
-#: app/views/layouts/default.html.erb:112
-msgid "News"
-msgstr "Новости"
-
-#: app/views/layouts/default.html.erb:112
-msgid "site news"
-msgstr "новости сайта"
-
-#: app/views/layouts/default.html.erb:117
-msgid "packages information"
+#: app/views/home/search.html.erb:5
+msgid "Search"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:122
-#: app/views/home/packagers_list.html.erb:6
-msgid "Maintainers"
-msgstr "Маинтейнеры"
-
-#: app/views/layouts/default.html.erb:122
-msgid "maintainers information"
-msgstr "информация о маинтейнерах"
-
-#: app/views/layouts/default.html.erb:127
-msgid "Security"
-msgstr "Безопасность"
-
-#: app/views/layouts/default.html.erb:127
-msgid "security fixes"
-msgstr "исправления уязвимостей"
-
-#: app/views/layouts/default.html.erb:132
-msgid "About"
-msgstr "О проекте"
-
-#: app/views/layouts/default.html.erb:132
-msgid "about Prometeus project"
-msgstr "проект Prometeus"
-
-#: app/views/layouts/default.html.erb:142
-msgid "Wiki"
-msgstr "Wiki"
-
-#: app/views/layouts/default.html.erb:142
-msgid "http://en.altlinux.org/Sisyphus"
-msgstr "http://www.altlinux.org/Sisyphus"
-
-#: app/views/layouts/default.html.erb:142
-msgid "sisyphus public site"
-msgstr "общественный сайт sisyphus"
-
-#: app/views/layouts/default.html.erb:154
-msgid "Mailing list"
-msgstr "Рассылка"
-
-#: app/views/layouts/default.html.erb:154
-msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
-msgstr "http://lists.altlinux.org/mailman/listinfo/sisyphus/"
-
-#: app/views/layouts/default.html.erb:154
-msgid "community-en@"
-msgstr "sisyphus@"
-
-#: app/views/home/rss.html.erb:2
-msgid "Prometheus 2.0 - RSS"
+#: app/views/home/search.html.erb:9
+msgid "search"
 msgstr ""
+
+#: app/views/home/search.html.erb:12
+msgid "On your query"
+msgstr "По запросу"
+
+#: app/views/home/search.html.erb:12
+msgid "were found"
+msgstr "было найдено"
+
+#: app/views/home/search.html.erb:12
+msgid "RPMs:"
+msgstr "пакетов:"
+
+#: app/views/home/project.html.erb:2
+msgid "Prometheus 2.0 - Information about the project"
+msgstr "Prometheus 2.0 - Информация о проекте"
+
+#: app/views/home/groups_list.html.erb:2
+msgid "Prometheus 2.0 - Groups"
+msgstr ""
+
+#: app/views/home/groups_list.html.erb:24
+msgid "Package groups"
+msgstr "Группы пакетов"
+
+#: app/views/home/bytwogroup.html.erb:2 app/views/home/bygroup.html.erb:2
+#: app/views/home/bythreegroup.html.erb:2
+msgid "Prometheus 2.0 - Group - "
+msgstr ""
+
+#: app/views/home/bytwogroup.html.erb:9 app/views/home/bygroup.html.erb:9
+#: app/views/home/bythreegroup.html.erb:9
+msgid "detailed information about the package"
+msgstr ""
+
+#: app/views/home/bytwogroup.html.erb:13 app/views/home/bygroup.html.erb:13
+#: app/views/home/bythreegroup.html.erb:13
+msgid "Build time:"
+msgstr "Время сборки:"
+
+#: app/views/home/bytwogroup.html.erb:16 app/views/home/bygroup.html.erb:16
+#: app/views/home/bythreegroup.html.erb:16
+msgid "Changes:"
+msgstr "Изменения:"
 
 #: app/views/home/packagers_list.html.erb:2
 msgid "Prometheus 2.0 - Maintainers"
@@ -1162,30 +722,6 @@ msgstr ""
 #: app/views/home/packagers_list.html.erb:6
 msgid "Teams"
 msgstr "Команды разработчиков"
-
-#: app/views/home/bytwogroup.html.erb:2 app/views/home/bythreegroup.html.erb:2
-#: app/views/home/bygroup.html.erb:2
-msgid "Prometheus 2.0 - Group - "
-msgstr ""
-
-#: app/views/home/bytwogroup.html.erb:9 app/views/home/bythreegroup.html.erb:9
-#: app/views/home/bygroup.html.erb:9
-msgid "detailed information about the package"
-msgstr ""
-
-#: app/views/home/bytwogroup.html.erb:13
-#: app/views/home/bythreegroup.html.erb:13 app/views/home/bygroup.html.erb:13
-msgid "Build time:"
-msgstr "Время сборки:"
-
-#: app/views/home/bytwogroup.html.erb:16
-#: app/views/home/bythreegroup.html.erb:16 app/views/home/bygroup.html.erb:16
-msgid "Changes:"
-msgstr "Изменения:"
-
-#: app/views/home/project.html.erb:2
-msgid "Prometheus 2.0 - Information about the project"
-msgstr "Prometheus 2.0 - Информация о проекте"
 
 #: app/views/home/index.html.erb:2
 msgid "Prometheus 2.0 - Intro"
@@ -1284,43 +820,380 @@ msgstr "A: Составьте фильтр для rsync, на основе да�
 msgid "form"
 msgstr "формы"
 
-#: app/views/home/news.html.erb:2
-msgid "Prometheus 2.0 - News"
-msgstr "Prometheus 2.0 - Новости"
-
-#: app/views/home/groups_list.html.erb:2
-msgid "Prometheus 2.0 - Groups"
-msgstr ""
-
-#: app/views/home/groups_list.html.erb:24
-msgid "Package groups"
-msgstr "Группы пакетов"
-
-#: app/views/home/search.html.erb:2
-msgid "Prometheus 2.0 - Search"
-msgstr "Prometheus 2.0 - Поиск по сайту"
-
-#: app/views/home/search.html.erb:5
-msgid "Search"
-msgstr ""
-
-#: app/views/home/search.html.erb:9
-msgid "search"
-msgstr ""
-
-#: app/views/home/search.html.erb:12
-msgid "On your query"
-msgstr "По запросу"
-
-#: app/views/home/search.html.erb:12
-msgid "were found"
-msgstr "было найдено"
-
-#: app/views/home/search.html.erb:12
-msgid "RPMs:"
-msgstr "пакетов:"
-
 #: app/views/home/security.html.erb:2
 msgid "Prometheus 2.0 - Security"
 msgstr ""
 
+#: app/views/home/news.html.erb:2
+msgid "Prometheus 2.0 - News"
+msgstr "Prometheus 2.0 - Новости"
+
+#: app/views/home/rss.html.erb:2
+msgid "Prometheus 2.0 - RSS"
+msgstr ""
+
+#~ msgid "Package|Filename"
+#~ msgstr "Package|Filename"
+
+#~ msgid "Package|Sourcepackage"
+#~ msgstr "Package|Sourcepackage"
+
+#~ msgid "Package|Name"
+#~ msgstr "Package|Name"
+
+#~ msgid "Package|Version"
+#~ msgstr "Package|Version"
+
+#~ msgid "Package|Release"
+#~ msgstr "Package|Release"
+
+#~ msgid "Package|Group"
+#~ msgstr "Package|Group"
+
+#~ msgid "Package|Packager"
+#~ msgstr "Package|Packager"
+
+#~ msgid "Package|Epoch"
+#~ msgstr "Package|Epoch"
+
+#~ msgid "Package|Arch"
+#~ msgstr "Package|Arch"
+
+#~ msgid "Package|Summary"
+#~ msgstr "Package|Summary"
+
+#~ msgid "Package|License"
+#~ msgstr "Package|License"
+
+#~ msgid "Package|Url"
+#~ msgstr "Package|Url"
+
+#~ msgid "Package|Description"
+#~ msgstr "Package|Description"
+
+#~ msgid "Package|Vendor"
+#~ msgstr "Package|Vendor"
+
+#~ msgid "Package|Distribution"
+#~ msgstr "Package|Distribution"
+
+#~ msgid "Package|Buildtime"
+#~ msgstr "Package|Buildtime"
+
+#~ msgid "Package|Size"
+#~ msgstr "Package|Size"
+
+#~ msgid "Package|Branch"
+#~ msgstr "Package|Branch"
+
+#~ msgid "Package|Created at"
+#~ msgstr "Package|Created at"
+
+#~ msgid "Package|Updated at"
+#~ msgstr "Package|Updated at"
+
+#~ msgid "Packager|Name"
+#~ msgstr "Packager|Name"
+
+#~ msgid "Packager|Email"
+#~ msgstr "Packager|Email"
+
+#~ msgid "Packager|Login"
+#~ msgstr "Packager|Login"
+
+#~ msgid "Packager|Team"
+#~ msgstr "Packager|Team"
+
+#~ msgid "Packager|Created at"
+#~ msgstr "Packager|Created at"
+
+#~ msgid "Packager|Updated at"
+#~ msgstr "Packager|Updated at"
+
+#~ msgid "Changelog|Srpm"
+#~ msgstr "Changelog|Srpm"
+
+#~ msgid "Changelog|Changelogtime"
+#~ msgstr "Changelog|Changelogtime"
+
+#~ msgid "Changelog|Changelogname"
+#~ msgstr "Changelog|Changelogname"
+
+#~ msgid "Changelog|Changelogtext"
+#~ msgstr "Changelog|Changelogtext"
+
+#~ msgid "Changelog|Created at"
+#~ msgstr "Changelog|Created at"
+
+#~ msgid "Changelog|Updated at"
+#~ msgstr "Changelog|Updated at"
+
+#~ msgid "Branch|Fullname"
+#~ msgstr "Branch|Fullname"
+
+#~ msgid "Branch|Urlname"
+#~ msgstr "Branch|Urlname"
+
+#~ msgid "Branch|Srpms path"
+#~ msgstr "Branch|Srpms path"
+
+#~ msgid "Branch|Binary x86 path"
+#~ msgstr "Branch|Binary x86 path"
+
+#~ msgid "Branch|Noarch path"
+#~ msgstr "Branch|Noarch path"
+
+#~ msgid "Branch|Binary x86 64 path"
+#~ msgstr "Branch|Binary x86 64 path"
+
+#~ msgid "Branch|Acls url"
+#~ msgstr "Branch|Acls url"
+
+#~ msgid "Branch|Leaders url"
+#~ msgstr "Branch|Leaders url"
+
+#~ msgid "Branch|Acls groups url"
+#~ msgstr "Branch|Acls groups url"
+
+#~ msgid "Branch|Altlinux"
+#~ msgstr "Branch|Altlinux"
+
+#~ msgid "Branch|Created at"
+#~ msgstr "Branch|Created at"
+
+#~ msgid "Branch|Updated at"
+#~ msgstr "Branch|Updated at"
+
+#~ msgid "Repocop|Name"
+#~ msgstr "Repocop|Name"
+
+#~ msgid "Repocop|Version"
+#~ msgstr "Repocop|Version"
+
+#~ msgid "Repocop|Release"
+#~ msgstr "Repocop|Release"
+
+#~ msgid "Repocop|Arch"
+#~ msgstr "Repocop|Arch"
+
+#~ msgid "Repocop|Srcname"
+#~ msgstr "Repocop|Srcname"
+
+#~ msgid "Repocop|Srcversion"
+#~ msgstr "Repocop|Srcversion"
+
+#~ msgid "Repocop|Srcrel"
+#~ msgstr "Repocop|Srcrel"
+
+#~ msgid "Repocop|Testname"
+#~ msgstr "Repocop|Testname"
+
+#~ msgid "Repocop|Status"
+#~ msgstr "Repocop|Status"
+
+#~ msgid "Repocop|Message"
+#~ msgstr "Repocop|Message"
+
+#~ msgid "Repocop|Created at"
+#~ msgstr "Repocop|Created at"
+
+#~ msgid "Repocop|Updated at"
+#~ msgstr "Repocop|Updated at"
+
+#~ msgid "Bug|Bug"
+#~ msgstr "Bug|Bug"
+
+#~ msgid "Bug|Bug status"
+#~ msgstr "Bug|Bug status"
+
+#~ msgid "Bug|Resolution"
+#~ msgstr "Bug|Resolution"
+
+#~ msgid "Bug|Bug severity"
+#~ msgstr "Bug|Bug severity"
+
+#~ msgid "Bug|Product"
+#~ msgstr "Bug|Product"
+
+#~ msgid "Bug|Component"
+#~ msgstr "Bug|Component"
+
+#~ msgid "Bug|Assigned to"
+#~ msgstr "Bug|Assigned to"
+
+#~ msgid "Bug|Reporter"
+#~ msgstr "Bug|Reporter"
+
+#~ msgid "Bug|Short desc"
+#~ msgstr "Bug|Short desc"
+
+#~ msgid "Bug|Created at"
+#~ msgstr "Bug|Created at"
+
+#~ msgid "Bug|Updated at"
+#~ msgstr "Bug|Updated at"
+
+#~ msgid "Group|Name"
+#~ msgstr "Group|Name"
+
+#~ msgid "Group|Branch"
+#~ msgstr "Group|Branch"
+
+#~ msgid "Group|Created at"
+#~ msgstr "Group|Created at"
+
+#~ msgid "Group|Updated at"
+#~ msgstr "Group|Updated at"
+
+#~ msgid "Ftbfs|Name"
+#~ msgstr "Ftbfs|Name"
+
+#~ msgid "Ftbfs|Version"
+#~ msgstr "Ftbfs|Version"
+
+#~ msgid "Ftbfs|Release"
+#~ msgstr "Ftbfs|Release"
+
+#~ msgid "Ftbfs|Weeks"
+#~ msgstr "Ftbfs|Weeks"
+
+#~ msgid "Ftbfs|Login"
+#~ msgstr "Ftbfs|Login"
+
+#~ msgid "Ftbfs|Created at"
+#~ msgstr "Ftbfs|Created at"
+
+#~ msgid "Ftbfs|Updated at"
+#~ msgstr "Ftbfs|Updated at"
+
+#~ msgid "Acl|Package"
+#~ msgstr "Acl|Package"
+
+#~ msgid "Acl|Login"
+#~ msgstr "Acl|Login"
+
+#~ msgid "Acl|Branch"
+#~ msgstr "Acl|Branch"
+
+#~ msgid "Acl|Packager"
+#~ msgstr "Acl|Packager"
+
+#~ msgid "Acl|Srpm"
+#~ msgstr "Acl|Srpm"
+
+#~ msgid "Acl|Created at"
+#~ msgstr "Acl|Created at"
+
+#~ msgid "Acl|Updated at"
+#~ msgstr "Acl|Updated at"
+
+#~ msgid "Srpm|Filename"
+#~ msgstr "Srpm|Filename"
+
+#~ msgid "Srpm|Name"
+#~ msgstr "Srpm|Name"
+
+#~ msgid "Srpm|Version"
+#~ msgstr "Srpm|Version"
+
+#~ msgid "Srpm|Release"
+#~ msgstr "Srpm|Release"
+
+#~ msgid "Srpm|Epoch"
+#~ msgstr "Srpm|Epoch"
+
+#~ msgid "Srpm|Group"
+#~ msgstr "Srpm|Group"
+
+#~ msgid "Srpm|Packager"
+#~ msgstr "Srpm|Packager"
+
+#~ msgid "Srpm|Summary"
+#~ msgstr "Srpm|Summary"
+
+#~ msgid "Srpm|License"
+#~ msgstr "Srpm|License"
+
+#~ msgid "Srpm|Url"
+#~ msgstr "Srpm|Url"
+
+#~ msgid "Srpm|Description"
+#~ msgstr "Srpm|Description"
+
+#~ msgid "Srpm|Vendor"
+#~ msgstr "Srpm|Vendor"
+
+#~ msgid "Srpm|Distribution"
+#~ msgstr "Srpm|Distribution"
+
+#~ msgid "Srpm|Buildtime"
+#~ msgstr "Srpm|Buildtime"
+
+#~ msgid "Srpm|Size"
+#~ msgstr "Srpm|Size"
+
+#~ msgid "Srpm|Branch"
+#~ msgstr "Srpm|Branch"
+
+#~ msgid "Srpm|Rawspec"
+#~ msgstr "Srpm|Rawspec"
+
+#~ msgid "Srpm|Status"
+#~ msgstr "Srpm|Status"
+
+#~ msgid "Srpm|Update changelog"
+#~ msgstr "Srpm|Update changelog"
+
+#~ msgid "Srpm|Created at"
+#~ msgstr "Srpm|Created at"
+
+#~ msgid "Srpm|Updated at"
+#~ msgstr "Srpm|Updated at"
+
+#~ msgid "Leader|Package"
+#~ msgstr "Leader|Package"
+
+#~ msgid "Leader|Login"
+#~ msgstr "Leader|Login"
+
+#~ msgid "Leader|Branch"
+#~ msgstr "Leader|Branch"
+
+#~ msgid "Leader|Created at"
+#~ msgstr "Leader|Created at"
+
+#~ msgid "Leader|Updated at"
+#~ msgstr "Leader|Updated at"
+
+#~ msgid "Team|Name"
+#~ msgstr "Team|Name"
+
+#~ msgid "Team|Login"
+#~ msgstr "Team|Login"
+
+#~ msgid "Team|Branch"
+#~ msgstr "Team|Branch"
+
+#~ msgid "Team|Leader"
+#~ msgstr "Team|Leader"
+
+#~ msgid "Team|Created at"
+#~ msgstr "Team|Created at"
+
+#~ msgid "Team|Updated at"
+#~ msgstr "Team|Updated at"
+
+#~ msgid "Gitrepos|Package"
+#~ msgstr "Gitrepos|Package"
+
+#~ msgid "Gitrepos|Login"
+#~ msgstr "Gitrepos|Login"
+
+#~ msgid "Gitrepos|Lastchange"
+#~ msgstr "Gitrepos|Lastchange"
+
+#~ msgid "Gitrepos|Created at"
+#~ msgstr "Gitrepos|Created at"
+
+#~ msgid "Gitrepos|Updated at"
+#~ msgstr "Gitrepos|Updated at"
