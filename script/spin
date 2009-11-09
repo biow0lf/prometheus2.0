@@ -1,7 +1,6 @@
 #!/bin/sh
 
-/srv/www/prometheus2.0/current/script/process/spawner \
-  mongrel \
+/usr/bin/mongrel_rails \
   --environment=production \
   --instances=1 \
   --address=127.0.0.1 \
