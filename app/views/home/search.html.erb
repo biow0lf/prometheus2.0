@@ -9,7 +9,7 @@
 <input type="submit" class="top-go" id="subOn" value="<%=h _("search") %>" onmouseover="m_on('subOn')"  onmouseout="m_off('subOn')">
 </form>
 <br /><br />
-<%=h _("On your query") %> &quot;<b><%=h params[:request] %></b>&quot; <%=h _("were found") %> <b><%=h @srpms_count %></b> <%=h _("RPMs:") %>
+<%=h _("On your query") %> &quot;<b><%=h params[:request] %></b>&quot; <%=h _("were found") %> <b><%=h @srpms_count %></b> <%=h n_("RPM:", "RPMs:", @srpms_count) %>
 
 <p class="break"><br />
 <table id="bugs" cellspacing="0" cellpadding="3">

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-09 21:04+0300\n"
+"POT-Creation-Date: 2009-11-09 21:06+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -677,8 +677,10 @@ msgid "were found"
 msgstr ""
 
 #: app/views/home/search.html.erb:12
-msgid "RPMs:"
-msgstr ""
+msgid "RPM:"
+msgid_plural "RPMs:"
+msgstr[0] ""
+msgstr[1] ""
 
 #: app/views/home/project.html.erb:2
 msgid "Prometheus 2.0 - Information about the project"
