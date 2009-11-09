@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-09 21:06+0300\n"
-"PO-Revision-Date: 2009-11-09 21:07+0300\n"
+"POT-Creation-Date: 2009-11-09 21:08+0300\n"
+"PO-Revision-Date: 2009-11-09 21:08+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -431,7 +431,7 @@ msgid "resolution"
 msgstr "разрешение"
 
 #: app/views/packager/info.html.erb:11
-msgid "Packages build by this maintainer:"
+msgid "Packages built by this maintainer:"
 msgstr "Всего пакетов собранных майнтейнером:"
 
 #: app/views/srpm/download.html.erb:2 app/views/srpm/main.html.erb:2
@@ -684,11 +684,10 @@ msgid "were found"
 msgstr "было найдено"
 
 #: app/views/home/search.html.erb:12
-#, fuzzy
 msgid "RPM:"
 msgid_plural "RPMs:"
 msgstr[0] "пакет:"
-msgstr[1] "пакета:"
+msgstr[1] "пакетa:"
 msgstr[2] "пакетов:"
 
 #: app/views/home/project.html.erb:2

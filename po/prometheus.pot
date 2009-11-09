@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-09 21:06+0300\n"
+"POT-Creation-Date: 2009-11-09 21:08+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -430,7 +430,7 @@ msgid "resolution"
 msgstr ""
 
 #: app/views/packager/info.html.erb:11
-msgid "Packages build by this maintainer:"
+msgid "Packages built by this maintainer:"
 msgstr ""
 
 #: app/views/srpm/download.html.erb:2 app/views/srpm/main.html.erb:2
