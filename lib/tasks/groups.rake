@@ -1,4 +1,4 @@
-#require 'open-uri'
+require 'open-uri'
 
 namespace :sisyphus do
 desc "Import RPM groups for Sisyphus to database"
