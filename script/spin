@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#{deploy_to}/current/script/process/spawner \
+/srv/www/prometheus2.0/current/script/process/spawner \
   mongrel \
   --environment=production \
   --instances=1 \
