@@ -17,4 +17,5 @@ class Srpm < ActiveRecord::Base
                                       WHERE srcname = \'#{name}\'
                                       AND srcversion = \'#{version}\'
                                       AND srcrel = \'#{release}\''
+  has_many :changelogs
 end
