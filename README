@@ -3,10 +3,12 @@
 == Setup and run
 
 Install:
-* Ruby 1.9
+* Ruby 1.9.1
 * ruby-rpm
 * Ruby on Rails 2.3.4
 * PostgreSQL 8.3 (with other databases it doesn't tested)
+* ruby-gettext
+* ruby-locale
 
 Or, under ALT Linux Sisyphus:
 * apt-get install postgresql8.3
@@ -16,6 +18,8 @@ Or, under ALT Linux Sisyphus:
 * apt-get install ruby-rails
 * apt-get install ruby-activerecord-postgresql-adapter
 * apt-get install ruby-activerecord-sqlite3-adapter (for tests)
+* apt-get install ruby-gettext_rails
+* apt-get install ruby-gettext_rails-tools
 
 Prepare:
 * rake makemo
@@ -32,6 +36,7 @@ Init database:
 * rake sisyphus:repocops
 * rake sisyphus:leaders
 * rake sisyphus:teams
+* rake sisyphus:ftbfs_i586
 * rake sisyphus:i586
 * rake sisyphus:noarch
 * rake sisyphus:x86_64
