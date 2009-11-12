@@ -77,10 +77,12 @@ Other repositories
 
 <% if @gitrepos.count != 0 -%>
 <table style="pretty">
-  <% @gitrepos.each do |g| -%>
+  <% @gitrepos.each do |gitrepo| -%>
     <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;<!--<a href="http://git.altlinux.org/people/ldv/packages/?p=glibc.git" class="news">Dmitry V. Levin <ldv@altlinux.org></a>-->
-<%= link_to h(g.login), 'http://git.altlinux.org/people/' + h(g.login) + '/packages/?p=' + h(@srpm.name) + '.git', :class => 'news' %>
-</td><td><%=h g.lastchange %></td></tr>
+<% login = gitrepo.login -%>
+<% login = 'php_coder' if gitrepo.login == 'php-coder' -%>
+<%= link_to h(gitrepo.login), 'http://git.altlinux.org/people/' + h(login) + '/packages/?p=' + h(@srpm.name) + '.git', :class => 'news' %>
+</td><td><%=h gitrepo.lastchange %></td></tr>
   <% end -%>
 </table>
 <% end -%>
