@@ -9,12 +9,12 @@
 <b><%=h _("Repocop messages:") %></b><br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
-  <thead>
+  <tr>
     <th class="sort"><%=h _("package") %></th>
     <th id="repocop" class="sort"><%=h _("status") %></th>
     <th class="sort"><%=h _("test") %></th>
     <th class="nosort"><%=h _("message") %></th>
-  </thead>
+  </tr>
 
 <% @packager.srpms.each do |srpm| -%>
 <% srpm.repocops.each do |repocop| -%>
