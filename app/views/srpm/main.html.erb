@@ -81,9 +81,9 @@
 <% if @packager != nil -%>
 <div class="maintainer"><b><%=h _("Current maintainer:") %></b>
 <% if @packager.team == true -%>
-  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/team/' + h(@packager.login[1..-1]), :class => 'news', :title => 'information about maintainer' %><br /><br />
+  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/team/' + h(@packager.login[1..-1]), :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% else -%>
-  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/packager/' + h(@packager.login), :class => 'news', :title => 'information about maintainer' %><br /><br />
+  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/packager/' + h(@packager.login), :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% end -%>
 <% end -%>
 
