@@ -7,3 +7,7 @@ db/test.sqlite3
 .sass-cache/*
 ._*
 *~
+Capfile
+po/*/prometheus.mo
+config/deploy.rb
+locale/*
