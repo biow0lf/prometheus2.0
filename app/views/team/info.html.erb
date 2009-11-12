@@ -1,20 +1,20 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Team &laquo;") + h(@team.login[1..-1]) + _("&raquo;") %>
-<% url "/team/" + h(@team.login[1..-1]) %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Team &laquo;") + h(@team.login[1..-1]) + _("&raquo;") -%>
+<% url "/team/" + h(@team.login[1..-1]) -%>
 
 <div class="header"><%=h _("Team:") %> <%=h @team.name %></div>
 <p class="break" />
 <b><%=h _("Information:") %></b> <div class="para">  </div>
 <p class="break" />
-<% if @leader != nil %>
+<% if @leader != nil -%>
 <b><%=h _("Team leader:") %></b> <%=h @leader.login %>
 <p class="break" />
 <% end %>
 <b><%=h _("Team members:") %></b>
 <ul>
-  <% @members.each do |member| %>
+  <% @members.each do |member| -%>
     <li><%=h member.login %></li>
-  <% end %>
+  <% end -%>
 </ul>
 
 <p class="break" />
@@ -46,36 +46,30 @@
     <th class="nosort"><%=h _("Summary") %></th>
   </tr>
 
-  <% @team.srpms.each do |srpm| %>
+  <% @team.srpms.each do |srpm| -%>
   <tr>
     <td>
-      <% status = 'skip' %>
-      <% srpm.repocops.each do |repocop| %>
-        <% status = 'ok' if repocop.status == 'ok' and status != 'info' and status != 'experimental' and status != 'warn' and status != 'fail' %>
-        <% status = 'info' if repocop.status == 'info' and status != 'experimental' and status != 'warn' and status != 'fail' %>
-        <% status = 'experimental' if repocop.status == 'experimental' and status != 'warn' and status != 'fail' %>
-        <% status = 'warn' if repocop.status == 'warn' and status != 'fail' %>
-        <% status = 'fail' if repocop.status == 'fail' %>
-      <% end %>
+      <% status = 'skip' -%>
+      <% srpm.repocops.each do |repocop| -%>
+        <% status = 'ok' if repocop.status == 'ok' and status != 'info' and status != 'experimental' and status != 'warn' and status != 'fail' -%>
+        <% status = 'info' if repocop.status == 'info' and status != 'experimental' and status != 'warn' and status != 'fail' -%>
+        <% status = 'experimental' if repocop.status == 'experimental' and status != 'warn' and status != 'fail' -%>
+        <% status = 'warn' if repocop.status == 'warn' and status != 'fail' -%>
+        <% status = 'fail' if repocop.status == 'fail' -%>
+      <% end -%>
       <%= link_to '<img src="/images/' + status + '.png" alt="' + status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
       <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
     </td>
     <td><%=h srpm.version %>-<%=h srpm.release %></td>
+    <td><%=h srpm.buildtime %></td>
+    <td><%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %></td>
     <td>
-      <%=h srpm.buildtime %>
+      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>-<% end %>
     </td>
-    <td>
-      <%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>
-    </td>
-    <td>
-      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
-    </td>
-    <td style="text-align:left;">
-      <%=h srpm.summary %>
-    </td>
+    <td style="text-align:left;"><%=h srpm.summary %></td>
   </tr>
-  <% end %>
+  <% end -%>
 
 </table>

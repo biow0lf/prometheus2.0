@@ -1,22 +1,22 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Gear") %>
-<% url "/packager/" + h(@packager.login) + "/gear" %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Gear") -%>
+<% url "/packager/" + h(@packager.login) + "/gear" -%>
 
 <div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/srpms" class="news" title="<%=h _("packages which was built by this maintainer") %>"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h h@packager.login %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="break" />
 
-<% if @gitrepos.count != 0 %>
+<% if @gitrepos.count != 0 -%>
 <table style="pretty">
-  <% @gitrepos.each do |gitrepo| %>
+  <% @gitrepos.each do |gitrepo| -%>
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-        <% gitrepo.login = 'php_coder' if gitrepo.login == 'php-coder' %>
+        <% gitrepo.login = 'php_coder' if gitrepo.login == 'php-coder' -%>
         <%= link_to h(gitrepo.package), 'http://git.altlinux.org/people/' + h(gitrepo.login) + '/packages/?p=' + h(gitrepo.package) + '.git', :class => 'news' %>
       </td>
       <td><%=h gitrepo.lastchange %></td>
     </tr>
-  <% end %>
+  <% end -%>
 </table>
-<% end %>
+<% end -%>
 

@@ -142,13 +142,13 @@ function show(divnum){
         <%= link_to_unless_current _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :title => _("sisyphus public site") %>
       </div>
     </li>
-<% if params[:locale] == 'ru' %>
+<% if params[:locale] == 'ru' -%>
     <li onmouseover="m_on('li9')" onmouseout="m_off('li9')" id="li9">
       <div id="dli9">
         <a href="http://www.livejournal.com/userinfo.bml?user=ru_sisyphus" title="блог о sisyphus">Блог</a>
       </div>
     </li>
-<% end %>
+<% end -%>
     <li onmouseover="m_on('li10')" onmouseout="m_off('li10')" id="li10">
       <div id="dli10">
         <%= link_to_unless_current _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :title => _("community-en@") %>

@@ -1,6 +1,6 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Repocop") %>
-<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/repocop" %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Repocop") -%>
+<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/repocop" -%>
 
 <!--
 <div id="rightbar">
@@ -80,24 +80,24 @@ Other repositories
 
 </div>
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
-<tr>
-<th class="sort"><%=h _("package id") %></th>
-<th class="nosort"><%=h _("status") %></th>
-<th class="sort"><%=h _("test") %></th>
-<th class="sort"><%=h _("message") %></th>
-</tr>
+  <tr>
+    <th class="sort"><%=h _("package id") %></th>
+    <th class="nosort"><%=h _("status") %></th>
+    <th class="sort"><%=h _("test") %></th>
+    <th class="sort"><%=h _("message") %></th>
+  </tr>
 
-<% @srpm.repocops.each do |repocop| %>
-  <% if repocop.status != 'skip' %>
-    <tr>
-      <td><%=h repocop.name %>-<%=h repocop.version %>-<%=h repocop.release %>.<%=h repocop.arch %></td>
-      <td><img src="/images/<%=h repocop.status %>.png" alt="<%=h repocop.status %>" /><br/><%=h repocop.status %></td>
-      <td><%=h repocop.testname %></td>
-      <td style="text-align:left">
-        <%=h repocop.message %>
-      </td>
-    </tr>
-  <% end %>
-<% end %>
+<% @srpm.repocops.each do |repocop| -%>
+  <% if repocop.status != 'skip' -%>
+  <tr>
+    <td><%=h repocop.name %>-<%=h repocop.version %>-<%=h repocop.release %>.<%=h repocop.arch %></td>
+    <td><img src="/images/<%=h repocop.status %>.png" alt="<%=h repocop.status %>" /><br/><%=h repocop.status %></td>
+    <td><%=h repocop.testname %></td>
+    <td style="text-align:left">
+      <% if repocop.message != '' %><%=h repocop.message %><% else %>&nbsp;<% end %>
+    </td>
+  </tr>
+  <% end -%>
+<% end -%>
 
 </table>

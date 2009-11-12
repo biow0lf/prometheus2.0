@@ -1,6 +1,6 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Gear") %>
-<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/gear" %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Gear") -%>
+<% url "/srpm/" + h(@srpm.branch.urlname) + '/' + h(@srpm.name) + "/gear" -%>
 
 <!--
 <div id="rightbar">
@@ -74,14 +74,15 @@ Other repositories
 <div>
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>" class="news" title="<%=h _("information about SRPM") %>"><%=h _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/patches" class="news" title="<%=h _("patches") %>"><%=h _("Patches") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/sources" class="news" title="<%=h _("sources") %>"><%=h _("Sources") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h _("list of bugs and feature requests") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch.urlname %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><div>
-<% if @gitrepos.count != 0 %>
+
+<% if @gitrepos.count != 0 -%>
 <table style="pretty">
-  <% @gitrepos.each do |g| %>
+  <% @gitrepos.each do |g| -%>
     <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;<!--<a href="http://git.altlinux.org/people/ldv/packages/?p=glibc.git" class="news">Dmitry V. Levin <ldv@altlinux.org></a>-->
 <%= link_to h(g.login), 'http://git.altlinux.org/people/' + h(g.login) + '/packages/?p=' + h(@srpm.name) + '.git', :class => 'news' %>
 </td><td><%=h g.lastchange %></td></tr>
-  <% end %>
+  <% end -%>
 </table>
-<% end %>
+<% end -%>
 </div>
 </div>

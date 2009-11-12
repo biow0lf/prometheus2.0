@@ -1,6 +1,6 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Repocop") %>
-<% url "/packager/" + h(@packager.login) + "/repocop" %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Repocop") -%>
+<% url "/packager/" + h(@packager.login) + "/repocop" -%>
 
 <div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 
@@ -16,9 +16,9 @@
     <th class="sort"><%=h _("message") %></th>
   </tr>
 
-<% @packager.srpms.each do |srpm| %>
-<% srpm.repocops.each do |repocop| %>
-  <% if repocop.status != 'skip' and repocop.status != 'ok' %>
+<% @packager.srpms.each do |srpm| -%>
+<% srpm.repocops.each do |repocop| -%>
+  <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
   <tr>
     <td class="strange">
       <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
@@ -27,8 +27,8 @@
     <td><%=h repocop.testname %></td>
     <td style="text-align:left"><%=h repocop.message %></td>
   </tr>
-  <% end %>
-<% end %>
-<% end %>
+  <% end -%>
+<% end -%>
+<% end -%>
 
 </table>

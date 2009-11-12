@@ -1,6 +1,6 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Package ") + h(params[:name]) + _(" - Bugs") %>
-<% url "/srpm/" + h(params[:branch]) + '/' + h(params[:name]) + "/bugs" %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Package ") + h(params[:name]) + _(" - Bugs") -%>
+<% url "/srpm/" + h(params[:branch]) + '/' + h(params[:name]) + "/bugs" -%>
 
 <!--
 <div id="rightbar">
@@ -44,9 +44,9 @@ Other repositories
 <div style="height:3em;"> 
     <div id="rpmtop">
         <b style="font-size:9pt;"><%=h _("Group") %> :: System/Base</b><br />
-
         <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%= h(params[:name]) %></div>
     </div>
+
 <!--    <div id="nav">
     <b>Navigation</b><br />
     <a href="/en/srpm/glib">
@@ -85,28 +85,29 @@ Other repositories
 <span class="tabsel">&nbsp;<%=h _("open") %>&nbsp;</span>
 <span class="tabunsel">&nbsp;<%= link_to _("total"), '/' + h(params[:locale]) + '/srpm/' + h(params[:branch]) + '/' + h(params[:name]) + '/allbugs', :class => 'news' %>&nbsp;</span>
 </div>
-<table id="bugs" cellspacing="0" cellpadding="3">
-<tr>
-<th><%=h _("id") %></th>
-<th><%=h _("severity") %></th>
-<th><%=h _("status") %></th>
-<th><%=h _("reporter") %></th>
-<th><%=h _("summary") %></th>
-</tr>
 
-<% @bugs.each do |b| %>
-<tr>
-  <td>
-    <%= link_to h(b.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(b.bug_id), :class => 'news', :target => '_blank' %>
-  </td>
-  <td><%=h b.bug_severity %></td>
-  <td><%=h b.bug_status %></td>
-  <td><%=h b.reporter.gsub('@', ' at ') %></td>
-  <td style="text-align:left">
-    <%=h b.short_desc %>
-  </td>
-</tr>
-<% end %>
+<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+  <tr>
+    <th class="sort"><%=h _("id") %></th>
+    <th><%=h _("severity") %></th>
+    <th><%=h _("status") %></th>
+    <th><%=h _("reporter") %></th>
+    <th><%=h _("summary") %></th>
+  </tr>
+
+  <% @bugs.each do |bug| -%>
+  <tr>
+    <td>
+      <%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/' + h(bug.bug_id), :class => 'news', :target => '_blank' %>
+    </td>
+    <td><%=h bug.bug_severity %></td>
+    <td><%=h bug.bug_status %></td>
+    <td><%=h bug.reporter.gsub('@', ' at ') %></td>
+    <td style="text-align:left">
+      <%=h bug.short_desc %>
+    </td>
+  </tr>
+  <% end -%>
 
 </table>
 

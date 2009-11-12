@@ -1,6 +1,6 @@
-<% srpm_count @sisyphus.srpms.all.count %>
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Bugs and FR (All)") %>
-<% url "/packager/" + h(@packager.login) + "/allbugs" %>
+<% srpm_count @sisyphus.srpms.all.count -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Bugs and FR (All)") -%>
+<% url "/packager/" + h(@packager.login) + "/allbugs" -%>
 
 <div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 <p class="break" />
@@ -23,10 +23,10 @@
     <th><%=h _("summary") %></th>
   </tr>
 
-<% @allbugs.each do |bug| %>
+<% @allbugs.each do |bug| -%>
   <tr>
     <td>
-      <%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/show_bug.cgi?id=' + h(bug.bug_id), :class => 'news' %>
+      <%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/' + h(bug.bug_id), :class => 'news', :target => '_blank' %>
     </td>
     <td><%=h bug.component %></td>
     <td><%=h bug.bug_severity %></td>
@@ -35,6 +35,6 @@
     <td><%=h bug.reporter.gsub('@', ' at ') %></td>
     <td><%=h bug.short_desc %></td>
   </tr>
-<% end %>
+<% end -%>
 
 </table>
