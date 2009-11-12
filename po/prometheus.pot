@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-10 16:32+0200\n"
+"POT-Creation-Date: 2009-11-13 01:18+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: app/models/package.rb:- app/views/team/info.html.erb:33
-#: app/views/packager/repocop.html.erb:13 app/views/packager/srpms.html.erb:17
+#: app/views/packager/repocop.html.erb:13 app/views/packager/srpms.html.erb:13
 #: app/views/packager/bugs.html.erb:16 app/views/packager/allbugs.html.erb:18
 #: app/views/home/search.html.erb:17
 msgid "package"
@@ -599,41 +599,41 @@ msgstr ""
 msgid "repo<br/>cop"
 msgstr ""
 
-#: app/views/team/info.html.erb:29 app/views/packager/srpms.html.erb:14
+#: app/views/team/info.html.erb:29
 msgid "sort by repocop status"
 msgstr ""
 
-#: app/views/team/info.html.erb:35 app/views/packager/srpms.html.erb:19
+#: app/views/team/info.html.erb:35
 msgid "sort by name"
 msgstr ""
 
-#: app/views/team/info.html.erb:38 app/views/packager/srpms.html.erb:22
+#: app/views/team/info.html.erb:38 app/views/packager/srpms.html.erb:14
 #: app/views/home/search.html.erb:18
 msgid "current<br />version"
 msgstr ""
 
-#: app/views/team/info.html.erb:39 app/views/packager/srpms.html.erb:23
+#: app/views/team/info.html.erb:39 app/views/packager/srpms.html.erb:15
 msgid "build time"
 msgstr ""
 
-#: app/views/team/info.html.erb:40 app/views/packager/srpms.html.erb:24
+#: app/views/team/info.html.erb:40 app/views/packager/srpms.html.erb:16
 msgid "age"
 msgstr ""
 
-#: app/views/team/info.html.erb:42 app/views/packager/srpms.html.erb:26
+#: app/views/team/info.html.erb:42
 msgid "sort by age"
 msgstr ""
 
-#: app/views/team/info.html.erb:45 app/views/packager/srpms.html.erb:29
+#: app/views/team/info.html.erb:45 app/views/packager/srpms.html.erb:17
 msgid "Url"
 msgstr ""
 
-#: app/views/team/info.html.erb:46 app/views/packager/srpms.html.erb:30
+#: app/views/team/info.html.erb:46 app/views/packager/srpms.html.erb:18
 msgid "Summary"
 msgstr ""
 
-#: app/views/team/info.html.erb:70 app/views/srpm/main.html.erb:69
-#: app/views/packager/srpms.html.erb:56 app/views/home/bytwogroup.html.erb:13
+#: app/views/team/info.html.erb:67 app/views/srpm/main.html.erb:69
+#: app/views/packager/srpms.html.erb:39 app/views/home/bytwogroup.html.erb:13
 #: app/views/home/bythreegroup.html.erb:13 app/views/home/bygroup.html.erb:13
 msgid "ago"
 msgstr ""
@@ -660,7 +660,7 @@ msgstr ""
 
 #: app/views/srpm/download.html.erb:33 app/views/srpm/gear.html.erb:45
 #: app/views/srpm/main.html.erb:31 app/views/srpm/repocop.html.erb:47
-#: app/views/srpm/bugs.html.erb:48 app/views/srpm/allbugs.html.erb:48
+#: app/views/srpm/bugs.html.erb:47 app/views/srpm/allbugs.html.erb:47
 #: app/views/srpm/rawspec.html.erb:33 app/views/srpm/changelog.html.erb:36
 msgid "Source RPM:"
 msgstr ""
@@ -876,8 +876,8 @@ msgstr ""
 msgid "package id"
 msgstr ""
 
-#: app/views/srpm/repocop.html.erb:85 app/views/srpm/bugs.html.erb:92
-#: app/views/srpm/allbugs.html.erb:92 app/views/packager/repocop.html.erb:14
+#: app/views/srpm/repocop.html.erb:85 app/views/srpm/bugs.html.erb:93
+#: app/views/srpm/allbugs.html.erb:93 app/views/packager/repocop.html.erb:14
 #: app/views/packager/bugs.html.erb:18 app/views/packager/allbugs.html.erb:20
 msgid "status"
 msgstr ""
@@ -908,22 +908,22 @@ msgstr ""
 msgid "total"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:90 app/views/srpm/allbugs.html.erb:90
+#: app/views/srpm/bugs.html.erb:91 app/views/srpm/allbugs.html.erb:91
 #: app/views/packager/bugs.html.erb:15 app/views/packager/allbugs.html.erb:17
 msgid "id"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:91 app/views/srpm/allbugs.html.erb:91
+#: app/views/srpm/bugs.html.erb:92 app/views/srpm/allbugs.html.erb:92
 #: app/views/packager/bugs.html.erb:17 app/views/packager/allbugs.html.erb:19
 msgid "severity"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:93 app/views/srpm/allbugs.html.erb:94
+#: app/views/srpm/bugs.html.erb:94 app/views/srpm/allbugs.html.erb:95
 #: app/views/packager/bugs.html.erb:19 app/views/packager/allbugs.html.erb:22
 msgid "reporter"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:94 app/views/srpm/allbugs.html.erb:95
+#: app/views/srpm/bugs.html.erb:95 app/views/srpm/allbugs.html.erb:96
 #: app/views/packager/bugs.html.erb:20 app/views/packager/allbugs.html.erb:23
 #: app/views/home/search.html.erb:20
 msgid "summary"
@@ -933,7 +933,7 @@ msgstr ""
 msgid " - All bugs"
 msgstr ""
 
-#: app/views/srpm/allbugs.html.erb:93 app/views/packager/allbugs.html.erb:21
+#: app/views/srpm/allbugs.html.erb:94 app/views/packager/allbugs.html.erb:21
 msgid "resolution"
 msgstr ""
 
@@ -988,7 +988,7 @@ msgstr ""
 #: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
 #: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
 #: app/views/packager/allbugs.html.erb:7 app/views/packager/info.html.erb:7
-#: app/views/layouts/default.html.erb:117
+#: app/views/layouts/default.html.erb:118
 msgid "Packages"
 msgstr ""
 
@@ -1047,104 +1047,104 @@ msgstr ""
 msgid "Prometheus 2.0"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:74
+#: app/views/layouts/default.html.erb:75
 msgid "Sisyphus repository "
 msgstr ""
 
-#: app/views/layouts/default.html.erb:85
+#: app/views/layouts/default.html.erb:86
 msgid "find"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:96
+#: app/views/layouts/default.html.erb:97
 msgid "Last update:"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:96
+#: app/views/layouts/default.html.erb:97
 msgid "SRPMs:"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:99
+#: app/views/layouts/default.html.erb:100
 msgid "en"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:99
+#: app/views/layouts/default.html.erb:100
 msgid "English"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:99
+#: app/views/layouts/default.html.erb:100
 msgid "ru"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:99
+#: app/views/layouts/default.html.erb:100
 msgid "Russian"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:107
+#: app/views/layouts/default.html.erb:108
 msgid "Home"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:107
+#: app/views/layouts/default.html.erb:108
 msgid "site home page"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:112
+#: app/views/layouts/default.html.erb:113
 msgid "News"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:112
+#: app/views/layouts/default.html.erb:113
 msgid "site news"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:117
+#: app/views/layouts/default.html.erb:118
 msgid "packages information"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:122
+#: app/views/layouts/default.html.erb:123
 #: app/views/home/packagers_list.html.erb:6
 msgid "Maintainers"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:122
+#: app/views/layouts/default.html.erb:123
 msgid "maintainers information"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:127
+#: app/views/layouts/default.html.erb:128
 msgid "Security"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:127
+#: app/views/layouts/default.html.erb:128
 msgid "security fixes"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:132
+#: app/views/layouts/default.html.erb:133
 msgid "About"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:132
+#: app/views/layouts/default.html.erb:133
 msgid "about Prometeus project"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:142
+#: app/views/layouts/default.html.erb:143
 msgid "Wiki"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:142
+#: app/views/layouts/default.html.erb:143
 msgid "http://en.altlinux.org/Sisyphus"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:142
+#: app/views/layouts/default.html.erb:143
 msgid "sisyphus public site"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:154
+#: app/views/layouts/default.html.erb:155
 msgid "Mailing list"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:154
+#: app/views/layouts/default.html.erb:155
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
 msgstr ""
 
-#: app/views/layouts/default.html.erb:154
+#: app/views/layouts/default.html.erb:155
 msgid "community-en@"
 msgstr ""
 
