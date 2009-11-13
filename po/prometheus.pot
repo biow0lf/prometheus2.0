@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-13 01:58+0200\n"
+"POT-Creation-Date: 2009-11-13 02:23+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: app/models/package.rb:- app/views/team/info.html.erb:33
+#: app/models/package.rb:- app/views/team/info.html.erb:27
 #: app/views/packager/repocop.html.erb:13 app/views/packager/srpms.html.erb:13
 #: app/views/packager/bugs.html.erb:16 app/views/packager/allbugs.html.erb:18
 #: app/views/home/search.html.erb:17
@@ -595,44 +595,32 @@ msgstr ""
 msgid "List of packages:"
 msgstr ""
 
-#: app/views/team/info.html.erb:27 app/views/packager/srpms.html.erb:12
+#: app/views/team/info.html.erb:26 app/views/packager/srpms.html.erb:12
 msgid "repo<br/>cop"
 msgstr ""
 
-#: app/views/team/info.html.erb:29
-msgid "sort by repocop status"
-msgstr ""
-
-#: app/views/team/info.html.erb:35
-msgid "sort by name"
-msgstr ""
-
-#: app/views/team/info.html.erb:38 app/views/packager/srpms.html.erb:14
+#: app/views/team/info.html.erb:28 app/views/packager/srpms.html.erb:14
 #: app/views/home/search.html.erb:18
 msgid "current<br />version"
 msgstr ""
 
-#: app/views/team/info.html.erb:39 app/views/packager/srpms.html.erb:15
+#: app/views/team/info.html.erb:29 app/views/packager/srpms.html.erb:15
 msgid "build time"
 msgstr ""
 
-#: app/views/team/info.html.erb:40 app/views/packager/srpms.html.erb:16
+#: app/views/team/info.html.erb:30 app/views/packager/srpms.html.erb:16
 msgid "age"
 msgstr ""
 
-#: app/views/team/info.html.erb:42
-msgid "sort by age"
-msgstr ""
-
-#: app/views/team/info.html.erb:45 app/views/packager/srpms.html.erb:17
+#: app/views/team/info.html.erb:31 app/views/packager/srpms.html.erb:17
 msgid "Url"
 msgstr ""
 
-#: app/views/team/info.html.erb:46 app/views/packager/srpms.html.erb:18
+#: app/views/team/info.html.erb:32 app/views/packager/srpms.html.erb:18
 msgid "Summary"
 msgstr ""
 
-#: app/views/team/info.html.erb:67 app/views/srpm/main.html.erb:69
+#: app/views/team/info.html.erb:53 app/views/srpm/main.html.erb:69
 #: app/views/packager/srpms.html.erb:39 app/views/home/bytwogroup.html.erb:13
 #: app/views/home/bythreegroup.html.erb:13 app/views/home/bygroup.html.erb:13
 msgid "ago"
