@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-13 02:37+0200\n"
+"POT-Creation-Date: 2009-11-13 02:46+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -875,7 +875,7 @@ msgstr ""
 msgid "package id"
 msgstr ""
 
-#: app/views/srpm/repocop.html.erb:85 app/views/srpm/bugs.html.erb:93
+#: app/views/srpm/repocop.html.erb:85 app/views/srpm/bugs.html.erb:99
 #: app/views/srpm/allbugs.html.erb:93 app/views/packager/repocop.html.erb:14
 #: app/views/packager/bugs.html.erb:18 app/views/packager/allbugs.html.erb:20
 msgid "status"
@@ -893,36 +893,40 @@ msgstr ""
 msgid " - Bugs"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:82 app/views/srpm/allbugs.html.erb:82
+#: app/views/srpm/bugs.html.erb:84
+msgid "There is no bugreports for this ALT Bugzilla"
+msgstr ""
+
+#: app/views/srpm/bugs.html.erb:88 app/views/srpm/allbugs.html.erb:82
 msgid "Total:"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:85 app/views/srpm/allbugs.html.erb:85
+#: app/views/srpm/bugs.html.erb:91 app/views/srpm/allbugs.html.erb:85
 #: app/views/packager/bugs.html.erb:11 app/views/packager/allbugs.html.erb:11
 msgid "open"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:86 app/views/srpm/allbugs.html.erb:86
+#: app/views/srpm/bugs.html.erb:92 app/views/srpm/allbugs.html.erb:86
 #: app/views/packager/bugs.html.erb:12 app/views/packager/allbugs.html.erb:12
 msgid "total"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:91 app/views/srpm/allbugs.html.erb:91
+#: app/views/srpm/bugs.html.erb:97 app/views/srpm/allbugs.html.erb:91
 #: app/views/packager/bugs.html.erb:15 app/views/packager/allbugs.html.erb:17
 msgid "id"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:92 app/views/srpm/allbugs.html.erb:92
+#: app/views/srpm/bugs.html.erb:98 app/views/srpm/allbugs.html.erb:92
 #: app/views/packager/bugs.html.erb:17 app/views/packager/allbugs.html.erb:19
 msgid "severity"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:94 app/views/srpm/allbugs.html.erb:95
+#: app/views/srpm/bugs.html.erb:100 app/views/srpm/allbugs.html.erb:95
 #: app/views/packager/bugs.html.erb:19 app/views/packager/allbugs.html.erb:22
 msgid "reporter"
 msgstr ""
 
-#: app/views/srpm/bugs.html.erb:95 app/views/srpm/allbugs.html.erb:96
+#: app/views/srpm/bugs.html.erb:101 app/views/srpm/allbugs.html.erb:96
 #: app/views/packager/bugs.html.erb:20 app/views/packager/allbugs.html.erb:23
 #: app/views/home/search.html.erb:20
 msgid "summary"
