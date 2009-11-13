@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-13 02:23+0200\n"
+"POT-Creation-Date: 2009-11-13 02:26+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -618,6 +618,10 @@ msgstr ""
 
 #: app/views/team/info.html.erb:32 app/views/packager/srpms.html.erb:18
 msgid "Summary"
+msgstr ""
+
+#: app/views/team/info.html.erb:49
+msgid "detailed information about RPM"
 msgstr ""
 
 #: app/views/team/info.html.erb:53 app/views/srpm/main.html.erb:69
