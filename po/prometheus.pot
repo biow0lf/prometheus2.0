@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-13 01:18+0200\n"
+"POT-Creation-Date: 2009-11-13 01:58+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -856,6 +856,13 @@ msgstr ""
 msgid "Current maintainer:"
 msgstr ""
 
+#: app/views/srpm/main.html.erb:84 app/views/srpm/main.html.erb:86
+#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
+#: app/views/packager/allbugs.html.erb:7
+msgid "information about maintainer"
+msgstr ""
+
 #: app/views/srpm/main.html.erb:92
 msgid "List of contributors:"
 msgstr ""
@@ -965,12 +972,6 @@ msgstr ""
 #: app/views/home/bytwogroup.html.erb:11
 #: app/views/home/bythreegroup.html.erb:11 app/views/home/bygroup.html.erb:11
 msgid "Maintainer:"
-msgstr ""
-
-#: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
-#: app/views/packager/srpms.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/allbugs.html.erb:7
-msgid "information about maintainer"
 msgstr ""
 
 #: app/views/packager/gear.html.erb:7 app/views/packager/repocop.html.erb:8
