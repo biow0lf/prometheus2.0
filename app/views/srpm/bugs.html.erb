@@ -79,6 +79,12 @@ Other repositories
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>" class="news" title="<%=h _("information about SRPM") %>"><%=h _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/patches" class="news" title="<%=h _("patches") %>"><%=h _("Patches") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/sources" class="news" title="<%=h _("sources") %>"><%=h _("Sources") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/gear" class="news" title="<%=h _("this package in gear repositories") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
 
+<% if @allbugs.count == 0 -%>
+
+<b><%=h _("There is no bugreports for this ALT Bugzilla") %></b>
+
+<% else %>
+
 <b><%=h _("Total:") %></b> <%=h @allbugs.count %> (<span style='color:red'><%=h @bugs.count %></span>|<%=h @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
@@ -111,3 +117,4 @@ Other repositories
 
 </table>
 
+<% end -%>
