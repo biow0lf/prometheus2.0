@@ -46,7 +46,7 @@
       <%= link_to '<img src="/images/' + status + '.png" alt="' + status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
-      <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
+      <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => _('detailed information about RPM') %>
     </td>
     <td><%=h srpm.version %>-<%=h srpm.release %></td>
     <td><%=h srpm.buildtime %></td>
