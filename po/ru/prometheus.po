@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
 "POT-Creation-Date: 2009-11-13 02:46+0200\n"
-"PO-Revision-Date: 2009-11-13 02:47+0300\n"
+"PO-Revision-Date: 2009-11-13 02:54+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -1158,7 +1158,7 @@ msgstr "gear"
 
 #: app/views/packager/repocop.html.erb:9
 msgid "Repocop messages:"
-msgstr ""
+msgstr "Сообщения от repocop:"
 
 #: app/views/packager/nosuchpackager.html.erb:2
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
