@@ -9,7 +9,7 @@ task :x86_64 => :environment do
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 
   ActiveRecord::Base.transaction do
-  ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'x64_64' AND branch_id = " + branch.id.to_s)
+  ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'x86_64' AND branch_id = " + branch.id.to_s)
   Dir.glob(branch.binary_x86_64_path).each do |f|
   begin
     r = RPM::Package::open(f)
