@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   layout "default"
 
-  caches_page :index, :groups_list
+  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :bytwogroup, :bythreegroup, :packagers_list
 
   def index
     @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
