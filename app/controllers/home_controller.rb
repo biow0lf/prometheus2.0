@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   layout "default"
 
+  caches_page :index, :groups_list
+
   def index
     @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @top15 = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
