@@ -169,6 +169,18 @@ task :repocop => :environment do
   puts Time.now
 end
 
+desc "Expire cache for /*/packages"
+task :groups => :environment do
+  puts Time.now
+  puts "Expire cache for /*/packages"
+
+  ActionController::Base.expire_page('/ru/packages')
+  ActionController::Base.expire_page('/en/packages')
+  ActionController::Base.expire_page('/packages')
+
+  puts Time.now
+end
+
 
 end
 end

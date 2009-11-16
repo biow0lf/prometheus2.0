@@ -41,6 +41,10 @@ Init database:
 * rake sisyphus:noarch
 * rake sisyphus:x86_64
 
+Add to cron:
+* 0 0 * * * cd /srv/www/prometheus2.0/current && /usr/bin/rake RAILS_ENV=production sisyphus:update:groups sisyphus:expire:groups >> /var/log/prometheus.log 2>&1
+
+
 == LICENSE:
 
 (The MIT License)
