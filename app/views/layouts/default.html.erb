@@ -11,7 +11,12 @@
 
   <%= stylesheet_link_tag 'alt' %>
 
-  <%= javascript_include_tag 'prototype.js' %>
+  <script src="http://www.google.com/jsapi"></script>
+  <script>
+    google.load("prototype", "1.6.1.0");
+  </script>
+
+<!--  <%= javascript_include_tag 'prototype.js' %>-->
   <%= javascript_include_tag 'fastinit.js' %>
   <%= javascript_include_tag 'tablekit.js' %>
   <%= javascript_include_tag 'repocop.js' %>
