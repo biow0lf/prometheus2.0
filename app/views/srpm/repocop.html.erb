@@ -91,7 +91,7 @@ Other repositories
   <% if repocop.status != 'skip' -%>
   <tr>
     <td><%=h repocop.name %>-<%=h repocop.version %>-<%=h repocop.release %>.<%=h repocop.arch %></td>
-    <td><img src="/images/<%=h repocop.status %>.png" alt="<%=h repocop.status %>" /><br/><%=h repocop.status %></td>
+    <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br/><%=h repocop.status %></td>
     <td><%=h repocop.testname %></td>
     <td style="text-align:left">
       <% if repocop.message != '' %><%=h repocop.message %><% else %>&nbsp;<% end %>
