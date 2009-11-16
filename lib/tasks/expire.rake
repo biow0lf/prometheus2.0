@@ -1,6 +1,48 @@
 namespace :sisyphus do
 namespace :expire do
 
+desc "Expire all page which are use ACL"
+task :acls => :environment do
+  puts "Expire all page which are use ACL"
+  puts Time.now
+
+  ActionController::Base.expire_page('/')
+  ActionController::Base.expire_page('/en')
+  ActionController::Base.expire_page('/ru')
+  ActionController::Base.expire_page('/ru/people')
+  ActionController::Base.expire_page('/en/people')
+  ActionController::Base.expire_page('/people')
+
+  packagers = Packager.find :all, :conditions => { :team => false }
+
+  packagers.each do |packager|
+    ActionController::Base.expire_page('/ru/packager/' + packager.login)
+    ActionController::Base.expire_page('/en/packager/' + packager.login)
+    ActionController::Base.expire_page('/packager/' + packager.login)
+    ActionController::Base.expire_page('/ru/packager/' + packager.login + '/srpms')
+    ActionController::Base.expire_page('/en/packager/' + packager.login + '/srpms')
+    ActionController::Base.expire_page('/packager/' + packager.login + '/srpms')
+  end
+
+  teams = Packager.find :all, :conditions => { :team => true }
+
+  teams.each do |team|
+    ActionController::Base.expire_page('/ru/team/' + team.login[1..-1])
+    ActionController::Base.expire_page('/en/team/' + team.login[1..-1])
+    ActionController::Base.expire_page('/team/' + team.login[1..-1])
+  end
+
+  branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+  srpms = Srpm.find :all, :conditions => { :branch_id => branch.id }, :select => 'name'
+  srpms.each do |srpm|
+    ActionController::Base.expire_page('/ru/srpm/Sisyphus/' + srpm.name)
+    ActionController::Base.expire_page('/en/srpm/Sisyphus/' + srpm.name)
+    ActionController::Base.expire_page('/srpm/Sisyphus/' + srpm.name)
+  end
+
+  puts Time.now
+end
+
 desc "Expire cache for /*/srpm/Sisyphus/*"
 task :srpm => :environment do
   puts Time.now
