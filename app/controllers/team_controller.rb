@@ -1,6 +1,8 @@
 class TeamController < ApplicationController
   layout "default"
 
+  caches_page :info
+
   def info
     @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
