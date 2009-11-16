@@ -8,19 +8,12 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <meta name="description" content="ALT Linux Team - Sisyphus packages info" />
   <meta name="keywords" content="ALT linux Sisyphus development rpm" />
-
   <%= stylesheet_link_tag 'alt' %>
-
   <script src="http://www.google.com/jsapi"></script>
   <script>
     google.load("prototype", "1.6.1.0");
   </script>
-
-<!--  <%= javascript_include_tag 'prototype.js' %>-->
-  <%= javascript_include_tag 'fastinit.js' %>
-  <%= javascript_include_tag 'tablekit.js' %>
-  <%= javascript_include_tag 'repocop.js' %>
-  <%= javascript_include_tag params[:locale] + '/local.js' %>
+  <%= javascript_include_tag 'fastinit.js', 'tablekit.js', 'repocop.js', params[:locale] + '/local.js', :cache => "main_" + params[:locale] %>
 
   <!--<link rel="alternate" title="Prometeus RSS" href="rss" type="application/rss+xml" />-->
 
