@@ -10,4 +10,6 @@ db/test.sqlite3
 Capfile
 po/*/prometheus.mo
 config/deploy.rb
+config/newrelic.yml
 locale/*
+vendor/plugins/newrelic_rpm/*
