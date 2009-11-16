@@ -35,6 +35,9 @@ task :acls => :environment do
             Acl.create :package => package, :login => login, :srpm_id => srpm.id, :branch_id => branch.id
           end
         end
+        #ActionController::Base.expire_page('/ru/srpm/Sisyphus/' + package)
+        #ActionController::Base.expire_page('/en/srpm/Sisyphus/' + package)
+        #ActionController::Base.expire_page('/srpm/Sisyphus/' + package)
       end
     end
   end
