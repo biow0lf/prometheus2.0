@@ -1,6 +1,8 @@
 class SrpmController < ApplicationController
   layout "default"
 
+  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
+
   def main
     @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
