@@ -23,7 +23,7 @@
     <td class="strange">
       <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
     </td>
-    <td><img src="/images/<%=h repocop.status %>.png" alt="<%=h repocop.status %>" /><br /><%=h repocop.status %></td>
+    <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%=h repocop.status %></td>
     <td><%=h repocop.testname %></td>
     <td style="text-align:left"><%=h repocop.message %></td>
   </tr>
