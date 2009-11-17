@@ -6,7 +6,7 @@ Event.observe(window, 'load', function() {
       $('topRPM').writeAttribute('title', 'згорнути вікно')
     } else {
       $('topRPM').writeAttribute('src', '/images/restore.gif')
-      $('topRPM').writeAttribute('title', 'развернуть окно')
+      $('topRPM').writeAttribute('title', 'розгорнути вікно')
     }
   });
 
@@ -17,7 +17,7 @@ Event.observe(window, 'load', function() {
       $('topTips').writeAttribute('title', 'згорнути вікно')
     } else {
       $('topTips').writeAttribute('src', '/images/restore.gif')
-      $('topTips').writeAttribute('title', 'развернуть окно')
+      $('topTips').writeAttribute('title', 'розгорнути вікно')
     }
   });
 
@@ -28,7 +28,7 @@ Event.observe(window, 'load', function() {
       $('topMain').writeAttribute('title', 'згорнути вікно')
     } else {
       $('topMain').writeAttribute('src', '/images/restore.gif')
-      $('topMain').writeAttribute('title', 'развернуть окно')
+      $('topMain').writeAttribute('title', 'розгорнути вікно')
     }
   });
 
