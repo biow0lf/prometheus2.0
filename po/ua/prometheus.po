@@ -8,7 +8,7 @@
 # Motsyo Gennadi <drool@altlinux.ru>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: prometheus_uk_UA\n"
+"Project-Id-Version: prometheus 0.0.1\n"
 "POT-Creation-Date: 2009-11-13 02:46+0200\n"
 "PO-Revision-Date: 2009-11-16 21:52+0200\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
