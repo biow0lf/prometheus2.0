@@ -11,15 +11,22 @@ class TeamController < ApplicationController
                             :login => '@' + params[:name],
                             :team => true }
     if @team != nil
-      @members = Team.find :all,
-                           :conditions => {
-                             :name => '@' + params[:name],
-                             :branch_id => @branch.id }
       @leader = Team.find :first,
                           :conditions => {
                             :name => '@' + params[:name],
                             :branch_id => @branch.id,
-                            :leader => true }
+                            :leader => true },
+                          :joins => " LEFT JOIN packagers ON packagers.login = teams.login"
+
+      @members = Team.find_by_sql(['SELECT teams.login, packagers.name
+                               FROM teams
+                               LEFT JOIN packagers ON packagers.login = teams.login
+                               WHERE teams.name = ? AND teams.branch_id = ?', '@' + params[:name], @branch.id ])
+#      @members = Team.find :all,
+#                           :conditions => {
+#                             :name => '@' + params[:name],
+#                             :branch_id => @branch.id },
+#                           :joins => " LEFT JOIN packagers ON packagers.login = teams.login"
     else
       render :action => "nosuchteam"
     end
