@@ -67,10 +67,10 @@ task :srpms => :environment do
     srpm.distribution = rpm[1010]
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
-    srpm.branch_id = branch.id
+    srpm.branch = branch.urlname
 #    srpm.rawspec = 'TODO'
 
-    srpm.status = 'current'
+#    srpm.status = 'current'
 
     srpm.save!
 

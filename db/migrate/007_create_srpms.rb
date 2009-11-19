@@ -16,10 +16,10 @@ class CreateSrpms < ActiveRecord::Migration
       t.string :distribution
       t.datetime :buildtime
       t.string :size
-      t.integer :branch_id
+      t.string :branch
       t.binary :rawspec
 
-      t.string :status
+#      t.string :status
 
       t.timestamps
     end
@@ -27,8 +27,8 @@ class CreateSrpms < ActiveRecord::Migration
     add_index :srpms, :name
     add_index :srpms, :group_id
     add_index :srpms, :packager_id
-    add_index :srpms, :branch_id
-    add_index :srpms, :status
+    add_index :srpms, :branch
+#    add_index :srpms, :status
   end
 
   def self.down

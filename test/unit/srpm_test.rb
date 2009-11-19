@@ -15,7 +15,7 @@ class SrpmTest < ActiveSupport::TestCase
 #    assert srpm.errors.invalid?(:description)
 #    assert srpm.errors.invalid?(:vendor)
 #    assert srpm.errors.invalid?(:distribution)
-    assert srpm.errors.invalid?(:branch_id)
+    assert srpm.errors.invalid?(:branch)
     assert srpm.errors.invalid?(:buildtime)
     assert srpm.errors.invalid?(:size)
   end

@@ -22,7 +22,7 @@ task :acls => :environment do
         login = 'p_solntsev' if login == 'psolntsev'
 
         packager = Packager.find :first, :conditions => { :login => login }, :select => 'id'
-        srpm = Srpm.find :first, :conditions => { :branch_id => branch.id, :name => package }, :select => 'id'
+        srpm = Srpm.find :first, :conditions => { :branch => branch.urlname, :name => package }, :select => 'id'
 
         if packager != nil
           if srpm != nil

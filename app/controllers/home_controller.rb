@@ -4,8 +4,7 @@ class HomeController < ApplicationController
   caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :bytwogroup, :bythreegroup, :packagers_list
 
   def index
-    #@package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
 
 #    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @top15 = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
@@ -21,23 +20,19 @@ class HomeController < ApplicationController
   end
 
   def project
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
   end
 
   def news
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
   end
 
   def security
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
   end
 
   def rss
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
   end
 
   def stats
@@ -50,8 +45,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
 
 #    @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_equals("Sisyphus").ascend_by_name
     @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).ascend_by_name
@@ -59,8 +53,7 @@ class HomeController < ApplicationController
   end
 
   def groups_list
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
 
     @groups = Group.find_by_sql("SELECT COUNT(srpms.name) AS counter,
                                         groups.name
@@ -73,8 +66,7 @@ class HomeController < ApplicationController
   end
 
   def bygroup
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @group = Group.find :first,
@@ -84,8 +76,7 @@ class HomeController < ApplicationController
   end
 
   def bytwogroup
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @group = Group.find :first,
@@ -95,8 +86,7 @@ class HomeController < ApplicationController
   end
 
   def bythreegroup
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @group = Group.find :first,
@@ -106,8 +96,7 @@ class HomeController < ApplicationController
   end
 
   def packagers_list
-    #@sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
 
     @packagers = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
                                               packagers.name AS name,
