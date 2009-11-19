@@ -6,8 +6,6 @@ RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
-require 'gettext_rails'
-
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -45,6 +43,13 @@ Rails::Initializer.run do |config|
 
   config.active_record.timestamped_migrations = false
   config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+
+  config.gem "locale"
+  config.gem "locale_rails"
+  config.gem "gettext"
+  config.gem "gettext_activerecord"
+  config.gem "gettext_rails"
+
 end
 
 ExceptionNotifier.exception_recipients = %w(me@gmail.com)
