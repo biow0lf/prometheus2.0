@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-19 06:54+0200\n"
+"POT-Creation-Date: 2009-11-19 08:14+0200\n"
 "PO-Revision-Date: 2009-11-16 21:52+0200\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -586,6 +586,12 @@ msgstr "Лідер команди:"
 #: app/views/team/info.html.erb:13
 msgid "Team members:"
 msgstr "Учасники команди:"
+
+#: app/views/team/info.html.erb:16 app/views/home/bytwogroup.html.erb:11
+#: app/views/home/index.html.erb:34 app/views/home/bythreegroup.html.erb:11
+#: app/views/home/bygroup.html.erb:11
+msgid "information about the packager"
+msgstr "інформація про пакувальника"
 
 #: app/views/team/info.html.erb:22
 msgid "List of packages:"
@@ -1173,11 +1179,6 @@ msgstr ""
 msgid "detailed information about the package"
 msgstr "детальна інформація про пакет"
 
-#: app/views/home/bytwogroup.html.erb:11 app/views/home/index.html.erb:34
-#: app/views/home/bythreegroup.html.erb:11 app/views/home/bygroup.html.erb:11
-msgid "information about the packager"
-msgstr "інформація про пакувальника"
-
 #: app/views/home/bytwogroup.html.erb:13
 #: app/views/home/bythreegroup.html.erb:13 app/views/home/bygroup.html.erb:13
 msgid "Build time:"
@@ -1327,4 +1328,3 @@ msgstr[2] "пакетов:"
 #: app/views/home/security.html.erb:2
 msgid "Prometheus 2.0 - Security"
 msgstr ""
-
