@@ -38,7 +38,7 @@
     <td><%=h srpm.buildtime %></td>
     <td><%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %></td>
     <td>
-      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>&nbsp;<% end %>
+      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>-<% end %>
     </td>
     <td style="text-align:left;"><%=h srpm.summary %></td>
   </tr>
