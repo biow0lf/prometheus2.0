@@ -3,27 +3,23 @@
 one:
   fullname: MyString
   urlname: MyString
-  http_srpms_url: MyString
-  ftp_srpms_url: MyString
-  http_noarch_url: MyString
-  ftp_noarch_url: MyString
-  http_i586_url: MyString
-  ftp_i586_url: MyString
-  http_x86_64_url: MyString
-  ftp_x86_64_url: MyString
-  acl_packages_url: MyString
-  acl_groups_url: MyString
+  srpms_path: MyString
+  binary_x86_path: MyString
+  noarch_path: MyString
+  binary_x86_64_path: MyString
+  acls_url: MyString
+  leaders_url: MyString
+  acls_groups_url: MyString
+  altlinux: true
 
 two:
   fullname: MyString
   urlname: MyString
-  http_srpms_url: MyString
-  ftp_srpms_url: MyString
-  http_noarch_url: MyString
-  ftp_noarch_url: MyString
-  http_i586_url: MyString
-  ftp_i586_url: MyString
-  http_x86_64_url: MyString
-  ftp_x86_64_url: MyString
-  acl_packages_url: MyString
-  acl_groups_url: MyString
+  srpms_path: MyString
+  binary_x86_path: MyString
+  noarch_path: MyString
+  binary_x86_64_path: MyString
+  acls_url: MyString
+  leaders_url: MyString
+  acls_groups_url: MyString
+  altlinux: false

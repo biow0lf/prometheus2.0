@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration
       t.string :name
       t.string :login
       t.integer :branch_id
-      t.boolean :leader, :default => false
+      t.boolean :leader
 
       t.timestamps
     end

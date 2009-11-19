@@ -6,6 +6,6 @@ class TeamTest < ActiveSupport::TestCase
     assert !team.valid?
     assert team.errors.invalid?(:name)
     assert team.errors.invalid?(:login)
-    assert team.errors.invalid?(:branch)
+    assert team.errors.invalid?(:branch_id)
   end
 end

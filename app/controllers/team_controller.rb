@@ -4,7 +4,7 @@ class TeamController < ApplicationController
   caches_page :info
 
   def info
-    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @package_counter = Srpm.count :conditions => { :branch_id => 1 }
     @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @team = Packager.find :first,
                           :conditions => {

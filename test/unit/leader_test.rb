@@ -6,6 +6,6 @@ class LeaderTest < ActiveSupport::TestCase
     assert !leader.valid?
     assert leader.errors.invalid?(:package)
     assert leader.errors.invalid?(:login)
-    assert leader.errors.invalid?(:branch)
+    assert leader.errors.invalid?(:branch_id)
   end
 end

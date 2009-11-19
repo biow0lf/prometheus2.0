@@ -3,9 +3,11 @@
 one:
   name: MyString
   login: MyString
-  branch: MyString
+  branch_id: 1
+  leader: MyString
 
 two:
   name: MyString
   login: MyString
-  branch: MyString
+  branch_id: 2
+  leader: MyString

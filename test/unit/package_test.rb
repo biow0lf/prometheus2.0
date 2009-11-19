@@ -16,7 +16,7 @@ class PackageTest < ActiveSupport::TestCase
     assert package.errors.invalid?(:description)
 #    assert package.errors.invalid?(:vendor)
 #    assert package.errors.invalid?(:distribution)
-    assert package.errors.invalid?(:branch)
+    assert package.errors.invalid?(:branch_id)
     assert package.errors.invalid?(:buildtime)
     assert package.errors.invalid?(:size)
   end
