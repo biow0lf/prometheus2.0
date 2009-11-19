@@ -9,7 +9,8 @@ class SrpmController < ApplicationController
     @srpm = Srpm.find :first,
                       :conditions => {
                         :name => params[:name],
-                        :branch => @branch.urlname }
+                        :branch => @branch.urlname },
+                      :include => [:acls]
 
     if @srpm != nil
       @allsrpms = Srpm.find :all,
@@ -27,7 +28,6 @@ class SrpmController < ApplicationController
                               :conditions => {
                                 :branch_id => @branch.id,
                                 :package => params[:name] }
-
         @packager = Packager.find :first,
                                   :conditions => { :login => @leader.login }
       end
