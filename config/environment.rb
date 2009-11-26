@@ -42,7 +42,7 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 
   config.active_record.timestamped_migrations = false
-  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+#  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 
   config.gem "locale"
   config.gem "locale_rails"

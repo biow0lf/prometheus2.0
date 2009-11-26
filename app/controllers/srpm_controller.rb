@@ -1,7 +1,7 @@
 class SrpmController < ApplicationController
   layout "default"
 
-  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
+#  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
   def main
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
@@ -10,7 +10,7 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => @branch.urlname },
-                      :include => [:acls]
+                      :include => [:acls, :group]
 
     if @srpm != nil
       @allsrpms = Srpm.find :all,
@@ -173,6 +173,13 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => @branch.urlname }
+
+    @repocops = Repocop.find :all,
+                             :conditions => {
+                               :srcname => @srpm.name,
+                               :srcversion => @srpm.version,
+                               :srcrel => @srpm.release }
+
     if @srpm == nil
       render :action => "nosuchpackage"
     end
