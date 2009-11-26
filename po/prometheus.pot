@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-19 08:14+0200\n"
+"POT-Creation-Date: 2009-11-19 14:27+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -579,14 +579,14 @@ msgstr ""
 msgid "Team leader:"
 msgstr ""
 
-#: app/views/team/info.html.erb:13
-msgid "Team members:"
+#: app/views/team/info.html.erb:10 app/views/team/info.html.erb:16
+#: app/views/home/bytwogroup.html.erb:11 app/views/home/index.html.erb:34
+#: app/views/home/bythreegroup.html.erb:11 app/views/home/bygroup.html.erb:11
+msgid "information about the packager"
 msgstr ""
 
-#: app/views/team/info.html.erb:16 app/views/home/bytwogroup.html.erb:11
-#: app/views/home/index.html.erb:34 app/views/home/bythreegroup.html.erb:11
-#: app/views/home/bygroup.html.erb:11
-msgid "information about the packager"
+#: app/views/team/info.html.erb:13
+msgid "Team members:"
 msgstr ""
 
 #: app/views/team/info.html.erb:22

@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2009-11-19 08:14+0200\n"
+"POT-Creation-Date: 2009-11-19 14:27+0200\n"
 "PO-Revision-Date: 2009-11-16 21:52+0200\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -583,15 +583,15 @@ msgstr "Інформація:"
 msgid "Team leader:"
 msgstr "Лідер команди:"
 
+#: app/views/team/info.html.erb:10 app/views/team/info.html.erb:16
+#: app/views/home/bytwogroup.html.erb:11 app/views/home/index.html.erb:34
+#: app/views/home/bythreegroup.html.erb:11 app/views/home/bygroup.html.erb:11
+msgid "information about the packager"
+msgstr "інформація про пакувальника"
+
 #: app/views/team/info.html.erb:13
 msgid "Team members:"
 msgstr "Учасники команди:"
-
-#: app/views/team/info.html.erb:16 app/views/home/bytwogroup.html.erb:11
-#: app/views/home/index.html.erb:34 app/views/home/bythreegroup.html.erb:11
-#: app/views/home/bygroup.html.erb:11
-msgid "information about the packager"
-msgstr "інформація про пакувальника"
 
 #: app/views/team/info.html.erb:22
 msgid "List of packages:"
