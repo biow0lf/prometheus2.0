@@ -1,7 +1,7 @@
 class TeamController < ApplicationController
   layout "default"
 
-  caches_page :info
+#  caches_page :info
 
   def info
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
