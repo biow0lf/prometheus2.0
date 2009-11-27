@@ -40,6 +40,49 @@ branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.1'
 branch.altlinux = true
 branch.save!
 
+# add 5.0 branch
+branch = Branch.new
+branch.fullname = '5.0'
+branch.urlname = '5.0'
+branch.srpms_path = "/ALT/5.0/files/SRPMS/*.src.rpm"
+branch.binary_x86_path = "/ALT/5.0/files/i586/RPMS/*.i586.rpm"
+branch.noarch_path = "/ALT/5.0/files/noarch/RPMS/*.noarch.rpm"
+branch.binary_x86_64_path = "/ALT/5.0/files/x86_64/RPMS/*.x86_64.rpm"
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.5.0'
+branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.5.0'
+branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.0'
+branch.altlinux = true
+branch.save!
+
+# add 4.1 branch
+branch = Branch.new
+branch.fullname = '4.1'
+branch.urlname = '4.1'
+branch.srpms_path = "/ALT/4.1/files/SRPMS/*.src.rpm"
+branch.binary_x86_path = "/ALT/4.1/files/i586/RPMS/*.i586.rpm"
+branch.noarch_path = "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm"
+branch.binary_x86_64_path = "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm"
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.4.1'
+branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.4.1'
+branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.1'
+branch.altlinux = true
+branch.save!
+
+# add 4.0 branch
+branch = Branch.new
+branch.fullname = '4.0'
+branch.urlname = '4.0'
+branch.srpms_path = "/ALT/4.0/files/SRPMS/*.src.rpm"
+branch.binary_x86_path = "/ALT/4.0/files/i586/RPMS/*.i586.rpm"
+branch.noarch_path = "/ALT/4.0/files/noarch/RPMS/*.noarch.rpm"
+branch.binary_x86_64_path = "/ALT/4.0/files/x86_64/RPMS/*.x86_64.rpm"
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.4.0'
+branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.4.0'
+branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.0'
+branch.altlinux = true
+branch.save!
+
+
 ## add Redora Rawhide
 #branch = Branch.new
 #branch.fullname = 'Rawhide'
