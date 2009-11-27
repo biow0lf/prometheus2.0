@@ -7,7 +7,7 @@ task :groups => :environment do
   puts Time.now
 
   ActiveRecord::Base.transaction do
-    Group.delete_all
+    ActiveRecord::Base.connection.execute("DELETE FROM groups WHERE branch = 'Sisyphus'")
 
     url = "http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS"
     file = open(URI.escape(url)).read
