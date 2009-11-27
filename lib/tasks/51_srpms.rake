@@ -6,7 +6,7 @@ task :srpms => :environment do
   puts "import src.rpm's"
   puts Time.now
 
-  branch = Branch.find :first, :conditions => { :fullname => '5.1'}
+  branch = Branch.find :first, :conditions => { :urlname => '5.1'}
 
   Dir.glob(branch.srpms_path).each do |file|
   begin
@@ -17,7 +17,7 @@ task :srpms => :environment do
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
 
-    group = Group.find :first, :conditions => { :name => rpm[1016], :branch_id => branch.id }
+    group = Group.find :first, :conditions => { :name => rpm[1016], :branch => branch.urlname }
 
     srpm.group_id = group.id
 
@@ -67,10 +67,10 @@ task :srpms => :environment do
     srpm.distribution = rpm[1010]
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
-    srpm.branch_id = branch.id
+    srpm.branch = branch.urlname
 #    srpm.rawspec = 'TODO'
 
-    srpm.status = 'current'
+#    srpm.status = 'current'
 
     srpm.save!
 
