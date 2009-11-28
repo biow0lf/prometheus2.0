@@ -96,18 +96,19 @@
     <li>TODO</li>
   </ul>
 </div>-->
-<p class="news" />
+<!--<p class="news" />-->
+
+<% end -%>
 
 <b><%=h _("List of rpms provided by this srpm:") %></b>
 
 <div class="para" style="margin-left: 0em;">
-<ul>
-<% @packages.each do |package| -%>
-  <li><%=h package.name %></li>
-<% end -%>
-</ul></div>
-
-<% end -%>
+  <ul>
+  <% @packages.each do |package| -%>
+    <li><%=h package.name %></li>
+  <% end -%>
+  </ul>
+</div>
 
 <% if params[:branch] != 'Platform5' %>
 

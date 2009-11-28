@@ -31,6 +31,13 @@ class SrpmController < ApplicationController
                                 :package => params[:name] }
         @packager = Packager.find :first,
                                   :conditions => { :login => @leader.login }
+      elsif params[:branch] == '5.1' or params[:branch] == 'Platform5'
+        @packages = Package.find :all,
+                                 :conditions => {
+                                   :branch_id => @branch.id,
+                                   :sourcepackage => @srpm.filename,
+                                   :arch => ["noarch", "i586"] },
+                                 :order => 'name ASC'
       end
     else
       render :action => "nosuchpackage"
