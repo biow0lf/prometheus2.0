@@ -14,8 +14,10 @@ class ApplicationController < ActionController::Base
   init_gettext "prometheus"
 
   def set_loc
+    params[:locale] ||= 'en'
     I18n.locale = params[:locale]
-    params[:locale] = 'en' if params[:locale].nil?
+#    I18n.locale = params[:locale]
+#    params[:locale] = 'en' if params[:locale].nil?
     set_locale params[:locale]
   end
 
