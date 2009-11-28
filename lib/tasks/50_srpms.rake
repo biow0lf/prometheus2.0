@@ -60,6 +60,7 @@ task :srpms => :environment do
     srpm.packager_id = packager3.id
     srpm.epoch = rpm[1003]
     srpm.summary = rpm[1004]
+    srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
     srpm.license = rpm[1014]
     srpm.url = rpm[1020]
     srpm.description = rpm[1005]
