@@ -17,7 +17,8 @@ class SrpmController < ApplicationController
                             :conditions => { :name => params[:name] }
 #                            :order => 'branch ASC'
 
-      if params[:branch] == 'Sisyphus' or params[:branch] == '5.1'
+#      if params[:branch] == 'Sisyphus' or params[:branch] == '5.1'
+      if params[:branch] == 'Sisyphus'
         @packages = Package.find :all,
                                  :conditions => {
                                    :branch_id => @branch.id,
