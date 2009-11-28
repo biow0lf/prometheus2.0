@@ -31,7 +31,9 @@ class SrpmController < ApplicationController
                                 :package => params[:name] }
         @packager = Packager.find :first,
                                   :conditions => { :login => @leader.login }
-      elsif params[:branch] == '5.1' or params[:branch] == 'Platform5'
+      elsif params[:branch] == '5.1' or
+            params[:branch] == 'Platform5' or
+            params[:branch] == '5.0'
         @packages = Package.find :all,
                                  :conditions => {
                                    :branch_id => @branch.id,
