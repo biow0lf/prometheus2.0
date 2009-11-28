@@ -90,18 +90,14 @@
 <% if params[:branch] == 'Sisyphus' -%>
 <!--
 <b><%= _("List of contributors:") %></b>
-
 <div class="para" style="margin-left: 0em;">
   <ul>
     <li>TODO</li>
   </ul>
 </div>-->
-<!--<p class="news" />-->
-
 <% end -%>
 
 <b><%=h _("List of rpms provided by this srpm:") %></b>
-
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @packages.each do |package| -%>
@@ -111,9 +107,7 @@
 </div>
 
 <% if params[:branch] != 'Platform5' %>
-
 <b><%=h _("ACL:") %></b>
-
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @srpm.acls.each do |acl| -%>
@@ -121,8 +115,6 @@
   <% end -%>
   </ul>
 </div>
-
 <% end -%>
-
 </div>
 
