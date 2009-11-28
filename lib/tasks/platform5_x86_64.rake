@@ -1,6 +1,6 @@
 require 'rpm'
 
-namespace :sisyphus do
+namespace :platform5 do
 task :x86_64 => :environment do
   puts "import x86_64.rpm's"
   puts Time.now
