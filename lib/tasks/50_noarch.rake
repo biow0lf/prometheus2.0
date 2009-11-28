@@ -55,6 +55,7 @@ task :noarch => :environment do
     package.packager_id = packager3.id
     package.epoch = r[1003]
     package.summary = r[1004]
+    package.summary = 'Broken' if r.name == 'openmoko_dfu-util'
     package.license = r[1014]
     package.url = r[1020]
     package.description = r[1005]
