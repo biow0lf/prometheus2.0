@@ -10,7 +10,7 @@
   <meta name="keywords" content="ALT linux Sisyphus development rpm" />
   <%= stylesheet_link_tag 'alt' %>
   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-  <script>
+  <script type="text/javascript">
     google.load("prototype", "1.6.1.0");
   </script>
   <%= javascript_include_tag 'fastinit.js', 'tablekit.js', 'repocop.js', params[:locale] + '/local.js', :cache => "main_" + params[:locale] %>
@@ -172,7 +172,7 @@ function show(divnum){
 <%= yield %>
 
 <!--#if expr="$QUERY_STRING != /skipit/" -->
-</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+<!--</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>-->
 <!--#endif -->
 </div>
 <div id="bottom">
