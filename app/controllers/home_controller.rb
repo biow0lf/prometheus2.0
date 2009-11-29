@@ -54,13 +54,12 @@ class HomeController < ApplicationController
 
   def groups_list
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
-
     @groups = Group.find_by_sql("SELECT COUNT(srpms.name) AS counter,
                                         groups.name
                                  FROM srpms, groups, branches
                                  WHERE groups.branch = branches.urlname
                                  AND branches.urlname = 'Sisyphus'
-                                 AND srpms.group_id = groups.id
+                                 AND srpms.group = groups.name
                                  GROUP BY groups.name
                                  ORDER BY groups.name")
   end
@@ -73,6 +72,10 @@ class HomeController < ApplicationController
                         :conditions => {
                           :name => params[:group],
                           :branch => @branch.urlname }
+    @srpms = Srpm.find :all,
+                       :conditions => {
+                         :group => params[:group],
+                         :branch => 'Sisyphus' }
   end
 
   def bytwogroup
@@ -83,6 +86,10 @@ class HomeController < ApplicationController
                         :conditions => {
                           :name => params[:group] + '/' + params[:group2],
                           :branch => @branch.urlname }
+    @srpms = Srpm.find :all,
+                       :conditions => {
+                         :group => params[:group] + '/' + params[:group2],
+                         :branch => 'Sisyphus' }
   end
 
   def bythreegroup
@@ -93,6 +100,10 @@ class HomeController < ApplicationController
                         :conditions => {
                           :name => params[:group] + '/' + params[:group2] + '/' + params[:group3],
                           :branch => @branch.urlname }
+    @srpms = Srpm.find :all,
+                       :conditions => {
+                         :group => params[:group] + '/' + params[:group2] + '/' + params[:group3],
+                         :branch => 'Sisyphus' }
   end
 
   def packagers_list

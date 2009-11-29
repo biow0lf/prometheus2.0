@@ -10,7 +10,7 @@ class SrpmController < ApplicationController
                       :conditions => {
                         :name => params[:name],
                         :branch => @branch.urlname },
-                      :include => [:acls, :group]
+                      :include => [:acls]
 
     if @srpm != nil
       @allsrpms = Srpm.find :all,

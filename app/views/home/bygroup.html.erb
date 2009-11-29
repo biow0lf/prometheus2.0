@@ -4,7 +4,7 @@
 
 <div class="header"><%=h _("Group") %> :: <%=h params[:group] %></div><p class="news" />
 
-<% @group.srpms.each do |srpm| %>
+<% @srpms.each do |srpm| %>
 <p class="news" />
 <span class="news-date-new"><%= link_to h(srpm.name), '/' + h(params[:locale])  + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => _("detailed information about the package") -%>
 </span><br /><br />

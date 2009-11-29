@@ -16,12 +16,7 @@ task :srpms => :environment do
     srpm.name = rpm.name
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
-
-    group = Group.find :first, :conditions => { :name => rpm[1016], :branch => branch.urlname }
-
-    srpm.group_id = group.id
-
-#    srpm.group = rpm[1016]
+    srpm.group = rpm[1016]
 
     packager = rpm[1015]
     packager_name = packager.split('<')[0].chomp
