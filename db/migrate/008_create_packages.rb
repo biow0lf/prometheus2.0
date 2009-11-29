@@ -23,6 +23,7 @@ class CreatePackages < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :packages, :sourcepackage
     add_index :packages, :packager_id
     add_index :packages, :branch_id
   end
