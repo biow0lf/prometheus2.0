@@ -18,14 +18,14 @@ class CreatePackages < ActiveRecord::Migration
       t.string :distribution
       t.datetime :buildtime
       t.string :size
-      t.integer :branch_id
+      t.string :branch
 
       t.timestamps
     end
 
     add_index :packages, :sourcepackage
     add_index :packages, :packager_id
-    add_index :packages, :branch_id
+    add_index :packages, :branch
   end
 
   def self.down
