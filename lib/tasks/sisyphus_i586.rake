@@ -1,25 +1,25 @@
 require 'rpm'
 
 namespace :sisyphus do
-task :noarch => :environment do
-  puts "import noarch.rpm's"
+task :i586 => :environment do
+  puts "import i586.rpm's"
   puts Time.now
 
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 
-  Dir.glob(branch.noarch_path).each do |f|
+  Dir.glob(branch.binary_x86_path).each do |file|
   begin
-    r = RPM::Package::open(f)
+    rpm = RPM::Package::open(file)
     package = Package.new
-    package.filename = r.name + '-' + r.version.v + '-' + r.version.r + '.noarch.rpm'
-    package.sourcepackage = r[1044]
-    package.name = r.name
-    package.version = r.version.v
-    package.release = r.version.r
-    package.arch = r.arch
-    package.group = r[1016]
+    package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.i586.rpm'
+    package.sourcepackage = rpm[1044]
+    package.name = rpm.name
+    package.version = rpm.version.v
+    package.release = rpm.version.r
+    package.arch = rpm.arch
+    package.group = rpm[1016]
 
-    packager = r[1015]
+    packager = rpm[1015]
     packager_name = packager.split('<')[0].chomp
     packager_email = packager.chop.split('<')[1]
 
@@ -53,22 +53,20 @@ task :noarch => :environment do
     end
 
     package.packager_id = packager3.id
-    package.epoch = r[1003]
-    package.summary = r[1004]
-    package.license = r[1014]
-    package.url = r[1020]
-    package.description = r[1005]
-    package.vendor = r[1011]
-    package.distribution = r[1010]
-    package.buildtime = Time.at(r[1006])
-    package.size = File.size(f)
-    #package.branch = 'Sisyphus'
-    package.branch_id = branch.id
+    package.epoch = rpm[1003]
+    package.summary = rpm[1004]
+    package.license = rpm[1014]
+    package.url = rpm[1020]
+    package.description = rpm[1005]
+    package.vendor = rpm[1011]
+    package.distribution = rpm[1010]
+    package.buildtime = Time.at(rpm[1006])
+    package.size = File.size(file)
+    package.branch = branch.urlname
 
     package.save!
-
   rescue RuntimeError
-    puts "Bad src.rpm " + f
+    puts "Bad src.rpm " + file
   end
   end
 
