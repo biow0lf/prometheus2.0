@@ -21,7 +21,7 @@ class SrpmController < ApplicationController
       if params[:branch] == 'Sisyphus'
         @packages = Package.find :all,
                                  :conditions => {
-                                   :branch_id => @branch.id,
+                                   :branch => @branch.urlname,
                                    :sourcepackage => @srpm.filename,
                                    :arch => ["noarch", "i586"] },
                                  :order => 'name ASC'
@@ -105,19 +105,19 @@ class SrpmController < ApplicationController
     if @srpm != nil
       @i586 = Package.find :all,
                            :conditions => {
-                             :branch_id => @branch.id,
+                             :branch => @branch.urlname,
                              :sourcepackage => @srpm.filename,
                              :arch => 'i586' },
                            :order => 'name ASC'
       @noarch = Package.find :all,
                              :conditions => {
-                               :branch_id => @branch.id,
+                               :branch => @branch.urlname,
                                :sourcepackage => @srpm.filename,
                                :arch => 'noarch' },
                              :order => 'name ASC'
       @x86_64 = Package.find :all,
                              :conditions => {
-                               :branch_id => @branch.id,
+                               :branch => @branch.urlname,
                                :sourcepackage => @srpm.filename,
                                :arch => 'x86_64' },
                              :order => 'name ASC'
