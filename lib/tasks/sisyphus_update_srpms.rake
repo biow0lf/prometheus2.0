@@ -7,10 +7,10 @@ task :srpms => :environment do
   puts Time.now
   puts "import src.rpm's"
 
-  branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus'}
+  branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus' }
 
   ActiveRecord::Base.transaction do
-  ActiveRecord::Base.connection.execute("DELETE FROM srpms WHERE branch_id = " + branch.id.to_s)
+  ActiveRecord::Base.connection.execute("DELETE FROM srpms WHERE branch = 'Sisyphus'")
   Dir.glob(branch.srpms_path).each do |file|
   begin
     rpm = RPM::Package::open(file)
@@ -19,12 +19,7 @@ task :srpms => :environment do
     srpm.name = rpm.name
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
-
-    group = Group.find :first, :conditions => { :name => rpm[1016], :branch_id => branch.id }
-
-    srpm.group_id = group.id
-
-#    srpm.group = rpm[1016]
+    srpm.group = rpm[1016]
 
     packager = rpm[1015]
     packager_name = packager.split('<')[0].chomp
@@ -70,10 +65,10 @@ task :srpms => :environment do
     srpm.distribution = rpm[1010]
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
-    srpm.branch_id = branch.id
+    srpm.branch = branch.urlname
 #    srpm.rawspec = 'TODO'
 
-    srpm.status = 'current'
+#    srpm.status = 'current'
 
     srpm.save!
 
