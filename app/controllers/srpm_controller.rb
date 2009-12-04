@@ -36,7 +36,7 @@ class SrpmController < ApplicationController
             params[:branch] == '5.0'
         @packages = Package.find :all,
                                  :conditions => {
-                                   :branch_id => @branch.id,
+                                   :branch => @branch.urlname,
                                    :sourcepackage => @srpm.filename,
                                    :arch => ["noarch", "i586"] },
                                  :order => 'name ASC'
