@@ -33,7 +33,9 @@ class SrpmController < ApplicationController
                                   :conditions => { :login => @leader.login }
       elsif params[:branch] == '5.1' or
             params[:branch] == 'Platform5' or
-            params[:branch] == '5.0'
+            params[:branch] == '5.0' or
+            params[:branch] == '4.1' or
+            params[:branch] == '4.0'
         @packages = Package.find :all,
                                  :conditions => {
                                    :branch => @branch.urlname,
