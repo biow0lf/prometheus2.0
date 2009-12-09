@@ -28,13 +28,12 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 
 ActionMailer::Base.smtp_settings = {
-#  :enable_starttls_auto => true,
   :tls => true,
-  :address => "smtp.gmail.com",
+  :address => "smtp.sendgrid.net",
   :port => 587,
   :authentication => :plain,
-  :domain => "localhost",
-  :user_name => "me@gmail.com",
+  :domain => "prometheus.altlinux.org",
+  :user_name => "noreply@prometheus.altlinux.org",
   :password => "password",
   :delivery_method => :smtp
 }
