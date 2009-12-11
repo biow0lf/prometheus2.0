@@ -3,8 +3,8 @@ require 'rpm'
 namespace :sisyphus do
 namespace :update do
 task :x86_64 => :environment do
-  puts Time.now
   puts "import x86_64.rpm's"
+  puts Time.now
 
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 

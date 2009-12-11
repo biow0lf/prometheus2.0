@@ -3,8 +3,8 @@ require 'rpm'
 namespace :sisyphus do
 namespace :update do
 task :noarch => :environment do
-  puts Time.now
   puts "import noarch.rpm's"
+  puts Time.now
 
   branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
 

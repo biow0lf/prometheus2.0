@@ -4,8 +4,8 @@ namespace :sisyphus do
 namespace :update do
 desc "Update src.rpm from Sisyphus to database"
 task :srpms => :environment do
-  puts Time.now
   puts "import src.rpm's"
+  puts Time.now
 
   branch = Branch.find :first, :conditions => { :fullname => 'Sisyphus' }
 
