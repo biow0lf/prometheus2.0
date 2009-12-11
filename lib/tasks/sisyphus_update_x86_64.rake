@@ -20,7 +20,7 @@ task :x86_64 => :environment do
     package.version = rpm.version.v
     package.release = rpm.version.r
     package.arch = rpm.arch
-    package.group = r[1016]
+    package.group = rpm[1016]
 
     packager = rpm[1015]
     packager_name = packager.split('<')[0].chomp
