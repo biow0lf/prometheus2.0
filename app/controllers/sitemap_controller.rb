@@ -12,38 +12,46 @@ class SitemapController < ApplicationController
     headers['Content-Type'] = "application/xml"
 
     @srpms = Srpm.find :all,
-                       :select => 'name',
+                       :select => 'name, branch',
                        :order => 'name ASC',
-                       :limit => 5000
+                       :limit => 5000,
+                       :conditions => {
+                         :branch => 'Sisyphus' }
   end
 
   def sitemap_ru2
     headers['Content-Type'] = "application/xml"
 
     @srpms = Srpm.find :all,
-                       :select => 'name',
+                       :select => 'name, branch',
                        :order => 'name ASC',
                        :limit => 5000,
-                       :offset => 5000
+                       :offset => 5000,
+                       :conditions => {
+                         :branch => 'Sisyphus' }
   end
 
   def sitemap_en1
     headers['Content-Type'] = "application/xml"
 
     @srpms = Srpm.find :all,
-                       :select => 'name',
+                       :select => 'name, branch',
                        :order => 'name ASC',
-                       :limit => 5000
+                       :limit => 5000,
+                       :conditions => {
+                         :branch => 'Sisyphus' }
   end
 
   def sitemap_en2
     headers['Content-Type'] = "application/xml"
 
     @srpms = Srpm.find :all,
-                       :select => 'name',
+                       :select => 'name, branch',
                        :order => 'name ASC',
                        :limit => 5000,
-                       :offset => 5000
+                       :offset => 5000,
+                       :conditions => {
+                         :branch => 'Sisyphus' }
   end
 
 end
