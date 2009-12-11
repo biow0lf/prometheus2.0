@@ -186,13 +186,15 @@ class SrpmController < ApplicationController
                         :name => params[:name],
                         :branch => @branch.urlname }
 
-    @repocops = Repocop.find :all,
-                             :conditions => {
-                               :srcname => @srpm.name,
-                               :srcversion => @srpm.version,
-                               :srcrel => @srpm.release }
+    if @srpm != nil
+      @repocops = Repocop.find :all,
+                               :conditions => {
+                                 :srcname => @srpm.name,
+                                 :srcversion => @srpm.version,
+                                 :srcrel => @srpm.release }
 
-    if @srpm == nil
+#    if @srpm == nil
+    else
       render :action => "nosuchpackage"
     end
   end
