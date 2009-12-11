@@ -1,8 +1,8 @@
-require 'rpm'
-
 namespace :sisyphus do
 namespace :update do
 task :i586 => :environment do
+  require 'rpm'
+
   puts "import i586.rpm's"
   puts Time.now
 

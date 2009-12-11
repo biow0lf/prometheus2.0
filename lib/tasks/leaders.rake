@@ -1,8 +1,8 @@
-require 'open-uri'
-
 namespace :sisyphus do
 desc "Import all ACL for packages from Sisyphus to database (leaders)"
 task :leaders => :environment do
+  require 'open-uri'
+
   puts "import leaders"
   puts Time.now
 

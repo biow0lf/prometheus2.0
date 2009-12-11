@@ -1,9 +1,9 @@
-require 'rpm'
-
 namespace :sisyphus do
 namespace :update do
 desc "Update src.rpm from Sisyphus to database"
 task :srpms => :environment do
+  require 'rpm'
+
   puts "import src.rpm's"
   puts Time.now
 

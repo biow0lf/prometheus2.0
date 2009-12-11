@@ -1,8 +1,8 @@
-require 'rpm'
-
 namespace :"51" do
 namespace :update do
 task :x86_64 => :environment do
+  require 'rpm'
+
   puts "import x86_64.rpm's"
   puts Time.now
 

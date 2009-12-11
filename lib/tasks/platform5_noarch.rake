@@ -1,7 +1,7 @@
-require 'rpm'
-
 namespace :platform5 do
 task :noarch => :environment do
+  require 'rpm'
+
   puts "import noarch.rpm's"
   puts Time.now
 

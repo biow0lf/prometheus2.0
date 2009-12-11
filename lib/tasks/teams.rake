@@ -1,8 +1,8 @@
-require 'open-uri'
-
 namespace :sisyphus do
 desc "Import all teams from Sisyphus to database"
 task :teams => :environment do
+  require 'open-uri'
+
   puts "import teams"
   puts Time.now
 

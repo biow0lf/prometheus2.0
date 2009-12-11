@@ -1,8 +1,8 @@
-require 'open-uri'
-
 namespace :sisyphus do
 desc "Import RPM groups for Sisyphus to database"
 task :groups => :environment do
+  require 'open-uri'
+
   puts "import groups"
   puts Time.now
 

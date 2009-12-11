@@ -1,8 +1,8 @@
-require 'open-uri'
-
 namespace :"51" do
 desc "Import RPM groups for 5.1 to database"
 task :groups => :environment do
+  require 'open-uri'
+
   puts "import groups"
   puts Time.now
 

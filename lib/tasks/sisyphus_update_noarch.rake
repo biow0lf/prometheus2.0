@@ -1,8 +1,8 @@
-require 'rpm'
-
 namespace :sisyphus do
 namespace :update do
 task :noarch => :environment do
+  require 'rpm'
+
   puts "import noarch.rpm's"
   puts Time.now
 

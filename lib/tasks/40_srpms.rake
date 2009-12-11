@@ -1,8 +1,8 @@
-require 'rpm'
-
 namespace :"40" do
 desc "Import src.rpm from 4.0 to database"
 task :srpms => :environment do
+  require 'rpm'
+
   puts "import src.rpm's"
   puts Time.now
 
