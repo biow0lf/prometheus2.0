@@ -60,6 +60,7 @@ class HomeController < ApplicationController
                                  WHERE groups.branch = branches.urlname
                                  AND branches.urlname = 'Sisyphus'
                                  AND srpms.group = groups.name
+                                 AND srpms.branch = branches.urlname
                                  GROUP BY groups.name
                                  ORDER BY groups.name")
   end
