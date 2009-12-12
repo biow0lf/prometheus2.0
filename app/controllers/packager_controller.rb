@@ -26,7 +26,6 @@ class PackagerController < ApplicationController
                                 :login => params[:login].downcase,
                                 :team => false }
     @acls = Acl.find :all,
-                     :select => 'package',
                      :conditions => {
                        :login => params[:login],
                        :branch_id => @branch.id }

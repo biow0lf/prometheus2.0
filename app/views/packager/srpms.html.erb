@@ -18,29 +18,29 @@
     <th class="nosort"><%=h _("Summary") %></th>
   </tr>
 
-  <% @packager.srpms.each do |srpm| -%>
+  <% @acls.each do |acl| -%>
   <tr>
     <td>
       <% repocop_status = 'skip' -%>
-      <% srpm.repocops.each do |repocop| -%>
+      <% acl.srpm.repocops.each do |repocop| -%>
         <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' -%>
         <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' -%>
         <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' -%>
         <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' -%>
         <% repocop_status = 'fail' if repocop.status == 'fail' -%>
       <% end -%>
-      <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+      <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
-      <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
+      <%= link_to h(acl.srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news' %>
     </td>
-    <td><%=h srpm.version %>-<%=h srpm.release %></td>
-    <td><%=h srpm.buildtime %></td>
-    <td><%=h time_ago_in_words(srpm.buildtime) %> <%= _("ago") %></td>
+    <td><%=h acl.srpm.version %>-<%=h acl.srpm.release %></td>
+    <td><%=h acl.srpm.buildtime %></td>
+    <td><%=h time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
     <td>
-      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news' %><% else %>-<% end %>
+      <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news' %><% else %>-<% end %>
     </td>
-    <td style="text-align:left;"><%=h srpm.summary %></td>
+    <td style="text-align:left;"><%=h acl.srpm.summary %></td>
   </tr>
   <% end -%>
 
