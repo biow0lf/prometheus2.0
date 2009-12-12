@@ -47,6 +47,8 @@ class HomeController < ApplicationController
   def search
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
 
+    if params[:search].nil? redirect_to :action => "index"
+
     @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_equals("Sisyphus").ascend_by_name
 #    @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).ascend_by_name
     @srpms, @srpms_count = @search.all, @search.count
