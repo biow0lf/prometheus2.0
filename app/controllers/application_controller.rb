@@ -6,18 +6,18 @@ class ApplicationController < ActionController::Base
 
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :set_loc, :set_search
+#  before_filter :set_loc, :set_search
+  before_filter :set_search
+  before_init_gettext :default_locale
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
   init_gettext "prometheus"
 
-  def set_loc
+  def default_locale
     params[:locale] ||= 'en'
     I18n.locale = params[:locale]
-#    I18n.locale = params[:locale]
-#    params[:locale] = 'en' if params[:locale].nil?
     set_locale params[:locale]
   end
 
