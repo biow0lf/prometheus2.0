@@ -13,9 +13,14 @@ class SrpmController < ApplicationController
                       :include => [:acls]
 
     if @srpm != nil
-      @allsrpms = Srpm.find :all,
-                            :conditions => { :name => params[:name] }
-#                            :order => 'branch ASC'
+#      @allsrpms = Srpm.find :all,
+#                            :conditions => { :name => params[:name] }
+
+      @allsrpms = Srpm.find_by_sql ["SELECT name, version, release, branch, order_id
+                                     FROM srpms, branches
+                                     WHERE srpms.branch = branches.urlname
+                                     AND srpms.name = ?
+                                     ORDER BY branches.order_id ASC", params[:name]]
 
 #      if params[:branch] == 'Sisyphus' or params[:branch] == '5.1'
       if params[:branch] == 'Sisyphus'
