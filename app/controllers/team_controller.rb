@@ -10,6 +10,11 @@ class TeamController < ApplicationController
                           :conditions => {
                             :login => '@' + params[:name],
                             :team => true }
+    @acls = Acl.find :all,
+                     :conditions => {
+                       :login => '@' + params[:name],
+                       :branch_id => @branch.id }
+
     if @team != nil
       @leader = Team.find_by_sql(['SELECT teams.login, packagers.name
                                FROM teams, packagers
