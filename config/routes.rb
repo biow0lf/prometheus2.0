@@ -23,6 +23,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':locale/packager/:login', :controller => 'packager', :action => 'info'
   map.connect 'packager/:login/srpms', :controller => 'packager', :action => 'srpms'
   map.connect ':locale/packager/:login/srpms', :controller => 'packager', :action => 'srpms'
+  map.connect 'packager/:login/acls', :controller => 'packager', :action => 'acls'
+  map.connect ':locale/packager/:login/acls', :controller => 'packager', :action => 'acls'
   map.connect 'packager/:login/gear', :controller => 'packager', :action => 'gear'
   map.connect ':locale/packager/:login/gear', :controller => 'packager', :action => 'gear'
   map.connect 'packager/:login/bugs', :controller => 'packager', :action => 'bugs'

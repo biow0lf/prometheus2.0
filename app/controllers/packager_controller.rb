@@ -34,6 +34,23 @@ class PackagerController < ApplicationController
     end
   end
 
+  def acls
+    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @packager = Packager.find :first,
+                              :conditions => {
+                                :login => params[:login].downcase,
+                                :team => false }
+    @acls = Acl.find :all,
+                     :conditions => {
+                       :login => params[:login],
+                       :branch_id => @branch.id },
+                     :include => [:srpm]
+    if @packager == nil
+      render :action => "nosuchpackager"
+    end
+  end
+
   def gear
     @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
     @packager = Packager.find :first,
