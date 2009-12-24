@@ -22,4 +22,9 @@ class Srpm < ActiveRecord::Base
                                       AND srcversion = \'#{version}\'
                                       AND srcrel = \'#{release}\''
   has_many :changelogs
+
+  def self.count_srpms_in_sisyphus
+    count :conditions => { :branch => 'Sisyphus' }
+  end
+
 end
