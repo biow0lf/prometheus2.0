@@ -5,18 +5,8 @@ class HomeController < ApplicationController
 
   def index
     @package_counter = Srpm.count_srpms_in_sisyphus
-
 #    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @top15 = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
-                                          packagers.name AS name,
-                                          packagers.login AS login
-                                   FROM acls, packagers, branches
-                                   WHERE packagers.login = acls.login
-                                   AND packagers.team = false
-                                   AND branches.urlname = 'Sisyphus'
-                                   AND acls.branch_id = branches.id
-                                   GROUP BY packagers.name, packagers.login
-                                   ORDER BY 1 DESC LIMIT 15")
+    @top15 = Packager.top15
   end
 
   def project
