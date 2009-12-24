@@ -94,27 +94,7 @@ class HomeController < ApplicationController
 
   def packagers_list
     @package_counter = Srpm.count_srpms_in_sisyphus
-
-    @packagers = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
-                                              packagers.name AS name,
-                                              packagers.login AS login
-                                       FROM acls, packagers, branches
-                                       WHERE packagers.login = acls.login
-                                       AND packagers.team = false
-                                       AND acls.branch_id = branches.id
-                                       AND branches.urlname = 'Sisyphus'
-                                       GROUP BY packagers.name, packagers.login
-                                       ORDER BY packagers.name ASC")
-
-    @teams = Packager.find_by_sql("SELECT COUNT(acls.package) AS counter,
-                                          packagers.name AS name,
-                                          packagers.login AS login
-                                   FROM acls, packagers, branches
-                                   WHERE packagers.login = acls.login
-                                   AND packagers.team = true
-                                   AND acls.branch_id = branches.id
-                                   AND branches.urlname = 'Sisyphus'
-                                   GROUP BY packagers.name, packagers.login
-                                   ORDER BY packagers.name ASC")
+    @packagers = Packager.find_all_packagers_in_sisyphus
+    @teams = Packager.find_all_teams_in_sisyphus
   end
 end
