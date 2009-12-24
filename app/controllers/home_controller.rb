@@ -47,15 +47,7 @@ class HomeController < ApplicationController
 
   def groups_list
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @groups = Group.find_by_sql("SELECT COUNT(srpms.name) AS counter,
-                                        groups.name
-                                 FROM srpms, groups, branches
-                                 WHERE groups.branch = branches.urlname
-                                 AND branches.urlname = 'Sisyphus'
-                                 AND srpms.group = groups.name
-                                 AND srpms.branch = branches.urlname
-                                 GROUP BY groups.name
-                                 ORDER BY groups.name")
+    @groups = Group.find_groups_in_sisyphus
   end
 
   def bygroup
