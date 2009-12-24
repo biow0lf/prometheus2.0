@@ -4,7 +4,7 @@ class SrpmController < ApplicationController
 #  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
   def main
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -54,7 +54,7 @@ class SrpmController < ApplicationController
   end
 
   def changelog
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -67,7 +67,7 @@ class SrpmController < ApplicationController
   end
 
   def rawspec
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -79,7 +79,7 @@ class SrpmController < ApplicationController
   end
 
   def patches
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -91,7 +91,7 @@ class SrpmController < ApplicationController
   end
 
   def sources
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -103,7 +103,7 @@ class SrpmController < ApplicationController
   end
 
   def download
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -134,7 +134,7 @@ class SrpmController < ApplicationController
   end
 
   def gear
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
@@ -150,7 +150,7 @@ class SrpmController < ApplicationController
   end
 
   def bugs
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @bugs = Bug.find :all,
                      :conditions => {
@@ -167,7 +167,7 @@ class SrpmController < ApplicationController
   end
 
   def allbugs
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @bugs = Bug.find :all,
                      :conditions => {
@@ -184,7 +184,7 @@ class SrpmController < ApplicationController
   end
 
   def repocop
-    @package_counter = Srpm.count :conditions => { :branch => 'Sisyphus' }
+    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.find :first, :conditions => { :urlname => params[:branch] }
     @srpm = Srpm.find :first,
                       :conditions => {
