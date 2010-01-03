@@ -41,16 +41,13 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 
-  config.active_record.timestamped_migrations = false
-#  config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
+  # config.active_record.timestamped_migrations = false
+  # config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
 
-#  config.gem "locale"
   config.gem "locale_rails"
-#  config.gem "gettext"
   config.gem "gettext_activerecord"
   config.gem "gettext_rails"
-
 end
 
-ExceptionNotifier.exception_recipients = %w(me@gmail.com)
-ExceptionNotifier.sender_address = %("Sisyphus 2.0 Error" <me@gmail.com>)
+ExceptionNotifier.exception_recipients = %w(igor.zubkov@gmail.com)
+ExceptionNotifier.sender_address = %("Sisyphus 2.0 Error" <noreply@prometheus.altlinux.org>)
