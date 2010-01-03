@@ -6,7 +6,7 @@ task :acls => :environment do
   puts "import acls"
   puts Time.now
 
-  Acl.update_from_uri "http://git.altlinux.org/acl/list.packages.4.1", "4.1", "ALT Linux"
+  Acl.update_from_gitalt "ALT Linux", "4.1"
 
   puts Time.now
 end
