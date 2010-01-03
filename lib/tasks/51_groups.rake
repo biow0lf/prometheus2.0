@@ -6,7 +6,7 @@ task :groups => :environment do
   puts "import groups"
   puts Time.now
 
-  Group.update_from_uri "http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS", "5.1", "ALT Linux"
+  Group.update_from_gitalt "ALT Linux", "5.1"
 
   puts Time.now
 end
