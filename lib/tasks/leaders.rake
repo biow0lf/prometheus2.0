@@ -6,19 +6,8 @@ task :leaders => :environment do
   puts "import leaders"
   puts Time.now
 
-  ActiveRecord::Base.transaction do
-    branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    ActiveRecord::Base.connection.execute("DELETE FROM leaders WHERE branch_id = " + branch.id.to_s)
+  Leader.update_from_gitalt "ALT Linux", "Sisyphus"
 
-    url = branch.acls_url
-    file = open(URI.escape(url)).read
-
-    file.each_line do |line|
-      package = line.split[0]
-      login = line.split[1]
-      Leader.create :package => package, :login => login, :branch_id => branch.id
-    end
-  end
   puts Time.now
 end
 end
