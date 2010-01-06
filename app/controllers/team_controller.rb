@@ -5,29 +5,27 @@ class TeamController < ApplicationController
 
   def info
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @team = Packager.find :first,
-                          :conditions => {
-                            :login => '@' + params[:name],
-                            :team => true }
-    @acls = Acl.find :all,
-                     :conditions => {
-                       :login => '@' + params[:name],
-                       :branch_id => @branch.id }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @team = Packager.first :conditions => {
+                             :login => '@' + params[:name],
+                             :team => true }
+    @acls = Acl.all :conditions => {
+                      :login => '@' + params[:name],
+                      :branch => @branch.name }
 
     if @team != nil
       @leader = Team.find_by_sql(['SELECT teams.login, packagers.name
                                FROM teams, packagers
                                WHERE packagers.login = teams.login
-                               AND teams.name = ? AND teams.branch_id = ?
+                               AND teams.name = ? AND teams.branch = ?
                                AND leader = true
-                               LIMIT 1', '@' + params[:name], @branch.id ])
+                               LIMIT 1', '@' + params[:name], @branch.name ])
 
       @members = Team.find_by_sql(['SELECT teams.login, packagers.name
                                FROM teams, packagers
                                WHERE packagers.login = teams.login
                                AND teams.name = ?
-                               AND teams.branch_id = ?', '@' + params[:name], @branch.id ])
+                               AND teams.branch = ?', '@' + params[:name], @branch.name ])
     else
       render :action => "nosuchteam"
     end
