@@ -6,16 +6,7 @@ task :repocops => :environment do
   puts "import repocop reports"
   puts Time.now
 
-  ActiveRecord::Base.transaction do
-    Repocop.delete_all
-
-    url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt"
-    file = open(URI.escape(url)).read
-
-    file.each_line do |line|
-      ActiveRecord::Base.connection.execute(line)
-    end
-  end
+  Repocop.update_repocop
 
   puts Time.now
 end
