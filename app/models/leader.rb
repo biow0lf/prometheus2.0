@@ -4,7 +4,7 @@ class Leader < ActiveRecord::Base
   def self.update_from_gitalt(vendor, branch)
     ActiveRecord::Base.transaction do
       url = Branch.find :first, :conditions => { :vendor => 'ALT Linux' , :name => 'Sisyphus' }
-      ActiveRecord::Base.connection.execute("DELETE FROM leaders WHERE branch = '" + branch + "' AND vendor = '" + vendor "'")
+      ActiveRecord::Base.connection.execute("DELETE FROM leaders WHERE branch = '" + branch + "' AND vendor = '" + vendor + "'")
 
       file = open(URI.escape(url.acls_url)).read
 
