@@ -80,4 +80,30 @@ task :leaders => :environment do
   puts Time.now
 end
 
+desc "Import packagers list from src.rpm from Sisyphus to database"
+task :packagers => :environment do
+  require 'rpm'
+
+  puts "import src.rpm's"
+  puts Time.now
+
+  branch = Branch.find :first, :conditions => { :name => 'Sisyphus' }
+
+  Packager.update_packager_list "ALT Linux", "Sisyphus"
+
+  puts Time.now
+end
+
+desc "Import all teams from Sisyphus to database"
+task :teams => :environment do
+  require 'open-uri'
+
+  puts "import teams"
+  puts Time.now
+
+  Team.update_from_gitalt "ALT Linux", "Sisyphus"
+
+  puts Time.now
+end
+
 end
