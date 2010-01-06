@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100106133038) do
+ActiveRecord::Schema.define(:version => 20100106164701) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -81,6 +81,26 @@ ActiveRecord::Schema.define(:version => 20100106133038) do
     t.string   "email"
     t.string   "login"
     t.boolean  "team"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "packages", :force => true do |t|
+    t.string   "filename"
+    t.string   "sourcepackage"
+    t.string   "name"
+    t.string   "version"
+    t.string   "release"
+    t.string   "group"
+    t.string   "epoch"
+    t.string   "arch"
+    t.string   "summary"
+    t.string   "license"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "buildtime"
+    t.string   "size"
+    t.string   "branch"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
