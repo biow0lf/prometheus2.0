@@ -35,7 +35,7 @@ Init database:
 * rake sisyphus:bugs
 * rake sisyphus:gitrepos ???
 * rake sisyphus:repocops
-* rake sisyphus:leaders ???
+* rake sisyphus:leaders
 * rake sisyphus:teams
 * rake sisyphus:ftbfs_i586 ???
 * rake sisyphus:i586
