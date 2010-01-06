@@ -5,6 +5,8 @@ ActionController::Routing::Routes.draw do |map|
 #  map.connect ':locale/stats', :controller => 'home', :action => 'stats'
 #  map.connect 'stats', :controller => 'home', :action => 'stats'
 
+  map.connect '/iphone/', :controller => 'iphone', :action => 'index'
+
   map.connect '/search', :controller => 'home', :action => 'search'
   map.connect ':locale/search', :controller => 'home', :action => 'search'
   map.connect '/find.shtml', :controller => 'home', :action => 'search'
