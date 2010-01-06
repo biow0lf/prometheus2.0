@@ -29,27 +29,55 @@ Init database:
 * rake db:migrate
 * rake db:seed
 * rake sisyphus:groups
+* rake sisyphus:packagers
 * rake sisyphus:srpms
 * rake sisyphus:acls
 * rake sisyphus:bugs
-* rake sisyphus:gitrepos
+* rake sisyphus:gitrepos ???
 * rake sisyphus:repocops
-* rake sisyphus:leaders
+* rake sisyphus:leaders ???
 * rake sisyphus:teams
-* rake sisyphus:ftbfs_i586
+* rake sisyphus:ftbfs_i586 ???
 * rake sisyphus:i586
 * rake sisyphus:noarch
 * rake sisyphus:x86_64
 
+* rake 51:groups
+* rake 51:srpms
+* rake 51:acls
+* rake 51:i586
+* rake 51:noarch
+* rake 51:x86_64
+
+* rake platform5:groups
+* rake platform5:srpms
+* rake platform5:i586
+* rake platform5:noarch
+* rake platform5:x86_64
+
+* rake 41:groups
+* rake 41:srpms
+* rale 41:acls
+* rake 41:i586
+* rake 41:noarch
+* rake 41:x86_64
+
+* rake 40:groups
+* rake 40:srpms
+* rake 40:acls
+* rake 40:i586
+* rake 40:noarch
+* rake 40:x86_64
+
 Add to cron:
-* 0 0 * * * cd /srv/www/prometheus2.0/current && /usr/bin/rake RAILS_ENV=production sisyphus:update:groups sisyphus:expire:groups >> /var/log/prometheus.log 2>&1
+* 0 0 * * * cd /srv/www/prometheus2.0/current && /usr/bin/rake RAILS_ENV=production sisyphus:groups 51:groups platform5:groups sisyphus:expire:groups >> /var/log/prometheus.log 2>&1
 
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 Igor Zubkov <igor.zubkov@gmail.com>
+Copyright (c) 2009-2010 Igor Zubkov <igor.zubkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
