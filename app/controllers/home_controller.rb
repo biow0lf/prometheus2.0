@@ -5,7 +5,6 @@ class HomeController < ApplicationController
 
   def index
     @package_counter = Srpm.count_srpms_in_sisyphus
-#    @sisyphus = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
     @top15 = Packager.top15
   end
 
@@ -53,43 +52,37 @@ class HomeController < ApplicationController
   def bygroup
     @package_counter = Srpm.count_srpms_in_sisyphus
     # TODO: branch can be not only Sisyphus!
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @group = Group.find :first,
-                        :conditions => {
-                          :name => params[:group],
-                          :branch => @branch.urlname }
-    @srpms = Srpm.find :all,
-                       :conditions => {
-                         :group => params[:group],
-                         :branch => 'Sisyphus' }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @group = Group.first :conditions => {
+                           :name => params[:group],
+                           :branch => @branch.name }
+    @srpms = Srpm.all :conditions => {
+                        :group => params[:group],
+                        :branch => 'Sisyphus' }
   end
 
   def bytwogroup
     @package_counter = Srpm.count_srpms_in_sisyphus
     # TODO: branch can be not only Sisyphus!
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @group = Group.find :first,
-                        :conditions => {
-                          :name => params[:group] + '/' + params[:group2],
-                          :branch => @branch.urlname }
-    @srpms = Srpm.find :all,
-                       :conditions => {
-                         :group => params[:group] + '/' + params[:group2],
-                         :branch => 'Sisyphus' }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @group = Group.first :conditions => {
+                           :name => params[:group] + '/' + params[:group2],
+                           :branch => @branch.name }
+    @srpms = Srpm.all :conditions => {
+                        :group => params[:group] + '/' + params[:group2],
+                        :branch => 'Sisyphus' }
   end
 
   def bythreegroup
     @package_counter = Srpm.count_srpms_in_sisyphus
     # TODO: branch can be not only Sisyphus!
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @group = Group.find :first,
-                        :conditions => {
-                          :name => params[:group] + '/' + params[:group2] + '/' + params[:group3],
-                          :branch => @branch.urlname }
-    @srpms = Srpm.find :all,
-                       :conditions => {
-                         :group => params[:group] + '/' + params[:group2] + '/' + params[:group3],
-                         :branch => 'Sisyphus' }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @group = Group.first :conditions => {
+                           :name => params[:group] + '/' + params[:group2] + '/' + params[:group3],
+                           :branch => @branch.name }
+    @srpms = Srpm.all :conditions => {
+                        :group => params[:group] + '/' + params[:group2] + '/' + params[:group3],
+                        :branch => 'Sisyphus' }
   end
 
   def packagers_list
