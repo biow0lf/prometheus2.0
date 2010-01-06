@@ -27,11 +27,11 @@
 </td>
 <td><%=h srpm.version %>-<%=h srpm.release %></td>
 <td>
-<% if srpm.packager.team == true %>
-  <%= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/team/' + h(srpm.packager.login)[1..-1], :class => 'news' %>
-<% else %>
-  <%= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/packager/' + h(srpm.packager.login), :class => 'news' %>
-<% end %>
+<%# if srpm.packager.team == true %>
+  <%#= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/team/' + h(srpm.packager.login)[1..-1], :class => 'news' %>
+<%# else %>
+  <%#= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/packager/' + h(srpm.packager.login), :class => 'news' %>
+<%# end %>
 </td>
 <td><%=h srpm.summary %></td>
 </tr>
