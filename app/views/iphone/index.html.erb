@@ -1,0 +1,38 @@
+<div class="toolbar">
+  <h1 id="pageTitle"></h1>
+  <a id="backButton" class="button" href="#"></a>
+  <a class="button" href="#searchForm">Search</a>
+</div>
+
+<ul id="home" title="Home" selected="true">
+  <li><%=h _("News") %></li>
+  <li><a href="#packages"><%=h _("Packages") %></a></li>
+  <li><a href="#maintainers"><%=h _("Maintainers") %></a></li>
+  <li><a href="#teams"><%=h _("Teams") %></a></li>
+  <li><a href="#security"><%=h _("Security") %></a></li>
+  <li><a href="#about"><%=h _("About") %></a></li>
+  <li><%=h _("RSS") %></li>
+  <li><%= link_to _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :target => '_self' %></li>
+  <li><%= link_to _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :target => '_self' %></li>
+<!--  <li><a href="http://code.google.com/p/iui/" target="_self">About</a></li>-->
+</ul>
+
+<div id="packages" class="panel" title="<%=h _("Packages") %>">
+  <h2>TODO</h2>
+</div>
+
+<ul id="maintainers" title="<%=h _("Maintainers") %>">
+<% @packagers.each do |packager| -%>
+  <li><%=h packager.name %></li>
+<% end -%>
+</ul>
+
+<ul id="teams" title="<%=h _("Teams") %>">
+<% @teams.each do |team| -%>
+  <li><%=h team.name %></li>
+<% end -%>
+</ul>
+
+<div id="security" class="panel" title="<%=h _("Security") %>">
+  <h2>TODO</h2>
+</div>
