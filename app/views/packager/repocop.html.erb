@@ -16,12 +16,12 @@
     <th class="nosort"><%=h _("message") %></th>
   </tr>
 
-<% @packager.srpms.each do |srpm| -%>
-<% srpm.repocops.each do |repocop| -%>
+<% @packager.acls.each do |acl| %>
+<% acl.srpm.repocops.each do |repocop| -%>
   <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
   <tr>
     <td class="strange">
-      <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
+      <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
     </td>
     <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%=h repocop.status %></td>
     <td><%=h repocop.testname %></td>
