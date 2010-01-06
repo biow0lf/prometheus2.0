@@ -3,7 +3,7 @@ class PackagerController < ApplicationController
 
   def info
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Packager.find :first,
                               :conditions => {
                                 :login => params[:login].downcase,
@@ -12,7 +12,9 @@ class PackagerController < ApplicationController
                      :select => 'package',
                      :conditions => {
                        :login => params[:login],
-                       :branch_id => @branch.id }
+                       :branch => @branch.name,
+                       :vendor => @branch.vendor }
+#                     :include => [:srpm]
     if @packager == nil
       render :action => "nosuchpackager"
     end
@@ -20,15 +22,16 @@ class PackagerController < ApplicationController
 
   def srpms
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
     @acls = Acl.find :all,
                      :conditions => {
                        :login => params[:login],
-                       :branch_id => @branch.id }
+                       :branch => @branch.name,
+                       :vendor => @branch.vendor }
+#                     :include => [:srpms]
     if @packager == nil
       render :action => "nosuchpackager"
     end
@@ -44,22 +47,20 @@ class PackagerController < ApplicationController
     @acls = Acl.find :all,
                      :conditions => {
                        :login => params[:login],
-                       :branch_id => @branch.id },
-                     :include => [:srpm]
+                       :branch_id => @branch.id }
+#                     :include => [:srpm]
     if @packager == nil
       render :action => "nosuchpackager"
     end
   end
 
   def gear
-    @package_counter = Srpm.count_srpm_in_sisyphus
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
-    @gitrepos = Gitrepos.find :all,
-                              :conditions => { :login => params[:login].downcase },
-                              :order => 'package ASC'
+    @package_counter = Srpm.count_srpms_in_sisyphus
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
+    @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
+                             :order => 'repo ASC'
     if @packager == nil
       render :action => "nosuchpackager"
     end
@@ -111,10 +112,9 @@ class PackagerController < ApplicationController
 
   def repocop
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
     if @packager == nil
       render :action => "nosuchpackager"
     end
