@@ -7,7 +7,7 @@ task :gitrepos => :environment do
   puts Time.now
 
   ActiveRecord::Base.transaction do
-    Gitrepos.delete_all
+    Gitrepo.delete_all
 
     url = "http://git.altlinux.org/people-packages-list"
     file = open(URI.escape(url)).read
@@ -18,7 +18,7 @@ task :gitrepos => :environment do
       login = 'php-coder' if login == 'php_coder'
       package = gitrepo.split('/')[4]
       time = Time.at(line.split[1].to_i)
-      Gitrepos.create(:package => package.gsub(/\.git/,''), :login => login, :lastchange => time)
+      Gitrepo.create(:repo => package.gsub(/\.git/,''), :login => login, :lastchange => time)
     end
   end
   puts Time.now
