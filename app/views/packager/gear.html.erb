@@ -12,7 +12,7 @@
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
         <% gitrepo.login = 'php_coder' if gitrepo.login == 'php-coder' -%>
-        <%= link_to h(gitrepo.package), 'http://git.altlinux.org/people/' + h(gitrepo.login) + '/packages/?p=' + h(gitrepo.package) + '.git', :class => 'news' %>
+        <%= link_to h(gitrepo.repo), 'http://git.altlinux.org/people/' + h(gitrepo.login) + '/packages/?p=' + h(gitrepo.repo) + '.git', :class => 'news' %>
       </td>
       <td><%=h gitrepo.lastchange %></td>
     </tr>
