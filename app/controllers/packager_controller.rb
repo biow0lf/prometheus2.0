@@ -4,17 +4,15 @@ class PackagerController < ApplicationController
   def info
     @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
-    @acls = Acl.find :all,
-                     :select => 'package',
-                     :conditions => {
-                       :login => params[:login],
-                       :branch => @branch.name,
-                       :vendor => @branch.vendor }
-#                     :include => [:srpm]
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
+    @acls = Acl.all :select => 'package',
+                    :conditions => {
+                      :login => params[:login],
+                      :branch => @branch.name,
+                      :vendor => @branch.vendor }
+#                    :include => [:srpm]
     if @packager == nil
       render :action => "nosuchpackager"
     end
@@ -26,11 +24,10 @@ class PackagerController < ApplicationController
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
                                  :team => false }
-    @acls = Acl.find :all,
-                     :conditions => {
-                       :login => params[:login],
-                       :branch => @branch.name,
-                       :vendor => @branch.vendor }
+    @acls = Acl.all :conditions => {
+                      :login => params[:login],
+                      :branch => @branch.name,
+                      :vendor => @branch.vendor }
 #                     :include => [:srpms]
     if @packager == nil
       render :action => "nosuchpackager"
@@ -39,15 +36,13 @@ class PackagerController < ApplicationController
 
   def acls
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @branch = Branch.find :first, :conditions => { :urlname => 'Sisyphus' }
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
-    @acls = Acl.find :all,
-                     :conditions => {
-                       :login => params[:login],
-                       :branch_id => @branch.id }
+    @branch = Branch.first :conditions => { :urlname => 'Sisyphus' }
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
+    @acls = Acl.all :conditions => {
+                      :login => params[:login],
+                      :branch_id => @branch.id }
 #                     :include => [:srpm]
     if @packager == nil
       render :action => "nosuchpackager"
@@ -68,21 +63,18 @@ class PackagerController < ApplicationController
 
   def bugs
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
-    @bugs = Bug.find :all,
-                     :conditions => {
-                       :assigned_to => params[:login].downcase + '@altlinux.org',
-                       :product => 'Sisyphus',
-                       :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
-                     :order => "bug_id DESC"
-    @allbugs = Bug.find :all,
-                        :conditions => {
-                          :assigned_to => params[:login].downcase + '@altlinux.org',
-                          :product => 'Sisyphus' },
-                        :order => "bug_id DESC"
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
+    @bugs = Bug.all :conditions => {
+                      :assigned_to => params[:login].downcase + '@altlinux.org',
+                      :product => 'Sisyphus',
+                      :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
+                    :order => "bug_id DESC"
+    @allbugs = Bug.all :conditions => {
+                         :assigned_to => params[:login].downcase + '@altlinux.org',
+                         :product => 'Sisyphus' },
+                       :order => "bug_id DESC"
     if @packager == nil
       render :action => "nosuchpackager"
     end
@@ -90,21 +82,18 @@ class PackagerController < ApplicationController
 
   def allbugs
     @package_counter = Srpm.count_srpms_in_sisyphus
-    @packager = Packager.find :first,
-                              :conditions => {
-                                :login => params[:login].downcase,
-                                :team => false }
-    @bugs = Bug.find :all,
-                     :conditions => {
-                       :assigned_to => params[:login].downcase + '@altlinux.org',
-                       :product => 'Sisyphus',
-                       :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
-                     :order => "bug_id DESC"
-    @allbugs = Bug.find :all,
-                        :conditions => {
-                          :assigned_to => params[:login].downcase + '@altlinux.org',
-                          :product => 'Sisyphus' },
-                        :order => "bug_id DESC"
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
+    @bugs = Bug.all :conditions => {
+                      :assigned_to => params[:login].downcase + '@altlinux.org',
+                      :product => 'Sisyphus',
+                      :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
+                    :order => "bug_id DESC"
+    @allbugs = Bug.all :conditions => {
+                         :assigned_to => params[:login].downcase + '@altlinux.org',
+                         :product => 'Sisyphus' },
+                       :order => "bug_id DESC"
     if @packager == nil
       render :action => "nosuchpackager"
     end
