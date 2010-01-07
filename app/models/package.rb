@@ -18,6 +18,7 @@ class Package < ActiveRecord::Base
       package.group = rpm[1016]
       package.epoch = rpm[1003]
       package.summary = rpm[1004]
+      package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
       package.license = rpm[1014]
       package.url = rpm[1020]
       package.description = rpm[1005]
@@ -47,6 +48,7 @@ class Package < ActiveRecord::Base
       package.group = rpm[1016]
       package.epoch = rpm[1003]
       package.summary = rpm[1004]
+      package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
       package.license = rpm[1014]
       package.url = rpm[1020]
       package.description = rpm[1005]
@@ -76,6 +78,7 @@ class Package < ActiveRecord::Base
       package.group = rpm[1016]
       package.epoch = rpm[1003]
       package.summary = rpm[1004]
+      package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
       package.license = rpm[1014]
       package.url = rpm[1020]
       package.description = rpm[1005]
