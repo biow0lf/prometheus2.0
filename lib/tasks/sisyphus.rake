@@ -3,7 +3,7 @@ desc "Import all ACL for packages from Sisyphus to database"
 task :acls => :environment do
   require 'open-uri'
   puts Time.now + ": import acls"
-  Acl.update_from_gitalt "ALT Linux", "Sisyphus"
+  Acl.update_from_gitalt 'ALT Linux', 'Sisyphus'
   puts Time.now + ": end"
 end
 
@@ -11,7 +11,7 @@ desc "Import RPM groups for Sisyphus to database"
 task :groups => :environment do
   require 'open-uri'
   puts Time.now + ": import groups"
-  Group.update_from_gitalt "ALT Linux", "Sisyphus"
+  Group.update_from_gitalt 'ALT Linux', 'Sisyphus'
   puts Time.now + ": end"
 end
 
@@ -19,7 +19,7 @@ desc "Import *.src.rpm from Sisyphus to database"
 task :srpms => :environment do
   require 'rpm'
   puts Time.now + ": import src.rpm's"
-  Srpm.import_srpms "ALT Linux", "Sisyphus"
+  Srpm.import_srpms 'ALT Linux', 'Sisyphus'
   puts Time.now + ": end"
 end
 
@@ -47,11 +47,11 @@ task :x86_64 => :environment do
   puts Time.now + ": end"
 end
 
-desc "Import all ACL for packages from Sisyphus to database (leaders)"
+desc "Import all Leaders for packages from Sisyphus to database (leaders)"
 task :leaders => :environment do
   require 'open-uri'
   puts Time.now + ": import leaders"
-  Leader.update_from_gitalt "ALT Linux", "Sisyphus"
+  Leader.update_from_gitalt 'ALT Linux', 'Sisyphus'
   puts Time.now + ": end"
 end
 
@@ -59,7 +59,7 @@ desc "Import packagers list from src.rpm from Sisyphus to database"
 task :packagers => :environment do
   require 'rpm'
   puts Time.now + ": import src.rpm's"
-  Packager.update_packager_list "ALT Linux", "Sisyphus"
+  Packager.update_packager_list 'ALT Linux', 'Sisyphus'
   puts Time.now + ": end"
 end
 
@@ -67,7 +67,7 @@ desc "Import all teams from Sisyphus to database"
 task :teams => :environment do
   require 'open-uri'
   puts Time.now + ": import teams"
-  Team.update_from_gitalt "ALT Linux", "Sisyphus"
+  Team.update_from_gitalt 'ALT Linux', 'Sisyphus'
   puts Time.now + ": end"
 end
 
