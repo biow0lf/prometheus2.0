@@ -13,14 +13,16 @@
   <li><a href="#about"><%=h _("About") %></a></li>
   <li><%=h _("RSS") %></li>
   <li><%= link_to _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :target => '_self' %></li>
-  <li><%= link_to _("Blog), _("http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"), :target => '_self' %></li>
-  <li><%= link_to _("Planet), _("http://planet.altlinux.org/"), :target => '_self' %></li>
+  <li><%= link_to _("Blog"), _("http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"), :target => '_self' %></li>
+  <li><%= link_to _("Planet"), _("http://planet.altlinux.org/"), :target => '_self' %></li>
   <li><%= link_to _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :target => '_self' %></li>
 </ul>
 
-<div id="packages" class="panel" title="<%=h _("Packages") %>">
-  <h2>TODO</h2>
-</div>
+<ul id="packages" title="<%=h _("Packages") %>">
+<% @groups.each do |group| -%>
+  <li><%=h group.name %> (<%=h group.counter %>)</li>
+<% end -%>
+</ul>
 
 <ul id="maintainers" title="<%=h _("Maintainers") %>">
 <% @packagers.each do |packager| -%>
