@@ -8,7 +8,7 @@ class Acl < ActiveRecord::Base
     url = Branch.first :conditions => { :vendor => vendor, :name => branch }
 
     ActiveRecord::Base.transaction do
-      ActiveRecord::Base.connection.execute("DELETE FROM acls WHERE branch = '" + branch.to_s + "' AND vendor = '" + vendor.to_s + "'")
+      ActiveRecord::Base.connection.execute("DELETE FROM acls WHERE branch = '" + branch + "' AND vendor = '" + vendor + "'")
 
       file = open(URI.escape(url.acls_url)).read
       file.each_line do |line|
