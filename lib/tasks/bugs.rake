@@ -9,8 +9,7 @@ $KCODE="UTF8"
 namespace :sisyphus do
 desc "Import all bugs to database"
 task :bugs => :environment do
-  puts "import bugs"
-  puts Time.now
+  puts Time.now.to_s + ": import bugs"
 
   ActiveRecord::Base.transaction do
     Bug.delete_all
@@ -36,6 +35,6 @@ task :bugs => :environment do
       bug.save!
     end
   end
-  puts Time.now
+  puts Time.now.to_s + ": end"
 end
 end
