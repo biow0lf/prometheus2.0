@@ -26,7 +26,7 @@
 
 <ul id="maintainers" title="<%=h _("Maintainers") %>">
 <% @packagers.each do |packager| -%>
-  <li><%=h packager.name %></li>
+  <li><%= link_to packager.name, '/' + params[:locale] + '/iphone/packager/' + packager.login, :target => '_self' %></li>
 <% end -%>
 </ul>
 

@@ -7,16 +7,22 @@ class IphoneController < ApplicationController
     @groups = Group.find_groups_in_sisyphus
   end
 
-#  def packager
-#    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-#    @packager = Packager.first :conditions => {
-#                                 :login => params[:login].downcase,
-#                                 :team => false }
+  def packager_info
+    @branch = Branch.first :conditions => {
+                             :vendor => 'ALT Linux',
+                             :name => 'Sisyphus' }
+    @packager = Packager.first :conditions => {
+                                 :login => params[:login].downcase,
+                                 :team => false }
 #    @acls = Acl.all :select => 'package',
 #                    :conditions => {
 #                      :login => params[:login],
 #                      :branch => @branch.name,
 #                      :vendor => @branch.vendor }
-#  end
+    @gitrepos = Gitrepo.all :conditions => {
+                              :login => params[:login].downcase },
+                            :order => 'repo ASC'
+
+  end
 
 end
