@@ -869,7 +869,7 @@ msgstr "Описание:"
 
 #: app/views/srpm/main.html.erb:82
 msgid "Current maintainer:"
-msgstr "Текущий майнтейнер:"
+msgstr "Текущий маинтейнер:"
 
 #: app/views/srpm/main.html.erb:84
 #: app/views/srpm/main.html.erb:86
@@ -884,7 +884,7 @@ msgstr "просмотреть информацию о маинтейнере"
 
 #: app/views/srpm/main.html.erb:92
 msgid "List of contributors:"
-msgstr "Список всех майнтейнеров, принимавших участие<br />в данной и/или предыдущих сборках пакета:"
+msgstr "Список всех маинтейнеров, принимавших участие<br />в данной и/или предыдущих сборках пакета:"
 
 #: app/views/srpm/main.html.erb:100
 msgid "List of rpms provided by this srpm:"
@@ -1421,7 +1421,7 @@ msgstr "gear"
 
 #: app/views/packager/info.html.erb:11
 msgid "Packages built by this maintainer:"
-msgstr "Всего пакетов собранных майнтейнером:"
+msgstr "Всего пакетов собранных маинтейнером:"
 
 #: app/views/packager/srpms.html.erb:2
 msgid "&raquo; - Packages"
@@ -1430,7 +1430,7 @@ msgstr "&raquo; - Пакеты"
 #: app/views/packager/srpms.html.erb:8
 #: app/views/packager/acls.html.erb:8
 msgid "List of packages which was built by this maintainer:"
-msgstr "Список пакетов, собранных майнтейнером:"
+msgstr "Список пакетов, собранных маинтейнером:"
 
 #: app/views/packager/nosuchpackager.html.erb:2
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
