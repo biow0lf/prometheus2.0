@@ -4,7 +4,7 @@
 
 <div class="header" style="letter-spacing:1px;"><%=h _("Search") %></div>
 <p class="break">
-<form name="findonsite" action="/find.shtml" method="GET">
+<form name="findonsite" action="/<%=h params[:locale] %>/find.shtml" method="GET">
 <input type="text" name="request" value="<%=h params[:request] %>" size="20">
 <input type="submit" class="top-go" id="subOn" value="<%=h _("search") %>" onmouseover="m_on('subOn')"  onmouseout="m_off('subOn')">
 </form>
@@ -16,7 +16,7 @@
 <tr>
   <th><%=h _("package") %></th>
   <th><%= _("current<br />version") %></th>
-  <th><%=h _("packager") %></th>
+<!--  <th><%=h _("packager") %></th> -->
   <th><%=h _("summary") %></th>
 </tr>
 
@@ -26,13 +26,13 @@
   <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
 </td>
 <td><%=h srpm.version %>-<%=h srpm.release %></td>
-<td>
+<!-- <td>
 <%# if srpm.packager.team == true %>
   <%#= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/team/' + h(srpm.packager.login)[1..-1], :class => 'news' %>
 <%# else %>
   <%#= link_to h(srpm.packager.name), '/' + h(params[:locale]) + '/packager/' + h(srpm.packager.login), :class => 'news' %>
 <%# end %>
-</td>
+</td> -->
 <td><%=h srpm.summary %></td>
 </tr>
 <% end %>
