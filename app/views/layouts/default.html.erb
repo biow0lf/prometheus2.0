@@ -137,24 +137,24 @@ function show(divnum){
     </li>
     <li onmouseover="m_on('li8')" onmouseout="m_off('li8')" id="li8">
       <div id="dli8">
-        <%= link_to_unless_current _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :title => _("sisyphus public site") %>
+        <%= link_to _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :title => _("sisyphus public site") %>
       </div>
     </li>
 <% if params[:locale] == 'ru' -%>
     <li onmouseover="m_on('li9')" onmouseout="m_off('li9')" id="li9">
       <div id="dli9">
-        <a href="http://www.livejournal.com/userinfo.bml?user=ru_sisyphus" title="блог о sisyphus">Блог</a>
+        <%= link_to _("Blog"), _("http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"), :title => _("blog") %>
       </div>
     </li>
     <li onmouseover="m_on('li10')" onmouseout="m_off('li10')" id="li10">
       <div id="dli10">
-        <a href="http://planet.altlinux.org/" title="Планета">Планета</a>
+        <%= link_to _("Planet"), _("http://planet.altlinux.org/"), :title => _("ALT Linux Planet") %>
       </div>
     </li>
 <% end -%>
     <li onmouseover="m_on('li11')" onmouseout="m_off('li11')" id="li11">
       <div id="dli11">
-        <%= link_to_unless_current _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :title => _("community-en@") %>
+        <%= link_to _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :title => _("community-en@") %>
       </div>
     </li>
   </ul>
