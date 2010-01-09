@@ -4,6 +4,7 @@ class Srpm < ActiveRecord::Base
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 
+#  has_one :leader, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}' }
 
   def self.count_srpms_in_sisyphus
     count :conditions => { :branch => 'Sisyphus' } #:vendor => 'ALT Linux' }
@@ -27,11 +28,12 @@ class Srpm < ActiveRecord::Base
       srpm.license = rpm[1014]
       srpm.url = rpm[1020]
       srpm.description = rpm[1005]
-      srpm.vendor = rpm[1011]
+#      srpm.vendor = rpm[1011]
 #      srpm.distribution = rpm[1010]
       srpm.buildtime = Time.at(rpm[1006])
       srpm.size = File.size(file)
-      srpm.branch = br.name
+      srpm.branch = branch
+      srpm.vendor = vendor
       srpm.save!
     rescue RuntimeError
       puts "Bad src.rpm -- " + file
