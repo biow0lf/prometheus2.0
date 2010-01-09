@@ -3,9 +3,9 @@ class Package < ActiveRecord::Base
 
 
   def self.update_packages_i586(vendor, branch)
-    br = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    path = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
 
-    Dir.glob(br.binary_x86_path).each do |file|
+    Dir.glob(path.binary_x86_path).each do |file|
     begin
       rpm = RPM::Package::open(file)
       package = Package.new
@@ -24,7 +24,8 @@ class Package < ActiveRecord::Base
       package.description = rpm[1005]
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
-      package.branch = br.name
+      package.branch = branch
+      package.vendor = vendor
       package.save!
     rescue RuntimeError
       puts "Bad src.rpm " + file
@@ -33,9 +34,9 @@ class Package < ActiveRecord::Base
   end
 
   def self.update_packages_noarch(vendor, branch)
-    br = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    path = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
 
-    Dir.glob(br.noarch_path).each do |file|
+    Dir.glob(path.noarch_path).each do |file|
     begin
       rpm = RPM::Package::open(file)
       package = Package.new
@@ -54,7 +55,8 @@ class Package < ActiveRecord::Base
       package.description = rpm[1005]
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
-      package.branch = br.name
+      package.branch = branch
+      package.vendor = vendor
       package.save!
     rescue RuntimeError
       puts "Bad src.rpm " + file
@@ -63,9 +65,9 @@ class Package < ActiveRecord::Base
   end
 
   def self.update_packages_x86_64(vendor, branch)
-    br = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    path = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
 
-    Dir.glob(br.binary_x86_64_path).each do |file|
+    Dir.glob(path.binary_x86_64_path).each do |file|
     begin
       rpm = RPM::Package::open(file)
       package = Package.new
@@ -84,7 +86,8 @@ class Package < ActiveRecord::Base
       package.description = rpm[1005]
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
-      package.branch = br.name
+      package.branch = branch
+      package.vendor = vendor
       package.save!
     rescue RuntimeError
       puts "Bad src.rpm " + file

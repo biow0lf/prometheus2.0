@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100106182216) do
+ActiveRecord::Schema.define(:version => 20100109154214) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20100106182216) do
     t.string   "branch"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "vendor"
   end
 
   create_table "repocops", :force => true do |t|
