@@ -17,7 +17,7 @@ task :i586 => :environment do
   puts Time.now.to_s + ": import i586.rpm's"
   ActiveRecord::Base.transaction do
     ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'i586' AND branch = 'Sisyphus' AND vendor = 'ALT Linux'")
-    Package.update_packages_i586 'ALT Linux', 'Sisyphus'
+    Package.import_packages_i586 'ALT Linux', 'Sisyphus'
   end
   puts Time.now.to_s + ": end"
 end
@@ -28,7 +28,7 @@ task :noarch => :environment do
   puts Time.now.to_s + ": import noarch.rpm's"
   ActiveRecord::Base.transaction do
     ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'noarch' AND branch = 'Sisyphus' AND vendor = 'ALT Linux'")
-    Package.update_packages_noarch 'ALT Linux', 'Sisyphus'
+    Package.import_packages_noarch 'ALT Linux', 'Sisyphus'
   end
   puts Time.now.to_s + ": end"
 end
@@ -39,7 +39,7 @@ task :x86_64 => :environment do
   puts Time.now.to_s + ": import x86_64.rpm's"
   ActiveRecord::Base.transaction do
     ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'x86_64' AND branch = 'Sisyphus' AND vendor = 'ALT Linux'")
-    Package.update_packages_x86_64 'ALT Linux', 'Sisyphus'
+    Package.import_packages_x86_64 'ALT Linux', 'Sisyphus'
   end
   puts Time.now.to_s + ": end"
 end

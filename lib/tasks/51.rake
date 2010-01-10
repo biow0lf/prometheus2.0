@@ -27,7 +27,7 @@ desc "Import *.i586.rpm from 5.1 to database"
 task :i586 => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import i586.rpm's"
-  Package.update_packages_i586 'ALT Linux', '5.1'
+  Package.import_packages_i586 'ALT Linux', '5.1'
   puts Time.now.to_s + ": end"
 end
 
@@ -35,7 +35,7 @@ desc "Import *.noarch.rpm from 5.1 to database"
 task :noarch => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import noarch.rpm's"
-  Package.update_packages_noarch 'ALT Linux', '5.1'
+  Package.import_packages_noarch 'ALT Linux', '5.1'
   puts Time.now.to_s + ": end"
 end
 
@@ -43,7 +43,7 @@ desc "Import *.x86_64.rpm from 5.1 to database"
 task :x86_64 => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import x86_64.rpm's"
-  Package.update_packages_x86_64 'ALT Linux', '5.1'
+  Package.import_packages_x86_64 'ALT Linux', '5.1'
   puts Time.now.to_s + ": end"
 end
 
