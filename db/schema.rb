@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110191207) do
+ActiveRecord::Schema.define(:version => 20100110191912) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -144,7 +144,9 @@ ActiveRecord::Schema.define(:version => 20100110191207) do
     t.string   "group"
   end
 
+  add_index "srpms", ["branch"], :name => "index_srpms_on_branch"
   add_index "srpms", ["name"], :name => "index_srpms_on_name"
+  add_index "srpms", ["vendor"], :name => "index_srpms_on_vendor"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
