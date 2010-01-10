@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100109154214) do
+ActiveRecord::Schema.define(:version => 20100110191207) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -143,6 +143,8 @@ ActiveRecord::Schema.define(:version => 20100109154214) do
     t.datetime "updated_at"
     t.string   "group"
   end
+
+  add_index "srpms", ["name"], :name => "index_srpms_on_name"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
