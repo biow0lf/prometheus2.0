@@ -27,7 +27,7 @@ branch.acls_url = 'http://git.altlinux.org/acl/list.packages.p5'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.p5'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.p5'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
-branch.order_id = 2
+branch.order_id = 1
 branch.save!
 
 # add 5.1 branch
@@ -43,7 +43,7 @@ branch.acls_url = 'http://git.altlinux.org/acl/list.packages.5.1'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.5.1'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.1'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
-branch.order_id = 1
+branch.order_id = 2
 branch.save!
 
 # add 5.0 branch
