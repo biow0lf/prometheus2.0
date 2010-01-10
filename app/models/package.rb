@@ -2,8 +2,8 @@ class Package < ActiveRecord::Base
 
 
 
-  def self.update_packages_i586(vendor, branch)
-    path = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+  def self.import_packages_i586(vendor, branch)
+    path = Branch.first :conditions => { :vendor => vendor, :name => branch }
 
     Dir.glob(path.binary_x86_path).each do |file|
     begin
@@ -33,8 +33,8 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.update_packages_noarch(vendor, branch)
-    path = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+  def self.import_packages_noarch(vendor, branch)
+    path = Branch.first :conditions => { :vendor => vendor, :name => branch }
 
     Dir.glob(path.noarch_path).each do |file|
     begin
@@ -64,8 +64,8 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.update_packages_x86_64(vendor, branch)
-    path = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+  def self.import_packages_x86_64(vendor, branch)
+    path = Branch.first :conditions => { :vendor => vendor, :name => branch }
 
     Dir.glob(path.binary_x86_64_path).each do |file|
     begin
