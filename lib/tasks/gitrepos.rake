@@ -2,9 +2,7 @@ namespace :sisyphus do
 desc "Import all git repos to database"
 task :gitrepos => :environment do
   require 'open-uri'
-
-  puts "import gitrepos"
-  puts Time.now
+  puts Time.now.to_s + ": import gitrepos"
 
   ActiveRecord::Base.transaction do
     Gitrepo.delete_all
@@ -21,6 +19,6 @@ task :gitrepos => :environment do
       Gitrepo.create(:repo => package.gsub(/\.git/,''), :login => login, :lastchange => time)
     end
   end
-  puts Time.now
+  puts Time.now.to_s + ": end"
 end
 end
