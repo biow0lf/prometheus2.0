@@ -60,8 +60,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':locale/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|ua)/ }
   map.connect 'srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
   map.connect ':locale/srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|ua)/ }
-  map.connect 'srpm/:branch/:name/patches', :controller => 'srpm', :action => 'patches', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-  map.connect ':locale/srpm/:branch/:name/patches', :controller => 'srpm', :action => 'patches', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|ua)/ }
   map.connect 'srpm/:branch/:name/sources', :controller => 'srpm', :action => 'sources', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
   map.connect ':locale/srpm/:branch/:name/sources', :controller => 'srpm', :action => 'sources', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|ua)/ }
   map.connect 'srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
