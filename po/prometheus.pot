@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-01-08 14:40+0200\n"
+"POT-Creation-Date: 2010-01-11 17:20+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -491,6 +491,10 @@ msgstr ""
 msgid "Package|Updated at"
 msgstr ""
 
+#: app/models/package.rb:-
+msgid "Package|Vendor"
+msgstr ""
+
 #: app/models/changelog.rb:-
 msgid "changelog"
 msgstr ""
@@ -562,20 +566,6 @@ msgstr ""
 #: app/views/srpm/rawspec.html.erb:68 app/views/srpm/main.html.erb:67
 #: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
 msgid "Spec"
-msgstr ""
-
-#: app/views/srpm/gear.html.erb:76 app/views/srpm/download.html.erb:64
-#: app/views/srpm/changelog.html.erb:73 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/main.html.erb:67
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-msgid "patches"
-msgstr ""
-
-#: app/views/srpm/gear.html.erb:76 app/views/srpm/download.html.erb:64
-#: app/views/srpm/changelog.html.erb:73 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/main.html.erb:67
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-msgid "Patches"
 msgstr ""
 
 #: app/views/srpm/gear.html.erb:76 app/views/srpm/download.html.erb:64
