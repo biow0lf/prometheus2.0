@@ -8,7 +8,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
 #                       :include => [:acls]
 
     if @srpm != nil
@@ -27,11 +28,13 @@ class SrpmController < ApplicationController
       if params[:branch] == 'Sisyphus'
         @packages = Package.all :conditions => {
                                   :branch => @branch.name,
+                                  :vendor => @branch.vendor,
                                   :sourcepackage => @srpm.filename,
                                   :arch => ["noarch", "i586"] },
                                 :order => 'name ASC'
         @leader = Leader.first :conditions => {
                                  :branch => @branch.name,
+                                 :vendor => @branch.vendor,
                                  :package => params[:name] }
         @packager = Packager.first :conditions => { :login => @leader.login }
       elsif params[:branch] == '5.1' or
@@ -41,6 +44,7 @@ class SrpmController < ApplicationController
             params[:branch] == '4.0'
         @packages = Package.all :conditions => {
                                   :branch => @branch.name,
+                                  :vendor => @branch.vendor,
                                   :sourcepackage => @srpm.filename,
                                   :arch => ["noarch", "i586"] },
                                 :order => 'name ASC'
