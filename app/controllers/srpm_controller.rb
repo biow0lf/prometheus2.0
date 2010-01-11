@@ -100,20 +100,20 @@ class SrpmController < ApplicationController
     if @srpm != nil
       @i586 = Package.all :conditions => {
                             :branch => @branch.name,
-			    :vendor => @branch.vendor,
+                            :vendor => @branch.vendor,
                             :sourcepackage => @srpm.filename,
                             :arch => 'i586' },
                           :order => 'name ASC'
       @noarch = Package.all :conditions => {
                               :branch => @branch.name,
                               :vendor => @branch.vendor,
-			      :sourcepackage => @srpm.filename,
+                              :sourcepackage => @srpm.filename,
                               :arch => 'noarch' },
                             :order => 'name ASC'
       @x86_64 = Package.all :conditions => {
                               :branch => @branch.name,
                               :vendor => @branch.vendor,
-			      :sourcepackage => @srpm.filename,
+                              :sourcepackage => @srpm.filename,
                               :arch => 'x86_64' },
                             :order => 'name ASC'
     else
