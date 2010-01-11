@@ -59,7 +59,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
     if @srpm == nil
       render :action => "nosuchpackage"
     end
@@ -70,7 +71,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
     if @srpm == nil
       render :action => "nosuchpackage"
     end
@@ -81,7 +83,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
     if @srpm == nil
       render :action => "nosuchpackage"
     end
@@ -92,26 +95,27 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
     if @srpm != nil
-      @i586 = Package.find :all,
-                           :conditions => {
-                             :branch => @branch.name,
-                             :sourcepackage => @srpm.filename,
-                             :arch => 'i586' },
-                           :order => 'name ASC'
-      @noarch = Package.find :all,
-                             :conditions => {
-                               :branch => @branch.name,
-                               :sourcepackage => @srpm.filename,
-                               :arch => 'noarch' },
-                             :order => 'name ASC'
-      @x86_64 = Package.find :all,
-                             :conditions => {
-                               :branch => @branch.name,
-                               :sourcepackage => @srpm.filename,
-                               :arch => 'x86_64' },
-                             :order => 'name ASC'
+      @i586 = Package.all :conditions => {
+                            :branch => @branch.name,
+                            :vendor => @branch.vendor,
+                            :sourcepackage => @srpm.filename,
+                            :arch => 'i586' },
+                          :order => 'name ASC'
+      @noarch = Package.all :conditions => {
+                              :branch => @branch.name,
+                              :vendor => @branch.vendor,
+                              :sourcepackage => @srpm.filename,
+                              :arch => 'noarch' },
+                            :order => 'name ASC'
+      @x86_64 = Package.all :conditions => {
+                              :branch => @branch.name,
+                              :vendor => @branch.vendor,
+                              :sourcepackage => @srpm.filename,
+                              :arch => 'x86_64' },
+                            :order => 'name ASC'
     else
       render :action => "nosuchpackage"
     end
@@ -122,7 +126,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
     if @srpm != nil
       @gitrepos = Gitrepo.all :conditions => { :repo => @srpm.name },
                                :order => 'lastchange DESC'
@@ -166,7 +171,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name }
+                         :branch => @branch.name,
+                         :vendor => @branch.vendor }
 
     if @srpm != nil
       @repocops = Repocop.all :conditions => {
