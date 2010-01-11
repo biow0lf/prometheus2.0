@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-01-08 14:40+0200\n"
-"PO-Revision-Date: 2010-01-08 14:52+0300\n"
+"POT-Creation-Date: 2010-01-11 17:20+0200\n"
+"PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -497,6 +497,10 @@ msgstr "Package|Created at"
 msgid "Package|Updated at"
 msgstr "Package|Updated at"
 
+#: app/models/package.rb:-
+msgid "Package|Vendor"
+msgstr "Package|Vendor"
+
 #: app/models/changelog.rb:-
 msgid "changelog"
 msgstr ""
@@ -603,28 +607,6 @@ msgstr "просмотреть spec пакета"
 #: app/views/srpm/allbugs.html.erb:80
 msgid "Spec"
 msgstr "Спек"
-
-#: app/views/srpm/gear.html.erb:76
-#: app/views/srpm/download.html.erb:64
-#: app/views/srpm/changelog.html.erb:73
-#: app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68
-#: app/views/srpm/main.html.erb:67
-#: app/views/srpm/bugs.html.erb:80
-#: app/views/srpm/allbugs.html.erb:80
-msgid "patches"
-msgstr "просмотреть патчи пакета"
-
-#: app/views/srpm/gear.html.erb:76
-#: app/views/srpm/download.html.erb:64
-#: app/views/srpm/changelog.html.erb:73
-#: app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68
-#: app/views/srpm/main.html.erb:67
-#: app/views/srpm/bugs.html.erb:80
-#: app/views/srpm/allbugs.html.erb:80
-msgid "Patches"
-msgstr "Патчи"
 
 #: app/views/srpm/gear.html.erb:76
 #: app/views/srpm/download.html.erb:64
