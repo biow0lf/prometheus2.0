@@ -78,18 +78,6 @@ class SrpmController < ApplicationController
     end
   end
 
-  def sources
-    @package_counter = Srpm.count_srpms_in_sisyphus
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => @branch.name,
-                         :vendor => @branch.vendor }
-    if @srpm == nil
-      render :action => "nosuchpackage"
-    end
-  end
-
   def download
     @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
