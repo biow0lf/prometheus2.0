@@ -69,6 +69,7 @@ task :packagers => :environment do
     Packager.create(:name => 'Mikerin Sergey', :email => 'mikcor@altlinux.org', :login => 'mikcor', :team => false)
     Packager.create(:name => 'Alexey Lokhin', :email => 'warframe@altlinux.org', :login => 'warframe', :team => false)
     Packager.create(:name => 'Alexey Shabalin', :email => 'shaba@altlinux.org', :login => 'shaba', :team => false)
+    Packager.create(:name => 'Valery Pipin', :email => 'vvpi@altlinux.org', :login => 'vvpi', :team => false)
 
     # TODO: import teams before import srpm!
     Packager.create(:name => 'TeX Development Team', :email => 'tex@packages.altlinux.org', :login => '@tex', :team => true)
@@ -76,9 +77,6 @@ task :packagers => :environment do
     Packager.create(:name => 'EVMS Development Team', :email => 'evms@packages.altlinux.org', :login => '@evms', :team => true)
     Packager.create(:name => 'QA Team', :email => 'qa@packages.altlinux.org', :login => '@qa', :team => true)
     Packager.create(:name => 'CPAN Team', :email => 'cpan@packages.altlinux.org', :login => '@cpan', :team => true)
-
-    # who is this?
-    Packager.create(:name => 'Unknown', :email => 'vvpi@altlinux.org', :login => 'vvpi', :team => false)
 
     Packager.update_packager_list 'ALT Linux', 'Sisyphus'
   end
