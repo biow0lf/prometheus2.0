@@ -2,7 +2,7 @@ class Acl < ActiveRecord::Base
   validates_presence_of :package, :login, :branch, :vendor
 
 #  has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => 'branch = \'#{branch}\''
-  has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}' }
+  has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 
   def self.update_from_gitalt(vendor, branch)
     url = Branch.first :conditions => { :vendor => vendor, :name => branch }
