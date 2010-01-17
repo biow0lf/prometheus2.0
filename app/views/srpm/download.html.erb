@@ -2,6 +2,29 @@
 <% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Download") -%>
 <% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/get" -%>
 
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%=h _("ALT Linux repositories") %>">
+  <%=h _("ALT Linux repos") %>
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" title="<%=h _("hide window") %>" alt="<%=h _("hide window") %>" />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<% @allsrpms.each do |rpm| -%>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to h(rpm.branch) + ':', '/' + h(params[:locale]) + '/srpm/' + h(rpm.branch) + '/' + h(rpm.name) + '/get', :class => 'news' %>
+  </td>
+  <td style="text-align: right;"><%=h rpm.version %>-<%=h rpm.release %></td>
+</tr>
+<% end -%>
+
+</table>
+</div><br />
+</div>
+
 <div style="height:3em;">
   <div id="rpmtop">
     <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group %></b><br />

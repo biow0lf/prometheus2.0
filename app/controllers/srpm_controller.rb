@@ -24,7 +24,6 @@ class SrpmController < ApplicationController
                                      AND srpms.name = ?
                                      ORDER BY branches.order_id ASC", params[:name]]
 
-#      if params[:branch] == 'Sisyphus' or params[:branch] == '5.1'
       if params[:branch] == 'Sisyphus' or
          params[:branch] == '5.1' or
          params[:branch] == '5.0' or
@@ -86,6 +85,13 @@ class SrpmController < ApplicationController
                          :branch => @branch.name,
                          :vendor => @branch.vendor }
     if @srpm != nil
+      @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
+                                            srpms.release, srpms.branch,
+                                            order_id
+                                     FROM srpms, branches
+                                     WHERE srpms.branch = branches.name
+                                     AND srpms.name = ?
+                                     ORDER BY branches.order_id ASC", params[:name]]
       @i586 = Package.all :conditions => {
                             :branch => @branch.name,
                             :vendor => @branch.vendor,
