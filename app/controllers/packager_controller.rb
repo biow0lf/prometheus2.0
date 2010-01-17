@@ -23,7 +23,8 @@ class PackagerController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
-                                 :team => false }
+                                 :team => false },
+                               :include => [:sisyphus]
 #    @acls = Acl.all :conditions => {
 #                      :login => params[:login],
 #                      :branch => @branch.name,
