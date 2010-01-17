@@ -1,6 +1,6 @@
 class Srpm < ActiveRecord::Base
 
-  has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}' }
+  has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 
