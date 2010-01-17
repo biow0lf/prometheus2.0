@@ -16,7 +16,7 @@
     <th class="nosort"><%=h _("message") %></th>
   </tr>
 
-<% @packager.cops.each do |acl| -%>
+<% @packager.sisyphus.each do |acl| -%>
   <% if !acl.srpm.nil? -%>
     <% acl.srpm.repocops.each do |repocop| -%>
       <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
