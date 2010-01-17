@@ -4,6 +4,8 @@ class Packager < ActiveRecord::Base
 
   has_many :acls, :foreign_key => 'login', :primary_key => 'login'
 
+  has_many :cops, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
+
   has_one :srpm, :through => :acls, :order => "name ASC"
 
   def self.update_packager_list(vendor, branch)
