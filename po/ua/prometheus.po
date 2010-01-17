@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-01-11 17:20+0200\n"
+"POT-Creation-Date: 2010-01-17 04:31+0200\n"
 "PO-Revision-Date: 2009-11-16 21:52+0200\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -587,20 +587,6 @@ msgstr "переглянути spec пакета"
 msgid "Spec"
 msgstr "Спек"
 
-#: app/views/srpm/gear.html.erb:76 app/views/srpm/download.html.erb:64
-#: app/views/srpm/changelog.html.erb:73 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/main.html.erb:67
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-msgid "sources"
-msgstr "sources"
-
-#: app/views/srpm/gear.html.erb:76 app/views/srpm/download.html.erb:64
-#: app/views/srpm/changelog.html.erb:73 app/views/srpm/repocop.html.erb:79
-#: app/views/srpm/rawspec.html.erb:68 app/views/srpm/main.html.erb:67
-#: app/views/srpm/bugs.html.erb:80 app/views/srpm/allbugs.html.erb:80
-msgid "Sources"
-msgstr "Sources"
-
 #: app/views/srpm/gear.html.erb:76 app/views/srpm/changelog.html.erb:73
 #: app/views/srpm/repocop.html.erb:79 app/views/srpm/rawspec.html.erb:68
 #: app/views/srpm/main.html.erb:67 app/views/srpm/bugs.html.erb:80
@@ -739,7 +725,7 @@ msgstr "Час збірки:"
 
 #: app/views/srpm/main.html.erb:69 app/views/home/bygroup.html.erb:13
 #: app/views/home/bytwogroup.html.erb:13
-#: app/views/home/bythreegroup.html.erb:13 app/views/team/info.html.erb:53
+#: app/views/home/bythreegroup.html.erb:13 app/views/team/info.html.erb:54
 #: app/views/packager/srpms.html.erb:39
 msgid "ago"
 msgstr "назад"
@@ -1240,7 +1226,7 @@ msgstr "Url"
 msgid "Summary"
 msgstr "Про пакет"
 
-#: app/views/team/info.html.erb:49
+#: app/views/team/info.html.erb:50
 msgid "detailed information about RPM"
 msgstr "Детальна інформація про пакет"
 
@@ -1330,6 +1316,12 @@ msgstr "Усього записів:"
 #: app/views/packager/allbugs.html.erb:2
 msgid "&raquo; - Bugs and FR (All)"
 msgstr "&raquo; - Bugs and FR (All)"
+
+#~ msgid "sources"
+#~ msgstr "sources"
+
+#~ msgid "Sources"
+#~ msgstr "Sources"
 
 #~ msgid "patches"
 #~ msgstr "переглянути патчі пакета"
