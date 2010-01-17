@@ -16,8 +16,8 @@
     <th class="nosort"><%=h _("message") %></th>
   </tr>
 
-<% @packager.acls.each do |acl| %>
-  <% if !acl.srpm.repocops.nil? %>
+<% @packager.acls.each do |acl| -%>
+  <% if !acl.srpm.repocops.nil? -%>
     <% acl.srpm.repocops.each do |repocop| -%>
       <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
         <tr>
@@ -28,9 +28,9 @@
           <td><%=h repocop.testname %></td>
           <td style="text-align:left"><%=h repocop.message %></td>
         </tr>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>
 
 </table>
