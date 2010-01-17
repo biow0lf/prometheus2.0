@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/russian"]
 	path = vendor/plugins/russian
 	url = git://github.com/yaroslav/russian.git
+[submodule "vendor/plugins/ukrainian"]
+	path = vendor/plugins/ukrainian
+	url = git://github.com/biow0lf/ukrainian.git
