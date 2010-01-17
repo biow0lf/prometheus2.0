@@ -1,10 +1,7 @@
 # translation of prometheus_uk_UA.po to Ukrainian
-# Russian translations for prometheus package
-# Английские переводы для пакета prometheus.
 # Copyright (C) 2009 THE prometheus'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the prometheus package.
 #
-#  <igor.zubkov@gmail.com>, 2009.
 # Motsyo Gennadi <drool@altlinux.ru>, 2009.
 msgid ""
 msgstr ""
