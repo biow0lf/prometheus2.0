@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100110193359) do
+ActiveRecord::Schema.define(:version => 20100117024207) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(:version => 20100110193359) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "acls", ["branch"], :name => "index_acls_on_branch"
+  add_index "acls", ["login"], :name => "index_acls_on_login"
+  add_index "acls", ["package"], :name => "index_acls_on_package"
+  add_index "acls", ["vendor"], :name => "index_acls_on_vendor"
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
@@ -75,6 +80,10 @@ ActiveRecord::Schema.define(:version => 20100110193359) do
     t.datetime "updated_at"
     t.string   "vendor"
   end
+
+  add_index "leaders", ["branch"], :name => "index_leaders_on_branch"
+  add_index "leaders", ["package"], :name => "index_leaders_on_package"
+  add_index "leaders", ["vendor"], :name => "index_leaders_on_vendor"
 
   create_table "packagers", :force => true do |t|
     t.string   "name"
