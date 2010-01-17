@@ -17,18 +17,20 @@
   </tr>
 
 <% @packager.acls.each do |acl| %>
-<% acl.srpm.repocops.each do |repocop| -%>
-  <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
-  <tr>
-    <td class="strange">
-      <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
-    </td>
-    <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%=h repocop.status %></td>
-    <td><%=h repocop.testname %></td>
-    <td style="text-align:left"><%=h repocop.message %></td>
-  </tr>
-  <% end -%>
-<% end -%>
-<% end -%>
+  <% if !acl.srpm.repocops.nil? %>
+    <% acl.srpm.repocops.each do |repocop| -%>
+      <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
+        <tr>
+          <td class="strange">
+            <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
+          </td>
+          <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%=h repocop.status %></td>
+          <td><%=h repocop.testname %></td>
+          <td style="text-align:left"><%=h repocop.message %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 </table>
