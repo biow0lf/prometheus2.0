@@ -24,10 +24,10 @@ class PackagerController < ApplicationController
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
                                  :team => false }
-    @acls = Acl.all :conditions => {
-                      :login => params[:login],
-                      :branch => @branch.name,
-                      :vendor => @branch.vendor }
+#    @acls = Acl.all :conditions => {
+#                      :login => params[:login],
+#                      :branch => @branch.name,
+#                      :vendor => @branch.vendor }
 #                     :include => [:srpms]
     if @packager == nil
       render :action => "nosuchpackager"
