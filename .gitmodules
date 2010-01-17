@@ -1,6 +1,3 @@
-[submodule "vendor/plugins/russian"]
-	path = vendor/plugins/russian
-	url = git://github.com/yaroslav/russian.git
 [submodule "vendor/plugins/searchlogic"]
 	path = vendor/plugins/searchlogic
 	url = git://github.com/binarylogic/searchlogic.git
