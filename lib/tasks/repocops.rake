@@ -6,4 +6,12 @@ task :repocops => :environment do
   Repocop.update_repocop
   puts Time.now.to_s + ": end"
 end
+
+desc "Update repocop status cache"
+task :update_repocop_cache => :environment do
+  require 'open-uri'
+  puts Time.now.to_s + ': update repocop cache'
+  Repocop.update_repocop_cache  
+  puts Time.now.to_s + ': end'
+end
 end

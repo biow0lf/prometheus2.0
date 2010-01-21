@@ -22,15 +22,7 @@
   <% if !acl.srpm.nil? -%>
   <tr>
     <td>
-      <% repocop_status = 'skip' -%>
-      <% acl.srpm.repocops.each do |repocop| -%>
-        <% repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' -%>
-        <% repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' -%>
-        <% repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail' -%>
-        <% repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail' -%>
-        <% repocop_status = 'fail' if repocop.status == 'fail' -%>
-      <% end -%>
-      <%= link_to '<img src="/images/' + repocop_status + '.png" alt="' + repocop_status +'" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+      <%= link_to '<img src="/images/' + acl.srpm.repocop + '.png" alt="' + acl.srpm.repocop + '" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
     </td>
     <td class="strange">
       <%= link_to h(acl.srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news' %>
