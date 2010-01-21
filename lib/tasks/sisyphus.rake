@@ -18,9 +18,13 @@ end
 desc "Import *.src.rpm from Sisyphus to database"
 task :srpms => :environment do
   require 'rpm'
+  require 'open-uri'
   puts Time.now.to_s + ": import *.src.rpm from Sisyphus to database"
   Srpm.import_srpms 'ALT Linux', 'Sisyphus'
   puts Time.now.to_s + ": end"
+  puts Time.now.to_s + ': update repocop cache'
+  Repocop.update_repocop_cache  
+  puts Time.now.to_s + ': end'
 end
 
 desc "Import *.i586.rpm from Sisyphus to database"
