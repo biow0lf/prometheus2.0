@@ -11,4 +11,8 @@ module ApplicationHelper
   def srpm_count(srpm_count)
     content_for(:srpms_counter) { srpm_count }
   end
+  
+  def keywords(string)
+    content_for(:keywords) { string }
+  end
 end
