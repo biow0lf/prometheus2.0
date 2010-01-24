@@ -20,4 +20,12 @@ xml.sitemapindex(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") {
     xml.loc 'http://prometheus.altlinux.org/sitemap_ru2.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
+  xml.sitemap {
+    xml.loc 'http://prometheus.altlinux.org/sitemap_uk1.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://prometheus.altlinux.org/sitemap_uk2.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
 }

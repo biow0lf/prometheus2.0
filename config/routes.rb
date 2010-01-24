@@ -95,6 +95,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/sitemap_en2.xml', :controller => 'sitemap', :action => 'sitemap_en2'
   map.connect '/sitemap_ru1.xml', :controller => 'sitemap', :action => 'sitemap_ru1'
   map.connect '/sitemap_ru2.xml', :controller => 'sitemap', :action => 'sitemap_ru2'
+  map.connect '/sitemap_uk1.xml', :controller => 'sitemap', :action => 'sitemap_uk1'
+  map.connect '/sitemap_uk2.xml', :controller => 'sitemap', :action => 'sitemap_uk2'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

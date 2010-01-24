@@ -6,3 +6,5 @@ Sitemap: http://prometheus.altlinux.org/sitemap_en1.xml
 Sitemap: http://prometheus.altlinux.org/sitemap_en2.xml
 Sitemap: http://prometheus.altlinux.org/sitemap_ru1.xml
 Sitemap: http://prometheus.altlinux.org/sitemap_ru2.xml
+Sitemap: http://prometheus.altlinux.org/sitemap_uk1.xml
+Sitemap: http://prometheus.altlinux.org/sitemap_uk2.xml
