@@ -5,9 +5,6 @@ class HomeController < ApplicationController
     @top15 = Packager.top15
   end
 
-  def project
-  end
-
   def news
   end
 
