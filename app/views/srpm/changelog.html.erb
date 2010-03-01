@@ -1,72 +1,12 @@
-<% # encoding: utf-8 %>
-<% srpm_count @package_counter -%>
+<% srpm_count h(@package_counter) -%>
 <% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Changelog") -%>
 <% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/changelog" -%>
-
-<!--
-<div id="rightbar">
-<div class="headleft">
-<div class="headright" title="Репозитории ALT">
-Репозитории ALT
-</div>
-<img id="topRPM" src="/img/collapse.gif" class="close" onclick="imgSwap('topRPM')"  />
-</div>
-<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
-<table style="font-size:8pt;" width="100%">
-
-<tr><td style="text-align: left;"><a class="news" href="/ru/srpm/Sisyphus/ruby/changelog">S:</a></td><td style="text-align: right;">1.9.1-alt1.20090727</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/ru/srpm/Branch5/ruby/changelog">5.0:</a></td>
-<td style="text-align: right;">1.8.7-alt7</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/ru/srpm/Branch41/ruby/changelog">4.1:</a></td>
-<td style="text-align: right;">1.8.7-alt0.M41.4</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/ru/srpm/Branch4/ruby/changelog">4.0:</a></td>
-<td style="text-align: right;">1.8.6-alt2.M40.2</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/ru/srpm/Branch3/ruby/changelog">3.0:</a></td>
-
-<td style="text-align: right;">1.8.2-alt7</td></tr>
-
-</table>
-</div><br />
-</div>
--->
-
 
 <div style="height:3em;">
     <div id="rpmtop">
         <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group %></b><br />
         <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%=h @srpm.name %></div>
     </div>
-
-<!--
-    <div id="nav">
-    <b>навигация по пакетам</b><br />
-    <a href="/ru/srpm/rpm-build-ruby">
-	<img src="/images/stock_left.png" style="border: 0px" alt="&lt;"
-	title="предыдущий пакет данного майнтейнера" />
-</a>
- &nbsp;
-
-<a href="/ru/srpm/ruby-actionmailer" class="news">
-	<img src="/images/stock_right.png" style="border: 0px" alt="&gt;"
-	title="следующий пакет данного майнтейнера" />
-</a>
-
- &nbsp;  &nbsp;
-
-<a href="/ru/srpm/rails-plugin-will_paginate" class="news">
-	<img src="/images/stock_left-with-subpoints.png" style="border: 0px" alt="&lt;&lt;"
-	title="предыдущий пакет данной группы" />
-</a>
- &nbsp;
-
-<a href="/ru/srpm/ruby-actionmailer" class="news">
-	<img src="/images/stock_right-with-subpoints.png" style="border: 0px" alt="&gt;&gt;"
-	title="следующий пакет данной группы" />
-</a>
-
-    </div>
--->
-
 </div>
 <div>
 <p class="break" />

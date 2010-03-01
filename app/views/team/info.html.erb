@@ -1,4 +1,4 @@
-<% srpm_count @package_counter -%>
+<% srpm_count h(@package_counter) -%>
 <% title _("Prometheus 2.0 - Team &laquo;") + h(@team.login[1..-1]) + _("&raquo;") -%>
 <% url "/team/" + h(@team.login[1..-1]) -%>
 
@@ -7,13 +7,13 @@
 <b><%=h _("Information:") %></b> <div class="para">  </div>
 <p class="break" />
 <% if @leader != nil -%>
-<b><%=h _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to h(leader.name), '/' + params[:locale] + '/packager/' + leader.login, :class => 'news', :title => _('information about the packager') -%><% end -%>
+<b><%=h _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to h(leader.name), '/' + h(params[:locale]) + '/packager/' + h(leader.login), :class => 'news', :title => _('information about the packager') -%><% end -%>
 <p class="break" />
 <% end %>
 <b><%=h _("Team members:") %></b>
 <ul>
 <% @members.each do |member| -%>
-  <li><%= link_to h(member.name), '/' + params[:locale] + '/packager/' + member.login, :class => 'news', :title => _('information about the packager') -%></li>
+  <li><%= link_to h(member.name), '/' + h(params[:locale]) + '/packager/' + h(member.login), :class => 'news', :title => _('information about the packager') -%></li>
 <% end -%>
 </ul>
 
@@ -43,7 +43,7 @@
         </td>
         <td><%=h acl.srpm.version %>-<%=h acl.srpm.release %></td>
         <td><%=h acl.srpm.buildtime %></td>
-        <td><%=h time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
+        <td><%=h time_ago_in_words(acl.srpm.buildtime) %> <%=h _("ago") %></td>
         <td>
           <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news' %><% else %>-<% end %>
         </td>

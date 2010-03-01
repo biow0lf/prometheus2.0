@@ -1,67 +1,12 @@
-<% srpm_count @package_counter -%>
-<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + (" - Spec") -%>
+<% srpm_count h(@package_counter) -%>
+<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Spec") -%>
 <% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/spec" -%>
-
-<div id="rightbar">
-<!--
-<div class="headleft">
-<div class="headright" title="ALT Linux repositories">
-ALT Linux repos
-</div>
-<img id="topRPM" src="/images/collapse.gif" class="close" onclick="imgSwap('topRPM')"  />
-</div>
-<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
-<table style="font-size:8pt;" width="100%">
-
-<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Sisyphus/ruby/spec">S:</a></td><td style="text-align: right;">1.9.1-alt1.20090727</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch5/ruby/spec">5.0:</a></td>
-<td style="text-align: right;">1.8.7-alt7</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch41/ruby/spec">4.1:</a></td>
-<td style="text-align: right;">1.8.7-alt0.M41.4</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch4/ruby/spec">4.0:</a></td>
-<td style="text-align: right;">1.8.6-alt2.M40.2</td></tr>
-<tr><td style="text-align: left;"><a class="news" href="/en/srpm/Branch3/ruby/spec">3.0:</a></td>
-<td style="text-align: right;">1.8.2-alt7</td></tr>
-
-</table>
-</div><br />-->
-</div>
 
 <div style="height:3em;">
     <div id="rpmtop">
         <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group %></b><br />
         <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%=h @srpm.name %></div>
     </div>
-
-<!--
-    <div id="nav">
-    <b>Navigation</b><br />
-    <a href="/en/srpm/rpm-build-ruby">
-	<img src="/images/stock_left.png" style="border: 0px" alt="&lt;"
-	title="previous srpm of this packager" />
-</a>
- &nbsp;
-
-<a href="/en/srpm/ruby-actionmailer" class="news">
-	<img src="/images/stock_right.png" style="border: 0px" alt="&gt;"
-	title="next srpm of this packager" />
-</a>
- &nbsp;  &nbsp;
-
-<a href="/en/srpm/rails-plugin-will_paginate" class="news">
-	<img src="/images/stock_left-with-subpoints.png" style="border: 0px" alt="&lt;&lt;"
-	title="previous srpm of this group" />
-</a>
- &nbsp;
-
-<a href="/en/srpm/ruby-actionmailer" class="news">
-	<img src="/images/stock_right-with-subpoints.png" style="border: 0px" alt="&gt;&gt;"
-	title="next srpm of this group" />
-</a>
-
-    </div>
--->
-
 </div>
 <div>
 <p class="break" />
