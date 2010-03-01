@@ -1,4 +1,4 @@
-<% srpm_count @package_counter %>
+<% srpm_count h(@package_counter) %>
 <% title _("Prometheus 2.0 - Intro") %>
 <% url '' %>
 
@@ -28,14 +28,14 @@
 	<div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
 	<table style="font-size:8pt;" width="100%">
 
-        <% @top15.each do |t| %>
+        <% @top15.each do |t| -%>
           <tr>
             <td style="text-align: left;">
               <%= link_to h(t.name), '/' + h(params[:locale]) + '/packager/' + h(t.login), :class => 'news', :title => _("information about the packager") %>
             </td>
             <td style="text-align: right;"><%=h t.counter %></td>
           </tr>
-        <% end %>
+        <% end -%>
 
 	<tr><td colspan="2" align="center">...</td></tr>
 	</table>
@@ -59,7 +59,7 @@
 	    <img id="topTips" src="/images/collapse.gif" class="close" title="<%=h _("hide window") %>" alt="<%=h _("hide window") %>" />
     </div>
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-	    <b><%=h _("Sisyphus sync") %></b><br /><%=h _("Q: How can I skip heap of packages if I even don't know why I need them?") %><br /><%= _("A: Create filter for rsync with the help of this") %> <a href="/<%=h params[:locale] %>/rsync.shtml" class="news"><%=h _("form") %></a>
+	    <b><%=h _("Sisyphus sync") %></b><br /><%=h _("Q: How can I skip heap of packages if I even don't know why I need them?") %><br /><%=h _("A: Create filter for rsync with the help of this") %> <a href="/<%=h params[:locale] %>/rsync.shtml" class="news"><%=h _("form") %></a>
     </div>
 </div>
 
