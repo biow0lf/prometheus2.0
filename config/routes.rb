@@ -72,8 +72,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect '/news', :controller => 'home', :action => 'news'
   map.connect '/:locale/news', :controller => 'home', :action => 'news', :requirements => { :locale => /(en|ru|uk)/ }
-  map.connect '/rss', :controller => 'home', :action => 'rss'
-  map.connect '/:locale/rss', :controller => 'home', :action => 'rss', :requirements => { :locale => /(en|ru|uk)/ }
 
   map.connect '/:locale', :controller => 'home', :action => 'index', :requirements => { :locale => /(en|ru|uk)/ }
 
