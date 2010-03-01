@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-03-01 23:24+0200\n"
+"POT-Creation-Date: 2010-03-01 23:35+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -661,10 +661,6 @@ msgstr "A: Составьте фильтр для rsync, на основе да�
 msgid "form"
 msgstr "формы"
 
-#: app/views/home/news.html.erb:2
-msgid "Prometheus 2.0 - News"
-msgstr "Prometheus 2.0 - Новости"
-
 #: app/views/home/packagers_list.html.erb:2
 msgid "Prometheus 2.0 - Maintainers"
 msgstr ""
@@ -679,10 +675,6 @@ msgstr "Маинтейнеры"
 #: app/views/iphone/index.html.erb:33
 msgid "Teams"
 msgstr "Команды разработчиков"
-
-#: app/views/home/rss.html.erb:2
-msgid "Prometheus 2.0 - RSS"
-msgstr ""
 
 #: app/views/home/search.html.erb:2
 msgid "Prometheus 2.0 - Search"
@@ -748,6 +740,7 @@ msgid "About"
 msgstr "О проекте"
 
 #: app/views/iphone/index.html.erb:14
+#: app/views/layouts/application.html.erb:135
 msgid "RSS"
 msgstr ""
 
@@ -1092,9 +1085,17 @@ msgstr "Url"
 msgid "Summary"
 msgstr "О пакете"
 
+#: app/views/pages/news.html.erb:2
+msgid "Prometheus 2.0 - News"
+msgstr "Prometheus 2.0 - Новости"
+
 #: app/views/pages/project.html.erb:2
 msgid "Prometheus 2.0 - Information about the project"
 msgstr "Prometheus 2.0 - Информация о проекте"
+
+#: app/views/pages/rss.html.erb:2
+msgid "Prometheus 2.0 - RSS"
+msgstr ""
 
 #: app/views/pages/security.html.erb:2
 msgid "Prometheus 2.0 - Security"

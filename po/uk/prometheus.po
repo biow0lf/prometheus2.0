@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-03-01 23:24+0200\n"
+"POT-Creation-Date: 2010-03-01 23:35+0200\n"
 "PO-Revision-Date: 2009-11-16 21:52+0200\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -677,10 +677,6 @@ msgstr "Складіть фільтр для rsync, на основі даної
 msgid "form"
 msgstr "форми"
 
-#: app/views/home/news.html.erb:2
-msgid "Prometheus 2.0 - News"
-msgstr "Prometheus 2.0 - Новини"
-
 #: app/views/home/packagers_list.html.erb:2
 msgid "Prometheus 2.0 - Maintainers"
 msgstr ""
@@ -695,10 +691,6 @@ msgstr "Майнтейнери"
 #: app/views/iphone/index.html.erb:33
 msgid "Teams"
 msgstr "Команди розробників"
-
-#: app/views/home/rss.html.erb:2
-msgid "Prometheus 2.0 - RSS"
-msgstr ""
 
 #: app/views/home/search.html.erb:2
 msgid "Prometheus 2.0 - Search"
@@ -764,6 +756,7 @@ msgid "About"
 msgstr "Про проект"
 
 #: app/views/iphone/index.html.erb:14
+#: app/views/layouts/application.html.erb:135
 msgid "RSS"
 msgstr ""
 
@@ -1111,9 +1104,17 @@ msgstr "Url"
 msgid "Summary"
 msgstr "Про пакет"
 
+#: app/views/pages/news.html.erb:2
+msgid "Prometheus 2.0 - News"
+msgstr "Prometheus 2.0 - Новини"
+
 #: app/views/pages/project.html.erb:2
 msgid "Prometheus 2.0 - Information about the project"
 msgstr "Prometheus 2.0 - Інформація про проект"
+
+#: app/views/pages/rss.html.erb:2
+msgid "Prometheus 2.0 - RSS"
+msgstr ""
 
 #: app/views/pages/security.html.erb:2
 msgid "Prometheus 2.0 - Security"
