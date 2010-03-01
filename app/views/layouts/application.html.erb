@@ -107,7 +107,7 @@ function show(divnum){
     </li>
     <li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
       <div id="dli2">
-        <%= link_to_unless_current _("News"), '/' + h(params[:locale]) + '/news', :title => _("site news") %>
+        <%= link_to_unless_current _("News"), page_path("news"), :title => _("site news") %>
       </div>
     </li>
     <li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">

@@ -70,9 +70,6 @@ ActionController::Routing::Routes.draw do |map|
 #  map.connect '/repocop', :controller => 'repocop', :action => 'index'
 #  map.connect '/repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
 
-  map.connect '/news', :controller => 'home', :action => 'news'
-  map.connect '/:locale/news', :controller => 'home', :action => 'news', :requirements => { :locale => /(en|ru|uk)/ }
-
   map.connect '/:locale', :controller => 'home', :action => 'index', :requirements => { :locale => /(en|ru|uk)/ }
 
   map.root :controller => 'home'
