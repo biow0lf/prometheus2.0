@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-03-01 23:55+0200\n"
+"POT-Creation-Date: 2010-03-02 00:22+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1073,6 +1073,39 @@ msgstr ""
 
 #: app/views/pages/project.html.erb:1
 msgid "Prometheus 2.0 - Information about the project"
+msgstr ""
+
+#: app/views/pages/project.html.erb:4
+msgid "Project Prometheus"
+msgstr ""
+
+#: app/views/pages/project.html.erb:8
+msgid ""
+"<b>Prometheus</b> project is an attempt to create analytic site for "
+"developers and users of\n"
+"Sisyphus repository.<br /><br />\n"
+"\n"
+"It is useful for developers due to ability to more closely interoperate with "
+"other\n"
+"developers and users of respective packages.  This site is especially "
+"valueable\n"
+"to new ALT Linux Team members. It gives answers \"who is who\", \"who does "
+"what\",\n"
+"\"what status is\" in interesting field.<br /><br />\n"
+"\n"
+"Sisyphus users can get full information about a package beforehand. There "
+"are\n"
+"handy links (site of origin, ALT Linux specific issues, wiki, etc.).<br /"
+"><br />\n"
+"\n"
+"The project is useful for ALT Linux Ltd. and ALT Linux core team too, as it "
+"gives\n"
+"information about Sisyphus development, strong and weak aspects, actively\n"
+"supported and used groups of packages.<br /><br />\n"
+"\n"
+"Another nice property of the project is posibility to use it together with\n"
+"any other package repository snapshot (not only Sisyphus itself), for local\n"
+"development within a small group or even one's self."
 msgstr ""
 
 #: app/views/pages/rss.html.erb:1
