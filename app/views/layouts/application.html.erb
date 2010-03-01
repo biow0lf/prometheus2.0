@@ -127,7 +127,7 @@ function show(divnum){
     </li>
     <li onmouseover="m_on('li6')" onmouseout="m_off('li6')" id="li6">
       <div id="dli6">
-        <%= link_to_unless_current _("About"), '/' + h(params[:locale]) + '/project', :title => _("about Prometeus project") %>
+        <%= link_to_unless_current _("About"), page_path("project") %>
       </div>
     </li>
     <li onmouseover="m_on('li7')" onmouseout="m_off('li7')" id="li7">
@@ -197,4 +197,3 @@ pageTracker._trackPageview();
 
 </body>
 </html>
-

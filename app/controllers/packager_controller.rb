@@ -1,5 +1,4 @@
 class PackagerController < ApplicationController
-  layout "default"
 
   def info
     @package_counter = Srpm.count_srpms_in_sisyphus

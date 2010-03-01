@@ -1,6 +1,4 @@
 class SrpmController < ApplicationController
-  layout "default"
-
 #  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
   def main
