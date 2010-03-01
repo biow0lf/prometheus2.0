@@ -2,7 +2,6 @@ class TeamController < ApplicationController
 #  caches_page :info
 
   def info
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @team = Packager.first :conditions => {
                              :login => '@' + params[:name],

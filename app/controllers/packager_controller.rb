@@ -1,7 +1,6 @@
 class PackagerController < ApplicationController
 
   def info
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
@@ -18,7 +17,6 @@ class PackagerController < ApplicationController
   end
 
   def srpms
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
@@ -35,7 +33,6 @@ class PackagerController < ApplicationController
   end
 
   def acls
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :urlname => 'Sisyphus' }
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
@@ -50,7 +47,6 @@ class PackagerController < ApplicationController
   end
 
   def gear
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
                                  :team => false }
@@ -62,7 +58,6 @@ class PackagerController < ApplicationController
   end
 
   def bugs
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
                                  :team => false }
@@ -81,7 +76,6 @@ class PackagerController < ApplicationController
   end
 
   def allbugs
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
                                  :team => false }
@@ -100,7 +94,6 @@ class PackagerController < ApplicationController
   end
 
   def repocop
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
                                  :team => false }

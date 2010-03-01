@@ -2,7 +2,6 @@ class SrpmController < ApplicationController
 #  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
   def main
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
@@ -52,7 +51,6 @@ class SrpmController < ApplicationController
   end
 
   def changelog
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
@@ -64,7 +62,6 @@ class SrpmController < ApplicationController
   end
 
   def rawspec
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
@@ -76,7 +73,6 @@ class SrpmController < ApplicationController
   end
 
   def download
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
@@ -114,7 +110,6 @@ class SrpmController < ApplicationController
   end
 
   def gear
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
@@ -129,7 +124,6 @@ class SrpmController < ApplicationController
   end
 
   def bugs
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
@@ -144,7 +138,6 @@ class SrpmController < ApplicationController
   end
 
   def allbugs
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
@@ -159,7 +152,6 @@ class SrpmController < ApplicationController
   end
 
   def repocop
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],

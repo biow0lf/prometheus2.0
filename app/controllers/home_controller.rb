@@ -2,24 +2,19 @@ class HomeController < ApplicationController
 #  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :bytwogroup, :bythreegroup, :packagers_list
 
   def index
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @top15 = Packager.top15
   end
 
   def project
-    @package_counter = Srpm.count_srpms_in_sisyphus
   end
 
   def news
-    @package_counter = Srpm.count_srpms_in_sisyphus
   end
 
   def security
-    @package_counter = Srpm.count_srpms_in_sisyphus
   end
 
   def rss
-    @package_counter = Srpm.count_srpms_in_sisyphus
   end
 
   def stats
@@ -32,8 +27,6 @@ class HomeController < ApplicationController
   end
 
   def search
-    @package_counter = Srpm.count_srpms_in_sisyphus
-
     if params[:request].empty?
       redirect_to :action => "index"
     else
@@ -43,12 +36,10 @@ class HomeController < ApplicationController
   end
 
   def groups_list
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @groups = Group.find_groups_in_sisyphus
   end
 
   def bygroup
-    @package_counter = Srpm.count_srpms_in_sisyphus
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @group = Group.first :conditions => {
@@ -60,7 +51,6 @@ class HomeController < ApplicationController
   end
 
   def bytwogroup
-    @package_counter = Srpm.count_srpms_in_sisyphus
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @group = Group.first :conditions => {
@@ -72,7 +62,6 @@ class HomeController < ApplicationController
   end
 
   def bythreegroup
-    @package_counter = Srpm.count_srpms_in_sisyphus
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @group = Group.first :conditions => {
@@ -84,7 +73,6 @@ class HomeController < ApplicationController
   end
 
   def packagers_list
-    @package_counter = Srpm.count_srpms_in_sisyphus
     @packagers = Packager.find_all_packagers_in_sisyphus
     @teams = Packager.find_all_teams_in_sisyphus
   end
