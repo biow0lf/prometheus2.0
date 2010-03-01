@@ -1,10 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-#  map.connect ':locale/top15', :controller => 'home', :action => 'top15'
-#  map.connect 'top15', :controller => 'home', :action => 'top15'
-
-#  map.connect ':locale/stats', :controller => 'home', :action => 'stats'
-#  map.connect 'stats', :controller => 'home', :action => 'stats'
-
   map.connect '/iphone/', :controller => 'iphone', :action => 'index'
   map.connect ':locale/iphone/', :controller => 'iphone', :action => 'index', :requirements => { :locale => /(en|ru|uk)/ }
   map.connect '/iphone/packager/:login', :controller => 'iphone', :action => 'packager_info'
