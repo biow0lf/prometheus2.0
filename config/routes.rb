@@ -76,8 +76,6 @@ ActionController::Routing::Routes.draw do |map|
 #  map.connect 'repocop', :controller => 'repocop', :action => 'index'
 #  map.connect 'repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
 
-  map.connect 'project', :controller => 'home', :action => 'project'
-  map.connect ':locale/project', :controller => 'home', :action => 'project', :requirements => { :locale => /(en|ru|uk)/ }
   map.connect 'security', :controller => 'home', :action => 'security'
   map.connect ':locale/security', :controller => 'home', :action => 'security', :requirements => { :locale => /(en|ru|uk)/ }
   map.connect 'news', :controller => 'home', :action => 'news'
