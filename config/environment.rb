@@ -47,6 +47,8 @@ Rails::Initializer.run do |config|
   config.gem "locale_rails"
   config.gem "gettext_activerecord"
   config.gem "gettext_rails"
+  
+  config.gem "http_accept_language"
 end
 
 ExceptionNotifier.exception_recipients = %w(igor.zubkov@gmail.com)
