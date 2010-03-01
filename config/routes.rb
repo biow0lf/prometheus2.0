@@ -42,12 +42,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/packages/:group/:group2/:group3', :controller => 'home', :action => 'bythreegroup'
   map.connect '/:locale/packages/:group/:group2/:group3', :controller => 'home', :action => 'bythreegroup', :requirements => { :locale => /(en|ru|uk)/ }
 
-#  map.connect '/srpm/:name', :controller => 'home', :action => 'srpm_info_sisyphus', :requirements => { :name => /.*/ }
-#  map.connect '/srpm/:name', :controller => 'home', :action => 'srpm_info_sisyphus'
-
-#  map.connect '/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :name => nil, :requirements => { :name => /[^/]/ }
-#  map.connect '/:locale/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :name => nil, :requirements => { :name => /[^/]/ }
-
   map.connect '/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
   map.connect '/:locale/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk)/ }
   map.connect '/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
