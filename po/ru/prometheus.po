@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-03-01 21:35+0200\n"
+"POT-Creation-Date: 2010-03-01 23:24+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -672,7 +672,6 @@ msgstr ""
 #: app/views/home/packagers_list.html.erb:6 app/views/iphone/index.html.erb:10
 #: app/views/iphone/index.html.erb:27
 #: app/views/layouts/application.html.erb:120
-#: app/views/layouts/default.html.erb:120
 msgid "Maintainers"
 msgstr "Маинтейнеры"
 
@@ -680,10 +679,6 @@ msgstr "Маинтейнеры"
 #: app/views/iphone/index.html.erb:33
 msgid "Teams"
 msgstr "Команды разработчиков"
-
-#: app/views/home/project.html.erb:2 app/views/pages/project.html.erb:2
-msgid "Prometheus 2.0 - Information about the project"
-msgstr "Prometheus 2.0 - Информация о проекте"
 
 #: app/views/home/rss.html.erb:2
 msgid "Prometheus 2.0 - RSS"
@@ -727,35 +722,28 @@ msgstr "текущая<br />версия"
 msgid "summary"
 msgstr "описание"
 
-#: app/views/home/security.html.erb:2
-msgid "Prometheus 2.0 - Security"
-msgstr ""
-
 #: app/views/iphone/index.html.erb:8
 #: app/views/layouts/application.html.erb:110
-#: app/views/layouts/default.html.erb:110
 msgid "News"
 msgstr "Новости"
 
 #: app/views/iphone/index.html.erb:9 app/views/iphone/index.html.erb:21
 #: app/views/iphone/packager_info.erb:9
 #: app/views/layouts/application.html.erb:115
-#: app/views/layouts/default.html.erb:115 app/views/packager/acls.html.erb:7
-#: app/views/packager/allbugs.html.erb:7 app/views/packager/bugs.html.erb:7
-#: app/views/packager/gear.html.erb:7 app/views/packager/info.html.erb:7
-#: app/views/packager/repocop.html.erb:8 app/views/packager/srpms.html.erb:7
+#: app/views/packager/acls.html.erb:7 app/views/packager/allbugs.html.erb:7
+#: app/views/packager/bugs.html.erb:7 app/views/packager/gear.html.erb:7
+#: app/views/packager/info.html.erb:7 app/views/packager/repocop.html.erb:8
+#: app/views/packager/srpms.html.erb:7
 msgid "Packages"
 msgstr "Пакеты"
 
 #: app/views/iphone/index.html.erb:12 app/views/iphone/index.html.erb:39
 #: app/views/layouts/application.html.erb:125
-#: app/views/layouts/default.html.erb:125
 msgid "Security"
 msgstr "Безопасность"
 
 #: app/views/iphone/index.html.erb:13
 #: app/views/layouts/application.html.erb:130
-#: app/views/layouts/default.html.erb:130
 msgid "About"
 msgstr "О проекте"
 
@@ -765,49 +753,41 @@ msgstr ""
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
-#: app/views/layouts/default.html.erb:140
 msgid "Wiki"
 msgstr "Wiki"
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
-#: app/views/layouts/default.html.erb:140
 msgid "http://en.altlinux.org/Sisyphus"
 msgstr "http://www.altlinux.org/Sisyphus"
 
 #: app/views/iphone/index.html.erb:16
 #: app/views/layouts/application.html.erb:146
-#: app/views/layouts/default.html.erb:146
 msgid "Blog"
 msgstr "Блог"
 
 #: app/views/iphone/index.html.erb:16
 #: app/views/layouts/application.html.erb:146
-#: app/views/layouts/default.html.erb:146
 msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
 #: app/views/iphone/index.html.erb:17
 #: app/views/layouts/application.html.erb:151
-#: app/views/layouts/default.html.erb:151
 msgid "Planet"
 msgstr "Планета"
 
 #: app/views/iphone/index.html.erb:17
 #: app/views/layouts/application.html.erb:151
-#: app/views/layouts/default.html.erb:151
 msgid "http://planet.altlinux.org/"
 msgstr "http://planet.altlinux.org/"
 
 #: app/views/iphone/index.html.erb:18
 #: app/views/layouts/application.html.erb:157
-#: app/views/layouts/default.html.erb:157
 msgid "Mailing list"
 msgstr "Рассылка"
 
 #: app/views/iphone/index.html.erb:18
 #: app/views/layouts/application.html.erb:157
-#: app/views/layouts/default.html.erb:157
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
 msgstr "http://lists.altlinux.org/mailman/listinfo/sisyphus/"
 
@@ -853,107 +833,90 @@ msgid "Repocop"
 msgstr "Repocop"
 
 #: app/views/layouts/application.html.erb:6
-#: app/views/layouts/default.html.erb:6
 msgid "Prometheus 2.0"
 msgstr "Prometheus 2.0"
 
 #: app/views/layouts/application.html.erb:72
-#: app/views/layouts/default.html.erb:72
 msgid "Sisyphus repository "
 msgstr "Репозиторий Sisyphus"
 
 #: app/views/layouts/application.html.erb:83
-#: app/views/layouts/default.html.erb:83
 msgid "find"
 msgstr "искать"
 
 #: app/views/layouts/application.html.erb:94
-#: app/views/layouts/default.html.erb:94
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
 #: app/views/layouts/application.html.erb:94
-#: app/views/layouts/default.html.erb:94
 msgid "SRPMs:"
 msgstr "Пакетов:"
 
 #: app/views/layouts/application.html.erb:97
-#: app/views/layouts/default.html.erb:97
 msgid "en"
 msgstr "en"
 
 #: app/views/layouts/application.html.erb:97
-#: app/views/layouts/default.html.erb:97
 msgid "English"
 msgstr "English"
 
 #: app/views/layouts/application.html.erb:97
-#: app/views/layouts/default.html.erb:97
 msgid "ru"
 msgstr "ru"
 
 #: app/views/layouts/application.html.erb:97
-#: app/views/layouts/default.html.erb:97
 msgid "Russian"
 msgstr "Russian"
 
 #: app/views/layouts/application.html.erb:97
-#: app/views/layouts/default.html.erb:97
 msgid "uk"
 msgstr "uk"
 
 #: app/views/layouts/application.html.erb:97
-#: app/views/layouts/default.html.erb:97
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
 #: app/views/layouts/application.html.erb:105
-#: app/views/layouts/default.html.erb:105
 msgid "Home"
 msgstr "Главная"
 
 #: app/views/layouts/application.html.erb:105
-#: app/views/layouts/default.html.erb:105
 msgid "site home page"
 msgstr "главная страница сайта"
 
 #: app/views/layouts/application.html.erb:110
-#: app/views/layouts/default.html.erb:110
 msgid "site news"
 msgstr "новости сайта"
 
 #: app/views/layouts/application.html.erb:115
-#: app/views/layouts/default.html.erb:115
 msgid "packages information"
 msgstr "информация о пакетах"
 
 #: app/views/layouts/application.html.erb:120
-#: app/views/layouts/default.html.erb:120
 msgid "maintainers information"
 msgstr "информация о маинтейнерах"
 
 #: app/views/layouts/application.html.erb:125
-#: app/views/layouts/default.html.erb:125
 msgid "security fixes"
 msgstr "исправления уязвимостей"
 
+#: app/views/layouts/application.html.erb:130
+msgid "about Prometeus project"
+msgstr "проект Prometeus"
+
 #: app/views/layouts/application.html.erb:140
-#: app/views/layouts/default.html.erb:140
 msgid "sisyphus public site"
 msgstr "общественный сайт sisyphus"
 
 #: app/views/layouts/application.html.erb:146
-#: app/views/layouts/default.html.erb:146
 msgid "blog"
 msgstr "блог о sisyphus"
 
 #: app/views/layouts/application.html.erb:151
-#: app/views/layouts/default.html.erb:151
 msgid "ALT Linux Planet"
 msgstr "ALT Linux Planet"
 
 #: app/views/layouts/application.html.erb:157
-#: app/views/layouts/default.html.erb:157
 msgid "community-en@"
 msgstr "sisyphus@"
 
@@ -1128,6 +1091,14 @@ msgstr "Url"
 #: app/views/packager/srpms.html.erb:18 app/views/team/info.html.erb:32
 msgid "Summary"
 msgstr "О пакете"
+
+#: app/views/pages/project.html.erb:2
+msgid "Prometheus 2.0 - Information about the project"
+msgstr "Prometheus 2.0 - Информация о проекте"
+
+#: app/views/pages/security.html.erb:2
+msgid "Prometheus 2.0 - Security"
+msgstr ""
 
 #: app/views/srpm/allbugs.html.erb:2 app/views/srpm/bugs.html.erb:2
 #: app/views/srpm/changelog.html.erb:2 app/views/srpm/download.html.erb:2
@@ -1335,6 +1306,3 @@ msgstr "Prometheus 2.0 - Team - Error!"
 #: app/views/team/nosuchteam.html.erb:5
 msgid "No such team!"
 msgstr "Нет такой команды!"
-
-#~ msgid "about Prometeus project"
-#~ msgstr "проект Prometeus"
