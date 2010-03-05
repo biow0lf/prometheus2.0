@@ -6,13 +6,13 @@
 <b><%=h _("Information:") %></b> <div class="para">  </div>
 <p class="break" />
 <% if @leader != nil -%>
-<b><%=h _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to h(leader.name), '/' + h(params[:locale]) + '/packager/' + h(leader.login), :class => 'news', :title => _('information about the packager') -%><% end -%>
+<b><%=h _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to h(leader.name), '/packager/' + h(leader.login), :class => 'news', :title => _('information about the packager') -%><% end -%>
 <p class="break" />
 <% end %>
 <b><%=h _("Team members:") %></b>
 <ul>
 <% @members.each do |member| -%>
-  <li><%= link_to h(member.name), '/' + h(params[:locale]) + '/packager/' + h(member.login), :class => 'news', :title => _('information about the packager') -%></li>
+  <li><%= link_to h(member.name), '/packager/' + h(member.login), :class => 'news', :title => _('information about the packager') -%></li>
 <% end -%>
 </ul>
 
@@ -35,10 +35,10 @@
     <% if !acl.srpm.nil? -%>
       <tr>
         <td>
-          <%= link_to '<img src="/images/' + acl.srpm.repocop + '.png" alt="' + acl.srpm.repocop + '" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
+          <%= link_to '<img src="/images/' + acl.srpm.repocop + '.png" alt="' + acl.srpm.repocop + '" />', '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
         </td>
         <td class="strange">
-          <%= link_to h(acl.srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => _('detailed information about RPM') %>
+          <%= link_to h(acl.srpm.name), '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => _('detailed information about RPM') %>
         </td>
         <td><%=h acl.srpm.version %>-<%=h acl.srpm.release %></td>
         <td><%=h acl.srpm.buildtime %></td>

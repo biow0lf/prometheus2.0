@@ -14,7 +14,7 @@
 <% @allsrpms.each do |rpm| -%>
 <tr>
   <td style="text-align: left;">
-    <%= link_to h(rpm.branch) + ':', '/' + h(params[:locale]) + '/srpm/' + h(rpm.branch) + '/' + h(rpm.name), :class => 'news' %>
+    <%= link_to h(rpm.branch) + ':', '/srpm/' + h(rpm.branch) + '/' + h(rpm.name), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%=h rpm.version %>-<%=h rpm.release %></td>
 </tr>
@@ -33,7 +33,7 @@
 
 <div>
 <p class="break" />
-<span class="current">&nbsp;<b><%=h _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h _("this package in gear repositories") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h _("list of bugs and feature requests") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="news" />
+<span class="current">&nbsp;<b><%=h _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h _("this package in gear repositories") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h _("list of bugs and feature requests") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="news" />
 <b><%=h _("Current version:") %></b> <span style="text-decoration:underline"><%=h @srpm.version %>-<%=h @srpm.release %></span><br />
 <b><%=h _("Build date:") %></b> <%=h @srpm.buildtime %> (<%=h time_ago_in_words(@srpm.buildtime) %> <%=h _("ago") %>)<br />
 <b><%=h _("Size:") %></b> <%=h number_to_human_size(@srpm.size) %><br /><br />
@@ -50,9 +50,9 @@
 <% if @packager != nil -%>
 <div class="maintainer"><b><%=h _("Current maintainer:") %></b>
 <% if @packager.team == true -%>
-  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/team/' + h(@packager.login[1..-1]), :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to h(@packager.name), '/team/' + h(@packager.login[1..-1]), :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% else -%>
-  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/packager/' + h(@packager.login), :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to h(@packager.name), '/packager/' + h(@packager.login), :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% end -%>
 <% end -%>
 

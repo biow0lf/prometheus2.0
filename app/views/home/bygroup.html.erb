@@ -6,7 +6,7 @@
 
 <% @srpms.each do |srpm| -%>
 <p class="news" />
-<span class="news-date-new"><%= link_to h(srpm.name), '/' + h(params[:locale])  + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => _("detailed information about the package") -%>
+<span class="news-date-new"><%= link_to h(srpm.name), '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => _("detailed information about the package") -%>
 </span><br /><br />
 <b><%=h _("Current version:") %></b> <span class="news-text"><%=h srpm.version %>-<%=h srpm.release %></span><br />
 <b><%=h _("Build time:") %></b> <span class="news-text"><%=h srpm.buildtime %> (<%=h time_ago_in_words(srpm.buildtime) %> <%=h _("ago") %>)</span><br />
