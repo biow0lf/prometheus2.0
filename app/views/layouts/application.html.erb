@@ -185,15 +185,7 @@ function show(divnum){
   &copy; 2009&ndash;2010 <a href="mailto:igor.zubkov@gmail.com" class="news">Igor Zubkov</a>
 </div>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-11318937-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+<%= render :partial => "shared/ga" %>
 
 </body>
 </html>
