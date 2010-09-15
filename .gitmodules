@@ -1,6 +1,3 @@
-[submodule "vendor/plugins/searchlogic"]
-	path = vendor/plugins/searchlogic
-	url = git://github.com/binarylogic/searchlogic.git
 [submodule "vendor/plugins/exception_notification"]
 	path = vendor/plugins/exception_notification
 	url = git://github.com/rails/exception_notification.git
