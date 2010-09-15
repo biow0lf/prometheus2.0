@@ -15,8 +15,6 @@ class ApplicationController < ActionController::Base
   init_gettext "prometheus"
 
   def default_locale
-    available = %w{en ru uk}
-    params[:locale] ||= request.preferred_language_from(available)
     params[:locale] ||= 'en'
     I18n.locale = params[:locale]
     set_locale params[:locale]
