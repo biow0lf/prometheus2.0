@@ -8,6 +8,7 @@ gem "pg"
 gem "searchlogic", "2.4.26"
 
 gem "russian", "0.2.7"
+gem "ukrainian", "2.5.3"
 
 gem "locale", "2.0.5"
 gem "locale_rails", "2.0.5"
