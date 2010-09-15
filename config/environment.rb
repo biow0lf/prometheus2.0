@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.9' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -47,8 +47,6 @@ Rails::Initializer.run do |config|
   config.gem "locale_rails"
   config.gem "gettext_activerecord"
   config.gem "gettext_rails"
-  
-  config.gem "http_accept_language"
 end
 
 ExceptionNotifier.exception_recipients = %w(igor.zubkov@gmail.com)
