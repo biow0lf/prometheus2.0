@@ -4,7 +4,7 @@
 
 <div class="header" style="letter-spacing:1px;"><%=h _("Search") %></div>
 <p class="break">
-<form name="findonsite" action="/find.shtml" method="GET">
+<form name="findonsite" action="/<%=h params[:locale] %>/find.shtml" method="GET">
 <input type="text" name="request" value="<%=h params[:request] %>" size="20">
 <input type="submit" class="top-go" id="subOn" value="<%=h _("search") %>" onmouseover="m_on('subOn')"  onmouseout="m_off('subOn')">
 </form>
@@ -22,7 +22,7 @@
 <% @srpms.each do |srpm| -%>
 <tr>
 <td class="strange">
-  <%= link_to h(srpm.name), '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
+  <%= link_to h(srpm.name), /' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
 </td>
 <td><%=h srpm.version %>-<%=h srpm.release %></td>
 <td><%=h srpm.summary %></td>

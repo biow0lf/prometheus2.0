@@ -9,7 +9,7 @@
 <% @packagers.each do |packager| -%>
   <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
     <div style="float:left">
-      <%= link_to h(packager.name), '/packager/' + h(packager.login), :class => 'news' %> (<%=h packager.login %>)
+      <%= link_to h(packager.name), '/' + h(params[:locale]) + '/packager/' + h(packager.login), :class => 'news' %> (<%=h packager.login %>)
     </div>
     <div style="float:right"> <%=h packager.counter %></div>
   </div>
@@ -19,7 +19,7 @@
 <% @teams.each do |team| -%>
   <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
     <div style="float:left">
-      <%= link_to h(team.name), '/team/' + h(team.login[1..-1]), :class => 'news' %> (<%=h team.login[1..-1] %>)
+      <%= link_to h(team.name), '/' + h(params[:locale]) + '/team/' + h(team.login[1..-1]), :class => 'news' %> (<%=h team.login[1..-1] %>)
     </div>
     <div style="float:right"> <%=h team. counter %></div>
   </div>
