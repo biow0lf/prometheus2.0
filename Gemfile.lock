@@ -11,6 +11,10 @@ GEM
     activeresource (2.3.9)
       activesupport (= 2.3.9)
     activesupport (2.3.9)
+    cgi_multipart_eof_fix (2.5.0)
+    daemons (1.1.0)
+    fastthread (1.0.7)
+    gem_plugin (0.2.3)
     gettext (2.1.0)
       locale (>= 2.0.5)
     gettext_activerecord (2.1.0)
@@ -24,6 +28,11 @@ GEM
     locale (2.0.5)
     locale_rails (2.0.5)
       locale (>= 2.0.5)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
     pg (0.9.0)
     rack (1.1.0)
     rails (2.3.9)
@@ -47,6 +56,7 @@ DEPENDENCIES
   gettext_rails (= 2.1.0)
   locale (= 2.0.5)
   locale_rails (= 2.0.5)
+  mongrel
   pg
   rack
   rails (= 2.3.9)
