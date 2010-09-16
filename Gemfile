@@ -5,8 +5,6 @@ gem 'rack'
 
 gem 'pg'
 
-gem 'mongrel'
-
 gem 'searchlogic', '2.4.26'
 
 gem 'russian', '0.2.7'
