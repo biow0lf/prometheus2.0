@@ -17,17 +17,17 @@ GEM
     gem_plugin (0.2.3)
     gettext (2.1.0)
       locale (>= 2.0.5)
-    gettext_activerecord (2.1.0)
+    gettext_activerecord (2.0.4)
       activerecord (>= 2.3.2)
-      gettext (>= 2.1.0)
-    gettext_rails (2.1.0)
-      gettext_activerecord (>= 2.1.0)
-      locale_rails (>= 2.0.5)
+      gettext (>= 2.0.4)
+    gettext_rails (2.0.4)
+      gettext_activerecord (>= 2.0.4)
+      locale_rails (>= 2.0.4)
       rails (>= 2.3.2)
     i18n (0.4.1)
     locale (2.0.5)
-    locale_rails (2.0.5)
-      locale (>= 2.0.5)
+    locale_rails (2.0.4)
+      locale (>= 2.0.4)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
       daemons (>= 1.0.3)
@@ -53,9 +53,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gettext_rails (= 2.1.0)
-  locale (= 2.0.5)
-  locale_rails (= 2.0.5)
+  gettext
+  gettext_activerecord (= 2.0.4)
+  gettext_rails (= 2.0.4)
+  locale
+  locale_rails (= 2.0.4)
   mongrel
   pg
   rack
