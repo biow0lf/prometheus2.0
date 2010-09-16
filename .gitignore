@@ -12,3 +12,4 @@ config/deploy.rb
 config/newrelic.yml
 locale/*
 vendor/plugins/newrelic_rpm/*
+.bundle/*

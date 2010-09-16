@@ -1,0 +1,55 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.9)
+      actionpack (= 2.3.9)
+    actionpack (2.3.9)
+      activesupport (= 2.3.9)
+      rack (~> 1.1.0)
+    activerecord (2.3.9)
+      activesupport (= 2.3.9)
+    activeresource (2.3.9)
+      activesupport (= 2.3.9)
+    activesupport (2.3.9)
+    gettext (2.1.0)
+      locale (>= 2.0.5)
+    gettext_activerecord (2.1.0)
+      activerecord (>= 2.3.2)
+      gettext (>= 2.1.0)
+    gettext_rails (2.1.0)
+      gettext_activerecord (>= 2.1.0)
+      locale_rails (>= 2.0.5)
+      rails (>= 2.3.2)
+    i18n (0.4.1)
+    locale (2.0.5)
+    locale_rails (2.0.5)
+      locale (>= 2.0.5)
+    pg (0.9.0)
+    rack (1.1.0)
+    rails (2.3.9)
+      actionmailer (= 2.3.9)
+      actionpack (= 2.3.9)
+      activerecord (= 2.3.9)
+      activeresource (= 2.3.9)
+      activesupport (= 2.3.9)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    russian (0.2.7)
+    searchlogic (2.4.26)
+      activerecord (>= 2.0.0)
+    ukrainian (2.5.3)
+      i18n
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  gettext_rails (= 2.1.0)
+  locale (= 2.0.5)
+  locale_rails (= 2.0.5)
+  pg
+  rack
+  rails (= 2.3.9)
+  russian (= 0.2.7)
+  searchlogic (= 2.4.26)
+  ukrainian (= 2.5.3)
