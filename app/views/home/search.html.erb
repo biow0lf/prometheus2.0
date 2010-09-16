@@ -1,5 +1,5 @@
 <% title _("Prometheus 2.0 - Search") %>
-<% url '' %>
+<% url '/find.shtml' %>
 
 <div class="header" style="letter-spacing:1px;"><%=h _("Search") %></div>
 <p class="break">
@@ -21,7 +21,7 @@
 <% @srpms.each do |srpm| -%>
 <tr>
 <td class="strange">
-  <%= link_to h(srpm.name), /' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
+  <%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news' %>
 </td>
 <td><%=h srpm.version %>-<%=h srpm.release %></td>
 <td><%=h srpm.summary %></td>
