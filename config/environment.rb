@@ -43,10 +43,6 @@ Rails::Initializer.run do |config|
 
   # config.active_record.timestamped_migrations = false
   # config.action_controller.page_cache_directory = RAILS_ROOT + "/public/cache/"
-
-  config.gem "locale_rails"
-  config.gem "gettext_activerecord"
-  config.gem "gettext_rails"
 end
 
 ExceptionNotifier.exception_recipients = %w(igor.zubkov@gmail.com)
