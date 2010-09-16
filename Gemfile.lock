@@ -45,10 +45,10 @@ PLATFORMS
 
 DEPENDENCIES
   gettext
-  gettext_activerecord (= 2.0.4)
-  gettext_rails (= 2.0.4)
+  gettext_activerecord
+  gettext_rails
   locale
-  locale_rails (= 2.0.4)
+  locale_rails
   pg
   rack
   rails (= 2.3.9)
