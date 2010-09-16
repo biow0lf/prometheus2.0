@@ -4,7 +4,7 @@
 <div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>/srpms" class="news" title="<%=h _("packages which was built by this maintainer") %>"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h _("Repocop") %></b>&nbsp;</span><p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/srpms" class="news" title="<%=h _("packages which was built by this maintainer") %>"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h _("Repocop") %></b>&nbsp;</span><p class="break" />
 <b><%=h _("Repocop messages:") %></b><br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
@@ -21,7 +21,7 @@
       <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
         <tr>
           <td class="strange">
-            <%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
+			<%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
           </td>
           <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%=h repocop.status %></td>
           <td><%=h repocop.testname %></td>

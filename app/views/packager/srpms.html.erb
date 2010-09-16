@@ -3,7 +3,7 @@
 
 <div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/packager/<%=h @packager.login %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="break" />
 <b><%=h _("List of packages which was built by this maintainer:") %></b> [<%=h @packager.sisyphus.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
@@ -21,10 +21,10 @@
   <% if !acl.srpm.nil? -%>
   <tr>
     <td>
-      <%= link_to '<img src="/images/' + h(acl.srpm.repocop) + '.png" alt="' + h(acl.srpm.repocop) + '" />', '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
-    </td>
+	  <%= link_to '<img src="/images/' + h(acl.srpm.repocop) + '.png" alt="' + h(acl.srpm.repocop) + '" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
+	</td>
     <td class="strange">
-      <%= link_to h(acl.srpm.name), '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news' %>
+      <%= link_to h(acl.srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news' %>
     </td>
     <td><%=h acl.srpm.version %>-<%=h acl.srpm.release %></td>
     <td><%=h acl.srpm.buildtime %></td>
