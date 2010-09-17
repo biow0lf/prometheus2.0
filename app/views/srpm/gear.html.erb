@@ -14,10 +14,10 @@
 <% if @gitrepos.count != 0 -%>
 <table style="pretty">
   <% @gitrepos.each do |gitrepo| -%>
-    <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;<!--<a href="http://git.altlinux.org/people/ldv/packages/?p=glibc.git" class="news">Dmitry V. Levin <ldv@altlinux.org></a>-->
+    <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
 <% login = gitrepo.login -%>
 <% login = 'php_coder' if gitrepo.login == 'php-coder' -%>
-<%= link_to h(gitrepo.login), 'http://git.altlinux.org/people/' + h(login) + '/packages/?p=' + h(@srpm.name) + '.git', :class => 'news' %>
+<%= link_to h(gitrepo.packager.name), 'http://git.altlinux.org/people/' + h(login) + '/packages/?p=' + h(@srpm.name) + '.git', :class => 'news' %> (<%=h gitrepo.login %>@)
 </td><td><%=h gitrepo.lastchange %></td></tr>
   <% end -%>
 </table>
