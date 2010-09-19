@@ -1,42 +1,42 @@
-<% title _("Prometheus 2.0 - Package ") + h(params[:name]) + _(" - All bugs") -%>
-<% url "/srpm/" + h(params[:branch]) + '/' + h(params[:name]) + "/allbugs" -%>
+<% title _("Prometheus 2.0 - Package ") + params[:name] + _(" - All bugs") -%>
+<% url "/srpm/" + params[:branch] + '/' + params[:name] + "/allbugs" -%>
 
 <div style="height:3em;"> 
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h _("Group") %> :: System/Base</b><br />
-        <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%= h(params[:name]) %></div>
+        <b style="font-size:9pt;"><%= _("Group") %> :: System/Base</b><br />
+        <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= params[:name] %></div>
     </div>
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>" class="news" title="<%=h _("information about SRPM") %>"><%=h _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/gear" class="news" title="<%=h _("this package in gear repositories") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h params[:branch] %>/<%=h params[:name] %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>" class="news" title="<%= _("information about SRPM") %>"><%= _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/changelog" class="news" title="<%= _("full changelog") %>"><%= _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/spec" class="news" title="<%= _("spec") %>"><%= _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/get" class="news" title="<%= _("download latest version") %>"><%= _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/gear" class="news" title="<%= _("this package in gear repositories") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
 
-<b><%=h _("Total:") %></b> <%=h @allbugs.count %> (<span style='color:red'><%=h @bugs.count %></span>|<%=h @allbugs.count - @bugs.count %>)
+<b><%= _("Total:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabunsel">&nbsp;<%= link_to _("open"), '/' + h(params[:locale]) + '/srpm/' + h(params[:branch]) + '/' + h(params[:name]) + '/bugs', :class => 'news' %>&nbsp;</span>
-<span class="tabsel">&nbsp;<%=h _("total") %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _("open"), '/' + params[:locale] + '/srpm/' + params[:branch] + '/' + params[:name] + '/bugs', :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;<%= _("total") %>&nbsp;</span>
 </div>
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
   <tr>
-    <th class="sort"><%=h _("id") %></th>
-    <th><%=h _("severity") %></th>
-    <th><%=h _("status") %></th>
-    <th><%=h _("resolution") %></th>
-    <th><%=h _("reporter") %></th>
-    <th><%=h _("summary") %></th>
+    <th class="sort"><%= _("id") %></th>
+    <th><%= _("severity") %></th>
+    <th><%= _("status") %></th>
+    <th><%= _("resolution") %></th>
+    <th><%= _("reporter") %></th>
+    <th><%= _("summary") %></th>
   </tr>
 
   <% @allbugs.each do |bug| -%>
   <tr>
-    <td><%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/' + h(bug.bug_id), :class => 'news', :target => '_blank' %></td>
-    <td><%=h bug.bug_severity %></td>
-    <td><%=h bug.bug_status %></td>
-    <td><%=h bug.resolution %></td>
-    <td><%=h bug.reporter.gsub('@', ' at ') %></td>
+    <td><%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id, :class => 'news', :target => '_blank' %></td>
+    <td><%= bug.bug_severity %></td>
+    <td><%= bug.bug_status %></td>
+    <td><%= bug.resolution %></td>
+    <td><%= bug.reporter.gsub('@', ' at ') %></td>
     <td style="text-align:left">
-      <%=h bug.short_desc %>
+      <%= bug.short_desc %>
     </td>
   </tr>
   <% end -%>

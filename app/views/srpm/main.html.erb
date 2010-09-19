@@ -1,12 +1,12 @@
-<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) -%>
-<% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name -%>
+<% url "/srpm/" + @srpm.branch + '/' + @srpm.name -%>
 
 <div id="rightbar">
 <div class="headleft">
-<div class="headright" title="<%=h _("ALT Linux repositories") %>">
-  <%=h _("ALT Linux repos") %>
+<div class="headright" title="<%= _("ALT Linux repositories") %>">
+  <%= _("ALT Linux repos") %>
 </div>
-<img id="topRPM" src="/images/collapse.gif" class="close" title="<%=h _("hide window") %>" alt="<%=h _("hide window") %>" />
+<img id="topRPM" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />
 </div>
 <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
@@ -14,9 +14,9 @@
 <% @allsrpms.each do |rpm| -%>
 <tr>
   <td style="text-align: left;">
-    <%= link_to h(rpm.branch) + ':', '/' + h(params[:locale]) + '/srpm/' + h(rpm.branch) + '/' + h(rpm.name), :class => 'news' %>
+    <%= link_to rpm.branch + ':', '/' + params[:locale] + '/srpm/' + rpm.branch + '/' + rpm.name, :class => 'news' %>
   </td>
-  <td style="text-align: right;"><%=h rpm.version %>-<%=h rpm.release %></td>
+  <td style="text-align: right;"><%= rpm.version %>-<%= rpm.release %></td>
 </tr>
 <% end -%>
 
@@ -26,54 +26,53 @@
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group %></b><br />
-    <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%=h @srpm.name %></div>
+    <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group %></b><br />
+    <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
   </div>
 </div>
 
 <div>
 <p class="break" />
-<span class="current">&nbsp;<b><%=h _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h _("this package in gear repositories") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h _("list of bugs and feature requests") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="news" />
-<b><%=h _("Current version:") %></b> <span style="text-decoration:underline"><%=h @srpm.version %>-<%=h @srpm.release %></span><br />
-<b><%=h _("Build date:") %></b> <%=h @srpm.buildtime %> (<%=h time_ago_in_words(@srpm.buildtime) %> <%=h _("ago") %>)<br />
-<b><%=h _("Size:") %></b> <%=h number_to_human_size(@srpm.size) %><br /><br />
+<span class="current">&nbsp;<b><%= _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= _("full changelog") %>"><%= _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= _("spec") %>"><%= _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/get" class="news" title="<%= _("download latest version") %>"><%= _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= _("this package in gear repositories") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= _("list of bugs and feature requests") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" />
+<b><%= _("Current version:") %></b> <span style="text-decoration:underline"><%= @srpm.version %>-<%= @srpm.release %></span><br />
+<b><%= _("Build date:") %></b> <%= @srpm.buildtime %> (<%= time_ago_in_words(@srpm.buildtime) %> <%= _("ago") %>)<br />
+<b><%= _("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
 
 <% if @srpm.url != nil -%>
-<b><%=h _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news' %><br /><br />
+<b><%= _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news' %><br /><br />
 <% end -%>
 
-<b><%=h _("License:") %></b> <span class="news-text"><%=h @srpm.license %></span><br />
+<b><%= _("License:") %></b> <span class="news-text"><%= @srpm.license %></span><br />
 
-<b><%=h _("Summary:") %></b> <span class="news-text"><%=h @srpm.summary %></span><br />
-<b><%=h _("Description:") %></b> <div class="para"><%= simple_format h(@srpm.description) %></div>
+<b><%= _("Summary:") %></b> <span class="news-text"><%= @srpm.summary %></span><br />
+<b><%= _("Description:") %></b> <div class="para"><%= simple_format @srpm.description %></div>
 <p class="news" />
 <% if @packager != nil -%>
-<div class="maintainer"><b><%=h _("Current maintainer:") %></b>
+<div class="maintainer"><b><%= _("Current maintainer:") %></b>
 <% if @packager.team == true -%>
-  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/team/' + h(@packager.login[1..-1]), :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to @packager.name, '/' + params[:locale] + '/team/' + @packager.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% else -%>
-  <%= link_to h(@packager.name), '/' + h(params[:locale]) + '/packager/' + h(@packager.login), :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to @packager.name, '/' + params[:locale] + '/packager/' + @packager.login, :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% end -%>
 <% end -%>
 
-<b><%=h _("List of rpms provided by this srpm:") %></b>
+<b><%= _("List of rpms provided by this srpm:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @packages.each do |package| -%>
-    <li><%=h package.name %></li>
+    <li><%= package.name %></li>
   <% end -%>
   </ul>
 </div>
 
 <% if params[:branch] != 'Platform5' -%>
-<b><%=h _("ACL:") %></b>
+<b><%= _("ACL:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @srpm.acls.each do |acl| -%>
-    <li><%=h acl.login %></li>
+    <li><%= acl.login %></li>
   <% end -%>
   </ul>
 </div>
 <% end -%>
 </div>
-

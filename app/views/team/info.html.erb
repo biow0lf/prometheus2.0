@@ -1,52 +1,52 @@
-<% title _("Prometheus 2.0 - Team &laquo;") + h(@team.login[1..-1]) + _("&raquo;") -%>
-<% url "/team/" + h(@team.login[1..-1]) -%>
+<% title _("Prometheus 2.0 - Team &laquo;") + @team.login[1..-1] + _("&raquo;") -%>
+<% url "/team/" + @team.login[1..-1] -%>
 
-<div class="header"><%=h _("Team:") %> <%=h @team.name %></div>
+<div class="header"><%= _("Team:") %> <%= @team.name %></div>
 <p class="break" />
-<b><%=h _("Information:") %></b> <div class="para">  </div>
+<b><%= _("Information:") %></b> <div class="para">  </div>
 <p class="break" />
 <% if @leader != nil -%>
-<b><%=h _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to h(leader.name), '/' + h(params[:locale]) + '/packager/' + h(leader.login), :class => 'news', :title => _('information about the packager') -%><% end -%>
+<b><%= _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to leader.name, '/' + params[:locale] + '/packager/' + leader.login, :class => 'news', :title => _('information about the packager') -%><% end -%>
 <p class="break" />
 <% end %>
-<b><%=h _("Team members:") %></b>
+<b><%= _("Team members:") %></b>
 <ul>
 <% @members.each do |member| -%>
-  <li><%= link_to h(member.name), '/' + h(params[:locale]) + '/packager/' + h(member.login), :class => 'news', :title => _('information about the packager') -%></li>
+  <li><%= link_to member.name, '/' + params[:locale] + '/packager/' + member.login, :class => 'news', :title => _('information about the packager') -%></li>
 <% end -%>
 </ul>
 
 <p class="break" />
 
-<b><%=h _("List of packages:") %></b> [ <%=h @acls.count %> ]<br /><br />
+<b><%= _("List of packages:") %></b> [ <%= @acls.count %> ]<br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
   <tr>
-    <th class="nosort"><%= _("repo<br/>cop") %></th>
-    <th class="sort"><%=h _("package") %></th>
-    <th class="nosort"><%= _("current<br />version") %></th>
-    <th class="sort"><%=h _("build time") %></th>
-    <th class="nosort"><%=h _("age") %></th>
-    <th class="nosort"><%=h _("Url") %></th>
-    <th class="nosort"><%=h _("Summary") %></th>
+    <th class="nosort"><%= raw _("repo<br/>cop") %></th>
+    <th class="sort"><%= _("package") %></th>
+    <th class="nosort"><%= raw _("current<br />version") %></th>
+    <th class="sort"><%= _("build time") %></th>
+    <th class="nosort"><%= _("age") %></th>
+    <th class="nosort"><%= _("Url") %></th>
+    <th class="nosort"><%= _("Summary") %></th>
   </tr>
 
   <% @acls.each do |acl| -%>
     <% if !acl.srpm.nil? -%>
       <tr>
         <td>
-          <%= link_to '<img src="/images/' + acl.srpm.repocop + '.png" alt="' + acl.srpm.repocop + '" />', '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name) + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
+          <%= link_to '<img src="/images/' + acl.srpm.repocop + '.png" alt="' + acl.srpm.repocop + '" />', '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
         </td>
         <td class="strange">
-          <%= link_to h(acl.srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => _('detailed information about RPM') %>
+          <%= link_to acl.srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name, :class => 'news', :title => _('detailed information about RPM') %>
         </td>
-        <td><%=h acl.srpm.version %>-<%=h acl.srpm.release %></td>
-        <td><%=h acl.srpm.buildtime %></td>
-        <td><%=h time_ago_in_words(acl.srpm.buildtime) %> <%=h _("ago") %></td>
+        <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
+        <td><%= acl.srpm.buildtime %></td>
+        <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
         <td>
           <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news' %><% else %>-<% end %>
         </td>
-        <td style="text-align:left;"><%=h acl.srpm.summary %></td>
+        <td style="text-align:left;"><%= acl.srpm.summary %></td>
       </tr>
     <% end -%>
   <% end -%>

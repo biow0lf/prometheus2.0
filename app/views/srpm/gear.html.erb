@@ -1,24 +1,27 @@
-<% title _("Prometheus 2.0 - Package ") + h(@srpm.name) + _(" - Gear") -%>
-<% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/gear" -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Gear") -%>
+<% url "/srpm/" + @srpm.branch + '/' + @srpm.name + "/gear" -%>
 
 <div style="height:3em;">
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h _("Group") %> :: <%=h @srpm.group %></b><br />
-        <div class="header" style="letter-spacing:1px;"><%=h _("Source RPM:") %> <%=h @srpm.name %></div>
+        <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
     </div>
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h _("information about SRPM") %>"><%=h _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h _("full changelog") %>"><%=h _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h _("spec") %>"><%=h _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h _("download latest version") %>"><%=h _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h _("list of bugs and feature requests") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><div>
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= _("information about SRPM") %>"><%= _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= _("full changelog") %>"><%= _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= _("spec") %>"><%= _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/get" class="news" title="<%= _("download latest version") %>"><%= _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= _("list of bugs and feature requests") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><div>
 
 <% if @gitrepos.count != 0 -%>
 <table style="pretty">
   <% @gitrepos.each do |gitrepo| -%>
-    <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-<% login = gitrepo.login -%>
-<% login = 'php_coder' if gitrepo.login == 'php-coder' -%>
-<%= link_to h(gitrepo.packager.name), 'http://git.altlinux.org/people/' + h(login) + '/packages/?p=' + h(@srpm.name) + '.git', :class => 'news' %> (<%=h gitrepo.login %>@)
-</td><td><%=h gitrepo.lastchange %></td></tr>
+    <tr>
+	  <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
+        <% login = gitrepo.login -%>
+        <% login = 'php_coder' if gitrepo.login == 'php-coder' -%>
+        <%= link_to gitrepo.packager.name, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.login %>@)
+      </td>
+      <td><%= gitrepo.lastchange %></td>
+    </tr>
   <% end -%>
 </table>
 <% end -%>
