@@ -1,18 +1,18 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Repocop") -%>
-<% url "/packager/" + h(@packager.login) + "/repocop" -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @packager.name + _("&raquo; - Repocop") -%>
+<% url "/packager/" + @packager.login + "/repocop" -%>
 
-<div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
+<div class="header"><%= _("Maintainer:") %> <%= @packager.name %></div>
 
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/srpms" class="news" title="<%=h _("packages which was built by this maintainer") %>"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h _("Repocop") %></b>&nbsp;</span><p class="break" />
-<b><%=h _("Repocop messages:") %></b><br /><br />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>" class="news" title="<%= _("information about maintainer") %>"><%= _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/srpms" class="news" title="<%= _("packages which was built by this maintainer") %>"><%= _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/bugs" class="news" title="<%= _("Bugs/FR statistics assigned to this maintainer") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%= _("Repocop") %></b>&nbsp;</span><p class="break" />
+<b><%= _("Repocop messages:") %></b><br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
   <tr>
-    <th class="sort"><%=h _("package") %></th>
-    <th id="repocop" class="sort"><%=h _("status") %></th>
-    <th class="sort"><%=h _("test") %></th>
-    <th class="nosort"><%=h _("message") %></th>
+    <th class="sort"><%= _("package") %></th>
+    <th id="repocop" class="sort"><%= _("status") %></th>
+    <th class="sort"><%= _("test") %></th>
+    <th class="nosort"><%= _("message") %></th>
   </tr>
 
 <% @packager.sisyphus.each do |acl| -%>
@@ -21,11 +21,11 @@
       <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
         <tr>
           <td class="strange">
-			<%= link_to h(repocop.name) + '-' + h(repocop.version) + '-' + h(repocop.release) + '.' + h(repocop.arch), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(acl.srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
+			<%= link_to repocop.name + '-' + repocop.version + '-' + repocop.release + '.' + repocop.arch, '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name, :class => 'news', :title => 'detailed information about RPM' %>
           </td>
-          <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%=h repocop.status %></td>
-          <td><%=h repocop.testname %></td>
-          <td style="text-align:left"><%=h repocop.message %></td>
+          <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%= repocop.status %></td>
+          <td><%= repocop.testname %></td>
+          <td style="text-align:left"><%= repocop.message %></td>
         </tr>
       <% end -%>
     <% end -%>

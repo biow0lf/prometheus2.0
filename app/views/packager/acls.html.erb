@@ -1,25 +1,25 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - ACL's") -%>
-<% url "/packager/" + h(@packager.login) + "/acls" -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @packager.name + _("&raquo; - ACL's") -%>
+<% url "/packager/" + @packager.login + "/acls" -%>
 
-<div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
+<div class="header"><%= _("Maintainer:") %> <%= @packager.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/bugs" class="news" title="<%=h _("Bugs/FR statistics assigned to this maintainer") %>"><%=h _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="break" />
-<b><%=h _("List of packages which was built by this maintainer:") %></b> [<%=h @acls.count %>] <br /><br />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>" class="news" title="<%= _("information about maintainer") %>"><%= _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/bugs" class="news" title="<%= _("Bugs/FR statistics assigned to this maintainer") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="break" />
+<b><%= _("List of packages which was built by this maintainer:") %></b> [<%= @acls.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
   <tr>
-    <th class="sort"><%=h _("package") %></th>
-    <th class="sort"><%=h _("leader") %></th>
-    <th class="nosort"><%=h _("ACL's") %></th>
+    <th class="sort"><%= _("package") %></th>
+    <th class="sort"><%= _("leader") %></th>
+    <th class="nosort"><%= _("ACL's") %></th>
   </tr>
 
   <% @acls.each do |acl| -%>
   <tr>
-    <td><%=h acl.srpm.name %></td>
-    <td><%=h acl.srpm.name %></td>
+    <td><%= acl.srpm.name %></td>
+    <td><%= acl.srpm.name %></td>
     <td>
       <% acl.srpm.acls.each do |login| %>
-        <%=h login.login %>
+        <%= login.login %>
       <% end %>
     </td>
   </tr>

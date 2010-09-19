@@ -1,34 +1,34 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + h(@packager.name) + _("&raquo; - Bugs and FR") -%>
-<% url "/packager/" + h(@packager.login) + "/bugs" -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @packager.name + _("&raquo; - Bugs and FR") -%>
+<% url "/packager/" + @packager.login + "/bugs" -%>
 
-<div class="header"><%=h _("Maintainer:") %> <%=h @packager.name %></div>
+<div class="header"><%= _("Maintainer:") %> <%= @packager.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>" class="news" title="<%=h _("information about maintainer") %>"><%=h _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/srpms" class="news" title="<%=h _("packages which was built by this maintainer") %>"><%=h _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/gear" class="news" title="<%=h _("gear") %>"><%=h _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%=h params[:locale] %>/packager/<%=h @packager.login %>/repocop" class="news" title="<%=h _("repocop bugreports") %>"><%=h _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
-<b><%=h _("Total records:") %></b> <%=h @allbugs.count %> (<span style='color:red'><%=h @bugs.count %></span>|<%=h @allbugs.count - @bugs.count %>)
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>" class="news" title="<%= _("information about maintainer") %>"><%= _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/srpms" class="news" title="<%= _("packages which was built by this maintainer") %>"><%= _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
+<b><%= _("Total records:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabsel">&nbsp;<%=h _("open") %>&nbsp;</span>
-<span class="tabunsel">&nbsp;<%= link_to _("total"), '/' + h(params[:locale]) + '/packager/' + h(@packager.login) + '/allbugs', :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;<%= _("open") %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _("total"), '/' + params[:locale] + '/packager/' + @packager.login + '/allbugs', :class => 'news' %>&nbsp;</span>
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th><%=h _("id") %></th>
-    <th><%=h _("package") %></th>
-    <th><%=h _("severity") %></th>
-    <th><%=h _("status") %></th>
-    <th><%=h _("reporter") %></th>
-    <th><%=h _("summary") %></th>
+    <th><%= _("id") %></th>
+    <th><%= _("package") %></th>
+    <th><%= _("severity") %></th>
+    <th><%= _("status") %></th>
+    <th><%= _("reporter") %></th>
+    <th><%= _("summary") %></th>
   </tr>
 
 <% @bugs.each do |bug| -%>
   <tr>
     <td>
-      <%= link_to h(bug.bug_id), 'https://bugzilla.altlinux.org/' + h(bug.bug_id), :class => 'news', :target => '_blank' %>
+      <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id, :class => 'news', :target => '_blank' %>
     </td>
-    <td><%=h bug.component %></td>
-    <td><%=h bug.bug_severity %></td>
-    <td><%=h bug.bug_status %></td>
-    <td><%=h bug.reporter.gsub('@', ' at ') %></td>
-    <td><%=h bug.short_desc %></td>
+    <td><%= bug.component %></td>
+    <td><%= bug.bug_severity %></td>
+    <td><%= bug.bug_status %></td>
+    <td><%= bug.reporter.gsub('@', ' at ') %></td>
+    <td><%= bug.short_desc %></td>
   </tr>
 <% end -%>
 
