@@ -30,7 +30,7 @@
 
   <% @allbugs.each do |bug| -%>
   <tr>
-    <td><%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id, :class => 'news', :target => '_blank' %></td>
+    <td><%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news', :target => '_blank' %></td>
     <td><%= bug.bug_severity %></td>
     <td><%= bug.bug_status %></td>
     <td><%= bug.resolution %></td>
