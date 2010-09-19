@@ -1,16 +1,16 @@
-<% title _("Prometheus 2.0 - Group - ") + h(params[:group]) %>
-<% url "/packages/" + h(params[:group]) %>
+<% title _("Prometheus 2.0 - Group - ") + params[:group] %>
+<% url "/packages/" + params[:group] %>
 
-<div class="header"><%=h _("Group") %> :: <%=h params[:group] %></div><p class="news" />
+<div class="header"><%= _("Group") %> :: <%= params[:group] %></div><p class="news" />
 
 <% @srpms.each do |srpm| -%>
 <p class="news" />
-<span class="news-date-new"><%= link_to h(srpm.name), '/' + h(params[:locale]) + '/srpm/Sisyphus/' + h(srpm.name), :class => 'news', :title => _("detailed information about the package") -%>
+<span class="news-date-new"><%= link_to srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name, :class => 'news', :title => _("detailed information about the package") -%>
 </span><br /><br />
-<b><%=h _("Current version:") %></b> <span class="news-text"><%=h srpm.version %>-<%=h srpm.release %></span><br />
-<b><%=h _("Build time:") %></b> <span class="news-text"><%=h srpm.buildtime %> (<%=h time_ago_in_words(srpm.buildtime) %> <%=h _("ago") %>)</span><br />
-<b><%=h _("Summary:") %></b> <span class="news-text"><%=h srpm.summary %></span><br />
+<b><%= _("Current version:") %></b> <span class="news-text"><%= srpm.version %>-<%= srpm.release %></span><br />
+<b><%= _("Build time:") %></b> <span class="news-text"><%= srpm.buildtime %> (<%= time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>)</span><br />
+<b><%= _("Summary:") %></b> <span class="news-text"><%= srpm.summary %></span><br />
 
-<b><%=h _("Changes:") %></b> <div class="para">TODO</div>
+<b><%= _("Changes:") %></b> <div class="para">TODO</div>
 
 <% end -%>
