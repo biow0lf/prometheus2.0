@@ -69,18 +69,18 @@ function show(divnum){
     <a href="http://www.altlinux.org/"><img src="/images/altlinux.gif" style="border:0" alt="ALT Linux Team - wiki" title="ALT Linux Team - wiki" /></a>
   </div>
   <div id="top-menu">
-    <%=h _("Sisyphus repository ") %>
+    <%= _("Sisyphus repository ") %>
   </div>
   <div id="top-auth">
     <div id="div1" style="display:block;margin-top:20px;">
-      <form action="/<%=h params[:locale] %>/find.shtml" method="get">
+      <form action="/<%= params[:locale] %>/find.shtml" method="get">
         <table>
           <tr>
             <td>
               <input class="top-name" type="text" name="request" value="" size="18" />
             </td>
             <td valign="middle">
-              <input type="submit" class="top-go" id="sub1" value="<%=h _("find") %>" onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
+              <input type="submit" class="top-go" id="sub1" value="<%= _("find") %>" onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
             </td>
           </tr>
         </table>
@@ -91,7 +91,7 @@ function show(divnum){
 
 <div id="top-line">
   <div id="vinfo">
-    <b><%=h _("Last update:") %></b> <%=h Date.today %> | <b><%=h _("SRPMs:") %> <%=h Srpm.count_srpms_in_sisyphus %></b>
+    <b><%= _("Last update:") %></b> <%= Date.today %> | <b><%= _("SRPMs:") %> <%= Srpm.count_srpms_in_sisyphus %></b>
   </div>
 
   <div style="text-align: right"><%= link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') %> <%= link_to_unless_current _('ru'), '/ru' + yield(:url), :title => _('Russian') %> <%= link_to_unless_current _('uk'), '/uk' + yield(:url), :title => _('Ukrainian') %><!--<a href="/br<%= yield(:url) %>" title="Portuguese (Brasilian)">br</a>--></div>
@@ -102,7 +102,7 @@ function show(divnum){
   <ul>
     <li onmouseover="m_on('li1')" onmouseout="m_off('li1')" id="li1">
       <div id="dli1">
-        <%= link_to_unless_current _("Home"), '/' + h(params[:locale]), :title => _("site home page") %>
+        <%= link_to_unless_current _("Home"), '/' + params[:locale], :title => _("site home page") %>
       </div>
     </li>
     <li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
@@ -112,12 +112,12 @@ function show(divnum){
     </li>
     <li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">
       <div id="dli3">
-        <%= link_to_unless_current _("Packages"), '/' + h(params[:locale]) + '/packages', :title => _("packages information") %>
+        <%= link_to_unless_current _("Packages"), '/' + params[:locale] + '/packages', :title => _("packages information") %>
       </div>
     </li>
     <li onmouseover="m_on('li4')" onmouseout="m_off('li4')" id="li4">
       <div id="dli4">
-        <%= link_to_unless_current _("Maintainers"), '/' + h(params[:locale]) + '/people', :title => _("maintainers information") %>
+        <%= link_to_unless_current _("Maintainers"), '/' + params[:locale] + '/people', :title => _("maintainers information") %>
       </div>
     </li>
     <li onmouseover="m_on('li5')" onmouseout="m_off('li5')" id="li5">
@@ -165,7 +165,7 @@ function show(divnum){
 <!--
 
 <div class="search">
-<% form_tag '/' + h(params[:locale]) + '/search', :method => 'get' do %>
+<% form_tag '/' + params[:locale] + '/search', :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search], :size => 15 %>
     <%= submit_tag "Search", :name => nil %>
