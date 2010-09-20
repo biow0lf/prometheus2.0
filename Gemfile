@@ -17,3 +17,7 @@ gem 'locale_rails'
 gem 'gettext'
 gem 'gettext_activerecord'
 gem 'gettext_rails'
+
+group :development do
+  gem 'ruby-debug'
+end

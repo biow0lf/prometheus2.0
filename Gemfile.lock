@@ -12,6 +12,7 @@ GEM
     activeresource (2.3.9)
       activesupport (= 2.3.9)
     activesupport (2.3.9)
+    columnize (0.3.1)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     gettext (2.1.0)
@@ -24,6 +25,7 @@ GEM
       locale_rails (>= 2.0.5)
       rails (>= 2.3.2)
     i18n (0.4.1)
+    linecache (0.43)
     locale (2.0.5)
     locale_rails (2.0.5)
       locale (>= 2.0.5)
@@ -37,6 +39,11 @@ GEM
       activesupport (= 2.3.9)
       rake (>= 0.8.3)
     rake (0.8.7)
+    ruby-debug (0.10.3)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.3.0)
+    ruby-debug-base (0.10.3)
+      linecache (>= 0.3)
     russian (0.2.7)
     searchlogic (2.4.26)
       activerecord (>= 2.0.0)
@@ -56,6 +63,7 @@ DEPENDENCIES
   pg
   rack
   rails (= 2.3.9)
+  ruby-debug
   russian (= 0.2.7)
   searchlogic (= 2.4.26)
   ukrainian (= 2.5.3)
