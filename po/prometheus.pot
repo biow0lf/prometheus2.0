@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-03-02 00:22+0200\n"
+"POT-Creation-Date: 2010-09-20 19:24+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,136 +20,12 @@ msgstr ""
 msgid "acl"
 msgstr ""
 
-#: app/models/acl.rb:-
-msgid "Acl|Package"
-msgstr ""
-
-#: app/models/acl.rb:-
-msgid "Acl|Login"
-msgstr ""
-
-#: app/models/acl.rb:-
-msgid "Acl|Branch"
-msgstr ""
-
-#: app/models/acl.rb:-
-msgid "Acl|Vendor"
-msgstr ""
-
-#: app/models/acl.rb:-
-msgid "Acl|Created at"
-msgstr ""
-
-#: app/models/acl.rb:-
-msgid "Acl|Updated at"
-msgstr ""
-
 #: app/models/branch.rb:-
 msgid "branch"
 msgstr ""
 
-#: app/models/branch.rb:-
-msgid "Branch|Vendor"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Name"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Url"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Srpms path"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Binary x86 path"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Noarch path"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Binary x86 64 path"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Acls url"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Leaders url"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Acls groups url"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Created at"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Updated at"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Rpm groups url"
-msgstr ""
-
-#: app/models/branch.rb:-
-msgid "Branch|Order"
-msgstr ""
-
 #: app/models/bug.rb:-
 msgid "bug"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Bug"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Bug status"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Resolution"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Bug severity"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Product"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Component"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Assigned to"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Reporter"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Short desc"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Created at"
-msgstr ""
-
-#: app/models/bug.rb:-
-msgid "Bug|Updated at"
 msgstr ""
 
 #: app/models/changelog.rb:-
@@ -164,352 +40,48 @@ msgstr ""
 msgid "gitrepo"
 msgstr ""
 
-#: app/models/gitrepo.rb:-
-msgid "Gitrepo|Repo"
-msgstr ""
-
-#: app/models/gitrepo.rb:-
-msgid "Gitrepo|Login"
-msgstr ""
-
-#: app/models/gitrepo.rb:-
-msgid "Gitrepo|Lastchange"
-msgstr ""
-
-#: app/models/gitrepo.rb:-
-msgid "Gitrepo|Created at"
-msgstr ""
-
-#: app/models/gitrepo.rb:-
-msgid "Gitrepo|Updated at"
-msgstr ""
-
 #: app/models/group.rb:-
 msgid "group"
-msgstr ""
-
-#: app/models/group.rb:-
-msgid "Group|Name"
-msgstr ""
-
-#: app/models/group.rb:-
-msgid "Group|Branch"
-msgstr ""
-
-#: app/models/group.rb:-
-msgid "Group|Vendor"
-msgstr ""
-
-#: app/models/group.rb:-
-msgid "Group|Created at"
-msgstr ""
-
-#: app/models/group.rb:-
-msgid "Group|Updated at"
 msgstr ""
 
 #: app/models/leader.rb:- app/views/packager/acls.html.erb:12
 msgid "leader"
 msgstr ""
 
-#: app/models/leader.rb:-
-msgid "Leader|Package"
-msgstr ""
-
-#: app/models/leader.rb:-
-msgid "Leader|Login"
-msgstr ""
-
-#: app/models/leader.rb:-
-msgid "Leader|Branch"
-msgstr ""
-
-#: app/models/leader.rb:-
-msgid "Leader|Created at"
-msgstr ""
-
-#: app/models/leader.rb:-
-msgid "Leader|Updated at"
-msgstr ""
-
-#: app/models/leader.rb:-
-msgid "Leader|Vendor"
-msgstr ""
-
-#: app/models/package.rb:- app/views/home/search.html.erb:17
+#: app/models/package.rb:- app/views/home/search.html.erb:16
 #: app/views/packager/acls.html.erb:11 app/views/packager/allbugs.html.erb:17
 #: app/views/packager/bugs.html.erb:15 app/views/packager/repocop.html.erb:12
 #: app/views/packager/srpms.html.erb:12 app/views/team/info.html.erb:26
 msgid "package"
 msgstr ""
 
-#: app/models/package.rb:-
-msgid "Package|Filename"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Sourcepackage"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Name"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Version"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Release"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Group"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Epoch"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Arch"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Summary"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|License"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Url"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Description"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Buildtime"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Size"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Branch"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Created at"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Updated at"
-msgstr ""
-
-#: app/models/package.rb:-
-msgid "Package|Vendor"
-msgstr ""
-
 #: app/models/packager.rb:-
 msgid "packager"
-msgstr ""
-
-#: app/models/packager.rb:-
-msgid "Packager|Name"
-msgstr ""
-
-#: app/models/packager.rb:-
-msgid "Packager|Email"
-msgstr ""
-
-#: app/models/packager.rb:-
-msgid "Packager|Login"
-msgstr ""
-
-#: app/models/packager.rb:-
-msgid "Packager|Team"
-msgstr ""
-
-#: app/models/packager.rb:-
-msgid "Packager|Created at"
-msgstr ""
-
-#: app/models/packager.rb:-
-msgid "Packager|Updated at"
 msgstr ""
 
 #: app/models/repocop.rb:-
 msgid "repocop"
 msgstr ""
 
-#: app/models/repocop.rb:-
-msgid "Repocop|Name"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Version"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Release"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Arch"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srcname"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srcversion"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Srcrel"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Testname"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Status"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Message"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Created at"
-msgstr ""
-
-#: app/models/repocop.rb:-
-msgid "Repocop|Updated at"
-msgstr ""
-
 #: app/models/srpm.rb:-
 msgid "srpm"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Branch"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Vendor"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Filename"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Name"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Version"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Release"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Epoch"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Summary"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|License"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Url"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Description"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Buildtime"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Size"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Created at"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Updated at"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Group"
-msgstr ""
-
-#: app/models/srpm.rb:-
-msgid "Srpm|Repocop"
 msgstr ""
 
 #: app/models/team.rb:-
 msgid "team"
 msgstr ""
 
-#: app/models/team.rb:-
-msgid "Team|Name"
-msgstr ""
-
-#: app/models/team.rb:-
-msgid "Team|Login"
-msgstr ""
-
-#: app/models/team.rb:-
-msgid "Team|Branch"
-msgstr ""
-
-#: app/models/team.rb:-
-msgid "Team|Leader"
-msgstr ""
-
-#: app/models/team.rb:-
-msgid "Team|Created at"
-msgstr ""
-
-#: app/models/team.rb:-
-msgid "Team|Updated at"
-msgstr ""
-
-#: app/models/team.rb:-
-msgid "Team|Vendor"
-msgstr ""
-
 #: app/models/transaction.rb:-
 msgid "transaction"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:2 app/views/home/bythreegroup.html.erb:2
-#: app/views/home/bytwogroup.html.erb:2
+#: app/views/home/bygroup.html.erb:1 app/views/home/bythreegroup.html.erb:1
+#: app/views/home/bytwogroup.html.erb:1
 msgid "Prometheus 2.0 - Group - "
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:5 app/views/home/bythreegroup.html.erb:5
-#: app/views/home/bytwogroup.html.erb:5 app/views/srpm/allbugs.html.erb:6
+#: app/views/home/bygroup.html.erb:4 app/views/home/bythreegroup.html.erb:4
+#: app/views/home/bytwogroup.html.erb:4 app/views/srpm/allbugs.html.erb:6
 #: app/views/srpm/bugs.html.erb:6 app/views/srpm/changelog.html.erb:6
 #: app/views/srpm/download.html.erb:29 app/views/srpm/gear.html.erb:6
 #: app/views/srpm/main.html.erb:29 app/views/srpm/rawspec.html.erb:6
@@ -517,50 +89,50 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:9 app/views/home/bythreegroup.html.erb:9
-#: app/views/home/bytwogroup.html.erb:9
+#: app/views/home/bygroup.html.erb:8 app/views/home/bythreegroup.html.erb:8
+#: app/views/home/bytwogroup.html.erb:8
 msgid "detailed information about the package"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
-#: app/views/home/bytwogroup.html.erb:11 app/views/srpm/main.html.erb:37
+#: app/views/home/bygroup.html.erb:10 app/views/home/bythreegroup.html.erb:10
+#: app/views/home/bytwogroup.html.erb:10 app/views/srpm/main.html.erb:37
 msgid "Current version:"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:12 app/views/home/bythreegroup.html.erb:12
-#: app/views/home/bytwogroup.html.erb:12
+#: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
+#: app/views/home/bytwogroup.html.erb:11
 msgid "Build time:"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:12 app/views/home/bythreegroup.html.erb:12
-#: app/views/home/bytwogroup.html.erb:12 app/views/packager/srpms.html.erb:31
+#: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
+#: app/views/home/bytwogroup.html.erb:11 app/views/packager/srpms.html.erb:31
 #: app/views/srpm/main.html.erb:38 app/views/team/info.html.erb:45
 msgid "ago"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:13 app/views/home/bythreegroup.html.erb:13
-#: app/views/home/bytwogroup.html.erb:13 app/views/srpm/main.html.erb:47
+#: app/views/home/bygroup.html.erb:12 app/views/home/bythreegroup.html.erb:12
+#: app/views/home/bytwogroup.html.erb:12 app/views/srpm/main.html.erb:47
 msgid "Summary:"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:15 app/views/home/bythreegroup.html.erb:15
-#: app/views/home/bytwogroup.html.erb:15
+#: app/views/home/bygroup.html.erb:14 app/views/home/bythreegroup.html.erb:14
+#: app/views/home/bytwogroup.html.erb:14
 msgid "Changes:"
 msgstr ""
 
-#: app/views/home/groups_list.html.erb:2
+#: app/views/home/groups_list.html.erb:1
 msgid "Prometheus 2.0 - Groups"
 msgstr ""
 
-#: app/views/home/groups_list.html.erb:24
+#: app/views/home/groups_list.html.erb:23
 msgid "Package groups"
 msgstr ""
 
-#: app/views/home/index.html.erb:2
+#: app/views/home/index.html.erb:1
 msgid "Prometheus 2.0 - Intro"
 msgstr ""
 
-#: app/views/home/index.html.erb:8
+#: app/views/home/index.html.erb:7
 msgid ""
 "<b>Sisyphus</b> is daily updated free software repository by <abbr title="
 "\"Independent ALT Linux development team\">ALT&nbsp;Linux&nbsp;Team</abbr>. "
@@ -573,124 +145,125 @@ msgid ""
 "systems</b>."
 msgstr ""
 
-#: app/views/home/index.html.erb:10
+#: app/views/home/index.html.erb:9
 msgid ""
 "Sisyphus is not intended for end users and its usage may result in "
 "unpredictable behaviour. You might want to use ALT Linux distributions and "
 "their usual updates if you want to run a reliable system."
 msgstr ""
 
-#: app/views/home/index.html.erb:14
+#: app/views/home/index.html.erb:13
 msgid "Latest changes"
 msgstr ""
 
-#: app/views/home/index.html.erb:18
+#: app/views/home/index.html.erb:17
 msgid "previous releases"
 msgstr ""
 
-#: app/views/home/index.html.erb:18
+#: app/views/home/index.html.erb:17
 msgid "another transfers"
 msgstr ""
 
-#: app/views/home/index.html.erb:23
+#: app/views/home/index.html.erb:22
 msgid "sort maintainers by amount of packages"
 msgstr ""
 
-#: app/views/home/index.html.erb:24
+#: app/views/home/index.html.erb:23
 msgid "TOP maintainers"
 msgstr ""
 
-#: app/views/home/index.html.erb:26 app/views/home/index.html.erb:47
-#: app/views/home/index.html.erb:59 app/views/srpm/download.html.erb:9
+#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:46
+#: app/views/home/index.html.erb:58 app/views/srpm/download.html.erb:9
 #: app/views/srpm/main.html.erb:9
 msgid "hide window"
 msgstr ""
 
-#: app/views/home/index.html.erb:34 app/views/team/info.html.erb:9
+#: app/views/home/index.html.erb:33 app/views/team/info.html.erb:9
 #: app/views/team/info.html.erb:15
 msgid "information about the packager"
 msgstr ""
 
-#: app/views/home/index.html.erb:44
+#: app/views/home/index.html.erb:43
 msgid "sort packages by amount of releases in the last half of year"
 msgstr ""
 
-#: app/views/home/index.html.erb:45
+#: app/views/home/index.html.erb:44
 msgid "TOP RPMs"
 msgstr ""
 
-#: app/views/home/index.html.erb:56
+#: app/views/home/index.html.erb:55
 msgid "tips and tricks"
 msgstr ""
 
-#: app/views/home/index.html.erb:57
+#: app/views/home/index.html.erb:56
 msgid "tips &amp; tricks"
 msgstr ""
 
-#: app/views/home/index.html.erb:62
+#: app/views/home/index.html.erb:61
 msgid "Sisyphus sync"
 msgstr ""
 
-#: app/views/home/index.html.erb:62
+#: app/views/home/index.html.erb:61
 msgid ""
-"Q: How can I skip heap of packages if I even don't know why I need them?"
+"<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
+"them?"
 msgstr ""
 
-#: app/views/home/index.html.erb:62
-msgid "A: Create filter for rsync with the help of this"
+#: app/views/home/index.html.erb:61
+msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr ""
 
-#: app/views/home/index.html.erb:62
+#: app/views/home/index.html.erb:61
 msgid "form"
 msgstr ""
 
-#: app/views/home/packagers_list.html.erb:2
+#: app/views/home/packagers_list.html.erb:1
 msgid "Prometheus 2.0 - Maintainers"
 msgstr ""
 
-#: app/views/home/packagers_list.html.erb:6 app/views/iphone/index.html.erb:10
+#: app/views/home/packagers_list.html.erb:5 app/views/iphone/index.html.erb:10
 #: app/views/iphone/index.html.erb:27
 #: app/views/layouts/application.html.erb:120
 msgid "Maintainers"
 msgstr ""
 
-#: app/views/home/packagers_list.html.erb:6 app/views/iphone/index.html.erb:11
+#: app/views/home/packagers_list.html.erb:5 app/views/iphone/index.html.erb:11
 #: app/views/iphone/index.html.erb:33
 msgid "Teams"
 msgstr ""
 
-#: app/views/home/search.html.erb:2
+#: app/views/home/search.html.erb:1
 msgid "Prometheus 2.0 - Search"
 msgstr ""
 
-#: app/views/home/search.html.erb:5
+#: app/views/home/search.html.erb:4
 msgid "Search"
 msgstr ""
 
-#: app/views/home/search.html.erb:9
+#: app/views/home/search.html.erb:8
 msgid "search"
 msgstr ""
 
-#: app/views/home/search.html.erb:12
+#: app/views/home/search.html.erb:11
 msgid "On your query"
 msgstr ""
 
-#: app/views/home/search.html.erb:12
+#: app/views/home/search.html.erb:11
 msgid "were found"
 msgstr ""
 
-#: app/views/home/search.html.erb:12
+#: app/views/home/search.html.erb:11
 msgid "RPM:"
 msgid_plural "RPMs:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/views/home/search.html.erb:18 app/views/packager/srpms.html.erb:13
+#: app/views/home/search.html.erb:17 app/views/packager/srpms.html.erb:13
 #: app/views/team/info.html.erb:27
 msgid "current<br />version"
 msgstr ""
 
-#: app/views/home/search.html.erb:19 app/views/packager/allbugs.html.erb:22
+#: app/views/home/search.html.erb:18 app/views/packager/allbugs.html.erb:22
 #: app/views/packager/bugs.html.erb:19 app/views/srpm/allbugs.html.erb:28
 #: app/views/srpm/bugs.html.erb:33
 msgid "summary"
