@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-09-20 19:24+0300\n"
+"POT-Creation-Date: 2010-09-21 14:17+0300\n"
 "PO-Revision-Date: 2009-11-16 21:52+0200\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -223,8 +223,8 @@ msgid ""
 "<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
 "them?"
 msgstr ""
-"<b>Q:</b> Як уникнути копіювання безлічі пакетів, необхідність яких, особисто Вам, "
-"сумнівна?"
+"<b>Q:</b> Як уникнути копіювання безлічі пакетів, необхідність яких, "
+"особисто Вам, сумнівна?"
 
 #: app/views/home/index.html.erb:61
 msgid "<b>A:</b> Create filter for rsync with the help of this"
@@ -938,5 +938,3 @@ msgstr "Немає такої команди!"
 
 #~ msgid "Patches"
 #~ msgstr "Патчі"
-
-
