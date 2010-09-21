@@ -3,9 +3,9 @@ class SrpmController < ApplicationController
 
   def main
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    if @branch.nil?
-      render :template => "public/404", :layout => false, :status => 404
-    end
+#    if @branch.nil?
+#      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
+#    end
 
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
@@ -50,7 +50,8 @@ class SrpmController < ApplicationController
                                 :order => 'name ASC'
       end
     else
-      render :template => "public/404", :layout => false, :status => 404
+      render :action => "nosuchpackage"
+      #render :template => "public/404", :layout => false, :status => 404
     end
   end
 
