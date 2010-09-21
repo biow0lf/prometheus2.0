@@ -24,7 +24,6 @@ GEM
       gettext_activerecord (>= 2.1.0)
       locale_rails (>= 2.0.5)
       rails (>= 2.3.2)
-    i18n (0.4.1)
     linecache (0.43)
     locale (2.0.5)
     locale_rails (2.0.5)
@@ -44,11 +43,8 @@ GEM
       ruby-debug-base (~> 0.10.3.0)
     ruby-debug-base (0.10.3)
       linecache (>= 0.3)
-    russian (0.2.7)
     searchlogic (2.4.26)
       activerecord (>= 2.0.0)
-    ukrainian (2.5.3)
-      i18n
 
 PLATFORMS
   ruby
@@ -64,6 +60,4 @@ DEPENDENCIES
   rack
   rails (= 2.3.9)
   ruby-debug
-  russian (= 0.2.7)
   searchlogic (= 2.4.26)
-  ukrainian (= 2.5.3)
