@@ -9,6 +9,18 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/find.shtml', :controller => 'home', :action => 'search'
   map.connect '/:locale/find.shtml', :controller => 'home', :action => 'search', :requirements => { :locale => /(en|ru|uk)/ }
 
+  map.connect '/news', :controller => 'pages', :action => 'news'	 	
+  map.connect '/:locale/news', :controller => 'pages', :action => 'news', :requirements => { :locale => /(en|ru|uk)/ }
+
+  map.connect '/rss', :controller => 'pages', :action => 'rss'	 	
+  map.connect '/:locale/rss', :controller => 'pages', :action => 'rss', :requirements => { :locale => /(en|ru|uk)/ }
+
+  map.connect '/security', :controller => 'pages', :action => 'security'
+  map.connect '/:locale/security', :controller => 'pages', :action => 'security', :requirements => { :locale => /(en|ru|uk)/ }
+
+  map.connect '/project', :controller => 'pages', :action => 'project'
+  map.connect '/:locale/project', :controller => 'pages', :action => 'project', :requirements => { :locale => /(en|ru|uk)/ }
+
   map.connect '/packages', :controller => 'home', :action => 'groups_list'
   map.connect '/:locale/packages', :controller => 'home', :action => 'groups_list', :requirements => { :locale => /(en|ru|uk)/ }
 
