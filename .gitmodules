@@ -1,9 +1,6 @@
 [submodule "vendor/plugins/exception_notification"]
 	path = vendor/plugins/exception_notification
 	url = git://github.com/rails/exception_notification.git
-[submodule "vendor/plugins/high_voltage"]
-	path = vendor/plugins/high_voltage
-	url = git://github.com/thoughtbot/high_voltage.git
 [submodule "vendor/plugins/rails_xss"]
 	path = vendor/plugins/rails_xss
 	url = git://github.com/rails/rails_xss.git
