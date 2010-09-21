@@ -9,10 +9,6 @@ gem 'erubis'
 
 gem 'searchlogic', '2.4.26'
 
-#gem 'i18n'
-#gem 'russian', '0.2.7'
-#gem 'ukrainian', '2.5.3'
-
 gem 'locale'
 gem 'locale_rails'
 gem 'gettext'
