@@ -30,7 +30,7 @@
     <td><%= acl.srpm.buildtime %></td>
     <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
     <td>
-      <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news' %><% else %>-<% end %>
+      <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow' %><% else %>-<% end %>
     </td>
     <td style="text-align:left;"><%= acl.srpm.summary %></td>
   </tr>
