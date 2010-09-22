@@ -25,6 +25,7 @@ class Packager < ActiveRecord::Base
       packager_email.gsub!(' at altlinux.org', '@altlinux.org')
       packager_email.gsub!(' at altlinux dot org', '@altlinux.org')
       packager_email.gsub!(' at altlinux dot ru', '@altlinux.org')
+      packager_email.gsub!('@altlinux.ru', '@altlinux.org')
       packager_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
       packager_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
       packager_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
