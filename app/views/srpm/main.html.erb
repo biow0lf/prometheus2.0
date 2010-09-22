@@ -39,7 +39,7 @@
 <b><%= _("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
 
 <% if @srpm.url != nil -%>
-<b><%= _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news' %><br /><br />
+<b><%= _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news', :rel => 'nofollow' %><br /><br />
 <% end -%>
 
 <b><%= _("License:") %></b> <span class="news-text"><%= @srpm.license %></span><br />
