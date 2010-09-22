@@ -15,7 +15,7 @@
 <table style="pretty">
   <% @gitrepos.each do |gitrepo| -%>
     <tr>
-	  <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
+      <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
         <% login = gitrepo.login -%>
         <% login = 'php_coder' if gitrepo.login == 'php-coder' -%>
         <%= link_to gitrepo.packager.name, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.login %>@)
