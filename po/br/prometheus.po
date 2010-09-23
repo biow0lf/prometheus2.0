@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-09-21 14:17+0300\n"
+"POT-Creation-Date: 2010-09-23 16:10+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -142,6 +142,14 @@ msgid ""
 "universal or specialized <b>Linux distributions</b> or just <b>single "
 "systems</b>."
 msgstr ""
+"<b>Sisyphus</b> &mdash; é um repositório de software livre diariamente "
+"atualizado pela <abbr title=\"ALT Linux\">Equipe ALT&nbsp;Linux&nbsp;</abbr>."
+"A participação no projeto Sisyphus é aberto. Na base deste projeto, existem "
+"tecnologias de embedded e dependências o software de rastreamento e também "
+"conhecidos processos de interação desenvolvedores. ALT Qualquer distribuição "
+"Linux e pacote gestor <b>APT</b>. Sisyphus &mdash; está permanentemente "
+"desenvolvido um conjunto de soluções. Você pode usá-las para criar e se "
+"especializar em <b>Distribuições Linux</b> e <b>integrações de projetos</b>."
 
 #: app/views/home/index.html.erb:9
 msgid ""
@@ -149,6 +157,9 @@ msgid ""
 "unpredictable behaviour. You might want to use ALT Linux distributions and "
 "their usual updates if you want to run a reliable system."
 msgstr ""
+"Sisyphus não é destino para usuários finais,e sua utilização pode resultar "
+"em danos imprevisíveis.  Você deve usar distribuições ALT Linux disponíveis "
+"em nosso website se você quiser ter sistema confiável."
 
 #: app/views/home/index.html.erb:13
 msgid "Latest changes"
@@ -160,7 +171,7 @@ msgstr ""
 
 #: app/views/home/index.html.erb:17
 msgid "another transfers"
-msgstr ""
+msgstr "outras transferências"
 
 #: app/views/home/index.html.erb:22
 msgid "sort maintainers by amount of packages"
@@ -191,7 +202,7 @@ msgstr "TOP RPMS"
 
 #: app/views/home/index.html.erb:55
 msgid "tips and tricks"
-msgstr ""
+msgstr "dicas e truques"
 
 #: app/views/home/index.html.erb:56
 msgid "tips &amp; tricks"
@@ -206,14 +217,16 @@ msgid ""
 "<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
 "them?"
 msgstr ""
+"<b>Q:</b> Como posso saltar Escombreira de pacotes se eu ainda não sei "
+"porque eu preciso deles?"
 
 #: app/views/home/index.html.erb:61
 msgid "<b>A:</b> Create filter for rsync with the help of this"
-msgstr ""
+msgstr "<b>R:</b> Criar filtro para rsync com a ajuda deste"
 
 #: app/views/home/index.html.erb:61
 msgid "form"
-msgstr ""
+msgstr "formulário"
 
 #: app/views/home/packagers_list.html.erb:1
 msgid "Prometheus 2.0 - Maintainers"
@@ -421,6 +434,14 @@ msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "Ukrainian"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "br"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "Portuguese (Brasilian)"
 msgstr ""
 
 #: app/views/layouts/application.html.erb:105
@@ -711,7 +732,7 @@ msgstr ""
 #: app/views/srpm/gear.html.erb:12 app/views/srpm/rawspec.html.erb:12
 #: app/views/srpm/repocop.html.erb:12
 msgid "information about SRPM"
-msgstr ""
+msgstr "informação sobre SRPM"
 
 #: app/views/srpm/allbugs.html.erb:12 app/views/srpm/bugs.html.erb:12
 #: app/views/srpm/changelog.html.erb:12 app/views/srpm/download.html.erb:36
