@@ -85,7 +85,7 @@ msgstr ""
 #: app/views/srpm/main.html.erb:29 app/views/srpm/rawspec.html.erb:6
 #: app/views/srpm/repocop.html.erb:6
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 #: app/views/home/bygroup.html.erb:8 app/views/home/bythreegroup.html.erb:8
 #: app/views/home/bytwogroup.html.erb:8
@@ -366,7 +366,7 @@ msgstr ""
 #: app/views/srpm/gear.html.erb:12 app/views/srpm/main.html.erb:36
 #: app/views/srpm/rawspec.html.erb:12 app/views/srpm/repocop.html.erb:12
 msgid "Bugs and FR"
-msgstr ""
+msgstr "Bugs e FR"
 
 #: app/views/iphone/packager_info.erb:12 app/views/packager/acls.html.erb:6
 #: app/views/packager/allbugs.html.erb:6 app/views/packager/bugs.html.erb:6
@@ -813,11 +813,11 @@ msgstr ""
 
 #: app/views/srpm/main.html.erb:38
 msgid "Build date:"
-msgstr ""
+msgstr "Data da compilação:"
 
 #: app/views/srpm/main.html.erb:39
 msgid "Size:"
-msgstr ""
+msgstr "Tamanho:"
 
 #: app/views/srpm/main.html.erb:42
 msgid "Home page:"
@@ -825,23 +825,23 @@ msgstr ""
 
 #: app/views/srpm/main.html.erb:45
 msgid "License:"
-msgstr ""
+msgstr "Licença:"
 
 #: app/views/srpm/main.html.erb:48
 msgid "Description:"
-msgstr ""
+msgstr "Descrição:"
 
 #: app/views/srpm/main.html.erb:51
 msgid "Current maintainer:"
-msgstr ""
+msgstr "Mantenedor currente:"
 
 #: app/views/srpm/main.html.erb:59
 msgid "List of rpms provided by this srpm:"
-msgstr ""
+msgstr "Lista dos rpms provida por esta srpm:"
 
 #: app/views/srpm/main.html.erb:69
 msgid "ACL:"
-msgstr ""
+msgstr "ACL:"
 
 #: app/views/srpm/nosuchpackage.html.erb:1
 msgid "Prometheus 2.0 - Package - Error!"
