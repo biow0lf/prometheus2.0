@@ -38,7 +38,8 @@ class HomeController < ApplicationController
                            :branch => @branch.name }
     @srpms = Srpm.all :conditions => {
                         :group => params[:group] + '/' + params[:group2],
-                        :branch => 'Sisyphus' }
+                        :branch => 'Sisyphus' },
+                      :order => 'LOWER(name)'
   end
 
   def bythreegroup
@@ -49,7 +50,8 @@ class HomeController < ApplicationController
                            :branch => @branch.name }
     @srpms = Srpm.all :conditions => {
                         :group => params[:group] + '/' + params[:group2] + '/' + params[:group3],
-                        :branch => 'Sisyphus' }
+                        :branch => 'Sisyphus' },
+                      :order => 'LOWER(name)'
   end
 
   def packagers_list
