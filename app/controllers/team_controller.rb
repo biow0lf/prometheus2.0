@@ -23,7 +23,8 @@ class TeamController < ApplicationController
                                FROM teams, packagers
                                WHERE packagers.login = teams.login
                                AND teams.name = ?
-                               AND teams.branch = ?', '@' + params[:name], @branch.name ])
+                               AND teams.branch = ?
+                               ORDER BY LOWER(packagers.name)', '@' + params[:name], @branch.name ])
     else
       render :action => "nosuchteam"
     end
