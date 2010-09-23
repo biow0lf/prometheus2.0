@@ -95,12 +95,12 @@ msgstr ""
 #: app/views/home/bygroup.html.erb:10 app/views/home/bythreegroup.html.erb:10
 #: app/views/home/bytwogroup.html.erb:10 app/views/srpm/main.html.erb:37
 msgid "Current version:"
-msgstr ""
+msgstr "Versão atual:"
 
 #: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
 #: app/views/home/bytwogroup.html.erb:11
 msgid "Build time:"
-msgstr ""
+msgstr "Construido em:"
 
 #: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
 #: app/views/home/bytwogroup.html.erb:11 app/views/packager/srpms.html.erb:31
@@ -111,12 +111,12 @@ msgstr ""
 #: app/views/home/bygroup.html.erb:12 app/views/home/bythreegroup.html.erb:12
 #: app/views/home/bytwogroup.html.erb:12 app/views/srpm/main.html.erb:47
 msgid "Summary:"
-msgstr ""
+msgstr "Sumário:"
 
 #: app/views/home/bygroup.html.erb:14 app/views/home/bythreegroup.html.erb:14
 #: app/views/home/bytwogroup.html.erb:14
 msgid "Changes:"
-msgstr ""
+msgstr "Mudanças:"
 
 #: app/views/home/groups_list.html.erb:1
 msgid "Prometheus 2.0 - Groups"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: app/views/home/index.html.erb:22
 msgid "sort maintainers by amount of packages"
-msgstr ""
+msgstr "ordenar por valor dos mantenedores de pacotes"
 
 #: app/views/home/index.html.erb:23
 msgid "TOP maintainers"
@@ -183,7 +183,7 @@ msgstr ""
 
 #: app/views/home/index.html.erb:43
 msgid "sort packages by amount of releases in the last half of year"
-msgstr ""
+msgstr "ordenar por pacotes montante das emissões na última metade do ano"
 
 #: app/views/home/index.html.erb:44
 msgid "TOP RPMs"
@@ -453,7 +453,7 @@ msgstr "sobre projeto Prometeus"
 
 #: app/views/layouts/application.html.erb:140
 msgid "sisyphus public site"
-msgstr ""
+msgstr "sisyphus wiki"
 
 #: app/views/layouts/application.html.erb:146
 msgid "blog"
@@ -465,7 +465,7 @@ msgstr ""
 
 #: app/views/layouts/application.html.erb:157
 msgid "community-en@"
-msgstr ""
+msgstr "community-en@"
 
 #: app/views/packager/acls.html.erb:1 app/views/packager/allbugs.html.erb:1
 #: app/views/packager/bugs.html.erb:1 app/views/packager/gear.html.erb:1
@@ -718,7 +718,7 @@ msgstr ""
 #: app/views/srpm/gear.html.erb:12 app/views/srpm/main.html.erb:36
 #: app/views/srpm/rawspec.html.erb:12 app/views/srpm/repocop.html.erb:12
 msgid "Main"
-msgstr ""
+msgstr "Principal"
 
 #: app/views/srpm/allbugs.html.erb:12 app/views/srpm/bugs.html.erb:12
 #: app/views/srpm/download.html.erb:36 app/views/srpm/gear.html.erb:12
