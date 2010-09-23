@@ -26,7 +26,8 @@ class HomeController < ApplicationController
                            :branch => @branch.name }
     @srpms = Srpm.all :conditions => {
                         :group => params[:group],
-                        :branch => 'Sisyphus' }
+                        :branch => 'Sisyphus' },
+                      :order => 'LOWER(name)'
   end
 
   def bytwogroup
