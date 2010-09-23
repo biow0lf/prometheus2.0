@@ -124,7 +124,7 @@ msgstr ""
 
 #: app/views/home/groups_list.html.erb:23
 msgid "Package groups"
-msgstr ""
+msgstr "Grupos de pacotes"
 
 #: app/views/home/index.html.erb:1
 msgid "Prometheus 2.0 - Intro"
@@ -223,12 +223,12 @@ msgstr ""
 #: app/views/iphone/index.html.erb:27
 #: app/views/layouts/application.html.erb:120
 msgid "Maintainers"
-msgstr ""
+msgstr "Mantenedores"
 
 #: app/views/home/packagers_list.html.erb:5 app/views/iphone/index.html.erb:11
 #: app/views/iphone/index.html.erb:33
 msgid "Teams"
-msgstr ""
+msgstr "Equipe"
 
 #: app/views/home/search.html.erb:1
 msgid "Prometheus 2.0 - Search"
@@ -271,7 +271,7 @@ msgstr ""
 #: app/views/iphone/index.html.erb:8
 #: app/views/layouts/application.html.erb:110
 msgid "News"
-msgstr ""
+msgstr "Notícias"
 
 #: app/views/iphone/index.html.erb:9 app/views/iphone/index.html.erb:21
 #: app/views/iphone/packager_info.erb:9
@@ -286,27 +286,27 @@ msgstr "Pacotes"
 #: app/views/iphone/index.html.erb:12 app/views/iphone/index.html.erb:39
 #: app/views/layouts/application.html.erb:125
 msgid "Security"
-msgstr ""
+msgstr "Segurança"
 
 #: app/views/iphone/index.html.erb:13
 #: app/views/layouts/application.html.erb:130
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: app/views/iphone/index.html.erb:14
 #: app/views/layouts/application.html.erb:135
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
 msgid "http://en.altlinux.org/Sisyphus"
-msgstr ""
+msgstr "http://www.altlinux.com.br/wiki/Sisyphus"
 
 #: app/views/iphone/index.html.erb:16
 #: app/views/layouts/application.html.erb:146
@@ -336,7 +336,7 @@ msgstr ""
 #: app/views/iphone/index.html.erb:18
 #: app/views/layouts/application.html.erb:157
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
-msgstr ""
+msgstr "http://lists.altlinux.org/mailman/listinfo/community-en/"
 
 #: app/views/iphone/packager_info.erb:8 app/views/packager/acls.html.erb:6
 #: app/views/packager/allbugs.html.erb:6 app/views/packager/bugs.html.erb:6
@@ -393,7 +393,7 @@ msgstr ""
 
 #: app/views/layouts/application.html.erb:94
 msgid "Last update:"
-msgstr ""
+msgstr "Última atualização:"
 
 #: app/views/layouts/application.html.erb:94
 msgid "SRPMs:"
@@ -441,15 +441,15 @@ msgstr "informações do pacote"
 
 #: app/views/layouts/application.html.erb:120
 msgid "maintainers information"
-msgstr ""
+msgstr "informações dos mantenedores"
 
 #: app/views/layouts/application.html.erb:125
 msgid "security fixes"
-msgstr ""
+msgstr "as correções de segurança"
 
 #: app/views/layouts/application.html.erb:130
 msgid "about Prometeus project"
-msgstr ""
+msgstr "sobre projeto Prometeus"
 
 #: app/views/layouts/application.html.erb:140
 msgid "sisyphus public site"
