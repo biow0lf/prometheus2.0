@@ -5,15 +5,6 @@ class HomeController < ApplicationController
     @top15 = Packager.top15
   end
 
-  def news
-  end
-
-  def security
-  end
-
-  def rss
-  end
-
   def search
     if params[:request].empty?
       redirect_to :action => "index"
