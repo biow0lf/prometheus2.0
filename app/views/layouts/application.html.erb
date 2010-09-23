@@ -94,7 +94,7 @@ function show(divnum){
     <b><%= _("Last update:") %></b> <%= Date.today %> | <b><%= _("SRPMs:") %> <%= Srpm.count_srpms_in_sisyphus %></b>
   </div>
 
-  <div style="text-align: right"><%= link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') %> <%= link_to_unless_current _('ru'), '/ru' + yield(:url), :title => _('Russian') %> <%= link_to_unless_current _('uk'), '/uk' + yield(:url), :title => _('Ukrainian') %><!--<a href="/br<%= yield(:url) %>" title="Portuguese (Brasilian)">br</a>--></div>
+  <div style="text-align: right"><%= link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') %> <%= link_to_unless_current _('ru'), '/ru' + yield(:url), :title => _('Russian') %> <%= link_to_unless_current _('uk'), '/uk' + yield(:url), :title => _('Ukrainian') %> <%= link_to_unless_current _("br"), '/br' + yield(:url), :title => _('Portuguese (Brasilian)') %></div>
 
 </div>
 
