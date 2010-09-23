@@ -89,6 +89,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/sitemap_uk1.xml', :controller => 'sitemap', :action => 'sitemap_uk1'
   map.connect '/sitemap_uk2.xml', :controller => 'sitemap', :action => 'sitemap_uk2'
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+#  map.connect ':controller/:action/:id'
+#  map.connect ':controller/:action/:id.:format'
 end
