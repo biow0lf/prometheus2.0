@@ -51,7 +51,7 @@ class PackagerController < ApplicationController
                                  :login => params[:login].downcase,
                                  :team => false }
     @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
-                             :order => 'repo ASC'
+                             :order => 'LOWER(repo)'
     if @packager == nil
       render :action => "nosuchpackager"
     end
