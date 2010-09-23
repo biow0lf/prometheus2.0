@@ -8,7 +8,8 @@ class TeamController < ApplicationController
                              :team => true }
     @acls = Acl.all :conditions => {
                       :login => '@' + params[:name],
-                      :branch => @branch.name }
+                      :branch => @branch.name },
+                    :order => 'LOWER(package)'
 
     if @team != nil
       @leader = Team.find_by_sql(['SELECT teams.login, packagers.name
