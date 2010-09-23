@@ -152,7 +152,7 @@ msgstr ""
 
 #: app/views/home/index.html.erb:13
 msgid "Latest changes"
-msgstr ""
+msgstr "Últimas atualizações"
 
 #: app/views/home/index.html.erb:17
 msgid "previous releases"
@@ -425,19 +425,19 @@ msgstr ""
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: app/views/layouts/application.html.erb:105
 msgid "site home page"
-msgstr ""
+msgstr "página inicial"
 
 #: app/views/layouts/application.html.erb:110
 msgid "site news"
-msgstr ""
+msgstr "notícias do website"
 
 #: app/views/layouts/application.html.erb:115
 msgid "packages information"
-msgstr ""
+msgstr "informações do pacote"
 
 #: app/views/layouts/application.html.erb:120
 msgid "maintainers information"
