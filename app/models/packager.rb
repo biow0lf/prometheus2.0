@@ -4,7 +4,7 @@ class Packager < ActiveRecord::Base
 
   has_many :acls, :foreign_key => 'login', :primary_key => 'login'
 
-  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }, :order => 'LOWER(name)'
+  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }, :order => 'LOWER(package)'
 
   has_one :srpm, :through => :acls, :order => "name ASC"
 
