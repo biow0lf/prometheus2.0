@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-09-23 16:10+0300\n"
+"POT-Creation-Date: 2010-09-23 16:55+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -236,7 +236,7 @@ msgstr "формы"
 
 #: app/views/home/packagers_list.html.erb:1
 msgid "Prometheus 2.0 - Maintainers"
-msgstr ""
+msgstr "Prometheus 2.0 - Маинтейнеры и команды разработчиков"
 
 #: app/views/home/packagers_list.html.erb:5 app/views/iphone/index.html.erb:10
 #: app/views/iphone/index.html.erb:27
@@ -315,7 +315,7 @@ msgstr "О проекте"
 #: app/views/iphone/index.html.erb:14
 #: app/views/layouts/application.html.erb:135
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
@@ -403,7 +403,7 @@ msgid "Prometheus 2.0"
 msgstr "Prometheus 2.0"
 
 #: app/views/layouts/application.html.erb:72
-msgid "Sisyphus repository "
+msgid "Sisyphus repository"
 msgstr "Репозиторий Sisyphus"
 
 #: app/views/layouts/application.html.erb:83
@@ -444,11 +444,11 @@ msgstr "Ukrainian"
 
 #: app/views/layouts/application.html.erb:97
 msgid "br"
-msgstr ""
+msgstr "br"
 
 #: app/views/layouts/application.html.erb:97
 msgid "Portuguese (Brasilian)"
-msgstr ""
+msgstr "Portuguese (Brasilian)"
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"

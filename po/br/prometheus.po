@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-09-23 16:10+0300\n"
+"POT-Creation-Date: 2010-09-23 16:55+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -397,8 +397,8 @@ msgid "Prometheus 2.0"
 msgstr ""
 
 #: app/views/layouts/application.html.erb:72
-msgid "Sisyphus repository "
-msgstr ""
+msgid "Sisyphus repository"
+msgstr "Sisyphus repositório"
 
 #: app/views/layouts/application.html.erb:83
 msgid "find"
