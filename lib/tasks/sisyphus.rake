@@ -11,7 +11,7 @@ desc "Import RPM groups for Sisyphus to database"
 task :groups => :environment do
   require 'open-uri'
   puts Time.now.to_s + ": import RPM groups for Sisyphus to database"
-  Group.update_from_gitalt 'ALT Linux', 'Sisyphus'
+  Group.update_groups 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
   puts Time.now.to_s + ": end"
 end
 

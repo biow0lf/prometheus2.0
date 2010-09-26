@@ -12,12 +12,10 @@ class Group < ActiveRecord::Base
                  ORDER BY groups.name")
   end
 
-  def self.update_from_gitalt(vendor, branch)
-    url = Branch.first :conditions => { :vendor => vendor, :name => branch }
-
+  def self.update_groups(vendor, branch, url)
     ActiveRecord::Base.transaction do
       ActiveRecord::Base.connection.execute("DELETE FROM groups WHERE branch = '" + branch.to_s + "' AND vendor = '" + vendor.to_s + "'")
-      file = open(URI.escape(url.rpm_groups_url)).read
+      file = open(URI.escape(url)).read
       file.each_line do |line|
         Group.create :name => line.gsub(/\n/,''), :branch => branch, :vendor => vendor
       end

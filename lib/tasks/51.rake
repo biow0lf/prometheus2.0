@@ -11,7 +11,7 @@ desc "Import RPM groups for 5.1 to database"
 task :groups => :environment do
   require 'open-uri'
   puts Time.now.to_s + ": import groups"
-  Group.update_from_gitalt 'ALT Linux', '5.1'
+  Group.update_groups 'ALT Linux', '5.1', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
   puts Time.now.to_s + ": end"
 end
 
