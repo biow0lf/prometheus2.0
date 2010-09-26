@@ -3,7 +3,7 @@ desc "Import all ACL for packages from 4.1 to database"
 task :acls => :environment do
   require 'open-uri'
   puts Time.now.to_s + ": import acls"
-  Acl.update_from_gitalt 'ALT Linux', '4.1'
+  Acl.update_acls 'ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1'
   puts Time.now.to_s + ": end"
 end
 

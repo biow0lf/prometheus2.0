@@ -3,9 +3,7 @@ class Acl < ActiveRecord::Base
 
   has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 
-  def self.update_from_gitalt(vendor, branch)
-    url = Branch.first :conditions => { :vendor => vendor, :name => branch }
-
+  def self.update_acls(vendor, branch, url)
     ActiveRecord::Base.transaction do
       ActiveRecord::Base.connection.execute("DELETE FROM acls WHERE branch = '" + branch + "' AND vendor = '" + vendor + "'")
 
@@ -23,5 +21,4 @@ class Acl < ActiveRecord::Base
       end
     end
   end
-
 end
