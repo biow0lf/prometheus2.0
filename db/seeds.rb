@@ -9,7 +9,6 @@ branch.noarch_path = "/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm"
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.sisyphus'
-branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
 branch.order_id = 0
 branch.save!
 
@@ -24,7 +23,6 @@ branch.noarch_path = "/ALT/p5/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/p5/files/x86_64/RPMS/*.x86_64.rpm"
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.p5'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.p5'
-branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
 branch.order_id = 1
 branch.save!
 
@@ -39,7 +37,6 @@ branch.noarch_path = "/ALT/5.1/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/5.1/files/x86_64/RPMS/*.x86_64.rpm"
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.5.1'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.1'
-branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
 branch.order_id = 2
 branch.save!
 
@@ -54,7 +51,6 @@ branch.noarch_path = "/ALT/5.0/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/5.0/files/x86_64/RPMS/*.x86_64.rpm"
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.5.0'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.0'
-branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
 branch.order_id = 3
 branch.save!
 
@@ -69,7 +65,6 @@ branch.noarch_path = "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm"
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.4.1'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.1'
-branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
 branch.order_id = 4
 branch.save!
 
@@ -84,7 +79,6 @@ branch.noarch_path = "/ALT/4.0/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/4.0/files/x86_64/RPMS/*.x86_64.rpm"
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.4.0'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.0'
-branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
 branch.order_id = 5
 branch.save!
 
