@@ -35,42 +35,6 @@ class HomeController < ApplicationController
                       :order => 'LOWER(name)'
   end
 
-#  def bygroup
-#    # TODO: branch can be not only Sisyphus!
-#    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-#    @group = Group.first :conditions => {
-#                           :name => params[:group],
-#                           :branch => @branch.name }
-#    @srpms = Srpm.all :conditions => {
-#                        :group => params[:group],
-#                        :branch => 'Sisyphus' },
-#                      :order => 'LOWER(name)'
-#  end
-#
-#  def bytwogroup
-#    # TODO: branch can be not only Sisyphus!
-#    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-#    @group = Group.first :conditions => {
-#                           :name => params[:group] + '/' + params[:group2],
-#                           :branch => @branch.name }
-#    @srpms = Srpm.all :conditions => {
-#                        :group => params[:group] + '/' + params[:group2],
-#                        :branch => 'Sisyphus' },
-#                      :order => 'LOWER(name)'
-#  end
-#
-#  def bythreegroup
-#    # TODO: branch can be not only Sisyphus!
-#    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-#    @group = Group.first :conditions => {
-#                           :name => params[:group] + '/' + params[:group2] + '/' + params[:group3],
-#                           :branch => @branch.name }
-#    @srpms = Srpm.all :conditions => {
-#                        :group => params[:group] + '/' + params[:group2] + '/' + params[:group3],
-#                        :branch => 'Sisyphus' },
-#                      :order => 'LOWER(name)'
-#  end
-
   def packagers_list
     @packagers = Packager.find_all_packagers_in_sisyphus
     @teams = Packager.find_all_teams_in_sisyphus
