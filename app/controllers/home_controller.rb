@@ -27,7 +27,7 @@ class HomeController < ApplicationController
     groupname = groupname + '/' + params[:group3] if !params[:group3].nil?
     
     @group = Group.first :conditions => {
-                               :name => groupname],
+                               :name => groupname,
                                :branch => @branch.name }
     @srpms = Srpm.all :conditions => {
                         :group => groupname,
