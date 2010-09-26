@@ -45,6 +45,7 @@ GEM
       linecache (>= 0.3)
     searchlogic (2.4.26)
       activerecord (>= 2.0.0)
+    sqlite3-ruby (1.3.1)
 
 PLATFORMS
   ruby
@@ -61,3 +62,4 @@ DEPENDENCIES
   rails (= 2.3.9)
   ruby-debug
   searchlogic (= 2.4.26)
+  sqlite3-ruby

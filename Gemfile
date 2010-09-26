@@ -17,4 +17,9 @@ gem 'gettext_rails'
 
 group :development do
   gem 'ruby-debug'
+  gem 'sqlite3-ruby'
+end
+
+group :test do
+  gem 'sqlite3-ruby'
 end
