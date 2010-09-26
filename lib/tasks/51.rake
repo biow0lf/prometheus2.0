@@ -51,7 +51,7 @@ desc "Import all ACL for packages from 5.1 to database (leaders)"
 task :leaders => :environment do
   require 'open-uri'
   puts Time.now.to_s + ": import leaders"
-  Leader.update_from_gitalt 'ALT Linux', '5.1'
+  Leader.update_leaders 'ALT Linux', '5.1', 'http://git.altlinux.org/acl/list.packages.5.1'
   puts Time.now.to_s + ": end"
 end
 

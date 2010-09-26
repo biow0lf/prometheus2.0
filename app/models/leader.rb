@@ -1,12 +1,11 @@
 class Leader < ActiveRecord::Base
   validates_presence_of :package, :login, :branch, :vendor
 
-  def self.update_from_gitalt(vendor, branch)
+  def self.update_leaders(vendor, branch, url)
     ActiveRecord::Base.transaction do
-      url = Branch.first :conditions => { :vendor => vendor, :name => branch }
       ActiveRecord::Base.connection.execute("DELETE FROM leaders WHERE branch = '" + branch + "' AND vendor = '" + vendor + "'")
 
-      file = open(URI.escape(url.acls_url)).read
+      file = open(URI.escape(url)).read
 
       file.each_line do |line|
         package = line.split[0]
@@ -15,5 +14,4 @@ class Leader < ActiveRecord::Base
       end
     end
   end
-
 end
