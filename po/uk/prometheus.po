@@ -1,20 +1,19 @@
-# translation of prometheus_uk_UA.po to Ukrainian
+# translation of prometheus.po to Ukrainian
 # Copyright (C) 2009 THE prometheus'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the prometheus package.
 #
-# Motsyo Gennadi <drool@altlinux.ru>, 2009.
+# Motsyo Gennadi <drool@altlinux.ru>, 2009, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-09-23 16:55+0300\n"
-"PO-Revision-Date: 2009-11-16 21:52+0200\n"
+"Project-Id-Version: prometheus\n"
+"POT-Creation-Date: 2010-09-20 19:24+0300\n"
+"PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: app/models/acl.rb:-
@@ -223,8 +222,8 @@ msgid ""
 "<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
 "them?"
 msgstr ""
-"<b>Q:</b> Як уникнути копіювання безлічі пакетів, необхідність яких, "
-"особисто Вам, сумнівна?"
+"<b>Q:</b> Як уникнути копіювання безлічі пакетів, необхідність яких, особисто Вам, "
+"сумнівна?"
 
 #: app/views/home/index.html.erb:61
 msgid "<b>A:</b> Create filter for rsync with the help of this"
@@ -255,11 +254,11 @@ msgstr "Prometheus 2.0 - Пошук по сайту"
 
 #: app/views/home/search.html.erb:4
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: app/views/home/search.html.erb:8
 msgid "search"
-msgstr ""
+msgstr "шукати"
 
 #: app/views/home/search.html.erb:11
 msgid "On your query"
@@ -320,7 +319,7 @@ msgstr ""
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
@@ -330,23 +329,22 @@ msgstr "http://www.altlinux.org/Sisyphus"
 #: app/views/iphone/index.html.erb:16
 #: app/views/layouts/application.html.erb:146
 msgid "Blog"
-msgstr ""
+msgstr "Блог"
 
 #: app/views/iphone/index.html.erb:16
 #: app/views/layouts/application.html.erb:146
 msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
-msgstr ""
+msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
 #: app/views/iphone/index.html.erb:17
 #: app/views/layouts/application.html.erb:151
 msgid "Planet"
-msgstr ""
+msgstr "Планета"
 
 #: app/views/iphone/index.html.erb:17
 #: app/views/layouts/application.html.erb:151
-#, fuzzy
 msgid "http://planet.altlinux.org/"
-msgstr "http://www.altlinux.org/Sisyphus"
+msgstr "http://planet.altlinux.org/"
 
 #: app/views/iphone/index.html.erb:18
 #: app/views/layouts/application.html.erb:157
@@ -404,7 +402,7 @@ msgid "Prometheus 2.0"
 msgstr "Prometheus 2.0"
 
 #: app/views/layouts/application.html.erb:72
-msgid "Sisyphus repository"
+msgid "Sisyphus repository "
 msgstr "Репозиторій Sisyphus"
 
 #: app/views/layouts/application.html.erb:83
@@ -437,19 +435,11 @@ msgstr "Russian"
 
 #: app/views/layouts/application.html.erb:97
 msgid "uk"
-msgstr ""
+msgstr "uk"
 
 #: app/views/layouts/application.html.erb:97
 msgid "Ukrainian"
 msgstr "Ukrainian"
-
-#: app/views/layouts/application.html.erb:97
-msgid "br"
-msgstr ""
-
-#: app/views/layouts/application.html.erb:97
-msgid "Portuguese (Brasilian)"
-msgstr ""
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"
@@ -485,11 +475,11 @@ msgstr "громадський сайт sisyphus"
 
 #: app/views/layouts/application.html.erb:146
 msgid "blog"
-msgstr ""
+msgstr "блог про sisyphus"
 
 #: app/views/layouts/application.html.erb:151
 msgid "ALT Linux Planet"
-msgstr ""
+msgstr "ALT Linux Planet"
 
 #: app/views/layouts/application.html.erb:157
 msgid "community-en@"
@@ -503,9 +493,8 @@ msgid "Prometheus 2.0 - Maintainer &laquo;"
 msgstr "Prometheus 2.0 - Майнтейнер &laquo;"
 
 #: app/views/packager/acls.html.erb:1
-#, fuzzy
 msgid "&raquo; - ACL's"
-msgstr "&raquo; - Gear"
+msgstr "&raquo; - ACL's"
 
 #: app/views/packager/acls.html.erb:4 app/views/packager/allbugs.html.erb:4
 #: app/views/packager/bugs.html.erb:4 app/views/packager/gear.html.erb:4
@@ -548,9 +537,8 @@ msgid "List of packages which was built by this maintainer:"
 msgstr "Перелік пакетів, зібраних майнтейнером:"
 
 #: app/views/packager/acls.html.erb:13
-#, fuzzy
 msgid "ACL's"
-msgstr "ACL:"
+msgstr "ACL's"
 
 #: app/views/packager/allbugs.html.erb:1
 msgid "&raquo; - Bugs and FR (All)"
@@ -678,9 +666,8 @@ msgid "Prometheus 2.0 - Information about the project"
 msgstr "Prometheus 2.0 - Інформація про проект"
 
 #: app/views/pages/project.html.erb:4
-#, fuzzy
 msgid "Project Prometheus"
-msgstr "Prometheus 2.0"
+msgstr "Проект Prometheus"
 
 #: app/views/pages/project.html.erb:8
 msgid ""
@@ -883,9 +870,8 @@ msgid "No such package!"
 msgstr "Немає такого пакета!"
 
 #: app/views/srpm/rawspec.html.erb:1
-#, fuzzy
 msgid " - Spec"
-msgstr "Спек"
+msgstr " - Спек"
 
 #: app/views/srpm/repocop.html.erb:1
 msgid " - Repocop"
@@ -927,22 +913,3 @@ msgstr "Prometheus 2.0 - Team - Error!"
 msgid "No such team!"
 msgstr "Немає такої команди!"
 
-#~ msgid "List of contributors:"
-#~ msgstr ""
-#~ "Перелік всіх майнтейнерв, що приймали участь<br />в цій та/чи попередніх "
-#~ "збірках пакета:"
-
-#~ msgid "ua"
-#~ msgstr "ua"
-
-#~ msgid "sources"
-#~ msgstr "sources"
-
-#~ msgid "Sources"
-#~ msgstr "Sources"
-
-#~ msgid "patches"
-#~ msgstr "переглянути патчі пакета"
-
-#~ msgid "Patches"
-#~ msgstr "Патчі"
