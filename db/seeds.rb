@@ -7,7 +7,6 @@ branch.srpms_path = "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
 branch.binary_x86_path = "/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm"
 branch.noarch_path = "/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.sisyphus'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
@@ -23,7 +22,6 @@ branch.srpms_path = "/ALT/p5/files/SRPMS/*.src.rpm"
 branch.binary_x86_path = "/ALT/p5/files/i586/RPMS/*.i586.rpm"
 branch.noarch_path = "/ALT/p5/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/p5/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_url = 'http://git.altlinux.org/acl/list.packages.p5'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.p5'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.p5'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
@@ -39,7 +37,6 @@ branch.srpms_path = "/ALT/5.1/files/SRPMS/*.src.rpm"
 branch.binary_x86_path = "/ALT/5.1/files/i586/RPMS/*.i586.rpm"
 branch.noarch_path = "/ALT/5.1/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/5.1/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_url = 'http://git.altlinux.org/acl/list.packages.5.1'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.5.1'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.1'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
@@ -55,7 +52,6 @@ branch.srpms_path = "/ALT/5.0/files/SRPMS/*.src.rpm"
 branch.binary_x86_path = "/ALT/5.0/files/i586/RPMS/*.i586.rpm"
 branch.noarch_path = "/ALT/5.0/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/5.0/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_url = 'http://git.altlinux.org/acl/list.packages.5.0'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.5.0'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.0'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
@@ -71,7 +67,6 @@ branch.srpms_path = "/ALT/4.1/files/SRPMS/*.src.rpm"
 branch.binary_x86_path = "/ALT/4.1/files/i586/RPMS/*.i586.rpm"
 branch.noarch_path = "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_url = 'http://git.altlinux.org/acl/list.packages.4.1'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.4.1'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.1'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
@@ -87,7 +82,6 @@ branch.srpms_path = "/ALT/4.0/files/SRPMS/*.src.rpm"
 branch.binary_x86_path = "/ALT/4.0/files/i586/RPMS/*.i586.rpm"
 branch.noarch_path = "/ALT/4.0/files/noarch/RPMS/*.noarch.rpm"
 branch.binary_x86_64_path = "/ALT/4.0/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_url = 'http://git.altlinux.org/acl/list.packages.4.0'
 branch.leaders_url = 'http://git.altlinux.org/acl/list.packages.4.0'
 branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.0'
 branch.rpm_groups_url = 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'

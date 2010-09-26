@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100121045450) do
+ActiveRecord::Schema.define(:version => 20100926231929) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20100121045450) do
     t.string   "binary_x86_path"
     t.string   "noarch_path"
     t.string   "binary_x86_64_path"
-    t.string   "acls_url"
     t.string   "leaders_url"
     t.string   "acls_groups_url"
     t.datetime "created_at"
