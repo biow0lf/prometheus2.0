@@ -50,8 +50,7 @@ class SrpmController < ApplicationController
                                 :order => 'name ASC'
       end
     else
-      render :action => "nosuchpackage"
-      #render :template => "public/404", :layout => false, :status => 404
+      render :status => 404, :action => "nosuchpackage"
     end
   end
 
@@ -62,7 +61,7 @@ class SrpmController < ApplicationController
                          :branch => @branch.name,
                          :vendor => @branch.vendor }
     if @srpm == nil
-      render :action => "nosuchpackage"
+      render :status => 404, :action => "nosuchpackage"
     end
   end
 
@@ -73,7 +72,7 @@ class SrpmController < ApplicationController
                          :branch => @branch.name,
                          :vendor => @branch.vendor }
     if @srpm == nil
-      render :action => "nosuchpackage"
+      render :status => 404, :action => "nosuchpackage"
     end
   end
 
@@ -110,7 +109,7 @@ class SrpmController < ApplicationController
                               :arch => 'x86_64' },
                             :order => 'name ASC'
     else
-      render :action => "nosuchpackage"
+      render :status => 404, :action => "nosuchpackage"
     end
   end
 
@@ -124,7 +123,7 @@ class SrpmController < ApplicationController
       @gitrepos = Gitrepo.all :conditions => { :repo => @srpm.name },
                                :order => 'lastchange DESC'
     else
-      render :action => "nosuchpackage"
+      render :status => 404, :action => "nosuchpackage"
     end
   end
 
@@ -171,7 +170,7 @@ class SrpmController < ApplicationController
 
 #    if @srpm == nil
     else
-      render :action => "nosuchpackage"
+      render :status => 404, :action => "nosuchpackage"
     end
   end
 
