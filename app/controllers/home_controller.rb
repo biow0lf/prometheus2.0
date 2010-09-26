@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-#  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :bytwogroup, :bythreegroup, :packagers_list
+#  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :packagers_list
 
   def index
     @top15 = Packager.top15
