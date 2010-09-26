@@ -315,7 +315,7 @@ msgstr "Про проект"
 #: app/views/iphone/index.html.erb:14
 #: app/views/layouts/application.html.erb:135
 msgid "RSS"
-msgstr ""
+msgstr "RSS"
 
 #: app/views/iphone/index.html.erb:15
 #: app/views/layouts/application.html.erb:140
@@ -403,7 +403,6 @@ msgid "Prometheus 2.0"
 msgstr "Prometheus 2.0"
 
 #: app/views/layouts/application.html.erb:72
-#, fuzzy
 msgid "Sisyphus repository"
 msgstr "Репозиторій Sisyphus"
 
@@ -445,11 +444,11 @@ msgstr "Ukrainian"
 
 #: app/views/layouts/application.html.erb:97
 msgid "br"
-msgstr ""
+msgstr "br"
 
 #: app/views/layouts/application.html.erb:97
 msgid "Portuguese (Brasilian)"
-msgstr ""
+msgstr "Portuguese (Brasilian)"
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"
