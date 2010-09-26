@@ -3,23 +3,15 @@
 == Setup and run
 
 Install:
-* Ruby 1.9.1
+* RVM
+* Ruby EE 1.8.7
 * ruby-rpm
-* Ruby on Rails 2.3.4
-* PostgreSQL 8.3 (with other databases it doesn't tested)
-* ruby-gettext
-* ruby-locale
+* bundler
+* PostgreSQL 8.4 (with other databases it doesn't tested)
+* nginx + passenger
 
-Or, under ALT Linux Sisyphus:
-* apt-get install postgresql8.3
-* apt-get install postgresql8.3-server
-* apt-get install ruby
-* apt-get install ruby-rpm
-* apt-get install ruby-rails
-* apt-get install ruby-activerecord-postgresql-adapter
-* apt-get install ruby-activerecord-sqlite3-adapter (for tests)
-* apt-get install ruby-gettext_rails
-* apt-get install ruby-gettext_rails-tools
+And then:
+* "bundle" in project folder
 
 Prepare:
 * rake makemo
@@ -88,30 +80,5 @@ Init database:
 * rake 40:x86_64
 
 Add to cron:
-* 0 0 * * * cd /srv/www/prometheus2.0/current && /usr/bin/rake RAILS_ENV=production sisyphus:groups 51:groups platform5:groups sisyphus:expire:groups >> /var/log/prometheus.log 2>&1
+TODO
 
-
-== LICENSE:
-
-(The MIT License)
-
-Copyright (c) 2009-2010 Igor Zubkov <igor.zubkov@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
