@@ -1,7 +1,7 @@
-<% title _("Prometheus 2.0 - Group - ") + params[:group] %>
-<% url "/packages/" + params[:group] %>
+<% title _("Prometheus 2.0 - Group - ") + @group.name %>
+<% url "/packages/" + @group.name %>
 
-<div class="header"><%= _("Group") %> :: <%= params[:group] %></div><p class="news" />
+<div class="header"><%= _("Group") %> :: <%= @group.name %></div><p class="news" />
 
 <% @srpms.each do |srpm| -%>
 <p class="news" />
