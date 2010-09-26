@@ -82,11 +82,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.sitemap '/sitemap.xml', :controller => 'sitemap', :action => 'sitemap_full'
   map.connect '/sitemap_basic.xml', :controller => 'sitemap', :action => 'sitemap_basic'
-  map.connect '/sitemap_en1.xml', :controller => 'sitemap', :action => 'sitemap_en1'
-  map.connect '/sitemap_en2.xml', :controller => 'sitemap', :action => 'sitemap_en2'
-  map.connect '/sitemap_ru1.xml', :controller => 'sitemap', :action => 'sitemap_ru1'
-  map.connect '/sitemap_ru2.xml', :controller => 'sitemap', :action => 'sitemap_ru2'
-  map.connect '/sitemap_uk1.xml', :controller => 'sitemap', :action => 'sitemap_uk1'
-  map.connect '/sitemap_uk2.xml', :controller => 'sitemap', :action => 'sitemap_uk2'
+  map.connect '/:locale/sitemap1.xml', :controller => 'sitemap', :action => 'sitemap_part1', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/:locale/sitemap2.xml', :controller => 'sitemap', :action => 'sitemap_part2', :requirements => { :locale => /(en|ru|uk|br)/ }
+  
+  #map.connect '/sitemap_en1.xml', :controller => 'sitemap', :action => 'sitemap_en1'
+  #map.connect '/sitemap_en2.xml', :controller => 'sitemap', :action => 'sitemap_en2'
+  #map.connect '/sitemap_ru1.xml', :controller => 'sitemap', :action => 'sitemap_ru1'
+  #map.connect '/sitemap_ru2.xml', :controller => 'sitemap', :action => 'sitemap_ru2'
+  #map.connect '/sitemap_uk1.xml', :controller => 'sitemap', :action => 'sitemap_uk1'
+  #map.connect '/sitemap_uk2.xml', :controller => 'sitemap', :action => 'sitemap_uk2'
 
 end

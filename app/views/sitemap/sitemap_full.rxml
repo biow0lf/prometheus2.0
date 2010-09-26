@@ -5,27 +5,35 @@ xml.sitemapindex(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") {
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
   xml.sitemap {
-    xml.loc 'http://prometheus.altlinux.org/sitemap_en1.xml'
+    xml.loc 'http://prometheus.altlinux.org/en/sitemap1.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
   xml.sitemap {
-    xml.loc 'http://prometheus.altlinux.org/sitemap_en2.xml'
+    xml.loc 'http://prometheus.altlinux.org/en/sitemap2.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
   xml.sitemap {
-    xml.loc 'http://prometheus.altlinux.org/sitemap_ru1.xml'
+    xml.loc 'http://prometheus.altlinux.org/ru/sitemap1.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
   xml.sitemap {
-    xml.loc 'http://prometheus.altlinux.org/sitemap_ru2.xml'
+    xml.loc 'http://prometheus.altlinux.org/ru/sitemap2.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
   xml.sitemap {
-    xml.loc 'http://prometheus.altlinux.org/sitemap_uk1.xml'
+    xml.loc 'http://prometheus.altlinux.org/uk/sitemap1.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
   xml.sitemap {
-    xml.loc 'http://prometheus.altlinux.org/sitemap_uk2.xml'
+    xml.loc 'http://prometheus.altlinux.org/uk/sitemap2.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://prometheus.altlinux.org/br/sitemap1.xml'
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+  }
+  xml.sitemap {
+    xml.loc 'http://prometheus.altlinux.org/br/sitemap2.xml'
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
   }
 }
