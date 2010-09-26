@@ -12,7 +12,7 @@ class PackagerController < ApplicationController
                       :vendor => @branch.vendor }
 #                    :include => [:srpm]
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
@@ -28,7 +28,7 @@ class PackagerController < ApplicationController
 #                      :vendor => @branch.vendor }
 #                     :include => [:srpms]
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
@@ -42,7 +42,7 @@ class PackagerController < ApplicationController
                       :branch_id => @branch.id }
 #                     :include => [:srpm]
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
@@ -53,7 +53,7 @@ class PackagerController < ApplicationController
     @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
                              :order => 'LOWER(repo)'
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
@@ -71,7 +71,7 @@ class PackagerController < ApplicationController
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
@@ -89,7 +89,7 @@ class PackagerController < ApplicationController
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
@@ -98,7 +98,7 @@ class PackagerController < ApplicationController
                                  :login => params[:login].downcase,
                                  :team => false }
     if @packager == nil
-      render :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchpackager"
     end
   end
 
