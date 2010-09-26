@@ -9,6 +9,7 @@ Install:
 * bundler
 * PostgreSQL 8.4 (with other databases it doesn't tested)
 * nginx + passenger
+* gettext
 
 And then:
 * "bundle" in project folder
