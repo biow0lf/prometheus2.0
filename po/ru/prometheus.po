@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-09-23 16:55+0300\n"
+"POT-Creation-Date: 2010-09-26 17:21+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -76,13 +76,11 @@ msgstr ""
 msgid "transaction"
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:1 app/views/home/bythreegroup.html.erb:1
-#: app/views/home/bytwogroup.html.erb:1
+#: app/views/home/bygroup.html.erb:1
 msgid "Prometheus 2.0 - Group - "
 msgstr ""
 
-#: app/views/home/bygroup.html.erb:4 app/views/home/bythreegroup.html.erb:4
-#: app/views/home/bytwogroup.html.erb:4 app/views/srpm/allbugs.html.erb:6
+#: app/views/home/bygroup.html.erb:4 app/views/srpm/allbugs.html.erb:6
 #: app/views/srpm/bugs.html.erb:6 app/views/srpm/changelog.html.erb:6
 #: app/views/srpm/download.html.erb:29 app/views/srpm/gear.html.erb:6
 #: app/views/srpm/main.html.erb:29 app/views/srpm/rawspec.html.erb:6
@@ -90,34 +88,28 @@ msgstr ""
 msgid "Group"
 msgstr "Группa"
 
-#: app/views/home/bygroup.html.erb:8 app/views/home/bythreegroup.html.erb:8
-#: app/views/home/bytwogroup.html.erb:8
+#: app/views/home/bygroup.html.erb:8
 msgid "detailed information about the package"
 msgstr "подробная информация о пакете"
 
-#: app/views/home/bygroup.html.erb:10 app/views/home/bythreegroup.html.erb:10
-#: app/views/home/bytwogroup.html.erb:10 app/views/srpm/main.html.erb:37
+#: app/views/home/bygroup.html.erb:10 app/views/srpm/main.html.erb:37
 msgid "Current version:"
 msgstr "Текущая версия:"
 
-#: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
-#: app/views/home/bytwogroup.html.erb:11
+#: app/views/home/bygroup.html.erb:11
 msgid "Build time:"
 msgstr "Время сборки:"
 
-#: app/views/home/bygroup.html.erb:11 app/views/home/bythreegroup.html.erb:11
-#: app/views/home/bytwogroup.html.erb:11 app/views/packager/srpms.html.erb:31
+#: app/views/home/bygroup.html.erb:11 app/views/packager/srpms.html.erb:31
 #: app/views/srpm/main.html.erb:38 app/views/team/info.html.erb:45
 msgid "ago"
 msgstr "назад"
 
-#: app/views/home/bygroup.html.erb:12 app/views/home/bythreegroup.html.erb:12
-#: app/views/home/bytwogroup.html.erb:12 app/views/srpm/main.html.erb:47
+#: app/views/home/bygroup.html.erb:12 app/views/srpm/main.html.erb:47
 msgid "Summary:"
 msgstr "О пакете:"
 
-#: app/views/home/bygroup.html.erb:14 app/views/home/bythreegroup.html.erb:14
-#: app/views/home/bytwogroup.html.erb:14
+#: app/views/home/bygroup.html.erb:14
 msgid "Changes:"
 msgstr "Изменения:"
 
