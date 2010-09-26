@@ -26,7 +26,7 @@ class TeamController < ApplicationController
                                AND teams.branch = ?
                                ORDER BY LOWER(packagers.name)', '@' + params[:name], @branch.name ])
     else
-      render :action => "nosuchteam"
+      render :status => 404, :action => "nosuchteam"
     end
   end
 
