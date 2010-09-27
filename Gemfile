@@ -10,7 +10,7 @@ gem 'erubis'
 gem 'searchlogic', '2.4.26'
 
 gem 'locale'
-gem 'locale_rails'
+gem 'locale_rails', :git => 'git://github.com/mutoh/locale_rails.git'
 gem 'gettext'
 gem 'gettext_activerecord'
 gem 'gettext_rails'
