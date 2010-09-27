@@ -1,8 +1,3 @@
-GIT
-  remote: git://github.com/mutoh/locale_rails.git
-  revision: 13a096f20b4be16ae45f4ebee477b8ef49dc71dd
-  specs:
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -61,7 +56,7 @@ DEPENDENCIES
   gettext_activerecord
   gettext_rails
   locale
-  locale_rails!
+  locale_rails
   pg
   rack
   rails (= 2.3.9)
