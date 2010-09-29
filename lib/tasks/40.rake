@@ -19,7 +19,7 @@ desc "Import *.src.rpm from 4.0 to database"
 task :srpms => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import src.rpm's"
-  Srpm.import_srpms 'ALT Linux', '4.0'
+  Srpm.import_srpms 'ALT Linux', '4.0', "/ALT/4.0/files/SRPMS/*.src.rpm"
   puts Time.now.to_s + ": end"
 end
 

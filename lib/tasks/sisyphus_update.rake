@@ -7,7 +7,7 @@ task :srpms => :environment do
   puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"
   ActiveRecord::Base.transaction do
     ActiveRecord::Base.connection.execute("DELETE FROM srpms WHERE branch = 'Sisyphus' AND vendor = 'ALT Linux'")
-    Srpm.import_srpms 'ALT Linux', 'Sisyphus'
+    Srpm.import_srpms 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
     Repocop.update_repocop_cache
   end
   puts Time.now.to_s + ": end"

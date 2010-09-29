@@ -20,7 +20,7 @@ task :srpms => :environment do
   require 'rpm'
   require 'open-uri'
   puts Time.now.to_s + ": import *.src.rpm from Sisyphus to database"
-  Srpm.import_srpms 'ALT Linux', 'Sisyphus'
+  Srpm.import_srpms 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
   puts Time.now.to_s + ": end"
   puts Time.now.to_s + ': update repocop cache'
   Repocop.update_repocop_cache  

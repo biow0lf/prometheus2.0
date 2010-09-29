@@ -6,7 +6,7 @@ task :srpms => :environment do
   puts Time.now.to_s + ": import src.rpm's"
   ActiveRecord::Base.transaction do
     ActiveRecord::Base.connection.execute("DELETE FROM srpms WHERE branch = '4.0' AND vendor = 'ALT Linux'")
-    Srpm.import_srpms 'ALT Linux', '4.0'
+    Srpm.import_srpms 'ALT Linux', '4.0', "/ALT/4.0/files/SRPMS/*.src.rpm"
   end
   puts Time.now.to_s + ": end"
 end
