@@ -31,7 +31,7 @@ desc "Import *.i586.rpm from Sisyphus to database"
 task :i586 => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import *.i586.rpm from Sisyphus to database"
-  Package.import_packages_i586 'ALT Linux', 'Sisyphus'
+  Package.import_packages_i586 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm"
   puts Time.now.to_s + ": end"
 end
 
@@ -39,7 +39,7 @@ desc "Import *.noarch.rpm from Sisyphus to database"
 task :noarch => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import *.noarch.rpm from Sisyphus to database"
-  Package.import_packages_noarch 'ALT Linux', 'Sisyphus'
+  Package.import_packages_noarch 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm"
   puts Time.now.to_s + ": end"
 end
 
@@ -47,7 +47,7 @@ desc "Import *.x86_64.rpm from Sisyphus to database"
 task :x86_64 => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import *.x86_64.rpm from Sisyphus to database"
-  Package.import_packages_x86_64 'ALT Linux', 'Sisyphus'
+  Package.import_packages_x86_64 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm"
   puts Time.now.to_s + ": end"
 end
 
@@ -71,7 +71,7 @@ desc "Import all teams from Sisyphus to database"
 task :teams => :environment do
   require 'open-uri'
   puts Time.now.to_s + ": import all teams from Sisyphus to database"
-  Team.update_from_gitalt 'ALT Linux', 'Sisyphus'
+  Team.update_from_gitalt 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus'
   puts Time.now.to_s + ": end"
 end
 
