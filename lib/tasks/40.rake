@@ -59,7 +59,7 @@ desc "Import packagers list from src.rpm from 4.0 to database"
 task :packagers => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import src.rpm's"
-  Packager.update_packager_list 'ALT Linux', '4.0'
+  Packager.update_packager_list 'ALT Linux', '4.0', "/ALT/4.0/files/SRPMS/*.src.rpm"
   puts Time.now.to_s + ": end"
 end
 

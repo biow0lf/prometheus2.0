@@ -8,43 +8,41 @@ class Packager < ActiveRecord::Base
 
   has_one :srpm, :through => :acls, :order => "name ASC"
 
-  def self.update_packager_list(vendor, branch)
-    path = Branch.first :conditions => { :vendor => vendor, :name => branch }
+  def self.update_packager_list(vendor, branch, path)
+    Dir.glob(path).each do |file|
+      begin
+        rpm = RPM::Package::open(file)
+        packager = rpm[1015]
+        packager_name = packager.split('<')[0].chomp
+        packager_name.strip!
+        packager_email = packager.chop.split('<')[1]
 
-    Dir.glob(path.srpms_path).each do |file|
-    begin
-      rpm = RPM::Package::open(file)
-      packager = rpm[1015]
-      packager_name = packager.split('<')[0].chomp
-      packager_name.strip!
-      packager_email = packager.chop.split('<')[1]
+        packager_email.downcase!
 
-      packager_email.downcase!
+        packager_email.gsub!(' at altlinux.ru', '@altlinux.org')
+        packager_email.gsub!(' at altlinux.org', '@altlinux.org')
+        packager_email.gsub!(' at altlinux dot org', '@altlinux.org')
+        packager_email.gsub!(' at altlinux dot ru', '@altlinux.org')
+        packager_email.gsub!('@altlinux.ru', '@altlinux.org')
+        packager_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
+        packager_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
+        packager_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
 
-      packager_email.gsub!(' at altlinux.ru', '@altlinux.org')
-      packager_email.gsub!(' at altlinux.org', '@altlinux.org')
-      packager_email.gsub!(' at altlinux dot org', '@altlinux.org')
-      packager_email.gsub!(' at altlinux dot ru', '@altlinux.org')
-      packager_email.gsub!('@altlinux.ru', '@altlinux.org')
-      packager_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
-      packager_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
-      packager_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
+        packager_login = packager_email.split('@')[0]
+        packager_domain = packager_email.split('@')[1]
 
-      packager_login = packager_email.split('@')[0]
-      packager_domain = packager_email.split('@')[1]
+        packager2 = Packager.new
 
-      packager2 = Packager.new
-
-      if packager_domain == 'packages.altlinux.org'
-        team = true
-        Packager.create(:team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email)
-      else
-        team = false
-        Packager.create(:team => false, :login => packager_login, :name => packager_name, :email => packager_email)
+        if packager_domain == 'packages.altlinux.org'
+          team = true
+          Packager.create(:team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email)
+        else
+          team = false
+          Packager.create(:team => false, :login => packager_login, :name => packager_name, :email => packager_email)
+        end
+      rescue RuntimeError
+        puts "Bad src.rpm -- " + file
       end
-    rescue RuntimeError
-      puts "Bad src.rpm -- " + file
-    end
     end
   end
 

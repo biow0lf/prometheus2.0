@@ -84,7 +84,7 @@ task :packagers => :environment do
     Packager.create(:name => 'QA Team', :email => 'qa@packages.altlinux.org', :login => '@qa', :team => true)
     Packager.create(:name => 'CPAN Team', :email => 'cpan@packages.altlinux.org', :login => '@cpan', :team => true)
 
-    Packager.update_packager_list 'ALT Linux', 'Sisyphus'
+    Packager.update_packager_list 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
   end
   puts Time.now.to_s + ": end"
 end

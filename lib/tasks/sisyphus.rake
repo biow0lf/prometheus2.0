@@ -63,7 +63,7 @@ desc "Import packagers list from src.rpm from Sisyphus to database"
 task :packagers => :environment do
   require 'rpm'
   puts Time.now.to_s + ": import packagers list from *.src.rpm's"
-  Packager.update_packager_list 'ALT Linux', 'Sisyphus'
+  Packager.update_packager_list 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
   puts Time.now.to_s + ": end"
 end
 
