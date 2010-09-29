@@ -31,7 +31,8 @@ class HomeController < ApplicationController
                                :branch => @branch.name }
     @srpms = Srpm.all :conditions => {
                         :group => groupname,
-                        :branch => 'Sisyphus' },
+                        :branch => 'Sisyphus',
+                        :vendor => 'ALT Linux' },
                       :order => 'LOWER(name)'
   end
 
