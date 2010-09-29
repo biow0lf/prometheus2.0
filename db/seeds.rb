@@ -6,19 +6,20 @@ branch.url = 'Sisyphus'
 branch.order_id = 0
 branch.save!
 
-## add SisyphusARM branch                                                                                                                                                      
-#branch = Branch.new                                                                                                                                                           
-#branch.distribution = 'SisyphusARM'                                                                                                                                           
-#branch.vendor = 'ALT Linux'                                                                                                                                                   
-#branch.order_id = 1                                                                                                                                                           
-#branch.save!
+# add SisyphusARM branch                                                                                                                                                      
+branch = Branch.new
+branch.vendor = 'ALT Linux'                                                                                                                                                           
+branch.name = 'SisyphusARM'
+branch.url = 'SisyphusARM'
+branch.order_id = 1                                                                                                                                                           
+branch.save!
 
 # add Platform5 branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
 branch.url = 'Platform5'
-branch.order_id = 1
+branch.order_id = 2
 branch.save!
 
 # add 5.1 branch
@@ -26,7 +27,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.1'
 branch.url = '5.1'
-branch.order_id = 2
+branch.order_id = 3
 branch.save!
 
 # add 5.0 branch
@@ -34,7 +35,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.0'
 branch.url = '5.0'
-branch.order_id = 3
+branch.order_id = 4
 branch.save!
 
 # add 4.1 branch
@@ -42,7 +43,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.1'
 branch.url = '4.1'
-branch.order_id = 4
+branch.order_id = 5
 branch.save!
 
 # add 4.0 branch
@@ -50,7 +51,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.0'
 branch.url = '4.0'
-branch.order_id = 5
+branch.order_id = 6
 branch.save!
 
 
