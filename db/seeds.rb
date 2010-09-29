@@ -3,10 +3,6 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Sisyphus'
 branch.url = 'Sisyphus'
-branch.binary_x86_path = "/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm"
-branch.noarch_path = "/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm"
-branch.binary_x86_64_path = "/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.sisyphus'
 branch.order_id = 0
 branch.save!
 
@@ -22,10 +18,6 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
 branch.url = 'Platform5'
-branch.binary_x86_path = "/ALT/p5/files/i586/RPMS/*.i586.rpm"
-branch.noarch_path = "/ALT/p5/files/noarch/RPMS/*.noarch.rpm"
-branch.binary_x86_64_path = "/ALT/p5/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.p5'
 branch.order_id = 1
 branch.save!
 
@@ -34,10 +26,6 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.1'
 branch.url = '5.1'
-branch.binary_x86_path = "/ALT/5.1/files/i586/RPMS/*.i586.rpm"
-branch.noarch_path = "/ALT/5.1/files/noarch/RPMS/*.noarch.rpm"
-branch.binary_x86_64_path = "/ALT/5.1/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.1'
 branch.order_id = 2
 branch.save!
 
@@ -46,10 +34,6 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.0'
 branch.url = '5.0'
-branch.binary_x86_path = "/ALT/5.0/files/i586/RPMS/*.i586.rpm"
-branch.noarch_path = "/ALT/5.0/files/noarch/RPMS/*.noarch.rpm"
-branch.binary_x86_64_path = "/ALT/5.0/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.5.0'
 branch.order_id = 3
 branch.save!
 
@@ -58,10 +42,6 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.1'
 branch.url = '4.1'
-branch.binary_x86_path = "/ALT/4.1/files/i586/RPMS/*.i586.rpm"
-branch.noarch_path = "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm"
-branch.binary_x86_64_path = "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.1'
 branch.order_id = 4
 branch.save!
 
@@ -70,10 +50,6 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.0'
 branch.url = '4.0'
-branch.binary_x86_path = "/ALT/4.0/files/i586/RPMS/*.i586.rpm"
-branch.noarch_path = "/ALT/4.0/files/noarch/RPMS/*.noarch.rpm"
-branch.binary_x86_64_path = "/ALT/4.0/files/x86_64/RPMS/*.x86_64.rpm"
-branch.acls_groups_url = 'http://git.altlinux.org/acl/list.groups.4.0'
 branch.order_id = 5
 branch.save!
 
