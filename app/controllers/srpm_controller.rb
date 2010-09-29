@@ -41,6 +41,13 @@ class SrpmController < ApplicationController
                                  :vendor => @branch.vendor,
                                  :package => params[:name] }
         @packager = Packager.first :conditions => { :login => @leader.login }
+      elsif params[:branch] == 'SisyphusARM'
+        @packages = Package.all :conditions => {
+                                  :branch => @branch.name,
+                                  :vendor => @branch.vendor,
+                                  :sourcepackage => @srpm.filename,
+                                  :arch => ["noarch", "arm"] },
+                                :order => 'name ASC'        
       elsif params[:branch] == 'Platform5'
         @packages = Package.all :conditions => {
                                   :branch => @branch.name,
