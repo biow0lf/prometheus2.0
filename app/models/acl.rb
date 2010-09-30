@@ -1,5 +1,5 @@
 class Acl < ActiveRecord::Base
-  validates_presence_of :package, :login, :branch, :vendor
+  validates_presence_of :package, :login
   belongs_to :branch
 
   has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
