@@ -3,7 +3,7 @@ namespace :platform5 do
   task :acls => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import acls"
-    Acl.update_acls 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5'
+    Acl.import_acls 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5'
     puts Time.now.to_s + ": end"
   end
 

@@ -3,7 +3,7 @@ namespace :"40" do
   task :acls => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import acls"
-    Acl.update_acls 'ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0'
+    Acl.import_acls 'ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0'
     puts Time.now.to_s + ": end"
   end
 
