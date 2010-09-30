@@ -23,6 +23,16 @@ Init database:
 * rake db:seed
 
 * rake sisyphus:groups
+* rake sisyphusarm:groups
+* rake 51:groups
+* rake platform5:groups
+* rake 50:groups
+* rake 41:groups
+* rake 40:groups
+
+TODO:
+
+
 * rake sisyphus:packagers
 * rake sisyphus:acls
 * rake sisyphus:bugs
@@ -36,11 +46,9 @@ Init database:
 * rake sisyphus:noarch
 * rake sisyphus:x86_64
 
-* rake sisyphusarm:groups
 * rake sisyphusarm:srpms
 * rake sisyphusarm:binary
 
-* rake 51:groups
 * rake 51:acls
 * rake 51:leaders
 * rake 51:teams
@@ -49,7 +57,6 @@ Init database:
 * rake 51:noarch
 * rake 51:x86_64
 
-* rake platform5:groups
 * rake platform5:acls
 * rake platform5:leaders
 * rake platform5:teams
@@ -58,7 +65,6 @@ Init database:
 * rake platform5:noarch
 * rake platform5:x86_64
 
-* rake 50:groups
 * rake 50:acls
 * rake 50:leaders
 * rake 50:teams
@@ -67,7 +73,6 @@ Init database:
 * rake 50:noarch
 * rake 50:x86_64
 
-* rake 41:groups
 * rale 41:acls
 * rake 41:leaders
 * rake 41:teams
@@ -76,7 +81,6 @@ Init database:
 * rake 41:noarch
 * rake 41:x86_64
 
-* rake 40:groups
 * rake 40:acls
 * rake 40:leaders
 * rake 40:teams
