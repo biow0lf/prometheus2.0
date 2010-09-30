@@ -13,8 +13,7 @@ class Srpm < ActiveRecord::Base
 #  end
 
   def self.count_srpms_in_sisyphus
-    branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
-    branch.srpms.count(:all)
+    Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }).srpms.count(:all)
   end
 
   def self.import_srpms(vendor, branch, path)
