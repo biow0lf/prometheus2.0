@@ -8,8 +8,7 @@ class PackagerController < ApplicationController
     @acls = Acl.all :select => 'package',
                     :conditions => {
                       :login => params[:login],
-                      :branch => @branch.name,
-                      :vendor => @branch.vendor }
+                      :branch_id => @branch.id }
 #                    :include => [:srpm]
     if @packager == nil
       render :status => 404, :action => "nosuchpackager"
