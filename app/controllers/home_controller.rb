@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    if params[:request].empty?
+    if params[:request].nil?
       redirect_to :action => "index"
     else
       @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_equals("Sisyphus").ascend_by_name
