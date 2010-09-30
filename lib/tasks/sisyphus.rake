@@ -63,7 +63,7 @@ namespace :sisyphus do
   task :packagers => :environment do
     require 'rpm'
     puts Time.now.to_s + ": import packagers list from *.src.rpm's"
-    Packager.update_packager_list 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
+    Packager.import_packagers_list 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
   end
 
