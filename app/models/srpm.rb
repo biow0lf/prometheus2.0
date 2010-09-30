@@ -12,6 +12,11 @@ class Srpm < ActiveRecord::Base
 #    count :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
 #  end
 
+  def self.count_srpms_in_sisyphus
+    branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
+    branch.srpms.count(:all)
+  end
+
   def self.import_srpms(vendor, branch, path)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
