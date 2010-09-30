@@ -51,7 +51,7 @@ namespace :platform5 do
   task :packagers => :environment do
     require 'rpm'
     puts Time.now.to_s + ": import src.rpm's"
-    Packager.update_packager_list 'ALT Linux', 'Platform5', "/ALT/p5/files/SRPMS/*.src.rpm"
+    Packager.import_packagers_list "/ALT/p5/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
   end
 

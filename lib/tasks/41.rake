@@ -59,7 +59,7 @@ namespace :"41" do
   task :packagers => :environment do
     require 'rpm'
     puts Time.now.to_s + ": import src.rpm's"
-    Packager.update_packager_list 'ALT Linux', '4.1', "/ALT/4.1/files/SRPMS/*.src.rpm"
+    Packager.import_packagers_list "/ALT/4.1/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
   end
 
