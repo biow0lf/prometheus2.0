@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100930203825) do
+ActiveRecord::Schema.define(:version => 20100930204916) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20100930203825) do
     t.string   "vendor"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "branch_id"
   end
 
   create_table "leaders", :force => true do |t|
