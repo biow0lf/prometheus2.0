@@ -118,8 +118,9 @@ class Packager < ActiveRecord::Base
                  FROM acls, packagers, branches
                  WHERE packagers.login = acls.login
                  AND packagers.team = true
-                 AND acls.branch = branches.name
+                 AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
+                 AND branches.vendor = 'ALT Linux'
                  GROUP BY packagers.name, packagers.login
                  ORDER BY packagers.name ASC")
   end
