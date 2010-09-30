@@ -53,8 +53,9 @@ class Packager < ActiveRecord::Base
                  FROM acls, packagers, branches
                  WHERE packagers.login = acls.login
                  AND packagers.team = false
-                 AND acls.branch = branches.name
+                 AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
+                 AND branches.vendor = 'ALT Linux'
                  GROUP BY packagers.name, packagers.login
                  ORDER BY packagers.name ASC")
   end
@@ -79,12 +80,10 @@ class Packager < ActiveRecord::Base
                  FROM branches, acls, packagers
                  WHERE branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
-                 AND branches.name = acls.branch
-                 AND branches.vendor = acls.vendor
+                 AND branches.id = acls.branch_id
                  AND acls.login = packagers.login
                  AND packagers.team = false
                  GROUP BY packagers.name, packagers.login
                  ORDER BY 1 DESC LIMIT 15")
   end
-
 end
