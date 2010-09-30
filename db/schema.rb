@@ -9,22 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100930202610) do
+ActiveRecord::Schema.define(:version => 20100930203825) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
     t.string   "login"
-    t.string   "branch"
-    t.string   "vendor"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "branch_id"
   end
 
-  add_index "acls", ["branch"], :name => "index_acls_on_branch"
   add_index "acls", ["login"], :name => "index_acls_on_login"
   add_index "acls", ["package"], :name => "index_acls_on_package"
-  add_index "acls", ["vendor"], :name => "index_acls_on_vendor"
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
@@ -150,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20100930202610) do
     t.datetime "updated_at"
     t.string   "group"
     t.string   "repocop",     :default => "skip"
+    t.integer  "branch_id"
   end
 
   add_index "srpms", ["branch"], :name => "index_srpms_on_branch"
