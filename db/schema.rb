@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100930212031) do
+ActiveRecord::Schema.define(:version => 20100930232318) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -125,8 +125,6 @@ ActiveRecord::Schema.define(:version => 20100930212031) do
   add_index "repocops", ["srcversion"], :name => "index_repocops_on_srcversion"
 
   create_table "srpms", :force => true do |t|
-    t.string   "branch"
-    t.string   "vendor"
     t.string   "filename"
     t.string   "name"
     t.string   "version"
@@ -145,9 +143,7 @@ ActiveRecord::Schema.define(:version => 20100930212031) do
     t.integer  "branch_id"
   end
 
-  add_index "srpms", ["branch"], :name => "index_srpms_on_branch"
   add_index "srpms", ["name"], :name => "index_srpms_on_name"
-  add_index "srpms", ["vendor"], :name => "index_srpms_on_vendor"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
