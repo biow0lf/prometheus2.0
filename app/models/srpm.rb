@@ -7,11 +7,6 @@ class Srpm < ActiveRecord::Base
 
 #  has_one :leader, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}' }
 
-# FIXME:
-#  def self.count_srpms_in_sisyphus
-#    count :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
-#  end
-
   def self.count_srpms_in_sisyphus
     Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }).srpms.count(:all)
   end
