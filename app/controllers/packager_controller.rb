@@ -1,5 +1,4 @@
 class PackagerController < ApplicationController
-
   def info
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Packager.first :conditions => {
@@ -9,7 +8,6 @@ class PackagerController < ApplicationController
                     :conditions => {
                       :login => params[:login],
                       :branch_id => @branch.id }
-#                    :include => [:srpm]
     if @packager == nil
       render :status => 404, :action => "nosuchpackager"
     end
@@ -19,13 +17,10 @@ class PackagerController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Packager.first :conditions => {
                                  :login => params[:login].downcase,
-                                 :team => false },
-                               :include => [:sisyphus]
-#    @acls = Acl.all :conditions => {
-#                      :login => params[:login],
-#                      :branch => @branch.name,
-#                      :vendor => @branch.vendor }
-#                     :include => [:srpms]
+                                 :team => false }
+    @acls = Acl.all :conditions => {
+                      :login => params[:login].downcase,
+                      :branch_id => @branch.id }
     if @packager == nil
       render :status => 404, :action => "nosuchpackager"
     end
