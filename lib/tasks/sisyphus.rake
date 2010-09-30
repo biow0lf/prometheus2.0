@@ -3,7 +3,7 @@ namespace :sisyphus do
   task :acls => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import all acls for packages from Sisyphus to database"
-    Acl.update_acls 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
+    Acl.import_acls 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
     puts Time.now.to_s + ": end"
   end
 
