@@ -32,7 +32,6 @@ Init database:
 
 * rake sisyphus:acls
 * rake 51:acls
-* rake platform5:acls
 * rake 50:acls
 * rale 41:acls
 * rake 40:acls
