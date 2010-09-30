@@ -26,15 +26,4 @@ class Group < ActiveRecord::Base
       puts Time.now.to_s + ": groups already imported"
     end
   end
-
-# FIXME:
-#  def self.update_groups(vendor, branch, url)
-#    ActiveRecord::Base.transaction do
-#      ActiveRecord::Base.connection.execute("DELETE FROM groups WHERE branch = '" + branch.to_s + "' AND vendor = '" + vendor.to_s + "'")
-#      file = open(URI.escape(url)).read
-#      file.each_line do |line|
-#        Group.create :name => line.gsub(/\n/,''), :branch => branch, :vendor => vendor
-#      end
-#    end
-#  end
 end
