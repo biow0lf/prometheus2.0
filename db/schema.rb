@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100930211839) do
+ActiveRecord::Schema.define(:version => 20100930212031) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -97,17 +97,13 @@ ActiveRecord::Schema.define(:version => 20100930211839) do
     t.text     "description"
     t.datetime "buildtime"
     t.string   "size"
-    t.string   "branch"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "vendor"
     t.integer  "srpm_id"
   end
 
   add_index "packages", ["arch"], :name => "index_packages_on_arch"
-  add_index "packages", ["branch"], :name => "index_packages_on_branch"
   add_index "packages", ["sourcepackage"], :name => "index_packages_on_sourcepackage"
-  add_index "packages", ["vendor"], :name => "index_packages_on_vendor"
 
   create_table "repocops", :force => true do |t|
     t.string   "name"
