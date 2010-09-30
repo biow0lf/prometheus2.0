@@ -25,25 +25,4 @@ class Acl < ActiveRecord::Base
       puts Time.now.to_s + ": acls already imported"
     end
   end
-
-
-# FIXME:
-#  def self.update_acls(vendor, branch, url)
-#    ActiveRecord::Base.transaction do
-#      ActiveRecord::Base.connection.execute("DELETE FROM acls WHERE branch = '" + branch + "' AND vendor = '" + vendor + "'")
-#
-#      file = open(URI.escape(url)).read
-#      file.each_line do |line|
-#        package = line.split[0]
-#        for i in 1..line.split.count-1
-#          login = line.split[i]
-#          login = 'php-coder' if login == 'php_coder'
-#          login = '@vim-plugins' if login == '@vim_plugins'
-#          login = 'p_solntsev' if login == 'psolntsev'
-#
-#          Acl.create :package => package, :login => login, :branch => branch, :vendor => vendor
-#        end
-#      end
-#    end
-#  end
 end
