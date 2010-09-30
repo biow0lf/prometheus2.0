@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  validates_presence_of :name, :branch, :vendor
+  validates_presence_of :name
   belongs_to :branch
 
   def self.find_groups_in_sisyphus
