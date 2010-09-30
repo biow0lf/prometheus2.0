@@ -11,8 +11,8 @@ class SrpmController < ApplicationController
 #                            :conditions => { :name => params[:name] }\
 
       @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
-                                            srpms.release, srpms.branch,
-                                            order_id
+                                            srpms.release, branches.name,
+                                            branches.order_id
                                      FROM srpms, branches
                                      WHERE srpms.branch_id = branches.id
                                      AND srpms.name = ?
