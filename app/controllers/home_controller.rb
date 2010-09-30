@@ -21,11 +21,11 @@ class HomeController < ApplicationController
   def bygroup
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    
+
     groupname = params[:group]
     groupname = groupname + '/' + params[:group2] if !params[:group2].nil?
     groupname = groupname + '/' + params[:group3] if !params[:group3].nil?
-    
+
     @group = Group.first :conditions => {
                                :name => groupname,
                                :branch => @branch.name }
