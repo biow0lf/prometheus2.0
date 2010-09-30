@@ -13,13 +13,28 @@ class Group < ActiveRecord::Base
                  ORDER BY groups.name")
   end
 
-  def self.update_groups(vendor, branch, url)
-    ActiveRecord::Base.transaction do
-      ActiveRecord::Base.connection.execute("DELETE FROM groups WHERE branch = '" + branch.to_s + "' AND vendor = '" + vendor.to_s + "'")
-      file = open(URI.escape(url)).read
-      file.each_line do |line|
-        Group.create :name => line.gsub(/\n/,''), :branch => branch, :vendor => vendor
+  def self.import_groups(vendor, branch, url)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    if br.groups.count(:all) == 0
+      ActiveRecord::Base.transaction do
+        file = open(URI.escape(url)).read
+        file.each_line do |line|
+          Group.create :name => line.gsub(/\n/,''), :branch_id => br.id
+        end
       end
+    else
+      puts ": groups already imported"
     end
   end
+
+# FIXME:
+#  def self.update_groups(vendor, branch, url)
+#    ActiveRecord::Base.transaction do
+#      ActiveRecord::Base.connection.execute("DELETE FROM groups WHERE branch = '" + branch.to_s + "' AND vendor = '" + vendor.to_s + "'")
+#      file = open(URI.escape(url)).read
+#      file.each_line do |line|
+#        Group.create :name => line.gsub(/\n/,''), :branch => branch, :vendor => vendor
+#      end
+#    end
+#  end
 end
