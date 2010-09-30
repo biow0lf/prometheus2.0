@@ -3,7 +3,7 @@ namespace :sisyphusarm do
   task :groups => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import RPM groups for Sisyphus ARM to database"
-    Group.update_groups 'ALT Linux', 'SisyphusARM', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
+    Group.import_groups 'ALT Linux', 'SisyphusARM', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
     puts Time.now.to_s + ": end"
   end
 

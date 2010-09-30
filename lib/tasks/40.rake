@@ -11,7 +11,7 @@ namespace :"40" do
   task :groups => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import groups"
-    Group.update_groups 'ALT Linux', '4.0', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
+    Group.import_groups 'ALT Linux', '4.0', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
     puts Time.now.to_s + ": end"
   end
 
