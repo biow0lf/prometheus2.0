@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
   validates_presence_of :name, :branch, :vendor
+  belongs_to :branch
 
   def self.find_groups_in_sisyphus
     find_by_sql("SELECT COUNT(srpms.name) AS counter, groups.name
