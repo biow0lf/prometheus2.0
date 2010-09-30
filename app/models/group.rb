@@ -23,7 +23,7 @@ class Group < ActiveRecord::Base
         end
       end
     else
-      puts ": groups already imported"
+      puts Time.now.to_s + ": groups already imported"
     end
   end
 
