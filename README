@@ -21,6 +21,7 @@ Init database:
 * rake db:create
 * rake db:schema:load
 * rake db:seed
+
 * rake sisyphus:groups
 * rake sisyphus:packagers
 * rake sisyphus:acls
@@ -34,6 +35,10 @@ Init database:
 * rake sisyphus:i586
 * rake sisyphus:noarch
 * rake sisyphus:x86_64
+
+* rake sisyphusarm:groups
+* rake sisyphusarm:srpms
+* rake sisyphusarm:binary
 
 * rake 51:groups
 * rake 51:acls
