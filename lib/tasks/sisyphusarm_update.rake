@@ -14,7 +14,7 @@ namespace :sisyphusarm do
     desc "Update *.rpm from SisyphusARM to database"
     task :binary => :environment do
       require 'rpm'
-      puts Time.now.to_s + ": import i586.rpm's"
+      puts Time.now.to_s + ": import *.rpm's"
       ActiveRecord::Base.transaction do
         ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE branch = 'SisyphusARM' AND vendor = 'ALT Linux'")
         Package.import_packages_arm 'ALT Linux', 'SisyphusARM', "/ALT/Sisyphus/files/arm/RPMS/*.rpm"
