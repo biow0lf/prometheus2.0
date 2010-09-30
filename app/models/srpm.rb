@@ -7,11 +7,13 @@ class Srpm < ActiveRecord::Base
 
 #  has_one :leader, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}' }
 
-  def self.count_srpms_in_sisyphus
-    count :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
-  end
+# FIXME:
+#  def self.count_srpms_in_sisyphus
+#    count :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
+#  end
 
   def self.import_srpms(vendor, branch, path)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -31,8 +33,7 @@ class Srpm < ActiveRecord::Base
         #srpm.distribution = rpm[1010]
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
-        srpm.branch = branch
-        srpm.vendor = vendor
+        srpm.branch_id = br.id
         srpm.save!
       rescue RuntimeError
         puts "Bad src.rpm -- " + file
