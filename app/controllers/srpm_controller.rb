@@ -3,16 +3,9 @@ class SrpmController < ApplicationController
 
   def main
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-#    if @branch.nil?
-#      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 and return
-#    end
-
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name,
-                         :vendor => @branch.vendor }
-#                       :include => [:acls]
-
+                         :branch_id => @branch.id }
     if @srpm != nil
 #      @allsrpms = Srpm.find :all,
 #                            :conditions => { :name => params[:name] }\
@@ -21,7 +14,7 @@ class SrpmController < ApplicationController
                                             srpms.release, srpms.branch,
                                             order_id
                                      FROM srpms, branches
-                                     WHERE srpms.branch = branches.name
+                                     WHERE srpms.branch_id = branches.id
                                      AND srpms.name = ?
                                      ORDER BY branches.order_id ASC", params[:name]]
 
