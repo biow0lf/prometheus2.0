@@ -1,5 +1,5 @@
 class Leader < ActiveRecord::Base
-  validates_presence_of :package, :login, :branch, :vendor
+  validates_presence_of :package, :login
 
   def self.update_leaders(vendor, branch, url)
     ActiveRecord::Base.transaction do
