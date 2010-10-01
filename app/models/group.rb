@@ -10,7 +10,7 @@ class Group < ActiveRecord::Base
                  WHERE groups.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
-                 AND srpms.group = groups.name
+                 AND srpms.group_id = groups.id
                  AND srpms.branch_id = branches.id
                  GROUP BY groups.name
                  ORDER BY groups.name")
