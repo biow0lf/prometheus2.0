@@ -23,6 +23,14 @@ Init database:
 * rake db:seed
 
 * rake sisyphus:groups
+* rake sisyphus:srpms
+* rake sisyphus:i586
+* rake sisyphus:noarch
+* rake sisyphus:x86_64
+* rake sisyphus:teams
+* rake sisyphus:leaders
+
+
 * rake sisyphusarm:groups
 * rake 51:groups
 * rake platform5:groups
@@ -36,21 +44,16 @@ Init database:
 * rale 41:acls
 * rake 40:acls
 
+* rake sisyphus:packagers
+
 
 TODO:
 
 
-* rake sisyphus:packagers
 * rake sisyphus:bugs
 * rake sisyphus:gitrepos
 * rake sisyphus:repocops
-* rake sisyphus:leaders
-* rake sisyphus:teams
 * rake sisyphus:ftbfs_i586 ???
-* rake sisyphus:srpms
-* rake sisyphus:i586
-* rake sisyphus:noarch
-* rake sisyphus:x86_64
 
 * rake sisyphusarm:srpms
 * rake sisyphusarm:binary
