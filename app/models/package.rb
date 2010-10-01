@@ -1,6 +1,7 @@
 class Package < ActiveRecord::Base
   belongs_to :srpm
   belongs_to :branch
+  belongs_to :group
 
   def self.import_packages_i586(vendor, branch, path)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
@@ -14,7 +15,8 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        package.group = rpm[1016]
+        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
         package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -45,7 +47,8 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        package.group = rpm[1016]
+        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
         package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -76,7 +79,8 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        package.group = rpm[1016]
+        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
         package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -107,7 +111,8 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        package.group = rpm[1016]
+        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
         package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'

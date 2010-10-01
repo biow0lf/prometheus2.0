@@ -2,6 +2,7 @@ class Group < ActiveRecord::Base
   validates_presence_of :name
   belongs_to :branch
   has_many :srpms
+  has_many :packages
 
   def self.find_groups_in_sisyphus
     find_by_sql("SELECT COUNT(srpms.name) AS counter, groups.name
