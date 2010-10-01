@@ -10,13 +10,13 @@ class SrpmController < ApplicationController
 #      @allsrpms = Srpm.find :all,
 #                            :conditions => { :name => params[:name] }\
 
-      @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
-                                            srpms.release, branches.name,
-                                            branches.order_id
-                                     FROM srpms, branches
-                                     WHERE srpms.branch_id = branches.id
-                                     AND srpms.name = ?
-                                     ORDER BY branches.order_id ASC", params[:name]]
+#      @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
+#                                            srpms.release, branches.name,
+#                                            branches.order_id
+#                                     FROM srpms, branches
+#                                     WHERE srpms.branch_id = branches.id
+#                                     AND srpms.name = ?
+#                                     ORDER BY branches.order_id ASC", params[:name]]
 
       if params[:branch] == 'Sisyphus' or
          params[:branch] == '5.1' or
