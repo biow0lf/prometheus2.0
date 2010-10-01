@@ -71,7 +71,7 @@ namespace :sisyphus do
   task :teams => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import all teams from Sisyphus to database"
-    Team.update_from_gitalt 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus'
+    Team.import_teams 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus'
     puts Time.now.to_s + ": end"
   end
 end

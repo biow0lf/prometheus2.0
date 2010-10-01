@@ -1,5 +1,6 @@
 class Package < ActiveRecord::Base
   belongs_to :srpm
+  belongs_to :branch
 
   def self.import_packages_i586(vendor, branch, path)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
