@@ -58,8 +58,7 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name,
-                         :vendor => @branch.vendor }
+                         :branch_id => @branch.id }
     if @srpm == nil
       render :status => 404, :action => "nosuchpackage"
     end
