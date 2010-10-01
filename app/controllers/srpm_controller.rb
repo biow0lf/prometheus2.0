@@ -2,10 +2,10 @@ class SrpmController < ApplicationController
 #  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
   def main
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => @branch.id },
+                         :branch_id => branch.id },
                        :include => [:packages, :group, :branch]
     if @srpm != nil
 #      @allsrpms = Srpm.find :all,
@@ -31,7 +31,7 @@ class SrpmController < ApplicationController
 #                                  :arch => ["noarch", "i586"] },
 #                                :order => 'name ASC'
         @leader = Leader.first :conditions => {
-                                 :branch_id => @branch.id,
+                                 :branch_id => branch.id,
                                  :package => params[:name] }
         @packager = Packager.first :conditions => { :login => @leader.login }
       elsif params[:branch] == 'SisyphusARM'
