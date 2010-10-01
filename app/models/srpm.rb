@@ -2,6 +2,7 @@ class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
   has_many :packages
+  has_one :leader
   
   has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 

@@ -1,6 +1,8 @@
 class Leader < ActiveRecord::Base
-  validates_presence_of :package, :login
+  #validates_presence_of :package, :login
   belongs_to :branch
+  belongs_to :packager
+  belongs_to :srpm
 
   def self.import_leaders(vendor, branch, url)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
@@ -9,8 +11,12 @@ class Leader < ActiveRecord::Base
         file = open(URI.escape(url)).read
         file.each_line do |line|
           package = line.split[0]
+          srpm = Srpm.first :conditions => { :name => package, :branch_id => br.id }
           login = line.split[1]
-          Leader.create :package => package, :login => login, :branch_id => br.id
+          packager = Packager.first :conditions => { :login => login }
+          #Leader.create :package => package, :login => login, :branch_id => br.id
+          # FIXME: if leader not packager, it will broke
+          Leader.create :srpm_id => srpm.id, :branch_id => br.id, :packager_id => packager.id
         end      
       end
     else
