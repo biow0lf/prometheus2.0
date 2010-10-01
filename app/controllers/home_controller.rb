@@ -30,7 +30,7 @@ class HomeController < ApplicationController
                                :name => groupname,
                                :branch_id => @branch.id }
     @srpms = Srpm.all :conditions => {
-                        :group => groupname,
+                        :group_id => @group.id,
                         :branch_id => @branch.id },
                       :order => 'LOWER(name)'
   end
