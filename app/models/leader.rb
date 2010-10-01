@@ -13,6 +13,9 @@ class Leader < ActiveRecord::Base
           package = line.split[0]
           srpm = Srpm.first :conditions => { :name => package, :branch_id => br.id }
           login = line.split[1]
+          login = 'php-coder' if login == 'php_coder'
+          login = 'p_solntsev' if login == 'psolntsev'
+          login = '@vim-plugins' if login == '@vim_plugins'
           packager = Packager.first :conditions => { :login => login }
           if packager.nil?
             puts "BAD: " + login
