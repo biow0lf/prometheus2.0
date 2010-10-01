@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001000226) do
+ActiveRecord::Schema.define(:version => 20101001002721) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20101001000226) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "srpm_id"
+    t.integer  "branch_id"
   end
 
   add_index "packages", ["arch"], :name => "index_packages_on_arch"
