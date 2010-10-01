@@ -16,7 +16,9 @@ class Leader < ActiveRecord::Base
           packager = Packager.first :conditions => { :login => login }
           if packager.nil?
             puts "BAD: " + login
-          else
+          elsif srpm.nil?
+            puts "BAD: " + package
+          else 
             #Leader.create :package => package, :login => login, :branch_id => br.id
             # FIXME: if leader not packager, it will broke
             Leader.create :srpm_id => srpm.id, :branch_id => br.id, :packager_id => packager.id
