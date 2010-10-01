@@ -66,22 +66,20 @@ class SrpmController < ApplicationController
   end
 
   def rawspec
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name,
-                         :vendor => @branch.vendor }
+                         :branch_id => branch.id }
     if @srpm == nil
       render :status => 404, :action => "nosuchpackage"
     end
   end
 
   def download
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch => @branch.name,
-                         :vendor => @branch.vendor }
+                         :branch_id => branch.id }
     if @srpm != nil
       @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
                                             srpms.release, srpms.branch,
