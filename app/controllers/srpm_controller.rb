@@ -5,7 +5,8 @@ class SrpmController < ApplicationController
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => @branch.id }
+                         :branch_id => @branch.id },
+                       :include => [:packages]
     if @srpm != nil
 #      @allsrpms = Srpm.find :all,
 #                            :conditions => { :name => params[:name] }\
