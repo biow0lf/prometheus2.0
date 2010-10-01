@@ -27,7 +27,7 @@ class Srpm < ActiveRecord::Base
         group = rpm[1016]
         gr = Group.first :conditions => { :name => group, :branch_id => br.id }
         srpm.group_id = gr.id
-        srpm.group = group
+        srpm.group = gr.name
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
         srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
