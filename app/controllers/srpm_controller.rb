@@ -59,7 +59,7 @@ class SrpmController < ApplicationController
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => @branch.id },
-                       :include => [:group]
+                       :include => [:group, :branch]
     if @srpm == nil
       render :status => 404, :action => "nosuchpackage"
     end
