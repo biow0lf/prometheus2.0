@@ -96,4 +96,4 @@ Packager.create(:name => 'Connexion Development Team', :email => 'connexion@pack
 Packager.create(:name => 'EVMS Development Team', :email => 'evms@packages.altlinux.org', :login => '@evms', :team => true)
 Packager.create(:name => 'QA Team', :email => 'qa@packages.altlinux.org', :login => '@qa', :team => true)
 Packager.create(:name => 'CPAN Team', :email => 'cpan@packages.altlinux.org', :login => '@cpan', :team => true)
-
+Packager.create(:name => 'XFCE Team', :email => 'xfce@packages.altlinux.org', :login => '@xfce', :team => true)
