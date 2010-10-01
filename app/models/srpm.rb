@@ -25,6 +25,11 @@ class Srpm < ActiveRecord::Base
         srpm.release = rpm.version.r
         srpm.group = rpm[1016]
         group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        
+        puts group
+        puts group.id
+        puts rpm[1016]
+        
         srpm.group_id = group.id
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
