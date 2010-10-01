@@ -21,9 +21,7 @@ class Leader < ActiveRecord::Base
             puts "BAD login: " + login
           elsif srpm.nil?
             puts "BAD package: " + package
-          else 
-            #Leader.create :package => package, :login => login, :branch_id => br.id
-            # FIXME: if leader not packager, it will broke
+          else
             Leader.create :srpm_id => srpm.id, :branch_id => br.id, :packager_id => packager.id
           end
         end      
