@@ -56,6 +56,7 @@
 <% end -%>
 <% end -%>
 
+<% if !@srpm.packages.nil? %>
 <b><%= _("List of rpms provided by this srpm:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
@@ -64,6 +65,7 @@
   <% end -%>
   </ul>
 </div>
+<% end %>
 
 <% if params[:branch] != 'Platform5' and params[:branch] != 'SisyphusARM' -%>
 <b><%= _("ACL:") %></b>
