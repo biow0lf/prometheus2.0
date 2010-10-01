@@ -49,11 +49,11 @@
 <p class="news" />
 <% if @srpm.leader != nil and @srpm.leader.packager != nil -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
-<%# if @packager.team == true -%>
-  <%#= link_to @packager.name, '/' + params[:locale] + '/team/' + @packager.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
-<%# else -%>
+<% if @srpm.leader.packager.team == true -%>
+  <%= link_to @srpm.leader.packager.name, '/' + params[:locale] + '/team/' + @packager.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
+<% else -%>
   <%= link_to @srpm.leader.packager.name, '/' + params[:locale] + '/packager/' + @srpm.leader.packager.login, :class => 'news', :title => _('information about maintainer') %><br /><br />
-<%# end -%>
+<% end -%>
 <% end -%>
 
 <% if !@srpm.packages.nil? %>
