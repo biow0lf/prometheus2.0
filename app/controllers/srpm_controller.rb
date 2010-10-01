@@ -80,7 +80,8 @@ class SrpmController < ApplicationController
     branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id }
+                         :branch_id => branch.id },
+                       :include => [:group, :branch, :packages]
     if @srpm != nil
       @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
                                             srpms.release, srpms.branch,
