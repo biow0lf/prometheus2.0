@@ -18,9 +18,9 @@ class Leader < ActiveRecord::Base
           login = '@vim-plugins' if login == '@vim_plugins'
           packager = Packager.first :conditions => { :login => login }
           if packager.nil?
-            puts "BAD: " + login
+            puts "BAD login: " + login
           elsif srpm.nil?
-            puts "BAD: " + package
+            puts "BAD package: " + package
           else 
             #Leader.create :package => package, :login => login, :branch_id => br.id
             # FIXME: if leader not packager, it will broke
