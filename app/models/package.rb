@@ -23,7 +23,7 @@ class Package < ActiveRecord::Base
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
         package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
@@ -54,7 +54,7 @@ class Package < ActiveRecord::Base
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
         package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
@@ -85,7 +85,7 @@ class Package < ActiveRecord::Base
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
         package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
@@ -116,7 +116,7 @@ class Package < ActiveRecord::Base
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
         package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
