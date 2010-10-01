@@ -6,7 +6,7 @@ class SrpmController < ApplicationController
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => branch.id },
-                       :include => [:packages, :group, :branch]
+                       :include => [:packages, :group, :branch, :leader]
     if @srpm != nil
 #      @allsrpms = Srpm.find :all,
 #                            :conditions => { :name => params[:name] }\
@@ -83,31 +83,31 @@ class SrpmController < ApplicationController
                          :branch_id => branch.id },
                        :include => [:group, :branch, :packages]
     if @srpm != nil
-      @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
-                                            srpms.release, srpms.branch,
-                                            order_id
-                                     FROM srpms, branches
-                                     WHERE srpms.branch = branches.name
-                                     AND srpms.name = ?
-                                     ORDER BY branches.order_id ASC", params[:name]]
-      @i586 = Package.all :conditions => {
-                            :branch => @branch.name,
-                            :vendor => @branch.vendor,
-                            :sourcepackage => @srpm.filename,
-                            :arch => 'i586' },
-                          :order => 'name ASC'
-      @noarch = Package.all :conditions => {
-                              :branch => @branch.name,
-                              :vendor => @branch.vendor,
-                              :sourcepackage => @srpm.filename,
-                              :arch => 'noarch' },
-                            :order => 'name ASC'
-      @x86_64 = Package.all :conditions => {
-                              :branch => @branch.name,
-                              :vendor => @branch.vendor,
-                              :sourcepackage => @srpm.filename,
-                              :arch => 'x86_64' },
-                            :order => 'name ASC'
+#      @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
+#                                            srpms.release, srpms.branch,
+#                                            order_id
+#                                     FROM srpms, branches
+#                                     WHERE srpms.branch = branches.name
+#                                     AND srpms.name = ?
+#                                     ORDER BY branches.order_id ASC", params[:name]]
+#      @i586 = Package.all :conditions => {
+#                            :branch => @branch.name,
+#                            :vendor => @branch.vendor,
+#                            :sourcepackage => @srpm.filename,
+#                            :arch => 'i586' },
+#                          :order => 'name ASC'
+#      @noarch = Package.all :conditions => {
+#                              :branch => @branch.name,
+#                              :vendor => @branch.vendor,
+#                              :sourcepackage => @srpm.filename,
+#                              :arch => 'noarch' },
+#                            :order => 'name ASC'
+#      @x86_64 = Package.all :conditions => {
+#                              :branch => @branch.name,
+#                              :vendor => @branch.vendor,
+#                              :sourcepackage => @srpm.filename,
+#                              :arch => 'x86_64' },
+#                            :order => 'name ASC'
     else
       render :status => 404, :action => "nosuchpackage"
     end
