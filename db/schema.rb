@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001010445) do
+ActiveRecord::Schema.define(:version => 20101001015132) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20101001010445) do
     t.integer  "branch_id"
   end
 
+  add_index "acls", ["branch_id"], :name => "index_acls_on_branch_id"
   add_index "acls", ["login"], :name => "index_acls_on_login"
   add_index "acls", ["package"], :name => "index_acls_on_package"
 
@@ -60,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20101001010445) do
     t.integer  "branch_id"
   end
 
+  add_index "groups", ["branch_id"], :name => "index_groups_on_branch_id"
+
   create_table "leaders", :force => true do |t|
     t.string   "package"
     t.string   "login"
@@ -68,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20101001010445) do
     t.integer  "branch_id"
   end
 
+  add_index "leaders", ["branch_id"], :name => "index_leaders_on_branch_id"
   add_index "leaders", ["package"], :name => "index_leaders_on_package"
 
   create_table "packagers", :force => true do |t|
@@ -101,7 +105,9 @@ ActiveRecord::Schema.define(:version => 20101001010445) do
   end
 
   add_index "packages", ["arch"], :name => "index_packages_on_arch"
+  add_index "packages", ["branch_id"], :name => "index_packages_on_branch_id"
   add_index "packages", ["sourcepackage"], :name => "index_packages_on_sourcepackage"
+  add_index "packages", ["srpm_id"], :name => "index_packages_on_srpm_id"
 
   create_table "repocops", :force => true do |t|
     t.string   "name"
@@ -141,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20101001010445) do
     t.integer  "branch_id"
   end
 
+  add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
   add_index "srpms", ["name"], :name => "index_srpms_on_name"
 
   create_table "teams", :force => true do |t|
@@ -151,5 +158,7 @@ ActiveRecord::Schema.define(:version => 20101001010445) do
     t.datetime "updated_at"
     t.integer  "branch_id"
   end
+
+  add_index "teams", ["branch_id"], :name => "index_teams_on_branch_id"
 
 end
