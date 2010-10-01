@@ -14,9 +14,13 @@ class Leader < ActiveRecord::Base
           srpm = Srpm.first :conditions => { :name => package, :branch_id => br.id }
           login = line.split[1]
           packager = Packager.first :conditions => { :login => login }
-          #Leader.create :package => package, :login => login, :branch_id => br.id
-          # FIXME: if leader not packager, it will broke
-          Leader.create :srpm_id => srpm.id, :branch_id => br.id, :packager_id => packager.id
+          if packager.nil?
+            puts "BAD: " + login
+          else
+            #Leader.create :package => package, :login => login, :branch_id => br.id
+            # FIXME: if leader not packager, it will broke
+            Leader.create :srpm_id => srpm.id, :branch_id => br.id, :packager_id => packager.id
+          end
         end      
       end
     else
