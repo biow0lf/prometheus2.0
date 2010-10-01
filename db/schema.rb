@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001020118) do
+ActiveRecord::Schema.define(:version => 20101001023540) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -142,7 +142,6 @@ ActiveRecord::Schema.define(:version => 20101001020118) do
     t.string   "size"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "group"
     t.string   "repocop",     :default => "skip"
     t.integer  "branch_id"
     t.integer  "group_id"
