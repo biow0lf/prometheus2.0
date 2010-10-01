@@ -15,7 +15,8 @@ class Repocop < ActiveRecord::Base
   end
   
   def self.update_repocop_cache
-    srpms = Srpm.all :conditions => { :vendor => 'ALT Linux', :branch => 'Sisyphus' }
+    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    srpms = Srpm.all :conditions => { :branch_id => branch.id }
     srpms.each do |srpm|
       repocops = Repocop.all :conditions => {
                                 :srcname => srpm.name,
