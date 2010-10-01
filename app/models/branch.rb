@@ -3,4 +3,5 @@ class Branch < ActiveRecord::Base
   has_many :acls
   has_many :srpms
   has_many :groups
+  has_many :leaders
 end

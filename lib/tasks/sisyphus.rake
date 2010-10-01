@@ -55,7 +55,7 @@ namespace :sisyphus do
   task :leaders => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import all leaders for packages from Sisyphus to database"
-    Leader.update_leaders 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
+    Leader.import_leaders 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
     puts Time.now.to_s + ": end"
   end
 
