@@ -30,8 +30,7 @@ class SrpmController < ApplicationController
 #                                  :arch => ["noarch", "i586"] },
 #                                :order => 'name ASC'
         @leader = Leader.first :conditions => {
-                                 :branch => @branch.name,
-                                 :vendor => @branch.vendor,
+                                 :branch_id => @branch.id,
                                  :package => params[:name] }
         @packager = Packager.first :conditions => { :login => @leader.login }
       elsif params[:branch] == 'SisyphusARM'
