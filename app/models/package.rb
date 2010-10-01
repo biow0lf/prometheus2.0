@@ -1,4 +1,5 @@
 class Package < ActiveRecord::Base
+  belongs_to :srpm
 
   def self.import_packages_i586(vendor, branch, path)
     Dir.glob(path).each do |file|

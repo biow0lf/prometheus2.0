@@ -1,5 +1,6 @@
 class Srpm < ActiveRecord::Base
   belongs_to :branch
+  has_many :packages
 
   has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 

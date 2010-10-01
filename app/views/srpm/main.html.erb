@@ -59,7 +59,7 @@
 <b><%= _("List of rpms provided by this srpm:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-  <% @packages.each do |package| -%>
+  <% @srpm.packages.each do |package| -%>
     <li><%= package.name %></li>
   <% end -%>
   </ul>
