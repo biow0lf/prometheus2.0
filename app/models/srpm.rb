@@ -1,8 +1,8 @@
 class Srpm < ActiveRecord::Base
   belongs_to :branch
-  has_many :packages
   belongs_to :group
-
+  has_many :packages
+  
   has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
@@ -23,14 +23,10 @@ class Srpm < ActiveRecord::Base
         srpm.name = rpm.name
         srpm.version = rpm.version.v
         srpm.release = rpm.version.r
-        srpm.group = rpm[1016]
-        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
-        
-        puts group
-        puts group.id
-        puts rpm[1016]
-        
-        srpm.group_id = group.id
+        #srpm.group = rpm[1016]
+        group = rpm[1016]
+        gr = Group.first :conditions => { :name => group, :branch_id => br.id }
+        srpm.group_id = gr.id
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
         srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
