@@ -2,6 +2,7 @@ class Package < ActiveRecord::Base
   belongs_to :srpm
 
   def self.import_packages_i586(vendor, branch, path)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -21,8 +22,9 @@ class Package < ActiveRecord::Base
         package.description = rpm[1005]
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
-        package.branch = branch
-        package.vendor = vendor
+        package.branch_id = br.id
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
         puts "Bad src.rpm " + file
@@ -31,6 +33,7 @@ class Package < ActiveRecord::Base
   end
 
   def self.import_packages_noarch(vendor, branch, path)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -50,8 +53,9 @@ class Package < ActiveRecord::Base
         package.description = rpm[1005]
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
-        package.branch = branch
-        package.vendor = vendor
+        package.branch_id = br.id
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
         puts "Bad src.rpm " + file
@@ -60,6 +64,7 @@ class Package < ActiveRecord::Base
   end
 
   def self.import_packages_x86_64(vendor, branch, path)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -79,8 +84,9 @@ class Package < ActiveRecord::Base
         package.description = rpm[1005]
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
-        package.branch = branch
-        package.vendor = vendor
+        package.branch_id = br.id
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
         puts "Bad src.rpm " + file
@@ -89,6 +95,7 @@ class Package < ActiveRecord::Base
   end
   
   def self.import_packages_arm(vendor, branch, path)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -108,8 +115,9 @@ class Package < ActiveRecord::Base
         package.description = rpm[1005]
         package.buildtime = Time.at(rpm[1006])
         package.size = File.size(file)
-        package.branch = branch
-        package.vendor = vendor
+        package.branch_id = br.id
+        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044] }
+        package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
         puts "Bad src.rpm " + file
