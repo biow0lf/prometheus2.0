@@ -6,10 +6,11 @@ class HomeController < ApplicationController
   end
 
   def search
+    branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
     if params[:request].nil?
       redirect_to :action => "index"
     else
-      @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_equals("Sisyphus").ascend_by_name
+      @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_equals(branch.id).ascend_by_name
       @srpms, @srpms_count = @search.all, @search.count
     end
   end
