@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  validates_presence_of :name, :login, :branch, :vendor
+  validates_presence_of :name, :login
   belongs_to :branch
 
   def self.import_teams(vendor, branch, url)
