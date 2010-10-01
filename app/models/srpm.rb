@@ -23,11 +23,8 @@ class Srpm < ActiveRecord::Base
         srpm.name = rpm.name
         srpm.version = rpm.version.v
         srpm.release = rpm.version.r
-        #srpm.group = rpm[1016]
-        #group = rpm[1016]
         group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
         srpm.group_id = group.id
-        srpm.group = rpm[1016]
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
         srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
