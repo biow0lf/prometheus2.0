@@ -8,7 +8,7 @@ class TeamController < ApplicationController
                              :team => true }
     @acls = Acl.all :conditions => {
                       :login => '@' + params[:name],
-                      :branch => @branch.name },
+                      :branch_id => @branch.id },
                     :order => 'LOWER(package)'
 
     if @team != nil
