@@ -3,12 +3,12 @@ class Packager < ActiveRecord::Base
   validates_uniqueness_of :login
   
   has_one :leader
-
-  has_many :acls, :foreign_key => 'login', :primary_key => 'login'
-
-  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }, :order => 'LOWER(package)'
-
-  has_one :srpm, :through => :acls, :order => "name ASC"
+#
+#  has_many :acls, :foreign_key => 'login', :primary_key => 'login'
+#
+#  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }, :order => 'LOWER(package)'
+#
+#  has_one :srpm, :through => :acls, :order => "name ASC"
 
   def self.import_packagers_list(path)
     Dir.glob(path).each do |file|
