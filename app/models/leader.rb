@@ -1,7 +1,7 @@
 class Leader < ActiveRecord::Base
   #validates_presence_of :package, :login
   belongs_to :branch
-  belongs_to :packager
+  belongs_to :maintainer
   belongs_to :srpm
 
   def self.import_leaders(vendor, branch, url)
@@ -16,7 +16,7 @@ class Leader < ActiveRecord::Base
           login = 'php-coder' if login == 'php_coder'
           login = 'p_solntsev' if login == 'psolntsev'
           login = '@vim-plugins' if login == '@vim_plugins'
-          packager = Packager.first :conditions => { :login => login }
+          packager = Maintainer.first :conditions => { :login => login }
           if packager.nil?
             puts "BAD login: " + login
           elsif srpm.nil?
