@@ -1,9 +1,9 @@
 class PackagerController < ApplicationController
   def info
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     @acls = Acl.all :select => 'package',
                     :conditions => {
                       :login => params[:login],
@@ -15,9 +15,9 @@ class PackagerController < ApplicationController
 
   def srpms
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     @acls = Acl.all :conditions => {
                       :login => params[:login].downcase,
                       :branch_id => @branch.id }
@@ -28,9 +28,9 @@ class PackagerController < ApplicationController
 
   def acls
     @branch = Branch.first :conditions => { :urlname => 'Sisyphus' }
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     @acls = Acl.all :conditions => {
                       :login => params[:login],
                       :branch_id => @branch.id }
@@ -41,9 +41,9 @@ class PackagerController < ApplicationController
   end
 
   def gear
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
                              :order => 'LOWER(repo)'
     if @packager == nil
@@ -52,9 +52,9 @@ class PackagerController < ApplicationController
   end
 
   def bugs
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     @bugs = Bug.all :conditions => {
                       :assigned_to => params[:login].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
@@ -70,9 +70,9 @@ class PackagerController < ApplicationController
   end
 
   def allbugs
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     @bugs = Bug.all :conditions => {
                       :assigned_to => params[:login].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
@@ -88,9 +88,9 @@ class PackagerController < ApplicationController
   end
 
   def repocop
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
     if @packager == nil
       render :status => 404, :action => "nosuchpackager"
     end
@@ -98,5 +98,4 @@ class PackagerController < ApplicationController
 
   def nosuchpackager
   end
-
 end
