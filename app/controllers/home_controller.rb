@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 #  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :packagers_list
 
   def index
-    @top15 = Packager.top15
+    @top15 = Maintainer.top15
   end
 
   def search
@@ -37,7 +37,7 @@ class HomeController < ApplicationController
   end
 
   def packagers_list
-    @packagers = Packager.find_all_packagers_in_sisyphus
-    @teams = Packager.find_all_teams_in_sisyphus
+    @packagers = Maintainer.find_all_packagers_in_sisyphus
+    @teams = Maintainer.find_all_teams_in_sisyphus
   end
 end
