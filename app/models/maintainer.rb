@@ -1,4 +1,4 @@
-class Packager < ActiveRecord::Base
+class Maintainer < ActiveRecord::Base
   validates_presence_of :name, :email, :login
   validates_uniqueness_of :login
   
