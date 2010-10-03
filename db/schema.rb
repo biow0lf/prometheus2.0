@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001043251) do
+ActiveRecord::Schema.define(:version => 20101003232213) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(:version => 20101001043251) do
   add_index "leaders", ["packager_id"], :name => "index_leaders_on_packager_id"
   add_index "leaders", ["srpm_id"], :name => "index_leaders_on_srpm_id"
 
-  create_table "packagers", :force => true do |t|
+  create_table "maintainers", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "login"
