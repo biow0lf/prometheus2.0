@@ -2,8 +2,8 @@ class IphoneController < ApplicationController
   layout "iphone"
 
   def index
-    @packagers = Packager.find_all_packagers_in_sisyphus
-    @teams = Packager.find_all_teams_in_sisyphus
+    @packagers = Maintainer.find_all_packagers_in_sisyphus
+    @teams = Maintainer.find_all_teams_in_sisyphus
     @groups = Group.find_groups_in_sisyphus
   end
 
@@ -11,9 +11,9 @@ class IphoneController < ApplicationController
     @branch = Branch.first :conditions => {
                              :vendor => 'ALT Linux',
                              :name => 'Sisyphus' }
-    @packager = Packager.first :conditions => {
-                                 :login => params[:login].downcase,
-                                 :team => false }
+    @packager = Maintainer.first :conditions => {
+                                   :login => params[:login].downcase,
+                                   :team => false }
 #    @acls = Acl.all :select => 'package',
 #                    :conditions => {
 #                      :login => params[:login],
@@ -24,5 +24,4 @@ class IphoneController < ApplicationController
                             :order => 'repo ASC'
 
   end
-
 end
