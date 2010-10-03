@@ -3,9 +3,9 @@ class TeamController < ApplicationController
 
   def info
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    @team = Packager.first :conditions => {
-                             :login => '@' + params[:name],
-                             :team => true }
+    @team = Maintainer.first :conditions => {
+                               :login => '@' + params[:name],
+                               :team => true }
     @acls = Acl.all :conditions => {
                       :login => '@' + params[:name],
                       :branch_id => @branch.id },
