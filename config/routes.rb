@@ -30,22 +30,22 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/team/:name', :controller => 'team', :action => 'info'
   map.connect '/:locale/team/:name', :controller => 'team', :action => 'info', :requirements => { :locale => /(en|ru|uk|br)/ }
 
-  map.connect '/packager/:login', :controller => 'packager', :action => 'info'
-  map.connect '/:locale/packager/:login', :controller => 'packager', :action => 'info', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/packager/:login/srpms', :controller => 'packager', :action => 'srpms'
-  map.connect '/:locale/packager/:login/srpms', :controller => 'packager', :action => 'srpms', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/packager/:login/acls', :controller => 'packager', :action => 'acls'
-  map.connect '/:locale/packager/:login/acls', :controller => 'packager', :action => 'acls', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/packager/:login/gear', :controller => 'packager', :action => 'gear'
-  map.connect '/:locale/packager/:login/gear', :controller => 'packager', :action => 'gear', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/packager/:login/bugs', :controller => 'packager', :action => 'bugs'
-  map.connect '/:locale/packager/:login/bugs', :controller => 'packager', :action => 'bugs', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/packager/:login/allbugs', :controller => 'packager', :action => 'allbugs'
-  map.connect '/:locale/packager/:login/allbugs', :controller => 'packager', :action => 'allbugs', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/packager/:login/repocop', :controller => 'packager', :action => 'repocop'
-  map.connect '/:locale/packager/:login/repocop', :controller => 'packager', :action => 'repocop', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/repocop/rss', :controller => 'packager', :action => 'repocop'
-#  map.connect '/:locale/packager/:login/repocop/rss', :controller => 'packager', :action => 'repocop'
+  map.connect '/packager/:login', :controller => 'maintainer', :action => 'info'
+  map.connect '/:locale/packager/:login', :controller => 'maintainer', :action => 'info', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/packager/:login/srpms', :controller => 'maintainer', :action => 'srpms'
+  map.connect '/:locale/packager/:login/srpms', :controller => 'maintainer', :action => 'srpms', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/packager/:login/acls', :controller => 'maintainer', :action => 'acls'
+  map.connect '/:locale/packager/:login/acls', :controller => 'maintainer', :action => 'acls', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/packager/:login/gear', :controller => 'maintainer', :action => 'gear'
+  map.connect '/:locale/packager/:login/gear', :controller => 'maintainer', :action => 'gear', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/packager/:login/bugs', :controller => 'maintainer', :action => 'bugs'
+  map.connect '/:locale/packager/:login/bugs', :controller => 'maintainer', :action => 'bugs', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/packager/:login/allbugs', :controller => 'maintainer', :action => 'allbugs'
+  map.connect '/:locale/packager/:login/allbugs', :controller => 'maintainer', :action => 'allbugs', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/packager/:login/repocop', :controller => 'maintainer', :action => 'repocop'
+  map.connect '/:locale/packager/:login/repocop', :controller => 'maintainer', :action => 'repocop', :requirements => { :locale => /(en|ru|uk|br)/ }
+#  map.connect '/packager/:login/repocop/rss', :controller => 'maintainer', :action => 'repocop'
+#  map.connect '/:locale/packager/:login/repocop/rss', :controller => 'maintainer', :action => 'repocop'
 
   map.connect '/packages/:group', :controller => 'home', :action => 'bygroup'
   map.connect '/:locale/packages/:group', :controller => 'home', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }

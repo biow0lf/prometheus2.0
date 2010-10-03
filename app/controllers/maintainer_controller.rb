@@ -1,4 +1,4 @@
-class PackagerController < ApplicationController
+class MaintainerController < ApplicationController
   def info
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
     @packager = Maintainer.first :conditions => {
