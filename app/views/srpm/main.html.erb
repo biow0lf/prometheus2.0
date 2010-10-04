@@ -73,7 +73,11 @@
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @srpm.acls.each do |acl| -%>
-    <li><%= acl.maintainer.name %> <%= acl.maintainer.login %></li>
+    <% if acl.maintainer.team %>
+      <li><%= link_to acl.maintainer.name, '/' + params[:locale] + '/team/' + acl.maintainer.login[1..-1], :class => 'news' %></li>
+    <% else %>
+      <li><%= link_to acl.maintainer.name, '/' + params[:locale] + '/packager/' + acl.maintainer.login, :class => 'news' %></li>
+    <% end %>
   <% end -%>
   </ul>
 </div>
