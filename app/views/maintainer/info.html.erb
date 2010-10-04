@@ -1,9 +1,9 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + @packager.name + _("&raquo;") -%>
-<% url "/packager/" + @packager.login -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo;") -%>
+<% url "/packager/" + @maintainer.login -%>
 
-<div class="header"><%= _("Maintainer:") %> <%= @packager.name -%></div>
+<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name -%></div>
 <p class="break" />
-<span class="current">&nbsp;<b><%= _("Information") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/srpms" class="news" title="<%= _("packages which was built by this maintainer") %>"><%= _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/bugs" class="news" title="<%= _("Bugs/FR statistics assigned to this maintainer") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @packager.login %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="break" />
+<span class="current">&nbsp;<b><%= _("Information") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/srpms" class="news" title="<%= _("packages which was built by this maintainer") %>"><%= _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= _("Bugs/FR statistics assigned to this maintainer") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="break" />
 <b><%= _("Information:") %> </b><div class="para">  </div>
 
 <p class="break" />
