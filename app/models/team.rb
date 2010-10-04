@@ -1,6 +1,7 @@
 class Team < ActiveRecord::Base
   validates_presence_of :name
   belongs_to :branch
+  belongs_to :maintainer
 
   def self.import_teams(vendor, branch, url)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
