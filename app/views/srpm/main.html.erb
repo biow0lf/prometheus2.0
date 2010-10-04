@@ -38,7 +38,7 @@
 <b><%= _("Build date:") %></b> <%= @srpm.buildtime %> (<%= time_ago_in_words(@srpm.buildtime) %> <%= _("ago") %>)<br />
 <b><%= _("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
 
-<% if @srpm.url != nil -%>
+<% if !@srpm.url.nil? -%>
 <b><%= _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news', :rel => 'nofollow' %><br /><br />
 <% end -%>
 
@@ -47,9 +47,9 @@
 <b><%= _("Summary:") %></b> <span class="news-text"><%= @srpm.summary %></span><br />
 <b><%= _("Description:") %></b> <div class="para"><%= simple_format @srpm.description %></div>
 <p class="news" />
-<% if @srpm.maintainer != nil -%>
+<% if !@srpm.maintainer.nil? -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
-<% if @srpm.maintainer.team == true -%>
+<% if @srpm.maintainer.team -%>
   <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/team/' + @srpm.maintainer.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% else -%>
   <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/packager/' + @srpm.maintainer.login, :class => 'news', :title => _('information about maintainer') %><br /><br />
@@ -67,7 +67,6 @@
 </div>
 <% end %>
 
-<%# if params[:branch] != 'Platform5' and params[:branch] != 'SisyphusARM' -%>
 <% if !@srpm.acls.nil? %>
 <b><%= _("ACL:") %></b>
 <div class="para" style="margin-left: 0em;">
