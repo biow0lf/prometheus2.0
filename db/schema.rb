@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004044111) do
+ActiveRecord::Schema.define(:version => 20101004061140) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(:version => 20101004044111) do
     t.datetime "updated_at"
     t.text     "short_desc"
   end
+
+  add_index "bugs", ["assigned_to"], :name => "index_bugs_on_assigned_to"
+  add_index "bugs", ["bug_status"], :name => "index_bugs_on_bug_status"
+  add_index "bugs", ["product"], :name => "index_bugs_on_product"
 
   create_table "gitrepos", :force => true do |t|
     t.string   "repo"
