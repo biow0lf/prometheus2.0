@@ -116,7 +116,8 @@ function changeHref (val){
 
 <% counter = 1 -%>
 
-<% if @i586.count != 0 -%>
+<%# if @i586.count != 0 -%>
+<% if !@i586.nil? %>
   <tr><td><br><b>i586:</b></td></tr>
   <% @i586.each do |i| -%>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
@@ -131,7 +132,8 @@ function changeHref (val){
   <% end -%>
 <% end -%>
 
-<% if @noarch.count != 0 -%>
+<%# if @noarch.count != 0 -%>
+<% if !@noarch.nil? %>
   <tr><td><br><b>noarch:</b></td></tr>
   <% @noarch.each do |n| -%>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
@@ -145,7 +147,8 @@ function changeHref (val){
   <% end -%>
 <% end -%>
 
-<% if @x86_64.count != 0 -%>
+<%# if @x86_64.count != 0 -%>
+<% if !@x86_64.nil? %>
   <tr><td><br><b>x86_64:</b></td></tr>
   <% @x86_64.each do |x| -%>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
