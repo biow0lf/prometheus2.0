@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101003234312) do
+ActiveRecord::Schema.define(:version => 20101004000302) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -52,7 +52,10 @@ ActiveRecord::Schema.define(:version => 20101003234312) do
     t.datetime "lastchange"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "maintainer_id"
   end
+
+  add_index "gitrepos", ["maintainer_id"], :name => "index_gitrepos_on_maintainer_id"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
