@@ -20,7 +20,7 @@
 
 <ul id="packages" title="<%= _("Packages") %>">
 <% @groups.each do |group| -%>
-  <li><%= link_to group.name + '(' + group.counter +')', '/' + params[:locale] + '/iphone/packages/' + group.name %></li>
+  <li><%= link_to group.name + '(' + group.counter +')', '/' + params[:locale] + '/iphone/packages/' + group.name, :target => '_self' %></li>
 <% end -%>
 </ul>
 
