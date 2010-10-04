@@ -2,7 +2,6 @@
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Sisyphus'
-branch.url = 'Sisyphus'
 branch.order_id = 0
 branch.save!
 
@@ -10,7 +9,6 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'                                                                                                                                                           
 branch.name = 'SisyphusARM'
-branch.url = 'SisyphusARM'
 branch.order_id = 1                                                                                                                                                           
 branch.save!
 
@@ -18,7 +16,6 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
-branch.url = 'Platform5'
 branch.order_id = 2
 branch.save!
 
@@ -26,7 +23,6 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.1'
-branch.url = '5.1'
 branch.order_id = 3
 branch.save!
 
@@ -34,7 +30,6 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.0'
-branch.url = '5.0'
 branch.order_id = 4
 branch.save!
 
@@ -42,7 +37,6 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.1'
-branch.url = '4.1'
 branch.order_id = 5
 branch.save!
 
@@ -50,7 +44,6 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.0'
-branch.url = '4.0'
 branch.order_id = 6
 branch.save!
 
