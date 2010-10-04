@@ -62,11 +62,11 @@ class Maintainer < ActiveRecord::Base
   end
 
   def self.find_all_maintainers_in_sisyphus
-    find_by_sql("SELECT COUNT(acls.package) AS counter,
+    find_by_sql("SELECT COUNT(acls.srpm_id) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login
                  FROM acls, maintainers, branches
-                 WHERE maintainers.login = acls.login
+                 WHERE maintainers.id = acls.maintainer_id
                  AND maintainers.team = false
                  AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
@@ -76,11 +76,11 @@ class Maintainer < ActiveRecord::Base
   end
 
   def self.find_all_teams_in_sisyphus
-    find_by_sql("SELECT COUNT(acls.package) AS counter,
+    find_by_sql("SELECT COUNT(acls.srpm_id) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login
                  FROM acls, maintainers, branches
-                 WHERE maintainers.login = acls.login
+                 WHERE maintainers.id = acls.maintainer_id
                  AND maintainers.team = true
                  AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
