@@ -16,8 +16,8 @@ class Acl < ActiveRecord::Base
           for i in 1..line.split.count-1
             login = line.split[i]
             login = 'php-coder' if login == 'php_coder'
-            #login = '@vim-plugins' if login == '@vim_plugins'
-            #login = 'p_solntsev' if login == 'psolntsev'
+            login = 'p_solntsev' if login == 'psolntsev'
+            login = '@vim-plugins' if login == '@vim_plugins'
             
             maintainer = Maintainer.first :conditions => { :login => login }
             srpm = Srpm.first :conditions => { :branch_id => br.id, :name => package }
