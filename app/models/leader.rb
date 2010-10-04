@@ -1,5 +1,4 @@
 class Leader < ActiveRecord::Base
-  #validates_presence_of :package, :login
   belongs_to :branch
   belongs_to :maintainer
   belongs_to :srpm
@@ -18,9 +17,9 @@ class Leader < ActiveRecord::Base
           login = '@vim-plugins' if login == '@vim_plugins'
           maintainer = Maintainer.first :conditions => { :login => login }
           if maintainer.nil?
-            puts "BAD login: " + login
+            puts Time.now.to_s + ": maintainer not found '" + login + "'"
           elsif srpm.nil?
-            puts "BAD package: " + package
+            puts Time.now.to_s + ": srpm not found '" + package + "'"
           else
             Leader.create :srpm_id => srpm.id, :branch_id => br.id, :maintainer_id => maintainer.id
           end
@@ -30,18 +29,4 @@ class Leader < ActiveRecord::Base
       puts Time.now.to_s + ": leaders already imported"
     end
   end
-
-#  def self.update_leaders(vendor, branch, url)
-#    ActiveRecord::Base.transaction do
-#      ActiveRecord::Base.connection.execute("DELETE FROM leaders WHERE branch = '" + branch + "' AND vendor = '" + vendor + "'")
-#
-#      file = open(URI.escape(url)).read
-#
-#      file.each_line do |line|
-#        package = line.split[0]
-#        login = line.split[1]
-#        Leader.create :package => package, :login => login, :branch => branch, :vendor => vendor
-#      end
-#    end
-#  end
 end
