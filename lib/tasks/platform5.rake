@@ -59,7 +59,7 @@ namespace :platform5 do
   task :teams => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import teams"
-    Team.update_from_gitalt 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
+    Team.import_teams 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
     puts Time.now.to_s + ": end"
   end
 end

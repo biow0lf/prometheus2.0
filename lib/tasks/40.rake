@@ -67,7 +67,7 @@ namespace :"40" do
   task :teams => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import teams"
-    Team.update_from_gitalt 'ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.groups.4.0'
+    Team.import_teams 'ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.groups.4.0'
     puts Time.now.to_s + ": end"
   end
 end
