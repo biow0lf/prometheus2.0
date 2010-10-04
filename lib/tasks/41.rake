@@ -55,11 +55,11 @@ namespace :"41" do
     puts Time.now.to_s + ": end"
   end
 
-  desc "Import packagers list from src.rpm from 4.1 to database"
-  task :packagers => :environment do
+  desc "Import maintainers list from src.rpm from 4.1 to database"
+  task :maintainers => :environment do
     require 'rpm'
     puts Time.now.to_s + ": import src.rpm's"
-    Packager.import_packagers_list "/ALT/4.1/files/SRPMS/*.src.rpm"
+    Maintainer.import_maintainers_list "/ALT/4.1/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
   end
 
