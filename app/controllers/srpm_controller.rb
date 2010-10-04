@@ -89,8 +89,11 @@ class SrpmController < ApplicationController
                          :name => params[:name],
                          :branch_id => branch.id }
     if @srpm != nil
-      @gitrepos = Gitrepo.all :conditions => { :repo => @srpm.name },
-                               :order => 'lastchange DESC'
+#      @gitrepos = Gitrepo.all :conditions => { :repo => @srpm.name },
+#                               :order => 'lastchange DESC'
+      @gitrepos = Gitrepo.all :conditions => {
+                                :srpm_id => @srpm.id },
+                              :order => 'lastchange DESC'
     else
       render :status => 404, :action => "nosuchpackage"
     end

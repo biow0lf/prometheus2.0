@@ -17,9 +17,10 @@
   <% @gitrepos.each do |gitrepo| -%>
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-        <% login = gitrepo.login -%>
-        <% login = 'php_coder' if gitrepo.login == 'php-coder' -%>
-        <%= link_to gitrepo.packager.name, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.login %>@)
+        <% login = gitrepo.maintainer.login -%>
+        <% login = 'php_coder' if gitrepo.maintainer.login == 'php-coder' -%>
+        <% login = 'psolntsev' if gitrepo.maintainer.login == 'p_solntsev' %>
+        <%= link_to gitrepo.maintainer.name, 'http://git.altlinux.org/people/' + gitrepo.maintainer.login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.maintainer.login %>@)
       </td>
       <td><%= gitrepo.lastchange %></td>
     </tr>
