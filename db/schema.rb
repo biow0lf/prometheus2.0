@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004000302) do
+ActiveRecord::Schema.define(:version => 20101004020127) do
 
   create_table "acls", :force => true do |t|
     t.string   "package"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20101004000302) do
     t.string   "component"
     t.string   "assigned_to"
     t.string   "reporter"
-    t.string   "short_desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "short_desc"
   end
 
   create_table "gitrepos", :force => true do |t|
