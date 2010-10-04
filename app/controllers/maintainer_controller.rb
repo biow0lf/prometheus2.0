@@ -88,7 +88,8 @@ class MaintainerController < ApplicationController
   def repocop
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
-                                     :team => false }
+                                     :team => false },
+                                   :include => [:srpms => [:repocops]]
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
