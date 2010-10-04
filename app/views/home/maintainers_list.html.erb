@@ -5,12 +5,12 @@
 <tr><th><%= _("Maintainers") %></th><th><%= _("Teams") %></th></tr>
 <tr>
 <td valign="top">
-<% @packagers.each do |packager| -%>
+<% @maintainers.each do |maintainer| -%>
   <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
     <div style="float:left">
-      <%= link_to packager.name, '/' + params[:locale] + '/packager/' + packager.login, :class => 'news' %> (<%= packager.login %>)
+      <%= link_to maintainer.name, '/' + params[:locale] + '/packager/' + maintainer.login, :class => 'news' %> (<%= maintainer.login %>)
     </div>
-    <div style="float:right"> <%= packager.counter %></div>
+    <div style="float:right"> <%= maintainer.counter %></div>
   </div>
 <% end -%>
 </td>
