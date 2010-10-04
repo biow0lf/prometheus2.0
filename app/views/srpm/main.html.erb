@@ -47,12 +47,12 @@
 <b><%= _("Summary:") %></b> <span class="news-text"><%= @srpm.summary %></span><br />
 <b><%= _("Description:") %></b> <div class="para"><%= simple_format @srpm.description %></div>
 <p class="news" />
-<% if @srpm.packager != nil -%>
+<% if @srpm.maintainer != nil -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
-<% if @srpm.packager.team == true -%>
-  <%= link_to @srpm.packager.name, '/' + params[:locale] + '/team/' + @srpm.packager.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
+<% if @srpm.maintainer.team == true -%>
+  <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/team/' + @srpm.maintainer.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% else -%>
-  <%= link_to @srpm.packager.name, '/' + params[:locale] + '/packager/' + @srpm.packager.login, :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/packager/' + @srpm.maintainer.login, :class => 'news', :title => _('information about maintainer') %><br /><br />
 <% end -%>
 <% end -%>
 
