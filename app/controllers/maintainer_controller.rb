@@ -20,7 +20,8 @@ class MaintainerController < ApplicationController
     @acls = Acl.all :conditions => {
                       :maintainer_id => @maintainer.id,
                       :branch_id => @branch.id },
-                    :include => [:srpm]
+                    :include => [:srpm],
+                    :order => 'LOWER(srpms.name)'
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
