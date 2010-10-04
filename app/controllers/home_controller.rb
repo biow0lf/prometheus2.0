@@ -37,7 +37,7 @@ class HomeController < ApplicationController
   end
 
   def maintainers_list
-    @maintainers = Maintainer.find_all_packagers_in_sisyphus
+    @maintainers = Maintainer.find_all_maintainers_in_sisyphus
     @teams = Maintainer.find_all_teams_in_sisyphus
   end
 end

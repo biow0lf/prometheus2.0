@@ -60,7 +60,7 @@ class Maintainer < ActiveRecord::Base
     end
   end
 
-  def self.find_all_packagers_in_sisyphus
+  def self.find_all_maintainers_in_sisyphus
     find_by_sql("SELECT COUNT(acls.package) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login

@@ -2,7 +2,7 @@ class IphoneController < ApplicationController
   layout "iphone"
 
   def index
-    @packagers = Maintainer.find_all_packagers_in_sisyphus
+    @packagers = Maintainer.find_all_maintainers_in_sisyphus
     @teams = Maintainer.find_all_teams_in_sisyphus
     @groups = Group.find_groups_in_sisyphus
   end
