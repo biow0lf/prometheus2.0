@@ -9,7 +9,7 @@ class MaintainerController < ApplicationController
                       :login => params[:login],
                       :branch_id => @branch.id }
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
@@ -22,7 +22,7 @@ class MaintainerController < ApplicationController
                       :login => params[:login].downcase,
                       :branch_id => @branch.id }
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
@@ -36,7 +36,7 @@ class MaintainerController < ApplicationController
                       :branch_id => @branch.id }
 #                     :include => [:srpm]
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
@@ -47,7 +47,7 @@ class MaintainerController < ApplicationController
     @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
                              :order => 'LOWER(repo)'
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
@@ -65,7 +65,7 @@ class MaintainerController < ApplicationController
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
@@ -83,7 +83,7 @@ class MaintainerController < ApplicationController
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
@@ -92,10 +92,10 @@ class MaintainerController < ApplicationController
                                      :login => params[:login].downcase,
                                      :team => false }
     if @maintainer == nil
-      render :status => 404, :action => "nosuchpackager"
+      render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
-  def nosuchpackager
+  def nosuchmaintainer
   end
 end
