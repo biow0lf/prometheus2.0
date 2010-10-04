@@ -51,7 +51,7 @@ namespace :"51" do
   task :leaders => :environment do
     require 'open-uri'
     puts Time.now.to_s + ": import leaders"
-    Leader.update_leaders 'ALT Linux', '5.1', 'http://git.altlinux.org/acl/list.packages.5.1'
+    Leader.import_leaders 'ALT Linux', '5.1', 'http://git.altlinux.org/acl/list.packages.5.1'
     puts Time.now.to_s + ": end"
   end
 
