@@ -86,6 +86,11 @@ class SrpmController < ApplicationController
                          :branch_id => branch.id },
                        :include => [:group, :branch, :packages]
     if @srpm != nil
+      @allsrpms = Srpm.find :all, :conditions => {
+                                    :name => params[:name] },
+                                  :joins => :branch,
+                                  :order => "branches.order_id"
+
 #      @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
 #                                            srpms.release, srpms.branch,
 #                                            order_id
