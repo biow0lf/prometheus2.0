@@ -91,7 +91,8 @@ class MaintainerController < ApplicationController
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false },
-                                   :include => [:srpms => [:repocops]]
+                                   :include => [:srpms => [:repocops]],
+                                   :order => 'LOWER(srpms.name)'
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
