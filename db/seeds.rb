@@ -58,6 +58,7 @@ branch.save!
 
 # packager list
 Maintainer.create(:name => 'Nobody', :email => 'noboby@altlinux.org', :login => '@nobody', :team => true)
+Maintainer.create(:name => 'Eve R. Ybody', :email => 'everybody@altlinux.org', :login => '@everybody', :team => true)
 
 Maintainer.create(:name => 'Igor Zubkov', :email => 'icesik@altlinux.org', :login => 'icesik', :team => false)
 Maintainer.create(:name => 'Alexey Tourbin', :email => 'at@altlinux.org', :login => 'at', :team => false)
@@ -82,6 +83,8 @@ Maintainer.create(:name => 'Sergey Lebedev', :email => 'barabashka@altlinux.org'
 Maintainer.create(:name => 'Konstantin Pavlov', :email => 'thresh@altlinux.org', :login => 'thresh', :team => false)
 Maintainer.create(:name => 'Alexey Morozov', :email => 'morozov@altlinux.org', :login => 'morozov', :team => false)
 Maintainer.create(:name => 'Dmitry V. Levin', :email => 'ldv@altlinux.org', :login => 'ldv', :team => false)
+Maintainer.create(:name => 'Igor Androsov', :email => 'blake@altlinux.org', :login => 'blake', :team => false)
+
 
 # TODO: import teams before import srpm!
 Maintainer.create(:name => 'TeX Development Team', :email => 'tex@packages.altlinux.org', :login => '@tex', :team => true)
