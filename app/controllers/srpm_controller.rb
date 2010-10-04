@@ -6,7 +6,7 @@ class SrpmController < ApplicationController
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => branch.id },
-                       :include => [:packages, :group, :branch, :leader, :maintainer, :acls]
+                       :include => [:packages, :group, :branch, :leader, :maintainer, :acls => [:maintainers]]
     if @srpm != nil
       @allsrpms = Srpm.find :all, :conditions => {
                                     :name => params[:name] },
