@@ -4,9 +4,12 @@ class MaintainerController < ApplicationController
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
-    @acls = Acl.all :select => 'package',
-                    :conditions => {
-                      :login => params[:login],
+#    @acls = Acl.all :select => 'package',
+#                    :conditions => {
+#                      :login => params[:login],
+#                      :branch_id => @branch.id }
+    @acls = Acl.all :conditions => {
+                      :maintainer_id => @maintainer.id,
                       :branch_id => @branch.id }
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
