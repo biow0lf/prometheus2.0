@@ -62,43 +62,43 @@ class Maintainer < ActiveRecord::Base
 
   def self.find_all_packagers_in_sisyphus
     find_by_sql("SELECT COUNT(acls.package) AS counter,
-                        packagers.name AS name,
-                        packagers.login AS login
-                 FROM acls, packagers, branches
-                 WHERE packagers.login = acls.login
-                 AND packagers.team = false
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers, branches
+                 WHERE maintainers.login = acls.login
+                 AND maintainers.team = false
                  AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
-                 GROUP BY packagers.name, packagers.login
-                 ORDER BY packagers.name ASC")
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY maintainers.name ASC")
   end
 
   def self.find_all_teams_in_sisyphus
     find_by_sql("SELECT COUNT(acls.package) AS counter,
-                        packagers.name AS name,
-                        packagers.login AS login
-                 FROM acls, packagers, branches
-                 WHERE packagers.login = acls.login
-                 AND packagers.team = true
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers, branches
+                 WHERE maintainers.login = acls.login
+                 AND maintainers.team = true
                  AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
-                 GROUP BY packagers.name, packagers.login
-                 ORDER BY packagers.name ASC")
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY maintainers.name ASC")
   end
 
   def self.top15
     find_by_sql("SELECT COUNT(acls.package) AS counter,
-                        packagers.name AS name,
-                        packagers.login AS login
-                 FROM branches, acls, packagers
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM branches, acls, maintainers
                  WHERE branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
                  AND branches.id = acls.branch_id
-                 AND acls.login = packagers.login
-                 AND packagers.team = false
-                 GROUP BY packagers.name, packagers.login
+                 AND acls.login = maintainers.login
+                 AND maintainers.team = false
+                 GROUP BY maintainers.name, maintainers.login
                  ORDER BY 1 DESC LIMIT 15")
   end
 end
