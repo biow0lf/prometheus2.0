@@ -42,21 +42,24 @@ function changeHref (val){
   url<%= counter %> = "<%= '/Sisyphus/files/SRPMS/' + @srpm.filename %>";
   <% counter += 1 -%>
 
-  <% if @i586.count != 0 -%>
+  <%# if @i586.count != 0 -%>
+  <% if !@i586.nil? %>
     <% @i586.each do |i| -%>
       url<%= counter %> = "<%= '/Sisyphus/files/i586/RPMS/' + i.filename %>";
       <% counter += 1 -%>
 	<% end -%>
   <% end -%>
 
-  <% if @noarch.count != 0 -%>
+  <%# if @noarch.count != 0 -%>
+  <% if !@noarch.nil? %>
     <% @noarch.each do |n| -%>
       url<%= counter %> = "<%= '/Sisyphus/files/noarch/RPMS/' + n.filename %>";
       <% counter += 1 -%>
 	<% end -%>
   <% end -%>
 
-  <% if @x86_64.count != 0 -%>
+  <%# if @x86_64.count != 0 -%>
+  <% if !@x86_64.nil? %>
     <% @x86_64.each do |x| -%>
       url<%= counter %> = "<%= '/Sisyphus/files/x86_64/RPMS/' + x.filename %>";
       <% counter += 1 -%>
