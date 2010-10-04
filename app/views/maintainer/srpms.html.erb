@@ -17,25 +17,22 @@
     <th class="nosort"><%= _("Summary") %></th>
   </tr>
 
-  <% if !@acls.srpms.nil? %>
-
-  <% @acls.srpms.each do |srpm| -%>
+  <% @acls.each do |acl| -%>
   <tr>
     <td>
-      <%= link_to image_tag(srpm.repocop + '.png', :size => '20x20', :alt => srpm.repocop), '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+      <%= link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
-      <%= link_to srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name, :class => 'news' %>
+      <%= link_to acl.srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name, :class => 'news' %>
     </td>
-    <td><%= srpm.version %>-<%= srpm.release %></td>
-    <td><%= srpm.buildtime %></td>
-    <td><%= time_ago_in_words(srpm.buildtime) %> <%= _("ago") %></td>
+    <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
+    <td><%= acl.srpm.buildtime %></td>
+    <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
     <td>
-      <% if srpm.url != nil %><%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news', :rel => 'nofollow' %><% else %>-<% end %>
+      <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow' %><% else %>-<% end %>
     </td>
-    <td style="text-align:left;"><%= srpm.summary %></td>
+    <td style="text-align:left;"><%= acl.srpm.summary %></td>
   </tr>
-  <% end -%>
   <% end -%>
 
 </table>
