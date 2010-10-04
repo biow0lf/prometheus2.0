@@ -3,9 +3,6 @@ class Acl < ActiveRecord::Base
   belongs_to :maintainer
   belongs_to :srpm
 
-# FIXME:
-#  has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
-
   def self.import_acls(vendor, branch, url)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     if br.acls.count(:all) == 0
