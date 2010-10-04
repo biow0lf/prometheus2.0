@@ -84,6 +84,7 @@ Maintainer.create(:name => 'Konstantin Pavlov', :email => 'thresh@altlinux.org',
 Maintainer.create(:name => 'Alexey Morozov', :email => 'morozov@altlinux.org', :login => 'morozov', :team => false)
 Maintainer.create(:name => 'Dmitry V. Levin', :email => 'ldv@altlinux.org', :login => 'ldv', :team => false)
 Maintainer.create(:name => 'Igor Androsov', :email => 'blake@altlinux.org', :login => 'blake', :team => false)
+Maintainer.create(:name => 'Aleksandr Blokhin', :email => 'sass@altlinux.org', :login => 'sass', :team => false)
 
 
 # TODO: import teams before import srpm!
