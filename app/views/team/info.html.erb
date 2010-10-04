@@ -5,7 +5,7 @@
 <p class="break" />
 <b><%= _("Information:") %></b> <div class="para">  </div>
 <p class="break" />
-<% if @leader != nil -%>
+<% if !@leader.nil? -%>
 <b><%= _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to leader.name, '/' + params[:locale] + '/packager/' + leader.login, :class => 'news', :title => _('information about the packager') -%><% end -%>
 <p class="break" />
 <% end %>
