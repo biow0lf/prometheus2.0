@@ -12,36 +12,6 @@ class SrpmController < ApplicationController
                                     :name => params[:name] },
                                   :joins => :branch,
                                   :order => "branches.order_id"
-      if params[:branch] == 'Sisyphus' or
-         params[:branch] == '5.1' or
-         params[:branch] == '5.0' or
-         params[:branch] == '4.1' or
-         params[:branch] == '4.0'
-#        @packages = Package.all :conditions => {
-#                                  :branch => @branch.name,
-#                                  :vendor => @branch.vendor,
-#                                  :sourcepackage => @srpm.filename,
-#                                  :arch => ["noarch", "i586"] },
-#                                :order => 'name ASC'
-#        @leader = Leader.first :conditions => {
-#                                 :branch_id => branch.id,
-#                                 :package => params[:name] }
-#        @packager = Maintainer.first :conditions => { :login => @leader.login }
-      elsif params[:branch] == 'SisyphusARM'
-#        @packages = Package.all :conditions => {
-#                                  :branch => @branch.name,
-#                                  :vendor => @branch.vendor,
-#                                  :sourcepackage => @srpm.filename,
-#                                  :arch => ["noarch", "arm"] },
-#                                :order => 'name ASC'        
-      elsif params[:branch] == 'Platform5'
-#        @packages = Package.all :conditions => {
-#                                  :branch => @branch.name,
-#                                  :vendor => @branch.vendor,
-#                                  :sourcepackage => @srpm.filename,
-#                                  :arch => ["noarch", "i586"] },
-#                                :order => 'name ASC'
-      end
     else
       render :status => 404, :action => "nosuchpackage"
     end
