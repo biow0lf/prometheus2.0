@@ -5,12 +5,7 @@ class Maintainer < ActiveRecord::Base
   has_one :leader
   has_many :acls
   has_many :teams
-  
   has_many :srpms, :through => :acls
-
-#  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }, :order => 'LOWER(package)'
-#
-#  has_one :srpm, :through => :acls, :order => "name ASC"
 
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
