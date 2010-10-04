@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.connect '/iphone/', :controller => 'iphone', :action => 'index'
   map.connect '/:locale/iphone/', :controller => 'iphone', :action => 'index', :requirements => { :locale => /(en|ru|uk|br)/ }
-  map.connect '/iphone/packager/:login', :controller => 'iphone', :action => 'packager_info'
-  map.connect '/:locale/iphone/packager/:login', :controller => 'iphone', :action => 'packager_info', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/iphone/packager/:login', :controller => 'iphone', :action => 'maintainer_info'
+  map.connect '/:locale/iphone/packager/:login', :controller => 'iphone', :action => 'maintainer_info', :requirements => { :locale => /(en|ru|uk|br)/ }
 
   map.connect '/search', :controller => 'home', :action => 'search'
   map.connect '/:locale/search', :controller => 'home', :action => 'search', :requirements => { :locale => /(en|ru|uk|br)/ }

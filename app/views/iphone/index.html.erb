@@ -5,37 +5,37 @@
 </div>
 
 <ul id="home" title="Home" selected="true">
-  <li><%=h _("News") %></li>
-  <li><a href="#packages"><%=h _("Packages") %></a></li>
-  <li><a href="#maintainers"><%=h _("Maintainers") %></a></li>
-  <li><a href="#teams"><%=h _("Teams") %></a></li>
-  <li><a href="#security"><%=h _("Security") %></a></li>
-  <li><a href="#about"><%=h _("About") %></a></li>
-  <li><%=h _("RSS") %></li>
+  <li><%= _("News") %></li>
+  <li><a href="#packages"><%= _("Packages") %></a></li>
+  <li><a href="#maintainers"><%= _("Maintainers") %></a></li>
+  <li><a href="#teams"><%= _("Teams") %></a></li>
+  <li><a href="#security"><%= _("Security") %></a></li>
+  <li><a href="#about"><%= _("About") %></a></li>
+  <li><%= _("RSS") %></li>
   <li><%= link_to _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :target => '_self' %></li>
   <li><%= link_to _("Blog"), _("http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"), :target => '_self' %></li>
   <li><%= link_to _("Planet"), _("http://planet.altlinux.org/"), :target => '_self' %></li>
   <li><%= link_to _("Mailing list"), _("http://lists.altlinux.org/mailman/listinfo/community-en/"), :target => '_self' %></li>
 </ul>
 
-<ul id="packages" title="<%=h _("Packages") %>">
+<ul id="packages" title="<%= _("Packages") %>">
 <% @groups.each do |group| -%>
-  <li><%=h group.name %> (<%=h group.counter %>)</li>
+  <li><%= group.name %> (<%= group.counter %>)</li>
 <% end -%>
 </ul>
 
-<ul id="maintainers" title="<%=h _("Maintainers") %>">
-<% @packagers.each do |packager| -%>
-  <li><%= link_to packager.name, '/' + params[:locale] + '/iphone/packager/' + packager.login, :target => '_self' %></li>
+<ul id="maintainers" title="<%= _("Maintainers") %>">
+<% @maintainers.each do |maintainer| -%>
+  <li><%= link_to maintainer.name, '/' + params[:locale] + '/iphone/packager/' + maintainer.login, :target => '_self' %></li>
 <% end -%>
 </ul>
 
-<ul id="teams" title="<%=h _("Teams") %>">
+<ul id="teams" title="<%= _("Teams") %>">
 <% @teams.each do |team| -%>
-  <li><%=h team.name %></li>
+  <li><%= team.name %></li>
 <% end -%>
 </ul>
 
-<div id="security" class="panel" title="<%=h _("Security") %>">
+<div id="security" class="panel" title="<%= _("Security") %>">
   <h2>TODO</h2>
 </div>

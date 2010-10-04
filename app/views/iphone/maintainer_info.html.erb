@@ -1,0 +1,19 @@
+<div class="toolbar">
+  <h1 id="pageTitle"></h1>
+  <a id="backButton" class="button" href="#"></a>
+  <a class="button" href="#searchForm">Search</a>
+</div>
+
+<ul id="home" title="<%= @maintainer.name %>" selected="true">
+  <li><a href="#info"><%= _("Information") %></li>
+  <li><a href="#packages"><%= _("Packages") %></a></li>
+  <li><a href="#gear"><%= _("Gear") %></a></li>
+  <li><a href="#bugs"><%= _("Bugs and FR") %></a></li>
+  <li><a href="#repocop"><%= _("Repocop") %></a></li>
+</ul>
+
+<ul id="gear" title="<%= _("Gear") %>">
+<% @gitrepos.each do |gitrepo| -%>
+  <li><%= gitrepo.repo %></li>
+<% end -%>
+</ul>
