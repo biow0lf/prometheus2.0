@@ -25,7 +25,7 @@ class Acl < ActiveRecord::Base
             if maintainer.nil?
               puts Time.now.to_s + ": maintainer not found '" + login + "'"
             elsif srpm.nil?
-              puts Time.now.to_s + ": srpm not found '" + package "'"
+              puts Time.now.to_s + ": srpm not found '" + package + "'"
             else
               Acl.create :srpm_id => srpm.id, :maintainer_id => maintainer.id, :branch_id => br.id
             end
