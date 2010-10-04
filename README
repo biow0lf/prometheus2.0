@@ -20,17 +20,24 @@ Prepare:
 Init database:
 * rake db:create
 * rake db:schema:load
+
 * rake db:seed
 
+* rake sisyphus:maintainers
 * rake sisyphus:groups
 * rake sisyphus:srpms
 * rake sisyphus:i586
 * rake sisyphus:noarch
 * rake sisyphus:x86_64
-* rake sisyphus:teams
+* rake sisyphus:acls
 * rake sisyphus:leaders
+* rake sisyphus:teams
+
+* rake sisyphus:bugs
+* rake sisyphus:repocops
 
 
+TODO:
 * rake sisyphusarm:groups
 * rake 51:groups
 * rake platform5:groups
@@ -47,12 +54,7 @@ Init database:
 * rake sisyphus:packagers
 
 
-TODO:
-
-
-* rake sisyphus:bugs
 * rake sisyphus:gitrepos
-* rake sisyphus:repocops
 * rake sisyphus:ftbfs_i586 ???
 
 * rake sisyphusarm:srpms
