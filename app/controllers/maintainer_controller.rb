@@ -1,60 +1,60 @@
 class MaintainerController < ApplicationController
   def info
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
     @acls = Acl.all :select => 'package',
                     :conditions => {
                       :login => params[:login],
                       :branch_id => @branch.id }
-    if @packager == nil
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
 
   def srpms
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
     @acls = Acl.all :conditions => {
                       :login => params[:login].downcase,
                       :branch_id => @branch.id }
-    if @packager == nil
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
 
   def acls
     @branch = Branch.first :conditions => { :urlname => 'Sisyphus' }
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
     @acls = Acl.all :conditions => {
                       :login => params[:login],
                       :branch_id => @branch.id }
 #                     :include => [:srpm]
-    if @packager == nil
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
 
   def gear
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
     @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
                              :order => 'LOWER(repo)'
-    if @packager == nil
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
 
   def bugs
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
     @bugs = Bug.all :conditions => {
                       :assigned_to => params[:login].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
@@ -64,15 +64,15 @@ class MaintainerController < ApplicationController
                          :assigned_to => params[:login].downcase + '@altlinux.org',
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
-    if @packager == nil
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
 
   def allbugs
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
     @bugs = Bug.all :conditions => {
                       :assigned_to => params[:login].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
@@ -82,16 +82,16 @@ class MaintainerController < ApplicationController
                          :assigned_to => params[:login].downcase + '@altlinux.org',
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
-    if @packager == nil
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
 
   def repocop
-    @packager = Maintainer.first :conditions => {
-                                   :login => params[:login].downcase,
-                                   :team => false }
-    if @packager == nil
+    @maintainer = Maintainer.first :conditions => {
+                                     :login => params[:login].downcase,
+                                     :team => false }
+    if @maintainer == nil
       render :status => 404, :action => "nosuchpackager"
     end
   end
