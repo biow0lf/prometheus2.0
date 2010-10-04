@@ -20,7 +20,7 @@ class Gitrepo < ActiveRecord::Base
           srpm = Srpm.first :conditions => { :name => package.gsub(/\.git/,''), :branch_id => branch.id }
           
           if maintainer.nil?
-            puts Time.now.to_s + ": maintainer not found '" + login "'"
+            puts Time.now.to_s + ": maintainer not found '" + login + "'"
           elsif srpm.nil?
             puts Time.now.to_s + ": srpm not found '" + package.gsub(/\.git/,'') + "'"
           else
