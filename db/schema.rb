@@ -9,19 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004024046) do
+ActiveRecord::Schema.define(:version => 20101004024333) do
 
   create_table "acls", :force => true do |t|
-    t.string   "package"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "branch_id"
     t.integer  "maintainer_id"
+    t.integer  "srpm_id"
   end
 
   add_index "acls", ["branch_id"], :name => "index_acls_on_branch_id"
   add_index "acls", ["maintainer_id"], :name => "index_acls_on_maintainer_id"
-  add_index "acls", ["package"], :name => "index_acls_on_package"
+  add_index "acls", ["srpm_id"], :name => "index_acls_on_srpm_id"
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
