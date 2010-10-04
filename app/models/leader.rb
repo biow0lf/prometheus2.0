@@ -16,13 +16,13 @@ class Leader < ActiveRecord::Base
           login = 'php-coder' if login == 'php_coder'
           login = 'p_solntsev' if login == 'psolntsev'
           login = '@vim-plugins' if login == '@vim_plugins'
-          packager = Maintainer.first :conditions => { :login => login }
-          if packager.nil?
+          maintainer = Maintainer.first :conditions => { :login => login }
+          if maintainer.nil?
             puts "BAD login: " + login
           elsif srpm.nil?
             puts "BAD package: " + package
           else
-            Leader.create :srpm_id => srpm.id, :branch_id => br.id, :packager_id => packager.id
+            Leader.create :srpm_id => srpm.id, :branch_id => br.id, :maintainer_id => maintainer.id
           end
         end      
       end
