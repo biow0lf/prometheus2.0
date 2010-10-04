@@ -24,8 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/packages', :controller => 'home', :action => 'groups_list'
   map.connect '/:locale/packages', :controller => 'home', :action => 'groups_list', :requirements => { :locale => /(en|ru|uk|br)/ }
 
-  map.connect '/people', :controller => 'home', :action => 'packagers_list'
-  map.connect '/:locale/people', :controller => 'home', :action => 'packagers_list', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/people', :controller => 'home', :action => 'maintainers_list'
+  map.connect '/:locale/people', :controller => 'home', :action => 'maintainers_list', :requirements => { :locale => /(en|ru|uk|br)/ }
 
   map.connect '/team/:name', :controller => 'team', :action => 'info'
   map.connect '/:locale/team/:name', :controller => 'team', :action => 'info', :requirements => { :locale => /(en|ru|uk|br)/ }

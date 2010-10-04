@@ -36,7 +36,7 @@ class HomeController < ApplicationController
                       :order => 'LOWER(name)'
   end
 
-  def packagers_list
+  def maintainers_list
     @packagers = Maintainer.find_all_packagers_in_sisyphus
     @teams = Maintainer.find_all_teams_in_sisyphus
   end
