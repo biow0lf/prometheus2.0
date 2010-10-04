@@ -43,15 +43,15 @@ class Maintainer < ActiveRecord::Base
         packager_login = packager_email.split('@')[0]
         packager_domain = packager_email.split('@')[1]
 
-        packager2 = Packager.new
+        packager2 = Maintainer.new
 
         if packager_domain == 'packages.altlinux.org'
-          if Packager.count(:all, :conditions => { :team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email }) == 0
-            Packager.create :team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email
+          if Maintainer.count(:all, :conditions => { :team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email }) == 0
+            Maintainer.create :team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email
           end
         else
-          if Packager.count(:all, :conditions => { :team => false, :login => packager_login, :name => packager_name, :email => packager_email }) == 0
-            Packager.create :team => false, :login => packager_login, :name => packager_name, :email => packager_email
+          if Maintainer.count(:all, :conditions => { :team => false, :login => packager_login, :name => packager_name, :email => packager_email }) == 0
+            Maintainer.create :team => false, :login => packager_login, :name => packager_name, :email => packager_email
           end
         end
       rescue RuntimeError
