@@ -43,8 +43,6 @@ class Maintainer < ActiveRecord::Base
         maintainer_login = maintainer_email.split('@')[0]
         maintainer_domain = maintainer_email.split('@')[1]
 
-        packager2 = Maintainer.new
-
         if maintainer_domain == 'packages.altlinux.org'
           if Maintainer.count(:all, :conditions => { :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
             Maintainer.create :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email
