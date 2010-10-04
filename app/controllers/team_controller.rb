@@ -6,15 +6,9 @@ class TeamController < ApplicationController
     @team = Maintainer.first :conditions => {
                                :login => '@' + params[:name],
                                :team => true }
-#    @acls = Acl.all :conditions => {
-#                      :login => '@' + params[:name],
-#                      :branch_id => @branch.id },
-#                    :order => 'LOWER(package)'
-
     @acls = Acl.all :conditions => {
                       :maintainer_id => @team.id,
                       :branch_id => @branch.id }
-
     if @team != nil
       @leader = Team.find_by_sql(['SELECT maintainers.login, maintainers.name
                                FROM teams, maintainers, branches
