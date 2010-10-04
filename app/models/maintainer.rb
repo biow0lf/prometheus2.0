@@ -10,48 +10,48 @@ class Maintainer < ActiveRecord::Base
 #
 #  has_one :srpm, :through => :acls, :order => "name ASC"
 
-  def self.import_packagers_list(path)
+  def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        packager = rpm[1015]
-        packager_name = packager.split('<')[0].chomp
-        packager_name.strip!
-        packager_email = packager.chop.split('<')[1]
+        maintainer = rpm[1015]
+        maintainer_name = maintainer.split('<')[0].chomp
+        maintainer_name.strip!
+        maintainer_email = maintainer.chop.split('<')[1]
 
-        packager_email.downcase!
+        maintainer_email.downcase!
 
-        packager_email.gsub!(' at altlinux.ru', '@altlinux.org')
-        packager_email.gsub!(' at altlinux.org', '@altlinux.org')
-        packager_email.gsub!(' at altlinux.net', '@altlinux.org')
-        packager_email.gsub!(' at altlinux.com', '@altlinux.org')
-        packager_email.gsub!(' at altlinux dot org', '@altlinux.org')
-        packager_email.gsub!(' at altlinux dot ru', '@altlinux.org')
-        packager_email.gsub!(' at altlinux dot net', '@altlinux.org')
-        packager_email.gsub!(' at altlinux dot com', '@altlinux.org')
-        packager_email.gsub!('@altlinux.ru', '@altlinux.org')
-        packager_email.gsub!('@altlinux.net', '@altlinux.org')
-        packager_email.gsub!('@altlinux.com', '@altlinux.org')
-        packager_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
-        packager_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
-        packager_email.gsub!(' at packages.altlinux.net', '@packages.altlinux.org')
-        packager_email.gsub!(' at packages.altlinux.com', '@packages.altlinux.org')
-        packager_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
-        packager_email.gsub!('@packages.altlinux.net', '@packages.altlinux.org')
-        packager_email.gsub!('@packages.altlinux.com', '@packages.altlinux.org')
+        maintainer_email.gsub!(' at altlinux.ru', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux.org', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux.net', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux.com', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux dot org', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux dot ru', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux dot net', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux dot com', '@altlinux.org')
+        maintainer_email.gsub!('@altlinux.ru', '@altlinux.org')
+        maintainer_email.gsub!('@altlinux.net', '@altlinux.org')
+        maintainer_email.gsub!('@altlinux.com', '@altlinux.org')
+        maintainer_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
+        maintainer_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
+        maintainer_email.gsub!(' at packages.altlinux.net', '@packages.altlinux.org')
+        maintainer_email.gsub!(' at packages.altlinux.com', '@packages.altlinux.org')
+        maintainer_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
+        maintainer_email.gsub!('@packages.altlinux.net', '@packages.altlinux.org')
+        maintainer_email.gsub!('@packages.altlinux.com', '@packages.altlinux.org')
 
-        packager_login = packager_email.split('@')[0]
-        packager_domain = packager_email.split('@')[1]
+        maintainer_login = maintainer_email.split('@')[0]
+        maintainer_domain = maintainer_email.split('@')[1]
 
         packager2 = Maintainer.new
 
-        if packager_domain == 'packages.altlinux.org'
-          if Maintainer.count(:all, :conditions => { :team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email }) == 0
-            Maintainer.create :team => true, :login => '@' + packager_login, :name => packager_name, :email => packager_email
+        if maintainer_domain == 'packages.altlinux.org'
+          if Maintainer.count(:all, :conditions => { :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
+            Maintainer.create :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email
           end
         else
-          if Maintainer.count(:all, :conditions => { :team => false, :login => packager_login, :name => packager_name, :email => packager_email }) == 0
-            Maintainer.create :team => false, :login => packager_login, :name => packager_name, :email => packager_email
+          if Maintainer.count(:all, :conditions => { :team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
+            Maintainer.create :team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email
           end
         end
       rescue RuntimeError
