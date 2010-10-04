@@ -11,9 +11,9 @@
 <% end %>
 <b><%= _("Team members:") %></b>
 <ul>
-<% @members.each do |member| -%>
-  <li><%= link_to member.name, '/' + params[:locale] + '/packager/' + member.login, :class => 'news', :title => _('information about the packager') -%></li>
-<% end -%>
+<%# @members.each do |member| -%>
+  <li><%#= link_to member.name, '/' + params[:locale] + '/packager/' + member.login, :class => 'news', :title => _('information about the packager') -%></li>
+<%# end -%>
 </ul>
 
 <p class="break" />
