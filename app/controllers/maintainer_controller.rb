@@ -20,9 +20,6 @@ class MaintainerController < ApplicationController
     @acls = Acl.all :conditions => {
                       :maintainer_id => @maintainer.id,
                       :branch_id => @branch.id }
-#    @acls = Acl.all :conditions => {
-#                      :login => params[:login].downcase,
-#                      :branch_id => @branch.id }
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
@@ -36,7 +33,6 @@ class MaintainerController < ApplicationController
     @acls = Acl.all :conditions => {
                       :login => params[:login],
                       :branch_id => @branch.id }
-#                     :include => [:srpm]
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
