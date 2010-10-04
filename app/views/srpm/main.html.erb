@@ -67,13 +67,14 @@
 </div>
 <% end %>
 
-<% if params[:branch] != 'Platform5' and params[:branch] != 'SisyphusARM' -%>
+<%# if params[:branch] != 'Platform5' and params[:branch] != 'SisyphusARM' -%>
+<% if !@srpm.acls.nil? %>
 <b><%= _("ACL:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-  <%# @srpm.acls.each do |acl| -%>
-    <li><%#= acl.login %></li>
-  <%# end -%>
+  <% @srpm.acls.each do |acl| -%>
+    <li><%= acl.maintainer.name %> <%= acl.maintainer.login %></li>
+  <% end -%>
   </ul>
 </div>
 <% end -%>
