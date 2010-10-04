@@ -11,7 +11,7 @@ class Team < ActiveRecord::Base
         for i in 1..line.split.count-1
           maintainer = Maintainer.first :conditions => { :login => line.split[i] }
           if maintainer.nil?
-            puts Time.now.to_s + ": maintainer not found"
+            puts Time.now.to_s + ": maintainer not found '" + line.split[i] + "'"
           else
             if i == 1
               Team.create :name => team_name, :maintainer_id => maintainer.id, :leader => true, :branch_id => br.id
