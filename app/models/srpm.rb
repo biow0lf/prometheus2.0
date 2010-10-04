@@ -4,8 +4,9 @@ class Srpm < ActiveRecord::Base
   has_many :packages
   has_one :leader
   has_one :maintainer, :through => :leader
+  has_many :acls
   
-  has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
+#  has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 
