@@ -16,7 +16,7 @@ class TeamController < ApplicationController
                       :branch_id => @branch.id }
 
     if @team != nil
-      @leader = Team.find_by_sql(['SELECT teams.login, maintainers.name
+      @leader = Team.find_by_sql(['SELECT maintainer.login, maintainers.name
                                FROM teams, maintainers, branches
                                WHERE maintainers.id = teams.maintainer_id
                                AND teams.name = ?
