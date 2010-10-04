@@ -19,7 +19,8 @@ class MaintainerController < ApplicationController
                                      :team => false }
     @acls = Acl.all :conditions => {
                       :maintainer_id => @maintainer.id,
-                      :branch_id => @branch.id }
+                      :branch_id => @branch.id },
+                    :include => [:srpm]
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
