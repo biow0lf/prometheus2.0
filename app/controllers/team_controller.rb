@@ -12,22 +12,22 @@ class TeamController < ApplicationController
                     :order => 'LOWER(package)'
 
     if @team != nil
-      @leader = Team.find_by_sql(['SELECT teams.login, packagers.name
-                               FROM teams, packagers, branches
-                               WHERE packagers.login = teams.login
+      @leader = Team.find_by_sql(['SELECT teams.login, maintainers.name
+                               FROM teams, maintainers, branches
+                               WHERE maintainers.login = teams.login
                                AND teams.name = ?
                                AND teams.branch_id = branches.id
                                AND branches.name = ?
                                AND leader = true
                                LIMIT 1', '@' + params[:name], @branch.name ])
 
-      @members = Team.find_by_sql(['SELECT teams.login, packagers.name
-                               FROM teams, packagers, branches
-                               WHERE packagers.login = teams.login
+      @members = Team.find_by_sql(['SELECT teams.login, maintainers.name
+                               FROM teams, maintainers, branches
+                               WHERE maintainers.login = teams.login
                                AND teams.name = ?
                                AND teams.branch_id = branches.id
                                AND branches.name = ?
-                               ORDER BY LOWER(packagers.name)', '@' + params[:name], @branch.name ])
+                               ORDER BY LOWER(maintainers.name)', '@' + params[:name], @branch.name ])
     else
       render :status => 404, :action => "nosuchteam"
     end
