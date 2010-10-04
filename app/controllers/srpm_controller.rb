@@ -53,7 +53,12 @@ class SrpmController < ApplicationController
                          :name => params[:name],
                          :branch_id => branch.id },
                        :include => [:group, :branch]
-    if @srpm == nil
+    if @srpm != nil
+      @allsrpms = Srpm.find :all, :conditions => {
+                                    :name => params[:name] },
+                                  :joins => :branch,
+                                  :order => "branches.order_id"
+    else
       render :status => 404, :action => "nosuchpackage"
     end
   end

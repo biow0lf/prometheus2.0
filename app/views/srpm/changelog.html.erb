@@ -1,12 +1,36 @@
 <% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Changelog") -%>
 <% url "/srpm/" + @srpm.branch.name + '/' + @srpm.name + "/changelog" -%>
 
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= _("ALT Linux repositories") %>">
+  <%= _("ALT Linux repos") %>
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<% @allsrpms.each do |rpm| -%>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to rpm.branch.name + ':', '/' + params[:locale] + '/srpm/' + rpm.branch.name + '/' + rpm.name, :class => 'news' %>
+  </td>
+  <td style="text-align: right;"><%= rpm.version %>-<%= rpm.release %></td>
+</tr>
+<% end -%>
+
+</table>
+</div><br />
+</div>
+
 <div style="height:3em;">
     <div id="rpmtop">
         <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.name %></b><br />
         <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
     </div>
 </div>
+
 <div>
 <p class="break" />
 <span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch.name %>/<%= @srpm.name %>" class="news" title="<%= _("information about SRPM") %>"><%= _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Changelog") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch.name %>/<%= @srpm.name %>/spec" class="news" title="<%= _("spec") %>"><%= _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch.name %>/<%= @srpm.name %>/get" class="news" title="<%= _("download latest version") %>"><%= _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch.name %>/<%= @srpm.name %>/gear" class="news" title="<%= _("this package in gear repositories") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch.name %>/<%= @srpm.name %>/bugs" class="news" title="<%= _("list of bugs and feature requests") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch.name %>/<%= @srpm.name %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" />
