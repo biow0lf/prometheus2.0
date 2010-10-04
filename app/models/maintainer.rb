@@ -3,6 +3,8 @@ class Maintainer < ActiveRecord::Base
   validates_uniqueness_of :login
   
   has_one :leader
+  has_many :acls
+  
 #
 #  has_many :acls, :foreign_key => 'login', :primary_key => 'login'
 #

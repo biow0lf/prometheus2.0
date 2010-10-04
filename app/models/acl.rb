@@ -1,6 +1,7 @@
 class Acl < ActiveRecord::Base
   validates_presence_of :package, :login
   belongs_to :branch
+  belongs_to :maintainer
 
 # FIXME:
 #  has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
