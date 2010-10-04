@@ -136,20 +136,28 @@ class SrpmController < ApplicationController
 
   def bugs
     branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @srpm = Srpm.first :conditions => {
+                         :name => params[:name],
+                         :branch_id => branch.id }
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
                       :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
                     :order => "bug_id DESC"
-
     @allbugs = Bug.all :conditions => {
                          :component => params[:name],
                          :product => params[:branch] },
                        :order => "bug_id DESC"
+    if @srpm == nil
+      render :status => 404, :action => "nosuchpackage"
+    end
   end
 
   def allbugs
     branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @srpm = Srpm.first :conditions => {
+                         :name => params[:name],
+                         :branch_id => branch.id }
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -160,6 +168,9 @@ class SrpmController < ApplicationController
                          :component => params[:name],
                          :product => params[:branch] },
                        :order => "bug_id DESC"
+    if @srpm == nil
+      render :status => 404, :action => "nosuchpackage"
+    end
   end
 
   def repocop
