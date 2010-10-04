@@ -4,6 +4,13 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/iphone/packager/:login', :controller => 'iphone', :action => 'maintainer_info'
   map.connect '/:locale/iphone/packager/:login', :controller => 'iphone', :action => 'maintainer_info', :requirements => { :locale => /(en|ru|uk|br)/ }
 
+  map.connect '/iphone/packages/:group', :controller => 'iphone', :action => 'bygroup'
+  map.connect '/:locale/iphone/packages/:group', :controller => 'iphone', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/iphone/packages/:group/:group2', :controller => 'iphone', :action => 'bygroup'
+  map.connect '/:locale/iphone/packages/:group/:group2', :controller => 'iphone', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/iphone/packages/:group/:group2/:group3', :controller => 'iphone', :action => 'bygroup'
+  map.connect '/:locale/iphone/packages/:group/:group2/:group3', :controller => 'iphone', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }
+
   map.connect '/search', :controller => 'home', :action => 'search'
   map.connect '/:locale/search', :controller => 'home', :action => 'search', :requirements => { :locale => /(en|ru|uk|br)/ }
   map.connect '/find.shtml', :controller => 'home', :action => 'search'
