@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
-  validates_presence_of :name, :login
+  validates_presence_of :name
   belongs_to :branch
 
   def self.import_teams(vendor, branch, url)
@@ -9,10 +9,15 @@ class Team < ActiveRecord::Base
       file.each_line do |line|
         team_name  = line.split[0]
         for i in 1..line.split.count-1
-          if i == 1
-            Team.create :name => team_name, :login => line.split[i], :leader => true, :branch_id => br.id
+          maintainer = Maintainer.first :conditions => { :login => line.split[i] }
+          if maintainer.nil?
+            puts Time.now.to_s + ": maintainer not found"
           else
-            Team.create :name => team_name, :login => line.split[i], :leader => false, :branch_id => br.id
+            if i == 1
+              Team.create :name => team_name, :maintainer_id => maintainer.id, :leader => true, :branch_id => br.id
+            else
+              Team.create :name => team_name, :maintainer_id => maintainer.id, :leader => false, :branch_id => br.id
+            end            
           end
         end
       end
