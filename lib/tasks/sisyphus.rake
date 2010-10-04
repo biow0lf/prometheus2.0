@@ -62,7 +62,7 @@ namespace :sisyphus do
   desc "Import maintainers list from src.rpm from Sisyphus to database"
   task :maintainers => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import packagers list from *.src.rpm's"
+    puts Time.now.to_s + ": import maintainers list from *.src.rpm's"
     Maintainer.import_maintainers_list "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
   end
