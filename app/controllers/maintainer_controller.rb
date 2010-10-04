@@ -44,7 +44,8 @@ class MaintainerController < ApplicationController
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
-    @gitrepos = Gitrepo.all :conditions => { :login => params[:login].downcase },
+    @gitrepos = Gitrepo.all :conditions => {
+                              :maintainer_id => @maintainer.id },
                              :order => 'LOWER(repo)'
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
