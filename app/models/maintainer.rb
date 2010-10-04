@@ -6,6 +6,7 @@ class Maintainer < ActiveRecord::Base
   has_many :acls
   has_many :teams
   has_many :srpms, :through => :acls
+  has_many :gitrepos
 
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
