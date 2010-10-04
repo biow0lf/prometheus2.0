@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101004024807) do
+ActiveRecord::Schema.define(:version => 20101004044111) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -157,13 +157,14 @@ ActiveRecord::Schema.define(:version => 20101004024807) do
 
   create_table "teams", :force => true do |t|
     t.string   "name"
-    t.string   "login"
     t.boolean  "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "branch_id"
+    t.integer  "maintainer_id"
   end
 
   add_index "teams", ["branch_id"], :name => "index_teams_on_branch_id"
+  add_index "teams", ["maintainer_id"], :name => "index_teams_on_maintainer_id"
 
 end
