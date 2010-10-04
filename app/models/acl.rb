@@ -1,5 +1,4 @@
 class Acl < ActiveRecord::Base
-  validates_presence_of :package, :login
   belongs_to :branch
   belongs_to :maintainer
   belongs_to :srpm
@@ -19,7 +18,17 @@ class Acl < ActiveRecord::Base
             login = 'php-coder' if login == 'php_coder'
             #login = '@vim-plugins' if login == '@vim_plugins'
             #login = 'p_solntsev' if login == 'psolntsev'
-            Acl.create :package => package, :login => login, :branch_id => br.id
+            
+            maintainer = Maintainer.first :conditions => { :login => login }
+            srpm = Srpm.first :conditions => { :branch_id => br.id, :name => package }
+            
+            if maintainer.nil?
+              puts Time.now.to_s + ": maintainer not found '" + login + "'"
+            elsif srpm.nil?
+              puts Time.now.to_s + ": srpm not found '" + package "'"
+            else
+              Acl.create :srpm_id => srpm.id, :maintainer_id => maintainer.id, :branch_id => br.id
+            end
           end
         end
       end
