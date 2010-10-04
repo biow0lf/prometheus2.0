@@ -9,7 +9,7 @@ class TeamController < ApplicationController
     @acls = Acl.all :conditions => {
                       :maintainer_id => @team.id,
                       :branch_id => @branch.id },
-                    :include => [:srpms]
+                    :include => [:srpm]
     if @team != nil
       @leader = Team.find_by_sql(['SELECT maintainers.login, maintainers.name
                                FROM teams, maintainers, branches
