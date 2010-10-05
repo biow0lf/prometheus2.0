@@ -12,7 +12,7 @@ namespace :sisyphus do
   task :update_repocop_cache => :environment do
     require 'open-uri'
     puts Time.now.to_s + ': update repocop cache'
-    Repocop.update_repocop_cache  
+    Repocop.update_repocop_cache
     puts Time.now.to_s + ': end'
   end
 end
