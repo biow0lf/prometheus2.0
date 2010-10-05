@@ -63,9 +63,9 @@ class Srpm < ActiveRecord::Base
     srpm.branch_id = br.id
     srpm.save!    
     if srpm.epoch.nil?
-      $redis.set br.name + ":" + srpm.name, srpm.version + "-" + srpm.release
+      $redis.set br.name + ":" + srpm.name, srpm.version.to_s + "-" + srpm.release.to_s
     else
-      $redis.set br.name + ":" + srpm.name, srpm.epoch + ":" + srpm.version + "-" + srpm.release
+      $redis.set br.name + ":" + srpm.name, srpm.epoch.to_s + ":" + srpm.version.to_s + "-" + srpm.release.to_s
     end    
   end
 
@@ -91,9 +91,9 @@ class Srpm < ActiveRecord::Base
     srpm.branch_id = br.id
     srpm.save!
     if srpm.epoch.nil?
-      $redis.set br.name + ":" + srpm.name, srpm.version + "-" + srpm.release
+      $redis.set br.name + ":" + srpm.name, srpm.version.to_s + "-" + srpm.release.to_s
     else
-      $redis.set br.name + ":" + srpm.name, srpm.epoch + ":" + srpm.version + "-" + srpm.release
+      $redis.set br.name + ":" + srpm.name, srpm.epoch.to_s + ":" + srpm.version.to_s + "-" + srpm.release.to_s
     end
   end
 end
