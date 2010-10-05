@@ -67,7 +67,7 @@ class Srpm < ActiveRecord::Base
   def self.update_srpm(vendor, branch, file)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     rpm = RPM::Package::open(file)
-    Srpm.delete :conditions => { :branch_id => br.id, :name => rpm.name }
+    Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
     srpm = Srpm.new
     srpm.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.src.rpm'
     srpm.name = rpm.name
