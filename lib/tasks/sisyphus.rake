@@ -23,7 +23,7 @@ namespace :sisyphus do
     Srpm.import_srpms 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
     puts Time.now.to_s + ': update repocop cache'
-    Repocop.update_repocop_cache  
+    Repocop.update_repocop_cache
     puts Time.now.to_s + ': end'
   end
 
