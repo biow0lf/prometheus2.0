@@ -85,9 +85,22 @@ Maintainer.create(:name => 'Alexey Morozov', :email => 'morozov@altlinux.org', :
 Maintainer.create(:name => 'Dmitry V. Levin', :email => 'ldv@altlinux.org', :login => 'ldv', :team => false)
 Maintainer.create(:name => 'Igor Androsov', :email => 'blake@altlinux.org', :login => 'blake', :team => false)
 Maintainer.create(:name => 'Aleksandr Blokhin', :email => 'sass@altlinux.org', :login => 'sass', :team => false)
+Maintainer.create(:name => 'Alexander Plikus', :email => 'plik@altlinux.org', :login => 'plik', :team => false)
+Maintainer.create(:name => 'Vladimir Zhukov', :email => 'bertis@altlinux.org', :login => 'bertis', :team => false)
+Maintainer.create(:name => 'Yura Zotov', :email => 'yz@altlinux.org', :login => 'yz', :team => false)
+Maintainer.create(:name => 'Ilya Kuznetsov', :email => 'worklez@altlinux.org', :login => 'worklez', :team => false)
+Maintainer.create(:name => 'Alex Yustasov', :email => 'yust@altlinux.org', :login => 'yust', :team => false)
+Maintainer.create(:name => 'Konstantin Volckov', :email => 'goldhead@altlinux.org', :login => 'goldhead', :team => false)
+Maintainer.create(:name => 'Andrey Orlov', :email => 'cray@altlinux.org', :login => 'cray', :team => false)
+Maintainer.create(:name => 'Alexander V. Denisov', :email => 'rupor@altlinux.org', :login => 'rupor', :team => false)
+Maintainer.create(:name => 'Peter Novodvorsky', :email => 'nidd@altlinux.org', :login => 'nidd', :team => false)
+Maintainer.create(:name => 'George Kirik', :email => 'kga@altlinux.org', :login => 'kga', :team => false)
+Maintainer.create(:name => 'Eugine V. Kosenko', :email => 'maverik@altlinux.org', :login => 'maverik', :team => false)
+Maintainer.create(:name => 'Konstantin A. Lepikhov', :email => 'lakostis@altlinux.org', :login => 'lakostis', :team => false)
+Maintainer.create(:name => 'George V. Kouryachy', :email => 'george@altlinux.org', :login => 'george', :team => false)
 
+# TODO: add @xen and @ha-cluster'
 
-# TODO: import teams before import srpm!
 Maintainer.create(:name => 'TeX Development Team', :email => 'tex@packages.altlinux.org', :login => '@tex', :team => true)
 Maintainer.create(:name => 'Connexion Development Team', :email => 'connexion@packages.altlinux.org', :login => '@connexion', :team => true)
 Maintainer.create(:name => 'EVMS Development Team', :email => 'evms@packages.altlinux.org', :login => '@evms', :team => true)
@@ -95,3 +108,5 @@ Maintainer.create(:name => 'QA Team', :email => 'qa@packages.altlinux.org', :log
 Maintainer.create(:name => 'CPAN Team', :email => 'cpan@packages.altlinux.org', :login => '@cpan', :team => true)
 Maintainer.create(:name => 'XFCE Team', :email => 'xfce@packages.altlinux.org', :login => '@xfce', :team => true)
 Maintainer.create(:name => 'VIm Plugins Development Team', :email => 'vim-plugins@packages.altlinux.org', :login => '@vim-plugins', :team => true)
+Maintainer.create(:name => 'FreeRadius Development Team', :email => 'freeradius@packages.altlinux.org', :login => '@freeradius', :team => true)
+Maintainer.create(:name => 'FTN Development Team', :email => 'ftn@packages.altlinux.org', :login => '@ftn', :team => true)
