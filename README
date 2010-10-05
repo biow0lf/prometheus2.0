@@ -32,68 +32,62 @@ Init database:
 * rake sisyphus:acls
 * rake sisyphus:leaders
 * rake sisyphus:teams
+* rake sisyphus:gitrepos
 
 * rake sisyphus:bugs
 * rake sisyphus:repocops
 
-
-TODO:
 * rake sisyphusarm:groups
-* rake 51:groups
-* rake platform5:groups
-* rake 50:groups
-* rake 41:groups
-* rake 40:groups
-
-* rake sisyphus:acls
-* rake 51:acls
-* rake 50:acls
-* rale 41:acls
-* rake 40:acls
-
-* rake sisyphus:packagers
-
-
-* rake sisyphus:gitrepos
-* rake sisyphus:ftbfs_i586 ???
-
 * rake sisyphusarm:srpms
 * rake sisyphusarm:binary
 
-* rake 51:leaders
-* rake 51:teams
-* rake 51:srpms
-* rake 51:i586
-* rake 51:noarch
-* rake 51:x86_64
-
-* rake platform5:leaders
-* rake platform5:teams
+* rake platform5:groups
 * rake platform5:srpms
 * rake platform5:i586
 * rake platform5:noarch
 * rake platform5:x86_64
 
-* rake 50:leaders
-* rake 50:teams
+* rake 51:groups
+* rake 51:srpms
+* rake 51:i586
+* rake 51:noarch
+* rake 51:x86_64
+* rake 51:acls
+* rake 51:leaders
+* rake 51:teams
+
+* rake 50:groups
 * rake 50:srpms
 * rake 50:i586
 * rake 50:noarch
 * rake 50:x86_64
+* rake 50:acls
+* rake 50:leaders
+* rake 50:teams
 
-* rake 41:leaders
-* rake 41:teams
+* rake 41:groups
 * rake 41:srpms
 * rake 41:i586
 * rake 41:noarch
 * rake 41:x86_64
+* rake 41:acls
+* rake 41:leaders
+* rake 41:teams
 
-* rake 40:leaders
-* rake 40:teams
+* rake 40:groups
 * rake 40:srpms
 * rake 40:i586
 * rake 40:noarch
 * rake 40:x86_64
+* rake 40:acls
+* rake 40:leaders
+* rake 40:teams
+
+
+TODO:
+
+* rake sisyphus:ftbfs_i586
+
 
 Add to cron:
 0	0	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:groups sisyphusarm:groups platform5:groups 51:groups 50:groups 41:groups 40:groups 50:acls 50:leaders 50:teams 41:acls 41:leaders 41:teams 40:acls 40:leaders 40:teams >> /var/log/prometheus.log 2>&1"
