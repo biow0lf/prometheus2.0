@@ -61,7 +61,12 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.branch_id = br.id
-    srpm.save!
+    srpm.save!    
+    if srpm.epoch.nil?
+      $redis.set br.name + ":" + srpm.name, srpm.version + "-" + srpm.release
+    else
+      $redis.set br.name + ":" + srpm.name, srpm.epoch + ":" + srpm.version + "-" + srpm.release
+    end    
   end
 
   def self.update_srpm(vendor, branch, file)
@@ -85,5 +90,10 @@ class Srpm < ActiveRecord::Base
     srpm.size = File.size(file)
     srpm.branch_id = br.id
     srpm.save!
+    if srpm.epoch.nil?
+      $redis.set br.name + ":" + srpm.name, srpm.version + "-" + srpm.release
+    else
+      $redis.set br.name + ":" + srpm.name, srpm.epoch + ":" + srpm.version + "-" + srpm.release
+    end
   end
 end
