@@ -5,7 +5,7 @@ class Srpm < ActiveRecord::Base
   has_one :leader
   has_one :maintainer, :through => :leader
   has_many :acls
-    
+
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 
   def self.count_srpms_in_sisyphus

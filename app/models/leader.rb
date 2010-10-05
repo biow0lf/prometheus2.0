@@ -23,7 +23,7 @@ class Leader < ActiveRecord::Base
           else
             Leader.create :srpm_id => srpm.id, :branch_id => br.id, :maintainer_id => maintainer.id
           end
-        end      
+        end
       end
     else
       puts Time.now.to_s + ": leaders already imported"

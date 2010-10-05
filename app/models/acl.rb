@@ -15,10 +15,10 @@ class Acl < ActiveRecord::Base
             login = 'php-coder' if login == 'php_coder'
             login = 'p_solntsev' if login == 'psolntsev'
             login = '@vim-plugins' if login == '@vim_plugins'
-            
+
             maintainer = Maintainer.first :conditions => { :login => login }
             srpm = Srpm.first :conditions => { :branch_id => br.id, :name => package }
-            
+
             if maintainer.nil?
               puts Time.now.to_s + ": maintainer not found '" + login + "'"
             elsif srpm.nil?

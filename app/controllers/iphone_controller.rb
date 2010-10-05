@@ -24,7 +24,7 @@ class IphoneController < ApplicationController
                             :order => 'repo ASC'
 
   end
-  
+
   def bygroup
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
@@ -32,7 +32,7 @@ class IphoneController < ApplicationController
     groupname = params[:group]
     groupname = groupname + '/' + params[:group2] if !params[:group2].nil?
     groupname = groupname + '/' + params[:group3] if !params[:group3].nil?
-    
+
     @group = Group.first :conditions => {
                                :name => groupname,
                                :branch_id => @branch.id }

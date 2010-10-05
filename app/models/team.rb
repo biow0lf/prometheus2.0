@@ -18,7 +18,7 @@ class Team < ActiveRecord::Base
               Team.create :name => team_name, :maintainer_id => maintainer.id, :leader => true, :branch_id => br.id
             else
               Team.create :name => team_name, :maintainer_id => maintainer.id, :leader => false, :branch_id => br.id
-            end            
+            end
           end
         end
       end
