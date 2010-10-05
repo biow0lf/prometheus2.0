@@ -7,6 +7,8 @@ gem 'pg'
 
 gem 'erubis'
 
+gem 'redis'
+
 gem 'searchlogic', '2.4.26'
 
 gem 'locale'

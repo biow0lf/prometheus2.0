@@ -38,6 +38,7 @@ GEM
       activesupport (= 2.3.9)
       rake (>= 0.8.3)
     rake (0.8.7)
+    redis (2.0.10)
     ruby-debug (0.10.3)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.3.0)
@@ -60,6 +61,7 @@ DEPENDENCIES
   pg
   rack
   rails (= 2.3.9)
+  redis
   ruby-debug
   searchlogic (= 2.4.26)
   sqlite3-ruby
