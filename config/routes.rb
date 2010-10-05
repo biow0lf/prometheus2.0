@@ -16,10 +16,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/find.shtml', :controller => 'home', :action => 'search'
   map.connect '/:locale/find.shtml', :controller => 'home', :action => 'search', :requirements => { :locale => /(en|ru|uk|br)/ }
 
-  map.connect '/news', :controller => 'pages', :action => 'news'	 	
+  map.connect '/news', :controller => 'pages', :action => 'news'
   map.connect '/:locale/news', :controller => 'pages', :action => 'news', :requirements => { :locale => /(en|ru|uk|br)/ }
 
-  map.connect '/rss', :controller => 'pages', :action => 'rss'	 	
+  map.connect '/rss', :controller => 'pages', :action => 'rss'
   map.connect '/:locale/rss', :controller => 'pages', :action => 'rss', :requirements => { :locale => /(en|ru|uk|br)/ }
 
   map.connect '/security', :controller => 'pages', :action => 'security'
