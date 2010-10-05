@@ -12,7 +12,7 @@ namespace :sisyphus do
             import_srpm("ALT Linux", "Sisyphus" , file)
           else
             curr = $redis.get "Sisyphus:" + rpm.name
-            if (curr != rpm.version + "-" + rpm.release) and (curr != rpm.epoch + ":" + rpm.version + "-" + rpm.release)
+            if curr != (rpm.version + "-" + rpm.release) and curr != (rpm.epoch + ":" + rpm.version + "-" + rpm.release)
               update_srpm("ALT Linux", "Sisyphus", file)
             end  
           end
