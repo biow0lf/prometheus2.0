@@ -41,4 +41,49 @@ class Srpm < ActiveRecord::Base
       end
     end
   end
+  
+  def self.import_srpm(vendor, branch, file)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    rpm = RPM::Package::open(file)
+    srpm = Srpm.new
+    srpm.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.src.rpm'
+    srpm.name = rpm.name
+    srpm.version = rpm.version.v
+    srpm.release = rpm.version.r
+    group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+    srpm.group_id = group.id
+    srpm.epoch = rpm[1003]
+    srpm.summary = rpm[1004]
+    srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+    srpm.license = rpm[1014]
+    srpm.url = rpm[1020]
+    srpm.description = rpm[1005]
+    srpm.buildtime = Time.at(rpm[1006])
+    srpm.size = File.size(file)
+    srpm.branch_id = br.id
+    srpm.save!
+  end
+
+  def self.update_srpm(vendor, branch, file)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    rpm = RPM::Package::open(file)
+    Srpm.delete :all, :conditions => { :branch_id => br.id, :name => rpm.name }
+    srpm = Srpm.new
+    srpm.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.src.rpm'
+    srpm.name = rpm.name
+    srpm.version = rpm.version.v
+    srpm.release = rpm.version.r
+    group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+    srpm.group_id = group.id
+    srpm.epoch = rpm[1003]
+    srpm.summary = rpm[1004]
+    srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+    srpm.license = rpm[1014]
+    srpm.url = rpm[1020]
+    srpm.description = rpm[1005]
+    srpm.buildtime = Time.at(rpm[1006])
+    srpm.size = File.size(file)
+    srpm.branch_id = br.id
+    srpm.save!
+  end
 end

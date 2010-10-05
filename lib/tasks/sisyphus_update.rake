@@ -3,12 +3,22 @@ namespace :sisyphus do
     desc "Update *.src.rpm from Sisyphus to database"
     task :srpms => :environment do
       require 'rpm'
-      require 'open-uri'
-      puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"
-      ActiveRecord::Base.transaction do
-        ActiveRecord::Base.connection.execute("DELETE FROM srpms WHERE branch = 'Sisyphus' AND vendor = 'ALT Linux'")
-        Srpm.import_srpms 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
-        Repocop.update_repocop_cache
+      puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"      
+      path = "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
+      Dir.glob(path).each do |file|
+        begin
+          rpm = RPM::Package::open(file)
+          if !$redis.exists "Sisyphus:" + rpm.name
+            import_srpm("ALT Linux", "Sisyphus" , file)
+          else
+            curr = $redis.get "Sisyphus:" + rpm.name
+            if (curr != srpm.version + "-" + srpm.release) and (curr != srpm.epoch + ":" + srpm.version + "-" + srpm.release)
+              update_srpm("ALT Linux", "Sisyphus", file)
+            end  
+          end
+        rescue RuntimeError
+          puts "Bad src.rpm -- " + file
+        end
       end
       puts Time.now.to_s + ": end"
     end
