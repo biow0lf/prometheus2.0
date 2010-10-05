@@ -3,7 +3,7 @@ namespace :sisyphus do
     desc "Cache srpm info for Sisyphus in redis"
     task :cache => :environment do
       branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
-      if $redis.exists "Sisyphus:glibc"
+      if !$redis.exists "Sisyphus:glibc"
         srpms = Srpm.all :conditions => { :branch_id => branch.id }
         srpms.each do |srpm|
           if srpm.epoch.nil?
