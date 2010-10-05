@@ -47,3 +47,6 @@ end
 
 ExceptionNotifier.exception_recipients = %w(igor.zubkov@gmail.com)
 ExceptionNotifier.sender_address = %("Sisyphus 2.0 Error" <noreply@prometheus.altlinux.org>)
+
+REDIS_CONFIG = YAML.load(File.read(File.dirname(__FILE__) + "/redis.yml")).symbolize_keys
+$redis = Redis.new(REDIS_CONFIG)
