@@ -9,11 +9,11 @@ namespace :sisyphus do
         begin
           rpm = RPM::Package::open(file)
           if !$redis.exists "Sisyphus:" + rpm.name
-            import_srpm("ALT Linux", "Sisyphus" , file)
+            Srpm.import_srpm("ALT Linux", "Sisyphus" , file)
           else
             curr = $redis.get "Sisyphus:" + rpm.name
             if curr != (rpm.version.v.to_s + "-" + rpm.version.r.to_s) and curr != (rpm[1003].to_s + ":" + rpm.version.v.to_s + "-" + rpm.version.r.to_s)
-              update_srpm("ALT Linux", "Sisyphus", file)
+              Srpm.update_srpm("ALT Linux", "Sisyphus", file)
             end  
           end
         rescue RuntimeError
