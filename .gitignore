@@ -10,6 +10,7 @@ Capfile
 po/*/prometheus.mo
 config/deploy.rb
 config/newrelic.yml
+config/redis.yml
 locale/*
 vendor/plugins/newrelic_rpm/*
 .bundle/*
