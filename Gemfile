@@ -8,6 +8,7 @@ gem 'pg'
 gem 'erubis'
 
 gem 'redis'
+gem 'SystemTimer' # for redis and ruby 1.8
 
 gem 'searchlogic', '2.4.26'
 
