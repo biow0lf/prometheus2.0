@@ -5,11 +5,11 @@ branch.name = 'Sisyphus'
 branch.order_id = 0
 branch.save!
 
-# add SisyphusARM branch                                                                                                                                                      
+# add SisyphusARM branch
 branch = Branch.new
-branch.vendor = 'ALT Linux'                                                                                                                                                           
+branch.vendor = 'ALT Linux'
 branch.name = 'SisyphusARM'
-branch.order_id = 1                                                                                                                                                           
+branch.order_id = 1
 branch.save!
 
 # add Platform5 branch
