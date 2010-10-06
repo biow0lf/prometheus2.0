@@ -4,7 +4,7 @@ namespace :redis do
     puts Time.now.to_s + ": cache all srpm info in redis"
     branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
     branches.each do |branch|
-      if !$redis.exists  branch.name + ":glibc"
+      if !$redis.exists branch.name + ":glibc"
         srpms = Srpm.all :conditions => { :branch_id => branch.id }
         srpms.each do |srpm|
           if srpm.epoch.nil?
