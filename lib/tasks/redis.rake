@@ -19,4 +19,25 @@ namespace :redis do
     end
     puts Time.now.to_s + ": end"
   end
+
+  desk "Cache all binary files info in redis"
+  task :cache_binary => :environment do
+    puts Time.now.to_s + ": cache all binary files info in redis"
+    branches = Branches.all :conditions => { :vendor => 'ALT Linux' }
+    branches.each do |branch|
+      if !$redis.exists branch.name + ":glibc"
+        packages = Package.all :conditions => { :branch_id => branch.id }
+        packages.each do |package|
+          if package.epoch.nil?
+            $redis.set branch.name + ":" + package.name, package.version + "-" + package.release
+          else
+            $redis.set branch.name + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
+          end
+        end
+      else
+        puts Time.now.to_s + ": binary files info for " + branch.name + " already in cache"
+      end
+    end
+    puts Time.now.to_s + ": end"
+  end
 end
