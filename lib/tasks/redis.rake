@@ -30,9 +30,9 @@ namespace :redis do
         packages = Package.all :conditions => { :branch_id => branch.id }
         packages.each do |package|
           if package.epoch.nil?
-            $redis.set branch.name + ":" + package.sourcepackage + ":" + package.name, package.version + "-" + package.release
+            $redis.set branch.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.version + "-" + package.release
           else
-            $redis.set branch.name + ":" + package.sourcepackage + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
+            $redis.set branch.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
           end
         end
         $redis.set branch.name + ":binary:CACHED", "yes"
