@@ -20,7 +20,7 @@ namespace :redis do
     puts Time.now.to_s + ": end"
   end
 
-  desk "Cache all binary files info in redis"
+  desc "Cache all binary files info in redis"
   task :cache_binary => :environment do
     puts Time.now.to_s + ": cache all binary files info in redis"
     branches = Branches.all :conditions => { :vendor => 'ALT Linux' }
