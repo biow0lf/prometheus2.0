@@ -14,7 +14,7 @@ namespace :redis do
           end
         end
       else
-        puts Time.now.to_s + ": srpm info for Sisyphus already in cache"
+        puts Time.now.to_s + ": srpm info for " + branch.name + " already in cache"
       end
     end
     puts Time.now.to_s + ": end"
