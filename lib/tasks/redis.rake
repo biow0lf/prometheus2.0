@@ -13,6 +13,7 @@ namespace :redis do
             $redis.set branch.name + ":" + srpm.name, srpm.epoch + ":" + srpm.version + "-" + srpm.release
           end
         end
+        $redis.set branch.name + ":CACHED", "yes"
       else
         puts Time.now.to_s + ": srpm info for " + branch.name + " already in cache"
       end
@@ -34,6 +35,7 @@ namespace :redis do
             $redis.set branch.name + ":" + package.sourcepackage + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
           end
         end
+        $redis.set branch.name + ":CACHED", "yes"
       else
         puts Time.now.to_s + ": binary files info for " + branch.name + " already in cache"
       end
