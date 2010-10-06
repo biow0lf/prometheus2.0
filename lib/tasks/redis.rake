@@ -1,9 +1,9 @@
-namespace :sisyphus do
-  namespace :redis do
-    desc "Cache srpm info for Sisyphus in redis"
-    task :cache => :environment do
-      branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
-      if !$redis.exists "Sisyphus:glibc"
+namespace :redis do
+  desc "Cache all srpm info in redis"
+  task :cache => :environment do
+    branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
+    branches.each do |branch|
+      if !$redis.exists  branch.name + ":glibc"
         srpms = Srpm.all :conditions => { :branch_id => branch.id }
         srpms.each do |srpm|
           if srpm.epoch.nil?
@@ -13,7 +13,7 @@ namespace :sisyphus do
           end
         end
       else
-        puts Time.now.to_s + ": srpm info for Sisyphus already cached"
+        puts Time.now.to_s + ": srpm info for Sisyphus already in cache"
       end
     end
   end
