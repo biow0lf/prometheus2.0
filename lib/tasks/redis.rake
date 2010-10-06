@@ -1,6 +1,7 @@
 namespace :redis do
   desc "Cache all srpm info in redis"
   task :cache => :environment do
+    puts Time.now.to_s + ": cache all srpm info in redis"
     branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
     branches.each do |branch|
       if !$redis.exists  branch.name + ":glibc"
@@ -16,5 +17,6 @@ namespace :redis do
         puts Time.now.to_s + ": srpm info for Sisyphus already in cache"
       end
     end
+    puts Time.now.to_s + ": end"
   end
 end
