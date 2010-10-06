@@ -23,7 +23,7 @@ namespace :redis do
   desc "Cache all binary files info in redis"
   task :cache_binary => :environment do
     puts Time.now.to_s + ": cache all binary files info in redis"
-    branches = Branches.all :conditions => { :vendor => 'ALT Linux' }
+    branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
     branches.each do |branch|
       if !$redis.exists branch.name + ":glibc"
         packages = Package.all :conditions => { :branch_id => branch.id }
