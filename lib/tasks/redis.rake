@@ -26,7 +26,7 @@ namespace :redis do
     puts Time.now.to_s + ": cache all binary files info in redis"
     branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
     branches.each do |branch|
-      if !$redis.exists branch.name + ":CACHED"
+      if !$redis.exists branch.name + ":binary:CACHED"
         packages = Package.all :conditions => { :branch_id => branch.id }
         packages.each do |package|
           if package.epoch.nil?
@@ -35,7 +35,7 @@ namespace :redis do
             $redis.set branch.name + ":" + package.sourcepackage + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
           end
         end
-        $redis.set branch.name + ":CACHED", "yes"
+        $redis.set branch.name + ":binary:CACHED", "yes"
       else
         puts Time.now.to_s + ": binary files info for " + branch.name + " already in cache"
       end
