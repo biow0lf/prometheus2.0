@@ -3,6 +3,37 @@ class Package < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
 
+  def self.import_rpm(vendor, branch, file)
+    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    rpm = RPM::Package::open(file)
+    package = Package.new
+    package.filename = file.split('/')[-1]
+    package.sourcepackage = rpm[1044]
+    package.name = rpm.name
+    package.version = rpm.version.v
+    package.release = rpm.version.r
+    package.arch = rpm.arch
+    group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+    package.group_id = group.id
+    package.epoch = rpm[1003]
+    package.summary = rpm[1004]
+    package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+    package.license = rpm[1014]
+    package.url = rpm[1020]
+    package.description = rpm[1005]
+    package.buildtime = Time.at(rpm[1006])
+    package.size = File.size(file)
+    package.branch_id = br.id
+    srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
+    package.srpm_id = srpm.id
+    package.save!
+    if package.epoch.nil?
+      $redis.set br.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.version + "-" + package.release
+    else
+      $redis.set br.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
+    end
+  end
+
   def self.import_packages_i586(vendor, branch, path)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     Dir.glob(path).each do |file|
