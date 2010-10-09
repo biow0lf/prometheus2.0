@@ -35,8 +35,7 @@ namespace :sisyphus do
       path_array.each do |path|
         Dir.glob(path).each do |file|
           begin
-            rpm = RPM::Package::open(file)
-            if !$redis.exists branch.name + ":" + rpm.sourcepackage + ":" + rpm.arch + ":" + rpm.name
+            if !$redis.exists branch.name + ":" + rpm[1044] + ":" + rpm.arch + ":" + rpm.name
               Package.import_rpm(branch.vendor, branch.name, file)
             end            
           rescue RuntimeError
