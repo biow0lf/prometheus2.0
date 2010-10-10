@@ -38,7 +38,7 @@ class Group < ActiveRecord::Base
         end
         
         if param1 != nil
-          if !Group.first(:conditinons => { :name => param1, :branch_id => br.id, :parent_id => group0.id })
+          if !Group.first(:conditions => { :name => param1, :branch_id => br.id, :parent_id => group0.id })
             group1 = Group.create(:name => param1, :branch_id => br.id)
             group1.move_to_child_of(group0)
           else
