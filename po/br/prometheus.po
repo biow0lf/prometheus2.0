@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-10-07 08:09+0300\n"
+"POT-Creation-Date: 2010-10-10 10:49+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -18,40 +18,40 @@ msgstr ""
 msgid "acl"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/branch.rb:-
 msgid "branch"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/bug.rb:-
 msgid "bug"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/changelog.rb:-
 msgid "changelog"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/ftbfs.rb:-
 msgid "ftbf"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/gitrepo.rb:-
 msgid "gitrepo"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/group.rb:-
 msgid "group"
 msgstr ""
 
-#: app/models/acl.rb:- app/views/maintainer/acls.html.erb:12
+#: app/models/leader.rb:- app/views/maintainer/acls.html.erb:12
 msgid "leader"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/maintainer.rb:-
 #, fuzzy
 msgid "maintainer"
 msgstr "Mantenedores"
 
-#: app/models/acl.rb:- app/views/home/search.html.erb:16
+#: app/models/package.rb:- app/views/home/search.html.erb:16
 #: app/views/maintainer/acls.html.erb:11
 #: app/views/maintainer/allbugs.html.erb:17
 #: app/views/maintainer/bugs.html.erb:15
@@ -60,19 +60,19 @@ msgstr "Mantenedores"
 msgid "package"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/repocop.rb:-
 msgid "repocop"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/srpm.rb:-
 msgid "srpm"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/team.rb:-
 msgid "team"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/transaction.rb:-
 msgid "transaction"
 msgstr ""
 

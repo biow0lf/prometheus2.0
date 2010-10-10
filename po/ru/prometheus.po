@@ -1,13 +1,10 @@
-# Russian translations for prometheus package
-# Английские переводы для пакета prometheus.
-# Copyright (C) 2009 THE prometheus'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the prometheus package.
-# Igor Zubkov <igor.zubkov@gmail.com>, 2009.
+# Igor Zubkov <igor.zubkov@gmail.com>, 2009-2010
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: prometheus 0.0.1\n"
-"POT-Creation-Date: 2010-10-07 08:09+0300\n"
+"POT-Creation-Date: 2010-10-10 10:49+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -21,40 +18,39 @@ msgstr ""
 msgid "acl"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/branch.rb:-
 msgid "branch"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/bug.rb:-
 msgid "bug"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/changelog.rb:-
 msgid "changelog"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/ftbfs.rb:-
 msgid "ftbf"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/gitrepo.rb:-
 msgid "gitrepo"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/group.rb:-
 msgid "group"
 msgstr ""
 
-#: app/models/acl.rb:- app/views/maintainer/acls.html.erb:12
+#: app/models/leader.rb:- app/views/maintainer/acls.html.erb:12
 msgid "leader"
 msgstr ""
 
-#: app/models/acl.rb:-
-#, fuzzy
+#: app/models/maintainer.rb:-
 msgid "maintainer"
-msgstr "Маинтейнеры"
+msgstr ""
 
-#: app/models/acl.rb:- app/views/home/search.html.erb:16
+#: app/models/package.rb:- app/views/home/search.html.erb:16
 #: app/views/maintainer/acls.html.erb:11
 #: app/views/maintainer/allbugs.html.erb:17
 #: app/views/maintainer/bugs.html.erb:15
@@ -63,19 +59,19 @@ msgstr "Маинтейнеры"
 msgid "package"
 msgstr "пакет"
 
-#: app/models/acl.rb:-
+#: app/models/repocop.rb:-
 msgid "repocop"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/srpm.rb:-
 msgid "srpm"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/team.rb:-
 msgid "team"
 msgstr ""
 
-#: app/models/acl.rb:-
+#: app/models/transaction.rb:-
 msgid "transaction"
 msgstr ""
 
@@ -430,35 +426,35 @@ msgstr "Пакетов:"
 
 #: app/views/layouts/application.html.erb:97
 msgid "en"
-msgstr "en"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "English"
-msgstr "English"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "ru"
-msgstr "ru"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "Russian"
-msgstr "Russian"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "uk"
-msgstr "uk"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "Ukrainian"
-msgstr "Ukrainian"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "br"
-msgstr "br"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:97
 msgid "Portuguese (Brasilian)"
-msgstr "Portuguese (Brasilian)"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"
@@ -951,6 +947,3 @@ msgstr "Prometheus 2.0 - Team - Error!"
 #: app/views/team/nosuchteam.html.erb:4
 msgid "No such team!"
 msgstr "Нет такой команды!"
-
-#~ msgid "packager"
-#~ msgstr "сборщик"
