@@ -25,6 +25,7 @@ function showGrp(dirid){
 
 <div style="font-size:12pt;">
 <% index = 0 %>
+
 <% @groups.each do |group| -%>
   <% if group.children.count == 0 -%>
     <%= link_to group.name, '/' + params[:locale] + '/packages/' + group.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= group.srpms.count %>)<br />
@@ -38,9 +39,7 @@ function showGrp(dirid){
     </div>
   <% elsif group.children.count == 2 -%>
     BANG
-  <% elsif group.children.count >= 3 -%>
-    BANG
   <% end -%>
-  <% index++ %>
+  <% index += 1 -%>
 <% end -%>
 </div>
