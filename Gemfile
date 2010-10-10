@@ -12,6 +12,8 @@ gem 'SystemTimer' # for redis and ruby 1.8
 
 gem 'searchlogic', '2.4.26'
 
+gem 'awesome_nested_set'
+
 gem 'locale'
 gem 'locale_rails'#, :git => 'git://github.com/mutoh/locale_rails.git'
 gem 'gettext'
