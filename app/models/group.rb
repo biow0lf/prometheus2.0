@@ -55,18 +55,4 @@ class Group < ActiveRecord::Base
       puts Time.now.to_s + ": groups already imported"
     end
   end
-
-#  def self.import_groups(vendor, branch, url)
-#    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
-#    if br.groups.count(:all) == 0
-#      ActiveRecord::Base.transaction do
-#        file = open(URI.escape(url)).read
-#        file.each_line do |line|
-#          Group.create :name => line.gsub(/\n/,''), :branch_id => br.id
-#        end
-#      end
-#    else
-#      puts Time.now.to_s + ": groups already imported"
-#    end
-#  end
 end
