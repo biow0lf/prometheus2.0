@@ -23,8 +23,6 @@ class Group < ActiveRecord::Base
     if br.groups.count(:all) == 0
       file = open(URI.escape(url)).read
       file.each_line do |line|
-        #Group.create :name => line.gsub(/\n/,''), :branch_id => br.id
-        
         line.gsub!(/\n/,'')
         
         param0 = line.split('/')[0]
