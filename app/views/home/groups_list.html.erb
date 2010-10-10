@@ -24,23 +24,23 @@ function showGrp(dirid){
 <p class="break" />
 
 <div style="font-size:12pt;">
+<% index = 0 %>
 <% @groups.each do |group| -%>
   <% if group.children.count == 0 -%>
     <%= link_to group.name, '/' + params[:locale] + '/packages/' + group.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= group.srpms.count %>)<br />
-  <% elsif group.children.count > 0 -%>
+  <% elsif group.children.count == 1 -%>
+    <div onclick="showGrp('<%= index %>')" class="grplist">
+	<img name="img<%= index %>" src="/images/plus.gif" style="text-align:left; margin: 4px 4px 4px 0px; float:left" width="10" title="" alt="" /><%= group.name %></div>
+	<div id="dir<%= index %>" class="grphid" style="display:none">
+	  <% group.children.each do |child| -%>
+	    <%= link_to child.name, '/' + params[:locale] + '/packages/' + group.name + '/' + child.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= child.srpms.count %>)<br />
+	  <% end -%>	
+    </div>
+  <% elsif group.children.count == 2 -%>
+    BANG
+  <% elsif group.children.count >= 3 -%>
     BANG
   <% end -%>
+  <% index++ %>
 <% end -%>
-
-<!--
-  <%# if group.level == 0 -%>
-    <%#= link_to group.name, '/' + params[:locale] + '/packages/' + group.name, :class => 'news', :style => 'margin-left:14px;' %> (<%#= group.srpms.count %>)<br />
-  <%# elsif group.level == 1 -%>
-    BANG
-  <%# elsif group.level == 2 -%>
-    BANG
-  <%# end -%>
-
-<%# end -%>
--->
 </div>
