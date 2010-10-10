@@ -18,9 +18,9 @@ class Package < ActiveRecord::Base
     group2 = rpm[1016].split('/')[2]
     group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
     if group1 != nil
-      group = Group.first(:conditins => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+      group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
       if group2 != nil
-        group = Group.first(:conditins => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+        group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
       end
     end
     package.group_id = group.id
@@ -60,9 +60,9 @@ class Package < ActiveRecord::Base
         group2 = rpm[1016].split('/')[2]
         group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
         if group1 != nil
-          group = Group.first(:conditins => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
           if group2 != nil
-            group = Group.first(:conditins => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
           end
         end
         package.group_id = group.id
