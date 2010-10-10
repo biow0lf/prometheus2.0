@@ -42,7 +42,7 @@ function showGrp(dirid){
 	        <img name="img<%= index %>" src="/images/plus.gif" style="text-align:left; margin: 4px 4px 4px 0px; float:left" width="10" title="" alt="" /><%= child.name %>
 	      </div>
 	      <div id="dir<%= index %>" class="grphid" style="display:none">          
-            <% child.each do |c| -%>
+            <% child.children.each do |c| -%>
               <% if c.leaf? -%>
                 <%= link_to c.name, '/' + params[:locale] + '/packages/' + group.name + '/' + child.name + '/' + c.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= c.srpms.count %>)<br />
               <% else -%>
