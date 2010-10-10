@@ -21,14 +21,36 @@ class Group < ActiveRecord::Base
   def self.import_groups(vendor, branch, url)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     if br.groups.count(:all) == 0
-      ActiveRecord::Base.transaction do
-        file = open(URI.escape(url)).read
-        file.each_line do |line|
-          Group.create :name => line.gsub(/\n/,''), :branch_id => br.id
+      file = open(URI.escape(url)).read
+      file.each_line do |line|
+        #Group.create :name => line.gsub(/\n/,''), :branch_id => br.id
+        
+        line.gsub!(/\n/,'')
+        
+        param0 = line.split('/')[0]
+        param1 = line.split('/')[1]
+        param2 = line.split('/')[2]
+        
+        if Group.first :name => param0, :branch_id => br.id
+          group0 = Group.create :name => param0, :branch_id => br.id
         end
       end
     else
       puts Time.now.to_s + ": groups already imported"
     end
   end
+
+#  def self.import_groups(vendor, branch, url)
+#    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+#    if br.groups.count(:all) == 0
+#      ActiveRecord::Base.transaction do
+#        file = open(URI.escape(url)).read
+#        file.each_line do |line|
+#          Group.create :name => line.gsub(/\n/,''), :branch_id => br.id
+#        end
+#      end
+#    else
+#      puts Time.now.to_s + ": groups already imported"
+#    end
+#  end
 end
