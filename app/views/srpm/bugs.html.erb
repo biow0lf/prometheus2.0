@@ -3,7 +3,7 @@
 
 <div style="height:3em;">
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.name %></b><br />
+        <%= render :partial => "group" %>
         <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
     </div>
 </div>
