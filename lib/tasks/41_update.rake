@@ -24,37 +24,27 @@ namespace :"41" do
       puts Time.now.to_s + ": end"
     end
 
-#    desc "Update *.i586.rpm from 4.1 to database"
-#    task :i586 => :environment do
-#      require 'rpm'
-#      puts Time.now.to_s + ": import i586.rpm's"
-#      ActiveRecord::Base.transaction do
-#        ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'i586' AND branch = '4.1' AND vendor = 'ALT Linux'")
-#        Package.import_packages_i586 'ALT Linux', '4.1', "/ALT/4.1/files/i586/RPMS/*.i586.rpm"
-#      end
-#      puts Time.now.to_s + ": end"
-#    end
-#
-#    desc "Update *.noarch.rpm from 4.1 to database"
-#    task :noarch => :environment do
-#      require 'rpm'
-#      puts Time.now.to_s + ": import noarch.rpm's"
-#      ActiveRecord::Base.transaction do
-#        ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'noarch' AND branch = '4.1' AND vendor = 'ALT Linux'")
-#        Package.import_packages_noarch 'ALT Linux', '4.1', "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm"
-#      end
-#      puts Time.now.to_s + ": end"
-#    end
-#
-#    desc "Update *.x86_64.rpm from 4.1 to database"
-#    task :x86_64 => :environment do
-#      require 'rpm'
-#      puts Time.now.to_s + ": import x86_64.rpm's"
-#      ActiveRecord::Base.transaction do
-#        ActiveRecord::Base.connection.execute("DELETE FROM packages WHERE arch = 'x86_64' AND branch = '4.1' AND vendor = 'ALT Linux'")
-#        Package.import_packages_x86_64 'ALT Linux', '4.1', "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm"
-#      end
-#      puts Time.now.to_s + ": end"
-#    end
+    desc "Update *.i586.rpm/*.x86_64.rpm/*.noarch.rpm from 4.1 to database"
+    task :binary => :environment do
+      require 'rpm'
+      puts Time.now.to_s + ": update *.i586.rpm/*.x86_64.rpm/*.noarch.rpm from 4.1 to database"
+      path_array = ["/ALT/4.1/files/i586/RPMS/*.i586.rpm",
+                    "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm",
+                    "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm"]
+      branch = Branch.first :conditions => { :name => '4.1', :vendor => 'ALT Linux' }
+      path_array.each do |path|
+        Dir.glob(path).each do |file|
+          begin
+            rpm = RPM::Package::open(file)
+            if !$redis.exists branch.name + ":" + rpm[1044] + ":" + rpm.arch + ":" + rpm.name
+              Package.import_rpm(branch.vendor, branch.name, file)
+            end            
+          rescue RuntimeError
+            puts "Bad src.rpm -- " + file
+          end
+        end
+      end
+      puts Time.now.to_s + ": end"
+    end
   end
 end
