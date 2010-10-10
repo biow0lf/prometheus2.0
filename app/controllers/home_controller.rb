@@ -16,7 +16,8 @@ class HomeController < ApplicationController
   end
 
   def groups_list
-    @groups = Group.find_groups_in_sisyphus
+    branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
+    @groups = Group.all :conditions => { :branch_id => branch.id }
   end
 
   def bygroup
