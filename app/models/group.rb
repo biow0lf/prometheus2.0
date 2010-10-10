@@ -37,6 +37,8 @@ class Group < ActiveRecord::Base
           group0 = Group.first(:name => param0, :branch_id => br.id)
         end
         
+        puts param0
+        
         if param1 != nil
           if !Group.first(:conditions => { :name => param1, :branch_id => br.id, :parent_id => group0.id })
             group1 = Group.create(:name => param1, :branch_id => br.id)
@@ -46,9 +48,14 @@ class Group < ActiveRecord::Base
           end
         end
         
+        puts param1
+        
         if param2 != nil
-          Group.create(:name => param2, :branch_id => br.id).move_to_child_of(group1)
+          group2 = Group.create(:name => param2, :branch_id => br.id)
+          group2.move_to_child_of(group1)
         end
+        
+        puts param2
       end
     else
       puts Time.now.to_s + ": groups already imported"
