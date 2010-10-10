@@ -25,6 +25,13 @@ function showGrp(dirid){
 
 <div style="font-size:12pt;">
 <% @groups.each do |group| -%>
-<%= link_to group.name, '/' + params[:locale] + '/packages/' + group.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= group.counter %>)<br />
+  <% if group.level == 0 -%>
+    <%= link_to group.name, '/' + params[:locale] + '/packages/' + group.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= group.srpms.count %>)<br />
+  <% elsif group.level == 1 -%>
+    BANG
+  <% elsif group.level == 2 -%>
+    BANG
+  <% end -%>
+
 <% end -%>
 </div>
