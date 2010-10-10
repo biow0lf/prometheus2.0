@@ -31,7 +31,7 @@ class Group < ActiveRecord::Base
         param1 = line.split('/')[1]
         param2 = line.split('/')[2]
         
-        if Group.first :name => param0, :branch_id => br.id
+        if !Group.first :conditions => { :name => param0, :branch_id => br.id }
           group0 = Group.create :name => param0, :branch_id => br.id
         end
       end
