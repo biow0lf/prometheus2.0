@@ -40,22 +40,10 @@ class HomeController < ApplicationController
                                :parent_id => @group.id }
       end
     end
-    
     @srpms = Srpm.all :conditions => {
                         :group_id => @group.id,
                         :branch_id => @branch.id },
                         :order => 'LOWER(name)'
-#    groupname = params[:group]
-#    groupname = groupname + '/' + params[:group2] if !params[:group2].nil?
-#    groupname = groupname + '/' + params[:group3] if !params[:group3].nil?
-#
-#    @group = Group.first :conditions => {
-#                               :name => groupname,
-#                               :branch_id => @branch.id }
-#    @srpms = Srpm.all :conditions => {
-#                        :group_id => @group.id,
-#                        :branch_id => @branch.id },
-#                      :order => 'LOWER(name)'
   end
 
   def maintainers_list
