@@ -59,7 +59,16 @@ class Srpm < ActiveRecord::Base
     srpm.name = rpm.name
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
-    group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+    group0 = rpm[1016].split('/')[0]
+    group1 = rpm[1016].split('/')[1]
+    group2 = rpm[1016].split('/')[2]
+    group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
+    if group1 != nil
+      group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+      if group2 != nil
+        group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+      end
+    end
     srpm.group_id = group.id
     srpm.epoch = rpm[1003]
     srpm.summary = rpm[1004]
@@ -87,7 +96,16 @@ class Srpm < ActiveRecord::Base
     srpm.name = rpm.name
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
-    group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+    group0 = rpm[1016].split('/')[0]
+    group1 = rpm[1016].split('/')[1]
+    group2 = rpm[1016].split('/')[2]
+    group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
+    if group1 != nil
+      group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+      if group2 != nil
+        group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+      end
+    end
     srpm.group_id = group.id
     srpm.epoch = rpm[1003]
     srpm.summary = rpm[1004]

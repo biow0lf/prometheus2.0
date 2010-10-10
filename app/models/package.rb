@@ -96,7 +96,16 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        group0 = rpm[1016].split('/')[0]
+        group1 = rpm[1016].split('/')[1]
+        group2 = rpm[1016].split('/')[2]
+        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
+        if group1 != nil
+          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+          if group2 != nil
+            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+          end
+        end
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
@@ -128,7 +137,16 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        group0 = rpm[1016].split('/')[0]
+        group1 = rpm[1016].split('/')[1]
+        group2 = rpm[1016].split('/')[2]
+        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
+        if group1 != nil
+          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+          if group2 != nil
+            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+          end
+        end
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
@@ -160,7 +178,16 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group = Group.first :conditions => { :name => rpm[1016], :branch_id => br.id }
+        group0 = rpm[1016].split('/')[0]
+        group1 = rpm[1016].split('/')[1]
+        group2 = rpm[1016].split('/')[2]
+        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
+        if group1 != nil
+          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
+          if group2 != nil
+            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
+          end
+        end
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
