@@ -31,8 +31,23 @@ class Group < ActiveRecord::Base
         param1 = line.split('/')[1]
         param2 = line.split('/')[2]
         
-        if !Group.first :conditions => { :name => param0, :branch_id => br.id }
-          group0 = Group.create :name => param0, :branch_id => br.id
+        if !Group.first(:conditions => { :name => param0, :branch_id => br.id })
+          group0 = Group.create(:name => param0, :branch_id => br.id)
+        else
+          group0 = Group.first(:name => param0, :branch_id => br.id)
+        end
+        
+        if param1 != nil
+          if !Group.first(:conditinons => { :name => param1, :branch_id => br.id, :parent_id => group0.id })
+            group1 = Group.create(:name => param1, :branch_id => br.id)
+            group1.move_to_child_of(group0)
+          else
+            group1 = Group.first(:name => param1, :branch_id => br.id, :parent_id => group0.id)
+          end
+        end
+        
+        if param2 != nil
+          Group.create(:name => param2, :branch_id => br.id).move_to_child_of(group1)
         end
       end
     else
