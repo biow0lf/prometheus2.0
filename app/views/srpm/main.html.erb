@@ -26,13 +26,13 @@
 
 <div style="height:3em;">
   <div id="rpmtop">
-<% if @srpm.group.level == 0 %>
+<% if @srpm.group.level == 0 -%>
     <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.name %></b><br />
-<% elsif if @srpm.group.level == 1 %>
+<% elsif if @srpm.group.level == 1 -%>
     <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.parent.name %>/<%= @srpm.group.name %></b><br />
-<% elsif if @srpm.group.level == 2 %>
+<% elsif if @srpm.group.level == 2 -%>
     <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.parent.parent.name %>/<%= @srpm.group.parent.name %>/<%= @srpm.group.name %></b><br />
-<% end %>
+<% end -%>
     <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
   </div>
 </div>
