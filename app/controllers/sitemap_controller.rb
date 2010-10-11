@@ -1,11 +1,11 @@
 class SitemapController < ApplicationController
   layout nil
 
-  def sitemap_basic
+  def sitemap
     headers['Content-Type'] = "application/xml"
   end
 
-  def sitemap_full
+  def sitemap_basic
     headers['Content-Type'] = "application/xml"
   end
 
