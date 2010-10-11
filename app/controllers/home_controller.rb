@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
+    branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
     if params[:request].nil?
       redirect_to :action => "index"
     else
@@ -17,33 +17,33 @@ class HomeController < ApplicationController
 
   def groups_list
     branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
-    @groups = Group.all :conditions => { :branch_id => branch.id, :parent_id => nil }
+    @groups = Group.all(:conditions => { :branch_id => branch.id, :parent_id => nil })
   end
 
   def bygroup
     # TODO: branch can be not only Sisyphus!
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @branch = Branch.first(:conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' })
 
-    @group = Group.first :conditions => {
+    @group = Group.first(:conditions => {
                            :name => params[:group],
                            :branch_id => @branch.id,
-                           :parent_id => nil }
+                           :parent_id => nil })
     if !params[:group2].nil?
-      @group = Group.first :conditions => {
+      @group = Group.first(:conditions => {
                              :name => params[:group2],
                              :branch_id => @branch.id,
-                             :parent_id => @group.id }
+                             :parent_id => @group.id })
       if !params[:group3].nil?
-        @group = Group.first :conditions => {
+        @group = Group.first(:conditions => {
                                :name => params[:group3],
                                :branch_id => @branch.id,
-                               :parent_id => @group.id }
+                               :parent_id => @group.id })
       end
     end
-    @srpms = Srpm.all :conditions => {
+    @srpms = Srpm.all(:conditions => {
                         :group_id => @group.id,
                         :branch_id => @branch.id },
-                        :order => 'LOWER(name)'
+                        :order => 'LOWER(name)')
   end
 
   def maintainers_list
