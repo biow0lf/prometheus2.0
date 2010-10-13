@@ -11,22 +11,22 @@ class SitemapController < ApplicationController
 
   def sitemap_part1
     headers['Content-Type'] = "application/xml"
+    @branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
 
-    @srpms = Srpm.all :select => 'name, branch, vendor',
+    @srpms = Srpm.all(:select => 'name',
                       :order => 'name ASC',
                       :limit => 5000,
-                      :conditions => { :branch => 'Sisyphus',
-                                       :vendor => 'ALT Linux' }
+                      :conditions => { :branch_id => @branch.id })
   end
 
   def sitemap_part2
     headers['Content-Type'] = "application/xml"
+    @branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
 
-    @srpms = Srpm.all :select => 'name, branch, vendor',
+    @srpms = Srpm.all(:select => 'name',
                       :order => 'name ASC',
                       :limit => 5000,
                       :offset => 5000,
-                      :conditions => { :branch => 'Sisyphus',
-                                       :vendor => 'ALT Linux' }
+                      :conditions => { :branch_id => @branch.id })
   end
 end
