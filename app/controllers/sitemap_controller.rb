@@ -29,4 +29,15 @@ class SitemapController < ApplicationController
                       :offset => 5000,
                       :conditions => { :branch_id => @branch.id })
   end
+
+  def sitemap_part3
+    headers['Content-Type'] = "application/xml"
+    @branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
+
+    @srpms = Srpm.all(:select => 'name',
+                      :order => 'name ASC',
+                      :limit => 5000,
+                      :offset => 10000,
+                      :conditions => { :branch_id => @branch.id })
+  end
 end

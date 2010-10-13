@@ -91,4 +91,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/sitemap_basic.xml', :controller => 'sitemap', :action => 'sitemap_basic'
   map.connect '/:locale/sitemap1.xml', :controller => 'sitemap', :action => 'sitemap_part1', :requirements => { :locale => /(en|ru|uk|br)/ }
   map.connect '/:locale/sitemap2.xml', :controller => 'sitemap', :action => 'sitemap_part2', :requirements => { :locale => /(en|ru|uk|br)/ }
+  map.connect '/:locale/sitemap3.xml', :controller => 'sitemap', :action => 'sitemap_part3', :requirements => { :locale => /(en|ru|uk|br)/ }
 end
