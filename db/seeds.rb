@@ -98,6 +98,7 @@ Maintainer.create(:name => 'George Kirik', :email => 'kga@altlinux.org', :login 
 Maintainer.create(:name => 'Eugine V. Kosenko', :email => 'maverik@altlinux.org', :login => 'maverik', :team => false)
 Maintainer.create(:name => 'Konstantin A. Lepikhov', :email => 'lakostis@altlinux.org', :login => 'lakostis', :team => false)
 Maintainer.create(:name => 'George V. Kouryachy', :email => 'george@altlinux.org', :login => 'george', :team => false)
+Maintainer.create(:name => 'Aitov Timur', :email => 'timonbl4@altlinux.org', :login => 'timonbl4', :team => false)
 
 # TODO: add @xen and @ha-cluster'
 
