@@ -54,7 +54,7 @@ class Srpm < ActiveRecord::Base
   def self.import_srpm(vendor, branch, file)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     rpm = RPM::Package::open(file)
-    if Srpm.count(:all, :conditions => { br.id, :name => rpm.name }) == 1
+    if Srpm.count(:all, :conditions => { :branch_id => br.id, :name => rpm.name }) == 1
       Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
     end
     srpm = Srpm.new
