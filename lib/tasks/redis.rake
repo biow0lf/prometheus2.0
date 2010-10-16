@@ -6,13 +6,7 @@ namespace :redis do
     branches.each do |branch|
       if !$redis.exists branch.name + ":CACHED"
         srpms = Srpm.all :conditions => { :branch_id => branch.id }
-        srpms.each do |srpm|
-          if srpm.epoch.nil?
-            $redis.set branch.name + ":" + srpm.name, srpm.version + "-" + srpm.release
-          else
-            $redis.set branch.name + ":" + srpm.name, srpm.epoch + ":" + srpm.version + "-" + srpm.release
-          end
-        end
+        srpms.each { |srpm| $redis.set branch.name + ":" + srpm.filename, 1 }
         $redis.set branch.name + ":CACHED", "yes"
       else
         puts Time.now.to_s + ": srpm info for " + branch.name + " already in cache"
@@ -28,13 +22,7 @@ namespace :redis do
     branches.each do |branch|
       if !$redis.exists branch.name + ":binary:CACHED"
         packages = Package.all :conditions => { :branch_id => branch.id }
-        packages.each do |package|
-          if package.epoch.nil?
-            $redis.set branch.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.version + "-" + package.release
-          else
-            $redis.set branch.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
-          end
-        end
+        packages.each { |package| $redis.set branch.name + ":" + package.filename, 1 }
         $redis.set branch.name + ":binary:CACHED", "yes"
       else
         puts Time.now.to_s + ": binary files info for " + branch.name + " already in cache"

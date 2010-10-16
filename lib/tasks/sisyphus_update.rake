@@ -3,19 +3,13 @@ namespace :sisyphus do
     desc "Update *.src.rpm from Sisyphus to database"
     task :srpms => :environment do
       require 'rpm'
-      puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"      
+      puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"
       path = "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
       branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
       Dir.glob(path).each do |file|
         begin
-          rpm = RPM::Package::open(file)
-          if !$redis.exists branch.name + ":" + rpm.name
-            Srpm.import_srpm(branch.vendor, branch.name, file)            
-          else
-            curr = $redis.get branch.name + ":" + rpm.name
-            if curr != (rpm.version.v.to_s + "-" + rpm.version.r.to_s) and curr != (rpm[1003].to_s + ":" + rpm.version.v.to_s + "-" + rpm.version.r.to_s)
-              Srpm.update_srpm(branch.vendor, branch.name, file)
-            end  
+          if !$redis.exists branch.name + ":" + file
+            Srpm.import_srpm(branch.vendor, branch.name, file)
           end
         rescue RuntimeError
           puts "Bad src.rpm -- " + file
@@ -35,10 +29,9 @@ namespace :sisyphus do
       path_array.each do |path|
         Dir.glob(path).each do |file|
           begin
-            rpm = RPM::Package::open(file)
-            if !$redis.exists branch.name + ":" + rpm[1044] + ":" + rpm.arch + ":" + rpm.name
+            if !$redis.exists branch.name + ":" + file
               Package.import_rpm(branch.vendor, branch.name, file)
-            end            
+            end
           rescue RuntimeError
             puts "Bad src.rpm -- " + file
           end

@@ -36,11 +36,7 @@ class Package < ActiveRecord::Base
     srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
     package.srpm_id = srpm.id
     package.save!
-    if package.epoch.nil?
-      $redis.set br.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.version + "-" + package.release
-    else
-      $redis.set br.name + ":" + package.sourcepackage + ":" + package.arch + ":" + package.name, package.epoch.to_s + ":" + package.version + "-" + package.release
-    end
+    $redis.set br.name + ":" + package.filename, 1
   end
 
   def self.import_packages_i586(vendor, branch, path)

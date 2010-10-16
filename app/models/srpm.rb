@@ -1,7 +1,7 @@
 class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
-  has_many :packages
+  has_many :packages, :dependent => :destroy
   has_one :leader
   has_one :maintainer, :through => :leader
   has_many :acls, :dependent => :destroy
@@ -54,6 +54,9 @@ class Srpm < ActiveRecord::Base
   def self.import_srpm(vendor, branch, file)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
     rpm = RPM::Package::open(file)
+    if Srpm.count(:all, :conditions => { br.id, :name => rpm.name }) == 1
+      Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
+    end
     srpm = Srpm.new
     srpm.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.src.rpm'
     srpm.name = rpm.name
@@ -80,47 +83,6 @@ class Srpm < ActiveRecord::Base
     srpm.size = File.size(file)
     srpm.branch_id = br.id
     srpm.save!    
-    if srpm.epoch.nil?
-      $redis.set br.name + ":" + srpm.name, srpm.version.to_s + "-" + srpm.release.to_s
-    else
-      $redis.set br.name + ":" + srpm.name, srpm.epoch.to_s + ":" + srpm.version.to_s + "-" + srpm.release.to_s
-    end    
-  end
-
-  def self.update_srpm(vendor, branch, file)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
-    rpm = RPM::Package::open(file)
-    Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
-    srpm = Srpm.new
-    srpm.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.src.rpm'
-    srpm.name = rpm.name
-    srpm.version = rpm.version.v
-    srpm.release = rpm.version.r
-    group0 = rpm[1016].split('/')[0]
-    group1 = rpm[1016].split('/')[1]
-    group2 = rpm[1016].split('/')[2]
-    group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-    if group1 != nil
-      group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-      if group2 != nil
-        group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-      end
-    end
-    srpm.group_id = group.id
-    srpm.epoch = rpm[1003]
-    srpm.summary = rpm[1004]
-    srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-    srpm.license = rpm[1014]
-    srpm.url = rpm[1020]
-    srpm.description = rpm[1005]
-    srpm.buildtime = Time.at(rpm[1006])
-    srpm.size = File.size(file)
-    srpm.branch_id = br.id
-    srpm.save!
-    if srpm.epoch.nil?
-      $redis.set br.name + ":" + srpm.name, srpm.version.to_s + "-" + srpm.release.to_s
-    else
-      $redis.set br.name + ":" + srpm.name, srpm.epoch.to_s + ":" + srpm.version.to_s + "-" + srpm.release.to_s
-    end
+    $redis.set br.name + ":" + srpm.filename, 1
   end
 end
