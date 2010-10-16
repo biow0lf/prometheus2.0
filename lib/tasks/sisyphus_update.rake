@@ -9,6 +9,7 @@ namespace :sisyphus do
       Dir.glob(path).each do |file|
         begin
           if !$redis.exists branch.name + ":" + file
+            puts Time.now_s + ": update '" + file + "'"
             Srpm.import_srpm(branch.vendor, branch.name, file)
           end
         rescue RuntimeError
