@@ -22,7 +22,7 @@ namespace :sisyphusarm do
     desc "Update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     task :binary => :environment do
       require 'rpm'
-      puts Time.now.to_s + ": update *.i586.rpm/*.x86_64.rpm/*.noarch.rpm from Sisyphus to database"
+      puts Time.now.to_s + ": update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
       path_array = ["/ALT/Sisyphus/files/arm/RPMS/*.rpm"]
       branch = Branch.first :conditions => { :name => 'SisyphusARM', :vendor => 'ALT Linux' }
       path_array.each do |path|
