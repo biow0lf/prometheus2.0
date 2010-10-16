@@ -29,7 +29,7 @@ namespace :sisyphusarm do
         Dir.glob(path).each do |file|
           begin
             if !$redis.exists branch.name + ":" + file.split('/')[-1]
-              puts Time.now.to_s + ":update '" + file.split('/')[-1] + "'"
+              puts Time.now.to_s + ": update '" + file.split('/')[-1] + "'"
               Package.import_rpm(branch.vendor, branch.name, file)
             end
           rescue RuntimeError
