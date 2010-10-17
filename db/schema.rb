@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101010100447) do
+ActiveRecord::Schema.define(:version => 20101017101634) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -121,6 +121,14 @@ ActiveRecord::Schema.define(:version => 20101010100447) do
   add_index "packages", ["sourcepackage"], :name => "index_packages_on_sourcepackage"
   add_index "packages", ["srpm_id"], :name => "index_packages_on_srpm_id"
 
+  create_table "perl_watches", :force => true do |t|
+    t.string   "name"
+    t.string   "version"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "repocops", :force => true do |t|
     t.string   "name"
     t.string   "version"
@@ -157,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20101010100447) do
     t.string   "repocop",     :default => "skip"
     t.integer  "branch_id"
     t.integer  "group_id"
+    t.string   "vendor"
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
