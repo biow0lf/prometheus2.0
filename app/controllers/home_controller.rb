@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   def groups_list
     branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
-    @groups = Group.all(:conditions => { :branch_id => branch.id, :parent_id => nil })
+    @groups = Group.all(:conditions => { :branch_id => branch.id, :parent_id => nil }, :order => 'LOWER(name)')
   end
 
   def bygroup
@@ -27,8 +27,7 @@ class HomeController < ApplicationController
     @group = Group.first(:conditions => {
                            :name => params[:group],
                            :branch_id => @branch.id,
-                           :parent_id => nil },
-                         :order => 'LOWER(name)')
+                           :parent_id => nil })
     if !params[:group2].nil?
       @group = Group.first(:conditions => {
                              :name => params[:group2],
