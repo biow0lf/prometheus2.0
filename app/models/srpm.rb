@@ -39,8 +39,8 @@ class Srpm < ActiveRecord::Base
         srpm.license = rpm[1014]
         srpm.url = rpm[1020]
         srpm.description = rpm[1005]
-        #srpm.vendor = rpm[1011]
-        #srpm.distribution = rpm[1010]
+        srpm.vendor = rpm[1011]
+        srpm.distribution = rpm[1010]
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
         srpm.branch_id = br.id
@@ -79,6 +79,8 @@ class Srpm < ActiveRecord::Base
     srpm.license = rpm[1014]
     srpm.url = rpm[1020]
     srpm.description = rpm[1005]
+    srpm.vendor = rpm[1011]
+    srpm.distribution = rpm[1010]
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.branch_id = br.id
