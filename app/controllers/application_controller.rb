@@ -12,9 +12,6 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
-  #init_gettext "prometheus"
-  #before_filter :set_gettext_locale
-
   def default_locale
     params[:locale] ||= 'en'
     I18n.locale = params[:locale]
@@ -24,5 +21,4 @@ class ApplicationController < ActionController::Base
   def set_search
     params[:search] = params[:request] if params[:search].nil?
   end
-
 end
