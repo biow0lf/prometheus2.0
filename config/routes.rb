@@ -1,9 +1,6 @@
 Prometheus20::Application.routes.draw do |map|
-#  map.connect '/iphone/', :controller => 'iphone', :action => 'index'
-#  map.connect '/:locale/iphone/', :controller => 'iphone', :action => 'index', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/iphone/packager/:login', :controller => 'iphone', :action => 'maintainer_info'
-#  map.connect '/:locale/iphone/packager/:login', :controller => 'iphone', :action => 'maintainer_info', :requirements => { :locale => /(en|ru|uk|br)/ }
-
+  match '(/:locale)/iphone/', :to => 'iphone#index'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/iphone/packager/:login', :to => 'iphone#maintainer_info'#, :requirements => { :locale => /(en|ru|uk|br)/ }
   match '(/:locale)/iphone/packages/:group(/:group2(/:group3))', :to => 'iphone#bygroup'#, :requirements => { :locale => /(en|ru|uk|br)/ }
 
   match '(/:locale)/search', :to => 'home#search'#, :requirements => { :locale => /(en|ru|uk|br)/ }
