@@ -50,4 +50,9 @@ Prometheus20::Application.configure do
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  
+  config.middleware.use ExceptionNotifier,
+      :email_prefix => "[ERROR] ",
+      :sender_address => %{"Sisyphus 2.0 Error" <noreply@prometheus.altlinux.org>},
+      :exception_recipients => %w{igor.zubkov@gmail.com}
 end
