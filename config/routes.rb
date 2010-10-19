@@ -45,9 +45,9 @@ Prometheus20::Application.routes.draw do |map|
 
   root :to => "home#index"
 
-#  map.sitemap '/sitemap.xml', :controller => 'sitemap', :action => 'sitemap_full'
-#  map.connect '/sitemap_basic.xml', :controller => 'sitemap', :action => 'sitemap_basic'
-#  map.connect '/:locale/sitemap1.xml', :controller => 'sitemap', :action => 'sitemap_part1', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/:locale/sitemap2.xml', :controller => 'sitemap', :action => 'sitemap_part2', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/:locale/sitemap3.xml', :controller => 'sitemap', :action => 'sitemap_part3', :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '/sitemap.xml', :to => 'sitemap#sitemap_full'
+  match '/sitemap_basic.xml', :to => 'sitemap#sitemap_basic'
+  match '/:locale/sitemap1.xml', :to => 'sitemap#sitemap_part1', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/:locale/sitemap2.xml', :to => 'sitemap#sitemap_part2', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/:locale/sitemap3.xml', :to => 'sitemap#sitemap_part3', :constraints => { :locale => SUPPORTED_LOCALES }
 end
