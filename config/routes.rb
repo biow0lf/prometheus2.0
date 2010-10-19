@@ -24,10 +24,9 @@ Prometheus20::Application.routes.draw do |map|
 #
 #  map.connect '/security', :controller => 'pages', :action => 'security'
 #  map.connect '/:locale/security', :controller => 'pages', :action => 'security', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
-#  map.connect '/project', :controller => 'pages', :action => 'project'
-#  map.connect '/:locale/project', :controller => 'pages', :action => 'project', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
+
+  match '(/:locale)/project', :to => 'pages#project'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+
 #  map.connect '/packages', :controller => 'home', :action => 'groups_list'
 #  map.connect '/:locale/packages', :controller => 'home', :action => 'groups_list', :requirements => { :locale => /(en|ru|uk|br)/ }
 #
