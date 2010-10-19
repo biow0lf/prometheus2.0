@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
-  init_gettext "prometheus"
+  #init_gettext "prometheus"
+  before_filter :set_gettext_locale
 
   def default_locale
     params[:locale] ||= 'en'
