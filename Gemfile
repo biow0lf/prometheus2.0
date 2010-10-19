@@ -9,8 +9,6 @@ gem 'SystemTimer' # for redis and ruby 1.8
 
 gem 'meta_search'
 
-gem 'awesome_nested_set'
-
 gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'	
 gem 'gettext', '>=1.9.3', :require => false

@@ -31,8 +31,6 @@ GEM
     activesupport (3.0.1)
     arel (1.0.1)
       activesupport (~> 3.0.0)
-    awesome_nested_set (1.4.3)
-      activerecord (>= 1.1)
     builder (2.1.2)
     columnize (0.3.1)
     erubis (2.6.6)
@@ -93,7 +91,6 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer
-  awesome_nested_set
   fast_gettext (>= 0.4.8)
   gettext (>= 1.9.3)
   gettext_i18n_rails
