@@ -5,7 +5,7 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/search' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/search' => 'home#search', :as => 'search' , :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/find.shtml' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/news' => 'pages#news', :constraints => { :locale => SUPPORTED_LOCALES }
