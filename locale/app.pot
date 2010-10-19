@@ -1,0 +1,882 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: version 0.0.1\n"
+"POT-Creation-Date: 2010-10-19 15:29+0300\n"
+"PO-Revision-Date: 2009-10-29 19:38+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: app/views/srpm/allbugs.html.erb:1
+msgid " - All bugs"
+msgstr ""
+
+#: app/views/srpm/bugs.html.erb:1
+msgid " - Bugs"
+msgstr ""
+
+#: app/views/srpm/changelog.html.erb:1
+msgid " - Changelog"
+msgstr ""
+
+#: app/views/srpm/download.html.erb:1
+msgid " - Download"
+msgstr ""
+
+#: app/views/srpm/gear.html.erb:1
+msgid " - Gear"
+msgstr ""
+
+#: app/views/srpm/repocop.html.erb:1
+msgid " - Repocop"
+msgstr ""
+
+#: app/views/srpm/rawspec.html.erb:1
+msgid " - Spec"
+msgstr ""
+
+#: app/views/maintainer/info.html.erb:1 app/views/team/info.html.erb:1
+msgid "&raquo;"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:1
+msgid "&raquo; - ACL's"
+msgstr ""
+
+#: app/views/maintainer/bugs.html.erb:1
+msgid "&raquo; - Bugs and FR"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:1
+msgid "&raquo; - Bugs and FR (All)"
+msgstr ""
+
+#: app/views/maintainer/gear.html.erb:1
+msgid "&raquo; - Gear"
+msgstr ""
+
+#: app/views/maintainer/srpms.html.erb:1
+msgid "&raquo; - Packages"
+msgstr ""
+
+#: app/views/maintainer/repocop.html.erb:1
+msgid "&raquo; - Repocop"
+msgstr ""
+
+#: app/views/home/index.html.erb:61
+msgid "<b>A:</b> Create filter for rsync with the help of this"
+msgstr ""
+
+#: app/views/pages/project.html.erb:8
+msgid ""
+"<b>Prometheus</b> project is an attempt to create analytic site for "
+"developers and users of\n"
+"Sisyphus repository.<br /><br />\n"
+"\n"
+"It is useful for developers due to ability to more closely interoperate with "
+"other\n"
+"developers and users of respective packages.  This site is especially "
+"valueable\n"
+"to new ALT Linux Team members. It gives answers \"who is who\", \"who does "
+"what\",\n"
+"\"what status is\" in interesting field.<br /><br />\n"
+"\n"
+"Sisyphus users can get full information about a package beforehand. There "
+"are\n"
+"handy links (site of origin, ALT Linux specific issues, wiki, etc.).<br /"
+"><br />\n"
+"\n"
+"The project is useful for ALT Linux Ltd. and ALT Linux core team too, as it "
+"gives\n"
+"information about Sisyphus development, strong and weak aspects, actively\n"
+"supported and used groups of packages.<br /><br />\n"
+"\n"
+"Another nice property of the project is posibility to use it together with\n"
+"any other package repository snapshot (not only Sisyphus itself), for local\n"
+"development within a small group or even one's self."
+msgstr ""
+
+#: app/views/home/index.html.erb:61
+msgid ""
+"<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
+"them?"
+msgstr ""
+
+#: app/views/home/index.html.erb:7
+msgid ""
+"<b>Sisyphus</b> is daily updated free software repository by <abbr title="
+"\"Independent ALT Linux development team\">ALT&nbsp;Linux&nbsp;Team</abbr>. "
+"Participation in Sisyphus project is open for anyone. This project is based "
+"upon software packaging and dependency tracking technologies as well as "
+"robust developer collaboration processes. Any ALT&nbsp;Linux distribution "
+"and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a "
+"solution set constantly being under development which can be used to create "
+"universal or specialized <b>Linux distributions</b> or just <b>single "
+"systems</b>."
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:13
+msgid "ACL's"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:71
+msgid "ACL:"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:151
+msgid "ALT Linux Planet"
+msgstr ""
+
+#: app/views/srpm/changelog.html.erb:7 app/views/srpm/download.html.erb:7
+#: app/views/srpm/main.html.erb:7 app/views/srpm/rawspec.html.erb:7
+msgid "ALT Linux repos"
+msgstr ""
+
+#: app/views/srpm/changelog.html.erb:6 app/views/srpm/download.html.erb:6
+#: app/views/srpm/main.html.erb:6 app/views/srpm/rawspec.html.erb:6
+msgid "ALT Linux repositories"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:13
+#: app/views/layouts/application.html.erb:130
+msgid "About"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:16
+#: app/views/layouts/application.html.erb:146
+msgid "Blog"
+msgstr ""
+
+#: app/views/iphone/maintainer_info.html.erb:11
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6 app/views/srpm/allbugs.html.erb:13
+#: app/views/srpm/bugs.html.erb:13 app/views/srpm/changelog.html.erb:36
+#: app/views/srpm/download.html.erb:36 app/views/srpm/gear.html.erb:13
+#: app/views/srpm/main.html.erb:36 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "Bugs and FR"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6
+msgid "Bugs/FR statistics assigned to this maintainer"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:38
+msgid "Build date:"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:11
+msgid "Build time:"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/rawspec.html.erb:36 app/views/srpm/repocop.html.erb:13
+msgid "Changelog"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:14
+msgid "Changes:"
+msgstr ""
+
+#: app/views/srpm/download.html.erb:90
+msgid "Choose a mirror:"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:51
+msgid "Current maintainer:"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:10 app/views/srpm/main.html.erb:37
+msgid "Current version:"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:48
+msgid "Description:"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/rawspec.html.erb:36 app/views/srpm/repocop.html.erb:13
+msgid "Download"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "English"
+msgstr ""
+
+#: app/views/iphone/maintainer_info.html.erb:10
+#: app/views/iphone/maintainer_info.html.erb:15
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6 app/views/srpm/allbugs.html.erb:13
+#: app/views/srpm/bugs.html.erb:13 app/views/srpm/changelog.html.erb:36
+#: app/views/srpm/download.html.erb:36 app/views/srpm/gear.html.erb:13
+#: app/views/srpm/main.html.erb:36 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "Gear"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:4 app/views/srpm/_group.html.erb:2
+#: app/views/srpm/_group.html.erb:4 app/views/srpm/_group.html.erb:6
+msgid "Group"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:105
+msgid "Home"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:42
+msgid "Home page:"
+msgstr ""
+
+#: app/views/iphone/maintainer_info.html.erb:8
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6
+msgid "Information"
+msgstr ""
+
+#: app/views/maintainer/info.html.erb:7 app/views/team/info.html.erb:6
+msgid "Information:"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "Last update:"
+msgstr ""
+
+#: app/views/home/index.html.erb:13
+msgid "Latest changes"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:45
+msgid "License:"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:7 app/views/maintainer/srpms.html.erb:7
+msgid "List of packages which was built by this maintainer:"
+msgstr ""
+
+#: app/views/team/info.html.erb:21
+msgid "List of packages:"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:60
+msgid "List of rpms provided by this srpm:"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:18
+#: app/views/layouts/application.html.erb:157
+msgid "Mailing list"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/rawspec.html.erb:36 app/views/srpm/repocop.html.erb:13
+msgid "Main"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:4
+#: app/views/maintainer/allbugs.html.erb:4
+#: app/views/maintainer/bugs.html.erb:4 app/views/maintainer/gear.html.erb:4
+#: app/views/maintainer/info.html.erb:4
+#: app/views/maintainer/repocop.html.erb:4
+#: app/views/maintainer/srpms.html.erb:4
+msgid "Maintainer:"
+msgstr ""
+
+#: app/views/home/maintainers_list.html.erb:5
+#: app/views/iphone/index.html.erb:10 app/views/iphone/index.html.erb:27
+#: app/views/layouts/application.html.erb:120
+msgid "Maintainers"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:8
+#: app/views/layouts/application.html.erb:110
+msgid "News"
+msgstr ""
+
+#: app/views/srpm/nosuchpackage.html.erb:4
+msgid "No such package!"
+msgstr ""
+
+#: app/views/maintainer/nosuchmaintainer.html.erb:4
+msgid "No such packager!"
+msgstr ""
+
+#: app/views/team/nosuchteam.html.erb:4
+msgid "No such team!"
+msgstr ""
+
+#: app/views/home/search.html.erb:11
+msgid "On your query"
+msgstr ""
+
+#: app/views/home/groups_list.html.erb:23
+msgid "Package groups"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:9 app/views/iphone/index.html.erb:21
+#: app/views/iphone/maintainer_info.html.erb:9
+#: app/views/layouts/application.html.erb:115
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6
+msgid "Packages"
+msgstr ""
+
+#: app/views/maintainer/info.html.erb:10
+msgid "Packages built by this maintainer:"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:17
+#: app/views/layouts/application.html.erb:151
+msgid "Planet"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "Portuguese (Brasilian)"
+msgstr ""
+
+#: app/views/pages/project.html.erb:4
+msgid "Project Prometheus"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:6
+msgid "Prometheus 2.0"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:1
+msgid "Prometheus 2.0 - Group - "
+msgstr ""
+
+#: app/views/home/groups_list.html.erb:1
+msgid "Prometheus 2.0 - Groups"
+msgstr ""
+
+#: app/views/pages/project.html.erb:1
+msgid "Prometheus 2.0 - Information about the project"
+msgstr ""
+
+#: app/views/home/index.html.erb:1
+msgid "Prometheus 2.0 - Intro"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:1
+#: app/views/maintainer/allbugs.html.erb:1
+#: app/views/maintainer/bugs.html.erb:1 app/views/maintainer/gear.html.erb:1
+#: app/views/maintainer/info.html.erb:1
+#: app/views/maintainer/repocop.html.erb:1
+#: app/views/maintainer/srpms.html.erb:1
+msgid "Prometheus 2.0 - Maintainer &laquo;"
+msgstr ""
+
+#: app/views/maintainer/nosuchmaintainer.html.erb:1
+msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
+msgstr ""
+
+#: app/views/home/maintainers_list.html.erb:1
+msgid "Prometheus 2.0 - Maintainers"
+msgstr ""
+
+#: app/views/pages/news.html.erb:1
+msgid "Prometheus 2.0 - News"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:1 app/views/srpm/bugs.html.erb:1
+#: app/views/srpm/changelog.html.erb:1 app/views/srpm/download.html.erb:1
+#: app/views/srpm/gear.html.erb:1 app/views/srpm/main.html.erb:1
+#: app/views/srpm/rawspec.html.erb:1 app/views/srpm/repocop.html.erb:1
+msgid "Prometheus 2.0 - Package "
+msgstr ""
+
+#: app/views/srpm/nosuchpackage.html.erb:1
+msgid "Prometheus 2.0 - Package - Error!"
+msgstr ""
+
+#: app/views/pages/rss.html.erb:1
+msgid "Prometheus 2.0 - RSS"
+msgstr ""
+
+#: app/views/home/search.html.erb:1
+msgid "Prometheus 2.0 - Search"
+msgstr ""
+
+#: app/views/pages/security.html.erb:1
+msgid "Prometheus 2.0 - Security"
+msgstr ""
+
+#: app/views/team/info.html.erb:1
+msgid "Prometheus 2.0 - Team &laquo;"
+msgstr ""
+
+#: app/views/team/nosuchteam.html.erb:1
+msgid "Prometheus 2.0 - Team - Error!"
+msgstr ""
+
+#: app/views/home/search.html.erb:11
+msgid "RPM:"
+msgid_plural "RPMs:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/views/iphone/index.html.erb:14
+#: app/views/layouts/application.html.erb:135
+msgid "RSS"
+msgstr ""
+
+#: app/views/iphone/maintainer_info.html.erb:12
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6 app/views/srpm/allbugs.html.erb:13
+#: app/views/srpm/bugs.html.erb:13 app/views/srpm/changelog.html.erb:36
+#: app/views/srpm/download.html.erb:36 app/views/srpm/gear.html.erb:13
+#: app/views/srpm/main.html.erb:36 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "Repocop"
+msgstr ""
+
+#: app/views/maintainer/repocop.html.erb:8
+msgid "Repocop messages:"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "Russian"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "SRPMs:"
+msgstr ""
+
+#: app/views/home/search.html.erb:4
+msgid "Search"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:12 app/views/iphone/index.html.erb:39
+#: app/views/layouts/application.html.erb:125
+msgid "Security"
+msgstr ""
+
+#: app/views/home/index.html.erb:9
+msgid ""
+"Sisyphus is not intended for end users and its usage may result in "
+"unpredictable behaviour. You might want to use ALT Linux distributions and "
+"their usual updates if you want to run a reliable system."
+msgstr ""
+
+#: app/views/layouts/application.html.erb:72
+msgid "Sisyphus repository"
+msgstr ""
+
+#: app/views/home/index.html.erb:61
+msgid "Sisyphus sync"
+msgstr ""
+
+#: app/views/srpm/main.html.erb:39
+msgid "Size:"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:7 app/views/srpm/bugs.html.erb:7
+#: app/views/srpm/changelog.html.erb:30 app/views/srpm/download.html.erb:30
+#: app/views/srpm/gear.html.erb:7 app/views/srpm/main.html.erb:30
+#: app/views/srpm/rawspec.html.erb:30 app/views/srpm/repocop.html.erb:7
+msgid "Source RPM:"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/rawspec.html.erb:36 app/views/srpm/repocop.html.erb:13
+msgid "Spec"
+msgstr ""
+
+#: app/views/maintainer/srpms.html.erb:17 app/views/team/info.html.erb:31
+msgid "Summary"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:12 app/views/srpm/main.html.erb:47
+msgid "Summary:"
+msgstr ""
+
+#: app/views/home/index.html.erb:44
+msgid "TOP RPMs"
+msgstr ""
+
+#: app/views/home/index.html.erb:23
+msgid "TOP maintainers"
+msgstr ""
+
+#: app/views/team/info.html.erb:9
+msgid "Team leader:"
+msgstr ""
+
+#: app/views/team/info.html.erb:12
+msgid "Team members:"
+msgstr ""
+
+#: app/views/team/info.html.erb:4
+msgid "Team:"
+msgstr ""
+
+#: app/views/home/maintainers_list.html.erb:5
+#: app/views/iphone/index.html.erb:11 app/views/iphone/index.html.erb:33
+msgid "Teams"
+msgstr ""
+
+#: app/views/srpm/bugs.html.erb:17
+msgid "There is no bugreports for this ALT Bugzilla"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:7
+#: app/views/maintainer/bugs.html.erb:7
+msgid "Total records:"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:15 app/views/srpm/bugs.html.erb:21
+msgid "Total:"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "Ukrainian"
+msgstr ""
+
+#: app/views/maintainer/srpms.html.erb:16 app/views/team/info.html.erb:30
+msgid "Url"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:15
+#: app/views/layouts/application.html.erb:140
+msgid "Wiki"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:130
+msgid "about Prometeus project"
+msgstr ""
+
+#: app/views/maintainer/srpms.html.erb:15 app/views/team/info.html.erb:29
+msgid "age"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:11 app/views/maintainer/srpms.html.erb:30
+#: app/views/srpm/main.html.erb:38 app/views/team/info.html.erb:45
+msgid "ago"
+msgstr ""
+
+#: app/views/home/index.html.erb:17
+msgid "another transfers"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:146
+msgid "blog"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "br"
+msgstr ""
+
+#: app/views/maintainer/srpms.html.erb:14 app/views/team/info.html.erb:28
+msgid "build time"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:157
+msgid "community-en@"
+msgstr ""
+
+#: app/views/home/search.html.erb:17 app/views/maintainer/srpms.html.erb:13
+#: app/views/team/info.html.erb:27
+msgid "current<br />version"
+msgstr ""
+
+#: app/views/team/info.html.erb:41
+msgid "detailed information about RPM"
+msgstr ""
+
+#: app/views/home/bygroup.html.erb:8
+msgid "detailed information about the package"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/gear.html.erb:13
+#: app/views/srpm/main.html.erb:36 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "download latest version"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "en"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:83
+msgid "find"
+msgstr ""
+
+#: app/views/home/index.html.erb:61
+msgid "form"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/download.html.erb:36 app/views/srpm/gear.html.erb:13
+#: app/views/srpm/main.html.erb:36 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "full changelog"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6
+msgid "gear"
+msgstr ""
+
+#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:46
+#: app/views/home/index.html.erb:58 app/views/srpm/changelog.html.erb:9
+#: app/views/srpm/download.html.erb:9 app/views/srpm/main.html.erb:9
+#: app/views/srpm/rawspec.html.erb:9
+msgid "hide window"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:15
+#: app/views/layouts/application.html.erb:140
+msgid "http://en.altlinux.org/Sisyphus"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:18
+#: app/views/layouts/application.html.erb:157
+msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:17
+#: app/views/layouts/application.html.erb:151
+msgid "http://planet.altlinux.org/"
+msgstr ""
+
+#: app/views/iphone/index.html.erb:16
+#: app/views/layouts/application.html.erb:146
+msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:16
+#: app/views/maintainer/bugs.html.erb:14 app/views/srpm/allbugs.html.erb:24
+#: app/views/srpm/bugs.html.erb:30
+msgid "id"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "information about SRPM"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+#: app/views/maintainer/srpms.html.erb:6 app/views/srpm/main.html.erb:53
+#: app/views/srpm/main.html.erb:55
+msgid "information about maintainer"
+msgstr ""
+
+#: app/views/home/index.html.erb:33 app/views/team/info.html.erb:9
+#: app/views/team/info.html.erb:15
+msgid "information about the packager"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:12
+msgid "leader"
+msgstr ""
+
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/rawspec.html.erb:36 app/views/srpm/repocop.html.erb:13
+msgid "list of bugs and feature requests"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:120
+msgid "maintainers information"
+msgstr ""
+
+#: app/views/maintainer/repocop.html.erb:15 app/views/srpm/repocop.html.erb:21
+msgid "message"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:10
+#: app/views/maintainer/bugs.html.erb:10 app/views/srpm/allbugs.html.erb:18
+#: app/views/srpm/bugs.html.erb:24
+msgid "open"
+msgstr ""
+
+#: app/views/home/search.html.erb:16 app/views/maintainer/acls.html.erb:11
+#: app/views/maintainer/allbugs.html.erb:17
+#: app/views/maintainer/bugs.html.erb:15
+#: app/views/maintainer/repocop.html.erb:12
+#: app/views/maintainer/srpms.html.erb:12 app/views/team/info.html.erb:26
+msgid "package"
+msgstr ""
+
+#: app/views/srpm/repocop.html.erb:18
+msgid "package id"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:115
+msgid "packages information"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6
+#: app/views/maintainer/repocop.html.erb:7
+msgid "packages which was built by this maintainer"
+msgstr ""
+
+#: app/views/home/index.html.erb:17
+msgid "previous releases"
+msgstr ""
+
+#: app/views/maintainer/srpms.html.erb:11 app/views/team/info.html.erb:25
+msgid "repo<br/>cop"
+msgstr ""
+
+#: app/views/maintainer/acls.html.erb:6
+#: app/views/maintainer/allbugs.html.erb:6
+#: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
+#: app/views/maintainer/info.html.erb:6 app/views/maintainer/srpms.html.erb:6
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/rawspec.html.erb:36
+msgid "repocop bugreports"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:21
+#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:28
+#: app/views/srpm/bugs.html.erb:33
+msgid "reporter"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:20 app/views/srpm/allbugs.html.erb:27
+msgid "resolution"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "ru"
+msgstr ""
+
+#: app/views/home/search.html.erb:8
+msgid "search"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:125
+msgid "security fixes"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:18
+#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:25
+#: app/views/srpm/bugs.html.erb:31
+msgid "severity"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:140
+msgid "sisyphus public site"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:105
+msgid "site home page"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:110
+msgid "site news"
+msgstr ""
+
+#: app/views/home/index.html.erb:22
+msgid "sort maintainers by amount of packages"
+msgstr ""
+
+#: app/views/home/index.html.erb:43
+msgid "sort packages by amount of releases in the last half of year"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/gear.html.erb:13 app/views/srpm/main.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "spec"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:19
+#: app/views/maintainer/bugs.html.erb:17
+#: app/views/maintainer/repocop.html.erb:13 app/views/srpm/allbugs.html.erb:26
+#: app/views/srpm/bugs.html.erb:32 app/views/srpm/repocop.html.erb:19
+msgid "status"
+msgstr ""
+
+#: app/views/home/search.html.erb:18 app/views/maintainer/allbugs.html.erb:22
+#: app/views/maintainer/bugs.html.erb:19 app/views/srpm/allbugs.html.erb:29
+#: app/views/srpm/bugs.html.erb:34
+msgid "summary"
+msgstr ""
+
+#: app/views/maintainer/repocop.html.erb:14 app/views/srpm/repocop.html.erb:20
+msgid "test"
+msgstr ""
+
+#: app/views/srpm/allbugs.html.erb:13 app/views/srpm/bugs.html.erb:13
+#: app/views/srpm/changelog.html.erb:36 app/views/srpm/download.html.erb:36
+#: app/views/srpm/main.html.erb:36 app/views/srpm/rawspec.html.erb:36
+#: app/views/srpm/repocop.html.erb:13
+msgid "this package in gear repositories"
+msgstr ""
+
+#: app/views/home/index.html.erb:56
+msgid "tips &amp; tricks"
+msgstr ""
+
+#: app/views/home/index.html.erb:55
+msgid "tips and tricks"
+msgstr ""
+
+#: app/views/maintainer/allbugs.html.erb:11
+#: app/views/maintainer/bugs.html.erb:11 app/views/srpm/allbugs.html.erb:19
+#: app/views/srpm/bugs.html.erb:25
+msgid "total"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:97
+msgid "uk"
+msgstr ""
+
+#: app/views/home/search.html.erb:11
+msgid "were found"
+msgstr ""
