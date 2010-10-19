@@ -165,7 +165,7 @@ function show(divnum){
 <!--
 
 <div class="search">
-<% form_tag '/' + params[:locale] + '/search', :method => 'get' do %>
+<%= form_tag '/' + params[:locale] + '/search', :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search], :size => 15 %>
     <%= submit_tag "Search", :name => nil %>
