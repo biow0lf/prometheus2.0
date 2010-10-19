@@ -10,7 +10,8 @@ class HomeController < ApplicationController
     if params[:request].nil?
       redirect_to :action => "index"
     else
-      @search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_id_equals(branch.id).ascend_by_name
+      #@search = Srpm.name_or_summary_or_description_like_all(params[:search].to_s.split).branch_id_equals(branch.id).ascend_by_name
+      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:search].to_s.split).order("name ASC")
       @srpms, @srpms_count = @search.all, @search.count
     end
   end

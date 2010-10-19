@@ -73,21 +73,18 @@ function show(divnum){
   </div>
   <div id="top-auth">
     <div id="div1" style="display:block;margin-top:20px;">
-	  <%= form_for @search, :url => search_path(:locale => params[:locale]), :html => {:method => :get} do |f| %>
-      <!--<form action="/<%= params[:locale] %>/find.shtml" method="get">-->
+      <form action="/<%= params[:locale] %>/find.shtml" method="get">
         <table>
           <tr>
             <td>
-              <!--<input class="top-name" type="text" name="request" value="" size="18" />-->
-              <%= f.text_field :name_or_summary_or_description_contains %>
+              <input class="top-name" type="text" name="request" value="" size="18" />
             </td>
             <td valign="middle">
               <input type="submit" class="top-go" id="sub1" value="<%= _("find") %>" onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
             </td>
           </tr>
         </table>
-      <!--</form>-->
-      <% end %>
+      </form>
     </div>
   </div>
 </div>
