@@ -15,70 +15,41 @@ Prometheus20::Application.routes.draw do |map|
 #  map.connect '/:locale/search', :controller => 'home', :action => 'search', :requirements => { :locale => /(en|ru|uk|br)/ }
 #  map.connect '/find.shtml', :controller => 'home', :action => 'search'
 #  map.connect '/:locale/find.shtml', :controller => 'home', :action => 'search', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
-#  map.connect '/news', :controller => 'pages', :action => 'news'
-#  map.connect '/:locale/news', :controller => 'pages', :action => 'news', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
-#  map.connect '/rss', :controller => 'pages', :action => 'rss'
-#  map.connect '/:locale/rss', :controller => 'pages', :action => 'rss', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
-#  map.connect '/security', :controller => 'pages', :action => 'security'
-#  map.connect '/:locale/security', :controller => 'pages', :action => 'security', :requirements => { :locale => /(en|ru|uk|br)/ }
 
+  match '(/:locale)/news', :to => 'pages#news'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/rss', :to => 'pages#rss'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/security', :to => 'pages#security'#, :requirements => { :locale => /(en|ru|uk|br)/ }
   match '(/:locale)/project', :to => 'pages#project'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+
   match '(/:locale)/packages', :to => 'home#groups_list'#, :requirements => { :locale => /(en|ru|uk|br)/ }
   match '(/:locale)/people', :to => 'home#maintainers_list'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/team/:name', :to => 'team#info'#, :requirements => { :locale => /(en|ru|uk|br)/ }
 
-#  map.connect '/team/:name', :controller => 'team', :action => 'info'
-#  map.connect '/:locale/team/:name', :controller => 'team', :action => 'info', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
-#  map.connect '/packager/:login', :controller => 'maintainer', :action => 'info'
-#  map.connect '/:locale/packager/:login', :controller => 'maintainer', :action => 'info', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/srpms', :controller => 'maintainer', :action => 'srpms'
-#  map.connect '/:locale/packager/:login/srpms', :controller => 'maintainer', :action => 'srpms', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/acls', :controller => 'maintainer', :action => 'acls'
-#  map.connect '/:locale/packager/:login/acls', :controller => 'maintainer', :action => 'acls', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/gear', :controller => 'maintainer', :action => 'gear'
-#  map.connect '/:locale/packager/:login/gear', :controller => 'maintainer', :action => 'gear', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/bugs', :controller => 'maintainer', :action => 'bugs'
-#  map.connect '/:locale/packager/:login/bugs', :controller => 'maintainer', :action => 'bugs', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/allbugs', :controller => 'maintainer', :action => 'allbugs'
-#  map.connect '/:locale/packager/:login/allbugs', :controller => 'maintainer', :action => 'allbugs', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packager/:login/repocop', :controller => 'maintainer', :action => 'repocop'
-#  map.connect '/:locale/packager/:login/repocop', :controller => 'maintainer', :action => 'repocop', :requirements => { :locale => /(en|ru|uk|br)/ }
-##  map.connect '/packager/:login/repocop/rss', :controller => 'maintainer', :action => 'repocop'
-##  map.connect '/:locale/packager/:login/repocop/rss', :controller => 'maintainer', :action => 'repocop'
-#
-#  map.connect '/packages/:group', :controller => 'home', :action => 'bygroup'
-#  map.connect '/:locale/packages/:group', :controller => 'home', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packages/:group/:group2', :controller => 'home', :action => 'bygroup'
-#  map.connect '/:locale/packages/:group/:group2', :controller => 'home', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }
-#  map.connect '/packages/:group/:group2/:group3', :controller => 'home', :action => 'bygroup'
-#  map.connect '/:locale/packages/:group/:group2/:group3', :controller => 'home', :action => 'bygroup', :requirements => { :locale => /(en|ru|uk|br)/ }
-#
-#  map.connect '/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name', :controller => 'srpm', :action => 'main', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/changelog', :controller => 'srpm', :action => 'changelog', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/spec', :controller => 'srpm', :action => 'rawspec', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/get', :controller => 'srpm', :action => 'download', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/gear', :controller => 'srpm', :action => 'gear', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/gear', :controller => 'srpm', :action => 'gear', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/bugs', :controller => 'srpm', :action => 'bugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/bugs', :controller => 'srpm', :action => 'bugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/allbugs', :controller => 'srpm', :action => 'allbugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/allbugs', :controller => 'srpm', :action => 'allbugs', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-#  map.connect '/srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  map.connect '/:locale/srpm/:branch/:name/repocop', :controller => 'srpm', :action => 'repocop', :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
-##  map.connect '/srpm/:branch/:name/repocop.:format', :controller => 'home', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
-##  map.connect '/:locale/srpm/:branch/:name/repocop.:format', :controller => 'home', :action => 'repocop', :requirements => { :name => /[^\/]+/ }
-#
-##  map.connect '/repocop', :controller => 'repocop', :action => 'index'
-##  map.connect '/repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
+  match '(/:locale)/packager/:login', :to => 'maintainer#info'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packager/:login/srpms', :to => 'maintainer#srpms'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packager/:login/acls', :to => 'maintainer#acls'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packager/:login/gear', :to => 'maintainer#gear'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packager/:login/bugs', :to => 'maintainer#bugs'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packager/:login/allbugs', :to => 'maintainer#allbugs'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packager/:login/repocop', :to => 'maintainer#repocop'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+#  match '(/:locale)/packager/:login/repocop/rss', :to => 'maintainer#repocop'
 
-#  map.connect '/:locale', :controller => 'home', :action => 'index', :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/packages/:group(/:group2(/:group3))', :to => 'home#bygroup'#, :requirements => { :locale => /(en|ru|uk|br)/ }
+
+  match '(/:locale)/srpm/:branch/:name', :to => 'srpm#main'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/changelog', :to => 'srpm#changelog'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/spec', :to => 'srpm#rawspec'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/get', :to => 'srpm#download'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/gear', :to => 'srpm#gear'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/bugs', :to => 'srpm#bugs'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/allbugs', :to => 'srpm#allbugs'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)/srpm/:branch/:name/repocop', :to => 'srpm#repocop'#, :requirements => { :branch => /[^\/]+/, :name => /[^\/]+/, :locale => /(en|ru|uk|br)/ }
+#  match '(/:locale)/srpm/:branch/:name/repocop.:format', :to => 'home#repocop'#, :requirements => { :name => /[^\/]+/ }
+
+#  map.connect '/repocop', :controller => 'repocop', :action => 'index'
+#  map.connect '/repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
+
+#???  map.connect '/:locale', :controller => 'home', :action => 'index', :requirements => { :locale => /(en|ru|uk|br)/ }
 
   root :to => "home#index"
 
