@@ -13,12 +13,12 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   #init_gettext "prometheus"
-  before_filter :set_gettext_locale
+  #before_filter :set_gettext_locale
 
   def default_locale
     params[:locale] ||= 'en'
     I18n.locale = params[:locale]
-#    set_locale params[:locale]
+    FastGettext.locale = params[:locale]
   end
 
   def set_search
