@@ -1,3 +1,5 @@
+SUPPORTED_LOCALES = /(en|ru|uk|br)/
+
 Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/iphone/', :to => 'iphone#index'#, :requirements => { :locale => /(en|ru|uk|br)/ }
   match '(/:locale)/iphone/packager/:login', :to => 'iphone#maintainer_info'#, :requirements => { :locale => /(en|ru|uk|br)/ }
@@ -39,7 +41,7 @@ Prometheus20::Application.routes.draw do |map|
 #  map.connect '/repocop', :controller => 'repocop', :action => 'index'
 #  map.connect '/repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
 
-#???  map.connect '/:locale', :controller => 'home', :action => 'index', :requirements => { :locale => /(en|ru|uk|br)/ }
+  match '(/:locale)', :to => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
   root :to => "home#index"
 
