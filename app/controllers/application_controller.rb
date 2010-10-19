@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def default_locale
     params[:locale] ||= 'en'
     I18n.locale = params[:locale]
-    set_locale params[:locale]
+#    set_locale params[:locale]
   end
 
   def set_search
