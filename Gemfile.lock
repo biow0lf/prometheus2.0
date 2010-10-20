@@ -47,7 +47,7 @@ GEM
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
-    meta_search (0.9.7.2)
+    meta_search (0.9.8)
       actionpack (~> 3.0.0)
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
