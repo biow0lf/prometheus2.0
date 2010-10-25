@@ -8,6 +8,7 @@ gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
 
 gem 'meta_search'
+gem 'meta_where'
 
 gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
