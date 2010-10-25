@@ -892,7 +892,3 @@ msgstr ""
 #: app/views/home/search.html.erb:11
 msgid "were found"
 msgstr ""
-
-#, fuzzy
-#~ msgid "maintainer"
-#~ msgstr "Mantenedores"
