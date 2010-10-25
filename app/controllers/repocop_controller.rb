@@ -5,4 +5,9 @@ class RepocopController < ApplicationController
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = Srpm.where(:branch_id => @branch.id, :url => nil).all
   end
+  
+  def vendor_tag
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @srpms = Srpm.where(:branch_id => @branch.id).where(["(vendor <> 'ALT Linux Team' OR vendor IS NULL)"]).all    
+  end
 end
