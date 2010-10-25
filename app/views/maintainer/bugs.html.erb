@@ -9,6 +9,8 @@
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
 <span class="tabsel">&nbsp;<%= _("open") %>&nbsp;</span>
 <span class="tabunsel">&nbsp;<%= link_to _("total"), '/' + params[:locale] + '/packager/' + @maintainer.login + '/allbugs', :class => 'news' %>&nbsp;</span>
+</div>
+
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
     <th><%= _("id") %></th>
@@ -33,6 +35,5 @@
 <% end -%>
 
 </table>
-</div>
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
