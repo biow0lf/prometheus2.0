@@ -50,10 +50,11 @@
 <% if !@srpm.maintainer.nil? -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
 <% if @srpm.maintainer.team == true -%>
-  <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/team/' + @srpm.maintainer.login[1..-1], :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/team/' + @srpm.maintainer.login[1..-1], :class => 'news', :title => _('information about maintainer') %>
 <% else -%>
-  <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/packager/' + @srpm.maintainer.login, :class => 'news', :title => _('information about maintainer') %><br /><br />
+  <%= link_to @srpm.maintainer.name, '/' + params[:locale] + '/packager/' + @srpm.maintainer.login, :class => 'news', :title => _('information about maintainer') %>
 <% end -%>
+</div><br /><br />
 <% end -%>
 
 <% if !@srpm.packages.nil? %>
@@ -82,3 +83,5 @@
 </div>
 <% end -%>
 </div>
+
+</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
