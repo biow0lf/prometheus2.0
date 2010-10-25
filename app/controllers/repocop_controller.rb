@@ -20,7 +20,7 @@ class RepocopController < ApplicationController
   
   def invalid_url
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    #                     url != '' AND url NOT LIKE 'http://%' AND ....
-    @srpms = Srpm.where((:url ^ '') & (:url.not_matches % 'http://%') & (:url.not_matches % 'https://%') & (:url.not_matches % 'ftp://%') & (:url.not_matches % 'rsync://%') ).order('name ASC').all
+    #                                                    url != '' AND url NOT LIKE 'http://%' AND ....
+    @srpms = Srpm.where(:branch_id => @branch.id).where((:url ^ '') & (:url.not_matches % 'http://%') & (:url.not_matches % 'https://%') & (:url.not_matches % 'ftp://%') & (:url.not_matches % 'rsync://%') ).order('name ASC').all
   end
 end
