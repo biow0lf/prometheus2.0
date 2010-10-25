@@ -51,14 +51,14 @@ Prometheus20::Application.routes.draw do |map|
 #  match '(/:locale)/cli/maintainer/:login/allbugs' => 'cli#maintainer_allbugs'
 #  match '(/:locale)/cli/maintainer/:login/repocop' => 'cli#maintainer_repocop'
 
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name' => 'cli#srpm_info', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/changelog' => 'cli#srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/spec' => 'cli#srpm_spec', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/get' => 'cli#srpm_get', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/gear' => 'cli#srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/bugs' => 'cli#srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/allbugs' => 'cli#srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/cli/srpm/:branch/:vendor/:name/repocop' => 'cli#srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/gear' => 'cli#srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/bugs' => 'cli#srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/cli/repocop/by-test/missing_url' => 'repocop#missing_url', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/cli/repocop/by-test/vendor_tag' => 'repocop#vendor_tag', :constraints => { :locale => SUPPORTED_LOCALES }
