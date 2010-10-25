@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-19 15:29+0300\n"
+"POT-Creation-Date: 2010-10-26 01:41+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -141,7 +141,7 @@ msgstr ""
 msgid "ACL's"
 msgstr "ACL's"
 
-#: app/views/srpm/main.html.erb:71
+#: app/views/srpm/main.html.erb:72
 msgid "ACL:"
 msgstr "ACL:"
 
@@ -298,7 +298,7 @@ msgstr "Перелік пакетів, зібраних майнтейнером
 msgid "List of packages:"
 msgstr "Перелік пакетів, зібраних командою:"
 
-#: app/views/srpm/main.html.erb:60
+#: app/views/srpm/main.html.erb:61
 msgid "List of rpms provided by this srpm:"
 msgstr "Перелік rpm-пакетів, що надаються цим srpm-пакетом:"
 
@@ -706,7 +706,7 @@ msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
 #: app/views/maintainer/allbugs.html.erb:16
-#: app/views/maintainer/bugs.html.erb:14 app/views/srpm/allbugs.html.erb:24
+#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:24
 #: app/views/srpm/bugs.html.erb:30
 msgid "id"
 msgstr "id"
@@ -758,7 +758,7 @@ msgstr "відкриті баги"
 
 #: app/views/home/search.html.erb:16 app/views/maintainer/acls.html.erb:11
 #: app/views/maintainer/allbugs.html.erb:17
-#: app/views/maintainer/bugs.html.erb:15
+#: app/views/maintainer/bugs.html.erb:17
 #: app/views/maintainer/repocop.html.erb:12
 #: app/views/maintainer/srpms.html.erb:12 app/views/team/info.html.erb:26
 msgid "package"
@@ -799,7 +799,7 @@ msgid "repocop bugreports"
 msgstr "звіти repocop про знайдені помилки та зауваження"
 
 #: app/views/maintainer/allbugs.html.erb:21
-#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:28
+#: app/views/maintainer/bugs.html.erb:20 app/views/srpm/allbugs.html.erb:28
 #: app/views/srpm/bugs.html.erb:33
 msgid "reporter"
 msgstr "повідомлено"
@@ -821,7 +821,7 @@ msgid "security fixes"
 msgstr "виправлення вразливостей"
 
 #: app/views/maintainer/allbugs.html.erb:18
-#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:25
+#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:25
 #: app/views/srpm/bugs.html.erb:31
 msgid "severity"
 msgstr "важливість"
@@ -854,14 +854,14 @@ msgid "spec"
 msgstr "переглянути spec пакета"
 
 #: app/views/maintainer/allbugs.html.erb:19
-#: app/views/maintainer/bugs.html.erb:17
+#: app/views/maintainer/bugs.html.erb:19
 #: app/views/maintainer/repocop.html.erb:13 app/views/srpm/allbugs.html.erb:26
 #: app/views/srpm/bugs.html.erb:32 app/views/srpm/repocop.html.erb:19
 msgid "status"
 msgstr "статус"
 
 #: app/views/home/search.html.erb:18 app/views/maintainer/allbugs.html.erb:22
-#: app/views/maintainer/bugs.html.erb:19 app/views/srpm/allbugs.html.erb:29
+#: app/views/maintainer/bugs.html.erb:21 app/views/srpm/allbugs.html.erb:29
 #: app/views/srpm/bugs.html.erb:34
 msgid "summary"
 msgstr "опис"

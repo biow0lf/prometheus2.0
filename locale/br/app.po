@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-19 15:29+0300\n"
+"POT-Creation-Date: 2010-10-26 01:41+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -136,7 +136,7 @@ msgstr ""
 msgid "ACL's"
 msgstr ""
 
-#: app/views/srpm/main.html.erb:71
+#: app/views/srpm/main.html.erb:72
 msgid "ACL:"
 msgstr "ACL:"
 
@@ -293,7 +293,7 @@ msgstr ""
 msgid "List of packages:"
 msgstr ""
 
-#: app/views/srpm/main.html.erb:60
+#: app/views/srpm/main.html.erb:61
 msgid "List of rpms provided by this srpm:"
 msgstr "Lista dos rpms provida por esta srpm:"
 
@@ -700,7 +700,7 @@ msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr ""
 
 #: app/views/maintainer/allbugs.html.erb:16
-#: app/views/maintainer/bugs.html.erb:14 app/views/srpm/allbugs.html.erb:24
+#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:24
 #: app/views/srpm/bugs.html.erb:30
 msgid "id"
 msgstr ""
@@ -752,7 +752,7 @@ msgstr ""
 
 #: app/views/home/search.html.erb:16 app/views/maintainer/acls.html.erb:11
 #: app/views/maintainer/allbugs.html.erb:17
-#: app/views/maintainer/bugs.html.erb:15
+#: app/views/maintainer/bugs.html.erb:17
 #: app/views/maintainer/repocop.html.erb:12
 #: app/views/maintainer/srpms.html.erb:12 app/views/team/info.html.erb:26
 msgid "package"
@@ -793,7 +793,7 @@ msgid "repocop bugreports"
 msgstr ""
 
 #: app/views/maintainer/allbugs.html.erb:21
-#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:28
+#: app/views/maintainer/bugs.html.erb:20 app/views/srpm/allbugs.html.erb:28
 #: app/views/srpm/bugs.html.erb:33
 msgid "reporter"
 msgstr ""
@@ -815,7 +815,7 @@ msgid "security fixes"
 msgstr "as correções de segurança"
 
 #: app/views/maintainer/allbugs.html.erb:18
-#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:25
+#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:25
 #: app/views/srpm/bugs.html.erb:31
 msgid "severity"
 msgstr ""
@@ -848,14 +848,14 @@ msgid "spec"
 msgstr ""
 
 #: app/views/maintainer/allbugs.html.erb:19
-#: app/views/maintainer/bugs.html.erb:17
+#: app/views/maintainer/bugs.html.erb:19
 #: app/views/maintainer/repocop.html.erb:13 app/views/srpm/allbugs.html.erb:26
 #: app/views/srpm/bugs.html.erb:32 app/views/srpm/repocop.html.erb:19
 msgid "status"
 msgstr ""
 
 #: app/views/home/search.html.erb:18 app/views/maintainer/allbugs.html.erb:22
-#: app/views/maintainer/bugs.html.erb:19 app/views/srpm/allbugs.html.erb:29
+#: app/views/maintainer/bugs.html.erb:21 app/views/srpm/allbugs.html.erb:29
 #: app/views/srpm/bugs.html.erb:34
 msgid "summary"
 msgstr ""

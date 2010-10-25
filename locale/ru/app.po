@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-19 15:29+0300\n"
+"POT-Creation-Date: 2010-10-26 01:41+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -16,19 +16,19 @@ msgstr ""
 
 #: app/views/srpm/allbugs.html.erb:1
 msgid " - All bugs"
-msgstr ""
+msgstr " - Все ошибки"
 
 #: app/views/srpm/bugs.html.erb:1
 msgid " - Bugs"
-msgstr ""
+msgstr " - Ошибки"
 
 #: app/views/srpm/changelog.html.erb:1
 msgid " - Changelog"
-msgstr " - Changelog"
+msgstr " - Изменения"
 
 #: app/views/srpm/download.html.erb:1
 msgid " - Download"
-msgstr ""
+msgstr " - Загрузить"
 
 #: app/views/srpm/gear.html.erb:1
 msgid " - Gear"
@@ -102,6 +102,59 @@ msgid ""
 "any other package repository snapshot (not only Sisyphus itself), for local\n"
 "development within a small group or even one's self."
 msgstr ""
+"Проект <b>Prometeus</b> - это попытка создать информационно-аналитический "
+"сайт для разработчиков и\n"
+"пользователей репозитория Sisyphus.<br /><br />\n"
+"\n"
+"Для разработчиков он будет интересен тем, что позволит более тесно "
+"взамодействовать с другими\n"
+"разработчиками и пользователями его пакетов. Майнтейнеры смогут обмениваться "
+"информационными\n"
+"сообщениями с командой, извещая о тех или иных изменениях в поддержке своих "
+"пакетов, смогут\n"
+"объединяться в команды по \"интересам\" - что может улучшить качество "
+"создаваемых пакетов, благодаря\n"
+"коллективным усилиям над улучшениями и исправлению багов. Чтобы каждый "
+"майнтейнер знал, кто может\n"
+"временно его подменить по поддержке пакета, если он будет отсутствовать и т."
+"д.<br />\n"
+"Особо ценным ресурс может оказаться для новобранцев ALT Linux Team. Это "
+"исключит много однообразных\n"
+"вопросов по работе, избавит новичка от копания в архивах devel@ рассылки в "
+"поисках ответа на свои\n"
+"вопросы. Исследование сайта сразу даст ему понять \"кто есть кто\", \"кто "
+"чем занимается\", \n"
+"\"какого состояние дел\" в той области, которой он интересуется.<br /><br /"
+">\n"
+"\n"
+"Пользователи Sisyphus смогут получить полную информацию о пакетах. Смогут "
+"ознакомиться с документацией\n"
+"по пакету (ссылки на сайты с полезной документацией, специфичная для "
+"ALTLinux информация о пакете,\n"
+"особенности сборки и т.д.). Это в будущем может избавить от лишних вопросов "
+"в рассылках и\n"
+"упорядочит весь имеющийся архив документации по ALTLinux. В обсуждениях "
+"(форумах) будет\n"
+"возможность общения с майнтенерами, что опять же может дать ответ на "
+"большинство вопросов новичков.<br />\n"
+"Для опытных пользователей будет удобная возможность отслеживания состояния "
+"интересующих их пакетов. Они\n"
+"смогут вносить свои предложения по развитию.<br /><br />\n"
+"\n"
+"Для ООО &quot;Альт Линукс&quot; и Core Team (собственно те кто стоит на "
+"страже INCOMING и делает из\n"
+"Sisyphus то, что потом называется дистрибутивом ALT) это тоже сможет служить "
+"полезным инструментом для\n"
+"извлечения систематизированной информации о ходе развития Sisyphus. Увидеть "
+"слабые и сильные стороны,\n"
+"какие группы пакетов активно развиваются и поддерживаются, какие менее "
+"востребованы.<br /><br />\n"
+"\n"
+"Дополнительным положительным свойством проекта можно назвать возможность его "
+"использования\n"
+"для любого другого непротиворечивого среза пакетов (и не только Sisyphus). "
+"Или локально, внутри какой-либо\n"
+"группы разработчиков, или вообще одному для собственных изысканий.\n"
 
 #: app/views/home/index.html.erb:61
 msgid ""
@@ -138,7 +191,7 @@ msgstr ""
 msgid "ACL's"
 msgstr "ACL's"
 
-#: app/views/srpm/main.html.erb:71
+#: app/views/srpm/main.html.erb:72
 msgid "ACL:"
 msgstr "ACL:"
 
@@ -295,7 +348,7 @@ msgstr "Список пакетов, собранных маинтейнером
 msgid "List of packages:"
 msgstr "Список пакетов собранных командой:"
 
-#: app/views/srpm/main.html.erb:60
+#: app/views/srpm/main.html.erb:61
 msgid "List of rpms provided by this srpm:"
 msgstr "Список rpm-пакетов, предоставляемый данным srpm-пакетом:"
 
@@ -703,7 +756,7 @@ msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
 #: app/views/maintainer/allbugs.html.erb:16
-#: app/views/maintainer/bugs.html.erb:14 app/views/srpm/allbugs.html.erb:24
+#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:24
 #: app/views/srpm/bugs.html.erb:30
 msgid "id"
 msgstr "id"
@@ -755,7 +808,7 @@ msgstr "открытые баги"
 
 #: app/views/home/search.html.erb:16 app/views/maintainer/acls.html.erb:11
 #: app/views/maintainer/allbugs.html.erb:17
-#: app/views/maintainer/bugs.html.erb:15
+#: app/views/maintainer/bugs.html.erb:17
 #: app/views/maintainer/repocop.html.erb:12
 #: app/views/maintainer/srpms.html.erb:12 app/views/team/info.html.erb:26
 msgid "package"
@@ -796,7 +849,7 @@ msgid "repocop bugreports"
 msgstr "отчеты repocop о найденных ошибках и замечаниях"
 
 #: app/views/maintainer/allbugs.html.erb:21
-#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:28
+#: app/views/maintainer/bugs.html.erb:20 app/views/srpm/allbugs.html.erb:28
 #: app/views/srpm/bugs.html.erb:33
 msgid "reporter"
 msgstr "сообщено"
@@ -818,7 +871,7 @@ msgid "security fixes"
 msgstr "исправления уязвимостей"
 
 #: app/views/maintainer/allbugs.html.erb:18
-#: app/views/maintainer/bugs.html.erb:16 app/views/srpm/allbugs.html.erb:25
+#: app/views/maintainer/bugs.html.erb:18 app/views/srpm/allbugs.html.erb:25
 #: app/views/srpm/bugs.html.erb:31
 msgid "severity"
 msgstr "серьёзность"
@@ -851,14 +904,14 @@ msgid "spec"
 msgstr "просмотреть spec пакета"
 
 #: app/views/maintainer/allbugs.html.erb:19
-#: app/views/maintainer/bugs.html.erb:17
+#: app/views/maintainer/bugs.html.erb:19
 #: app/views/maintainer/repocop.html.erb:13 app/views/srpm/allbugs.html.erb:26
 #: app/views/srpm/bugs.html.erb:32 app/views/srpm/repocop.html.erb:19
 msgid "status"
 msgstr "статус"
 
 #: app/views/home/search.html.erb:18 app/views/maintainer/allbugs.html.erb:22
-#: app/views/maintainer/bugs.html.erb:19 app/views/srpm/allbugs.html.erb:29
+#: app/views/maintainer/bugs.html.erb:21 app/views/srpm/allbugs.html.erb:29
 #: app/views/srpm/bugs.html.erb:34
 msgid "summary"
 msgstr "описание"
