@@ -64,6 +64,8 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/cli/repocop/by-test/vendor_tag' => 'repocop#vendor_tag', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/cli/repocop/by-test/distribution_tag' => 'repocop#distribution_tag', :constraints => { :locale => SUPPORTED_LOCALES }
 
+#  match '(/:locale)/cli/repocop/by-test/:name' => 'repocop#bytestname', :constraints => { :locale => SUPPORTED_LOCALES }
+
   match '(/:locale)' => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
   root :to => "home#index"

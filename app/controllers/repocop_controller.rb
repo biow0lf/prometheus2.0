@@ -3,16 +3,24 @@ class RepocopController < ApplicationController
 
   def missing_url
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    @srpms = Srpm.where(:branch_id => @branch.id, :url => nil).all
+    @srpms = Srpm.where(:branch_id => @branch.id, :url => nil).order("name ASC").all
   end
   
   def vendor_tag
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    @srpms = Srpm.where(:branch_id => @branch.id).where(["(vendor <> 'ALT Linux Team' OR vendor IS NULL)"]).all    
+    # "^" mean "!=" in sql
+    @srpms = Srpm.where(:branch_id => @branch.id).where(:vendor ^ 'ALT Linux Team').order("name ASC").all
   end
   
   def distribution_tag
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    @srpms = Srpm.where(:branch_id => @branch.id).where(["(distribution <> 'ALT Linux' OR distribution IS NULL)"]).all
+    # "^" mean "!=" in sql
+    @srpms = Srpm.where(:branch_id => @branch.id).where(:distribution ^ 'ALT Linux').order("name ASC").all
+  end
+  
+  def invalid_url
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    #                     url != '' AND url NOT LIKE 'http://%' AND ....
+    @srpms = Srpm.where((:url ^ '') & (:url.not_matches % 'http://%') & (:url.not_matches % 'https://%') & (:url.not_matches % 'ftp://%') & (:url.not_matches % 'rsync://%') ).order('name ASC').all
   end
 end
