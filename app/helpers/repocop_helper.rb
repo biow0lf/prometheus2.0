@@ -1,0 +1,2 @@
+module RepocopHelper
+end
