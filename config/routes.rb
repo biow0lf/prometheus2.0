@@ -38,8 +38,10 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/srpm/:branch/:name/repocop' => 'srpm#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 #  match '(/:locale)/srpm/:branch/:name/repocop.:format' => 'home#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 
-#  map.connect '/repocop', :controller => 'repocop', :action => 'index'
-#  map.connect '/repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
+#  match '/repocop' => 'repocop#index'
+#  match '/repocop/by-test/:testname' => 'repocop#bytest'
+
+  match '(/:locale)/cli/srpm/:branch/:vendor/:name' => 'cli#srpm_info', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)' => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
