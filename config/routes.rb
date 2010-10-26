@@ -35,7 +35,7 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/srpm/:branch/:name/gear' => 'srpm#gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/bugs' => 'srpm#bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/allbugs' => 'srpm#allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/repocop' => 'srpm#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/repocop' => 'srpm#repocop', :as => 'srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 #  match '(/:locale)/srpm/:branch/:name/repocop.:format' => 'home#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 
 #  match '/repocop' => 'repocop#index'
