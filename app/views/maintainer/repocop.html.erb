@@ -21,7 +21,7 @@
       <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
         <tr>
           <td class="strange">
-			<%= link_to repocop.name + '-' + repocop.version + '-' + repocop.release + '.' + repocop.arch, '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name, :class => 'news', :title => 'detailed information about RPM' %>
+			<%= link_to repocop.name + '-' + repocop.version + '-' + repocop.release + '.' + repocop.arch, srpm_main(:branch => 'Sisyphus', :name => srpm.name), :class => 'news', :title => 'detailed information about RPM' %>
           </td>
           <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br /><%= repocop.status %></td>
           <td><%= repocop.testname %></td>
