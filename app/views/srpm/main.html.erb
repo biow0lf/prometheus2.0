@@ -14,7 +14,7 @@
 <% @allsrpms.each do |rpm| -%>
 <tr>
   <td style="text-align: left;">
-    <%= link_to rpm.branch.name + ':', '/' + params[:locale] + '/srpm/' + rpm.branch.name + '/' + rpm.name, :class => 'news' %>
+    <%= link_to rpm.branch.name + ':', srpm_main_path(:branch => rpm.branch.name, :name => rpm.name), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%= rpm.version %>-<%= rpm.release %></td>
 </tr>
