@@ -13,8 +13,8 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/project' => 'pages#project', :as => 'project', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/packages' => 'home#groups_list', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/people' => 'home#maintainers_list', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packages' => 'home#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/team/:name' => 'team#info', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/packager/:login' => 'maintainer#info', :constraints => { :locale => SUPPORTED_LOCALES }
@@ -67,7 +67,7 @@ Prometheus20::Application.routes.draw do |map|
 
 #  match '(/:locale)/cli/repocop/by-test/:name' => 'repocop#bytestname', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)' => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)' => 'home#index', :as => 'home', :constraints => { :locale => SUPPORTED_LOCALES }
 
   root :to => "home#index"
 

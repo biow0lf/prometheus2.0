@@ -102,7 +102,7 @@ function show(divnum){
   <ul>
     <li onmouseover="m_on('li1')" onmouseout="m_off('li1')" id="li1">
       <div id="dli1">
-        <%= link_to_unless_current _("Home"), '/' + params[:locale], :title => _("site home page") %>
+        <%= link_to_unless_current _("Home"), home_path, :title => _("site home page") %>
       </div>
     </li>
     <li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
@@ -112,12 +112,12 @@ function show(divnum){
     </li>
     <li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">
       <div id="dli3">
-        <%= link_to_unless_current _("Packages"), '/' + params[:locale] + '/packages', :title => _("packages information") %>
+        <%= link_to_unless_current _("Packages"), packages_path, :title => _("packages information") %>
       </div>
     </li>
     <li onmouseover="m_on('li4')" onmouseout="m_off('li4')" id="li4">
       <div id="dli4">
-        <%= link_to_unless_current _("Maintainers"), '/' + params[:locale] + '/people', :title => _("maintainers information") %>
+        <%= link_to_unless_current _("Maintainers"), maintainers_path, :title => _("maintainers information") %>
       </div>
     </li>
     <li onmouseover="m_on('li5')" onmouseout="m_off('li5')" id="li5">
