@@ -5,7 +5,7 @@
 
 <% @srpms.each do |srpm| -%>
 <p class="news" />
-<span class="news-date-new"><%= link_to srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name, :class => 'news', :title => _("detailed information about the package") -%>
+<span class="news-date-new"><%= link_to srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'news', :title => _("detailed information about the package") -%>
 </span><br /><br />
 <b><%= _("Current version:") %></b> <span class="news-text"><%= srpm.version %>-<%= srpm.release %></span><br />
 <b><%= _("Build time:") %></b> <span class="news-text"><%= srpm.buildtime %> (<%= time_ago_in_words(srpm.buildtime) %> <%= _("ago") %>)</span><br />
