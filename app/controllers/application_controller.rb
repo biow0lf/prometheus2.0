@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
   def set_search
     params[:search] = params[:request] if params[:search].nil?
   end
+
+  def default_url_options(options={})
+    { :locale => params[:locale] }
+  end
 end
