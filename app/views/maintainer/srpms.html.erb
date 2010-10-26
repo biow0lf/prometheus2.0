@@ -23,7 +23,7 @@
       <%= link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
     </td>
     <td class="strange">
-      <%= link_to acl.srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name, :class => 'news' %>
+      <%= link_to acl.srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'news' %>
     </td>
     <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
     <td><%= acl.srpm.buildtime %></td>

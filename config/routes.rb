@@ -28,7 +28,7 @@ Prometheus20::Application.routes.draw do |map|
 
   match '(/:locale)/packages/:group(/:group2(/:group3))' => 'home#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/srpm/:branch/:name' => 'srpm#main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name' => 'srpm#main', :as => 'srpm_main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/changelog' => 'srpm#changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/spec' => 'srpm#rawspec', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/get' => 'srpm#download', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
