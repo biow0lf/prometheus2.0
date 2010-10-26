@@ -8,7 +8,7 @@
 <% @maintainers.each do |maintainer| -%>
   <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
     <div style="float:left">
-      <%= link_to maintainer.name, '/' + params[:locale] + '/packager/' + maintainer.login, :class => 'news' %> (<%= maintainer.login %>)
+      <%= link_to maintainer.name, maintainer_info_path(:login => maintainer.login), :class => 'news' %> (<%= maintainer.login %>)
     </div>
     <div style="float:right"> <%= maintainer.counter %></div>
   </div>

@@ -17,13 +17,13 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/packager/:login' => 'maintainer#info', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/srpms' => 'maintainer#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/acls' => 'maintainer#acls', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/gear' => 'maintainer#gear', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/bugs' => 'maintainer#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/allbugs' => 'maintainer#allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/repocop' => 'maintainer#repocop', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login' => 'maintainer#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/srpms' => 'maintainer#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/acls' => 'maintainer#acls', :as => 'maintainer_acls', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/gear' => 'maintainer#gear', :as => 'maintainer_gear', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/bugs' => 'maintainer#bugs', :as => 'maintainer_bugs', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/allbugs' => 'maintainer#allbugs', :as => 'maintainer_allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/repocop' => 'maintainer#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
 #  match '(/:locale)/packager/:login/repocop/rss' => 'maintainer#repocop', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/packages/:group(/:group2(/:group3))' => 'home#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
