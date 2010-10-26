@@ -8,10 +8,10 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/search' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/find.shtml' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/news' => 'pages#news', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/rss' => 'pages#rss', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/security' => 'pages#security', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/project' => 'pages#project', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/news' => 'pages#news', :as => 'news', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/rss' => 'pages#rss', :as => 'rss', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/project' => 'pages#project', :as => 'project', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/packages' => 'home#groups_list', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/people' => 'home#maintainers_list', :constraints => { :locale => SUPPORTED_LOCALES }
