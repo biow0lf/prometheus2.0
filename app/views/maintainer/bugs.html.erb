@@ -8,7 +8,7 @@
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
 <span class="tabsel">&nbsp;<%= _("open") %>&nbsp;</span>
-<span class="tabunsel">&nbsp;<%= link_to _("total"), '/' + params[:locale] + '/packager/' + @maintainer.login + '/allbugs', :class => 'news' %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _("total"), maintainer_allbugs_path(:login => @maintainer.login), :class => 'news' %>&nbsp;</span>
 </div>
 
 <table id="bugs" cellspacing="0" cellpadding="3">
