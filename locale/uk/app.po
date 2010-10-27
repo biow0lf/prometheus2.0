@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-27 21:48+0300\n"
+"POT-Creation-Date: 2010-10-28 00:11+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -455,6 +455,10 @@ msgstr "Prometheus 2.0 - Команда &laquo;"
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
 
+#: app/views/rsync/index.html.erb:1
+msgid "RPM filter for rsync"
+msgstr ""
+
 #: app/views/home/search.html.erb:11
 msgid "RPM:"
 msgid_plural "RPMs:"
@@ -512,6 +516,23 @@ msgstr ""
 "використання може призвести до непередбачуваних наслідків. Якщо Вам потрібна "
 "система, яка надійно працює, то слід використовувати тілько дистрибутиви ALT "
 "Linux та штатні обовлення до них."
+
+#: app/views/rsync/index.html.erb:3
+msgid ""
+"Sisyphus is permanently changed repository. New packages appears, old "
+"packages update. It is necessary to sync with Sisyphus\n"
+"permanent for a man who supports his copy of repository. The size of "
+"repository is about 15 Gb. It is rather expensive to sync \n"
+"such amount of data. <br /><br />\n"
+"\n"
+"In many cases you don't need <u>all</u> packages. You can use option --"
+"exclude-from=FILE with rsync utility to exclude \n"
+"packages you don't need. <br /><br />\n"
+"\n"
+"This form helps you to create such file of exceptions. You can filter by "
+"group of packages and by size.<br /><br />\n"
+"<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:72
 msgid "Sisyphus repository"

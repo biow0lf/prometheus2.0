@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-27 21:48+0300\n"
+"POT-Creation-Date: 2010-10-28 00:11+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -495,7 +495,7 @@ msgstr "Prometheus 2.0 - Поиск по сайту"
 
 #: app/views/pages/security.html.erb:1
 msgid "Prometheus 2.0 - Security"
-msgstr ""
+msgstr "Prometheus 2.0 - Безопасность"
 
 #: app/views/team/info.html.erb:1
 msgid "Prometheus 2.0 - Team &laquo;"
@@ -504,6 +504,10 @@ msgstr "Prometheus 2.0 - Команда &laquo;"
 #: app/views/team/nosuchteam.html.erb:1
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
+
+#: app/views/rsync/index.html.erb:1
+msgid "RPM filter for rsync"
+msgstr "Фильтр пакетов для rsync"
 
 #: app/views/home/search.html.erb:11
 msgid "RPM:"
@@ -562,6 +566,36 @@ msgstr ""
 "использование может привести к непредсказуемым последствиям. Если вам нужна "
 "надежно работающая система, то следует использовать только дистрибутивы ALT "
 "Linux и штатные обновления к ним."
+
+#: app/views/rsync/index.html.erb:3
+msgid ""
+"Sisyphus is permanently changed repository. New packages appears, old "
+"packages update. It is necessary to sync with Sisyphus\n"
+"permanent for a man who supports his copy of repository. The size of "
+"repository is about 15 Gb. It is rather expensive to sync \n"
+"such amount of data. <br /><br />\n"
+"\n"
+"In many cases you don't need <u>all</u> packages. You can use option --"
+"exclude-from=FILE with rsync utility to exclude \n"
+"packages you don't need. <br /><br />\n"
+"\n"
+"This form helps you to create such file of exceptions. You can filter by "
+"group of packages and by size.<br /><br />\n"
+"<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
+msgstr ""
+"Sisyphus - постоянно изменяющийся репозиторий пакетов. Появляются новые "
+"сборки, обновляются старые. Для человека, поддерживающего актуальность своей "
+"копии репозитория, требуется постоянная синхронизация с Sisyphus. На данный "
+"момент размер репозитория составляет около 15 Гб. Синхронизация такого "
+"объёма требует колоссальных затрат на трафик.<br /><br />\n"
+"In many cases you don't need <u>all</u> packages. You can use option --"
+"exclude-from=FILE with rsync utility to exclude \n"
+"packages you don't need. <br /><br />\n"
+"\n"
+"Данная форма позволяет создать фильтр для rsync (опция --exclude-from=FILE), "
+"исключающий пакеты из отмеченных групп, превышающие заданный размер.<br /"
+"><br />\n"
+"<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
 
 #: app/views/layouts/application.html.erb:72
 msgid "Sisyphus repository"
