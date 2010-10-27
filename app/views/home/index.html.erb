@@ -22,7 +22,6 @@
     <div class="headright" title="<%= _("sort maintainers by amount of packages") %>">
       <%= _("TOP maintainers") %>
     </div>
-    <!--<img id="topMain" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />-->
     <%= image_tag("collapse.gif", :id => 'topMain' , :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9" ) %>
   </div>
   <div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
@@ -39,16 +38,16 @@
   </table>
 </div><br />
     <div class="headleft">
-	    <div class="headright" title="<%= _("sort packages by amount of releases in the last half of year") %>">
-		    <%= _("TOP RPMs") %>
-	    </div>
-	    <img id="topRPM" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />
+      <div class="headright" title="<%= _("sort packages by amount of releases in the last half of year") %>">
+        <%= _("TOP RPMs") %>
+      </div>
+      <%= image_tag("collapse.gif", :id => 'topRPM', :class => 'close', :title => _("hide window"), :alt => _("hide window")), :size => "10x9" %>
     </div>
-	<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
-	<table style="font-size:8pt;" width="100%">
+  <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+  <table style="font-size:8pt;" width="100%">
 <!--#include virtual="/cgi-bin/stats.pl?type=activity" -->
-	<tr><td colspan="2" align="center">...</td></tr>
-	</table>
+  <tr><td colspan="2" align="center">...</td></tr>
+  </table>
 </div><br />
     <div class="headleft">
 	    <div class="headright" title="<%= _("tips and tricks") %>">
