@@ -9,6 +9,7 @@
 <b><%= _("Team leader:") %></b> <% @leader.each do |leader| -%><%= link_to leader.name, maintainer_info_path(:login => leader.login), :class => 'news', :title => _('information about the packager') -%><% end -%>
 <p class="break" />
 <% end %>
+
 <b><%= _("Team members:") %></b>
 <ul>
 <% @members.each do |member| -%>
@@ -35,10 +36,10 @@
     <% if !acl.srpm.nil? -%>
       <tr>
         <td>
-          <%= link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name + '/repocop', :class => 'repocoplink', :title => 'repocop' %>
+          <%= link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), srpm_repocop_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'repocoplink', :title => 'repocop' %>
         </td>
         <td class="strange">
-          <%= link_to acl.srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name, :class => 'news', :title => _('detailed information about RPM') %>
+          <%= link_to acl.srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'news', :title => _('detailed information about RPM') %>
         </td>
         <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
         <td><%= acl.srpm.buildtime %></td>
