@@ -40,7 +40,7 @@ function showGrp(dirid){
         <% else %>
           <% index += 1 -%>
           <div onclick="showGrp('<%= index %>')" class="grplist">
-            <img name="img<%= index %>" src="/images/plus.gif" style="text-align:left; margin: 4px 4px 4px 0px; float:left" width="10" title="" alt="" /><%= child.name %>
+            <%= image_tag("plus.gif", :name => "img" + index.to_s, :style => 'text-align: left; margin: 4px 4px 4px 0px; float: left', :size => "10x10", :title => '', :alt => '') %><%= child.name %>
           </div>
           <div id="dir<%= index %>" class="grphid" style="display:none">
             <% child.children.each do |c| -%>
