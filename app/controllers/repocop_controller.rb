@@ -5,19 +5,19 @@ class RepocopController < ApplicationController
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = Srpm.where(:branch_id => @branch.id, :url => nil).order("name ASC").all
   end
-  
+
   def vendor_tag
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     # "^" mean "!=" in sql
     @srpms = Srpm.where(:branch_id => @branch.id).where(:vendor ^ 'ALT Linux Team').order("name ASC").all
   end
-  
+
   def distribution_tag
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     # "^" mean "!=" in sql
     @srpms = Srpm.where(:branch_id => @branch.id).where(:distribution ^ 'ALT Linux').order("name ASC").all
   end
-  
+
   def invalid_url
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     #                                    url != '' AND url NOT LIKE 'http://%' AND ....
