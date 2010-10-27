@@ -3,7 +3,7 @@ class CliController < ApplicationController
 
   def srpm_info
     @branch = Branch.where(:name => params[:branch], :vendor => params[:vendor]).first
-    @srpm = Srpm.where(:name => params[:name], :branch_id => @branch.id).first
+    @srpm = @branch.srpms.find(:first, :conditions => {:name => params[:name]})
   end
 
   def srpm_changelog
