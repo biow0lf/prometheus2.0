@@ -22,7 +22,7 @@
     <div class="headright" title="<%= _("sort maintainers by amount of packages") %>">
       <%= _("TOP maintainers") %>
     </div>
-    <%= image_tag("collapse.gif", :id => 'topMain' , :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9" ) %>
+    <%= image_tag("collapse.gif", :id => 'topMain' , :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
   </div>
   <div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
   <table style="font-size:8pt;" width="100%">
@@ -41,7 +41,7 @@
       <div class="headright" title="<%= _("sort packages by amount of releases in the last half of year") %>">
         <%= _("TOP RPMs") %>
       </div>
-      <%= image_tag("collapse.gif", :id => 'topRPM', :class => 'close', :title => _("hide window"), :alt => _("hide window")), :size => "10x9" %>
+      <%= image_tag("collapse.gif", :id => 'topRPM', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
     </div>
   <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
   <table style="font-size:8pt;" width="100%">
@@ -50,13 +50,13 @@
   </table>
 </div><br />
     <div class="headleft">
-	    <div class="headright" title="<%= _("tips and tricks") %>">
-		    <%= raw _("tips &amp; tricks") %>
-	    </div>
-	    <img id="topTips" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />
+      <div class="headright" title="<%= _("tips and tricks") %>">
+        <%= raw _("tips &amp; tricks") %>
+      </div>
+      <%= image_tag("collapse.gif", :id => 'topTips', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
     </div>
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-	    <b><%= _("Sisyphus sync") %></b><br /><%= raw _("<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?") %><br /><%= raw _("<b>A:</b> Create filter for rsync with the help of this") %> <a href="/<%= params[:locale] %>/rsync.shtml" class="news"><%= _("form") %></a>
+      <b><%= _("Sisyphus sync") %></b><br /><%= raw _("<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?") %><br /><%= raw _("<b>A:</b> Create filter for rsync with the help of this") %> <a href="/<%= params[:locale] %>/rsync.shtml" class="news"><%= _("form") %></a>
     </div>
 </div>
 
