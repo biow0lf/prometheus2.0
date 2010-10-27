@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-28 01:08+0300\n"
+"POT-Creation-Date: 2010-10-28 01:17+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -74,7 +74,7 @@ msgstr "&raquo; - Repocop"
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr "<b>A:</b> Составьте фильтр для rsync, на основе данной"
 
-#: app/views/rsync/index.html.erb:40
+#: app/views/rsync/index.html.erb:43
 msgid "<b>Limit<br />by size:</b><br />"
 msgstr "<b>Ограничение<br />по размеру:</b><br />"
 
@@ -310,7 +310,7 @@ msgstr "Gear"
 msgid "Group"
 msgstr "Группa"
 
-#: app/views/rsync/index.html.erb:16
+#: app/views/rsync/index.html.erb:19
 msgid "Groups:"
 msgstr "Группы:"
 
@@ -497,6 +497,11 @@ msgstr "Prometheus 2.0 - Package - Error!"
 msgid "Prometheus 2.0 - RSS"
 msgstr ""
 
+#: app/views/rsync/index.html.erb:1
+#, fuzzy
+msgid "Prometheus 2.0 - Rsync Exclude"
+msgstr "Prometheus 2.0 - Новости"
+
 #: app/views/home/search.html.erb:1
 msgid "Prometheus 2.0 - Search"
 msgstr "Prometheus 2.0 - Поиск по сайту"
@@ -513,7 +518,7 @@ msgstr "Prometheus 2.0 - Команда &laquo;"
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
 
-#: app/views/rsync/index.html.erb:1
+#: app/views/rsync/index.html.erb:4
 msgid "RPM filter for rsync"
 msgstr "Фильтр пакетов для rsync"
 
@@ -575,7 +580,7 @@ msgstr ""
 "надежно работающая система, то следует использовать только дистрибутивы ALT "
 "Linux и штатные обновления к ним."
 
-#: app/views/rsync/index.html.erb:3
+#: app/views/rsync/index.html.erb:6
 msgid ""
 "Sisyphus is permanently changed repository. New packages appears, old "
 "packages update. It is necessary to sync with Sisyphus\n"
@@ -707,7 +712,7 @@ msgstr "назад"
 msgid "another transfers"
 msgstr "другие трансферы"
 
-#: app/views/rsync/index.html.erb:42
+#: app/views/rsync/index.html.erb:45
 msgid "any"
 msgstr "любой"
 
@@ -774,7 +779,7 @@ msgstr "просмотреть полный changelog пакета"
 msgid "gear"
 msgstr "gear"
 
-#: app/views/rsync/index.html.erb:53
+#: app/views/rsync/index.html.erb:56
 msgid "generate"
 msgstr "сформировать"
 
