@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   def groups_list
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    @groups = Group.all(:conditions => { :branch_id => @branch.id, :parent_id => nil }, :order => 'LOWER(name)')
+    @groups = @branch.groups.find(:all, :conditions => {:parent_id => nil}, :order => 'LOWER(name)')
   end
 
   def bygroup
