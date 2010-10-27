@@ -31,7 +31,7 @@ function showGrp(dirid){
     <%= link_to group.name, group_path(:group => group.name), :class => 'news', :style => 'margin-left:14px;' %> (<%= group.srpms.count %>)<br />
   <% else %>
     <div onclick="showGrp('<%= index %>')" class="grplist">
-    <img name="img<%= index %>" src="/images/plus.gif" style="text-align:left; margin: 4px 4px 4px 0px; float:left" width="10" title="" alt="" /><%= group.name %>
+    <%= image_tag("plus.gif", :name => "img" + index.to_s, :style => 'text-align: left; margin: 4px 4px 4px 0px; float: left', :size => "10x10", :title => '', :alt => '') %><%= group.name %>
     </div>
     <div id="dir<%= index %>" class="grphid" style="display:none">
     <% group.children.each do |child| -%>
