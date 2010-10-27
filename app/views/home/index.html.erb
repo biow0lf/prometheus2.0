@@ -14,30 +14,29 @@
 <!--#include virtual="/cgi-bin/stats.pl?type=lastrpm" -->
 <p class="break" />
 <div style="text-align:center">
-	<a href="/releases" class="news" title="<%= _("previous releases") %>">&raquo; <%= _("another transfers") %></a>
+  <a href="/releases" class="news" title="<%= _("previous releases") %>">&raquo; <%= _("another transfers") %></a>
 </div>
 </div>
 <div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
-	<div class="headleft">
-		<div class="headright" title="<%= _("sort maintainers by amount of packages") %>">
-			<%= _("TOP maintainers") %>
-		</div>
-		<img id="topMain" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />
-	</div>
-	<div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
-	<table style="font-size:8pt;" width="100%">
-
-        <% @top15.each do |maintainer| -%>
-          <tr>
-            <td style="text-align: left;">
-              <%= link_to maintainer.name, maintainer_info_path(:login => maintainer.login), :class => 'news', :title => _("information about the packager") %>
-            </td>
-            <td style="text-align: right;"><%= maintainer.counter %></td>
-          </tr>
-        <% end -%>
-
-	<tr><td colspan="2" align="center">...</td></tr>
-	</table>
+  <div class="headleft">
+    <div class="headright" title="<%= _("sort maintainers by amount of packages") %>">
+      <%= _("TOP maintainers") %>
+    </div>
+    <!--<img id="topMain" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />-->
+    <%= image_tag("collapse.gif", :name => 'topMain' , :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9" ) %>
+  </div>
+  <div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
+  <table style="font-size:8pt;" width="100%">
+    <% @top15.each do |maintainer| -%>
+      <tr>
+        <td style="text-align: left;">
+          <%= link_to maintainer.name, maintainer_info_path(:login => maintainer.login), :class => 'news', :title => _("information about the packager") %>
+        </td>
+        <td style="text-align: right;"><%= maintainer.counter %></td>
+      </tr>
+    <% end -%>
+    <tr><td colspan="2" align="center">...</td></tr>
+  </table>
 </div><br />
     <div class="headleft">
 	    <div class="headright" title="<%= _("sort packages by amount of releases in the last half of year") %>">
