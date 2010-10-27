@@ -2,11 +2,10 @@ class SrpmController < ApplicationController
 #  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
   def main
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => branch.id },
-                       :include => [:packages, :group, :branch, :leader, :maintainer, :acls]
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
+    @srpm = @branch.srpms.find(:first,
+                               :conditions => { :name => 'openbox' },
+                               :include => [:packages, :group, :branch, :leader, :maintainer, :acls])
     if @srpm != nil
       @allsrpms = Srpm.find :all, :conditions => {
                                     :name => params[:name] },
@@ -18,10 +17,10 @@ class SrpmController < ApplicationController
   end
 
   def changelog
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id },
+                         :branch_id => @branch.id },
                        :include => [:group, :branch]
     if @srpm != nil
       @allsrpms = Srpm.find :all, :conditions => {
@@ -34,10 +33,10 @@ class SrpmController < ApplicationController
   end
 
   def rawspec
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id },
+                         :branch_id => @branch.id },
                        :include => [:branch, :group]
     if @srpm != nil
       @allsrpms = Srpm.find :all, :conditions => {
@@ -50,10 +49,10 @@ class SrpmController < ApplicationController
   end
 
   def download
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id },
+                         :branch_id => @branch.id },
                        :include => [:group, :branch, :packages]
     if @srpm != nil
       @allsrpms = Srpm.find :all, :conditions => {
@@ -84,10 +83,10 @@ class SrpmController < ApplicationController
   end
 
   def gear
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id }
+                         :branch_id => @branch.id }
     if @srpm != nil
 #      @gitrepos = Gitrepo.all :conditions => { :repo => @srpm.name },
 #                               :order => 'lastchange DESC'
@@ -100,10 +99,10 @@ class SrpmController < ApplicationController
   end
 
   def bugs
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id }
+                         :branch_id => @branch.id }
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -119,10 +118,10 @@ class SrpmController < ApplicationController
   end
 
   def allbugs
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
-                         :branch_id => branch.id }
+                         :branch_id => @branch.id }
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -139,16 +138,13 @@ class SrpmController < ApplicationController
   end
 
   def repocop
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => branch.id }
-
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
+    @srpm = @branch.srpms.find(:first,
+                               :conditions => {:name => params[:name]})
     if @srpm != nil
-      @repocops = Repocop.all :conditions => {
-                                :srcname => @srpm.name,
+      @repocops = Repocop.where(:srcname => @srpm.name,
                                 :srcversion => @srpm.version,
-                                :srcrel => @srpm.release }
+                                :srcrel => @srpm.release).all
     else
       render :status => 404, :action => "nosuchpackage"
     end
