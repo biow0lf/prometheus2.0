@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-26 01:41+0300\n"
+"POT-Creation-Date: 2010-10-27 21:48+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,7 +72,7 @@ msgstr ""
 msgid "&raquo; - Repocop"
 msgstr ""
 
-#: app/views/home/index.html.erb:61
+#: app/views/home/index.html.erb:59
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgid ""
 "development within a small group or even one's self."
 msgstr ""
 
-#: app/views/home/index.html.erb:61
+#: app/views/home/index.html.erb:59
 msgid ""
 "<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
 "them?"
@@ -281,7 +281,7 @@ msgstr ""
 msgid "List of packages which was built by this maintainer:"
 msgstr ""
 
-#: app/views/team/info.html.erb:21
+#: app/views/team/info.html.erb:22
 msgid "List of packages:"
 msgstr ""
 
@@ -499,7 +499,7 @@ msgstr ""
 msgid "Sisyphus repository"
 msgstr ""
 
-#: app/views/home/index.html.erb:61
+#: app/views/home/index.html.erb:59
 msgid "Sisyphus sync"
 msgstr ""
 
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Spec"
 msgstr ""
 
-#: app/views/maintainer/srpms.html.erb:17 app/views/team/info.html.erb:31
+#: app/views/maintainer/srpms.html.erb:17 app/views/team/info.html.erb:32
 msgid "Summary"
 msgstr ""
 
@@ -529,7 +529,7 @@ msgstr ""
 msgid "Summary:"
 msgstr ""
 
-#: app/views/home/index.html.erb:44
+#: app/views/home/index.html.erb:42
 msgid "TOP RPMs"
 msgstr ""
 
@@ -541,7 +541,7 @@ msgstr ""
 msgid "Team leader:"
 msgstr ""
 
-#: app/views/team/info.html.erb:12
+#: app/views/team/info.html.erb:13
 msgid "Team members:"
 msgstr ""
 
@@ -571,7 +571,7 @@ msgstr ""
 msgid "Ukrainian"
 msgstr ""
 
-#: app/views/maintainer/srpms.html.erb:16 app/views/team/info.html.erb:30
+#: app/views/maintainer/srpms.html.erb:16 app/views/team/info.html.erb:31
 msgid "Url"
 msgstr ""
 
@@ -584,12 +584,12 @@ msgstr ""
 msgid "about Prometeus project"
 msgstr ""
 
-#: app/views/maintainer/srpms.html.erb:15 app/views/team/info.html.erb:29
+#: app/views/maintainer/srpms.html.erb:15 app/views/team/info.html.erb:30
 msgid "age"
 msgstr ""
 
 #: app/views/home/bygroup.html.erb:11 app/views/maintainer/srpms.html.erb:30
-#: app/views/srpm/main.html.erb:38 app/views/team/info.html.erb:45
+#: app/views/srpm/main.html.erb:38 app/views/team/info.html.erb:46
 msgid "ago"
 msgstr ""
 
@@ -605,7 +605,7 @@ msgstr ""
 msgid "br"
 msgstr ""
 
-#: app/views/maintainer/srpms.html.erb:14 app/views/team/info.html.erb:28
+#: app/views/maintainer/srpms.html.erb:14 app/views/team/info.html.erb:29
 msgid "build time"
 msgstr ""
 
@@ -614,11 +614,11 @@ msgid "community-en@"
 msgstr ""
 
 #: app/views/home/search.html.erb:17 app/views/maintainer/srpms.html.erb:13
-#: app/views/team/info.html.erb:27
+#: app/views/team/info.html.erb:28
 msgid "current<br />version"
 msgstr ""
 
-#: app/views/team/info.html.erb:41
+#: app/views/team/info.html.erb:42
 msgid "detailed information about RPM"
 msgstr ""
 
@@ -641,7 +641,7 @@ msgstr ""
 msgid "find"
 msgstr ""
 
-#: app/views/home/index.html.erb:61
+#: app/views/home/index.html.erb:59
 msgid "form"
 msgstr ""
 
@@ -660,8 +660,8 @@ msgstr ""
 msgid "gear"
 msgstr ""
 
-#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:46
-#: app/views/home/index.html.erb:58 app/views/srpm/changelog.html.erb:9
+#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:44
+#: app/views/home/index.html.erb:56 app/views/srpm/changelog.html.erb:9
 #: app/views/srpm/download.html.erb:9 app/views/srpm/main.html.erb:9
 #: app/views/srpm/rawspec.html.erb:9
 msgid "hide window"
@@ -709,8 +709,8 @@ msgstr ""
 msgid "information about maintainer"
 msgstr ""
 
-#: app/views/home/index.html.erb:33 app/views/team/info.html.erb:9
-#: app/views/team/info.html.erb:15
+#: app/views/home/index.html.erb:32 app/views/team/info.html.erb:9
+#: app/views/team/info.html.erb:16
 msgid "information about the packager"
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 #: app/views/maintainer/allbugs.html.erb:17
 #: app/views/maintainer/bugs.html.erb:17
 #: app/views/maintainer/repocop.html.erb:12
-#: app/views/maintainer/srpms.html.erb:12 app/views/team/info.html.erb:26
+#: app/views/maintainer/srpms.html.erb:12 app/views/team/info.html.erb:27
 msgid "package"
 msgstr ""
 
@@ -765,7 +765,7 @@ msgstr ""
 msgid "previous releases"
 msgstr ""
 
-#: app/views/maintainer/srpms.html.erb:11 app/views/team/info.html.erb:25
+#: app/views/maintainer/srpms.html.erb:11 app/views/team/info.html.erb:26
 msgid "repo<br/>cop"
 msgstr ""
 
@@ -824,7 +824,7 @@ msgstr ""
 msgid "sort maintainers by amount of packages"
 msgstr ""
 
-#: app/views/home/index.html.erb:43
+#: app/views/home/index.html.erb:41
 msgid "sort packages by amount of releases in the last half of year"
 msgstr ""
 
@@ -859,11 +859,11 @@ msgstr ""
 msgid "this package in gear repositories"
 msgstr ""
 
-#: app/views/home/index.html.erb:56
+#: app/views/home/index.html.erb:54
 msgid "tips &amp; tricks"
 msgstr ""
 
-#: app/views/home/index.html.erb:55
+#: app/views/home/index.html.erb:53
 msgid "tips and tricks"
 msgstr ""
 
