@@ -14,3 +14,45 @@ This form helps you to create such file of exceptions. You can filter by group o
 <table style="border: #f0f0f0 solid 1px;" cellpadding="4">
 <tr><td style="vertical-align:top">
 <b>Groups:</b><br />
+<div id="groups-exclude-form" class="top-name">
+
+<% @groups.each do |group| -%>
+  <% if group.leaf? -%>
+    <input type="checkbox" name="grps" value="<%= group.id %>"><label><%= group.name %></label><br />
+  <% else %>
+    <% group.children.each do |child| -%>
+      <% if child.leaf? %>
+        <input type="checkbox" name="grps" value="<%= child.id %>"><label><%= group.name %>/<%= child.name %></label><br />
+      <% else %>
+        <% child.children.each do |c| -%>
+          <% if c.leaf? -%>
+            <input type="checkbox" name="grps" value="<%= c.id %>"><label><%= group.name %>/<%= child.name %>/<%= c.name %></label><br />
+          <% else -%>
+            TODO
+          <% end -%>
+        <% end -%>
+      <% end -%>
+    <% end  -%>
+  <% end -%>
+<% end -%>
+</div>
+</td><td style="vertical-align:top">
+<b>Ограничение<br />по размеру:</b><br />
+<select name="size" class="top-name">
+<option value="0" selected="selected">любой</option>
+<option value="1">&gt; 1Mb</option>
+<option value="2">&gt; 10Mb</option>
+<option value="3">&gt; 25Mb</option>
+<option value="4">&gt; 50Mb</option>
+<option value="5">&gt; 100Mb</option>
+<option value="6">&gt; 200Mb</option>
+</select>
+</td>
+</tr>
+<tr><td colspan="2" style="text-align:center">
+<input type="submit" value="сформировать" class="top-name"/>
+</td></tr>
+</table>	
+</form>
+
+</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
