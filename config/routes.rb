@@ -13,6 +13,9 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/project' => 'pages#project', :as => 'project', :constraints => { :locale => SUPPORTED_LOCALES }
 
+  match '(/:locale)/rsync.shtml' => 'rsync#index', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/rsync' => 'rsync#index', :as => 'rsync', :constraints => { :locale => SUPPORTED_LOCALES }
+
   match '(/:locale)/packages' => 'home#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES }
