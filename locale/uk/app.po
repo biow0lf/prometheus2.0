@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-28 00:11+0300\n"
+"POT-Creation-Date: 2010-10-28 01:08+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -76,6 +76,10 @@ msgstr "&raquo; - Repocop"
 #: app/views/home/index.html.erb:59
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr "<b>A:</b> Складіть фільтр для rsync, на основі даної"
+
+#: app/views/rsync/index.html.erb:40
+msgid "<b>Limit<br />by size:</b><br />"
+msgstr ""
 
 #: app/views/pages/project.html.erb:8
 msgid ""
@@ -255,6 +259,10 @@ msgstr "Gear"
 #: app/views/srpm/_group.html.erb:4 app/views/srpm/_group.html.erb:6
 msgid "Group"
 msgstr "Групa"
+
+#: app/views/rsync/index.html.erb:16
+msgid "Groups:"
+msgstr ""
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"
@@ -636,6 +644,10 @@ msgstr "назад"
 msgid "another transfers"
 msgstr "інші трансфери"
 
+#: app/views/rsync/index.html.erb:42
+msgid "any"
+msgstr ""
+
 #: app/views/layouts/application.html.erb:146
 msgid "blog"
 msgstr "блог про sisyphus"
@@ -698,6 +710,10 @@ msgstr "переглянути повний changelog пакета"
 #: app/views/maintainer/srpms.html.erb:6
 msgid "gear"
 msgstr "gear"
+
+#: app/views/rsync/index.html.erb:53
+msgid "generate"
+msgstr ""
 
 #: app/views/home/index.html.erb:25 app/views/home/index.html.erb:44
 #: app/views/home/index.html.erb:56 app/views/srpm/changelog.html.erb:9

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-28 00:11+0300\n"
+"POT-Creation-Date: 2010-10-28 01:08+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -73,6 +73,10 @@ msgstr "&raquo; - Repocop"
 #: app/views/home/index.html.erb:59
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr "<b>A:</b> Составьте фильтр для rsync, на основе данной"
+
+#: app/views/rsync/index.html.erb:40
+msgid "<b>Limit<br />by size:</b><br />"
+msgstr "<b>Ограничение<br />по размеру:</b><br />"
 
 #: app/views/pages/project.html.erb:8
 msgid ""
@@ -305,6 +309,10 @@ msgstr "Gear"
 #: app/views/srpm/_group.html.erb:4 app/views/srpm/_group.html.erb:6
 msgid "Group"
 msgstr "Группa"
+
+#: app/views/rsync/index.html.erb:16
+msgid "Groups:"
+msgstr "Группы:"
 
 #: app/views/layouts/application.html.erb:105
 msgid "Home"
@@ -699,6 +707,10 @@ msgstr "назад"
 msgid "another transfers"
 msgstr "другие трансферы"
 
+#: app/views/rsync/index.html.erb:42
+msgid "any"
+msgstr "любой"
+
 #: app/views/layouts/application.html.erb:146
 msgid "blog"
 msgstr "блог о sisyphus"
@@ -761,6 +773,10 @@ msgstr "просмотреть полный changelog пакета"
 #: app/views/maintainer/srpms.html.erb:6
 msgid "gear"
 msgstr "gear"
+
+#: app/views/rsync/index.html.erb:53
+msgid "generate"
+msgstr "сформировать"
 
 #: app/views/home/index.html.erb:25 app/views/home/index.html.erb:44
 #: app/views/home/index.html.erb:56 app/views/srpm/changelog.html.erb:9

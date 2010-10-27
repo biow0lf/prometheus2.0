@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-28 00:11+0300\n"
+"POT-Creation-Date: 2010-10-28 01:08+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,6 +74,10 @@ msgstr ""
 
 #: app/views/home/index.html.erb:59
 msgid "<b>A:</b> Create filter for rsync with the help of this"
+msgstr ""
+
+#: app/views/rsync/index.html.erb:40
+msgid "<b>Limit<br />by size:</b><br />"
 msgstr ""
 
 #: app/views/pages/project.html.erb:8
@@ -241,6 +245,10 @@ msgstr ""
 #: app/views/home/bygroup.html.erb:4 app/views/srpm/_group.html.erb:2
 #: app/views/srpm/_group.html.erb:4 app/views/srpm/_group.html.erb:6
 msgid "Group"
+msgstr ""
+
+#: app/views/rsync/index.html.erb:16
+msgid "Groups:"
 msgstr ""
 
 #: app/views/layouts/application.html.erb:105
@@ -618,6 +626,10 @@ msgstr ""
 msgid "another transfers"
 msgstr ""
 
+#: app/views/rsync/index.html.erb:42
+msgid "any"
+msgstr ""
+
 #: app/views/layouts/application.html.erb:146
 msgid "blog"
 msgstr ""
@@ -679,6 +691,10 @@ msgstr ""
 #: app/views/maintainer/repocop.html.erb:7
 #: app/views/maintainer/srpms.html.erb:6
 msgid "gear"
+msgstr ""
+
+#: app/views/rsync/index.html.erb:53
+msgid "generate"
 msgstr ""
 
 #: app/views/home/index.html.erb:25 app/views/home/index.html.erb:44
