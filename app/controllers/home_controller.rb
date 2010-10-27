@@ -6,23 +6,23 @@ class HomeController < ApplicationController
   end
 
   def search
-    branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     if params[:request].nil?
       redirect_to :action => "index"
     else
-      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:search].to_s.split).where(:branch_id => branch.id).order("name ASC")
+      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:search].to_s.split).where(:branch_id => @branch.id).order("name ASC")
       @srpms, @srpms_count = @search.all, @search.count
     end
   end
 
   def groups_list
-    branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
-    @groups = Group.all(:conditions => { :branch_id => branch.id, :parent_id => nil }, :order => 'LOWER(name)')
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @groups = Group.all(:conditions => { :branch_id => @branch.id, :parent_id => nil }, :order => 'LOWER(name)')
   end
 
   def bygroup
     # TODO: branch can be not only Sisyphus!
-    @branch = Branch.first(:conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' })
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
     @group = Group.first(:conditions => {
                            :name => params[:group],
