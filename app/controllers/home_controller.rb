@@ -24,26 +24,14 @@ class HomeController < ApplicationController
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
-    @group = Group.first(:conditions => {
-                           :name => params[:group],
-                           :branch_id => @branch.id,
-                           :parent_id => nil })
+    @group = @branch.groups.find(:all, :conditions => { :name => params[:group], :parent_id => nil }).first
     if !params[:group2].nil?
-      @group = Group.first(:conditions => {
-                             :name => params[:group2],
-                             :branch_id => @branch.id,
-                             :parent_id => @group.id })
+      @group = @branch.groups.find(:all, :conditions => { :name => params[:group2], :parent_id => @group.id }).first
       if !params[:group3].nil?
-        @group = Group.first(:conditions => {
-                               :name => params[:group3],
-                               :branch_id => @branch.id,
-                               :parent_id => @group.id })
+        @group = @branch.groups.find(:all, :conditions => { :name => params[:group3], :parent_id => @group.id }).first
       end
     end
-    @srpms = Srpm.all(:conditions => {
-                        :group_id => @group.id,
-                        :branch_id => @branch.id },
-                      :order => 'LOWER(name)')
+    @srpms = @group.srpms.find(:all, :order => 'LOWER(name)')
   end
 
   def maintainers_list
