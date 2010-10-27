@@ -21,7 +21,7 @@
 <% @srpms.each do |srpm| -%>
 <tr>
 <td class="strange">
-  <%= link_to srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name, :class => 'news' %>
+  <%= link_to srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'news' %>
 </td>
 <td><%= srpm.version %>-<%= srpm.release %></td>
 <td><%= srpm.summary %></td>
