@@ -28,7 +28,7 @@ function showGrp(dirid){
 
 <% @groups.each do |group| -%>
   <% if group.leaf? -%>
-    <%= link_to group.name, '/' + params[:locale] + '/packages/' + group.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= group.srpms.count %>)<br />
+    <%= link_to group.name, group_path(:group => group.name), :class => 'news', :style => 'margin-left:14px;' %> (<%= group.srpms.count %>)<br />
   <% else %>
     <div onclick="showGrp('<%= index %>')" class="grplist">
     <img name="img<%= index %>" src="/images/plus.gif" style="text-align:left; margin: 4px 4px 4px 0px; float:left" width="10" title="" alt="" /><%= group.name %>
@@ -36,7 +36,7 @@ function showGrp(dirid){
     <div id="dir<%= index %>" class="grphid" style="display:none">
     <% group.children.each do |child| -%>
         <% if child.leaf? %>
-          <%= link_to child.name, '/' + params[:locale] + '/packages/' + group.name + '/' + child.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= child.srpms.count %>)<br />
+          <%= link_to child.name, group_path(:group => group.name, :group2 => child.name), :class => 'news', :style => 'margin-left:14px;' %> (<%= child.srpms.count %>)<br />
         <% else %>
           <% index += 1 -%>
           <div onclick="showGrp('<%= index %>')" class="grplist">
@@ -45,7 +45,7 @@ function showGrp(dirid){
           <div id="dir<%= index %>" class="grphid" style="display:none">
             <% child.children.each do |c| -%>
               <% if c.leaf? -%>
-                <%= link_to c.name, '/' + params[:locale] + '/packages/' + group.name + '/' + child.name + '/' + c.name, :class => 'news', :style => 'margin-left:14px;' %> (<%= c.srpms.count %>)<br />
+                <%= link_to c.name, group_path(:group => group.name, :group2 => child.name, :group3 => c.name), :class => 'news', :style => 'margin-left:14px;' %> (<%= c.srpms.count %>)<br />
               <% else -%>
                 TODO
               <% end -%>
