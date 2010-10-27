@@ -15,8 +15,8 @@
     <th class="nosort"><%= _("message") %></th>
   </tr>
 
-<% if !@maintainer.srpms.nil? -%>
-  <% @maintainer.srpms.each do |srpm| -%>
+<% if !@srpms.nil? -%>
+  <% @srpms.each do |srpm| -%>
     <% srpm.repocops.each do |repocop| -%>
       <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
         <tr>

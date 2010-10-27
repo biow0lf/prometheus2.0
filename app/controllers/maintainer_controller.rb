@@ -1,6 +1,6 @@
 class MaintainerController < ApplicationController
   def info
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -13,7 +13,7 @@ class MaintainerController < ApplicationController
   end
 
   def srpms
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -28,7 +28,7 @@ class MaintainerController < ApplicationController
   end
 
   def acls
-    @branch = Branch.first :conditions => { :urlname => 'Sisyphus' }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -89,11 +89,16 @@ class MaintainerController < ApplicationController
   end
 
   def repocop
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false },
-                                   :include => [:srpms => [:repocops]],
+                                   :include => [:srpms],
                                    :order => 'LOWER(srpms.name)'
+#                                   :include => [:srpms => [:repocops]],
+#                                   :order => 'LOWER(srpms.name)'
+
+    @srpms = @maintainer.srpms.find(:all, :conditions => { :branch_id => @branch.id }, :include => [:repocops])
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
