@@ -24,11 +24,11 @@ class HomeController < ApplicationController
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
-    @group = @branch.groups.find(:all, :conditions => { :name => params[:group], :parent_id => nil }).first
+    @group = @branch.groups.find(:first, :conditions => { :name => params[:group], :parent_id => nil })
     if !params[:group2].nil?
-      @group = @branch.groups.find(:all, :conditions => { :name => params[:group2], :parent_id => @group.id }).first
+      @group = @branch.groups.find(:first, :conditions => { :name => params[:group2], :parent_id => @group.id })
       if !params[:group3].nil?
-        @group = @branch.groups.find(:all, :conditions => { :name => params[:group3], :parent_id => @group.id }).first
+        @group = @branch.groups.find(:first, :conditions => { :name => params[:group3], :parent_id => @group.id })
       end
     end
     @srpms = @group.srpms.find(:all, :order => 'LOWER(name)')
