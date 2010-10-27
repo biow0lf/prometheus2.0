@@ -10,7 +10,7 @@
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>" class="news" title="<%= _("information about SRPM") %>"><%= _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/changelog" class="news" title="<%= _("full changelog") %>"><%= _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/spec" class="news" title="<%= _("spec") %>"><%= _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/get" class="news" title="<%= _("download latest version") %>"><%= _("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/gear" class="news" title="<%= _("this package in gear repositories") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
+<span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_main_path(:branch => params[:branch], :name => params[:name]), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), srpm_changelog(:branch => params[:branch], :name => params[:name]), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), srpm_rawspec_path(:branch => params[:branch], :name => params[:name]), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), srpm_download_path(:branch => params[:branch], :name => params[:name]), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/gear" class="news" title="<%= _("this package in gear repositories") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= params[:branch] %>/<%= params[:name] %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
 
 <% if @allbugs.count == 0 -%>
 
@@ -22,7 +22,7 @@
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
 <span class="tabsel">&nbsp;<%= _("open") %>&nbsp;</span>
-<span class="tabunsel">&nbsp;<%= link_to _("total"), '/' + params[:locale] + '/srpm/' + params[:branch] + '/' + params[:name] + '/allbugs', :class => 'news' %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _("total"), srpm_allbugs_path(:branch => params[:branch], :name => params[:name]), :class => 'news' %>&nbsp;</span>
 </div>
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
