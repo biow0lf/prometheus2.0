@@ -29,12 +29,12 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)/packages/:group(/:group2(/:group3))' => 'home#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/srpm/:branch/:name' => 'srpm#main', :as => 'srpm_main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/changelog' => 'srpm#changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/spec' => 'srpm#rawspec', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/get' => 'srpm#download', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/gear' => 'srpm#gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/bugs' => 'srpm#bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/allbugs' => 'srpm#allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/changelog' => 'srpm#changelog', :as => 'srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/spec' => 'srpm#rawspec', :as => 'srpm_rawspec', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/get' => 'srpm#download', :as => 'srpm_download', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/gear' => 'srpm#gear', :as => 'srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/bugs' => 'srpm#bugs', :as => 'srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm/:branch/:name/allbugs' => 'srpm#allbugs', :as => 'srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/repocop' => 'srpm#repocop', :as => 'srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 #  match '(/:locale)/srpm/:branch/:name/repocop.:format' => 'home#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 
@@ -52,6 +52,7 @@ Prometheus20::Application.routes.draw do |map|
 #  match '(/:locale)/cli/maintainer/:login/repocop' => 'cli#maintainer_repocop'
 
   match '(/:locale)/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info', :constraints => { :locale => SUPPORTED_LOCALES }
+  #match '(/:locale)/cli/srpm/:vendor/:branch/:name/acls' => 'cli#srpm_acls', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get', :constraints => { :locale => SUPPORTED_LOCALES }
