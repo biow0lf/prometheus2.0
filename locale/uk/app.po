@@ -448,9 +448,8 @@ msgid "Prometheus 2.0 - RSS"
 msgstr ""
 
 #: app/views/rsync/index.html.erb:1
-#, fuzzy
 msgid "Prometheus 2.0 - Rsync Exclude"
-msgstr "Prometheus 2.0 - Новини"
+msgstr ""
 
 #: app/views/home/search.html.erb:1
 msgid "Prometheus 2.0 - Search"
