@@ -13,7 +13,7 @@ This form helps you to create such file of exceptions. You can filter by group o
 <form name="exclude" method="post" action="/cgi-bin/rsync_exclude.pl">
 <table style="border: #f0f0f0 solid 1px;" cellpadding="4">
 <tr><td style="vertical-align:top">
-<b>Groups:</b><br />
+<b><%= _("Groups:") %></b><br />
 <div id="groups-exclude-form" class="top-name">
 
 <% @groups.each do |group| -%>
@@ -37,9 +37,9 @@ This form helps you to create such file of exceptions. You can filter by group o
 <% end -%>
 </div>
 </td><td style="vertical-align:top">
-<b>Ограничение<br />по размеру:</b><br />
+<%= raw _("<b>Limit<br />by size:</b><br />") %>
 <select name="size" class="top-name">
-<option value="0" selected="selected">любой</option>
+<option value="0" selected="selected"><%= _("any") %></option>
 <option value="1">&gt; 1Mb</option>
 <option value="2">&gt; 10Mb</option>
 <option value="3">&gt; 25Mb</option>
@@ -50,7 +50,7 @@ This form helps you to create such file of exceptions. You can filter by group o
 </td>
 </tr>
 <tr><td colspan="2" style="text-align:center">
-<input type="submit" value="сформировать" class="top-name"/>
+<input type="submit" value="<%= _("generate") %>" class="top-name"/>
 </td></tr>
 </table>	
 </form>
