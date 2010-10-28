@@ -4,7 +4,7 @@ class SrpmController < ApplicationController
   def main
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = @branch.srpms.find(:first,
-                               :conditions => { :name => 'openbox' },
+                               :conditions => { :name => params[:name] },
                                :include => [:packages, :group, :branch, :leader, :maintainer, :acls])
     if @srpm != nil
       @allsrpms = Srpm.find :all, :conditions => {
