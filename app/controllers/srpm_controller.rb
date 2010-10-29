@@ -36,24 +36,10 @@ class SrpmController < ApplicationController
     @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch, :packages).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id").all
-#      @i586 = Package.all :conditions => {
-#                            :branch => @branch.name,
-#                            :vendor => @branch.vendor,
-#                            :sourcepackage => @srpm.filename,
-#                            :arch => 'i586' },
-#                          :order => 'name ASC'
-#      @noarch = Package.all :conditions => {
-#                              :branch => @branch.name,
-#                              :vendor => @branch.vendor,
-#                              :sourcepackage => @srpm.filename,
-#                              :arch => 'noarch' },
-#                            :order => 'name ASC'
-#      @x86_64 = Package.all :conditions => {
-#                              :branch => @branch.name,
-#                              :vendor => @branch.vendor,
-#                              :sourcepackage => @srpm.filename,
-#                              :arch => 'x86_64' },
-#                            :order => 'name ASC'
+      @i586 = @srpm.packages.where(:arch => 'i586').order("name ASC").all
+      @noarch = @srpm.packages.where(:arch => 'noarch').order("name ASC").all
+      @x86_64 = @srpm.packages.where(:arch => 'x86_64').order("name ASC").all
+      @arm = @srpm.packages.where(:arch => 'arm').order("name ASC").all
     else
       render :status => 404, :action => "nosuchpackage"
     end
