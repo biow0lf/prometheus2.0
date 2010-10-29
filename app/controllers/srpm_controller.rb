@@ -33,7 +33,7 @@ class SrpmController < ApplicationController
   end
 
   def rawspec
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => @branch.id },
@@ -49,7 +49,7 @@ class SrpmController < ApplicationController
   end
 
   def download
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => @branch.id },
@@ -83,7 +83,7 @@ class SrpmController < ApplicationController
   end
 
   def gear
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => @branch.id }
@@ -99,7 +99,7 @@ class SrpmController < ApplicationController
   end
 
   def bugs
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => @branch.id }
@@ -118,7 +118,7 @@ class SrpmController < ApplicationController
   end
 
   def allbugs
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = Srpm.first :conditions => {
                          :name => params[:name],
                          :branch_id => @branch.id }
