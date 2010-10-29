@@ -7,10 +7,10 @@ class SrpmController < ApplicationController
                                :conditions => { :name => params[:name] },
                                :include => [:packages, :group, :branch, :leader, :maintainer, :acls])
     if @srpm != nil
-      @allsrpms = Srpm.find :all, :conditions => {
-                                    :name => params[:name] },
-                                  :joins => :branch,
-                                  :order => "branches.order_id"
+      @allsrpms = Srpm.find(:all,
+                            :conditions => {:name => params[:name]},
+                            :joins => :branch,
+                            :order => "branches.order_id")
     else
       render :status => 404, :action => "nosuchpackage"
     end
@@ -18,15 +18,14 @@ class SrpmController < ApplicationController
 
   def changelog
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => @branch.id },
-                       :include => [:group, :branch]
+    @srpm = @branch.srpms.find(:first,
+                               :conditions => {:name => params[:name]},
+                               :include => {:group, :branch})
     if @srpm != nil
-      @allsrpms = Srpm.find :all, :conditions => {
-                                    :name => params[:name] },
-                                  :joins => :branch,
-                                  :order => "branches.order_id"
+      @allsrpms = Srpm.find(:all,
+                            :conditions => {:name => params[:name]},
+                            :joins => :branch,
+                            :order => "branches.order_id")
     else
       render :status => 404, :action => "nosuchpackage"
     end
@@ -34,15 +33,14 @@ class SrpmController < ApplicationController
 
   def rawspec
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => @branch.id },
-                       :include => [:branch, :group]
+    @srpm = @branch.srpms.find(:first,
+                               :conditions => {:name => params[:name]},
+                               :include => {:group, :branch})
     if @srpm != nil
-      @allsrpms = Srpm.find :all, :conditions => {
-                                    :name => params[:name] },
-                                  :joins => :branch,
-                                  :order => "branches.order_id"
+      @allsrpms = Srpm.find(:all,
+                            :conditions => {:name => params[:name]},
+                            :joins => :branch,
+                            :order => "branches.order_id")
     else
       render :status => 404, :action => "nosuchpackage"
     end
