@@ -30,7 +30,9 @@
     <td><%= bug.bug_severity %></td>
     <td><%= bug.bug_status %></td>
     <td><%= bug.reporter.gsub('@', ' at ') %></td>
-    <td><%= bug.short_desc %></td>
+    <td style="text-align: left">
+      <%= bug.short_desc %>
+    </td>
   </tr>
 <% end -%>
 
