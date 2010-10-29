@@ -77,15 +77,14 @@ class SrpmController < ApplicationController
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
 
-    @bugs = Bug.all :conditions => {
-                      :component => params[:name],
+    @bugs = Bug.where(:component => params[:name],
                       :product => params[:branch],
-                      :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
-                    :order => "bug_id DESC"
-    @allbugs = Bug.all :conditions => {
-                         :component => params[:name],
-                         :product => params[:branch] },
-                       :order => "bug_id DESC"
+                      :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]
+                      ).order("bug_id DESC").all
+
+    @allbugs = Bug.where(:component => params[:name],
+                         :product => params[:branch]
+                         ).order("bug_id DESC")
     if @srpm == nil
       render :status => 404, :action => "nosuchpackage"
     end
@@ -95,16 +94,14 @@ class SrpmController < ApplicationController
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
 
-    @bugs = Bug.all :conditions => {
-                      :component => params[:name],
+    @bugs = Bug.where(:component => params[:name],
                       :product => params[:branch],
-                      :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
-                    :order => "bug_id DESC"
+                      :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]
+                      ).order("bug_id DESC")
 
-    @allbugs = Bug.all :conditions => {
-                         :component => params[:name],
-                         :product => params[:branch] },
-                       :order => "bug_id DESC"
+    @allbugs = Bug.where(:component => params[:name],
+                         :product => params[:branch]
+                         ).order("bug_id DESC").all
     if @srpm == nil
       render :status => 404, :action => "nosuchpackage"
     end
