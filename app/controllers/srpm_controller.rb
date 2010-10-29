@@ -3,14 +3,9 @@ class SrpmController < ApplicationController
 
   def main
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = @branch.srpms.find(:first,
-                               :conditions => { :name => params[:name] },
-                               :include => [:packages, :group, :branch, :leader, :maintainer, :acls])
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
     if @srpm != nil
-      @allsrpms = Srpm.find(:all,
-                            :conditions => {:name => params[:name]},
-                            :joins => :branch,
-                            :order => "branches.order_id")
+      @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id").all
     else
       render :status => 404, :action => "nosuchpackage"
     end
@@ -18,14 +13,9 @@ class SrpmController < ApplicationController
 
   def changelog
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = @branch.srpms.find(:first,
-                               :conditions => {:name => params[:name]},
-                               :include => {:group, :branch})
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
     if @srpm != nil
-      @allsrpms = Srpm.find(:all,
-                            :conditions => {:name => params[:name]},
-                            :joins => :branch,
-                            :order => "branches.order_id")
+      @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id").all
     else
       render :status => 404, :action => "nosuchpackage"
     end
@@ -33,14 +23,9 @@ class SrpmController < ApplicationController
 
   def rawspec
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = @branch.srpms.find(:first,
-                               :conditions => {:name => params[:name]},
-                               :include => {:group, :branch})
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
     if @srpm != nil
-      @allsrpms = Srpm.find(:all,
-                            :conditions => {:name => params[:name]},
-                            :joins => :branch,
-                            :order => "branches.order_id")
+      @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id").all
     else
       render :status => 404, :action => "nosuchpackage"
     end
@@ -48,15 +33,9 @@ class SrpmController < ApplicationController
 
   def download
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => @branch.id },
-                       :include => [:group, :branch, :packages]
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch, :packages).first
     if @srpm != nil
-      @allsrpms = Srpm.find :all, :conditions => {
-                                    :name => params[:name] },
-                                  :joins => :branch,
-                                  :order => "branches.order_id"
+      @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id").all
 #      @i586 = Package.all :conditions => {
 #                            :branch => @branch.name,
 #                            :vendor => @branch.vendor,
@@ -82,9 +61,7 @@ class SrpmController < ApplicationController
 
   def gear
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => @branch.id }
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
     if @srpm != nil
 #      @gitrepos = Gitrepo.all :conditions => { :repo => @srpm.name },
 #                               :order => 'lastchange DESC'
