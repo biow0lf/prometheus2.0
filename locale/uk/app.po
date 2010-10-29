@@ -632,8 +632,8 @@ msgid "Wiki"
 msgstr "Wiki"
 
 #: app/views/layouts/application.html.erb:130
-msgid "about Prometeus project"
-msgstr "проект Prometeus"
+msgid "about Prometheus project"
+msgstr "проект Prometheus"
 
 #: app/views/maintainer/srpms.html.erb:15 app/views/team/info.html.erb:30
 msgid "age"

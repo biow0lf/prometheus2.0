@@ -614,7 +614,7 @@ msgid "Wiki"
 msgstr ""
 
 #: app/views/layouts/application.html.erb:130
-msgid "about Prometeus project"
+msgid "about Prometheus project"
 msgstr ""
 
 #: app/views/maintainer/srpms.html.erb:15 app/views/team/info.html.erb:30
