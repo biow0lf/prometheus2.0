@@ -75,9 +75,8 @@ class SrpmController < ApplicationController
 
   def bugs
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => @branch.id }
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
+
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -94,9 +93,8 @@ class SrpmController < ApplicationController
 
   def allbugs
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch_id => @branch.id }
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
+
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -114,8 +112,7 @@ class SrpmController < ApplicationController
 
   def repocop
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @srpm = @branch.srpms.find(:first,
-                               :conditions => {:name => params[:name]})
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
     if @srpm != nil
       @repocops = Repocop.where(:srcname => @srpm.name,
                                 :srcversion => @srpm.version,
