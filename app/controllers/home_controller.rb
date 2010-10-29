@@ -23,7 +23,6 @@ class HomeController < ApplicationController
   def bygroup
     # TODO: branch can be not only Sisyphus!
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-
     @group = @branch.groups.find(:first, :conditions => { :name => params[:group], :parent_id => nil })
     if !params[:group2].nil?
       @group = @branch.groups.find(:first, :conditions => { :name => params[:group2], :parent_id => @group.id })

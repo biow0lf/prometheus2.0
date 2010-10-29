@@ -2,7 +2,7 @@ class TeamController < ApplicationController
 #  caches_page :info
 
   def info
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @team = Maintainer.first :conditions => {
                                :login => '@' + params[:name],
                                :team => true }

@@ -11,7 +11,7 @@ class SitemapController < ApplicationController
 
   def sitemap_part1
     headers['Content-Type'] = "application/xml"
-    @branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
     @srpms = Srpm.all(:select => 'name',
                       :order => 'name ASC',
@@ -21,7 +21,7 @@ class SitemapController < ApplicationController
 
   def sitemap_part2
     headers['Content-Type'] = "application/xml"
-    @branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
     @srpms = Srpm.all(:select => 'name',
                       :order => 'name ASC',
@@ -32,7 +32,7 @@ class SitemapController < ApplicationController
 
   def sitemap_part3
     headers['Content-Type'] = "application/xml"
-    @branch = Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' })
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
     @srpms = Srpm.all(:select => 'name',
                       :order => 'name ASC',
