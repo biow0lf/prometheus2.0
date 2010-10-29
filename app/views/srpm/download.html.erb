@@ -116,7 +116,7 @@ function changeHref (val){
 <% if @i586.count != 0 -%>
  <tr><td><br><b>i586:</b></td></tr>
   <% @i586.each do |i| -%>
-  <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+  <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 	    <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%= i.filename %>" class="news">
 		  <%= i.filename %>
@@ -131,7 +131,7 @@ function changeHref (val){
 <% if @noarch.count != 0 -%>
   <tr><td><br><b>noarch:</b></td></tr>
   <% @noarch.each do |n| -%>
-  <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+  <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%= n.filename %>" class="news"><%= n.filename %>
 		</a>
@@ -145,12 +145,26 @@ function changeHref (val){
 <% if @x86_64.count != 0 -%>
   <tr><td><br><b>x86_64:</b></td></tr>
   <% @x86_64.each do |x| -%>
-  <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+  <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %>
 		</a>
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(x.size) %></b>
+	</td></tr>
+	<% counter += 1 -%>
+  <% end -%>
+<% end -%>
+
+<% if @arm.count != 0 -%>
+  <tr><td><br><b>arm:</b></td></tr>
+  <% @arm.each do |a| -%>
+  <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
+		<b>&middot;</b>
+		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %>
+		</a>
+	</td><td style="text-align:right;">
+		<b><%= number_to_human_size(a.size) %></b>
 	</td></tr>
 	<% counter += 1 -%>
   <% end -%>
