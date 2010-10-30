@@ -1,8 +1,6 @@
 SUPPORTED_LOCALES = /(en|ru|uk|br)/
 
 Prometheus20::Application.routes.draw do |map|
-#  get "redirector/index"
-
   match '(/:locale)/iphone/' => 'iphone#index', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
@@ -76,9 +74,7 @@ Prometheus20::Application.routes.draw do |map|
   match '(/:locale)' => 'home#index', :as => 'home', :constraints => { :locale => SUPPORTED_LOCALES }
   
   match '/src\::name' => redirect {|params| "/en/srpm/Sisyphus/#{params[:name]}"}
-#  match '/:name' => redirect {|params| "/en/srpm/Sisyphus/#{params[:name]}"}
   match '/:name' => 'redirector#index'
-
 
   root :to => "home#index"
 
