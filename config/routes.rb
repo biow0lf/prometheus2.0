@@ -73,6 +73,7 @@ Prometheus20::Application.routes.draw do |map|
 
   match '(/:locale)' => 'home#index', :as => 'home', :constraints => { :locale => SUPPORTED_LOCALES }
   
+  match '/src\::name' => redirect {|params| "/en/srpm/Sisyphus/#{params[:name]}"}
   match '/:name' => redirect {|params| "/en/srpm/Sisyphus/#{params[:name]}"}
 
   root :to => "home#index"
