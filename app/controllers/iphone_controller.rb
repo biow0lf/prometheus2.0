@@ -8,9 +8,7 @@ class IphoneController < ApplicationController
   end
 
   def maintainer_info
-    @branch = Branch.first :conditions => {
-                             :vendor => 'ALT Linux',
-                             :name => 'Sisyphus' }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.first :conditions => {
                                    :login => params[:login].downcase,
                                    :team => false }
