@@ -1,6 +1,6 @@
 <table border="1">
 <% @bug_statuses.each do |bug_status| %>
-  <% @resolutions.eahc do |resolution| %>
+  <% @resolutions.each do |resolution| %>
     <tr><td><%= bug_status %></td><td><%= resolution %></td><td><%= @bugs.where(:bug_status => bug_status, :resolution => resolution).count %></td></tr>
   <% end %>
 <% end %>
