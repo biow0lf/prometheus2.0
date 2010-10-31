@@ -1,7 +1,10 @@
 <table border="1">
 <% @bug_statuses.each do |bug_status| %>
   <% @resolutions.each do |resolution| %>
-    <tr><td><%= bug_status.bug_status %></td><td><%= resolution.resolution %></td><td><%= @bugs.where(:bug_status => bug_status.bug_status, :resolution => resolution.resolution).count %></td></tr>
+    <% count = @bugs.where(:bug_status => bug_status.bug_status, :resolution => resolution.resolution).count %>
+    <% if count != 0 %>
+      <tr><td><%= count %></td><td><%= bug_status.bug_status %></td><td><%= resolution.resolution %></td></tr>
+    <% end %>
   <% end %>
 <% end %>
 </table>
