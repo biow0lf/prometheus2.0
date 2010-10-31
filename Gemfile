@@ -16,6 +16,8 @@ gem 'gettext', '>=1.9.3', :require => false
 
 gem 'newrelic_rpm'
 
+gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/rails/exception_notification.git'
+
 group :development do
   gem 'ruby-debug'
   gem 'sqlite3-ruby'
