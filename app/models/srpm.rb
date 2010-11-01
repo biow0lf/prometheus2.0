@@ -23,9 +23,6 @@ class Srpm < ActiveRecord::Base
         srpm.version = rpm.version.v
         srpm.release = rpm.version.r
 
-        puts Time.now.to_s + ": name = " + rpm.name
-        puts Time.now.to_s + ": group = " + rpm[1016]
-        
         case rpm[1016].split('/').count
         when 1
           group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
@@ -37,9 +34,6 @@ class Srpm < ActiveRecord::Base
           puts Time.now.to_s + ": too nested groups level"
         end
 
-        puts Time.now.to_s + ": group.name = " + group.name
-        puts Time.now.to_s + ": group.id = " + group.id.to_s
-        
         srpm.group_id = group.id
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
@@ -71,8 +65,6 @@ class Srpm < ActiveRecord::Base
     srpm.name = rpm.name
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
-
-    puts Time.now.to_s + ": group = " + rpm[1016]
     
     case rpm[1016].split('/').count
     when 1
@@ -84,9 +76,6 @@ class Srpm < ActiveRecord::Base
     else
       puts Time.now.to_s + ": too nested groups level"
     end
-
-    puts Time.now.to_s + ": group.name = " + group.name
-    puts Time.now.to_s + ": group.id = " + group.id.to_s
 
     srpm.group_id = group.id
     srpm.epoch = rpm[1003]
