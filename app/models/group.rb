@@ -32,7 +32,7 @@ class Group < ActiveRecord::Base
         if !Group.first(:conditions => { :name => param0, :branch_id => br.id } )
           group0 = Group.create(:name => param0, :branch_id => br.id)
         else
-          group0 = Group.first(:conditions => { :name => param0, :branch_id => br.id } )
+          group0 = Group.first(:conditions => { :name => param0, :branch_id => br.id, :parent_id => nil } )
         end
         
         if param1 != nil
