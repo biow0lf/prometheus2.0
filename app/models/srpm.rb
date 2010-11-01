@@ -37,7 +37,7 @@ class Srpm < ActiveRecord::Base
         end
 
         puts Time.now.to_s + ": group.name = " + group.name
-        puts Time.now.to_s + ": group.id = " + group.id
+        puts Time.now.to_s + ": group.id = " + group.id.to_s
         
         srpm.group_id = group.id
         srpm.epoch = rpm[1003]
@@ -85,7 +85,7 @@ class Srpm < ActiveRecord::Base
     end
 
     puts Time.now.to_s + ": group.name = " + group.name
-    puts Time.now.to_s + ": group.id = " + group.id
+    puts Time.now.to_s + ": group.id = " + group.id.to_s
 
     srpm.group_id = group.id
     srpm.epoch = rpm[1003]
