@@ -25,7 +25,7 @@ class Srpm < ActiveRecord::Base
 
         puts Time.now.to_s + ": group = " + rpm[1016]
         
-        case rpm[1016].split('/')
+        case rpm[1016].split('/').count
         when 1
           group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
         when 2
@@ -73,7 +73,7 @@ class Srpm < ActiveRecord::Base
 
     puts Time.now.to_s + ": group = " + rpm[1016]
     
-    case rpm[1016].split('/')
+    case rpm[1016].split('/').count
     when 1
       group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
     when 2
