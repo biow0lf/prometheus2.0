@@ -9,11 +9,11 @@ class Srpm < ActiveRecord::Base
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 
   def self.count_srpms_in_sisyphus
-    Branch.first(:conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }).srpms.count(:all)
+    Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first.srpms.count
   end
 
   def self.import_srpms(vendor, branch, path)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    br = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -22,16 +22,23 @@ class Srpm < ActiveRecord::Base
         srpm.name = rpm.name
         srpm.version = rpm.version.v
         srpm.release = rpm.version.r
-        group0 = rpm[1016].split('/')[0]
-        group1 = rpm[1016].split('/')[1]
-        group2 = rpm[1016].split('/')[2]
-        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-        if group1 != nil
-          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-          if group2 != nil
-            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-          end
+
+        puts Time.now.to_s + ": group = " + rpm[1016]
+        
+        case rpm[1016].split('/')
+        when 1
+          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+        when 2
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+        when 3
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+        else
+          puts Time.now.to_s + ": too nested groups level"
         end
+
+        puts Time.now.to_s + ": group.name = " + group.name
+        puts Time.now.to_s + ": group.id = " + group.id
+        
         srpm.group_id = group.id
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
@@ -52,9 +59,10 @@ class Srpm < ActiveRecord::Base
   end
   
   def self.import_srpm(vendor, branch, file)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    br = Branch.where(:name => branch, :vendor => vendor).first
     rpm = RPM::Package::open(file)
-    if Srpm.count(:all, :conditions => { :branch_id => br.id, :name => rpm.name }) == 1
+    if Srpm.count(:all, :conditions => { :branch_id => br.id, :name => rpm.name }) >= 1
+      #$redis.del br.name + ":" + srpm.filename
       Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
     end
     srpm = Srpm.new
@@ -62,16 +70,23 @@ class Srpm < ActiveRecord::Base
     srpm.name = rpm.name
     srpm.version = rpm.version.v
     srpm.release = rpm.version.r
-    group0 = rpm[1016].split('/')[0]
-    group1 = rpm[1016].split('/')[1]
-    group2 = rpm[1016].split('/')[2]
-    group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-    if group1 != nil
-      group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-      if group2 != nil
-        group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-      end
+
+    puts Time.now.to_s + ": group = " + rpm[1016]
+    
+    case rpm[1016].split('/')
+    when 1
+      group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+    when 2
+      group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+    when 3
+      group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+    else
+      puts Time.now.to_s + ": too nested groups level"
     end
+
+    puts Time.now.to_s + ": group.name = " + group.name
+    puts Time.now.to_s + ": group.id = " + group.id
+
     srpm.group_id = group.id
     srpm.epoch = rpm[1003]
     srpm.summary = rpm[1004]
