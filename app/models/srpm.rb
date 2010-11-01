@@ -23,6 +23,7 @@ class Srpm < ActiveRecord::Base
         srpm.version = rpm.version.v
         srpm.release = rpm.version.r
 
+        puts Time.now.to_s + ": name = " + rpm.name
         puts Time.now.to_s + ": group = " + rpm[1016]
         
         case rpm[1016].split('/').count
