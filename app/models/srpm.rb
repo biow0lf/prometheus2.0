@@ -60,7 +60,7 @@ class Srpm < ActiveRecord::Base
       br.srpms.where(:name => rpm.name).first.packages.each do |package|
         $redis.del br.name + ":" + package.filename
       end
-      $redis.del br.name + ":" + srpm.filename
+      $redis.del br.name + ":" + br.srpms.where(:name => rpm.name).first.filename
       Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
     end
     srpm = Srpm.new
