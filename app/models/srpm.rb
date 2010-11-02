@@ -48,7 +48,7 @@ class Srpm < ActiveRecord::Base
         srpm.branch_id = br.id
         srpm.save!
       rescue RuntimeError
-        puts "Bad src.rpm -- " + file
+        puts "Bad .src.rpm: " + file
       end
     end
   end
