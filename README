@@ -83,6 +83,8 @@ Init database:
 * rake 40:leaders
 * rake 40:teams
 
+* rake redis:cache
+* rake redis:cache_binary
 
 TODO:
 
