@@ -32,7 +32,9 @@ class Leader < ActiveRecord::Base
   
   def self.create_leader_for_package(vendor, branch, url, package)
     br = Branch.first :conditions => { :name => branch, :vendor => vendor }
-    br.srpms.where(:name => package).first.leader.delete
+    if br.srpms.where(:name => package).first.leader != nil
+      br.srpms.where(:name => package).first.leader.delete
+    end
     file = open(URI.escape(url)).read
     file.each_line do |line|
       packagename = line.split[0]
