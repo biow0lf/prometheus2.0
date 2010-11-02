@@ -43,7 +43,7 @@ class Acl < ActiveRecord::Base
       if packagename == package
         srpm = Srpm.first :conditions => { :name => packagename, :branch_id => br.id }
         for i in 1..line.split.count-1
-          login = line.split[1]
+          login = line.split[i]
           login = 'php-coder' if login == 'php_coder'
           login = 'p_solntsev' if login == 'psolntsev'
           login = '@vim-plugins' if login == '@vim_plugins'
