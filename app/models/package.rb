@@ -13,16 +13,18 @@ class Package < ActiveRecord::Base
     package.version = rpm.version.v
     package.release = rpm.version.r
     package.arch = rpm.arch
-    group0 = rpm[1016].split('/')[0]
-    group1 = rpm[1016].split('/')[1]
-    group2 = rpm[1016].split('/')[2]
-    group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-    if group1 != nil
-      group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-      if group2 != nil
-        group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-      end
-    end
+
+    case rpm[1016].split('/').count
+    when 1
+      group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+    when 2
+      group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+    when 3
+      group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+    else
+      puts Time.now.to_s + ": too nested groups level"
+    end    
+
     package.group_id = group.id
     package.epoch = rpm[1003]
     package.summary = rpm[1004]
@@ -53,16 +55,18 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group0 = rpm[1016].split('/')[0]
-        group1 = rpm[1016].split('/')[1]
-        group2 = rpm[1016].split('/')[2]
-        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-        if group1 != nil
-          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-          if group2 != nil
-            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-          end
-        end
+
+        case rpm[1016].split('/').count
+        when 1
+          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+        when 2
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+        when 3
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+        else
+          puts Time.now.to_s + ": too nested groups level"
+        end    
+
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
@@ -94,16 +98,18 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group0 = rpm[1016].split('/')[0]
-        group1 = rpm[1016].split('/')[1]
-        group2 = rpm[1016].split('/')[2]
-        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-        if group1 != nil
-          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-          if group2 != nil
-            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-          end
-        end
+
+        case rpm[1016].split('/').count
+        when 1
+          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+        when 2
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+        when 3
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+        else
+          puts Time.now.to_s + ": too nested groups level"
+        end    
+
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
@@ -135,16 +141,18 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group0 = rpm[1016].split('/')[0]
-        group1 = rpm[1016].split('/')[1]
-        group2 = rpm[1016].split('/')[2]
-        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-        if group1 != nil
-          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-          if group2 != nil
-            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-          end
-        end
+
+        case rpm[1016].split('/').count
+        when 1
+          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+        when 2
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+        when 3
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+        else
+          puts Time.now.to_s + ": too nested groups level"
+        end    
+
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
@@ -176,16 +184,18 @@ class Package < ActiveRecord::Base
         package.version = rpm.version.v
         package.release = rpm.version.r
         package.arch = rpm.arch
-        group0 = rpm[1016].split('/')[0]
-        group1 = rpm[1016].split('/')[1]
-        group2 = rpm[1016].split('/')[2]
-        group = Group.first(:conditions => { :name => group0, :branch_id => br.id } )
-        if group1 != nil
-          group = Group.first(:conditions => { :name => group1, :branch_id => br.id, :parent_id => group.id })
-          if group2 != nil
-            group = Group.first(:conditions => { :name => group2, :branch_id => br.id, :parent_id => group.id })
-          end
-        end
+        
+        case rpm[1016].split('/').count
+        when 1
+          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+        when 2
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+        when 3
+          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+        else
+          puts Time.now.to_s + ": too nested groups level"
+        end    
+
         package.group_id = group.id
         package.epoch = rpm[1003]
         package.summary = rpm[1004]
