@@ -3,6 +3,7 @@ namespace :sisyphus do
     desc "Update *.src.rpm from Sisyphus to database"
     task :srpms => :environment do
       require 'rpm'
+      require 'open-uri'
       puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"
       path = "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
       branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
@@ -13,7 +14,7 @@ namespace :sisyphus do
             Srpm.import_srpm(branch.vendor, branch.name, file)
           end
         rescue RuntimeError
-          puts "Bad src.rpm -- " + file
+          puts "Bad .src.rpm: " + file
         end
       end
       puts Time.now.to_s + ": end"
@@ -35,7 +36,7 @@ namespace :sisyphus do
               Package.import_rpm(branch.vendor, branch.name, file)
             end
           rescue RuntimeError
-            puts "Bad src.rpm -- " + file
+            puts "Bad .rpm: " + file
           end
         end
       end
