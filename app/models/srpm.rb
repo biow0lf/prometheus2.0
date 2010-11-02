@@ -95,6 +95,11 @@ class Srpm < ActiveRecord::Base
     a = srpm.save!
     if a == true
       $redis.set br.name + ":" + srpm.filename, 1
+      if br.name == 'Sisyphus' and br.vendor == 'ALT Linux'
+        Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
+      else
+        # TODO!!!!
+      end
     end
   end
 end
