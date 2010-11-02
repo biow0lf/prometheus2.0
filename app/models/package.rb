@@ -35,8 +35,10 @@ class Package < ActiveRecord::Base
     package.branch_id = br.id
     srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
     package.srpm_id = srpm.id
-    package.save!
-    $redis.set br.name + ":" + package.filename, 1
+    a = package.save!
+    if a == true
+      $redis.set br.name + ":" + package.filename, 1
+    end
   end
 
   def self.import_packages_i586(vendor, branch, path)
@@ -75,7 +77,7 @@ class Package < ActiveRecord::Base
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
-        puts "Bad src.rpm " + file
+        puts "Bad .rpm: " + file
       end
     end
   end
@@ -116,7 +118,7 @@ class Package < ActiveRecord::Base
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
-        puts "Bad src.rpm " + file
+        puts "Bad .rpm: " + file
       end
     end
   end
@@ -157,7 +159,7 @@ class Package < ActiveRecord::Base
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
-        puts "Bad src.rpm " + file
+        puts "Bad .rpm: " + file
       end
     end
   end
@@ -198,7 +200,7 @@ class Package < ActiveRecord::Base
         package.srpm_id = srpm.id
         package.save!
       rescue RuntimeError
-        puts "Bad src.rpm " + file
+        puts "Bad .rpm: " + file
       end
     end
   end
