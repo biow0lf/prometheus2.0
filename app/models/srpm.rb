@@ -97,14 +97,19 @@ class Srpm < ActiveRecord::Base
       $redis.set br.name + ":" + srpm.filename, 1
       if br.name == 'Sisyphus' and br.vendor == 'ALT Linux'
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
+        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
       elsif br.name == '5.1' and br.vendor == 'ALT Linux'
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
+        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
       elsif br.name == '5.0' and br.vendor == 'ALT Linux'
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
+        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
       elsif br.name == '4.1' and br.vendor == 'ALT Linux'
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
+        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
       elsif br.name == '4.0' and br.vendor == 'ALT Linux'
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
+        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
       end
     end
   end
