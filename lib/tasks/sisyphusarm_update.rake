@@ -3,6 +3,7 @@ namespace :sisyphusarm do
     desc "Update *.src.rpm from SisyphusARM to database"
     task :srpms => :environment do
       require 'rpm'
+      require 'open-uri'
       puts Time.now.to_s + ": update *.src.rpm from SisyphusARM to database"      
       path = "/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm"
       branch = Branch.first :conditions => { :name => 'SisyphusARM', :vendor => 'ALT Linux' }

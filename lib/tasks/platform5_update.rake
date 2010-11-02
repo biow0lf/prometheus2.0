@@ -3,6 +3,7 @@ namespace :platform5 do
     desc "Update *.src.rpm from Platform5 to database"
     task :srpms => :environment do
       require 'rpm'
+      require 'open-uri'
       puts Time.now.to_s + ": update *.src.rpm from Platform5 to database"      
       path = "/ALT/p5/files/SRPMS/*.src.rpm"
       branch = Branch.first :conditions => { :name => 'Platform5', :vendor => 'ALT Linux' }
