@@ -4,7 +4,7 @@
 
 Install:
 * RVM
-* Ruby EE 1.8.7
+* Ruby EE 1.8.7 2010.02
 * ruby-rpm
 * bundler
 * PostgreSQL 8.4 (with other databases it doesn't tested)
