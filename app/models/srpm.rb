@@ -58,7 +58,7 @@ class Srpm < ActiveRecord::Base
     rpm = RPM::Package::open(file)
     if Srpm.count(:all, :conditions => { :branch_id => br.id, :name => rpm.name }) >= 1
       br.srpms.where(:name => rpm.name).first.packages.each do |package|
-        $redis.del br.name + ":" + package.sourcepackage
+        $redis.del br.name + ":" + package.filename
       end
       $redis.del br.name + ":" + srpm.filename
       Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
