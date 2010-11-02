@@ -57,7 +57,10 @@ class Srpm < ActiveRecord::Base
     br = Branch.where(:name => branch, :vendor => vendor).first
     rpm = RPM::Package::open(file)
     if Srpm.count(:all, :conditions => { :branch_id => br.id, :name => rpm.name }) >= 1
-      #$redis.del br.name + ":" + srpm.filename
+      br.srpms.where(:name => rpm.name).first.packages.each do |package|
+        $redis.del br.name + ":" + package.sourcepackage
+      end
+      $redis.del br.name + ":" + srpm.filename
       Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
     end
     srpm = Srpm.new
@@ -89,7 +92,9 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.branch_id = br.id
-    srpm.save!    
-    $redis.set br.name + ":" + srpm.filename, 1
+    a = srpm.save!
+    if a == true
+      $redis.set br.name + ":" + srpm.filename, 1
+    end
   end
 end
