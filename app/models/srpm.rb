@@ -95,8 +95,7 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.branch_id = br.id
-    a = srpm.save!
-    if a == true
+    if srpm.save
       $redis.set br.name + ":" + srpm.filename, 1
       if br.name == 'Sisyphus' and br.vendor == 'ALT Linux'
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
@@ -114,6 +113,9 @@ class Srpm < ActiveRecord::Base
         Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
         Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
       end
+      puts Time.now.to_s + ": updated '" + srpm.filename + "'"
+    else
+      puts Time.now.to_s + ": failed to update '" + srpm.filename "'"
     end
   end
 end

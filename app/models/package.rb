@@ -41,9 +41,11 @@ class Package < ActiveRecord::Base
     package.branch_id = br.id
     srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
     package.srpm_id = srpm.id
-    a = package.save!
-    if a == true
+    if package.save
       $redis.set br.name + ":" + package.filename, 1
+      puts Time.now.to_s + ": updated '" + package.filename + "'"
+    else
+      puts Time.now.to_s + ": failed to update '" + package.filename "'"
     end
   end
 
