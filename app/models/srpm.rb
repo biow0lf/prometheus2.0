@@ -1,4 +1,7 @@
 class Srpm < ActiveRecord::Base
+  validates :branch_id, :presence => true
+  validates :group_id, :presence => true
+
   belongs_to :branch
   belongs_to :group
   has_many :packages, :dependent => :destroy

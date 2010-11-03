@@ -1,4 +1,8 @@
 class Package < ActiveRecord::Base
+  validates :srpm_id, :presence => true
+  validates :branch_id, :presence => true
+  validates :group_id, :presence => true
+
   belongs_to :srpm
   belongs_to :branch
   belongs_to :group

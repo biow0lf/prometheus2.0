@@ -1,5 +1,7 @@
 class Branch < ActiveRecord::Base
-  validates_presence_of :vendor, :name
+  validates :name, :presence => true
+  validates :vendor, :presence => true
+
   has_many :acls
   has_many :srpms
   has_many :packages

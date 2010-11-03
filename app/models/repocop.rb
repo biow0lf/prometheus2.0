@@ -1,5 +1,12 @@
 class Repocop < ActiveRecord::Base
-  validates_presence_of :name, :version, :release, :arch, :srcname, :srcversion, :srcrel, :testname
+  validates :name, :presence => true
+  validates :version, :presence => true
+  validates :release, :presence => true
+  validates :arch, :presence => true
+  validates :srcname, :presence => true
+  validates :srcversion, :presence => true
+  validates :srcrel, :presence => true
+  validates :testname, :presence => true
 
   def self.update_repocop
     ActiveRecord::Base.transaction do

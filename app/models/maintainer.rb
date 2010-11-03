@@ -1,5 +1,8 @@
 class Maintainer < ActiveRecord::Base
-  validates_presence_of :name, :email, :login
+  validates :name, :presence => true
+  validates :email, :presence => true
+  validates :login, :presence => true
+  
   validates_uniqueness_of :login
 
   has_one :leader

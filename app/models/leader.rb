@@ -1,4 +1,8 @@
 class Leader < ActiveRecord::Base
+  validates :branch_id, :presence => true
+  validates :srpm_id, :presence => true
+  validates :maintainer_id, :presence => true
+  
   belongs_to :branch
   belongs_to :maintainer
   belongs_to :srpm

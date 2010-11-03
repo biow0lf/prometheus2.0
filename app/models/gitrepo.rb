@@ -1,5 +1,7 @@
 class Gitrepo < ActiveRecord::Base
-  validates_presence_of :repo, :lastchange
+  validates :repo, :presence => true
+  validates :lastchange, :presence => true
+
   belongs_to :maintainer
 
   def self.import_gitrepos(url)
