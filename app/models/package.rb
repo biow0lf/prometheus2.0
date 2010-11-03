@@ -45,7 +45,7 @@ class Package < ActiveRecord::Base
       $redis.set br.name + ":" + package.filename, 1
       puts Time.now.to_s + ": updated '" + package.filename + "'"
     else
-      puts Time.now.to_s + ": failed to update '" + package.filename "'"
+      puts Time.now.to_s + ": failed to update '" + package.filename + "'"
     end
   end
 
