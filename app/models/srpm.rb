@@ -115,7 +115,7 @@ class Srpm < ActiveRecord::Base
       end
       puts Time.now.to_s + ": updated '" + srpm.filename + "'"
     else
-      puts Time.now.to_s + ": failed to update '" + srpm.filename "'"
+      puts Time.now.to_s + ": failed to update '" + srpm.filename + "'"
     end
   end
 end
