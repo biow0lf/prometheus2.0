@@ -30,12 +30,13 @@ class RepocopController < ApplicationController
                                       ).order('name ASC').all
   end
   
-  def srpms_long_summary
+  # rpmlint tests
+  def srpms_summary_too_long
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = @branch.srpms.where('length(summary) > 79').order('name ASC').all
   end
 
-  def packages_long_summary
+  def packages_summary_too_long
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @packages = @branch.packages.where('length(summary) > 79').order('name ASC').all
   end
