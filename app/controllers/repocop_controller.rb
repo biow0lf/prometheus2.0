@@ -1,21 +1,9 @@
 class RepocopController < ApplicationController
   layout nil
 
-  def missing_url
+  def no_url_tag
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = Srpm.where(:branch_id => @branch.id, :url => nil).order("name ASC").all
-  end
-
-  def vendor_tag
-    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    # "^" mean "!=" in sql
-    @srpms = Srpm.where(:branch_id => @branch.id).where(:vendor ^ 'ALT Linux Team').order("name ASC").all
-  end
-
-  def distribution_tag
-    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    # "^" mean "!=" in sql
-    @srpms = Srpm.where(:branch_id => @branch.id).where(:distribution ^ 'ALT Linux').order("name ASC").all
   end
 
   def invalid_url
@@ -30,7 +18,18 @@ class RepocopController < ApplicationController
                                       ).order('name ASC').all
   end
   
-  # rpmlint tests
+  def invalid_vendor
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    # "^" mean "!=" in sql
+    @srpms = Srpm.where(:branch_id => @branch.id).where(:vendor ^ 'ALT Linux Team').order("name ASC").all
+  end
+
+  def invalid_distribution
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    # "^" mean "!=" in sql
+    @srpms = Srpm.where(:branch_id => @branch.id).where(:distribution ^ 'ALT Linux').order("name ASC").all
+  end
+
   def srpms_summary_too_long
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = @branch.srpms.where('length(summary) > 79').order('name ASC').all
@@ -49,5 +48,22 @@ class RepocopController < ApplicationController
   def packages_summary_ended_with_dot
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @packages = @branch.packages.where(:summary.matches => '%.').order('name ASC').all
+  end
+  
+  def srpms_filename_too_long_for_joliet
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @srpms = @branch.srpms.where('length(filename) > 64').order('name ASC').all
+  end
+  
+  def packages_filename_too_long_for_joliet
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @packages = @branch.packages.where('length(filename) > 64').order('name ASC').all
+  end
+  
+  # TODO:
+  def manpage_not_compressed
+  end
+  
+  def infopage_not_compressed
   end
 end

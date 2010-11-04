@@ -66,10 +66,10 @@ Prometheus20::Application.routes.draw do |map|
   match '/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '/cli/repocop/by-test/missing_url' => 'repocop#missing_url', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/repocop/by-test/vendor_tag' => 'repocop#vendor_tag', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/repocop/by-test/distribution_tag' => 'repocop#distribution_tag', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/no_url_tag' => 'repocop#no_url_tag', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/invalid_url' => 'repocop#invalid_url', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/invalid_vendor' => 'repocop#invalid_vendor', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/invalid_distribution' => 'repocop#invalid_distribution', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/srpms_summary_too_long' => 'repocop#srpms_summary_too_long', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/packages_summary_too_long' => 'repocop#packages_summary_too_long', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/srpms_summary_ended_with_dot' => 'repocop#srpms_summary_ended_with_dot', :constraints => { :locale => SUPPORTED_LOCALES }
