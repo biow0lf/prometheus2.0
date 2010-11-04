@@ -70,8 +70,10 @@ Prometheus20::Application.routes.draw do |map|
   match '/cli/repocop/by-test/vendor_tag' => 'repocop#vendor_tag', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/distribution_tag' => 'repocop#distribution_tag', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/invalid_url' => 'repocop#invalid_url', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/repocop/by-test/srpm_long_summary' => 'repocop#srpm_long_summary', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/srpms_long_summary' => 'repocop#srpms_long_summary', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/packages_long_summary' => 'repocop#packages_long_summary', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/srpms_summary_ended_with_dot' => 'repocop#srpms_summary_ended_with_dot', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/packages_summary_ended_with_dot' => 'repocop#packages_summary_ended_with_dot', :constraints => { :locale => SUPPORTED_LOCALES }
 
 #  match '/cli/repocop/by-test/:name' => 'repocop#bytestname', :constraints => { :locale => SUPPORTED_LOCALES }
 
