@@ -32,6 +32,6 @@ class RepocopController < ApplicationController
   
   def long_summary
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    @srpms = @branch.srpms.where('length(summary) > 79').all
+    @srpms = @branch.srpms.where('length(summary) > 79').order('name ASC').all
   end
 end
