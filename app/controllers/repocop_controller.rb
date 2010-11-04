@@ -29,4 +29,9 @@ class RepocopController < ApplicationController
                                         (:url.not_matches % 'rsync://%')
                                       ).order('name ASC').all
   end
+  
+  def long_summary
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @srpms = @branch.srpms.where('length(summary) > 79').all
+  end
 end

@@ -70,6 +70,7 @@ Prometheus20::Application.routes.draw do |map|
   match '/cli/repocop/by-test/vendor_tag' => 'repocop#vendor_tag', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/distribution_tag' => 'repocop#distribution_tag', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/cli/repocop/by-test/invalid_url' => 'repocop#invalid_url', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/repocop/by-test/long_summary' => 'repocop#long_summary', :constraints => { :locale => SUPPORTED_LOCALES }
 
 #  match '/cli/repocop/by-test/:name' => 'repocop#bytestname', :constraints => { :locale => SUPPORTED_LOCALES }
 
