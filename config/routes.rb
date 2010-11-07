@@ -82,7 +82,7 @@ Prometheus20::Application.routes.draw do |map|
   match '/src\::name' => redirect {|params| "/en/srpm/Sisyphus/#{params[:name]}"}
   match '/:name' => 'redirector#index'
 
-  root :to => "home#index"
+  root :to => 'home#index'
 
   match '/sitemap.xml' => 'sitemap#sitemap_full'
   match '/sitemap_basic.xml' => 'sitemap#sitemap_basic'
