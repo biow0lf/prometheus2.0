@@ -38,7 +38,9 @@
 <% @srpm.changelog.each do |c| %>
   <p class="news" />
   <b><%= c.changelogtime %> <%= c.changelogname.gsub('@altlinux', ' at altlinux').gsub('@', ' at ') %></b> <br />
-  <ul class="change"><li><%= c.changelogtext %></li></ul>
+  <ul class="change">
+	<%= simple_changelog(c.changelogtext) %>
+  </ul>
 <% end %>
 
 </div>
