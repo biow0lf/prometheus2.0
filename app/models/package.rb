@@ -54,42 +54,46 @@ class Package < ActiveRecord::Base
   end
 
   def self.import_packages_i586(vendor, branch, path)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        package = Package.new
-        package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.i586.rpm'
-        package.sourcepackage = rpm[1044]
-        package.name = rpm.name
-        package.version = rpm.version.v
-        package.release = rpm.version.r
-        package.arch = rpm.arch
+        if b.srpms.where(:name => rpm[1044]).count == 1
+          package = Package.new
+          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.i586.rpm'
+          package.sourcepackage = rpm[1044]
+          package.name = rpm.name
+          package.version = rpm.version.v
+          package.release = rpm.version.r
+          package.arch = rpm.arch
 
-        case rpm[1016].split('/').count
-        when 1
-          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
-        when 2
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
-        when 3
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          case rpm[1016].split('/').count
+          when 1
+            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+          when 2
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+          when 3
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          else
+            puts Time.now.to_s + ": too nested groups level"
+          end    
+
+          package.group_id = group.id
+          package.epoch = rpm[1003]
+          package.summary = rpm[1004]
+          package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+          package.license = rpm[1014]
+          package.url = rpm[1020]
+          package.description = rpm[1005]
+          package.buildtime = Time.at(rpm[1006])
+          package.size = File.size(file)
+          package.branch_id = b.id
+          srpm = b.srpms.where(:filename => rpm[1044]).first
+          package.srpm_id = srpm.id
+          package.save!
         else
-          puts Time.now.to_s + ": too nested groups level"
-        end    
-
-        package.group_id = group.id
-        package.epoch = rpm[1003]
-        package.summary = rpm[1004]
-        package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-        package.license = rpm[1014]
-        package.url = rpm[1020]
-        package.description = rpm[1005]
-        package.buildtime = Time.at(rpm[1006])
-        package.size = File.size(file)
-        package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
-        package.srpm_id = srpm.id
-        package.save!
+          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+        end
       rescue RuntimeError
         puts "Bad .rpm: " + file
       end
@@ -97,42 +101,46 @@ class Package < ActiveRecord::Base
   end
 
   def self.import_packages_noarch(vendor, branch, path)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        package = Package.new
-        package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.noarch.rpm'
-        package.sourcepackage = rpm[1044]
-        package.name = rpm.name
-        package.version = rpm.version.v
-        package.release = rpm.version.r
-        package.arch = rpm.arch
+        if b.srpms.where(:name => rpm[1044]).count == 1
+          package = Package.new
+          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.noarch.rpm'
+          package.sourcepackage = rpm[1044]
+          package.name = rpm.name
+          package.version = rpm.version.v
+          package.release = rpm.version.r
+          package.arch = rpm.arch
 
-        case rpm[1016].split('/').count
-        when 1
-          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
-        when 2
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
-        when 3
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          case rpm[1016].split('/').count
+          when 1
+            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+          when 2
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+          when 3
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          else
+            puts Time.now.to_s + ": too nested groups level"
+          end    
+
+          package.group_id = group.id
+          package.epoch = rpm[1003]
+          package.summary = rpm[1004]
+          package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+          package.license = rpm[1014]
+          package.url = rpm[1020]
+          package.description = rpm[1005]
+          package.buildtime = Time.at(rpm[1006])
+          package.size = File.size(file)
+          package.branch_id = b.id
+          srpm = b.srpms.where(:filename => rpm[1044]).first
+          package.srpm_id = srpm.id
+          package.save!
         else
-          puts Time.now.to_s + ": too nested groups level"
-        end    
-
-        package.group_id = group.id
-        package.epoch = rpm[1003]
-        package.summary = rpm[1004]
-        package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-        package.license = rpm[1014]
-        package.url = rpm[1020]
-        package.description = rpm[1005]
-        package.buildtime = Time.at(rpm[1006])
-        package.size = File.size(file)
-        package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
-        package.srpm_id = srpm.id
-        package.save!
+          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+        end
       rescue RuntimeError
         puts "Bad .rpm: " + file
       end
@@ -140,42 +148,46 @@ class Package < ActiveRecord::Base
   end
 
   def self.import_packages_x86_64(vendor, branch, path)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        package = Package.new
-        package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.x86_64.rpm'
-        package.sourcepackage = rpm[1044]
-        package.name = rpm.name
-        package.version = rpm.version.v
-        package.release = rpm.version.r
-        package.arch = rpm.arch
+        if b.srpms.where(:name => rpm[1044]).count == 1
+          package = Package.new
+          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.x86_64.rpm'
+          package.sourcepackage = rpm[1044]
+          package.name = rpm.name
+          package.version = rpm.version.v
+          package.release = rpm.version.r
+          package.arch = rpm.arch
 
-        case rpm[1016].split('/').count
-        when 1
-          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
-        when 2
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
-        when 3
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          case rpm[1016].split('/').count
+          when 1
+            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+          when 2
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+          when 3
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          else
+            puts Time.now.to_s + ": too nested groups level"
+          end    
+
+          package.group_id = group.id
+          package.epoch = rpm[1003]
+          package.summary = rpm[1004]
+          package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+          package.license = rpm[1014]
+          package.url = rpm[1020]
+          package.description = rpm[1005]
+          package.buildtime = Time.at(rpm[1006])
+          package.size = File.size(file)
+          package.branch_id = b.id
+          srpm = b.srpms.where(:filename => rpm[1044]).first
+          package.srpm_id = srpm.id
+          package.save!
         else
-          puts Time.now.to_s + ": too nested groups level"
-        end    
-
-        package.group_id = group.id
-        package.epoch = rpm[1003]
-        package.summary = rpm[1004]
-        package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-        package.license = rpm[1014]
-        package.url = rpm[1020]
-        package.description = rpm[1005]
-        package.buildtime = Time.at(rpm[1006])
-        package.size = File.size(file)
-        package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
-        package.srpm_id = srpm.id
-        package.save!
+          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+        end
       rescue RuntimeError
         puts "Bad .rpm: " + file
       end
@@ -183,42 +195,46 @@ class Package < ActiveRecord::Base
   end
   
   def self.import_packages_arm(vendor, branch, path)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
+    b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        package = Package.new
-        package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.' + rpm.arch + '.rpm'
-        package.sourcepackage = rpm[1044]
-        package.name = rpm.name
-        package.version = rpm.version.v
-        package.release = rpm.version.r
-        package.arch = rpm.arch
+        if b.srpms.where(:name => rpm[1044]).count == 1
+          package = Package.new
+          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.' + rpm.arch + '.rpm'
+          package.sourcepackage = rpm[1044]
+          package.name = rpm.name
+          package.version = rpm.version.v
+          package.release = rpm.version.r
+          package.arch = rpm.arch
         
-        case rpm[1016].split('/').count
-        when 1
-          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
-        when 2
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
-        when 3
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
-        else
-          puts Time.now.to_s + ": too nested groups level"
-        end    
+          case rpm[1016].split('/').count
+          when 1
+            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+          when 2
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+          when 3
+            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          else
+            puts Time.now.to_s + ": too nested groups level"
+          end    
 
-        package.group_id = group.id
-        package.epoch = rpm[1003]
-        package.summary = rpm[1004]
-        package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-        package.license = rpm[1014]
-        package.url = rpm[1020]
-        package.description = rpm[1005]
-        package.buildtime = Time.at(rpm[1006])
-        package.size = File.size(file)
-        package.branch_id = br.id
-        srpm = Srpm.find :first, :conditions => { :filename => rpm[1044], :branch_id => br.id }
-        package.srpm_id = srpm.id
-        package.save!
+          package.group_id = group.id
+          package.epoch = rpm[1003]
+          package.summary = rpm[1004]
+          package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+          package.license = rpm[1014]
+          package.url = rpm[1020]
+          package.description = rpm[1005]
+          package.buildtime = Time.at(rpm[1006])
+          package.size = File.size(file)
+          package.branch_id = b.id
+          srpm = b.srpms.where(:filename => rpm[1044]).first
+          package.srpm_id = srpm.id
+          package.save!
+        else
+          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+        end
       rescue RuntimeError
         puts "Bad .rpm: " + file
       end
