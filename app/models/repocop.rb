@@ -22,13 +22,12 @@ class Repocop < ActiveRecord::Base
   end
   
   def self.update_repocop_cache
-    branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
-    srpms = Srpm.all :conditions => { :branch_id => branch.id }
+    branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
+    srpms = branch.srpms.all
     srpms.each do |srpm|
-      repocops = Repocop.all :conditions => {
-                                :srcname => srpm.name,
-                                :srcversion => srpm.version,
-                                :srcrel => srpm.release }
+      repocops = Repocop.where(:srcname => srpm.name,
+                               :srcversion => srpm.version,
+                               :srcrel => srpm.release).all
 
       repocop_status = 'skip'
       repocops.each do |repocop|
