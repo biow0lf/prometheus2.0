@@ -115,6 +115,16 @@ class Srpm < ActiveRecord::Base
         Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
       end
       puts Time.now.to_s + ": updated '" + srpm.filename + "'"
+      puts Time.now.to_s + ": import changelog for '" + srpm.filename + "'"
+      rpm.changelog.each do |c|
+        changelog = Changelog.new
+        changelog.srpm_id = srpm.id
+        changelog.changelogname = c.name
+        changelog.changelogtime = c.time
+        changelog.changelogtext = c.text
+        changelog.save!                                                                                                                                              
+      end
+      puts Time.now.to_s + ": imported changelog for '" + srpm.filename + "'"
     else
       puts Time.now.to_s + ": failed to update '" + srpm.filename + "'"
     end
