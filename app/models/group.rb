@@ -21,8 +21,8 @@ class Group < ActiveRecord::Base
   end
 
   def self.import_groups(vendor, branch, url)
-    br = Branch.first :conditions => { :name => branch, :vendor => vendor }
-    if br.groups.count(:all) == 0
+    b = Branch.where(:name => branch, :vendor => vendor).first
+    if b.groups.count(:all) == 0
       file = open(URI.escape(url)).read
       file.each_line do |line|
         line.gsub!(/\n/,'')
@@ -31,23 +31,23 @@ class Group < ActiveRecord::Base
         param1 = line.split('/')[1]
         param2 = line.split('/')[2]
         
-        if !Group.first(:conditions => { :name => param0, :branch_id => br.id, :parent_id => nil } )
-          group0 = Group.create(:name => param0, :branch_id => br.id)
+        if !Group.first(:conditions => { :name => param0, :branch_id => b.id, :parent_id => nil })
+          group0 = Group.create(:name => param0, :branch_id => b.id)
         else
-          group0 = Group.first(:conditions => { :name => param0, :branch_id => br.id, :parent_id => nil } )
+          group0 = Group.first(:conditions => { :name => param0, :branch_id => b.id, :parent_id => nil })
         end
         
         if param1 != nil
-          if !Group.first(:conditions => { :name => param1, :branch_id => br.id, :parent_id => group0.id } )
-            group1 = Group.create(:name => param1, :branch_id => br.id)
+          if !Group.first(:conditions => { :name => param1, :branch_id => b.id, :parent_id => group0.id })
+            group1 = Group.create(:name => param1, :branch_id => b.id)
             group1.move_to_child_of(group0)
           else
-            group1 = Group.first(:conditions => { :name => param1, :branch_id => br.id, :parent_id => group0.id } )
+            group1 = Group.first(:conditions => { :name => param1, :branch_id => b.id, :parent_id => group0.id })
           end
         end
         
         if param2 != nil
-          group2 = Group.create(:name => param2, :branch_id => br.id)
+          group2 = Group.create(:name => param2, :branch_id => b.id)
           group2.move_to_child_of(group1)
         end
       end
