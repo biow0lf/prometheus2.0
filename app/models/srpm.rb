@@ -16,7 +16,7 @@ class Srpm < ActiveRecord::Base
   end
 
   def self.import_srpms(vendor, branch, path)
-    br = Branch.where(:name => branch, :vendor => vendor).first
+    b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
@@ -28,11 +28,11 @@ class Srpm < ActiveRecord::Base
 
         case rpm[1016].split('/').count
         when 1
-          group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+          group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
         when 2
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+          group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
         when 3
-          group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
         else
           puts Time.now.to_s + ": too nested groups level"
         end
@@ -48,7 +48,7 @@ class Srpm < ActiveRecord::Base
         srpm.distribution = rpm[1010]
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
-        srpm.branch_id = br.id
+        srpm.branch_id = b.id
         srpm.save!
       rescue RuntimeError
         puts "Bad .src.rpm: " + file
@@ -57,14 +57,14 @@ class Srpm < ActiveRecord::Base
   end
   
   def self.import_srpm(vendor, branch, file)
-    br = Branch.where(:name => branch, :vendor => vendor).first
+    b = Branch.where(:name => branch, :vendor => vendor).first
     rpm = RPM::Package::open(file)
-    if Srpm.count(:all, :conditions => { :branch_id => br.id, :name => rpm.name }) >= 1
-      br.srpms.where(:name => rpm.name).first.packages.each do |package|
-        $redis.del br.name + ":" + package.filename
+    if b.srpms.where(:name => rpm.name).all.count >= 1
+      b.srpms.where(:name => rpm.name).first.packages.each do |package|
+        $redis.del b.name + ":" + package.filename
       end
-      $redis.del br.name + ":" + br.srpms.where(:name => rpm.name).first.filename
-      Srpm.destroy_all(:branch_id => br.id, :name => rpm.name)
+      $redis.del b.name + ":" + b.srpms.where(:name => rpm.name).first.filename
+      Srpm.destroy_all(:branch_id => b.id, :name => rpm.name)
     end
     srpm = Srpm.new
     srpm.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.src.rpm'
@@ -74,11 +74,11 @@ class Srpm < ActiveRecord::Base
     
     case rpm[1016].split('/').count
     when 1
-      group = br.groups.where(:name => rpm[1016], :parent_id => nil).first
+      group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
     when 2
-      group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+      group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
     when 3
-      group = br.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+      group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
     else
       puts Time.now.to_s + ": too nested groups level"
     end
@@ -94,24 +94,24 @@ class Srpm < ActiveRecord::Base
     srpm.distribution = rpm[1010]
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
-    srpm.branch_id = br.id
+    srpm.branch_id = b.id
     if srpm.save
-      $redis.set br.name + ":" + srpm.filename, 1
-      if br.name == 'Sisyphus' and br.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
-        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
-      elsif br.name == '5.1' and br.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
-        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
-      elsif br.name == '5.0' and br.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
-        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
-      elsif br.name == '4.1' and br.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
-        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
-      elsif br.name == '4.0' and br.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
-        Acl.create_acls_for_package(br.vendor, br.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
+      $redis.set b.name + ":" + srpm.filename, 1
+      if b.name == 'Sisyphus' and b.vendor == 'ALT Linux'
+        Leader.create_leader_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
+        Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
+      elsif b.name == '5.1' and b.vendor == 'ALT Linux'
+        Leader.create_leader_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
+        Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
+      elsif b.name == '5.0' and b.vendor == 'ALT Linux'
+        Leader.create_leader_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
+        Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
+      elsif b.name == '4.1' and b.vendor == 'ALT Linux'
+        Leader.create_leader_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
+        Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
+      elsif b.name == '4.0' and b.vendor == 'ALT Linux'
+        Leader.create_leader_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
+        Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
       end
       puts Time.now.to_s + ": updated '" + srpm.filename + "'"
     else
