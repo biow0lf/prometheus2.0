@@ -5,4 +5,6 @@ class Changelog < ActiveRecord::Base
   validates :changelogtext, :presence => true
 
   belongs_to :srpm
+  
+  default_scope :order => 'created_at ASC'
 end
