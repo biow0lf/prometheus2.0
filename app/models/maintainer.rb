@@ -46,11 +46,11 @@ class Maintainer < ActiveRecord::Base
 
         if maintainer_domain == 'packages.altlinux.org'
           if Maintainer.count(:all, :conditions => { :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
-            Maintainer.create :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email
+            Maintainer.create(:team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email)
           end
         else
           if Maintainer.count(:all, :conditions => { :team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
-            Maintainer.create :team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email
+            Maintainer.create(:team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email)
           end
         end
       rescue RuntimeError
