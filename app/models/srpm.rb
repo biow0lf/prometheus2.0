@@ -50,7 +50,16 @@ class Srpm < ActiveRecord::Base
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
         srpm.branch_id = b.id
-        srpm.save!
+        if srpm.save
+          rpm.changelog.each do |c|
+            changelog = Changelog.new
+            changelog.srpm_id = srpm.id
+            changelog.changelogname = c.name
+            changelog.changelogtime = c.time
+            changelog.changelogtext = c.text
+            changelog.save!                                                                                                                                              
+          end
+        end        
       rescue RuntimeError
         puts "Bad .src.rpm: " + file
       end
