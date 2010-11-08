@@ -10,7 +10,7 @@ class Package < ActiveRecord::Base
   def self.import_rpm(vendor, branch, file)
     b = Branch.where(:name => branch, :vendor => vendor).first
     rpm = RPM::Package::open(file)
-    if b.srpms.where(:name => rpm[1044]).count == 1
+    if b.srpms.where(:filename => rpm[1044]).count == 1
       package = Package.new
       package.filename = file.split('/')[-1]
       package.sourcepackage = rpm[1044]
@@ -58,7 +58,7 @@ class Package < ActiveRecord::Base
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:name => rpm[1044]).count == 1
+        if b.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.i586.rpm'
           package.sourcepackage = rpm[1044]
@@ -105,7 +105,7 @@ class Package < ActiveRecord::Base
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:name => rpm[1044]).count == 1
+        if b.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.noarch.rpm'
           package.sourcepackage = rpm[1044]
@@ -152,7 +152,7 @@ class Package < ActiveRecord::Base
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:name => rpm[1044]).count == 1
+        if b.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.x86_64.rpm'
           package.sourcepackage = rpm[1044]
@@ -199,7 +199,7 @@ class Package < ActiveRecord::Base
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:name => rpm[1044]).count == 1
+        if b.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.' + rpm.arch + '.rpm'
           package.sourcepackage = rpm[1044]
