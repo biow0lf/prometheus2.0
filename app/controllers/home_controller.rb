@@ -5,6 +5,12 @@ class HomeController < ApplicationController
     @top15 = Maintainer.top15
   end
 
+  def index_new
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @top15 = Maintainer.top15
+    @srpms = @branch.srpms.where('created_at > ?', 6.hours.ago).order('created_at ASC').all
+  end
+
   def search
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     if params[:request].nil?
