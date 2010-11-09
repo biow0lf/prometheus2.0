@@ -2,7 +2,7 @@ namespace :platform5 do
   desc "Import RPM groups for Platform5 to database"
   task :groups => :environment do
     require 'open-uri'
-    puts Time.now.to_s + ": import groups"
+    puts Time.now.to_s + ": import RPM groups for Platform5 to database"
     Group.import_groups 'ALT Linux', 'Platform5', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
     puts Time.now.to_s + ": end"
   end
@@ -10,7 +10,7 @@ namespace :platform5 do
   desc "Import *.src.rpm from Platform5 to database"
   task :srpms => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import src.rpm's"
+    puts Time.now.to_s + ": import *.src.rpm from Platform5 to database"
     Srpm.import_srpms 'ALT Linux', 'Platform5', "/ALT/p5/files/SRPMS/*.src.rpm"
     puts Time.now.to_s + ": end"
   end
@@ -18,7 +18,7 @@ namespace :platform5 do
   desc "Import *.i586.rpm from Platform5 to database"
   task :i586 => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import i586.rpm's"
+    puts Time.now.to_s + ": import *.i586.rpm from Platform5 to database"
     Package.import_packages_i586 'ALT Linux', 'Platform5', "/ALT/p5/files/i586/RPMS/*.i586.rpm"
     puts Time.now.to_s + ": end"
   end
@@ -26,7 +26,7 @@ namespace :platform5 do
   desc "Import *.noarch.rpm from Platform5 to database"
   task :noarch => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import noarch.rpm's"
+    puts Time.now.to_s + ": import *.noarch.rpm from Platform5 to database"
     Package.import_packages_noarch 'ALT Linux', 'Platform5', "/ALT/p5/files/noarch/RPMS/*.noarch.rpm"
     puts Time.now.to_s + ": end"
   end
@@ -34,7 +34,7 @@ namespace :platform5 do
   desc "Import *.x86_64.rpm from Platform5 to database"
   task :x86_64 => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import x86_64.rpm's"
+    puts Time.now.to_s + ": import *.x86_64.rpm from Platform5 to database"
     Package.import_packages_x86_64 'ALT Linux', 'Platform5', "/ALT/p5/files/x86_64/RPMS/*.x86_64.rpm"
     puts Time.now.to_s + ": end"
   end
