@@ -2,13 +2,9 @@ class HomeController < ApplicationController
 #  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :maintainers_list
 
   def index
-    @top15 = Maintainer.top15
-  end
-
-  def index_new
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @top15 = Maintainer.top15
-    @srpms = @branch.srpms.where('created_at > ?', 6.hours.ago).order('created_at ASC').all
+    @srpms = @branch.srpms.where("created_at > '2010-11-09 09:00:00'").order('created_at ASC').all
   end
 
   def search

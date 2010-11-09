@@ -3,7 +3,6 @@ SUPPORTED_LOCALES = /(en|ru|uk|br)/
 Prometheus20::Application.routes.draw do
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/misc/test' => 'misc#test'
-  match '/test' => 'home#index_new'
 
   match '(/:locale)/iphone/' => 'iphone#index', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
