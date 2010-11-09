@@ -6,5 +6,5 @@ class Changelog < ActiveRecord::Base
 
   belongs_to :srpm
   
-  default_scope :order => 'created_at ASC'
+  #default_scope :order => 'created_at ASC'
 end
