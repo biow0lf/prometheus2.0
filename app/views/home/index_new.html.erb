@@ -21,7 +21,7 @@
   </span>
 
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;сборка
-	<%= link_to srpm.maintainer.name, maintainer_info_path(:login => srpm.maintainer.login), :class => 'news', :title => _('information about maintainer') %>, <%= @srpm.buildtime %>
+	<%= link_to srpm.maintainer.name, maintainer_info_path(:login => srpm.maintainer.login), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
   </span>
 
   <div id="pkg-<%= srpm.name %>" style="display:block;margin-top:1em;">
