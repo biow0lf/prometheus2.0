@@ -14,8 +14,8 @@ class SrpmController < ApplicationController
   def changelog
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = @branch.srpms.where(:name => params[:name]).includes(:group, :branch).first
-    @changelogs = @srpm.changelog.order('created_at ASC').all
     if @srpm != nil
+      @changelogs = @srpm.changelog.order('created_at ASC').all
       @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id").all
     else
       render :status => 404, :action => "nosuchpackage"
