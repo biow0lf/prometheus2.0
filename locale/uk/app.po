@@ -949,5 +949,3 @@ msgstr "uk"
 msgid "were found"
 msgstr "було знайдено"
 
-#~ msgid "Latest changes"
-#~ msgstr "Останні зміни в пакетній базі"
