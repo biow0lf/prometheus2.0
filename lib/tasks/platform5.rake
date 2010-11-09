@@ -47,11 +47,12 @@ namespace :platform5 do
     puts Time.now.to_s + ": end"
   end
 
-  desc "Import all teams from Platform5 to database"
-  task :teams => :environment do
-    require 'open-uri'
-    puts Time.now.to_s + ": import teams"
-    Team.import_teams 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
-    puts Time.now.to_s + ": end"
-  end
+# TODO: remove this
+#  desc "Import all teams from Platform5 to database"
+#  task :teams => :environment do
+#    require 'open-uri'
+#    puts Time.now.to_s + ": import teams"
+#    Team.import_teams 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
+#    puts Time.now.to_s + ": end"
+#  end
 end
