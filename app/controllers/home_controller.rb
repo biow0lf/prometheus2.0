@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @top15 = Maintainer.top15
-    @srpms = @branch.srpms.where("created_at > '2010-11-09 09:00:00'").order('created_at ASC').all
+    @srpms = @branch.srpms.where("created_at > '2010-11-09 09:00:00'").order('created_at DESC').all
   end
 
   def search
