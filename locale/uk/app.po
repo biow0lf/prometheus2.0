@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2010-10-28 01:17+0300\n"
+"POT-Creation-Date: 2010-11-09 14:59+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -73,7 +73,7 @@ msgstr "&raquo; - Пакети"
 msgid "&raquo; - Repocop"
 msgstr "&raquo; - Repocop"
 
-#: app/views/home/index.html.erb:59
+#: app/views/home/index.html.erb:88
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr "<b>A:</b> Складіть фільтр для rsync, на основі даної"
 
@@ -110,7 +110,7 @@ msgid ""
 "development within a small group or even one's self."
 msgstr ""
 
-#: app/views/home/index.html.erb:59
+#: app/views/home/index.html.erb:88
 msgid ""
 "<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
 "them?"
@@ -149,7 +149,7 @@ msgstr "ACL's"
 msgid "ACL:"
 msgstr "ACL:"
 
-#: app/views/layouts/application.html.erb:151
+#: app/views/layouts/application.html.erb:152
 msgid "ALT Linux Planet"
 msgstr "ALT Linux Planet"
 
@@ -164,12 +164,12 @@ msgid "ALT Linux repositories"
 msgstr ""
 
 #: app/views/iphone/index.html.erb:13
-#: app/views/layouts/application.html.erb:130
+#: app/views/layouts/application.html.erb:131
 msgid "About"
 msgstr "Про проект"
 
 #: app/views/iphone/index.html.erb:16
-#: app/views/layouts/application.html.erb:146
+#: app/views/layouts/application.html.erb:147
 msgid "Blog"
 msgstr "Блог"
 
@@ -209,11 +209,11 @@ msgstr "Час збірки:"
 msgid "Changelog"
 msgstr "Зміни"
 
-#: app/views/home/bygroup.html.erb:14
+#: app/views/home/bygroup.html.erb:14 app/views/home/index.html.erb:38
 msgid "Changes:"
 msgstr "Зміни:"
 
-#: app/views/srpm/download.html.erb:90
+#: app/views/srpm/download.html.erb:87
 msgid "Choose a mirror:"
 msgstr "Виберіть дзеркало:"
 
@@ -236,7 +236,7 @@ msgstr "Опис:"
 msgid "Download"
 msgstr "Завантажити"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "English"
 msgstr "English"
 
@@ -260,11 +260,15 @@ msgstr "Gear"
 msgid "Group"
 msgstr "Групa"
 
+#: app/views/home/index.html.erb:28
+msgid "Group:"
+msgstr ""
+
 #: app/views/rsync/index.html.erb:19
 msgid "Groups:"
 msgstr ""
 
-#: app/views/layouts/application.html.erb:105
+#: app/views/layouts/application.html.erb:106
 msgid "Home"
 msgstr "Головна"
 
@@ -286,13 +290,9 @@ msgstr "Інформація"
 msgid "Information:"
 msgstr "Інформація:"
 
-#: app/views/layouts/application.html.erb:94
+#: app/views/layouts/application.html.erb:95
 msgid "Last update:"
 msgstr "Останнє оновлення:"
-
-#: app/views/home/index.html.erb:13
-msgid "Latest changes"
-msgstr "Останні зміни в пакетній базі"
 
 #: app/views/srpm/main.html.erb:45
 msgid "License:"
@@ -311,7 +311,7 @@ msgid "List of rpms provided by this srpm:"
 msgstr "Перелік rpm-пакетів, що надаються цим srpm-пакетом:"
 
 #: app/views/iphone/index.html.erb:18
-#: app/views/layouts/application.html.erb:157
+#: app/views/layouts/application.html.erb:158
 msgid "Mailing list"
 msgstr "Розсилка"
 
@@ -333,12 +333,16 @@ msgstr "Майнтейнер:"
 
 #: app/views/home/maintainers_list.html.erb:5
 #: app/views/iphone/index.html.erb:10 app/views/iphone/index.html.erb:27
-#: app/views/layouts/application.html.erb:120
+#: app/views/layouts/application.html.erb:121
 msgid "Maintainers"
 msgstr "Майнтейнери"
 
+#: app/views/home/index.html.erb:15
+msgid "New SRPMs"
+msgstr ""
+
 #: app/views/iphone/index.html.erb:8
-#: app/views/layouts/application.html.erb:110
+#: app/views/layouts/application.html.erb:111
 msgid "News"
 msgstr "Новини"
 
@@ -364,7 +368,7 @@ msgstr "Групи пакетів"
 
 #: app/views/iphone/index.html.erb:9 app/views/iphone/index.html.erb:21
 #: app/views/iphone/maintainer_info.html.erb:9
-#: app/views/layouts/application.html.erb:115
+#: app/views/layouts/application.html.erb:116
 #: app/views/maintainer/acls.html.erb:6
 #: app/views/maintainer/allbugs.html.erb:6
 #: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
@@ -379,11 +383,11 @@ msgid "Packages built by this maintainer:"
 msgstr "Усього пакетів, зібраних майнтейнером:"
 
 #: app/views/iphone/index.html.erb:17
-#: app/views/layouts/application.html.erb:151
+#: app/views/layouts/application.html.erb:152
 msgid "Planet"
 msgstr "Планета"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "Portuguese (Brasilian)"
 msgstr "Portuguese (Brasilian)"
 
@@ -479,7 +483,7 @@ msgstr[1] "пакетa:"
 msgstr[2] "пакетов:"
 
 #: app/views/iphone/index.html.erb:14
-#: app/views/layouts/application.html.erb:135
+#: app/views/layouts/application.html.erb:136
 msgid "RSS"
 msgstr "RSS"
 
@@ -501,11 +505,11 @@ msgstr "Repocop"
 msgid "Repocop messages:"
 msgstr "Повідомлення від repocop:"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "Russian"
 msgstr "Russian"
 
-#: app/views/layouts/application.html.erb:94
+#: app/views/layouts/application.html.erb:95
 msgid "SRPMs:"
 msgstr "Пакетів:"
 
@@ -514,7 +518,7 @@ msgid "Search"
 msgstr "Пошук"
 
 #: app/views/iphone/index.html.erb:12 app/views/iphone/index.html.erb:39
-#: app/views/layouts/application.html.erb:125
+#: app/views/layouts/application.html.erb:126
 msgid "Security"
 msgstr "Безпека"
 
@@ -546,11 +550,11 @@ msgid ""
 "<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
 msgstr ""
 
-#: app/views/layouts/application.html.erb:72
+#: app/views/layouts/application.html.erb:73
 msgid "Sisyphus repository"
 msgstr "Репозиторій Sisyphus"
 
-#: app/views/home/index.html.erb:59
+#: app/views/home/index.html.erb:88
 msgid "Sisyphus sync"
 msgstr "Синхронізація Sisyphus"
 
@@ -576,15 +580,16 @@ msgstr "Спек"
 msgid "Summary"
 msgstr "Про пакет"
 
-#: app/views/home/bygroup.html.erb:12 app/views/srpm/main.html.erb:47
+#: app/views/home/bygroup.html.erb:12 app/views/home/index.html.erb:37
+#: app/views/srpm/main.html.erb:47
 msgid "Summary:"
 msgstr "Про пакет:"
 
-#: app/views/home/index.html.erb:42
+#: app/views/home/index.html.erb:71
 msgid "TOP RPMs"
 msgstr "TOP пакети"
 
-#: app/views/home/index.html.erb:23
+#: app/views/home/index.html.erb:52
 msgid "TOP maintainers"
 msgstr "TOP майнтейнери"
 
@@ -618,7 +623,7 @@ msgstr "Усього записів:"
 msgid "Total:"
 msgstr "Усього записів:"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
@@ -627,11 +632,11 @@ msgid "Url"
 msgstr "Url"
 
 #: app/views/iphone/index.html.erb:15
-#: app/views/layouts/application.html.erb:140
+#: app/views/layouts/application.html.erb:141
 msgid "Wiki"
 msgstr "Wiki"
 
-#: app/views/layouts/application.html.erb:130
+#: app/views/layouts/application.html.erb:131
 msgid "about Prometheus project"
 msgstr "проект Prometheus"
 
@@ -644,7 +649,7 @@ msgstr "вік"
 msgid "ago"
 msgstr "назад"
 
-#: app/views/home/index.html.erb:17
+#: app/views/home/index.html.erb:46
 msgid "another transfers"
 msgstr "інші трансфери"
 
@@ -652,19 +657,23 @@ msgstr "інші трансфери"
 msgid "any"
 msgstr ""
 
-#: app/views/layouts/application.html.erb:146
+#: app/views/layouts/application.html.erb:147
 msgid "blog"
 msgstr "блог про sisyphus"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "br"
 msgstr "br"
+
+#: app/views/home/index.html.erb:23
+msgid "build"
+msgstr ""
 
 #: app/views/maintainer/srpms.html.erb:14 app/views/team/info.html.erb:29
 msgid "build time"
 msgstr "час збірки"
 
-#: app/views/layouts/application.html.erb:157
+#: app/views/layouts/application.html.erb:158
 msgid "community-en@"
 msgstr "sisyphus@"
 
@@ -677,7 +686,7 @@ msgstr "поточна<br />версія"
 msgid "detailed information about RPM"
 msgstr "Детальна інформація про пакет"
 
-#: app/views/home/bygroup.html.erb:8
+#: app/views/home/bygroup.html.erb:8 app/views/home/index.html.erb:20
 msgid "detailed information about the package"
 msgstr "детальна інформація про пакет"
 
@@ -688,15 +697,15 @@ msgstr "детальна інформація про пакет"
 msgid "download latest version"
 msgstr "завантажити останню версію пакета"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "en"
 msgstr "en"
 
-#: app/views/layouts/application.html.erb:83
+#: app/views/layouts/application.html.erb:84
 msgid "find"
 msgstr "пошук"
 
-#: app/views/home/index.html.erb:59
+#: app/views/home/index.html.erb:88
 msgid "form"
 msgstr "форми"
 
@@ -719,30 +728,30 @@ msgstr "gear"
 msgid "generate"
 msgstr ""
 
-#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:44
-#: app/views/home/index.html.erb:56 app/views/srpm/changelog.html.erb:9
+#: app/views/home/index.html.erb:54 app/views/home/index.html.erb:73
+#: app/views/home/index.html.erb:85 app/views/srpm/changelog.html.erb:9
 #: app/views/srpm/download.html.erb:9 app/views/srpm/main.html.erb:9
 #: app/views/srpm/rawspec.html.erb:9
 msgid "hide window"
 msgstr "згорнути вікно"
 
 #: app/views/iphone/index.html.erb:15
-#: app/views/layouts/application.html.erb:140
+#: app/views/layouts/application.html.erb:141
 msgid "http://en.altlinux.org/Sisyphus"
 msgstr "http://www.altlinux.org/Sisyphus"
 
 #: app/views/iphone/index.html.erb:18
-#: app/views/layouts/application.html.erb:157
+#: app/views/layouts/application.html.erb:158
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
 msgstr "http://lists.altlinux.org/mailman/listinfo/sisyphus/"
 
 #: app/views/iphone/index.html.erb:17
-#: app/views/layouts/application.html.erb:151
+#: app/views/layouts/application.html.erb:152
 msgid "http://planet.altlinux.org/"
 msgstr "http://planet.altlinux.org/"
 
 #: app/views/iphone/index.html.erb:16
-#: app/views/layouts/application.html.erb:146
+#: app/views/layouts/application.html.erb:147
 msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
@@ -759,7 +768,7 @@ msgstr "id"
 msgid "information about SRPM"
 msgstr "переглянути інформацію про пакет"
 
-#: app/views/maintainer/acls.html.erb:6
+#: app/views/home/index.html.erb:24 app/views/maintainer/acls.html.erb:6
 #: app/views/maintainer/allbugs.html.erb:6
 #: app/views/maintainer/bugs.html.erb:6 app/views/maintainer/gear.html.erb:6
 #: app/views/maintainer/repocop.html.erb:7
@@ -768,7 +777,7 @@ msgstr "переглянути інформацію про пакет"
 msgid "information about maintainer"
 msgstr "переглянути інформацію про майнтейнера"
 
-#: app/views/home/index.html.erb:32 app/views/team/info.html.erb:9
+#: app/views/home/index.html.erb:61 app/views/team/info.html.erb:9
 #: app/views/team/info.html.erb:16
 msgid "information about the packager"
 msgstr "інформація про пакувальника"
@@ -783,7 +792,7 @@ msgstr ""
 msgid "list of bugs and feature requests"
 msgstr "перелік багів та пропозицій по покращенню"
 
-#: app/views/layouts/application.html.erb:120
+#: app/views/layouts/application.html.erb:121
 msgid "maintainers information"
 msgstr "інформація про майнтейнерів"
 
@@ -809,7 +818,7 @@ msgstr "пакет"
 msgid "package id"
 msgstr "id пакета"
 
-#: app/views/layouts/application.html.erb:115
+#: app/views/layouts/application.html.erb:116
 msgid "packages information"
 msgstr "інформація про пакети"
 
@@ -820,7 +829,7 @@ msgstr "інформація про пакети"
 msgid "packages which was built by this maintainer"
 msgstr "переглянути пакети, зібрані майнтейнером"
 
-#: app/views/home/index.html.erb:17
+#: app/views/home/index.html.erb:46
 msgid "previous releases"
 msgstr ""
 
@@ -849,7 +858,7 @@ msgstr "повідомлено"
 msgid "resolution"
 msgstr "дозвіл"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "ru"
 msgstr "ru"
 
@@ -857,7 +866,7 @@ msgstr "ru"
 msgid "search"
 msgstr "шукати"
 
-#: app/views/layouts/application.html.erb:125
+#: app/views/layouts/application.html.erb:126
 msgid "security fixes"
 msgstr "виправлення вразливостей"
 
@@ -867,23 +876,23 @@ msgstr "виправлення вразливостей"
 msgid "severity"
 msgstr "важливість"
 
-#: app/views/layouts/application.html.erb:140
+#: app/views/layouts/application.html.erb:141
 msgid "sisyphus public site"
 msgstr "громадський сайт sisyphus"
 
-#: app/views/layouts/application.html.erb:105
+#: app/views/layouts/application.html.erb:106
 msgid "site home page"
 msgstr "головна сторінка сайта"
 
-#: app/views/layouts/application.html.erb:110
+#: app/views/layouts/application.html.erb:111
 msgid "site news"
 msgstr "новини сайта"
 
-#: app/views/home/index.html.erb:22
+#: app/views/home/index.html.erb:51
 msgid "sort maintainers by amount of packages"
 msgstr "вибірка лідерів за кількістю пакетів"
 
-#: app/views/home/index.html.erb:41
+#: app/views/home/index.html.erb:70
 msgid "sort packages by amount of releases in the last half of year"
 msgstr "вибірка пакетів за кількістю релізів за останні пів-року"
 
@@ -918,11 +927,11 @@ msgstr "тест"
 msgid "this package in gear repositories"
 msgstr "наявність пакета в репозитаріях gear"
 
-#: app/views/home/index.html.erb:54
+#: app/views/home/index.html.erb:83
 msgid "tips &amp; tricks"
 msgstr "корисні поради"
 
-#: app/views/home/index.html.erb:53
+#: app/views/home/index.html.erb:82
 msgid "tips and tricks"
 msgstr "корисні поради"
 
@@ -932,10 +941,13 @@ msgstr "корисні поради"
 msgid "total"
 msgstr "всі баги"
 
-#: app/views/layouts/application.html.erb:97
+#: app/views/layouts/application.html.erb:98
 msgid "uk"
 msgstr "uk"
 
 #: app/views/home/search.html.erb:11
 msgid "were found"
 msgstr "було знайдено"
+
+#~ msgid "Latest changes"
+#~ msgstr "Останні зміни в пакетній базі"
