@@ -39,14 +39,6 @@ namespace :platform5 do
     puts Time.now.to_s + ": end"
   end
 
-  desc "Import all ACL for packages from Platform5 to database (leaders)"
-  task :leaders => :environment do
-    require 'open-uri'
-    puts Time.now.to_s + ": import leaders"
-    Leader.import_leaders 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5'
-    puts Time.now.to_s + ": end"
-  end
-
   desc "Import maintainers list from src.rpm from Platform5 to database"
   task :maintainers => :environment do
     require 'rpm'
