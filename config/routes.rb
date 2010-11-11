@@ -4,7 +4,7 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/misc/test' => 'misc#test'
   
-  match '/index_new' => 'home#index_new'
+  match '/rss_new' => 'home#fresh_srpms_rss'
 
   match '(/:locale)/iphone/' => 'iphone#index', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }

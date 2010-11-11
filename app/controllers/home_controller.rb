@@ -41,4 +41,11 @@ class HomeController < ApplicationController
     @maintainers = Maintainer.find_all_maintainers_in_sisyphus
     @teams = Maintainer.find_all_teams_in_sisyphus
   end
+  
+  def fresh_srpms_rss
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @srpms = @branch.srpms.where("srpms.created_at > ?", Time.now - 2.day).includes(:group, :maintainer).order('srpms.created_at DESC').all
+    render :layout => nil
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
 end
