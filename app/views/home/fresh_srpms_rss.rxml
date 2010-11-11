@@ -10,9 +10,9 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
    @srpms.each do |srpm|
      xml.item do
        xml.title       "#{srpm.name}-#{srpm.version}-#{srpm.release}"
-       xml.link        url_for :only_path => false, :controller => 'srpm', :action => 'info'
+       xml.link        url_for :only_path => false, :controller => 'srpm', :action => 'main', :name => srpm.name
        xml.description 'TODO'
-       xml.guid        url_for :only_path => false, :controller => 'srpm', :action => 'info'
+       xml.guid        url_for :only_path => false, :controller => 'srpm', :action => 'main', :name => srpm.name
      end
    end
 
