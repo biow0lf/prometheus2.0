@@ -7,6 +7,8 @@ gem 'pg'
 gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
 
+gem 'will_paginate', '~> 3.0.pre2'
+
 gem 'meta_search'
 gem 'meta_where'
 
@@ -18,11 +20,6 @@ gem 'newrelic_rpm'
 
 gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/rails/exception_notification.git'
 
-group :development do
-  gem 'ruby-debug'
-  gem 'sqlite3-ruby'
-end
-
-group :test do
-  gem 'sqlite3-ruby'
-end
+gem 'ruby-debug', :group => :development
+gem 'sqlite3-ruby', :group => :development
+gem 'sqlite3-ruby', :group => :test

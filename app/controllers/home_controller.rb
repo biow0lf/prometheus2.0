@@ -9,6 +9,12 @@ class HomeController < ApplicationController
     @srpms = @branch.srpms.where("created_at > '2010-11-09 09:00:00'").includes(:group, :maintainer).order('created_at DESC').all
   end
 
+  def index_new
+    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    @top15 = Maintainer.top15
+    @srpms = @branch.srpms.where("created_at > '2010-11-09 09:00:00'").includes(:group, :maintainer).order('created_at DESC').paginate(:page => params[:page], :per_page => 100).all
+  end
+
   def search
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     if params[:request].nil?
