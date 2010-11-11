@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 #  caches_page :index, :project, :news, :security, :rss, :groups_list, :bygroup, :maintainers_list
 
-  caches_page :index
+#  caches_page :index
 
   def index
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
