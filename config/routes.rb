@@ -14,7 +14,7 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/find.shtml' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/news' => 'pages#news', :as => 'news', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/rss' => 'pages#rss', :as => 'rss', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/rss' => 'rss#index', :as => 'rss', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/project' => 'pages#project', :as => 'project', :constraints => { :locale => SUPPORTED_LOCALES }
 
