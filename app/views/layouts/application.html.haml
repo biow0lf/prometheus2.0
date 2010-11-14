@@ -12,7 +12,7 @@
     %script{ :src => 'http://www.google.com/jsapi', :type => 'text/javascript' }
     %script{ :type => 'text/javascript' }
       google.load("prototype", "1.6.1.0");
-    = javascript_include_tag 'rails.js', 'fastinit.js', 'tablekit.js', 'repocop.js', params[:locale] + '/local.js', :cache => "main_" + params[:locale]
+    = javascript_include_tag 'rails.js', 'repocop.js', params[:locale] + '/local.js', :cache => "main_" + params[:locale]
 
     :javascript
       function chText(txt1, txt2, did) {
