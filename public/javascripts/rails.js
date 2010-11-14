@@ -1,192 +1,156 @@
-(function() {
-  // Technique from Juriy Zaytsev
-  // http://thinkweb2.com/projects/prototype/detecting-event-support-without-browser-sniffing/
-  function isEventSupported(eventName) {
-    var el = document.createElement('div');
-    eventName = 'on' + eventName;
-    var isSupported = (eventName in el);
-    if (!isSupported) {
-      el.setAttribute(eventName, 'return;');
-      isSupported = typeof el[eventName] == 'function';
-    }
-    el = null;
-    return isSupported;
-  }
+/*
+ * jquery-ujs
+ *
+ * http://github.com/rails/jquery-ujs/blob/master/src/rails.js
+ *
+ * This rails.js file supports jQuery 1.4.3 and 1.4.4 .
+ *
+ */ 
 
-  function isForm(element) {
-    return Object.isElement(element) && element.nodeName.toUpperCase() == 'FORM';
-  }
+jQuery(function ($) {
+    var csrf_token = $('meta[name=csrf-token]').attr('content'),
+        csrf_param = $('meta[name=csrf-param]').attr('content');
 
-  function isInput(element) {
-    if (Object.isElement(element)) {
-      var name = element.nodeName.toUpperCase();
-      return name == 'INPUT' || name == 'SELECT' || name == 'TEXTAREA';
-    }
-    else return false;
-  }
+    $.fn.extend({
+        /**
+         * Triggers a custom event on an element and returns the event result
+         * this is used to get around not being able to ensure callbacks are placed
+         * at the end of the chain.
+         *
+         * TODO: deprecate with jQuery 1.4.2 release, in favor of subscribing to our
+         *       own events and placing ourselves at the end of the chain.
+         */
+        triggerAndReturn: function (name, data) {
+            var event = new $.Event(name);
+            this.trigger(event, data);
 
-  var submitBubbles = isEventSupported('submit'),
-      changeBubbles = isEventSupported('change');
+            return event.result !== false;
+        },
 
-  if (!submitBubbles || !changeBubbles) {
-    // augment the Event.Handler class to observe custom events when needed
-    Event.Handler.prototype.initialize = Event.Handler.prototype.initialize.wrap(
-      function(init, element, eventName, selector, callback) {
-        init(element, eventName, selector, callback);
-        // is the handler being attached to an element that doesn't support this event?
-        if ( (!submitBubbles && this.eventName == 'submit' && !isForm(this.element)) ||
-             (!changeBubbles && this.eventName == 'change' && !isInput(this.element)) ) {
-          // "submit" => "emulated:submit"
-          this.eventName = 'emulated:' + this.eventName;
+        /**
+         * Handles execution of remote calls. Provides following callbacks:
+         *
+         * - ajax:before   - is execute before the whole thing begings
+         * - ajax:loading  - is executed before firing ajax call
+         * - ajax:success  - is executed when status is success
+         * - ajax:complete - is execute when status is complete
+         * - ajax:failure  - is execute in case of error
+         * - ajax:after    - is execute every single time at the end of ajax call 
+         */
+        callRemote: function () {
+            var el      = this,
+                method  = el.attr('method') || el.attr('data-method') || 'GET',
+                url     = el.attr('action') || el.attr('href'),
+                dataType  = el.attr('data-type')  || 'script';
+
+            if (url === undefined) {
+                throw "No URL specified for remote call (action or href must be present).";
+            } else {
+                if (el.triggerAndReturn('ajax:before')) {
+                    var data = el.is('form') ? el.serializeArray() : [];
+                    $.ajax({
+                        url: url,
+                        data: data,
+                        dataType: dataType,
+                        type: method.toUpperCase(),
+                        beforeSend: function (xhr) {
+                            el.trigger('ajax:loading', xhr);
+                        },
+                        success: function (data, status, xhr) {
+                            el.trigger('ajax:success', [data, status, xhr]);
+                        },
+                        complete: function (xhr) {
+                            el.trigger('ajax:complete', xhr);
+                        },
+                        error: function (xhr, status, error) {
+                            el.trigger('ajax:failure', [xhr, status, error]);
+                        }
+                    });
+                }
+
+                el.trigger('ajax:after');
+            }
         }
-      }
-    );
-  }
-
-  if (!submitBubbles) {
-    // discover forms on the page by observing focus events which always bubble
-    document.on('focusin', 'form', function(focusEvent, form) {
-      // special handler for the real "submit" event (one-time operation)
-      if (!form.retrieve('emulated:submit')) {
-        form.on('submit', function(submitEvent) {
-          var emulated = form.fire('emulated:submit', submitEvent, true);
-          // if custom event received preventDefault, cancel the real one too
-          if (emulated.returnValue === false) submitEvent.preventDefault();
-        });
-        form.store('emulated:submit', true);
-      }
-    });
-  }
-
-  if (!changeBubbles) {
-    // discover form inputs on the page
-    document.on('focusin', 'input, select, textarea', function(focusEvent, input) {
-      // special handler for real "change" events
-      if (!input.retrieve('emulated:change')) {
-        input.on('change', function(changeEvent) {
-          input.fire('emulated:change', changeEvent, true);
-        });
-        input.store('emulated:change', true);
-      }
-    });
-  }
-
-  function handleRemote(element) {
-    var method, url, params;
-
-    var event = element.fire("ajax:before");
-    if (event.stopped) return false;
-
-    if (element.tagName.toLowerCase() === 'form') {
-      method = element.readAttribute('method') || 'post';
-      url    = element.readAttribute('action');
-      // serialize the form with respect to the submit button that was pressed
-      params = element.serialize({ submit: element.retrieve('rails:submit-button') });
-      // clear the pressed submit button information
-      element.store('rails:submit-button', null);
-    } else {
-      method = element.readAttribute('data-method') || 'get';
-      url    = element.readAttribute('href');
-      params = {};
-    }
-
-    new Ajax.Request(url, {
-      method: method,
-      parameters: params,
-      evalScripts: true,
-
-      onCreate:   function(response) { element.fire("ajax:create",   response); },
-      onComplete: function(response) { element.fire("ajax:complete", response); },
-      onSuccess:  function(response) { element.fire("ajax:success",  response); },
-      onFailure:  function(response) { element.fire("ajax:failure",  response); }
     });
 
-    element.fire("ajax:after");
-  }
+    /**
+     *  confirmation handler
+     */
 
-  function insertHiddenField(form, name, value) {
-    form.insert(new Element('input', { type: 'hidden', name: name, value: value }));
-  }
-
-  function handleMethod(element) {
-    var method = element.readAttribute('data-method'),
-        url = element.readAttribute('href'),
-        csrf_param = $$('meta[name=csrf-param]')[0],
-        csrf_token = $$('meta[name=csrf-token]')[0];
-
-    var form = new Element('form', { method: "POST", action: url, style: "display: none;" });
-    element.parentNode.insert(form);
-
-    if (method !== 'post') {
-      insertHiddenField(form, '_method', method);
-    }
-
-    if (csrf_param) {
-      insertHiddenField(form, csrf_param.readAttribute('content'), csrf_token.readAttribute('content'));
-    }
-
-    form.submit();
-  }
-
-  function disableFormElements(form) {
-    form.select('input[type=submit][data-disable-with]').each(function(input) {
-      input.store('rails:original-value', input.getValue());
-      input.setValue(input.readAttribute('data-disable-with')).disable();
+    $('body').delegate('a[data-confirm], button[data-confirm], input[data-confirm]', 'click', function () {
+        var el = $(this);
+        if (el.triggerAndReturn('confirm')) {
+            if (!confirm(el.attr('data-confirm'))) {
+                return false;
+            }
+        }
     });
-  }
   
-  function enableFormElements(form) {
-    form.select('input[type=submit][data-disable-with]').each(function(input) {
-      input.setValue(input.retrieve('rails:original-value')).enable();
+
+
+    /**
+     * remote handlers
+     */
+    $('form[data-remote]').live('submit', function (e) {
+        $(this).callRemote();
+        e.preventDefault();
     });
-  }
 
-  function allowAction(element) {
-    var message = element.readAttribute('data-confirm');
-    return !message || confirm(message);
-  }
+    $('a[data-remote],input[data-remote]').live('click', function (e) {
+        $(this).callRemote();
+        e.preventDefault();
+    });
 
-  document.on('click', 'a[data-confirm], a[data-remote], a[data-method]', function(event, link) {
-    if (!allowAction(link)) {
-      event.stop();
-      return false;
+    $('a[data-method]:not([data-remote])').live('click', function (e){
+        var link = $(this),
+            href = link.attr('href'),
+            method = link.attr('data-method'),
+            form = $('<form method="post" action="'+href+'"></form>'),
+            metadata_input = '<input name="_method" value="'+method+'" type="hidden" />';
+
+        if (csrf_param !== undefined && csrf_token !== undefined) {
+            metadata_input += '<input name="'+csrf_param+'" value="'+csrf_token+'" type="hidden" />';
+        }
+
+        form.hide()
+            .append(metadata_input)
+            .appendTo('body');
+
+        e.preventDefault();
+        form.submit();
+    });
+
+    /**
+     * disable-with handlers
+     */
+    var disable_with_input_selector           = 'input[data-disable-with]',
+        disable_with_form_remote_selector     = 'form[data-remote]:has('       + disable_with_input_selector + ')',
+        disable_with_form_not_remote_selector = 'form:not([data-remote]):has(' + disable_with_input_selector + ')';
+
+    var disable_with_input_function = function () {
+        $(this).find(disable_with_input_selector).each(function () {
+            var input = $(this);
+            input.data('enable-with', input.val())
+                .attr('value', input.attr('data-disable-with'))
+                .attr('disabled', 'disabled');
+        });
+    };
+
+    $(disable_with_form_remote_selector).live('ajax:before', disable_with_input_function);
+    $(disable_with_form_not_remote_selector).live('submit', disable_with_input_function);
+
+    $(disable_with_form_remote_selector).live('ajax:complete', function () {
+        $(this).find(disable_with_input_selector).each(function () {
+            var input = $(this);
+            input.removeAttr('disabled')
+                 .val(input.data('enable-with'));
+        });
+    });
+
+    var jqueryVersion = $().jquery;
+
+    if ( (jqueryVersion === '1.4') || (jqueryVersion === '1.4.1') || (jqueryVersion === '1.4.2') ){
+        alert('This rails.js does not support the jQuery version you are using. Please read documentation.');
     }
 
-    if (link.readAttribute('data-remote')) {
-      handleRemote(link);
-      event.stop();
-    } else if (link.readAttribute('data-method')) {
-      handleMethod(link);
-      event.stop();
-    }
-  });
-
-  document.on("click", "form input[type=submit], form button[type=submit], form button:not([type])", function(event, button) {
-    // register the pressed submit button
-    event.findElement('form').store('rails:submit-button', button.name || false);
-  });
-
-  document.on("submit", function(event) {
-    var form = event.findElement();
-
-    if (!allowAction(form)) {
-      event.stop();
-      return false;
-    }
-
-    if (form.readAttribute('data-remote')) {
-      handleRemote(form);
-      event.stop();
-    } else {
-      disableFormElements(form);
-    }
-  });
-
-  document.on('ajax:create', 'form', function(event, form) {
-    if (form == event.findElement()) disableFormElements(form);
-  });
-  
-  document.on('ajax:complete', 'form', function(event, form) {
-    if (form == event.findElement()) enableFormElements(form);
-  });
-})();
+});
