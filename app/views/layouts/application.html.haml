@@ -12,7 +12,7 @@
     %script{ :src => 'http://www.google.com/jsapi', :type => 'text/javascript' }
     %script{ :type => 'text/javascript' }
       google.load("jquery", "1.4.4");
-    = javascript_include_tag 'rails', 'repocop', params[:locale] + '/local.js', :cache => "main_" + params[:locale]
+    = javascript_include_tag 'rails', params[:locale] + '/local.js', :cache => "main_" + params[:locale]
 
     :javascript
       function chText(txt1, txt2, did) {
