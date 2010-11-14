@@ -4,6 +4,9 @@ gem 'rails', '3.0.1'
 
 gem 'pg'
 
+gem 'haml'
+gem 'haml-rails', :group => :development
+
 gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
 
