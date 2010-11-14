@@ -20,7 +20,7 @@
         <% login = gitrepo.maintainer.login -%>
         <% login = 'php_coder' if gitrepo.maintainer.login == 'php-coder' -%>
         <% login = 'psolntsev' if gitrepo.maintainer.login == 'p_solntsev' %>
-        <%= link_to gitrepo.maintainer.name, 'http://git.altlinux.org/people/' + gitrepo.maintainer.login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.maintainer.login %>@)
+        <%= link_to gitrepo.maintainer.name, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.maintainer.login %>@)
       </td>
       <td><%= gitrepo.lastchange %></td>
     </tr>
