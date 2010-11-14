@@ -31,15 +31,15 @@
 %br
 %br
 
-%table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3', :class => 'sortable' }
+%table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3' }
   %tr
-    %th{ :class => 'nosort' }= raw _("repo<br/>cop")
-    %th{ :class => 'sort' }= _("package")
-    %th{ :class => 'nosort' }= raw _("current<br />version")
-    %th{ :class => 'sort' }= _("build time")
-    %th{ :class => 'nosort' }= _("age")
-    %th{ :class => 'nosort' }= _("Url")
-    %th{ :class => 'nosort' }= _("Summary")
+    %th= raw _("repo<br/>cop")
+    %th= _("package")
+    %th= raw _("current<br />version")
+    %th= _("build time")
+    %th= _("age")
+    %th= _("Url")
+    %th= _("Summary")
 
   - @acls.each do |acl|
     - if !acl.srpm.nil?
