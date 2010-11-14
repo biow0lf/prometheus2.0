@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101112014328) do
+ActiveRecord::Schema.define(:version => 20101107133410) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(:version => 20101112014328) do
     t.datetime "updated_at"
   end
 
-  add_index "changelogs", ["changelogtext"], :name => "index_changelogs_on_changelogtext"
   add_index "changelogs", ["srpm_id"], :name => "index_changelogs_on_srpm_id"
 
   create_table "gitrepos", :force => true do |t|
