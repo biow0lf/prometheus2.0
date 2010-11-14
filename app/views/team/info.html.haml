@@ -52,10 +52,10 @@
         %td= acl.srpm.buildtime
         %td= time_ago_in_words(acl.srpm.buildtime) + ' ' + _("ago")
         %td
-        - if acl.srpm.url != nil
-          = link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow'
-        - else
-          -
+          - if acl.srpm.url != nil
+            = link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow'
+          - else
+            -
         %td{ :style => 'text-align: left;'}= acl.srpm.summary
 
 #bottom-offset-l
