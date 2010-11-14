@@ -1,36 +1,31 @@
-Event.observe(window, 'load', function() {
-  Event.observe('topRPM', 'click', function(){
-    $('topRPMDiv').toggle();
-    if($('topRPMDiv').visible()) {
-      $('topRPM').writeAttribute('src', '/images/collapse.gif')
-      $('topRPM').writeAttribute('title', 'hide window')
-    } else {
-      $('topRPM').writeAttribute('src', '/images/restore.gif')
-      $('topRPM').writeAttribute('title', 'show window')
-    }
+$(document).ready(function() {
+  $('#topMain').toggle(function() {
+    $('#topMain').attr("src", "/images/restore.gif");
+    $('#topMain').attr("title", "show window");
+    $('#topMainDiv').hide();
+  }, function() {
+    $('#topMain').attr("src", "/images/collapse.gif");
+    $('#topMain').attr("title", "hide window");
+    $('#topMainDiv').show();
   });
 
-  Event.observe('topTips', 'click', function(){
-    $('topTipsDiv').toggle();
-    if($('topTipsDiv').visible()) {
-      $('topTips').writeAttribute('src', '/images/collapse.gif')
-      $('topTips').writeAttribute('title', 'hide window')
-    } else {
-      $('topTips').writeAttribute('src', '/images/restore.gif')
-      $('topTips').writeAttribute('title', 'show window')
-    }
+  $("#topRPM").toggle(function() {
+    $('#topRPM').attr("src", "/images/restore.gif");
+    $('#topRPM').attr("title", "show window");
+    $('#topRPMDiv').hide();
+  }, function() {
+    $('#topRPM').attr("src", "/images/collapse.gif");
+    $('#topRPM').attr("title", "hide window");
+    $('#topRPMDiv').show();
   });
 
-  Event.observe('topMain', 'click', function(){
-    $('topMainDiv').toggle();
-    if($('topMainDiv').visible()) {
-      $('topMain').writeAttribute('src', '/images/collapse.gif')
-      $('topMain').writeAttribute('title', 'hide window')
-    } else {
-      $('topMain').writeAttribute('src', '/images/restore.gif')
-      $('topMain').writeAttribute('title', 'show window')
-    }
+  $("#topTips").toggle(function() {
+    $('#topTips').attr("src", "/images/restore.gif");
+    $('#topTips').attr("title", "show window");
+    $('#topTipsDiv').hide();
+  }, function() {
+    $('#topTips').attr("src", "/images/collapse.gif");
+    $('#topTips').attr("title", "hide window");
+    $('#topTipsDiv').show();
   });
-
 });
-

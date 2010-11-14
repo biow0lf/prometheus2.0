@@ -1,36 +1,31 @@
-Event.observe(window, 'load', function() {
-  Event.observe('topRPM', 'click', function(){
-    $('topRPMDiv').toggle();
-    if($('topRPMDiv').visible()) {
-      $('topRPM').writeAttribute('src', '/images/collapse.gif')
-      $('topRPM').writeAttribute('title', 'свернуть окно')
-    } else {
-      $('topRPM').writeAttribute('src', '/images/restore.gif')
-      $('topRPM').writeAttribute('title', 'развернуть окно')
-    }
+$(document).ready(function() {
+  $('#topMain').toggle(function() {
+    $('#topMain').attr("src", "/images/restore.gif");
+    $('#topMain').attr("title", "развернуть окно");
+    $('#topMainDiv').hide();
+  }, function() {
+    $('#topMain').attr("src", "/images/collapse.gif");
+    $('#topMain').attr("title", "свернуть окно");
+    $('#topMainDiv').show();
   });
 
-  Event.observe('topTips', 'click', function(){
-    $('topTipsDiv').toggle();
-    if($('topTipsDiv').visible()) {
-      $('topTips').writeAttribute('src', '/images/collapse.gif')
-      $('topTips').writeAttribute('title', 'свернуть окно')
-    } else {
-      $('topTips').writeAttribute('src', '/images/restore.gif')
-      $('topTips').writeAttribute('title', 'развернуть окно')
-    }
+  $("#topRPM").toggle(function() {
+    $('#topRPM').attr("src", "/images/restore.gif");
+    $('#topRPM').attr("title", "развернуть окно");
+    $('#topRPMDiv').hide();
+  }, function() {
+    $('#topRPM').attr("src", "/images/collapse.gif");
+    $('#topRPM').attr("title", "свернуть окно");
+    $('#topRPMDiv').show();
   });
 
-  Event.observe('topMain', 'click', function(){
-    $('topMainDiv').toggle();
-    if($('topMainDiv').visible()) {
-      $('topMain').writeAttribute('src', '/images/collapse.gif')
-      $('topMain').writeAttribute('title', 'свернуть окно')
-    } else {
-      $('topMain').writeAttribute('src', '/images/restore.gif')
-      $('topMain').writeAttribute('title', 'развернуть окно')
-    }
+  $("#topTips").toggle(function() {
+    $('#topTips').attr("src", "/images/restore.gif");
+    $('#topTips').attr("title", "развернуть окно");
+    $('#topTipsDiv').hide();
+  }, function() {
+    $('#topTips').attr("src", "/images/collapse.gif");
+    $('#topTips').attr("title", "свернуть окно");
+    $('#topTipsDiv').show();
   });
-
 });
-
