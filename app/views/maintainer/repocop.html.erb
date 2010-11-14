@@ -7,12 +7,12 @@
 <span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_info_path(:login => @maintainer.login), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), maintainer_srpms_path(:login => @maintainer.login), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), maintainer_gear_path(:login => @maintainer.login), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), maintainer_bugs_path(:login => @maintainer.login), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="current">&nbsp;<b><%= _("Repocop") %></b>&nbsp;</span><p class="break" />
 <b><%= _("Repocop messages:") %></b><br /><br />
 
-<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+<table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th class="sort"><%= _("package") %></th>
-    <th id="repocop" class="sort"><%= _("status") %></th>
-    <th class="sort"><%= _("test") %></th>
-    <th class="nosort"><%= _("message") %></th>
+    <th><%= _("package") %></th>
+    <th><%= _("status") %></th>
+    <th><%= _("test") %></th>
+    <th><%= _("message") %></th>
   </tr>
 
 <% if !@srpms.nil? -%>

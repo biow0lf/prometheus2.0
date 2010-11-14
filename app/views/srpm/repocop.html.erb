@@ -13,12 +13,12 @@
 <span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_main_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), srpm_changelog_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), srpm_rawspec_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), srpm_download_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), srpm_gear_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), srpm_bugs_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests") %>&nbsp;</span><span class="current">&nbsp;<b><%= _("Repocop") %></b>&nbsp;</span><p class="news" /><br />
 
 </div>
-<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+<table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th class="sort"><%= _("package id") %></th>
-    <th id="repocop" class="sort"><%= _("status") %></th>
-    <th class="sort"><%= _("test") %></th>
-    <th class="sort"><%= _("message") %></th>
+    <th><%= _("package id") %></th>
+    <th><%= _("status") %></th>
+    <th><%= _("test") %></th>
+    <th><%= _("message") %></th>
   </tr>
 
 <% @srpm.repocops.each do |repocop| -%>

@@ -6,15 +6,15 @@
 <span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_info_path(:login => @maintainer.login), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), maintainer_gear_path(:login => @maintainer.login), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), maintainer_bugs_path(:login => @maintainer.login), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), maintainer_repocop_path(:login => @maintainer.login), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="break" />
 <b><%= _("List of packages which was built by this maintainer:") %></b> [<%= @acls.count %>] <br /><br />
 
-<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+<table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th id="repocop" class="nosort"><%= raw _("repo<br/>cop") %></th>
-    <th class="sort"><%= _("package") %></th>
-    <th class="nosort"><%= raw _("current<br />version") %></th>
-    <th class="sort"><%= _("build time") %></th>
-    <th class="nosort"><%= _("age") %></th>
-    <th class="nosort"><%= _("Url") %></th>
-    <th class="nosort"><%= _("Summary") %></th>
+    <th><%= raw _("repo<br/>cop") %></th>
+    <th><%= _("package") %></th>
+    <th><%= raw _("current<br />version") %></th>
+    <th><%= _("build time") %></th>
+    <th><%= _("age") %></th>
+    <th><%= _("Url") %></th>
+    <th><%= _("Summary") %></th>
   </tr>
 
   <% @acls.each do |acl| -%>
