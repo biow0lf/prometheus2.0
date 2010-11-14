@@ -75,7 +75,7 @@
         %b= _("Last update:").to_s + " ".to_s 
         = Date.today.to_s + " | ".to_s
         %b= _("SRPMs:").to_s + " ".to_s
-        /= Srpm.count_srpms_in_sisyphus
+        = Srpm.count_srpms_in_sisyphus
 
       %div{ :style => 'text-align: right' }
         = link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') + " ".to_s
