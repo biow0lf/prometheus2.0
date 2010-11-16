@@ -17,41 +17,41 @@
     :javascript
       function chText(txt1, txt2, did) {
         di = document.getElementById(did);
-        if (di.innerHTML == txt1){
+        if (di.innerHTML == txt1) {
           di.innerHTML = txt2;
           di.style.backgroundColor = '#baccdd';
         } else {
           di.innerHTML = txt1;
           di.style.backgroundColor = '#fafaff';
-        }
-      }
+        };
+      };
       function m_on(lid) {
         li = document.getElementById(lid);
         li.style.backgroundColor = '#aabccd';
-        if (dli = document.getElementById('d'+lid)){
+        if (dli = document.getElementById('d' + lid)) {
           dli.style.backgroundColor = '#aabccd';
-        }
-      }
+        };
+      };
       function m_off(lid) {
         li = document.getElementById(lid);
         li.style.backgroundColor = '#fafaff';
-        if (dli = document.getElementById('d'+lid)){
+        if (dli = document.getElementById('d' + lid)) {
           dli.style.backgroundColor = '#fafaff';
-        }
-      }
+        };
+      };
       function show(divnum) {
         for (i=1; i <= 3; i++ ) {
-          layersrc = document.getElementById('vk'+i);
-          layerdst = document.getElementById('div'+i);
+          layersrc = document.getElementById('vk' + i);
+          layerdst = document.getElementById('div' + i);
           if (i == divnum && layerdst.style.display == "none") {
             layerdst.style.display = "block";
             layersrc.style.backgroundColor = "#baccdd";
           } else {
             layerdst.style.display = "none";
             layersrc.style.backgroundColor = "#fafaff";
-          }
-        }
-      }
+          };
+        };
+      };
 
   %body
     #top
@@ -122,8 +122,7 @@
 
 
     #main-offset
-      #main-content
-        = yield
+      = yield
 
     #bottom
       &copy;&nbsp;2009&ndash;2010
