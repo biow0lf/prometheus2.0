@@ -1,5 +1,6 @@
 class GroupController < ApplicationController
   def groups_list
+    # TODO: branch can be not only Sisyphus!
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @groups = @branch.groups.find(:all, :conditions => {:parent_id => nil}, :order => 'LOWER(name)')
   end

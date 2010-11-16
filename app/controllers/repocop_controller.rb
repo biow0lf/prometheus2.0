@@ -17,7 +17,7 @@ class RepocopController < ApplicationController
                                         (:url.not_matches % 'rsync://%')
                                       ).order('name ASC').all
   end
-  
+
   def invalid_vendor
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     # "^" mean "!=" in sql
@@ -39,31 +39,34 @@ class RepocopController < ApplicationController
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @packages = @branch.packages.where('length(summary) > 79').order('name ASC').all
   end
-  
+
   def srpms_summary_ended_with_dot
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = @branch.srpms.where(:summary.matches => '%.').order('name ASC').all
   end
-  
+
   def packages_summary_ended_with_dot
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @packages = @branch.packages.where(:summary.matches => '%.').order('name ASC').all
   end
-  
+
   def srpms_filename_too_long_for_joliet
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @srpms = @branch.srpms.where('length(filename) > 64').order('name ASC').all
   end
-  
+
   def packages_filename_too_long_for_joliet
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
     @packages = @branch.packages.where('length(filename) > 64').order('name ASC').all
   end
-  
+
   # TODO:
   def manpage_not_compressed
   end
-  
+
   def infopage_not_compressed
+  end
+
+  def buildreq_ccache
   end
 end
