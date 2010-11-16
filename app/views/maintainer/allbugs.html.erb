@@ -1,6 +1,8 @@
 <% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Bugs and FR (All)") -%>
 <% url "/packager/" + @maintainer.login + "/allbugs" -%>
 
+<div id='main-content'>
+
 <div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
 <p class="break" />
 <span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_info_path(:login => @maintainer.login), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), maintainer_srpms_path(:login => @maintainer.login), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), maintainer_gear_path(:login => @maintainer.login), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), maintainer_repocop_path(:login => @maintainer.login), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" /><br />
