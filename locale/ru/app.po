@@ -308,7 +308,7 @@ msgstr "Gear"
 #: app/views/home/bygroup.html.erb:4 app/views/srpm/_group.html.erb:2
 #: app/views/srpm/_group.html.erb:4 app/views/srpm/_group.html.erb:6
 msgid "Group"
-msgstr "Группa"
+msgstr "Группа"
 
 #: app/views/home/index.html.erb:28
 msgid "Group:"
