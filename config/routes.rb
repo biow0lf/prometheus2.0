@@ -19,7 +19,7 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/rsync.shtml' => 'rsync#index', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/rsync' => 'rsync#index', :as => 'rsync', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/packages' => 'home#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packages' => 'group#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES }
 
@@ -32,7 +32,7 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/packager/:login/repocop' => 'maintainer#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
 #  match '(/:locale)/packager/:login/repocop/rss' => 'maintainer#repocop', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/packages/:group(/:group2(/:group3))' => 'home#bygroup', :as => 'group', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/srpm/:branch/:name' => 'srpm#main', :as => 'srpm_main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
   match '(/:locale)/srpm/:branch/:name/changelog' => 'srpm#changelog', :as => 'srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
