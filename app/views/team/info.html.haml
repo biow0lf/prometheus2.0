@@ -1,62 +1,64 @@
-= title _("Prometheus 2.0 - Team &laquo;") + @team.login[1..-1] + _("&raquo;")
-= url "/team/" + @team.login[1..-1]
+- title _("Prometheus 2.0 - Team &laquo;") + @team.login[1..-1] + _("&raquo;")
+- url "/team/" + @team.login[1..-1]
 
-.header
-  = _("Team:")
-  = @team.name
+#main-content
 
-%p.break
-%b= _("Information:")
-.para
+  .header
+    = _("Team:")
+    = @team.name
 
-%p.break
-- if !@leader.nil?
-  %b
-    = _("Team leader:")
-  - @leader.each do |leader|
-    = link_to leader.name, maintainer_info_path(:login => leader.login), :class => 'news', :title => _('information about the packager')
+  %p.break
+  %b= _("Information:")
+  .para
+
+  %p.break
+  - if !@leader.nil?
+    %b
+      = _("Team leader:")
+    - @leader.each do |leader|
+      = link_to leader.name, maintainer_info_path(:login => leader.login), :class => 'news', :title => _('information about the packager')
+    %p.break
+
+  %b= _("Team members:")
+  %ul
+    - @members.each do |member|
+      %li= link_to member.name, maintainer_info_path(:login => member.login), :class => 'news', :title => _('information about the packager')
+
   %p.break
 
-%b= _("Team members:")
-%ul
-  - @members.each do |member|
-    %li= link_to member.name, maintainer_info_path(:login => member.login), :class => 'news', :title => _('information about the packager')
+  %b= _("List of packages:")
+  [
+  = @acls.count
+  ]
+  %br
+  %br
 
-%p.break
+  %table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3' }
+    %tr
+      %th= raw _("repo<br/>cop")
+      %th= _("package")
+      %th= raw _("current<br />version")
+      %th= _("build time")
+      %th= _("age")
+      %th= _("Url")
+      %th= _("Summary")
 
-%b= _("List of packages:")
-[
-= @acls.count
-]
-%br
-%br
-
-%table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3' }
-  %tr
-    %th= raw _("repo<br/>cop")
-    %th= _("package")
-    %th= raw _("current<br />version")
-    %th= _("build time")
-    %th= _("age")
-    %th= _("Url")
-    %th= _("Summary")
-
-  - @acls.each do |acl|
-    - if !acl.srpm.nil?
-      %tr
-        %td
-          = link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), srpm_repocop_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'repocoplink', :title => 'repocop'
-        %td{ :class => 'strange' }
-          = link_to acl.srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'news', :title => _('detailed information about RPM')
-        %td= acl.srpm.version + '-' + acl.srpm.release
-        %td= acl.srpm.buildtime
-        %td= time_ago_in_words(acl.srpm.buildtime) + ' ' + _("ago")
-        %td
-          - if acl.srpm.url != nil
-            = link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow'
-          - else
-            -
-        %td{ :style => 'text-align: left;'}= acl.srpm.summary
+    - @acls.each do |acl|
+      - if !acl.srpm.nil?
+        %tr
+          %td
+            = link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), srpm_repocop_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'repocoplink', :title => 'repocop'
+          %td{ :class => 'strange' }
+            = link_to acl.srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'news', :title => _('detailed information about RPM')
+          %td= acl.srpm.version + '-' + acl.srpm.release
+          %td= acl.srpm.buildtime
+          %td= time_ago_in_words(acl.srpm.buildtime) + ' ' + _("ago")
+          %td
+            - if acl.srpm.url != nil
+              = link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow'
+            - else
+              -
+          %td{ :style => 'text-align: left;'}= acl.srpm.summary
 
 #bottom-offset-l
   #bottom-offset-r
