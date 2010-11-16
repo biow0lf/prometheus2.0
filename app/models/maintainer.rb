@@ -65,7 +65,7 @@ class Maintainer < ActiveRecord::Base
                         maintainers.login AS login
                  FROM acls, maintainers, branches
                  WHERE maintainers.id = acls.maintainer_id
-                 AND maintainers.team = false
+                 AND maintainers.team = 'false'
                  AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
@@ -79,7 +79,7 @@ class Maintainer < ActiveRecord::Base
                         maintainers.login AS login
                  FROM acls, maintainers, branches
                  WHERE maintainers.id = acls.maintainer_id
-                 AND maintainers.team = true
+                 AND maintainers.team = 'true'
                  AND acls.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
@@ -96,7 +96,7 @@ class Maintainer < ActiveRecord::Base
                  AND branches.vendor = 'ALT Linux'
                  AND branches.id = acls.branch_id
                  AND acls.maintainer_id = maintainers.id
-                 AND maintainers.team = false
+                 AND maintainers.team = 'false'
                  GROUP BY maintainers.name, maintainers.login
                  ORDER BY 1 DESC LIMIT 15")
   end
