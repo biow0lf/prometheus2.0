@@ -1,0 +1,33 @@
+- title _("Prometheus 2.0 - Group - ") + @group.name
+- url "/packages/" + @group.name
+
+#main-content
+
+  .header
+    = _("Group")
+    \:: 
+    = @group.name
+
+  %p.news
+
+    - @srpms.each do |srpm|
+      %p.news
+        %span{ :class => 'news-date-new' }
+          = link_to srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'news', :title => _("detailed information about the package")
+        %br
+        %br
+        %b= _("Current version:")
+        %span{ :class => 'news-text'}= "#{srpm.version}-#{srpm.release}"
+        %br
+        %b= _("Build time:")
+        %span{ :class => 'news-text'}= "#{srpm.buildtime} (#{time_ago_in_words(srpm.buildtime)} #{_("ago")})"
+        %br
+        %b= _("Summary:")
+        %span{ :class => 'news-text'}= srpm.summary
+        %br
+        %b= _("Changes:")
+        %div.para TODO
+
+#bottom-offset-l
+  #bottom-offset-r
+    &nbsp;
