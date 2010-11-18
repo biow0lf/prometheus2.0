@@ -75,7 +75,7 @@ Prometheus20::Application.routes.draw do
   match '/cli/repocop/by-test/srpms_summary_ended_with_dot' => 'repocop#srpms_summary_ended_with_dot'
   match '/cli/repocop/by-test/packages_summary_ended_with_dot' => 'repocop#packages_summary_ended_with_dot'
 
-#  match '/cli/repocop/by-test/:name' => 'repocop#bytestname', :constraints => { :locale => SUPPORTED_LOCALES }
+#  match '/cli/repocop/by-test/:name' => 'repocop#bytestname'
 
   match '(/:locale)' => 'home#index', :as => 'home', :constraints => { :locale => SUPPORTED_LOCALES }
   
