@@ -105,7 +105,4 @@ class SrpmController < ApplicationController
       render :status => 404, :action => "nosuchpackage"
     end
   end
-
-  def nosuchpackage
-  end
 end
