@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
   def search
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    if params[:request].nil? and params[:search].nil?
+    if params[:request].nil? or params[:request].empty?
       redirect_to :action => "index"
     else
       @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:search].to_s.split).where(:branch_id => @branch.id).order("LOWER(name) ASC")
