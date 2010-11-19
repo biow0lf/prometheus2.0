@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :set_search
   before_filter :default_locale
+  before_filter :fix_branch
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -18,6 +19,11 @@ class ApplicationController < ActionController::Base
 
   def set_search
     params[:search] = params[:request] if params[:search].nil?
+  end
+
+  def fix_branch
+#    params[:branch] = 'Sisyphus' if params[:branch].nil?
+    params[:branch] = 'Sisyphus' if params[:branch] == 'sisyphus'
   end
 
   def default_url_options(options={})
