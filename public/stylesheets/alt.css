@@ -231,19 +231,14 @@ b.comment {
     border: #e0e0e0 solid 1px;
 }
 #bugs th {
-    text-align: center;
-    border-right: #e0e0e0 solid 1px;
+    text-align: center; border-right: #e0e0e0 solid 1px;
     border-bottom: #e0e0e0 solid 1px; background-color: rgb(250,250,255);
 }
 #bugs td {
-    background-color: white;
-    border-bottom: dotted #e0e0e0 1px;
-    padding-left: 4px;
-    padding-right: 4px;
+    background-color: white; border-bottom: dotted #e0e0e0 1px; text-align: center;
 }
 #bugs td.strange {
-    background-color: #e0e0e0 ; border-bottom: dotted white 1px;
-/* text-align: center;*/
+    background-color: #e0e0e0 ; border-bottom: dotted white 1px; text-align: center;
 }
 #nav {
     float: right; text-align: center;
