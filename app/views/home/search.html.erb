@@ -15,6 +15,7 @@
 <p class="break"><br />
 <table id="bugs" cellspacing="0" cellpadding="3">
 <tr>
+  <th><%= raw _("repo<br/>cop") %></th>
   <th><%= _("package") %></th>
   <th><%= raw _("current<br />version") %></th>
   <th><%= _("summary") %></th>
@@ -22,6 +23,9 @@
 
 <% @srpms.each do |srpm| -%>
 <tr>
+<td>
+  <%= link_to image_tag(srpm.repocop + '.png', :size => '20x20', :alt => srpm.repocop), srpm_repocop_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'repocoplink', :title => 'repocop' %>
+</td>
 <td class="strange">
   <%= link_to srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'news' %>
 </td>
