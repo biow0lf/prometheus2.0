@@ -1,6 +1,6 @@
 class MaintainerController < ApplicationController
   def info
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -13,7 +13,7 @@ class MaintainerController < ApplicationController
   end
 
   def srpms
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -28,7 +28,7 @@ class MaintainerController < ApplicationController
   end
 
   def acls
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -95,15 +95,9 @@ class MaintainerController < ApplicationController
                                      :team => false },
                                    :include => [:srpms],
                                    :order => 'LOWER(srpms.name)'
-#                                   :include => [:srpms => [:repocops]],
-#                                   :order => 'LOWER(srpms.name)'
-
     @srpms = @maintainer.srpms.find(:all, :conditions => { :branch_id => @branch.id }, :include => [:repocops])
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
-  end
-
-  def nosuchmaintainer
   end
 end
