@@ -52,7 +52,7 @@
 <% if !@srpm.maintainer.nil? -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
 <% if @srpm.maintainer.team == true -%>
-  <%= link_to @srpm.maintainer.name, team_path(:name => @srpm.maintainer.login[1..-1]), :class => 'news', :title => _('information about maintainer') %>
+  <%= link_to @srpm.maintainer.name, team_path(:name => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
 <% else -%>
   <%= link_to @srpm.maintainer.name, maintainer_info_path(:login => @srpm.maintainer.login), :class => 'news', :title => _('information about maintainer') %>
 <% end -%>
@@ -76,7 +76,7 @@
   <ul>
   <% @srpm.acls.each do |acl| -%>
     <% if acl.maintainer.team %>
-      <li><%= link_to acl.maintainer.name, team_path(:name => acl.maintainer.login[1..-1]), :class => 'news' %></li>
+      <li><%= link_to acl.maintainer.name, team_path(:name => acl.maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
     <% else %>
       <li><%= link_to acl.maintainer.name, maintainer_info_path(:login => acl.maintainer.login), :class => 'news' %></li>
     <% end %>
