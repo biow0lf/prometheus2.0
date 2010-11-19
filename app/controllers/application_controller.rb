@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fix_branch
-#    params[:branch] = 'Sisyphus' if params[:branch].nil?
+    params[:branch] = 'Sisyphus' if params[:branch].nil?
     params[:branch] = 'Sisyphus' if params[:branch] == 'sisyphus'
   end
 
