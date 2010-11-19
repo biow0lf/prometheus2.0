@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   def maintainers_list
+    @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainers = Maintainer.find_all_maintainers_in_sisyphus
     @teams = Maintainer.find_all_teams_in_sisyphus
   end
