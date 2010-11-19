@@ -2,7 +2,7 @@ class TeamController < ApplicationController
 #  caches_page :info
 
   def info
-    @branch = Branch.find_by_name_and_vendor('Sisyphus', 'ALT Linux')
+    @branch = Branch.find_by_name_and_vendor(params[:branch], 'ALT Linux')
     @team = Maintainer.first :conditions => {
                                :login => '@' + params[:name],
                                :team => true }
