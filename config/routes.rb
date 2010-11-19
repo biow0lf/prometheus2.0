@@ -20,7 +20,7 @@ Prometheus20::Application.routes.draw do
 
   match '(/:locale)/packages' => 'group#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)(/:branch)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
 
   match '(/:locale)(/:branch)/packager/:login' => 'maintainer#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
   match '(/:locale)(/:branch)/packager/:login/srpms' => 'maintainer#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
