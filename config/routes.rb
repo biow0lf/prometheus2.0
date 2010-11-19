@@ -22,26 +22,26 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/packager/:login' => 'maintainer#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/srpms' => 'maintainer#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/acls' => 'maintainer#acls', :as => 'maintainer_acls', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/gear' => 'maintainer#gear', :as => 'maintainer_gear', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/bugs' => 'maintainer#bugs', :as => 'maintainer_bugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/allbugs' => 'maintainer#allbugs', :as => 'maintainer_allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/packager/:login/repocop' => 'maintainer#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
-#  match '(/:locale)/packager/:login/repocop/rss' => 'maintainer#repocop', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)(/:branch)/packager/:login' => 'maintainer#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/srpms' => 'maintainer#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/acls' => 'maintainer#acls', :as => 'maintainer_acls', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/gear' => 'maintainer#gear', :as => 'maintainer_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/bugs' => 'maintainer#bugs', :as => 'maintainer_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/allbugs' => 'maintainer#allbugs', :as => 'maintainer_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/repocop' => 'maintainer#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+#  match '(/:locale)(/:branch)/packager/:login/repocop/rss' => 'maintainer#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
 
   match '(/:locale)/packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/srpm/:branch/:name' => 'srpm#main', :as => 'srpm_main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/changelog' => 'srpm#changelog', :as => 'srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/spec' => 'srpm#rawspec', :as => 'srpm_rawspec', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/get' => 'srpm#download', :as => 'srpm_download', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/gear' => 'srpm#gear', :as => 'srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/bugs' => 'srpm#bugs', :as => 'srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/allbugs' => 'srpm#allbugs', :as => 'srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/repocop' => 'srpm#repocop', :as => 'srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  match '(/:locale)/srpm/:branch/:name/repocop.:format' => 'home#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name' => 'srpm#main', :as => 'srpm_main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/changelog' => 'srpm#changelog', :as => 'srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/spec' => 'srpm#rawspec', :as => 'srpm_rawspec', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/get' => 'srpm#download', :as => 'srpm_download', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/gear' => 'srpm#gear', :as => 'srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/bugs' => 'srpm#bugs', :as => 'srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/allbugs' => 'srpm#allbugs', :as => 'srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+  match '(/:locale)/srpm(/:branch)/:name/repocop' => 'srpm#repocop', :as => 'srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
+#  match '(/:locale)/srpm(/:branch)/:name/repocop.:format' => 'home#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 
 #  match '/repocop' => 'repocop#index'
 #  match '/repocop/by-test/:testname' => 'repocop#bytest'
