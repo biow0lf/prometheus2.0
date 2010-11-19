@@ -1,6 +1,4 @@
 SUPPORTED_LOCALES = /(en|ru|uk|br)/
-#SRPMS_NAME = /(!changelog|!spec|!get|!gear|!bugs|!allbugs|!repocop)/
-SRPMS_NAME = /[^\/]+(!changelog|!spec|!get|!gear|!bugs|!allbugs|!repocop)/
 
 Prometheus20::Application.routes.draw do
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
