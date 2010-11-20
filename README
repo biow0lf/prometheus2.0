@@ -93,8 +93,4 @@ TODO:
 
 Add to cron:
 0	0	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:groups sisyphusarm:groups platform5:groups 51:groups 50:groups 41:groups 40:groups 50:acls 50:leaders 50:teams 41:acls 41:leaders 41:teams 40:acls 40:leaders 40:teams >> /var/log/prometheus.log 2>&1"
-0	5	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:bugs >> /var/log/prometheus.log 2>&1"
 5	*	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:acls sisyphus:leaders sisyphus:teams sisyphus:gitrepos 51:acls 51:leaders 51:teams >> /var/log/prometheus.log 2>&1"
-10	5	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:repocops >> /var/log/prometheus.log 2>&1"
-15	5	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:update:srpms sisyphus:update:i586 sisyphus:update:noarch sisyphus:update:x86_64 >> /var/log/prometheus.log 2>&1"
-15	6	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production platform5:update:srpms platform5:update:i586 platform5:update:noarch platform5:update:x86_64 51:update:srpms 51:update:i586 51:update:noarch 51:update:x86_64 sisyphusarm:update:srpms sisyphusarm:update:binary 50:update:srpms 50:update:i586 50:update:noarch 50:update:x86_64 41:update:srpms 41:update:i586 41:update:noarch 41:update:x86_64 40:update:srpms 40:update:i586 40:update:noarch 40:update:x86_64 >> /var/log/prometheus.log 2>&1"
