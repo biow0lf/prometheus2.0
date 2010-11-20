@@ -19,6 +19,8 @@ gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
 
+gem 'whenever', :require => false
+
 gem 'newrelic_rpm'
 
 gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/rails/exception_notification.git'
