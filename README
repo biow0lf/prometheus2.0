@@ -12,7 +12,7 @@ Install:
 * gettext
 
 And then:
-* "bundle" in project folder
+* run "bundle" in project folder
 
 Prepare:
 * rake gettext:pack
