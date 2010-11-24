@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   def default_locale
-    params[:locale] ||= 'en'
+    params[:locale] ||= "en"
     I18n.locale = params[:locale]
     FastGettext.locale = params[:locale]
   end
@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def fix_branch
-    params[:branch] = 'Sisyphus' if params[:branch].nil?
-    params[:branch] = 'Sisyphus' if params[:branch] == 'sisyphus'
+    params[:branch] = "Sisyphus" if params[:branch].nil?
+    params[:branch] = "Sisyphus" if params[:branch] == "sisyphus"
   end
 
   def default_url_options(options={})

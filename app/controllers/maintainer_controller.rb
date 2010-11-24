@@ -1,19 +1,15 @@
 class MaintainerController < ApplicationController
   def info
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
-    @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
-                                     :team => false }
-    @acls = Acl.all :conditions => {
-                      :maintainer_id => @maintainer.id,
-                      :branch_id => @branch.id }
+    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
+    @maintainer = Maintainer.where(:login => params[:login].downcase, :team => false).first
+    @acls = Acl.where(:maintainer => @maintainer, :branch => @branch)
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
   end
 
   def srpms
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
+    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
@@ -28,7 +24,7 @@ class MaintainerController < ApplicationController
   end
 
   def acls
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
+    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.first :conditions => {
                                      :login => params[:login].downcase,
                                      :team => false }
