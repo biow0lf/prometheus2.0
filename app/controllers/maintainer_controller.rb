@@ -2,7 +2,7 @@ class MaintainerController < ApplicationController
   def info
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.where(:login => params[:login].downcase, :team => false).first
-    @acls = Acl.where(:maintainer => @maintainer, :branch => @branch)
+    @acls = Acl.where(:maintainer_id => @maintainer.id, :branch_id => @branch.id)
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
     end
