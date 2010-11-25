@@ -5,6 +5,7 @@ namespace :sisyphus do
     require 'open-uri'
 
     ActiveRecord::Base.transaction do
+      puts Time.now.to_s + ": Update Sisyphus stuff"
       puts Time.now.to_s + ": update *.src.rpm from Sisyphus to database"
       path = "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
       branch = Branch.where(:name => "Sisyphus", :vendor => "ALT Linux").first
