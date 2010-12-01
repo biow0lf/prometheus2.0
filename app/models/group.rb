@@ -1,8 +1,8 @@
 class Group < ActiveRecord::Base
   acts_as_nested_set
 
-  validates :name, :presence => true
   validates :branch_id, :presence => true
+  validates :name, :presence => true
 
   belongs_to :branch
   has_many :srpms

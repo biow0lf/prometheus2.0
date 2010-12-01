@@ -8,6 +8,9 @@ class Repocop < ActiveRecord::Base
   validates :srcrel, :presence => true
   validates :testname, :presence => true
 
+# TODO: for repocop
+#  belongs_to :srpm
+
   def self.update_repocop
     ActiveRecord::Base.transaction do
       Repocop.delete_all

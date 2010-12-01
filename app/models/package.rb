@@ -3,8 +3,8 @@ class Package < ActiveRecord::Base
   validates :branch_id, :presence => true
   validates :group_id, :presence => true
 
-  belongs_to :srpm
   belongs_to :branch
+  belongs_to :srpm
   belongs_to :group
 
   def self.import_rpm(vendor, branch, file)
