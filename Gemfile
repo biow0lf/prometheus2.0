@@ -5,7 +5,6 @@ gem 'rails', '3.0.3'
 gem 'pg'
 
 gem 'haml'
-gem 'haml-rails', :group => :development
 
 gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
@@ -28,4 +27,8 @@ gem 'exception_notification', :require => 'exception_notifier', :git => 'git://g
 group :development, :test do
   gem 'ruby-debug'
   gem 'sqlite3-ruby'
+end
+
+group :development do
+  gem 'haml-rails'
 end
