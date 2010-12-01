@@ -33,3 +33,7 @@ end
 group :development do
   gem 'haml-rails'
 end
+
+group :test do
+  gem 'autotest'
+end
