@@ -27,6 +27,7 @@ gem 'exception_notification', :require => 'exception_notifier', :git => 'git://g
 group :development, :test do
   gem 'ruby-debug'
   gem 'sqlite3-ruby'
+  gem 'rspec-rails'
 end
 
 group :development do
