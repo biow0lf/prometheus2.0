@@ -36,7 +36,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    arel (2.0.4)
+    arel (2.0.6)
     builder (2.1.2)
     columnize (0.3.1)
     erubis (2.6.6)
