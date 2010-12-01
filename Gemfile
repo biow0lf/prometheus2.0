@@ -28,6 +28,7 @@ group :development, :test do
   gem 'ruby-debug'
   gem 'sqlite3-ruby'
   gem 'rspec-rails'
+  gem 'syntax' # for TextMate syntax highlight
 end
 
 group :development do
