@@ -36,4 +36,5 @@ end
 
 group :test do
   gem 'autotest'
+  gem 'shoulda'
 end
