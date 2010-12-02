@@ -5,7 +5,7 @@ class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
   has_many :packages, :dependent => :destroy
-  has_many :changelog, :dependent => :destroy
+  has_many :changelogs, :dependent => :destroy
   has_one :leader, :dependent => :destroy
   has_one :maintainer, :through => :leader
   has_many :acls, :dependent => :destroy
