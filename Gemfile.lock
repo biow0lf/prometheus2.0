@@ -73,7 +73,7 @@ GEM
       arel (~> 2.0.2)
     mime-types (1.16)
     newrelic_rpm (2.13.3)
-    pg (0.9.0)
+    pg (0.10.0)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
