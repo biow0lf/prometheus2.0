@@ -24,6 +24,8 @@ gem 'newrelic_rpm'
 
 gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/rails/exception_notification.git'
 
+gem 'rails_db_dump'
+
 group :development, :test do
   gem 'ruby-debug'
   gem 'sqlite3-ruby'

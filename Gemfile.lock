@@ -117,6 +117,7 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails_db_dump (0.0.1)
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -186,6 +187,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rails (= 3.0.3)
+  rails_db_dump
   redis
   rspec-rails
   ruby-debug
