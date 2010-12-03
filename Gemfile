@@ -32,6 +32,8 @@ group :development, :test do
   gem 'capybara'
   gem 'capybara-envjs'
   gem 'syntax' # for TextMate syntax highlight
+  gem 'ffaker'
+  gem 'factory_girl_rails'
 end
 
 group :development do

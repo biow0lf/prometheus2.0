@@ -61,7 +61,12 @@ GEM
       johnson (>= 2.0.0.pre3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (1.3.2)
+    factory_girl_rails (1.0)
+      factory_girl (~> 1.3)
+      rails (>= 3.0.0.beta4)
     fast_gettext (0.5.10)
+    ffaker (1.0.0)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gettext (2.1.0)
@@ -169,7 +174,9 @@ DEPENDENCIES
   capybara
   capybara-envjs
   exception_notification!
+  factory_girl_rails
   fast_gettext (>= 0.4.8)
+  ffaker
   gettext (>= 1.9.3)
   gettext_i18n_rails
   haml
