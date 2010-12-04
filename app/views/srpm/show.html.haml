@@ -1,0 +1,138 @@
+= title _("Prometheus 2.0 - Package ") + @srpm.name
+= url "/srpm/" + @srpm.branch.name + '/' + @srpm.name
+
+#main-content
+
+  #rightbar
+    .headleft
+      %div{ :class => 'headright', :title => _("ALT Linux repositories") }
+        = _("ALT Linux repos")
+      = image_tag("collapse.gif", :id => 'topRPM', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9")
+    %div{ :id => 'topRPMDiv', :style => 'border: dotted gray 1px; margin: 0px 4px 4px 4px;' }
+      %table{ :style => 'font-size: 8pt;', :width => '100%' }
+        - @allsrpms.each do |rpm|
+          %tr
+            %td{ :style => 'text-align: left;' }
+              = link_to "#{rpm.branch.name}:", srpm_main_path(:branch => rpm.branch.name, :name => rpm.name), :class => 'news'
+            %td{ :style => 'text-align: right;' }= "#{rpm.version}-#{rpm.release}"
+    %br
+
+  %div{ :style => 'height: 3em;' }
+    #rpmtop
+      - if @srpm.group.level == 0
+        %b{ :style => 'font-size: 9pt;' }
+          = "#{_("Group")} :: #{@srpm.group.name}"
+        %br
+      - elsif @srpm.group.level == 1
+        %b{ :style => 'font-size: 9pt;' }
+          = "#{_("Group")} :: #{@srpm.group.parent.name}/#{@srpm.group.name}"
+        %br
+      - elsif @srpm.group.level == 2
+        %b{ :style => 'font-size: 9pt;' }
+          = "#{_("Group")} :: #{@srpm.group.parent.parent.name}/#{@srpm.group.parent.name}/#{@srpm.group.name}"
+        %br
+      %div{ :class => 'header', :style => 'letter-spacing: 1px;'}= "#{_("Source RPM:")} #{@srpm.name}"
+
+  %div
+    %p.break
+    %span.current
+      &nbsp;
+      %b= _("Main")
+      &nbsp;
+    %span.underl
+      &nbsp;
+    %span.vkladka
+      &nbsp;
+      = link_to _("Changelog"), srpm_changelog_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("full changelog")
+      &nbsp;
+    %span.underl
+      &nbsp;
+    %span.vkladka
+      &nbsp;
+      = link_to _("Spec"), srpm_rawspec_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("spec")
+      &nbsp;
+    %span.underl
+      &nbsp;
+    %span.vkladka
+      &nbsp;
+      = link_to _("Download"), srpm_download_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("download latest version")
+      &nbsp;
+    %span.underl
+      &nbsp;
+    %span.vkladka
+      &nbsp;
+      = link_to _("Gear"), srpm_gear_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("this package in gear repositories")
+      &nbsp;
+    %span.underl
+      &nbsp;
+    %span.vkladka
+      &nbsp;
+      = link_to _("Bugs and FR"), srpm_bugs_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests")
+      &nbsp;
+    %span.vkladka
+      &nbsp;
+      = link_to _("Repocop"), srpm_repocop_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("repocop bugreports")
+      &nbsp;
+    %p.news
+
+    %b= _("Current version:")
+    %span{ :style => 'text-decoration: underline;' }= "#{@srpm.version}-#{@srpm.release}"
+    %br
+    %b= _("Build date:")
+    = "#{@srpm.buildtime} (#{time_ago_in_words(@srpm.buildtime)} #{_("ago")})"
+    %br
+    %b= _("Size:")
+    = number_to_human_size(@srpm.size)
+    %br
+    %br
+
+    - if !@srpm.url.nil?
+      %b= _("Home page:")
+      &nbsp;
+      = link_to @srpm.url, @srpm.url, :class => 'news', :rel => 'nofollow'
+      %br
+      %br
+
+    %b= _("License:")
+    %span{ :class => 'news-text' }= @srpm.license
+    %br
+
+    %b= _("Summary:")
+    %span.news-text= @srpm.summary
+    %br
+    %b= _("Description:")
+    %div.para= simple_format @srpm.description
+
+    %p.news
+    - if !@srpm.maintainer.nil?
+      %div.maintainer
+      %b= _("Current maintainer:")
+      - if @srpm.maintainer.team == true
+        = link_to @srpm.maintainer.name, team_path(:name => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer')
+      - else
+        = link_to @srpm.maintainer.name, maintainer_info_path(:login => @srpm.maintainer.login), :class => 'news', :title => _('information about maintainer')
+    %br
+    %br
+
+    - if !@srpm.packages.nil?
+      %b= _("List of rpms provided by this srpm:")
+      %div.para{ :style => 'margin-left: 0em;' }
+        %ul
+          - @srpm.packages.each do |package|
+            %li= package.filename
+
+    - if !@srpm.acls.empty?
+      %b= _("ACL:")
+      %div.para{ :style => 'margin-left: 0em;' }
+        %ul
+          - @srpm.acls.each do |acl|
+            - if acl.maintainer.team
+              %li
+                = link_to acl.maintainer.name, team_path(:name => acl.maintainer.login[1..-1], :branch => @branch.name), :class => 'news'
+            - else
+              %li
+                = link_to acl.maintainer.name, maintainer_info_path(:login => acl.maintainer.login), :class => 'news'
+
+#bottom-offset-l
+  #bottom-offset-r
+    &nbsp;
