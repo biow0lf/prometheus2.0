@@ -4,7 +4,6 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :set_search
   before_filter :default_locale
   before_filter :fix_branch
 
@@ -15,10 +14,6 @@ class ApplicationController < ActionController::Base
     params[:locale] ||= "en"
     I18n.locale = params[:locale]
     FastGettext.locale = params[:locale]
-  end
-
-  def set_search
-    params[:search] = params[:request] if params[:search].nil?
   end
 
   def fix_branch
