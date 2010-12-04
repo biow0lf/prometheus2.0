@@ -1,6 +1,16 @@
 class SrpmController < ApplicationController
 #  caches_page :main, :changelog, :rawspec, :patches, :sources, :download, :gear, :bugs, :allbugs, :repocop
 
+  def show
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
+    @srpm = @branch.srpms.where(:name => params[:name]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
+    if @srpm != nil
+      @allsrpms = Srpm.where(:name => params[:name]).joins(:branch).order("branches.order_id")
+    else
+      render :status => 404, :action => "nosuchpackage"
+    end
+  end
+
   def main
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = @branch.srpms.where(:name => params[:name]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
