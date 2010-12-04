@@ -62,13 +62,13 @@
         = _("Sisyphus repository")
       #top-auth
         #div1{ :style => 'display: block; margin-top: 20px' }
-          %form{ :action => '/' + params[:locale] + '/find.shtml', :method => 'get' }
+          = form_tag search_path, :method => :get do
             %table
               %tr
                 %td
-                  %input{ :class => 'top-name', :type => 'text', :name => 'request', :value => '', :size => '18' }
+                  = text_field_tag :query, params[:query] ? params[:query] : "Search...", :class => 'top-name', :size => '18'
                 %td{ :valign => 'middle' }
-                  %input{ :type => 'submit', :class => 'top-go', :id => 'sub1', :value => _("find"), :onmouseover => 'm_on("sub1")', :onmouseout => 'm_off("sub1")' }
+                  = submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'sub1', :value => _("find"), :onmouseover => 'm_on("sub1")', :onmouseout => 'm_off("sub1")'
 
     #top-line
       #vinfo

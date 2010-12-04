@@ -1,0 +1,50 @@
+= title _("Prometheus 2.0 - Search")
+=# url '/search'
+
+#main-content
+
+  %div{ :class => 'header', :style => 'letter-spacing: 1px;'}= _("Search")
+  %p.break
+  = form_tag search_path, :method => :get do
+    = text_field_tag :query, params[:query] ? params[:query] : "Search...", :size => '20'
+    = submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'subOn', :value => _("find"), :onmouseover => "m_on('sub1')", :onmouseout => "m_off('sub1')"
+
+  %br
+  %br
+  = _("On your query &quot;").html_safe
+  %b>= params[:query]
+  = _("&quot; were found").html_safe
+  %b= @srpms_count
+  = n_("RPM:", "RPMs:", @srpms_count)
+
+  %p.break
+  %br
+  %table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3' }
+    %tr
+      %th= raw _("repo<br/>cop")
+      %th= _("package")
+      %th= raw _("current<br />version")
+      %th= _("build time")
+      %th= _("age")
+      %th= _("Url")
+      %th= _("summary")
+
+    - @srpms.each do |srpm|
+      %tr
+        %td
+          = link_to image_tag(srpm.repocop + '.png', :size => '20x20', :alt => srpm.repocop), srpm_repocop_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'repocoplink', :title => 'repocop'
+        %td{ :class => 'strange' }
+          = link_to srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'news'
+        %td= "#{srpm.version}-#{srpm.release}"
+        %td= srpm.buildtime
+        %td= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}"
+        %td
+          - if srpm.url != nil
+            = link_to srpm.url[0..27] + '...', srpm.url, :class => 'news', :rel => 'nofollow'
+          - else 
+            &ndash;
+        %td= srpm.summary
+
+#bottom-offset-l
+  #bottom-offset-r
+    &nbsp;

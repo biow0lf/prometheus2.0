@@ -1,19 +1,21 @@
 SUPPORTED_LOCALES = /(en|ru|uk|br)/
 
 Prometheus20::Application.routes.draw do
+
+  scope '(:locale)', :locale => SUPPORTED_LOCALES do
+    match 'project' => 'pages#project'
+    match 'news' => 'pages#news'
+    resource :search, :only => :show
+  end
+  
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/iphone/' => 'iphone#index', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/search' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/find.shtml' => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
-
-  match '(/:locale)/news' => 'pages#news', :as => 'news', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/rss' => 'rss#index', :as => 'rss', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/project' => 'pages#project', :as => 'project', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/rsync.shtml' => 'rsync#index', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/rsync' => 'rsync#index', :as => 'rsync', :constraints => { :locale => SUPPORTED_LOCALES }

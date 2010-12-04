@@ -7,16 +7,6 @@ class HomeController < ApplicationController
     @srpms = @branch.srpms.where("srpms.created_at > '2010-11-09 09:00:00'").includes(:group, :maintainer).order('srpms.created_at DESC').paginate(:page => params[:page], :per_page => 100)
   end
 
-  def search
-    @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
-    if params[:request].nil? or params[:request].empty?
-      redirect_to :action => "index"
-    else
-      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:search].to_s.split).where(:branch_id => @branch.id).order("LOWER(name) ASC")
-      @srpms, @srpms_count = @search.all, @search.count
-    end
-  end
-
   def maintainers_list
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainers = Maintainer.find_all_maintainers_in_sisyphus
