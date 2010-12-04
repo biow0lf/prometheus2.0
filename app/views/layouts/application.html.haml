@@ -66,7 +66,7 @@
             %table
               %tr
                 %td
-                  = text_field_tag :query, params[:query] ? params[:query] : "Search...", :class => 'top-name', :size => '18'
+                  = text_field_tag :query, params[:query] ? params[:query] : "", :placeholder => _("Search..."), :class => 'top-name', :size => '18'
                 %td{ :valign => 'middle' }
                   = submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'sub1', :value => _("find"), :onmouseover => 'm_on("sub1")', :onmouseout => 'm_off("sub1")'
 
