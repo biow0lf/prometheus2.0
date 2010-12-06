@@ -53,8 +53,9 @@
       };
 
   %body
-    %p.notice= notice
-    %p.alert= alert
+    %div{ :style => 'display: none;' }
+      %p.notice= notice
+      %p.alert= alert
 
     #top
       #top-logo
