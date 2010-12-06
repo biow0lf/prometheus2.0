@@ -79,6 +79,13 @@
         = "#{Date.today} | "
         %b= "#{_('SRPMs:')} "
         = Srpm.count_srpms_in_sisyphus
+        = " | "
+        - if user_signed_in?
+          = link_to 'Sign out', destroy_user_session_path
+        - else
+          = link_to 'Sign in', new_user_session_path
+          = " or "
+          = link_to 'Sign up', new_user_registration_path
 
       %div{ :style => 'text-align: right' }
         = link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') + " ".to_s
@@ -90,7 +97,7 @@
       %ul
         %li{ :onmouseover => "m_on('li1')", :onmouseout => "m_off('li1')", :id => 'li1' }
           #dli1
-            = link_to_unless_current _("Home"), home_path, :title => _("site home page")
+            = link_to_unless_current _("Home"), root_path, :title => _("site home page")
         %li{ :onmouseover => "m_on('li2')", :onmouseout => "m_off('li2')", :id => 'li2' }
           #dli2
             = link_to_unless_current _("News"), news_path, :title => _("site news")

@@ -7,6 +7,8 @@ Prometheus20::Application.routes.draw do
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
     resource :search, :only => :show
+    
+    root :to => 'home#index'
   end
   
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
@@ -80,13 +82,9 @@ Prometheus20::Application.routes.draw do
 
 #  match '/cli/repocop/by-test/:name' => 'repocop#bytestname'
 
-  match '(/:locale)' => 'home#index', :as => 'home', :constraints => { :locale => SUPPORTED_LOCALES }
-  
   match '/src\::name' => redirect("/en/srpm/Sisyphus/%{name}")
   
   match '/:name' => 'redirector#index'
-
-  root :to => 'home#index'
 
   match '/sitemap.xml' => 'sitemap#sitemap_full'
   match '/sitemap_basic.xml' => 'sitemap#sitemap_basic'
