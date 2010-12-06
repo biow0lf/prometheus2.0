@@ -81,6 +81,7 @@
         = Srpm.count_srpms_in_sisyphus
         = " | "
         - if user_signed_in?
+          %b= "Welcome, #{current_user.email}!"
           = link_to 'Sign out', destroy_user_session_path
         - else
           = link_to 'Sign in', new_user_session_path
