@@ -46,9 +46,8 @@ msgid " - Spec"
 msgstr " - Спек"
 
 #: app/views/searches/show.html.haml:16
-#, fuzzy
 msgid "&quot; were found"
-msgstr "було знайдено"
+msgstr "&quot; було знайдено"
 
 #: app/views/maintainer/info.html.erb:1 app/views/team/info.html.haml:1
 msgid "&raquo;"
@@ -360,9 +359,8 @@ msgid "News"
 msgstr "Новини"
 
 #: app/views/group/nosuchgroup.html.haml:6
-#, fuzzy
 msgid "No such group!"
-msgstr "Немає такого майнтейнера!"
+msgstr ""
 
 #: app/views/srpm/nosuchpackage.html.haml:6
 msgid "No such package!"
@@ -377,9 +375,8 @@ msgid "No such team!"
 msgstr "Немає такої команди!"
 
 #: app/views/searches/show.html.haml:14
-#, fuzzy
 msgid "On your query &quot;"
-msgstr "За запитом"
+msgstr "За запитом &quot;"
 
 #: app/views/group/groups_list.html.haml:22
 msgid "Package groups"
@@ -419,9 +416,8 @@ msgid "Prometheus 2.0 - Group - "
 msgstr ""
 
 #: app/views/group/nosuchgroup.html.haml:1
-#, fuzzy
 msgid "Prometheus 2.0 - Group - Error!"
-msgstr "Prometheus 2.0 - Team - Error!"
+msgstr ""
 
 #: app/views/group/groups_list.html.haml:1
 msgid "Prometheus 2.0 - Groups"
@@ -535,9 +531,8 @@ msgid "Search"
 msgstr "Пошук"
 
 #: app/views/layouts/application.html.haml:72
-#, fuzzy
 msgid "Search..."
-msgstr "Пошук"
+msgstr "Пошук..."
 
 #: app/views/iphone/index.html.erb:12 app/views/iphone/index.html.erb:39
 #: app/views/layouts/application.html.haml:112
@@ -966,11 +961,3 @@ msgstr "всі баги"
 msgid "uk"
 msgstr "uk"
 
-#~ msgid "Prometheus 2.0"
-#~ msgstr "Prometheus 2.0"
-
-#~ msgid "another transfers"
-#~ msgstr "інші трансфери"
-
-#~ msgid "search"
-#~ msgstr "шукати"

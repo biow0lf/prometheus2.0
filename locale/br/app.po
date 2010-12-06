@@ -955,5 +955,3 @@ msgstr ""
 msgid "uk"
 msgstr ""
 
-#~ msgid "another transfers"
-#~ msgstr "outras transferências"
