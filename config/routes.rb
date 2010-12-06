@@ -1,6 +1,7 @@
 SUPPORTED_LOCALES = /(en|ru|uk|br)/
 
 Prometheus20::Application.routes.draw do
+  devise_for :users
 
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     match 'project' => 'pages#project'
