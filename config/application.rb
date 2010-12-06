@@ -41,7 +41,7 @@ module Prometheus20
     
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[ERROR] ",
-      :sender_address => %{"Sisyphus 2.0 Error" <noreply@prometheus.altlinux.org>},
+      :sender_address => %{"Sisyphus 2.0 Error" <prometheus-noreply@altlinux.org>},
       :exception_recipients => %w{igor.zubkov@gmail.com}
   end
 end
