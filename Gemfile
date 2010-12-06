@@ -6,6 +6,8 @@ gem 'pg'
 
 gem 'haml'
 
+gem 'devise'
+
 gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
 
