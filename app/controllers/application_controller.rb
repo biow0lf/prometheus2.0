@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :default_locale
   before_filter :fix_branch
-  before_filter :mailer_set_url_options
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
@@ -24,9 +23,5 @@ class ApplicationController < ActionController::Base
 
   def default_url_options(options={})
     { :locale => params[:locale] }
-  end
-  
-  def mailer_set_url_options
-    ActionMailer::Base.default_url_options[:host] = request.host_with_port
   end
 end
