@@ -1,4 +1,22 @@
-class MaintainerController < ApplicationController
+class MaintainersController < ApplicationController
+  before_filter :authenticate_user!, :only => [:edit, :update]
+
+  def edit
+    @maintainer = Maintainer.where(:login => current_user.login).first
+  end
+  
+  def update
+    @maintainer = Maintainer.where(:login => current_user.login).first
+    @maintainer.info = params[:info]
+    @maintainer.jabber = params[:jabber]
+    @maintainer.time_zone = params[:time_zone]
+    if @maintainer.save
+      redirect_to maintainer_info_path(:login => current_user.login, :locale => params[:locale])
+    else
+      render :text => 'Fail'
+    end
+  end
+
   def info
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.where(:login => params[:login].downcase, :team => false).first

@@ -1,0 +1,22 @@
+#main-content
+
+  %div.header Update personal maintainer info
+  = form_tag maintainer_path, :method => :put do
+    = label_tag :time_zone, "Time Zone:"
+    = select_tag :time_zone, time_zone_options_for_select(@maintainer.time_zone, nil, TZInfo::Timezone)
+    =# time_zone_select 
+    %br
+    
+    = label_tag :jabber, "Jabber ID:"
+    = text_field_tag :jabber, @maintainer.jabber
+    %br
+
+    = label_tag :info
+    = text_area_tag :info, @maintainer.info, :size => '100x20'
+    %br
+
+    = submit_tag 'Update'
+
+#bottom-offset-l
+  #bottom-offset-r
+    &nbsp;

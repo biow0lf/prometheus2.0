@@ -7,6 +7,7 @@ Prometheus20::Application.routes.draw do
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
     resource :search, :only => :show
+    resource :maintainer, :only => [:edit, :update]
     
     root :to => 'home#index'
   end
@@ -27,14 +28,14 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)(/:branch)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
 
-  match '(/:locale)(/:branch)/packager/:login' => 'maintainer#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/srpms' => 'maintainer#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/acls' => 'maintainer#acls', :as => 'maintainer_acls', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/gear' => 'maintainer#gear', :as => 'maintainer_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/bugs' => 'maintainer#bugs', :as => 'maintainer_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/allbugs' => 'maintainer#allbugs', :as => 'maintainer_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/repocop' => 'maintainer#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-#  match '(/:locale)(/:branch)/packager/:login/repocop/rss' => 'maintainer#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login' => 'maintainers#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/srpms' => 'maintainers#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/acls' => 'maintainers#acls', :as => 'maintainer_acls', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/gear' => 'maintainers#gear', :as => 'maintainer_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/bugs' => 'maintainers#bugs', :as => 'maintainer_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/allbugs' => 'maintainers#allbugs', :as => 'maintainer_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+  match '(/:locale)(/:branch)/packager/:login/repocop' => 'maintainers#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
+#  match '(/:locale)(/:branch)/packager/:login/repocop/rss' => 'maintainers#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
 
   match '(/:locale)/packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group', :constraints => { :locale => SUPPORTED_LOCALES }
 

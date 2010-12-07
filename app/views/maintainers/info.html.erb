@@ -6,7 +6,10 @@
 <div class="header"><%= _("Maintainer:") %> <%= @maintainer.name -%></div>
 <p class="break" />
 <span class="current">&nbsp;<b><%= _("Information") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), maintainer_srpms_path(:login => @maintainer.login), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), maintainer_gear_path(:login => @maintainer.login), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), maintainer_bugs_path(:login => @maintainer.login), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), maintainer_repocop_path(:login => @maintainer.login), :class => 'news', :title => _("repocop bugreports") %> &nbsp;</span><p class="break" />
-<b><%= _("Information:") %> </b><div class="para">  </div>
+<b><%= _("Information:") %></b>
+  <div class="para"><%= simple_format(@maintainer.info) %></div>
+<b><%= _("Jabber ID:") %></b> <%= @maintainer.jabber %><br>
+<b><%= _("Time Zone:") %></b> <%= @maintainer.time_zone %><br>
 
 <p class="break" />
 <b><%= _("Packages built by this maintainer:") %></b> <%= @acls.count -%>

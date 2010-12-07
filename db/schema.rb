@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101206144602) do
+ActiveRecord::Schema.define(:version => 20101206214221) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -111,6 +111,9 @@ ActiveRecord::Schema.define(:version => 20101206144602) do
     t.boolean  "team"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "time_zone",  :default => "UTC"
+    t.string   "jabber",     :default => "null"
+    t.text     "info",       :default => "null"
   end
 
   create_table "packages", :force => true do |t|

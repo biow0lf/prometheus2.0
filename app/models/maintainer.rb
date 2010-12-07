@@ -9,6 +9,8 @@ class Maintainer < ActiveRecord::Base
   has_many :srpms, :through => :acls
   has_many :gitrepos
 
+  attr_accessible :time_zone, :jabber, :info
+
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
       begin

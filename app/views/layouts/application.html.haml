@@ -75,19 +75,22 @@
 
     #top-line
       #vinfo
-        %b= "#{_('Last update:')} " 
+        %b= "#{_('Last update:')} "
         = "#{Date.today} | "
         %b= "#{_('SRPMs:')} "
         = Srpm.count_srpms_in_sisyphus
         = " | "
         - if user_signed_in?
-          %b= "Welcome, #{current_user.email}!"
+          %b= "Welcome, #{current_user.email}! | "
           = link_to 'Sign out', destroy_user_session_path
+          - if current_user.is_alt_team?
+            = " | "
+            %b= link_to 'Edit my maintainer profile', edit_maintainer_path
         - else
           = link_to 'Sign in', new_user_session_path
           = " or "
           = link_to 'Sign up', new_user_registration_path
-
+        
       %div{ :style => 'text-align: right' }
         = link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') + " ".to_s
         = link_to_unless_current _('ru'), '/ru' + yield(:url), :title => _('Russian') + " ".to_s
