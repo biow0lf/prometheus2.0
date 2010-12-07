@@ -3,13 +3,17 @@ class Maintainer < ActiveRecord::Base
   validates :email, :presence => true
   validates :login, :presence => true, :uniqueness => true
 
+  validates :name, :immutable => true
+  validates :email, :immutable => true
+  validates :login, :immutable => true
+
   has_one :leader
   has_many :acls
   has_many :teams
   has_many :srpms, :through => :acls
   has_many :gitrepos
 
-  attr_accessible :time_zone, :jabber, :info
+  attr_accessible :name, :email, :login, :time_zone, :jabber, :info
 
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
