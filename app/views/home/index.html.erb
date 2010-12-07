@@ -37,7 +37,7 @@
 	  <% end -%>
 	</span><br />
     <b><%= _("Summary:") %></b> <span class="news-text"><%= srpm.summary %></span><br />
-    <b><%= _("Changes:") %></b> <div class="para">TODO</div>
+    <b><%= _("Changes:") %></b> <div class="para"><%= simple_format(srpm.changelogtext) %></div>
   </div>
   <p class="news" />
 

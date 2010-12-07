@@ -26,7 +26,7 @@
         %span{ :class => 'news-text'}= srpm.summary
         %br
         %b= _("Changes:")
-        %div.para TODO
+        %div.para= simple_format(srpm.changelogtext)
 
 #bottom-offset-l
   #bottom-offset-r
