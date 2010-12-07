@@ -50,6 +50,9 @@ class Srpm < ActiveRecord::Base
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
         srpm.branch_id = b.id
+        srpm.changelogtime = rpm.changelog.first.time
+        srpm.changelogname = rpm.changelog.first.name
+        srpm.changelogtext = rpm.changelog.first.text
         if srpm.save
           rpm.changelog.each do |c|
             changelog = Changelog.new
@@ -105,6 +108,9 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.branch_id = b.id
+    srpm.changelogtime = rpm.changelog.first.time
+    srpm.changelogname = rpm.changelog.first.name
+    srpm.changelogtext = rpm.changelog.first.text
     if srpm.save
       $redis.set b.name + ":" + srpm.filename, 1
       if b.name == 'Sisyphus' && b.vendor == 'ALT Linux'
