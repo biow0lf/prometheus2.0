@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101207205553) do
+ActiveRecord::Schema.define(:version => 20101208004218) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -162,6 +162,17 @@ ActiveRecord::Schema.define(:version => 20101207205553) do
   add_index "repocops", ["srcrel"], :name => "index_repocops_on_srcrel"
   add_index "repocops", ["srcversion"], :name => "index_repocops_on_srcversion"
 
+  create_table "specfiles", :force => true do |t|
+    t.integer  "srpm_id"
+    t.integer  "branch_id"
+    t.binary   "spec"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "specfiles", ["branch_id"], :name => "index_specfiles_on_branch_id"
+  add_index "specfiles", ["srpm_id"], :name => "index_specfiles_on_srpm_id"
+
   create_table "srpms", :force => true do |t|
     t.string   "filename"
     t.string   "name"
@@ -184,6 +195,7 @@ ActiveRecord::Schema.define(:version => 20101207205553) do
     t.string   "changelogtime"
     t.string   "changelogname"
     t.text     "changelogtext"
+    t.integer  "specfile_id"
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"

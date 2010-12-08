@@ -9,6 +9,7 @@ class Srpm < ActiveRecord::Base
   has_one :leader, :dependent => :destroy
   has_one :maintainer, :through => :leader
   has_many :acls, :dependent => :destroy
+  has_one :specfile, :dependent => :destroy
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 

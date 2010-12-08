@@ -2,20 +2,31 @@ namespace :sisyphus do
 task :specfiles => :environment do
   puts Time.now
 
-  Dir.glob("/path/to/*.src.spec").each do |f|
-  begin
-    file = File.basename(f)
+  branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
 
-    srpm = Srpm.find :first, :conditions => { :filename => file[0..-5] + 'rpm' }
-
-    file1 = File.open(f, 'rb')
-    srpm.rawspec = file1.read
-
-    srpm.save!
-
-  rescue RuntimeError
-    puts "Bad src.rpm -- " + f
-  end
+  srpms = branch.srpms.where(:specfile_id => nil).limit(2)
+  
+  srpms.each do |srpm|
+    file = "/ALT/Sisyphus/files/SRPMS/#{srpm.filename}"
+    
+    p file
+    
+    specfilename = `rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" "#{file}" | grep \"32 \" | sed -e 's/32 //'`
+    
+    specfilename.strip!
+    
+    spec = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{specfilename}"`
+    
+    specfile = Specfile.new
+    specfile.srpm_id = srpm.id
+    specfile.branch_id = branch.id
+    specfile.spec = spec
+    
+    unless specfile.save
+      p "shit happens"
+    end
+    
+    
   end
 
   puts Time.now
