@@ -63,9 +63,10 @@ class Srpm < ActiveRecord::Base
             changelog.changelogtext = c.text
             changelog.save!                                                                                                                                              
           end
+          Specfile.import_specfile(file, srpm, b)
         end        
       rescue RuntimeError
-        puts "Bad .src.rpm: " + file
+        puts "RuntimeError at file: " + file
       end
     end
   end
@@ -130,8 +131,8 @@ class Srpm < ActiveRecord::Base
         Leader.create_leader_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
         Acl.create_acls_for_package(b.vendor, b.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
       end
-      puts Time.now.to_s + ": updated '" + srpm.filename + "'"
-      puts Time.now.to_s + ": import changelog for '" + srpm.filename + "'"
+      #puts Time.now.to_s + ": updated '" + srpm.filename + "'"
+      #puts Time.now.to_s + ": import changelog for '" + srpm.filename + "'"
       rpm.changelog.each do |c|
         changelog = Changelog.new
         changelog.srpm_id = srpm.id
@@ -140,7 +141,8 @@ class Srpm < ActiveRecord::Base
         changelog.changelogtext = c.text
         changelog.save!                                                                                                                                              
       end
-      puts Time.now.to_s + ": imported changelog for '" + srpm.filename + "'"
+      Specfile.import_specfile(file, srpm, b)
+      #puts Time.now.to_s + ": imported changelog for '" + srpm.filename + "'"
     else
       puts Time.now.to_s + ": failed to update '" + srpm.filename + "'"
     end
