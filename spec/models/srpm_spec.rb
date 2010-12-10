@@ -10,6 +10,7 @@ describe Srpm do
     it { should have_one(:maintainer).through(:leader) }
     it { should have_many :acls }
     it { should have_many :repocops }
+    it { should have_one :specfile }
 
     pending "test :dependent => :destroy for :packages, :changelogs, :leaders, :acls"
     pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
