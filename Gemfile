@@ -34,13 +34,17 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'steak'
   gem 'capybara'
+  gem 'envjs'
   gem 'capybara-envjs'
+#  gem 'akephalos', :git => 'git://github.com/thoughtbot/akephalos.git'
   gem 'syntax' # for TextMate syntax highlight
   gem 'ffaker'
   gem 'factory_girl_rails'
   # for gettext & haml
   gem 'ruby_parser'
   gem 'hpricot'
+  # opening pages in browser
+  gem 'launchy'
 end
 
 group :development do

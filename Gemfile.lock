@@ -40,22 +40,20 @@ GEM
     autotest (4.4.5)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
-    capybara (0.4.0)
-      celerity (>= 0.7.9)
+    capybara (0.3.9)
       culerity (>= 0.2.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      selenium-webdriver (>= 0.0.27)
-      xpath (~> 0.1.2)
-    capybara-envjs (0.4.0)
-      capybara (~> 0.4.0)
+      selenium-webdriver (>= 0.0.3)
+    capybara-envjs (0.1.6)
+      capybara (>= 0.3.9)
       envjs (>= 0.3.7)
-    celerity (0.8.4)
     childprocess (0.1.4)
       ffi (~> 0.6.3)
     columnize (0.3.2)
+    configuration (1.2.0)
     culerity (0.2.12)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
@@ -88,6 +86,9 @@ GEM
     johnson (2.0.0.pre3)
       stackdeck (~> 0.2)
     json_pure (1.4.6)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     linecache (0.43)
     locale (2.0.5)
     mail (2.2.10)
@@ -173,8 +174,6 @@ GEM
       aaronh-chronic (>= 0.3.9)
       activesupport (>= 2.3.4)
     will_paginate (3.0.pre2)
-    xpath (0.1.2)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -185,6 +184,7 @@ DEPENDENCIES
   capybara
   capybara-envjs
   devise
+  envjs
   exception_notification!
   factory_girl_rails
   fast_gettext (>= 0.4.8)
@@ -194,6 +194,7 @@ DEPENDENCIES
   haml
   haml-rails
   hpricot
+  launchy
   meta_search
   meta_where
   newrelic_rpm
