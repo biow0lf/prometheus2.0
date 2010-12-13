@@ -44,7 +44,7 @@ class Package < ActiveRecord::Base
       package.srpm_id = srpm.id
       if package.save
         $redis.set b.name + ":" + package.filename, 1
-        puts Time.now.to_s + ": updated '" + package.filename + "'"
+        #puts Time.now.to_s + ": updated '" + package.filename + "'"
       else
         puts Time.now.to_s + ": failed to update '" + package.filename + "'"
       end
@@ -95,7 +95,7 @@ class Package < ActiveRecord::Base
           puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
         end
       rescue RuntimeError
-        puts "Bad .rpm: " + file
+        puts "RuntimeError at file: " + file
       end
     end
   end
@@ -142,7 +142,7 @@ class Package < ActiveRecord::Base
           puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
         end
       rescue RuntimeError
-        puts "Bad .rpm: " + file
+        puts "RuntimeError at file: " + file
       end
     end
   end
@@ -189,7 +189,7 @@ class Package < ActiveRecord::Base
           puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
         end
       rescue RuntimeError
-        puts "Bad .rpm: " + file
+        puts "RuntimeError at file: " + file
       end
     end
   end
@@ -236,7 +236,7 @@ class Package < ActiveRecord::Base
           puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
         end
       rescue RuntimeError
-        puts "Bad .rpm: " + file
+        puts "RuntimeError at file: " + file
       end
     end
   end
