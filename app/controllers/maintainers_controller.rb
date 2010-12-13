@@ -10,6 +10,9 @@ class MaintainersController < ApplicationController
     @maintainer.info = params[:info]
     @maintainer.jabber = params[:jabber]
     @maintainer.time_zone = params[:time_zone]
+    @maintainer.location = params[:location]
+    @maintainer.website = params[:website]
+    
     if @maintainer.save
       redirect_to maintainer_info_path(:login => current_user.login, :locale => params[:locale])
     else
