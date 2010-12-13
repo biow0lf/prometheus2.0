@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101208004218) do
+ActiveRecord::Schema.define(:version => 20101213133119) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -112,8 +112,10 @@ ActiveRecord::Schema.define(:version => 20101208004218) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "time_zone",  :default => "UTC"
-    t.string   "jabber",     :default => "null"
-    t.text     "info",       :default => "null"
+    t.string   "jabber",     :default => ""
+    t.text     "info",       :default => ""
+    t.string   "website",    :default => ""
+    t.string   "location",   :default => ""
   end
 
   create_table "packages", :force => true do |t|

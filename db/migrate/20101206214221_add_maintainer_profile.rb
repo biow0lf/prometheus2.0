@@ -1,8 +1,8 @@
 class AddMaintainerProfile < ActiveRecord::Migration
   def self.up
     add_column :maintainers, :time_zone, :string, :default => "UTC"
-    add_column :maintainers, :jabber, :string, :default => :null
-    add_column :maintainers, :info, :text, :default => :null
+    add_column :maintainers, :jabber, :string, :default => ""
+    add_column :maintainers, :info, :text, :default => ""
   end
 
   def self.down
