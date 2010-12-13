@@ -15,4 +15,9 @@ module ApplicationHelper
   def keywords(string)
     content_for(:keywords) { string }
   end
+  
+  def avatar_url(maintainer)
+    gravatar_id = Digest::MD5.hexdigest(maintainer.email.downcase)
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=80&r=g"
+  end
 end
