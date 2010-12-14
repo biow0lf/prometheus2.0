@@ -87,7 +87,7 @@
       <%= image_tag("collapse.gif", :id => 'topTips', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
     </div>
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-      <b><%= _("Sisyphus sync") %></b><br /><%= raw _("<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?") %><br /><%= raw _("<b>A:</b> Create filter for rsync with the help of this") %> <a href="/<%= params[:locale] %>/rsync.shtml" class="news"><%= _("form") %></a>
+      <b><%= _("Sisyphus sync") %></b><br /><%= raw _("<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?") %><br /><%= raw _("<b>A:</b> Create filter for rsync with the help of this") %> <%= link_to _("form"), new_rsync_path, :class => 'news' %>
     </div>
 </div>
 

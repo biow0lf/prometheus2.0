@@ -9,6 +9,8 @@ Prometheus20::Application.routes.draw do
     resource :search, :only => :show
     resource :maintainer, :only => [:edit, :update]
     
+    resources :rsync, :controller => :rsync, :only => :new
+    
     root :to => 'home#index'
   end
   
@@ -20,9 +22,6 @@ Prometheus20::Application.routes.draw do
 
   match '(/:locale)/rss' => 'rss#index', :as => 'rss', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
-
-  match '(/:locale)/rsync.shtml' => 'rsync#index', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/rsync' => 'rsync#index', :as => 'rsync', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/packages' => 'group#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
