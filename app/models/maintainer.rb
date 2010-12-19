@@ -63,32 +63,32 @@ class Maintainer < ActiveRecord::Base
     end
   end
 
-  def self.find_all_maintainers_in_sisyphus
-    find_by_sql("SELECT COUNT(acls.srpm_id) AS counter,
+  def self.find_all_maintainers_in(branch)
+    find_by_sql(["SELECT COUNT(acls.srpm_id) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login
                  FROM acls, maintainers, branches
                  WHERE maintainers.id = acls.maintainer_id
                  AND maintainers.team = 'false'
                  AND acls.branch_id = branches.id
-                 AND branches.name = 'Sisyphus'
+                 AND branches.name = ?
                  AND branches.vendor = 'ALT Linux'
                  GROUP BY maintainers.name, maintainers.login
-                 ORDER BY maintainers.name ASC")
+                 ORDER BY maintainers.name ASC", branch])
   end
 
-  def self.find_all_teams_in_sisyphus
-    find_by_sql("SELECT COUNT(acls.srpm_id) AS counter,
+  def self.find_all_teams_in(branch)
+    find_by_sql(["SELECT COUNT(acls.srpm_id) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login
                  FROM acls, maintainers, branches
                  WHERE maintainers.id = acls.maintainer_id
                  AND maintainers.team = 'true'
                  AND acls.branch_id = branches.id
-                 AND branches.name = 'Sisyphus'
+                 AND branches.name = ?
                  AND branches.vendor = 'ALT Linux'
                  GROUP BY maintainers.name, maintainers.login
-                 ORDER BY maintainers.name ASC")
+                 ORDER BY maintainers.name ASC", branch])
   end
 
   def self.top15

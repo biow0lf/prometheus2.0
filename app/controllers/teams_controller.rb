@@ -1,10 +1,8 @@
-class TeamController < ApplicationController
-#  caches_page :info
-
-  def info
+class TeamsController < ApplicationController
+  def show
     @branch = Branch.find_by_name_and_vendor(params[:branch], 'ALT Linux')
     @team = Maintainer.first :conditions => {
-                               :login => '@' + params[:name],
+                               :login => '@' + params[:id],
                                :team => true }
     @acls = Acl.all :conditions => {
                       :maintainer_id => @team.id,
@@ -18,7 +16,7 @@ class TeamController < ApplicationController
                                AND teams.branch_id = branches.id
                                AND branches.name = ?
                                AND leader = 'true'
-                               LIMIT 1", '@' + params[:name], @branch.name ])
+                               LIMIT 1", '@' + params[:id], @branch.name ])
 
       @members = Team.find_by_sql(["SELECT maintainers.login, maintainers.name
                                FROM teams, maintainers, branches
@@ -26,7 +24,7 @@ class TeamController < ApplicationController
                                AND teams.name = ?
                                AND teams.branch_id = branches.id
                                AND branches.name = ?
-                               ORDER BY LOWER(maintainers.name)", '@' + params[:name], @branch.name ])
+                               ORDER BY LOWER(maintainers.name)", '@' + params[:id], @branch.name ])
     else
       render :status => 404, :action => "nosuchteam"
     end

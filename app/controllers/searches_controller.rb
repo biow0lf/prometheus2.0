@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
     if params[:query].nil? or params[:query].empty?
       redirect_to :action => "index"
     else
-      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:query].to_s.split).where(:branch_id => @branch.id).order("LOWER(name) ASC")
+      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:query].to_s.split).where(:branch_id => @branch.id).order("LOWER(srpms.name) ASC")
       @srpms, @srpms_count = @search.all, @search.count
     end  
   end

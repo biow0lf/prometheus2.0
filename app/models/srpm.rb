@@ -13,8 +13,8 @@ class Srpm < ActiveRecord::Base
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
 
-  def self.count_srpms_in_sisyphus
-    Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first.srpms.count
+  def self.count_srpms_in(branch)
+    Branch.where(:name => branch, :vendor => 'ALT Linux').first.srpms.count
   end
 
   def self.import_srpms(vendor, branch, path)

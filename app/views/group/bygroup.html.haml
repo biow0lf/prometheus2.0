@@ -13,7 +13,7 @@
     - @srpms.each do |srpm|
       %p.news
         %span{ :class => 'news-date-new' }
-          = link_to srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => srpm.name), :class => 'news', :title => _("detailed information about the package")
+          = link_to srpm.name, srpm_path(:id => srpm.name, :branch => @branch.name), :class => 'news', :title => _("detailed information about the package")
         %br
         %br
         %b= _("Current version:")

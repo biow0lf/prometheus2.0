@@ -78,7 +78,7 @@
         %b= "#{_('Last update:')} "
         = "#{Date.today} | "
         %b= "#{_('SRPMs:')} "
-        = Srpm.count_srpms_in_sisyphus
+        = Srpm.count_srpms_in(params[:branch])
         = " | "
         - if user_signed_in?
           %b= "Welcome, #{current_user.email}! | "
@@ -101,16 +101,16 @@
       %ul
         %li{ :onmouseover => "m_on('li1')", :onmouseout => "m_off('li1')", :id => 'li1' }
           #dli1
-            = link_to_unless_current _("Home"), root_path, :title => _("site home page")
+            = link_to_unless_current _("Home"), home_path(:branch => params[:branch]), :title => _("site home page")
         %li{ :onmouseover => "m_on('li2')", :onmouseout => "m_off('li2')", :id => 'li2' }
           #dli2
             = link_to_unless_current _("News"), news_path, :title => _("site news")
         %li{ :onmouseover => "m_on('li3')", :onmouseout => "m_off('li3')", :id => 'li3' }
           #dli3
-            = link_to_unless_current _("Packages"), packages_path, :title => _("packages information")
+            = link_to_unless_current _("Packages"), packages_path(:branch => params[:branch]), :title => _("packages information")
         %li{ :onmouseover => "m_on('li4')", :onmouseout => "m_off('li4')", :id => 'li4' }
           #dli4
-            = link_to_unless_current _("Maintainers"), maintainers_path, :title => _("maintainers information")
+            = link_to_unless_current _("Maintainers"), maintainers_path(:branch => params[:branch]), :title => _("maintainers information")
         %li{ :onmouseover => "m_on('li5')", :onmouseout => "m_off('li5')", :id => 'li5' }
           #dli5
             = link_to_unless_current _("Security"), security_path, :title => _("security fixes")
@@ -119,7 +119,7 @@
             = link_to_unless_current _("About"), project_path, :title => _("about Prometheus project")
         %li{ :onmouseover => "m_on('li7')", :onmouseout => "m_off('li7')", :id => 'li7' }
           #dli7
-            = link_to_unless_current _("RSS"), rss_path, :title => _("RSS")
+            = link_to_unless_current _("RSS"), rss_path(:branch => params[:branch]), :title => _("RSS")
         %li{ :onmouseover => "m_on('li8')", :onmouseout => "m_off('li8')", :id => 'li8' }
           #dli8
             = link_to _("Wiki"), _("http://en.altlinux.org/Sisyphus"), :title => _("sisyphus public site")

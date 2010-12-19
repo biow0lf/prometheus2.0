@@ -19,10 +19,10 @@ class MaintainersController < ApplicationController
       render :text => 'Fail'
     end
   end
-
-  def info
+  
+  def show
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
-    @maintainer = Maintainer.where(:login => params[:login].downcase, :team => false).first
+    @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     @acls = Acl.where(:maintainer_id => @maintainer.id, :branch_id => @branch.id)
     if @maintainer == nil
       render :status => 404, :action => "nosuchmaintainer"
@@ -32,7 +32,7 @@ class MaintainersController < ApplicationController
   def srpms
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
+                                     :login => params[:id].downcase,
                                      :team => false }
     @acls = Acl.all :conditions => {
                       :maintainer_id => @maintainer.id,
@@ -44,22 +44,23 @@ class MaintainersController < ApplicationController
     end
   end
 
-  def acls
-    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
-    @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
-                                     :team => false }
-    @acls = Acl.all :conditions => {
-                      :login => params[:login],
-                      :branch_id => @branch.id }
-    if @maintainer == nil
-      render :status => 404, :action => "nosuchmaintainer"
-    end
-  end
+#  def acls
+#    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
+#    @maintainer = Maintainer.first :conditions => {
+#                                     :login => params[:id].downcase,
+#                                     :team => false }
+#    @acls = Acl.all :conditions => {
+#                      :login => params[:login],
+#                      :branch_id => @branch.id }
+#    if @maintainer == nil
+#      render :status => 404, :action => "nosuchmaintainer"
+#    end
+#  end
 
   def gear
+    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
+                                     :login => params[:id].downcase,
                                      :team => false }
     @gitrepos = Gitrepo.all :conditions => {
                               :maintainer_id => @maintainer.id },
@@ -71,15 +72,15 @@ class MaintainersController < ApplicationController
 
   def bugs
     @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
+                                     :login => params[:id].downcase,
                                      :team => false }
     @bugs = Bug.all :conditions => {
-                      :assigned_to => params[:login].downcase + '@altlinux.org',
+                      :assigned_to => params[:id].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
                       :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
                     :order => "bug_id DESC"
     @allbugs = Bug.all :conditions => {
-                         :assigned_to => params[:login].downcase + '@altlinux.org',
+                         :assigned_to => params[:id].downcase + '@altlinux.org',
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
     if @maintainer == nil
@@ -89,15 +90,15 @@ class MaintainersController < ApplicationController
 
   def allbugs
     @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
+                                     :login => params[:id].downcase,
                                      :team => false }
     @bugs = Bug.all :conditions => {
-                      :assigned_to => params[:login].downcase + '@altlinux.org',
+                      :assigned_to => params[:id].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
                       :bug_status => ["NEW", "ASSIGNED", "VERIFIED", "REOPENED"]},
                     :order => "bug_id DESC"
     @allbugs = Bug.all :conditions => {
-                         :assigned_to => params[:login].downcase + '@altlinux.org',
+                         :assigned_to => params[:id].downcase + '@altlinux.org',
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
     if @maintainer == nil
@@ -108,7 +109,7 @@ class MaintainersController < ApplicationController
   def repocop
     @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:login].downcase,
+                                     :login => params[:id].downcase,
                                      :team => false },
                                    :include => [:srpms],
                                    :order => 'LOWER(srpms.name)'

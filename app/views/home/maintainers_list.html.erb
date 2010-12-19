@@ -10,7 +10,7 @@
 <% @maintainers.each do |maintainer| -%>
   <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
     <div style="float:left">
-      <%= link_to maintainer.name, maintainer_info_path(:login => maintainer.login), :class => 'news' %> (<%= maintainer.login %>)
+      <%= link_to maintainer.name, maintainer_path(:id => maintainer.login, :branch => @branch.name), :class => 'news' %> (<%= maintainer.login %>)
     </div>
     <div style="float:right"> <%= maintainer.counter %></div>
   </div>
@@ -20,7 +20,7 @@
 <% @teams.each do |team| -%>
   <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
     <div style="float:left">
-      <%= link_to team.name, team_path(:name => team.login[1..-1], :branch => @branch.name), :class => 'news' %> (<%= team.login[1..-1] %>)
+      <%= link_to team.name, team_path(:id => team.login[1..-1], :branch => @branch.name), :class => 'news' %> (<%= team.login[1..-1] %>)
     </div>
     <div style="float:right"> <%= team. counter %></div>
   </div>

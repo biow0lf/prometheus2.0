@@ -7,9 +7,46 @@ Prometheus20::Application.routes.draw do
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
     resource :search, :only => :show
-    resource :maintainer, :only => [:edit, :update]
-    
+
     resources :rsync, :controller => :rsync, :only => :new
+
+    #TODO: move maintainer edit/update actions to new maintainer profile controller
+    #resource :maintainer, :only => [:edit, :update]
+
+    scope 'Sisyphus' do
+      match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
+      match 'maintainers/:id/bugs' => 'maintainers#bugs', :as => 'bugs_maintainer'
+      match 'maintainers/:id/allbugs' => 'maintainers#allbugs', :as => 'allbugs_maintainer'
+      match 'maintainers/:id/repocop' => 'maintainers#repocop', :as => 'repocop_maintainer'
+
+      match 'srpms/:id/gear' => 'srpms#gear', :as => 'gear_srpm'
+      match 'srpms/:id/bugs' => 'srpms#bugs', :as => 'bugs_srpm'
+      match 'srpms/:id/allbugs' => 'srpms#allbugs', :as => 'allbugs_srpm'
+      match 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
+    end
+    
+    scope ':branch', :branch => /[^\/]+/ do
+      resources :maintainers, :only => :show do
+        get 'srpms', :on => :member
+      end
+      resources :teams, :only => :show
+      
+      resources :srpms, :id => /[^\/]+/, :only => :show do
+        member do
+          get 'changelog'
+          get 'spec'
+          get 'get'
+        end
+      end
+
+      match 'home' => 'home#index'
+      
+      match 'packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group'
+      match 'packages' => 'group#groups_list', :as => 'packages'
+      match 'people' => 'home#maintainers_list', :as => 'maintainers'
+      match 'rss' => 'rss#index', :as => 'rss'
+      
+    end
     
     root :to => 'home#index'
   end
@@ -20,33 +57,7 @@ Prometheus20::Application.routes.draw do
   match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/rss' => 'rss#index', :as => 'rss', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
-
-  match '(/:locale)/packages' => 'group#groups_list', :as => 'packages', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/people' => 'home#maintainers_list', :as => 'maintainers', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)(/:branch)/team/:name' => 'team#info', :as => 'team', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-
-  match '(/:locale)(/:branch)/packager/:login' => 'maintainers#info', :as => 'maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/srpms' => 'maintainers#srpms', :as => 'maintainer_srpms', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/acls' => 'maintainers#acls', :as => 'maintainer_acls', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/gear' => 'maintainers#gear', :as => 'maintainer_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/bugs' => 'maintainers#bugs', :as => 'maintainer_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/allbugs' => 'maintainers#allbugs', :as => 'maintainer_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-  match '(/:locale)(/:branch)/packager/:login/repocop' => 'maintainers#repocop', :as => 'maintainer_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-#  match '(/:locale)(/:branch)/packager/:login/repocop/rss' => 'maintainers#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/ }
-
-  match '(/:locale)/packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group', :constraints => { :locale => SUPPORTED_LOCALES }
-
-  match '(/:locale)/srpm/:branch/:name' => 'srpm#main', :as => 'srpm_main', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/changelog' => 'srpm#changelog', :as => 'srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/spec' => 'srpm#rawspec', :as => 'srpm_rawspec', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/get' => 'srpm#download', :as => 'srpm_download', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/gear' => 'srpm#gear', :as => 'srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/bugs' => 'srpm#bugs', :as => 'srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/allbugs' => 'srpm#allbugs', :as => 'srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-  match '(/:locale)/srpm/:branch/:name/repocop' => 'srpm#repocop', :as => 'srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
-#  match '(/:locale)/srpm(/:branch)/:name/repocop.:format' => 'home#repocop', :constraints => { :locale => SUPPORTED_LOCALES, :branch => /[^\/]+/, :name => /[^\/]+/ }
 
 #  match '/repocop' => 'repocop#index'
 #  match '/repocop/by-test/:testname' => 'repocop#bytest'

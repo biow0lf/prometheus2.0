@@ -16,13 +16,13 @@
     %b
       = _("Team leader:")
     - @leader.each do |leader|
-      = link_to leader.name, maintainer_info_path(:login => leader.login), :class => 'news', :title => _('information about the packager')
+      = link_to leader.name, maintainer_path(:id => leader.login, :branch => @branch.name), :class => 'news', :title => _('information about the packager')
     %p.break
 
   %b= _("Team members:")
   %ul
     - @members.each do |member|
-      %li= link_to member.name, maintainer_info_path(:login => member.login), :class => 'news', :title => _('information about the packager')
+      %li= link_to member.name, maintainer_path(:id => member.login), :class => 'news', :title => _('information about the packager')
 
   %p.break
 
@@ -35,7 +35,8 @@
 
   %table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3' }
     %tr
-      %th= raw _("repo<br/>cop")
+      - if @branch.name == 'Sisyphus'
+        %th= raw _("repo<br/>cop")
       %th= _("package")
       %th= raw _("current<br />version")
       %th= _("build time")
@@ -46,10 +47,11 @@
     - @acls.each do |acl|
       - if !acl.srpm.nil?
         %tr
-          %td
-            = link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), srpm_repocop_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'repocoplink', :title => 'repocop'
+          - if @branch.name == 'Sisyphus'
+            %td
+              = link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), repocop_srpm_path(:id => acl.srpm.name), :class => 'repocoplink', :title => 'repocop'
           %td{ :class => 'strange' }
-            = link_to acl.srpm.name, srpm_main_path(:branch => 'Sisyphus', :name => acl.srpm.name), :class => 'news', :title => _('detailed information about RPM')
+            = link_to acl.srpm.name, srpm_path(:id => acl.srpm.name, :branch => @branch.name), :class => 'news', :title => _('detailed information about RPM')
           %td= acl.srpm.version + '-' + acl.srpm.release
           %td= acl.srpm.buildtime
           %td= time_ago_in_words(acl.srpm.buildtime) + ' ' + _("ago")

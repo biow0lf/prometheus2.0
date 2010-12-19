@@ -28,4 +28,14 @@ $(document).ready(function() {
     $('#topTips').attr("title", "свернуть окно");
     $('#topTipsDiv').show();
   });
+
+  $("#topBranches").toggle(function() {
+    $('#topBranches').attr("src", "/images/restore.gif");
+    $('#topBranches').attr("title", "развернуть окно");
+    $('#topBranchesDiv').hide();
+  }, function() {
+    $('#topBranches').attr("src", "/images/collapse.gif");
+    $('#topBranches').attr("title", "свернуть окно");
+    $('#topBranchesDiv').show();
+  });
 });

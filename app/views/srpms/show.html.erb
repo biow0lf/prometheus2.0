@@ -16,9 +16,9 @@
 <% @allsrpms.each do |rpm| -%>
 <tr>
   <td style="text-align: left;">
-    <%= link_to rpm.branch.name + ':', srpm_main_path(:branch => rpm.branch.name, :name => rpm.name), :class => 'news' %>
+    <%= link_to "#{rpm.branch.name}:", srpm_path(:id => rpm.name, :branch => rpm.branch.name), :class => 'news' %>
   </td>
-  <td style="text-align: right;"><%= rpm.version %>-<%= rpm.release %></td>
+  <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
 <% end -%>
 
@@ -35,7 +35,7 @@
 
 <div>
 <p class="break" />
-<span class="current">&nbsp;<b><%= _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), srpm_changelog_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), srpm_rawspec_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), srpm_download_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), srpm_gear_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), srpm_bugs_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), srpm_repocop_path(:branch => @srpm.branch.name, :name => @srpm.name), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" />
+<span class="current">&nbsp;<b><%= _("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), spec_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_srpm_path(:id => @srpm.name), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_srpm_path(:id => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => @srpm.name), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" />
 <b><%= _("Current version:") %></b> <span style="text-decoration:underline"><%= @srpm.version %>-<%= @srpm.release %></span><br />
 <b><%= _("Build date:") %></b> <%= @srpm.buildtime %> (<%= time_ago_in_words(@srpm.buildtime) %> <%= _("ago") %>)<br />
 <b><%= _("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
@@ -52,9 +52,9 @@
 <% if !@srpm.maintainer.nil? -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
 <% if @srpm.maintainer.team == true -%>
-  <%= link_to @srpm.maintainer.name, team_path(:name => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
+  <%= link_to @srpm.maintainer.name, team_path(:id => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
 <% else -%>
-  <%= link_to @srpm.maintainer.name, maintainer_info_path(:login => @srpm.maintainer.login), :class => 'news', :title => _('information about maintainer') %>
+  <%= link_to @srpm.maintainer.name, maintainer_path(:id => @srpm.maintainer.login, :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
 <% end -%>
 </div><br /><br />
 <% end -%>
@@ -76,9 +76,9 @@
   <ul>
   <% @srpm.acls.each do |acl| -%>
     <% if acl.maintainer.team %>
-      <li><%= link_to acl.maintainer.name, team_path(:name => acl.maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
+      <li><%= link_to acl.maintainer.name, team_path(:id => acl.maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
     <% else %>
-      <li><%= link_to acl.maintainer.name, maintainer_info_path(:login => acl.maintainer.login), :class => 'news' %></li>
+      <li><%= link_to acl.maintainer.name, maintainer_path(:id => acl.maintainer.login, :branch => @branch.name), :class => 'news' %></li>
     <% end %>
   <% end -%>
   </ul>
