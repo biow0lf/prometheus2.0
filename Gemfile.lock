@@ -80,7 +80,7 @@ GEM
       locale (>= 2.0.5)
     gettext_i18n_rails (0.2.12)
       fast_gettext
-    haml (3.0.24)
+    haml (3.0.25)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
