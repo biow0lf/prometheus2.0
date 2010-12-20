@@ -14,6 +14,7 @@ Prometheus20::Application.routes.draw do
     resource :maintainer, :only => [:edit, :update]
 
     scope 'Sisyphus' do
+      match 'maintainers/:id' => 'maintainers#show', :as => 'maintainer'
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
       match 'maintainers/:id/bugs' => 'maintainers#bugs', :as => 'bugs_maintainer'
       match 'maintainers/:id/allbugs' => 'maintainers#allbugs', :as => 'allbugs_maintainer'

@@ -4,7 +4,7 @@ class MaintainersController < ApplicationController
   def edit
     @maintainer = Maintainer.where(:login => current_user.login).first
   end
-  
+
   def update
     @maintainer = Maintainer.where(:login => current_user.login).first
     @maintainer.info = params[:info]
@@ -14,7 +14,7 @@ class MaintainersController < ApplicationController
     @maintainer.website = params[:website]
     
     if @maintainer.save
-      redirect_to maintainer_info_path(:login => current_user.login, :locale => params[:locale])
+      redirect_to maintainer_path(:id => current_user.login, :locale => params[:locale])
     else
       render :text => 'Fail'
     end
