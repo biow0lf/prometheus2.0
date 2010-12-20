@@ -93,7 +93,7 @@ Prometheus20::Application.routes.draw do
 
 #  match '/cli/repocop/by-test/:name' => 'repocop#bytestname'
 
-  match '/src\::name' => redirect("/en/srpm/Sisyphus/%{name}")
+  match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}")
   
   match '/:name' => 'redirector#index'
 
