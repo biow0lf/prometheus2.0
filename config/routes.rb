@@ -6,7 +6,7 @@ Prometheus20::Application.routes.draw do
 
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
-    resource :search, :only => :show
+    resource :search, :only => :show, :id => /[^\/]+/
 
     resources :rsync, :controller => :rsync, :only => :new
 
@@ -14,12 +14,13 @@ Prometheus20::Application.routes.draw do
     resource :maintainer, :only => [:edit, :update]
 
     scope 'Sisyphus' do
-      match 'maintainers/:id' => 'maintainers#show', :as => 'maintainer'
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
       match 'maintainers/:id/bugs' => 'maintainers#bugs', :as => 'bugs_maintainer'
       match 'maintainers/:id/allbugs' => 'maintainers#allbugs', :as => 'allbugs_maintainer'
       match 'maintainers/:id/repocop' => 'maintainers#repocop', :as => 'repocop_maintainer'
+    end
 
+    scope 'Sisyphus', :id => /[^\/]+/ do
       match 'srpms/:id/gear' => 'srpms#gear', :as => 'gear_srpm'
       match 'srpms/:id/bugs' => 'srpms#bugs', :as => 'bugs_srpm'
       match 'srpms/:id/allbugs' => 'srpms#allbugs', :as => 'allbugs_srpm'
