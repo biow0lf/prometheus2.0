@@ -11,7 +11,7 @@ Prometheus20::Application.routes.draw do
     resources :rsync, :controller => :rsync, :only => :new
 
     #TODO: move maintainer edit/update actions to new maintainer profile controller
-    #resource :maintainer, :only => [:edit, :update]
+    resource :maintainer, :only => [:edit, :update]
 
     scope 'Sisyphus' do
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
