@@ -26,13 +26,13 @@ Prometheus20::Application.routes.draw do
       match 'srpms/:id/allbugs' => 'srpms#allbugs', :as => 'allbugs_srpm'
       match 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
     end
-    
+
     scope ':branch', :branch => /[^\/]+/ do
       resources :maintainers, :only => :show do
         get 'srpms', :on => :member
       end
       resources :teams, :only => :show
-      
+
       resources :srpms, :id => /[^\/]+/, :only => :show do
         member do
           get 'changelog'
@@ -42,17 +42,17 @@ Prometheus20::Application.routes.draw do
       end
 
       match 'home' => 'home#index'
-      
+
       match 'packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group'
       match 'packages' => 'group#groups_list', :as => 'packages'
       match 'people' => 'home#maintainers_list', :as => 'maintainers'
       match 'rss' => 'rss#index', :as => 'rss'
-      
+
     end
-    
+
     root :to => 'home#index'
   end
-  
+
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
 
   match '(/:locale)/iphone/' => 'iphone#index', :constraints => { :locale => SUPPORTED_LOCALES }
@@ -95,13 +95,12 @@ Prometheus20::Application.routes.draw do
 
 #  match '/cli/repocop/by-test/:name' => 'repocop#bytestname'
 
-  match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}")
-  
-  match '/:name' => 'redirector#index'
-
-  match '/sitemap.xml' => 'sitemap#sitemap_full'
+  match '/sitemap.xml' => 'sitemap#sitemap'
   match '/sitemap_basic.xml' => 'sitemap#sitemap_basic'
   match '/:locale/sitemap1.xml' => 'sitemap#sitemap_part1', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/:locale/sitemap2.xml' => 'sitemap#sitemap_part2', :constraints => { :locale => SUPPORTED_LOCALES }
   match '/:locale/sitemap3.xml' => 'sitemap#sitemap_part3', :constraints => { :locale => SUPPORTED_LOCALES }
+
+  match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :constraints => { :name => /[^\/]+/ }
+  match '/:name' => 'redirector#index', :constraints => { :name => /[^\/]+/ }
 end
