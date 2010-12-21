@@ -7,6 +7,7 @@ gem 'pg'
 gem 'haml'
 
 gem 'devise'
+#gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
@@ -32,7 +33,7 @@ group :development, :test do
   gem 'ruby-debug'
   gem 'sqlite3-ruby'
   gem 'rspec-rails'
-  gem 'steak'
+#  gem 'steak'
   gem 'capybara'
   gem 'envjs'
   gem 'capybara-envjs'
@@ -45,6 +46,11 @@ group :development, :test do
   gem 'hpricot'
   # opening pages in browser
   gem 'launchy'
+  # cucumber
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'spork'
 end
 
 group :development do
