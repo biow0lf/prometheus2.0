@@ -17,7 +17,7 @@ module NavigationHelpers
     when /the sign out page/
       destroy_user_session_path
     when /my profile edit page/
-      edit_maintainer_path
+      edit_maintainer_profile_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

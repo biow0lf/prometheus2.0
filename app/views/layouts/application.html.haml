@@ -85,7 +85,7 @@
           = link_to 'Sign out', destroy_user_session_path
           - if current_user.is_alt_team?
             = " | "
-            %b= link_to 'Edit my maintainer profile', edit_maintainer_path
+            %b= link_to 'Edit my maintainer profile', edit_maintainer_profile_path
         - else
           = link_to 'Sign in', new_user_session_path
           = " or "

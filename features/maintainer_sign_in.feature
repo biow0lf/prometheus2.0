@@ -1,7 +1,7 @@
 Feature: Manageming maintainer profile
   In order to edit and update maintainer profile
   A maintainer
-  Should be able to sign in
+  Should be able to sign in and edit/update their profile
 
   Scenario: Maintainer sign in
     Given I am signed up and confirmed as "icesik@altlinux.org/password"
@@ -27,12 +27,12 @@ Feature: Manageming maintainer profile
     When I go to my profile edit page
     And I fill in "Website/Blog:" with "http://biow0lf.pp.ua"
     And I fill in "Location:" with "Donetsk, Ukraine"
-    And I fill in "Time Zone:" with "Europe - Kiev"
+    And I select "Europe - Kiev" from "Time Zone:"
     And I fill in "Jabber ID:" with "icesik@jabber.ru"
     And I fill in "Info:" with "king dead long live"
     And I press "Update"
     Then I should see "http://biow0lf.pp.ua"
     And I should see "Donetsk, Ukraine"
-    And I should see "Europe - Kiev"
+    And I should see "Europe/Kiev"
     And I should see "icesik@jabber.ru"
     And I should see "king dead long live"

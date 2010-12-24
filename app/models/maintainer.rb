@@ -13,7 +13,7 @@ class Maintainer < ActiveRecord::Base
   has_many :srpms, :through => :acls
   has_many :gitrepos
 
-  attr_accessible :name, :email, :login, :time_zone, :jabber, :info
+  attr_accessible :name, :email, :login, :team, :time_zone, :jabber, :info
 
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|

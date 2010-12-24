@@ -1,7 +1,7 @@
 #main-content
 
   %div.header Update personal maintainer info
-  = form_tag maintainer_path, :method => :put do
+  = form_tag maintainer_profile_path, :method => :put do
     = label_tag :website, _("Website/Blog:")
     = text_field_tag :website, @maintainer.website
     %br

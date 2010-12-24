@@ -1,26 +1,4 @@
 class MaintainersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit, :update]
-
-  def edit
-    @maintainer = Maintainer.where(:login => current_user.login).first
-  end
-
-  def update
-    @maintainer = Maintainer.where(:login => current_user.login).first
-    @maintainer.info = params[:info]
-    @maintainer.jabber = params[:jabber]
-    @maintainer.time_zone = params[:time_zone]
-    @maintainer.location = params[:location]
-    @maintainer.website = params[:website]
-
-    if @maintainer.save
-      redirect_to maintainer_path(:id => current_user.login, :locale => params[:locale])
-      #redirect_to maintainers_path(:id => current_user.login, :locale => params[:locale])
-    else
-      render :text => 'Fail'
-    end
-  end
-
   def show
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
@@ -58,9 +36,8 @@ class MaintainersController < ApplicationController
   end
 
   def bugs
-    @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:id].downcase,
-                                     :team => false }
+    @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => "nosuchmaintainer") and return if @maintainer == nil    
     @bugs = Bug.all :conditions => {
                       :assigned_to => params[:id].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
@@ -70,15 +47,11 @@ class MaintainersController < ApplicationController
                          :assigned_to => params[:id].downcase + '@altlinux.org',
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
-    if @maintainer == nil
-      render :status => 404, :action => "nosuchmaintainer"
-    end
   end
 
   def allbugs
-    @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:id].downcase,
-                                     :team => false }
+    @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => "nosuchmaintainer") and return if @maintainer == nil    
     @bugs = Bug.all :conditions => {
                       :assigned_to => params[:id].downcase + '@altlinux.org',
                       :product => 'Sisyphus',
@@ -88,9 +61,6 @@ class MaintainersController < ApplicationController
                          :assigned_to => params[:id].downcase + '@altlinux.org',
                          :product => 'Sisyphus' },
                        :order => "bug_id DESC"
-    if @maintainer == nil
-      render :status => 404, :action => "nosuchmaintainer"
-    end
   end
 
   def repocop
