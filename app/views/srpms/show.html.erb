@@ -62,8 +62,8 @@
 <b><%= _("List of rpms provided by this srpm:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-  <% @srpm.packages.each do |package| -%>
-    <li><%= package.filename %></li>
+  <% @srpm.packages.map{|p| p.name }.sort.uniq.each do |name| %>
+    <li><%= name %></li>
   <% end -%>
   </ul>
 </div>
