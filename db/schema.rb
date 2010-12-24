@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213133119) do
+ActiveRecord::Schema.define(:version => 20101224155702) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -112,8 +112,8 @@ ActiveRecord::Schema.define(:version => 20101213133119) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "time_zone",  :default => "UTC"
-    t.string   "jabber",     :default => ""
-    t.text     "info",       :default => ""
+    t.string   "jabber",     :default => "null"
+    t.text     "info",       :default => "null"
     t.string   "website",    :default => ""
     t.string   "location",   :default => ""
   end
@@ -144,6 +144,17 @@ ActiveRecord::Schema.define(:version => 20101213133119) do
   add_index "packages", ["group_id"], :name => "index_packages_on_group_id"
   add_index "packages", ["sourcepackage"], :name => "index_packages_on_sourcepackage"
   add_index "packages", ["srpm_id"], :name => "index_packages_on_srpm_id"
+
+  create_table "repocop_patches", :force => true do |t|
+    t.string   "name"
+    t.string   "version"
+    t.string   "release"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "repocop_patches", ["name"], :name => "index_repocop_patches_on_name"
 
   create_table "repocops", :force => true do |t|
     t.string   "name"

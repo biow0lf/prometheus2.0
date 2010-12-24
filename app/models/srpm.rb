@@ -12,6 +12,7 @@ class Srpm < ActiveRecord::Base
   has_one :specfile, :dependent => :destroy
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
+  has_one :repocop_patch, :foreign_key => 'name', :primary_key => 'name'
 
   def self.count_srpms_in(branch)
     Branch.where(:name => branch, :vendor => 'ALT Linux').first.srpms.count
