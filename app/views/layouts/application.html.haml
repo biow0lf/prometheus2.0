@@ -92,10 +92,10 @@
           = link_to 'Sign up', new_user_registration_path
 
       %div{ :style => 'text-align: right' }
-        = link_to_unless_current _('en'), '/en' + yield(:url), :title => _('English') + " ".to_s
-        = link_to_unless_current _('ru'), '/ru' + yield(:url), :title => _('Russian') + " ".to_s
-        = link_to_unless_current _('uk'), '/uk' + yield(:url), :title => _('Ukrainian') + " ".to_s
-        = link_to_unless_current _('br'), '/br' + yield(:url), :title => _('Portuguese (Brasilian)')
+        = link_to_unless_current _('en'), '/en', :title => _('English') + " ".to_s
+        = link_to_unless_current _('ru'), '/ru', :title => _('Russian') + " ".to_s
+        = link_to_unless_current _('uk'), '/uk', :title => _('Ukrainian') + " ".to_s
+        = link_to_unless_current _('br'), '/br', :title => _('Portuguese (Brasilian)')
 
     %div{ :id => 'menu', :style => 'text-align: center' }
       %ul
