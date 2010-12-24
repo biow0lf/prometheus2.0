@@ -7,7 +7,7 @@ every 1.day, :at => '5:00 am' do
 end
 
 every 1.day, :at => '5:15 am' do
-  rake "sisyphus:repocops"
+  rake "sisyphus:repocops sisyphus:repocop_patches"
 end
 
 # Learn more: http://github.com/javan/whenever
