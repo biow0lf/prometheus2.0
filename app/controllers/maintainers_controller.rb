@@ -24,19 +24,15 @@ class MaintainersController < ApplicationController
   def show
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => "nosuchmaintainer") and return if @maintainer == nil
     @acls = Acl.where(:maintainer_id => @maintainer.id, :branch_id => @branch.id)
-    if @maintainer == nil
-      render :status => 404, :action => "nosuchmaintainer"
-    end
   end
 
   def srpms
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => "nosuchmaintainer") and return if @maintainer == nil
     @acls = Acl.where(:maintainer_id => @maintainer.id, :branch_id => @branch.id).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
-    if @maintainer == nil
-      render :status => 404, :action => "nosuchmaintainer"
-    end
   end
 
 #  def acls
@@ -54,15 +50,11 @@ class MaintainersController < ApplicationController
 
   def gear
     @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
-    @maintainer = Maintainer.first :conditions => {
-                                     :login => params[:id].downcase,
-                                     :team => false }
+    @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => "nosuchmaintainer") and return if @maintainer == nil    
     @gitrepos = Gitrepo.all :conditions => {
                               :maintainer_id => @maintainer.id },
                              :order => 'LOWER(repo)'
-    if @maintainer == nil
-      render :status => 404, :action => "nosuchmaintainer"
-    end
   end
 
   def bugs
