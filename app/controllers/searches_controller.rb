@@ -6,6 +6,7 @@ class SearchesController < ApplicationController
     else
       @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:query].to_s.split).where(:branch_id => @branch.id).order("LOWER(srpms.name) ASC")
       @srpms, @srpms_count = @search.all, @search.count
-    end  
+      redirect_to(srpm_path(:id => @srpms.first.name, :branch => 'Sisyphus'), :status => 302) if @search.count == 1
+    end
   end
 end
