@@ -1,13 +1,9 @@
 class TeamsController < ApplicationController
   def show
-    @branch = Branch.find_by_name_and_vendor(params[:branch], 'ALT Linux')
-    @team = Maintainer.first :conditions => {
-                               :login => '@' + params[:id],
-                               :team => true }
-    @acls = Acl.all :conditions => {
-                      :maintainer_id => @team.id,
-                      :branch_id => @branch.id },
-                    :include => [:srpm]
+    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
+    @team = Maintainer.where(:login => "@#{params[:id]}", :team => true).first
+    @acls = Acl.where(:maintainer_id => @team.id, :branch_id => @branch.id).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
+
     if @team != nil
       @leader = Team.find_by_sql(["SELECT maintainers.login, maintainers.name
                                FROM teams, maintainers, branches
