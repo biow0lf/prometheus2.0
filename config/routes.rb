@@ -4,6 +4,7 @@ Prometheus20::Application.routes.draw do
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users
     resource :maintainer_profile, :only => [:edit, :update]
+    root :to => 'home#index'
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
@@ -51,11 +52,7 @@ Prometheus20::Application.routes.draw do
       match 'rss' => 'rss#index', :as => 'rss'
 
     end
-
-    # root :to => 'home#index'
   end
-
-  root :to => 'home#index'
 
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
 
