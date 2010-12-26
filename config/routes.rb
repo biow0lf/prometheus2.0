@@ -52,8 +52,10 @@ Prometheus20::Application.routes.draw do
 
     end
 
-    root :to => 'home#index'
+    # root :to => 'home#index'
   end
+
+  root :to => 'home#index'
 
   match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
 
