@@ -1,16 +1,19 @@
 SUPPORTED_LOCALES = /(en|ru|uk|br)/
 
 Prometheus20::Application.routes.draw do
-  scope ':locale', :locale => SUPPORTED_LOCALES do
+  scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users
+    resource :maintainer_profile, :only => [:edit, :update]
+  end
 
+  scope ':locale', :locale => SUPPORTED_LOCALES do
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
     resource :search, :only => :show, :id => /[^\/]+/
 
     resources :rsync, :controller => :rsync, :only => :new
 
-    resource :maintainer_profile, :only => [:edit, :update]
+    # resource :maintainer_profile, :only => [:edit, :update]
 
     scope 'Sisyphus' do
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
