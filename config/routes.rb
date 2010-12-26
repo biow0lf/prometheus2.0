@@ -10,11 +10,7 @@ Prometheus20::Application.routes.draw do
   scope ':locale', :locale => SUPPORTED_LOCALES do
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
-    resource :search, :only => :show, :id => /[^\/]+/
-
     resources :rsync, :controller => :rsync, :only => :new
-
-    # resource :maintainer_profile, :only => [:edit, :update]
 
     scope 'Sisyphus' do
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
@@ -31,6 +27,7 @@ Prometheus20::Application.routes.draw do
     end
 
     scope ':branch', :branch => /[^\/]+/ do
+      resource :search, :only => :show, :id => /[^\/]+/
       resources :maintainers, :only => :show do
         get 'srpms', :on => :member
       end

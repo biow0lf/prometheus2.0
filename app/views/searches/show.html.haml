@@ -4,7 +4,7 @@
 
   %div{ :class => 'header', :style => 'letter-spacing: 1px;'}= _("Search")
   %p.break
-  = form_tag search_path, :method => :get do
+  = form_tag search_path(:branch => @branch.name), :method => :get do
     = text_field_tag :query, params[:query] ? params[:query] : "Search...", :size => '20'
     = submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'subOn', :value => _("find"), :onmouseover => "m_on('sub1')", :onmouseout => "m_off('sub1')"
 
@@ -20,7 +20,8 @@
   %br
   %table{ :id => 'bugs', :cellspacing => '0', :cellpadding => '3' }
     %tr
-      %th= raw _("repo<br/>cop")
+      - if @branch.name == 'Sisyphus'
+        %th= raw _("repo<br/>cop")
       %th= _("package")
       %th= raw _("current<br />version")
       %th= _("build time")
@@ -30,8 +31,9 @@
 
     - @srpms.each do |srpm|
       %tr
-        %td
-          = link_to image_tag(srpm.repocop + '.png', :size => '20x20', :alt => srpm.repocop), repocop_srpm_path(:id => srpm.name, :branch => 'Sisyphus'), :class => 'repocoplink', :title => 'repocop'
+        - if @branch.name == 'Sisyphus'
+          %td
+            = link_to image_tag(srpm.repocop + '.png', :size => '20x20', :alt => srpm.repocop), repocop_srpm_path(:id => srpm.name, :branch => 'Sisyphus'), :class => 'repocoplink', :title => 'repocop'
         %td{ :class => 'strange' }
           = link_to srpm.name, srpm_path(:id => srpm.name, :branch => 'Sisyphus'), :class => 'news'
         %td= "#{srpm.version}-#{srpm.release}"
