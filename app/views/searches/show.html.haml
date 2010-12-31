@@ -13,7 +13,7 @@
   %br
   = _("On your query &quot;").html_safe
   %b>= params[:query]
-  = _("&quot; were found").html_safe
+  = _("&quot; in branch \"#{@branch.name}\" were found").html_safe
   %b= @srpms_count
   = n_("RPM:", "RPMs:", @srpms_count)
 
