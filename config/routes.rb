@@ -4,6 +4,7 @@ Prometheus20::Application.routes.draw do
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users
     resource :maintainer_profile, :only => [:edit, :update]
+    resource :search, :only => :show, :id => /[^\/]+/
     root :to => 'home#index'
   end
 
@@ -27,7 +28,6 @@ Prometheus20::Application.routes.draw do
     end
 
     scope ':branch', :branch => /[^\/]+/ do
-      resource :search, :only => :show, :id => /[^\/]+/
       resources :maintainers, :only => :show do
         get 'srpms', :on => :member
       end
