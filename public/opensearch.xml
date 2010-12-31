@@ -4,5 +4,5 @@
   <Description>Prometheus.altlinux.org</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">http://prometheus.altlinux.org/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://prometheus.altlinux.org/en/Sisyphus/search?query={searchTerms}"></Url>
+  <Url type="text/html" method="get" template="http://prometheus.altlinux.org/en/search?query={searchTerms}"></Url>
 </OpenSearchDescription>
