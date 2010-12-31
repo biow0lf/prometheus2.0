@@ -8,6 +8,7 @@
     %meta{ 'name' => 'description', :content => 'ALT Linux Team - Sisyphus packages info' }
     %meta{ 'name' => 'keywords', :content => yield(:keywords) }
     %link{ :rel => 'shortcut icon', :href => '/favicon.ico', :type => 'image/x-icon' }
+    %link{ :rel => 'search',  :type => 'application/opensearchdescription+xml', :title => _("Prometheus2.0 search"), :href => '/opensearch.xml'}
     = csrf_meta_tag
     = stylesheet_link_tag 'alt'
     %script{ :src => 'http://www.google.com/jsapi', :type => 'text/javascript' }
