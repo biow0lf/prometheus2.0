@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def fix_branch
-    params[:branch] = "Sisyphus" if params[:branch].nil?
-    params[:branch] = "Sisyphus" if params[:branch] == "sisyphus"
+    params[:branch] ||= "Sisyphus"
+    @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
   end
 
   def default_url_options(options={})
