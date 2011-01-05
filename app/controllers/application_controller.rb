@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   def default_locale
-    params[:locale] ||= "en"
+    params[:locale] ||= 'en'
     I18n.locale = params[:locale]
     FastGettext.locale = params[:locale]
   end
 
   def fix_branch
-    params[:branch] ||= "Sisyphus"
+    params[:branch] ||= 'Sisyphus'
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
   end
 
