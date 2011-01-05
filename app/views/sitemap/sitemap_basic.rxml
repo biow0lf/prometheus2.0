@@ -1,9 +1,33 @@
 xml.instruct! :xml, :version=>"1.0"
 xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") {
   xml.url {
-    xml.loc 'http://prometheus.altlinux.org/'
+    xml.loc('http://prometheus.altlinux.org/')
     xml.lastmod(Time.new.strftime("%Y-%m-%d"))
-    xml.changefreq("daily")
+    xml.changefreq('hourly')
+    xml.priority(1)
+  }
+  xml.url {
+    xml.loc('http://prometheus.altlinux.org/ru')
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+    xml.changefreq('hourly')
+    xml.priority(1)
+  }
+  xml.url {
+    xml.loc('http://prometheus.altlinux.org/en')
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+    xml.changefreq('hourly')
+    xml.priority(1)
+  }
+  xml.url {
+    xml.loc('http://prometheus.altlinux.org/br')
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+    xml.changefreq('hourly')
+    xml.priority(1)
+  }
+  xml.url {
+    xml.loc('http://prometheus.altlinux.org/uk')
+    xml.lastmod(Time.new.strftime("%Y-%m-%d"))
+    xml.changefreq('hourly')
     xml.priority(1)
   }
 }

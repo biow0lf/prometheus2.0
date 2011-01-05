@@ -2,43 +2,43 @@ xml.instruct! :xml, :version=>"1.0"
 xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") {
   @srpms.each do |srpm|
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name
+      xml.loc(srpm_url(:branch => @branch.name, :id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
     }
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name + '/changelog'
+      xml.loc(changelog_srpm_url(:branch => @branch.name, :id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
     }
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name + '/spec'
+      xml.loc(spec_srpm_url(:branch => @branch.name, :id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
     }
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name + '/gear'
+      xml.loc(gear_srpm_url(:id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
     }
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name + '/bugs'
+      xml.loc(bugs_srpm_url(:id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
     }
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name + '/allbugs'
+      xml.loc(allbugs_srpm_url(:id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
     }
     xml.url {
-      xml.loc 'http://prometheus.altlinux.org/' + params[:locale] + '/srpm/' + @branch.name + '/' + srpm.name + '/repocop'
+      xml.loc(repocop_srpm_url(:id => srpm.name, :locale => params[:locale]))
       xml.lastmod(Time.new.strftime("%Y-%m-%d"))
       xml.changefreq("daily")
       xml.priority(1)
