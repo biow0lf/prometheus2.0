@@ -11,7 +11,8 @@ Prometheus20::Application.routes.draw do
   scope ':locale', :locale => SUPPORTED_LOCALES do
     match 'project' => 'pages#project'
     match 'news' => 'pages#news'
-    resources :rsync, :controller => :rsync, :only => :new
+    resources :rsync, :controller => :rsync, :only => [:new]
+    resources :rebuild, :controller => :rebuild, :only => [:index]
 
     scope 'Sisyphus' do
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
