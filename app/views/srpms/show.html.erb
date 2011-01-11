@@ -50,7 +50,7 @@
 <p class="news" />
 <% if !@srpm.maintainer.nil? -%>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
-<% if @srpm.maintainer.team == true -%>
+<% if @srpm.maintainer.team -%>
   <%= link_to @srpm.maintainer.name, team_path(:id => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
 <% else -%>
   <%= link_to @srpm.maintainer.name, maintainer_path(:id => @srpm.maintainer.login, :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
