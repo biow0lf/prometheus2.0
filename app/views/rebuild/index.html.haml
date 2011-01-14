@@ -1,9 +1,9 @@
 #main-content
 
-  %div.header Список пакетов на пересборку:
+  %div.header= _("Packages to rebuild:")
 
   %p.break
-  %b Список пакетов которые необходимо пересобрать без хака "%undefine _configure_target":
+  %b= _("List of packages needing rebuild without \"%undefine _configure_target\" hack:")
   %br
   %br
 
@@ -12,7 +12,7 @@
       %th= _("package")
       %th= raw _("current<br />version")
       %th= _("package leader")
-      %th= _("ACLs:")
+      %th= _("ACL:")
     - @specfiles.each do |specfile|
       %tr
         - if specfile.srpm.branch.name == 'Sisyphus'
