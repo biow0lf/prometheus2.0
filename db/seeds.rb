@@ -3,6 +3,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Sisyphus'
 branch.order_id = 0
+branch.path = '/Sisyphus'
 branch.save!
 
 # add SisyphusARM branch
@@ -10,6 +11,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'SisyphusARM'
 branch.order_id = 1
+branch.path = '/Sisyphus'
 branch.save!
 
 # add Platform5 branch
@@ -17,6 +19,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
 branch.order_id = 2
+branch.path = '/p5/branch'
 branch.save!
 
 # add 5.1 branch
@@ -24,6 +27,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.1'
 branch.order_id = 3
+branch.path = '/5.1/branch'
 branch.save!
 
 # add 5.0 branch
@@ -31,6 +35,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.0'
 branch.order_id = 4
+branch.path = '/5.0/branch'
 branch.save!
 
 # add 4.1 branch
@@ -38,6 +43,7 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.1'
 branch.order_id = 5
+branch.path = '/4.1/branch'
 branch.save!
 
 # add 4.0 branch
@@ -45,8 +51,8 @@ branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.0'
 branch.order_id = 6
+branch.path = '/4.0/branch'
 branch.save!
-
 
 ## add Redora Rawhide
 #branch = Branch.new
@@ -55,6 +61,181 @@ branch.save!
 #branch.srpms_path = "/path/*.src.rpm"
 #branch.altlinux = false
 #branch.save!
+
+# Mirrors for Sisyphus
+branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+# Mirror.create(:branch_id => branch.id,
+#               :order_id => 3,
+#               :name => 'ftp://ftp.linux.kiev.ua',
+#               :country => 'ua',
+#               :uri => 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
+#               :protocol => 'ftp')
+# Mirror.create(:branch_id => branch.id,
+#               :order_id => 4,
+#               :name => 'http://ftp.linux.kiev.ua',
+#               :country => 'ua',
+#               :uri => 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
+#               :protocol => 'http')
+# Mirror.create(:branch_id => branch.id,
+#               :order_id => 5,
+#               :name => 'rsync://ftp.linux.kiev.ua',
+#               :country => 'ua',
+#               :uri => 'rsync://ftp.linux.kiev.ua/ALTLinux',
+#               :protocol => 'rsync')
+
+branch = Branch.where(:name => 'SisyphusARM', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+branch = Branch.where(:name => 'Platform5', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+branch = Branch.where(:name => '5.1', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+branch = Branch.where(:name => '5.0', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+branch = Branch.where(:name => '4.1', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+
+branch = Branch.where(:name => '4.0', :vendor => 'ALT Linux').first
+Mirror.create(:branch_id => branch.id,
+              :order_id => 0,
+              :name => 'ftp://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 1,
+              :name => 'http://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 2,
+              :name => 'rsync://ftp.altlinux.org',
+              :country => 'ru',
+              :uri => 'rsync://ftp.altlinux.org/ALTLinux',
+              :protocol => 'rsync')
+
+# Mirror.create(:branch_id => branch.id, :order_id => 1, :country => 'ru',
+#               :ftp => 'ftp://ftp.chg.ru/pub/Linux/ALTLinux',
+#               :rsync => 'rsync://ftp.chg.ru/ALTLinux')
+# 
+# Mirror.create(:branch_id => branch.id, :order_id => 2, :country => 'us',
+#               :ftp => 'ftp://ibiblio.org/pub/linux/distributions/altlinux',
+#               :http => 'http://distro.ibiblio.org/pub/linux/distributions/altlinux',
+#               :rsync => 'rsync://distro.ibiblio.org/distros/altlinux')
+# 
+# Mirror.create(:branch_id => branch.id, :order_id => 4, :country => 'ru',
+#               :ftp => 'ftp://mirror.yandex.ru/altlinux',
+#               :http => 'http://mirror.yandex.ru/altlinux',
+#               :rsync => 'rsync://mirror.yandex.ru/altlinux')
 
 # packager list
 Maintainer.create(:name => 'Nobody', :email => 'noboby@altlinux.org', :login => '@nobody', :team => true)
