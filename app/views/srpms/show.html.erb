@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package ") + @srpm.name -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name %>
 
 <div id='main-content'>
 
@@ -12,14 +12,14 @@
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
 
-<% @allsrpms.each do |rpm| -%>
+<% @allsrpms.each do |rpm| %>
 <tr>
   <td style="text-align: left;">
     <%= link_to "#{rpm.branch.name}:", srpm_path(:id => rpm.name, :branch => rpm.branch.name), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
-<% end -%>
+<% end %>
 
 </table>
 </div><br />
@@ -39,7 +39,7 @@
 <b><%= _("Build date:") %></b> <%= @srpm.buildtime %> (<%= time_ago_in_words(@srpm.buildtime) %> <%= _("ago") %>)<br />
 <b><%= _("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
 
-<% if !@srpm.url.nil? -%>
+<% unless @srpm.url.nil? %>
 <b><%= _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news', :rel => 'nofollow' %><br /><br />
 <% end -%>
 
@@ -48,28 +48,28 @@
 <b><%= _("Summary:") %></b> <span class="news-text"><%= @srpm.summary %></span><br />
 <b><%= _("Description:") %></b> <div class="para"><%= simple_format @srpm.description %></div>
 <p class="news" />
-<% if !@srpm.maintainer.nil? -%>
+<% unless @srpm.maintainer.nil? %>
 <div class="maintainer"><b><%= _("Current maintainer:") %></b>
-<% if @srpm.maintainer.team -%>
+<% if @srpm.maintainer.team %>
   <%= link_to @srpm.maintainer.name, team_path(:id => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
-<% else -%>
+<% else %>
   <%= link_to @srpm.maintainer.name, maintainer_path(:id => @srpm.maintainer.login, :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
-<% end -%>
+<% end %>
 </div><br /><br />
-<% end -%>
+<% end %>
 
-<% if !@srpm.packages.nil? %>
+<% unless @srpm.packages.nil? %>
 <b><%= _("List of rpms provided by this srpm:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-  <% @srpm.packages.map{|p| p.name }.sort.uniq.each do |name| %>
-    <li><%= name %></li>
-  <% end -%>
+    <% @srpm.packages.map{|p| p.name }.sort.uniq.each do |name| %>
+      <li><%= name %></li>
+    <% end -%>
   </ul>
 </div>
 <% end %>
 
-<% if !@srpm.acls.empty? %>
+<% unless @srpm.acls.empty? %>
 <b><%= _("ACL:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
@@ -83,6 +83,67 @@
   </ul>
 </div>
 <% end -%>
+
+<% if @branch.name == 'Sisyphus' %>
+<b><%= _("Download:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <li><a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a> (<%= number_to_human_size(@srpm.size) %>)</li>
+  </ul>
+</div>
+
+<% counter = 1 %>
+
+<% if @i586.count != 0 %>
+<b><%= _("i586:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% @i586.each do |i| -%>
+      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%= i.filename %>" class="news"><%= i.filename %></a> (<%= number_to_human_size(i.size) %>)</li>
+      <% counter += 1 %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if @noarch.count != 0 %>
+<b><%= _("noarch:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% @noarch.each do |n| %>
+      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%= n.filename %>" class="news"><%= n.filename %></a> (<%= number_to_human_size(n.size) %>)</li>
+      <% counter += 1 %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if @x86_64.count != 0 %>
+<b><%= _("x86_64:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% @x86_64.each do |x| %>
+      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %></a> (<%= number_to_human_size(x.size) %>)</li>
+      <% counter += 1 %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% if @arm.count != 0 %>
+<b><%= _("arm:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% @arm.each do |a| %>
+      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %></a> (<%= number_to_human_size(a.size) %>)</li>
+      <% counter += 1 %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% end %>
+
 </div>
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>

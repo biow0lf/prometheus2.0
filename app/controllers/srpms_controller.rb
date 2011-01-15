@@ -1,10 +1,15 @@
 class SrpmsController < ApplicationController
-
+#  layout nil, :only => 'patches'
+  
   def show
-    @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
+
+      @i586 = @srpm.packages.where(:arch => 'i586').order('packages.name ASC')
+      @noarch = @srpm.packages.where(:arch => 'noarch').order('packages.name ASC')
+      @x86_64 = @srpm.packages.where(:arch => 'x86_64').order('packages.name ASC')
+      @arm = @srpm.packages.where(:arch => 'arm').order('packages.name ASC')
     else
       render :status => 404, :action => 'nosuchpackage'
     end
@@ -30,6 +35,12 @@ class SrpmsController < ApplicationController
       render :status => 404, :action => 'nosuchpackage'
     end
   end
+
+#   def patches
+#     @udiff = File.read("pmount-0.9.19-alt-ext4.patch")
+#     @pretty = PrettyDiff::Diff.new(@udiff)
+# #    @pretty.to_html
+#   end
 
   def get
     @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
