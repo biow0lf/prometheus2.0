@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-01-15 02:02+0200\n"
+"POT-Creation-Date: 2011-01-15 02:47+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -41,6 +41,10 @@ msgstr " - Repocop"
 #: app/views/srpms/spec.html.erb:1
 msgid " - Spec"
 msgstr " - Спек"
+
+#: app/views/searches/show.html.haml:16
+msgid "&quot; in branch %s were found"
+msgstr "&quot; в бранче %s было найдено"
 
 #: app/views/maintainers/show.html.erb:1 app/views/teams/show.html.haml:1
 msgid "&raquo;"
