@@ -2,8 +2,8 @@ class IphoneController < ApplicationController
   layout "iphone"
 
   def index
-    @maintainers = Maintainer.find_all_maintainers_in_sisyphus
-    @teams = Maintainer.find_all_teams_in_sisyphus
+    @maintainers = Maintainer.find_all_maintainers_in(params[:branch])
+    @teams = Maintainer.find_all_teams_in(params[:branch])
     @groups = Group.find_groups_in_sisyphus
   end
 
