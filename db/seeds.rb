@@ -83,25 +83,26 @@ Mirror.create(:branch_id => branch.id,
               :uri => 'rsync://ftp.altlinux.org/ALTLinux',
               :protocol => 'rsync')
 
-# Mirror.create(:branch_id => branch.id,
-#               :order_id => 3,
-#               :name => 'ftp://ftp.linux.kiev.ua',
-#               :country => 'ua',
-#               :uri => 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
-#               :protocol => 'ftp')
-# Mirror.create(:branch_id => branch.id,
-#               :order_id => 4,
-#               :name => 'http://ftp.linux.kiev.ua',
-#               :country => 'ua',
-#               :uri => 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
-#               :protocol => 'http')
-# Mirror.create(:branch_id => branch.id,
-#               :order_id => 5,
-#               :name => 'rsync://ftp.linux.kiev.ua',
-#               :country => 'ua',
-#               :uri => 'rsync://ftp.linux.kiev.ua/ALTLinux',
-#               :protocol => 'rsync')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 3,
+              :name => 'ftp://ftp.linux.kiev.ua',
+              :country => 'ua',
+              :uri => 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
+              :protocol => 'ftp')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 4,
+              :name => 'http://ftp.linux.kiev.ua',
+              :country => 'ua',
+              :uri => 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
+              :protocol => 'http')
+Mirror.create(:branch_id => branch.id,
+              :order_id => 5,
+              :name => 'rsync://ftp.linux.kiev.ua',
+              :country => 'ua',
+              :uri => 'rsync://ftp.linux.kiev.ua/ALTLinux',
+              :protocol => 'rsync')
 
+# Mirrors for SisyphusARM
 branch = Branch.where(:name => 'SisyphusARM', :vendor => 'ALT Linux').first
 Mirror.create(:branch_id => branch.id,
               :order_id => 0,
