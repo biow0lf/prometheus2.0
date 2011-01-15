@@ -27,7 +27,6 @@ class SrpmsController < ApplicationController
   end
 
   def spec
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:group, :branch).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
@@ -43,7 +42,7 @@ class SrpmsController < ApplicationController
 #   end
 
   def get
-    @branch = Branch.where(:vendor => 'ALT Linux', :name => params[:branch]).first
+    @mirrors = Mirror.where(:branch_id => @branch.id).where(:protocol ^ 'rsync').order('mirrors.order_id ASC')
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:group, :branch, :packages).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
@@ -52,7 +51,7 @@ class SrpmsController < ApplicationController
       @x86_64 = @srpm.packages.where(:arch => 'x86_64').order('packages.name ASC')
       @arm = @srpm.packages.where(:arch => 'arm').order('packages.name ASC')
     else
-      render :status => 404, :action => "nosuchpackage"
+      render :status => 404, :action => 'nosuchpackage'
     end
   end
 
