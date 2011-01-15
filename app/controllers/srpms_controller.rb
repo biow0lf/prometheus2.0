@@ -6,10 +6,10 @@ class SrpmsController < ApplicationController
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
 
-      @i586 = @srpm.packages.where(:arch => 'i586').order('packages.name ASC')
-      @noarch = @srpm.packages.where(:arch => 'noarch').order('packages.name ASC')
-      @x86_64 = @srpm.packages.where(:arch => 'x86_64').order('packages.name ASC')
-      @arm = @srpm.packages.where(:arch => 'arm').order('packages.name ASC')
+#      @i586 = @srpm.packages.where(:arch => 'i586').order('packages.name ASC')
+#      @noarch = @srpm.packages.where(:arch => 'noarch').order('packages.name ASC')
+#      @x86_64 = @srpm.packages.where(:arch => 'x86_64').order('packages.name ASC')
+#      @arm = @srpm.packages.where(:arch => 'arm').order('packages.name ASC')
     else
       render :status => 404, :action => 'nosuchpackage'
     end
