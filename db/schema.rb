@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224155702) do
+ActiveRecord::Schema.define(:version => 20110115142010) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20101224155702) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.string   "path"
   end
 
   create_table "bugs", :force => true do |t|
@@ -116,6 +117,17 @@ ActiveRecord::Schema.define(:version => 20101224155702) do
     t.text     "info",       :default => "null"
     t.string   "website",    :default => ""
     t.string   "location",   :default => ""
+  end
+
+  create_table "mirrors", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "order_id"
+    t.string   "name"
+    t.string   "country"
+    t.string   "uri"
+    t.string   "protocol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "packages", :force => true do |t|
@@ -209,6 +221,7 @@ ActiveRecord::Schema.define(:version => 20101224155702) do
     t.string   "changelogname"
     t.text     "changelogtext"
     t.integer  "specfile_id"
+    t.integer  "builder_id"
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"

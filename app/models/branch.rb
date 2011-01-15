@@ -8,4 +8,5 @@ class Branch < ActiveRecord::Base
   has_many :groups
   has_many :leaders
   has_many :teams
+  has_many :mirrors
 end
