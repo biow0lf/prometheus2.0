@@ -41,7 +41,7 @@
 
 <% unless @srpm.url.nil? %>
 <b><%= _("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news', :rel => 'nofollow' %><br /><br />
-<% end -%>
+<% end %>
 
 <b><%= _("License:") %></b> <span class="news-text"><%= @srpm.license %></span><br />
 
@@ -64,7 +64,7 @@
   <ul>
     <% @srpm.packages.map{|p| p.name }.sort.uniq.each do |name| %>
       <li><%= name %></li>
-    <% end -%>
+    <% end %>
   </ul>
 </div>
 <% end %>
@@ -73,16 +73,16 @@
 <b><%= _("ACL:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-  <% @srpm.acls.each do |acl| -%>
+  <% @srpm.acls.each do |acl| %>
     <% if acl.maintainer.team %>
       <li><%= link_to acl.maintainer.name, team_path(:id => acl.maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
     <% else %>
       <li><%= link_to acl.maintainer.name, maintainer_path(:id => acl.maintainer.login, :branch => @branch.name), :class => 'news' %></li>
     <% end %>
-  <% end -%>
+  <% end %>
   </ul>
 </div>
-<% end -%>
+<% end %>
 
 <%# if @branch.name == 'Sisyphus' %>
 <% if false %>
@@ -99,7 +99,7 @@
 <b><%= _("i586:") %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-    <% @i586.each do |i| -%>
+    <% @i586.each do |i| %>
       <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%= i.filename %>" class="news"><%= i.filename %></a> (<%= number_to_human_size(i.size) %>)</li>
       <% counter += 1 %>
     <% end %>

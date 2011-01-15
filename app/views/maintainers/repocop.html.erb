@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Repocop") -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Repocop") %>
 
 <div id='main-content'>
 
@@ -16,10 +16,10 @@
     <th><%= _("message") %></th>
   </tr>
 
-<% if !@srpms.nil? -%>
-  <% @srpms.each do |srpm| -%>
-    <% srpm.repocops.each do |repocop| -%>
-      <% if repocop.status != 'skip' and repocop.status != 'ok' -%>
+<% if @srpms %>
+  <% @srpms.each do |srpm| %>
+    <% srpm.repocops.each do |repocop| %>
+      <% if repocop.status != 'skip' and repocop.status != 'ok' %>
         <tr>
           <td class="strange">
             <%= link_to repocop.name + '-' + repocop.version + '-' + repocop.release + '.' + repocop.arch, srpm_path(:id => srpm.name, :branch => 'Sisyphus'), :class => 'news', :title => 'detailed information about RPM' %>
@@ -28,10 +28,10 @@
           <td><%= repocop.testname %></td>
           <td style="text-align:left"><%= repocop.message %></td>
         </tr>
-      <% end -%>
-    <% end -%>
-  <% end -%>
-<% end -%>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 </table>
 

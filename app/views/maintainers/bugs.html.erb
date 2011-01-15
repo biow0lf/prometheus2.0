@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Bugs and FR") -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Bugs and FR") %>
 
 <div id='main-content'>
 
@@ -22,7 +22,7 @@
     <th><%= _("summary") %></th>
   </tr>
 
-<% @bugs.each do |bug| -%>
+<% @bugs.each do |bug| %>
   <tr>
     <td>
       <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news' %>
@@ -35,7 +35,7 @@
       <%= bug.short_desc %>
     </td>
   </tr>
-<% end -%>
+<% end %>
 
 </table>
 

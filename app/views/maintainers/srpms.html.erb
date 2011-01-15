@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Packages") -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Packages") %>
 
 <div id='main-content'>
 
@@ -20,7 +20,7 @@
     <th><%= _("Summary") %></th>
   </tr>
 
-  <% @acls.each do |acl| -%>
+  <% @acls.each do |acl| %>
   <tr>
     <% if @branch.name == 'Sisyphus' %>
       <td>
@@ -42,7 +42,7 @@
     </td>
     <td style="text-align:left;"><%= acl.srpm.summary %></td>
   </tr>
-  <% end -%>
+  <% end %>
 
 </table>
 

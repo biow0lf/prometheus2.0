@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Changelog") -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Changelog") %>
 
 <div id='main-content'>
 
@@ -12,14 +12,14 @@
 <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
 
-<% @allsrpms.each do |rpm| -%>
+<% @allsrpms.each do |rpm| %>
 <tr>
   <td style="text-align: left;">
     <%= link_to "#{rpm.branch.name}:", changelog_srpm_path(:id => rpm.name, :branch => rpm.branch.name), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
-<% end -%>
+<% end %>
 
 </table>
 </div><br />

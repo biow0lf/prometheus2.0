@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Gear") -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Gear") %>
 
 <div id='main-content'>
 
@@ -13,21 +13,21 @@
 <p class="break" />
 <span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), spec_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_srpm_path(:id => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => @srpm.name), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><div>
 
-<% if @gitrepos.count != 0 -%>
+<% if @gitrepos.count != 0 %>
 <table style="pretty">
-  <% @gitrepos.each do |gitrepo| -%>
+  <% @gitrepos.each do |gitrepo| %>
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-        <% login = gitrepo.maintainer.login -%>
-        <% login = 'php_coder' if gitrepo.maintainer.login == 'php-coder' -%>
+        <% login = gitrepo.maintainer.login %>
+        <% login = 'php_coder' if gitrepo.maintainer.login == 'php-coder' %>
         <% login = 'psolntsev' if gitrepo.maintainer.login == 'p_solntsev' %>
         <%= link_to gitrepo.maintainer.name, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %> (<%= gitrepo.maintainer.login %>@)
       </td>
       <td><%= gitrepo.lastchange %></td>
     </tr>
-  <% end -%>
+  <% end %>
 </table>
-<% end -%>
+<% end %>
 </div>
 </div>
 

@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - ACL's") -%>
+<% title _("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + _("&raquo; - ACL") %>
 
 <div id='main-content'>
 
@@ -14,7 +14,7 @@
     <th><%= _("ACL's") %></th>
   </tr>
 
-  <% @acls.each do |acl| -%>
+  <% @acls.each do |acl| %>
   <tr>
     <td><%= acl.srpm.name %></td>
     <td><%= acl.srpm.name %></td>
@@ -24,6 +24,6 @@
       <% end %>
     </td>
   </tr>
-  <% end -%>
+  <% end %>
 
 </table>

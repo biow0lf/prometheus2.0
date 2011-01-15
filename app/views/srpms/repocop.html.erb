@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Repocop") -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Repocop") %>
 
 <div id='main-content'>
 
@@ -22,8 +22,8 @@
     <th><%= _("message") %></th>
   </tr>
 
-<% @srpm.repocops.each do |repocop| -%>
-  <% if repocop.status != 'skip' -%>
+<% @srpm.repocops.each do |repocop| %>
+  <% if repocop.status != 'skip' %>
   <tr>
     <td><%= repocop.name %>-<%= repocop.version %>-<%= repocop.release %>.<%= repocop.arch %></td>
     <td><%= image_tag(h(repocop.status) + '.png', :size => "20x20") %><br/><%= repocop.status %></td>
@@ -32,8 +32,8 @@
       <% if repocop.message != '' %><%= repocop.message %><% else %>&nbsp;<% end %>
     </td>
   </tr>
-  <% end -%>
-<% end -%>
+  <% end %>
+<% end %>
 
 </table>
 

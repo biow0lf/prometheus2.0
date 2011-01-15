@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Download") -%>
+<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Download") %>
 
 <div id='main-content'>
 
@@ -12,14 +12,14 @@
 <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
 
-<% @allsrpms.each do |rpm| -%>
+<% @allsrpms.each do |rpm| %>
 <tr>
   <td style="text-align: left;">
     <%= link_to "#{rpm.branch.name}:", get_srpm_path(:id => rpm.name, :branch => rpm.branch.name), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
-<% end -%>
+<% end %>
 
 </table>
 </div><br />
@@ -39,46 +39,46 @@
 <script type="text/javascript">
 <!--
 function changeHref (val){
-  <% counter = 0 -%>
+  <% counter = 0 %>
   url<%= counter %> = "<%= '/Sisyphus/files/SRPMS/' + @srpm.filename %>";
-  <% counter += 1 -%>
+  <% counter += 1 %>
 
-  <% if @i586.count != 0 -%>
-    <% @i586.each do |i| -%>
+  <% if @i586.count != 0 %>
+    <% @i586.each do |i| %>
       url<%= counter %> = "<%= '/Sisyphus/files/i586/RPMS/' + i.filename %>";
-      <% counter += 1 -%>
-	<% end -%>
-  <% end -%>
+      <% counter += 1 %>
+    <% end %>
+  <% end %>
 
-  <% if @noarch.count != 0 -%>
-    <% @noarch.each do |n| -%>
+  <% if @noarch.count != 0 %>
+    <% @noarch.each do |n| %>
       url<%= counter %> = "<%= '/Sisyphus/files/noarch/RPMS/' + n.filename %>";
-      <% counter += 1 -%>
-	<% end -%>
-  <% end -%>
+      <% counter += 1 %>
+    <% end %>
+  <% end %>
 
-  <% if @x86_64.count != 0 -%>
-    <% @x86_64.each do |x| -%>
+  <% if @x86_64.count != 0 %>
+    <% @x86_64.each do |x| %>
       url<%= counter %> = "<%= '/Sisyphus/files/x86_64/RPMS/' + x.filename %>";
-      <% counter += 1 -%>
-	<% end -%>
-  <% end -%>
-	
+      <% counter += 1 %>
+    <% end %>
+  <% end %>
+
   for (i=0; i < <%= counter %> ; i++) {
     a = document.getElementById("pack_"+i);
-	switch (val) {
-	  case "0":	 a.href = "ftp://ftp.altlinux.org/pub/distributions/ALTLinux"+eval("url"+i); break;
-	  case "1":	 a.href = "ftp://ftp.anyhost.ru/pub/altlinux"+eval("url"+i); break;
-	  case "2":	 a.href = "ftp://ftp.chg.ru/pub/Linux/ALTLinux"+eval("url"+i); break;
-	  case "3":	 a.href = "ftp://ftp.ilim.ru/pub/Linux/Distrib/ALTLinux"+eval("url"+i); break;
-	  case "4":	 a.href = "ftp://ftp.impb.psn.ru/pub/distributions/ALTLinux"+eval("url"+i); break;
-	  case "5":	 a.href = "ftp://ftp.linux.kiev.ua/pub/Linux/ALT"+eval("url"+i); break;
-	  case "6":	 a.href = "ftp://ftp.mobicomk.ru/pub/distributions/ALTLinux"+eval("url"+i); break;
-	  case "7":	 a.href = "ftp://ftp.unixcenter.ru/ALTLinux"+eval("url"+i); break;
-	  case "8":	 a.href = "ftp://linux4u.jinr.ru/pub/ALTLinux"+eval("url"+i); break;
-	  case "9":	 a.href = "ftp://mirror.yandex.ru/altlinux"+eval("url"+i); break;
-	  case "10": a.href = "http://mirror.yandex.ru/altlinux"+eval("url"+i); break;
-	}
+    switch (val) {
+      case "0":	 a.href = "ftp://ftp.altlinux.org/pub/distributions/ALTLinux"+eval("url"+i); break;
+      case "1":	 a.href = "ftp://ftp.anyhost.ru/pub/altlinux"+eval("url"+i); break;
+      case "2":	 a.href = "ftp://ftp.chg.ru/pub/Linux/ALTLinux"+eval("url"+i); break;
+      case "3":	 a.href = "ftp://ftp.ilim.ru/pub/Linux/Distrib/ALTLinux"+eval("url"+i); break;
+      case "4":	 a.href = "ftp://ftp.impb.psn.ru/pub/distributions/ALTLinux"+eval("url"+i); break;
+      case "5":	 a.href = "ftp://ftp.linux.kiev.ua/pub/Linux/ALT"+eval("url"+i); break;
+      case "6":	 a.href = "ftp://ftp.mobicomk.ru/pub/distributions/ALTLinux"+eval("url"+i); break;
+      case "7":	 a.href = "ftp://ftp.unixcenter.ru/ALTLinux"+eval("url"+i); break;
+      case "8":	 a.href = "ftp://linux4u.jinr.ru/pub/ALTLinux"+eval("url"+i); break;
+      case "9":	 a.href = "ftp://mirror.yandex.ru/altlinux"+eval("url"+i); break;
+      case "10": a.href = "http://mirror.yandex.ru/altlinux"+eval("url"+i); break;
+    }
   }
 }
 -->
@@ -103,20 +103,20 @@ function changeHref (val){
 
 <table>
   <tr>
-	<td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
-	  <b>&middot;</b>
-		<a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a>
-	</td>
-	<td style="text-align:right;">
-		<b><%= number_to_human_size(@srpm.size) %></b>
-	</td>
+    <td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
+      <b>&middot;</b>
+      <a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a>
+    </td>
+    <td style="text-align:right;">
+      <b><%= number_to_human_size(@srpm.size) %></b>
+    </td>
   </tr>
 
-<% counter = 1 -%>
+<% counter = 1 %>
 
-<% if @i586.count != 0 -%>
+<% if @i586.count != 0 %>
  <tr><td><br><b>i586:</b></td></tr>
-  <% @i586.each do |i| -%>
+  <% @i586.each do |i| %>
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 	    <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%= i.filename %>" class="news">
@@ -125,13 +125,13 @@ function changeHref (val){
 		</td><td style="text-align:right;">
 			<b><%= number_to_human_size(i.size) %></b>
 		</td></tr>
-	    <% counter += 1 -%>	
-  <% end -%>
-<% end -%>
+	    <% counter += 1 %>	
+  <% end %>
+<% end %>
 
-<% if @noarch.count != 0 -%>
+<% if @noarch.count != 0 %>
   <tr><td><br><b>noarch:</b></td></tr>
-  <% @noarch.each do |n| -%>
+  <% @noarch.each do |n| %>
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%= n.filename %>" class="news"><%= n.filename %>
@@ -139,13 +139,13 @@ function changeHref (val){
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(n.size) %></b>
 	</td></tr>
-	<% counter += 1 -%>
-  <% end -%>
-<% end -%>
+	<% counter += 1 %>
+  <% end %>
+<% end %>
 
-<% if @x86_64.count != 0 -%>
+<% if @x86_64.count != 0 %>
   <tr><td><br><b>x86_64:</b></td></tr>
-  <% @x86_64.each do |x| -%>
+  <% @x86_64.each do |x| %>
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %>
@@ -153,13 +153,13 @@ function changeHref (val){
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(x.size) %></b>
 	</td></tr>
-	<% counter += 1 -%>
-  <% end -%>
-<% end -%>
+	<% counter += 1 %>
+  <% end %>
+<% end %>
 
-<% if @arm.count != 0 -%>
+<% if @arm.count != 0 %>
   <tr><td><br><b>arm:</b></td></tr>
-  <% @arm.each do |a| -%>
+  <% @arm.each do |a| %>
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %>
@@ -167,9 +167,9 @@ function changeHref (val){
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(a.size) %></b>
 	</td></tr>
-	<% counter += 1 -%>
-  <% end -%>
-<% end -%>
+	<% counter += 1 %>
+  <% end %>
+<% end %>
 
 </table>
 </div>

@@ -19,21 +19,21 @@
 </ul>
 
 <ul id="packages" title="<%= _("Packages") %>">
-<% @groups.each do |group| -%>
+<% @groups.each do |group| %>
   <li><%= link_to group.name + '(' + group.counter + ')', '/' + params[:locale] + '/iphone/packages/' + group.name, :target => '_self' %></li>
-<% end -%>
+<% end %>
 </ul>
 
 <ul id="maintainers" title="<%= _("Maintainers") %>">
-<% @maintainers.each do |maintainer| -%>
+<% @maintainers.each do |maintainer| %>
   <li><%= link_to maintainer.name, '/' + params[:locale] + '/iphone/packager/' + maintainer.login, :target => '_self' %></li>
-<% end -%>
+<% end %>
 </ul>
 
 <ul id="teams" title="<%= _("Teams") %>">
-<% @teams.each do |team| -%>
+<% @teams.each do |team| %>
   <li><%= team.name %></li>
-<% end -%>
+<% end %>
 </ul>
 
 <div id="security" class="panel" title="<%= _("Security") %>">

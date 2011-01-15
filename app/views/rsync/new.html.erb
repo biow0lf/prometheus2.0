@@ -20,25 +20,25 @@ This form helps you to create such file of exceptions. You can filter by group o
 <b><%= _("Groups:") %></b><br />
 <div id="groups-exclude-form" class="top-name">
 
-<% @groups.each do |group| -%>
-  <% if group.leaf? -%>
+<% @groups.each do |group| %>
+  <% if group.leaf? %>
     <input type="checkbox" name="grps" value="<%= group.id %>"><label><%= group.name %></label><br />
   <% else %>
-    <% group.children.each do |child| -%>
+    <% group.children.each do |child| %>
       <% if child.leaf? %>
         <input type="checkbox" name="grps" value="<%= child.id %>"><label><%= group.name %>/<%= child.name %></label><br />
       <% else %>
-        <% child.children.each do |c| -%>
-          <% if c.leaf? -%>
+        <% child.children.each do |c| %>
+          <% if c.leaf? %>
             <input type="checkbox" name="grps" value="<%= c.id %>"><label><%= group.name %>/<%= child.name %>/<%= c.name %></label><br />
-          <% else -%>
+          <% else %>
             TODO
-          <% end -%>
-        <% end -%>
-      <% end -%>
-    <% end  -%>
-  <% end -%>
-<% end -%>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 </div>
 </td><td style="vertical-align:top">
 <%= raw _("<b>Limit<br />by size:</b><br />") %>

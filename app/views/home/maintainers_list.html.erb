@@ -6,24 +6,24 @@
 <tr><th><%= _("Maintainers") %></th><th><%= _("Teams") %></th></tr>
 <tr>
 <td valign="top">
-<% @maintainers.each do |maintainer| -%>
+<% @maintainers.each do |maintainer| %>
   <div style="margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;">
     <div style="float: left;">
       <%= link_to maintainer.name, maintainer_path(:id => maintainer.login, :branch => @branch.name), :class => 'news' %> (<%= link_to maintainer.login, maintainer_path(:id => maintainer.login, :branch => @branch.name), :style => 'text-decoration: none; color: black;' %>)
     </div>
     <div style="float: right;"> <%= maintainer.counter %></div>
   </div>
-<% end -%>
+<% end %>
 </td>
 <td valign="top">
-<% @teams.each do |team| -%>
+<% @teams.each do |team| %>
   <div style="margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;">
     <div style="float: left;">
       <%= link_to team.name, team_path(:id => team.login[1..-1], :branch => @branch.name), :class => 'news' %> (<%= link_to team.login[1..-1], team_path(:id => team.login[1..-1], :branch => @branch.name), :style => 'text-decoration: none; color: black;' %>)
     </div>
     <div style="float: right;"> <%= team. counter %></div>
   </div>
-<% end -%>
+<% end %>
 </td>
 </tr>
 </table>
