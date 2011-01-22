@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-01-22 10:40+0200\n"
+"POT-Creation-Date: 2011-01-22 12:04+0200\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -40,6 +40,10 @@ msgstr ""
 
 #: app/views/srpms/spec.html.erb:1
 msgid " - Spec"
+msgstr ""
+
+#: app/views/layouts/application.html.haml:93
+msgid " or "
 msgstr ""
 
 #: app/views/searches/show.html.haml:16
@@ -204,6 +208,19 @@ msgstr "Data da compilação:"
 msgid "Build time:"
 msgstr "Construido em:"
 
+#: app/views/devise/registrations/edit.html.haml:26
+msgid "Cancel my account"
+msgstr ""
+
+#: app/views/devise/mailer/reset_password_instructions.html.haml:4
+#: app/views/devise/passwords/edit.html.haml:15
+msgid "Change my password"
+msgstr ""
+
+#: app/views/devise/passwords/edit.html.haml:3
+msgid "Change your password"
+msgstr ""
+
 #: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
 #: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
 #: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
@@ -220,6 +237,14 @@ msgstr "Mudanças:"
 msgid "Choose a mirror:"
 msgstr ""
 
+#: app/views/devise/mailer/unlock_instructions.html.haml:4
+msgid "Click the link below to unlock your account:"
+msgstr ""
+
+#: app/views/devise/mailer/confirmation_instructions.html.haml:4
+msgid "Confirm my account"
+msgstr ""
+
 #: app/views/srpms/show.html.erb:52 app/views/srpms/__show.html.haml:108
 msgid "Current maintainer:"
 msgstr "Mantenedor currente:"
@@ -232,6 +257,14 @@ msgstr "Versão atual:"
 #: app/views/srpms/show.html.erb:49 app/views/srpms/__show.html.haml:102
 msgid "Description:"
 msgstr "Descrição:"
+
+#: app/views/devise/shared/_links.haml:11
+msgid "Didn't receive confirmation instructions?"
+msgstr ""
+
+#: app/views/devise/shared/_links.haml:14
+msgid "Didn't receive unlock instructions?"
+msgstr ""
 
 #: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
 #: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
@@ -247,6 +280,10 @@ msgstr ""
 
 #: app/views/layouts/application.html.haml:97
 msgid "English"
+msgstr ""
+
+#: app/views/devise/shared/_links.haml:8
+msgid "Forgot your password?"
 msgstr ""
 
 #: app/views/iphone/maintainer_info.html.erb:10
@@ -285,6 +322,10 @@ msgstr "Home"
 
 #: app/views/srpms/show.html.erb:43 app/views/srpms/__show.html.haml:89
 msgid "Home page:"
+msgstr ""
+
+#: app/views/devise/mailer/reset_password_instructions.html.haml:5
+msgid "If you didn't request this, please ignore this email."
 msgstr ""
 
 #: app/views/maintainer_profiles/edit.html.haml:21
@@ -547,6 +588,16 @@ msgstr ""
 msgid "Repocop messages:"
 msgstr ""
 
+#: app/views/devise/confirmations/new.html.haml:3
+#: app/views/devise/confirmations/new.html.haml:10
+msgid "Resend confirmation instructions"
+msgstr ""
+
+#: app/views/devise/unlocks/new.html.haml:3
+#: app/views/devise/unlocks/new.html.haml:10
+msgid "Resend unlock instructions"
+msgstr ""
+
 #: app/views/layouts/application.html.haml:98
 msgid "Russian"
 msgstr ""
@@ -570,6 +621,20 @@ msgstr "Segurança"
 
 #: app/views/home/index.html.erb:99
 msgid "Select branch:"
+msgstr ""
+
+#: app/views/devise/sessions/new.html.haml:3
+#: app/views/devise/sessions/new.html.haml:17
+#: app/views/devise/shared/_links.haml:2
+#: app/views/layouts/application.html.haml:92
+msgid "Sign in"
+msgstr ""
+
+#: app/views/devise/registrations/new.html.haml:3
+#: app/views/devise/registrations/new.html.haml:18
+#: app/views/devise/shared/_links.haml:5
+#: app/views/layouts/application.html.haml:94
+msgid "Sign up"
 msgstr ""
 
 #: app/views/home/index.html.erb:10
@@ -610,6 +675,12 @@ msgstr ""
 #: app/views/srpms/show.html.erb:40 app/views/srpms/__show.html.haml:83
 msgid "Size:"
 msgstr "Tamanho:"
+
+#: app/views/devise/mailer/reset_password_instructions.html.haml:3
+msgid ""
+"Someone has requested a link to change your password, and you can do this "
+"through the link below."
+msgstr ""
 
 #: app/views/srpms/allbugs.html.erb:8 app/views/srpms/bugs.html.erb:8
 #: app/views/srpms/changelog.html.erb:31 app/views/srpms/gear.html.erb:8
@@ -683,6 +754,14 @@ msgstr ""
 msgid "Ukrainian"
 msgstr ""
 
+#: app/views/devise/mailer/unlock_instructions.html.haml:5
+msgid "Unlock my account"
+msgstr ""
+
+#: app/views/devise/registrations/edit.html.haml:25
+msgid "Update"
+msgstr ""
+
 #: app/views/maintainers/srpms.html.erb:19
 #: app/views/searches/show.html.haml:30 app/views/teams/show.html.haml:43
 msgid "Url"
@@ -697,6 +776,22 @@ msgstr ""
 #: app/views/layouts/application.html.haml:127
 msgid "Wiki"
 msgstr "Wiki"
+
+#: app/views/devise/mailer/confirmation_instructions.html.haml:3
+msgid "You can confirm your account through the link below:"
+msgstr ""
+
+#: app/views/devise/mailer/unlock_instructions.html.haml:3
+msgid ""
+"Your account has been locked due to an excessive amount of unsuccessful sign "
+"in attempts."
+msgstr ""
+
+#: app/views/devise/mailer/reset_password_instructions.html.haml:6
+msgid ""
+"Your password won't change until you access the link above and create a new "
+"one."
+msgstr ""
 
 #: app/views/layouts/application.html.haml:121
 msgid "about Prometheus project"
