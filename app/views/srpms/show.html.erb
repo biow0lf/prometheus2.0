@@ -84,67 +84,6 @@
 </div>
 <% end %>
 
-<%# if @branch.name == 'Sisyphus' %>
-<% if false %>
-<b><%= _("Download:") %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <li><a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a> (<%= number_to_human_size(@srpm.size) %>)</li>
-  </ul>
-</div>
-
-<% counter = 1 %>
-
-<% if @i586.count != 0 %>
-<b><%= _("i586:") %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <% @i586.each do |i| %>
-      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%= i.filename %>" class="news"><%= i.filename %></a> (<%= number_to_human_size(i.size) %>)</li>
-      <% counter += 1 %>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<% if @noarch.count != 0 %>
-<b><%= _("noarch:") %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <% @noarch.each do |n| %>
-      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%= n.filename %>" class="news"><%= n.filename %></a> (<%= number_to_human_size(n.size) %>)</li>
-      <% counter += 1 %>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<% if @x86_64.count != 0 %>
-<b><%= _("x86_64:") %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <% @x86_64.each do |x| %>
-      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %></a> (<%= number_to_human_size(x.size) %>)</li>
-      <% counter += 1 %>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<% if @arm.count != 0 %>
-<b><%= _("arm:") %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <% @arm.each do |a| %>
-      <li><a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %></a> (<%= number_to_human_size(a.size) %>)</li>
-      <% counter += 1 %>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
-<% end %>
-
 </div>
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>

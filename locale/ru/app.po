@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-01-15 02:47+0200\n"
+"POT-Creation-Date: 2011-01-22 09:35+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -51,8 +51,8 @@ msgid "&raquo;"
 msgstr "&raquo;"
 
 #: app/views/maintainers/acls.html.erb:1
-msgid "&raquo; - ACL's"
-msgstr "&raquo; - ACL's"
+msgid "&raquo; - ACL"
+msgstr "&raquo; - ACL"
 
 #: app/views/maintainers/bugs.html.erb:1
 msgid "&raquo; - Bugs and FR"

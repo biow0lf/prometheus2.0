@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-01-15 02:47+0200\n"
+"POT-Creation-Date: 2011-01-22 09:35+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -54,8 +54,8 @@ msgid "&raquo;"
 msgstr "&raquo;"
 
 #: app/views/maintainers/acls.html.erb:1
-msgid "&raquo; - ACL's"
-msgstr "&raquo; - ACL's"
+msgid "&raquo; - ACL"
+msgstr "&raquo; - ACL"
 
 #: app/views/maintainers/bugs.html.erb:1
 msgid "&raquo; - Bugs and FR"
