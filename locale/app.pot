@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-01-22 12:04+0200\n"
+"POT-Creation-Date: 2011-01-22 13:08+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -792,8 +792,8 @@ msgstr ""
 
 #: app/views/maintainers/srpms.html.erb:39 app/views/srpms/show.html.erb:39
 #: app/views/group/bygroup.html.haml:22 app/views/searches/show.html.haml:42
-#: app/views/searches/show.html.haml:59 app/views/srpms/__show.html.haml:81
-#: app/views/teams/show.html.haml:59
+#: app/views/searches/show.html.haml:60 app/views/searches/show.html.haml:77
+#: app/views/srpms/__show.html.haml:81 app/views/teams/show.html.haml:59
 msgid "ago"
 msgstr ""
 
