@@ -89,9 +89,9 @@
             = " | "
             %b= link_to 'Edit my maintainer profile', edit_maintainer_profile_path
         - else
-          = link_to 'Sign in', new_user_session_path
-          = " or "
-          = link_to 'Sign up', new_user_registration_path
+          = link_to _("Sign in"), new_user_session_path
+          = _(" or ")
+          = link_to _("Sign up"), new_user_registration_path
 
       %div{ :style => 'text-align: right' }
         = link_to_unless_current _('en'), '/en', :title => _('English') + " ".to_s
