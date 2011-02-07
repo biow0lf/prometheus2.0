@@ -7,7 +7,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    SystemTimer (1.2.2)
+    SystemTimer (1.2.1)
     ZenTest (4.4.2)
     aaronh-chronic (0.3.9)
     abstract (1.0.0)
@@ -201,7 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer
+  SystemTimer (= 1.2.1)
   autotest
   capybara
   capybara-envjs
