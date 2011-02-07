@@ -201,7 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer (= 1.2.1)
+  SystemTimer
   autotest
   capybara
   capybara-envjs
