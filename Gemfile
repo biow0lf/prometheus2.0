@@ -43,6 +43,7 @@ end
 
 group :development do
   gem 'haml-rails'
+  gem 'silent-postgres'
 end
 
 group :test do
