@@ -38,6 +38,7 @@ Prometheus20::Application.routes.draw do
         member do
           get 'changelog'
           get 'spec'
+          get 'rawspec'
           get 'get'
         end
       end

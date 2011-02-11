@@ -37,6 +37,10 @@
 <p class="break" />
 <span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Spec") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_srpm_path(:id => @srpm.name), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_srpm_path(:id => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => @srpm.name), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" />
 
+<%= link_to _("Raw spec file"), rawspec_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("Raw spec file") %>
+
+<br/>
+
 <% if @srpm.specfile_id %>
 <%= simple_format h(@srpm.specfile.spec.gsub('@altlinux', ' at altlinux')) %>
 <% else %>

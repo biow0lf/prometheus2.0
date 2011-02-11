@@ -1,6 +1,5 @@
 class SrpmsController < ApplicationController
-#  layout nil, :only => 'patches'
-  
+
   def show
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
     if @srpm != nil
@@ -30,6 +29,16 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:group, :branch).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
+    else
+      render :status => 404, :action => 'nosuchpackage'
+    end
+  end
+
+  def rawspec
+    @srpm = @branch.srpms.where(:name => params[:id]).includes(:group, :branch).first
+    if @srpm != nil
+      @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
+      render :layout => false, :content_type => 'text/plain'
     else
       render :status => 404, :action => 'nosuchpackage'
     end
