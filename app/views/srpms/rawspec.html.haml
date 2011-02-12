@@ -1,1 +1,4 @@
-= @srpm.specfile.spec.html_safe
+- if @srpm.specfile_id
+  = @srpm.specfile.spec.html_safe
+- else
+  = _("Spec file not yet imported.")
