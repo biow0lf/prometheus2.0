@@ -68,7 +68,7 @@ GEM
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     culerity (0.2.15)
-    database_cleaner (0.6.0)
+    database_cleaner (0.6.3)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -87,7 +87,7 @@ GEM
       rake (>= 0.8.7)
     gettext (2.1.0)
       locale (>= 2.0.5)
-    gettext_i18n_rails (0.2.14)
+    gettext_i18n_rails (0.2.16)
       fast_gettext
     gherkin (2.3.2)
       json (~> 1.4.6)
