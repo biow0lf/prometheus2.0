@@ -43,35 +43,35 @@ namespace :sisyphus do
     puts Time.now.to_s + ': end'
   end
 
-  desc "Import *.x86_64.rpm from Sisyphus to database"
+  desc 'Import *.x86_64.rpm from Sisyphus to database'
   task :x86_64 => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import *.x86_64.rpm from Sisyphus to database"
-    Package.import_packages_x86_64 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm"
-    puts Time.now.to_s + ": end"
+    puts Time.now.to_s + ': import *.x86_64.rpm from Sisyphus to database'
+    Package.import_packages_x86_64 'ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm'
+    puts Time.now.to_s + ': end'
   end
 
-  desc "Import all leaders for packages from Sisyphus to database"
+  desc 'Import all leaders for packages from Sisyphus to database'
   task :leaders => :environment do
     require 'open-uri'
-    puts Time.now.to_s + ": import all leaders for packages from Sisyphus to database"
+    puts Time.now.to_s + ': import all leaders for packages from Sisyphus to database'
     Leader.import_leaders 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
-    puts Time.now.to_s + ": end"
+    puts Time.now.to_s + ': end'
   end
 
-  desc "Import maintainers list from src.rpm from Sisyphus to database"
+  desc 'Import maintainers list from src.rpm from Sisyphus to database'
   task :maintainers => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import maintainers list from *.src.rpm's"
-    Maintainer.import_maintainers_list "/ALT/Sisyphus/files/SRPMS/*.src.rpm"
-    puts Time.now.to_s + ": end"
+    puts Time.now.to_s + ': import maintainers list from *.src.rpm\'s'
+    Maintainer.import_maintainers_list '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
+    puts Time.now.to_s + ': end'
   end
 
-  desc "Import all teams from Sisyphus to database"
+  desc 'Import all teams from Sisyphus to database'
   task :teams => :environment do
     require 'open-uri'
-    puts Time.now.to_s + ": import all teams from Sisyphus to database"
+    puts Time.now.to_s + ': import all teams from Sisyphus to database'
     Team.import_teams 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus'
-    puts Time.now.to_s + ": end"
+    puts Time.now.to_s + ': end'
   end
 end
