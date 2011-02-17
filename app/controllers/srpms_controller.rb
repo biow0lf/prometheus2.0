@@ -37,7 +37,7 @@ class SrpmsController < ApplicationController
   def rawspec
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:group, :branch).first
     if @srpm != nil && @srpm.specfile_id != nil
-      send_data @srpm.specfile.spec, :type => 'text/plain', :filename => "#{@srpm.name}.spec"
+      send_data @srpm.specfile.spec, :disposition => 'attachment', :type => 'text/plain', :filename => "#{@srpm.name}.spec"
     elsif @srpm != nil && @srpm.specfile_id == nil
       render :layout => false
     else
