@@ -36,9 +36,10 @@ class SrpmsController < ApplicationController
 
   def rawspec
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:group, :branch).first
-    if @srpm != nil
-      @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
-      render :layout => false, :content_type => 'text/plain'
+    if @srpm != nil && @srpm.specfile_id != nil
+      send_data @srpm.specfile.spec, :type => 'text/plain', :filename => "#{@srpm.name}.spec"
+    elsif @srpm != nil && @srpm.specfile_id == nil
+      render :layout => false
     else
       render :status => 404, :action => 'nosuchpackage'
     end
