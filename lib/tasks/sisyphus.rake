@@ -1,8 +1,8 @@
 namespace :sisyphus do
-  desc "Import all ACL for packages from Sisyphus to database"
+  desc 'Import all ACL for packages from Sisyphus to database'
   task :acls => :environment do
     require 'open-uri'
-    puts Time.now.to_s + ": import all acls for packages from Sisyphus to database"
+    puts Time.now.to_s + ': import all acls for packages from Sisyphus to database'
     Acl.import_acls 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
     puts Time.now.to_s + ': end'
   end
@@ -24,25 +24,23 @@ namespace :sisyphus do
     puts Time.now.to_s + ': end'
     puts Time.now.to_s + ': update repocop cache'
     Repocop.update_repocop_cache
-    puts Time.now.to_s + ': expire cache for srpms'
-    Rails.cache.delete('home-Sisyphus')
     puts Time.now.to_s + ': end'
   end
 
-  desc "Import *.i586.rpm from Sisyphus to database"
+  desc 'Import *.i586.rpm from Sisyphus to database'
   task :i586 => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import *.i586.rpm from Sisyphus to database"
-    Package.import_packages_i586 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm"
-    puts Time.now.to_s + ": end"
+    puts Time.now.to_s + ': import *.i586.rpm from Sisyphus to database'
+    Package.import_packages_i586 'ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm'
+    puts Time.now.to_s + ': end'
   end
 
-  desc "Import *.noarch.rpm from Sisyphus to database"
+  desc 'Import *.noarch.rpm from Sisyphus to database'
   task :noarch => :environment do
     require 'rpm'
-    puts Time.now.to_s + ": import *.noarch.rpm from Sisyphus to database"
-    Package.import_packages_noarch 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm"
-    puts Time.now.to_s + ": end"
+    puts Time.now.to_s + ': import *.noarch.rpm from Sisyphus to database'
+    Package.import_packages_noarch 'ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm'
+    puts Time.now.to_s + ': end'
   end
 
   desc "Import *.x86_64.rpm from Sisyphus to database"
