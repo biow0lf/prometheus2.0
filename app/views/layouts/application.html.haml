@@ -104,9 +104,6 @@
         %li{ :onmouseover => "m_on('li1')", :onmouseout => "m_off('li1')", :id => 'li1' }
           #dli1
             = link_to_unless_current _("Home"), home_path(:branch => params[:branch]), :title => _("site home page")
-        %li{ :onmouseover => "m_on('li2')", :onmouseout => "m_off('li2')", :id => 'li2' }
-          #dli2
-            = link_to_unless_current _("News"), news_path, :title => _("site news")
         %li{ :onmouseover => "m_on('li3')", :onmouseout => "m_off('li3')", :id => 'li3' }
           #dli3
             = link_to_unless_current _("Packages"), packages_path(:branch => params[:branch]), :title => _("packages information")
