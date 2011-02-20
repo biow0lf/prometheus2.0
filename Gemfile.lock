@@ -87,7 +87,7 @@ GEM
       rake (>= 0.8.7)
     gettext (2.1.0)
       locale (>= 2.0.5)
-    gettext_i18n_rails (0.2.16)
+    gettext_i18n_rails (0.2.17)
       fast_gettext
     gherkin (2.3.2)
       json (~> 1.4.6)
