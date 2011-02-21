@@ -7,9 +7,9 @@ gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
 gem 'SystemTimer' # for redis and ruby 1.8
-gem 'will_paginate', '~> 3.0.pre2'
 gem 'meta_search'
 gem 'meta_where'
+gem 'kaminari'
 gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
