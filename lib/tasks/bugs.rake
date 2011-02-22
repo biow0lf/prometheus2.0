@@ -11,7 +11,7 @@ namespace :sisyphus do
     begin
       ActiveRecord::Base.transaction do
         Bug.delete_all
-        data = `curl "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"`
+        data = `curl --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"`
         csv = CSV.parse(data)
 
         csv.each do |row|
