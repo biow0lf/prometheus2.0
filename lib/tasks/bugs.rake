@@ -1,8 +1,8 @@
 require 'open-uri'
 require 'csv'
-require 'openssl'
+#require 'openssl'
 
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 $KCODE="UTF8"
 
