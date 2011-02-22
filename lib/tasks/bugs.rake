@@ -1,8 +1,5 @@
 require 'open-uri'
 require 'csv'
-#require 'openssl'
-
-#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 $KCODE="UTF8"
 
@@ -14,9 +11,8 @@ namespace :sisyphus do
     begin
       ActiveRecord::Base.transaction do
         Bug.delete_all
-
-        url = "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"
-        csv = CSV.parse(open(URI.escape(url)).read)
+        data = `curl "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"`
+        csv = CSV.parse(data)
 
         csv.each do |row|
           bug = Bug.new
