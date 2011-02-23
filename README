@@ -4,7 +4,7 @@
 
 Install:
 * RVM
-* Ruby EE 1.8.7 2010.02
+* Ruby EE 1.8.7 2011.02
 * ruby-rpm
 * bundler
 * PostgreSQL 8.4 (with other databases it doesn't tested)
@@ -12,7 +12,7 @@ Install:
 * gettext
 
 And then:
-* run "bundle" in project folder
+* run "bundle --local" in project folder
 
 Prepare:
 * rake gettext:pack
