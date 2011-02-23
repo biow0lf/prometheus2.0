@@ -143,7 +143,7 @@ GEM
       activesupport (= 3.0.4)
       bundler (~> 1.0)
       railties (= 3.0.4)
-    rails_db_dump (0.1.0)
+    rails_db_dump (0.1.1)
     railties (3.0.4)
       actionpack (= 3.0.4)
       activesupport (= 3.0.4)
