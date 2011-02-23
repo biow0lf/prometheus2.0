@@ -8,7 +8,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     SystemTimer (1.2.2)
-    ZenTest (4.4.2)
+    ZenTest (4.5.0)
     aaronh-chronic (0.3.9)
     abstract (1.0.0)
     actionmailer (3.0.4)
@@ -54,7 +54,7 @@ GEM
     capybara-envjs (0.4.0)
       capybara (~> 0.4.0)
       envjs (>= 0.3.7)
-    celerity (0.8.7)
+    celerity (0.8.8)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
     columnize (0.3.2)
