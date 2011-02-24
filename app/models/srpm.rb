@@ -24,7 +24,7 @@ class Srpm < ActiveRecord::Base
       unless File.exists?("#{path}#{srpm.filename}")
         puts Time.now.to_s + ": deleted '" + srpm.filename + "'"
         srpm.destroy
-      end 
+      end
     end
   end
 
