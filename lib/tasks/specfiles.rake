@@ -2,16 +2,16 @@ namespace :sisyphus do
 task :specfiles => :environment do
   puts Time.now
 
-  branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+  branch = Branch.where(:name => 'SisyphusARM', :vendor => 'ALT Linux').first
 
   srpms = branch.srpms.where(:specfile_id => nil)
-  
+
   srpms.each do |srpm|
-    file = "/ALT/Sisyphus/files/SRPMS/#{srpm.filename}"
+    file = "/ALT/Sisyphus/arm/SRPMS.all/#{srpm.filename}"
     specfilename = `rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" "#{file}" | grep \"32 \" | sed -e 's/32 //'`
     specfilename.strip!
     spec = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{specfilename}"`
-    
+
     specfile = Specfile.new
     specfile.srpm_id = srpm.id
     specfile.branch_id = branch.id
