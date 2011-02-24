@@ -36,6 +36,8 @@ namespace :sisyphus do
           end
         end
       end
+
+      Srpm.remove_old_srpms('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/SRPMS/')
     end
     puts Time.now.to_s + ": end"
   end

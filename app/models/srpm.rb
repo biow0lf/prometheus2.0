@@ -18,6 +18,14 @@ class Srpm < ActiveRecord::Base
     Branch.where(:name => branch, :vendor => 'ALT Linux').first.srpms.count
   end
 
+  def self.remove_old_srpms(vendor, branch, path)
+    b = Branch.where(:name => branch, :vendor => vendor).first
+    b.srpms.each do |srpm|
+      puts Time.now.to_s + ": deleted '" + srpm.filename + "'"
+      srpm.destroy unless File.exists?("#{path}#{srpm.filename}")
+    end
+  end
+
   def self.import_srpms(vendor, branch, path)
     b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
