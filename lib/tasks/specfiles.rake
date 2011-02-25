@@ -19,7 +19,7 @@ task :specfiles => :environment do
     unless specfile.save
       p "shit happens"
     end
-    
+
     srpm.specfile_id = specfile.id
     unless srpm.save
         p "shit happens"
