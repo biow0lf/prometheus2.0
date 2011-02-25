@@ -42,4 +42,3 @@ namespace :sisyphus do
     puts "#{Time.now.to_s}: end"
   end
 end
-
