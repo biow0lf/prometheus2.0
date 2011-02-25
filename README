@@ -32,7 +32,8 @@ Init database:
 * rake sisyphus:acls
 * rake sisyphus:leaders
 * rake sisyphus:teams
-* rake sisyphus:gitrepos
+
+* rake gitrepos:import
 
 * rake sisyphus:bugs
 * rake sisyphus:repocops
