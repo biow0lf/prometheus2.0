@@ -1,5 +1,5 @@
 namespace :platform5 do
-  desc "Update Sisyphus stuff"
+  desc "Update Platform5 stuff"
   task :update => :environment do
     require 'rpm'
     require 'open-uri'
