@@ -4,6 +4,13 @@ class Gitrepo < ActiveRecord::Base
 
   belongs_to :maintainer
 
+  def self.update_gitrepos(url)
+    ActiveRecord::Base.transaction do
+      Gitrepo.delete_all
+      Gitrepo.import_gitrepos(url)
+    end
+  end
+
   def self.import_gitrepos(url)
     if Gitrepo.count(:all) == 0
       branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }

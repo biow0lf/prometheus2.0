@@ -12,10 +12,8 @@ namespace :gitrepos do
   task :update => :environment do
     require 'open-uri'
 
-    ActiveRecord::Base.transaction do
-      puts "#{Time.now.to_s}: update gitrepos"
-      Gitrepo.import_gitrepos('http://git.altlinux.org/people-packages-list')
-      puts "#{Time.now.to_s}: end"
-    end
+    puts "#{Time.now.to_s}: update gitrepos"
+    Gitrepo.update_gitrepos('http://git.altlinux.org/people-packages-list')
+    puts "#{Time.now.to_s}: end"
   end
 end
