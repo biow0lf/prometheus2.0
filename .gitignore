@@ -13,3 +13,4 @@ config/redis.yml
 vendor/plugins/newrelic_rpm/*
 .bundle/*
 locale/*/LC_MESSAGES/*.mo
+.rvmrc
