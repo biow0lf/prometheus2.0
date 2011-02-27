@@ -24,8 +24,6 @@ group :development, :test do
   gem 'sqlite3-ruby'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'envjs'
-  gem 'capybara-envjs'
   gem 'syntax' # for TextMate syntax highlight
   gem 'ffaker'
   gem 'factory_girl_rails'
