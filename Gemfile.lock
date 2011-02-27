@@ -37,7 +37,7 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
-    arel (2.0.8)
+    arel (2.0.9)
     autotest (4.4.6)
       ZenTest (>= 4.4.1)
     bcrypt-ruby (2.1.4)
