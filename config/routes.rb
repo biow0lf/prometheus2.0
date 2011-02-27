@@ -8,7 +8,6 @@ Prometheus20::Application.routes.draw do
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
     match 'project' => 'pages#project'
-    match 'news' => 'pages#news'
     resources :rsync, :controller => :rsync, :only => [:new]
     resources :rebuild, :controller => :rebuild, :only => [:index]
 
@@ -37,6 +36,7 @@ Prometheus20::Application.routes.draw do
           get 'changelog'
           get 'spec'
           get 'rawspec'
+          #get 'patches'
           get 'get'
         end
       end
