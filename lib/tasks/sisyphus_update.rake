@@ -4,11 +4,12 @@ namespace :sisyphus do
     require 'rpm'
     require 'open-uri'
 
+    branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+
     ActiveRecord::Base.transaction do
       puts "#{Time.now.to_s}: Update Sisyphus stuff"
       puts "#{Time.now.to_s}: update *.src.rpm from Sisyphus to database"
       path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
-      branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
       Dir.glob(path).each do |file|
         begin
           if !$redis.exists branch.name + ":" + file.split('/')[-1]
