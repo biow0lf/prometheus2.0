@@ -39,6 +39,10 @@ namespace :sisyphus do
 
       Srpm.remove_old_srpms('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/SRPMS/')
     end
+
+    puts "#{Time.now.to_s}: expire cache"
+    ActionController::Base.new.expire_fragment('top15')
+
     puts "#{Time.now.to_s}: end"
   end
 end
