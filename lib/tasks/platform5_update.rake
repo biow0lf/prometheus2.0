@@ -4,11 +4,12 @@ namespace :platform5 do
     require 'rpm'
     require 'open-uri'
 
+    branch = Branch.where(:name => 'Platform5', :vendor => 'ALT Linux').first
+
     ActiveRecord::Base.transaction do
       puts "#{Time.now.to_s}: Update Platform5 stuff"
       puts "#{Time.now.to_s}: update *.src.rpm from Platform5 to database"
       path = '/ALT/p5/files/SRPMS/*.src.rpm'
-      branch = Branch.where(:name => 'Platform5', :vendor => 'ALT Linux').first
       Dir.glob(path).each do |file|
         begin
           if !$redis.exists branch.name + ":" + file.split('/')[-1]
@@ -39,6 +40,12 @@ namespace :platform5 do
 
       Srpm.remove_old_srpms('ALT Linux', 'Platform5', '/ALT/p5/files/SRPMS/')
     end
+
+    puts "#{Time.now.to_s}: expire cache"
+    ['en', 'ru', 'uk', 'br'].each do |locale|
+      ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
+    end
+
     puts "#{Time.now.to_s}: end"
   end
 end

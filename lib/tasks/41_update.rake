@@ -4,11 +4,12 @@ namespace :"41" do
     require 'rpm'
     require 'open-uri'
 
+    branch = Branch.where(:name => '4.1', :vendor => 'ALT Linux').first
+
     ActiveRecord::Base.transaction do
       puts "#{Time.now.to_s}: Update 4.1 stuff"
       puts "#{Time.now.to_s}: update *.src.rpm from 4.1 to database"
       path = '/ALT/4.1/files/SRPMS/*.src.rpm'
-      branch = Branch.where(:name => '4.1', :vendor => 'ALT Linux').first
       Dir.glob(path).each do |file|
         begin
           if !$redis.exists branch.name + ":" + file.split('/')[-1]
@@ -39,6 +40,12 @@ namespace :"41" do
 
       Srpm.remove_old_srpms('ALT Linux', '4.1', '/ALT/4.1/files/SRPMS/')
     end
+
+    puts "#{Time.now.to_s}: expire cache"
+    ['en', 'ru', 'uk', 'br'].each do |locale|
+      ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
+    end
+
     puts "#{Time.now.to_s}: end"
   end
 end

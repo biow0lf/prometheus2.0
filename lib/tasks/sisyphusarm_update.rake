@@ -4,11 +4,12 @@ namespace :sisyphusarm do
     require 'rpm'
     require 'open-uri'
 
+    branch = Branch.where(:name => 'SisyphusARM', :vendor => 'ALT Linux').first
+
     ActiveRecord::Base.transaction do
       puts "#{Time.now.to_s}: Update SisyphusARM stuff"
       puts "#{Time.now.to_s}: update *.src.rpm from SisyphusARM to database"
       path = '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm'
-      branch = Branch.where(:name => 'SisyphusARM', :vendor => 'ALT Linux').first
       Dir.glob(path).each do |file|
         begin
           if !$redis.exists branch.name + ":" + file.split('/')[-1]
@@ -37,6 +38,12 @@ namespace :sisyphusarm do
 
       Srpm.remove_old_srpms('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/SRPMS/')
     end
+
+    puts "#{Time.now.to_s}: expire cache"
+    ['en', 'ru', 'uk', 'br'].each do |locale|
+      ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
+    end
+
     puts "#{Time.now.to_s}: end"
   end
 end
