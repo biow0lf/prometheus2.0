@@ -1,4 +1,4 @@
-<% cache(:top15) do %>
+<% cache("#{params[:locale]}_top15") do %>
   <% @top15.each do |maintainer| %>
     <tr>
       <td style="text-align: left;">
