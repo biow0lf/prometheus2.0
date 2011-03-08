@@ -41,7 +41,7 @@ namespace :sisyphus do
     end
 
     puts "#{Time.now.to_s}: expire cache"
-    SUPPORTED_LOCALES.each do |locale|
+    ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_top15")
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
     end
