@@ -1,0 +1,10 @@
+<% cache(:top15) do %>
+  <% @top15.each do |maintainer| %>
+    <tr>
+      <td style="text-align: left;">
+        <%= link_to maintainer.name, maintainer_path(:id => maintainer.login, :branch => 'Sisyphus'), :class => 'news', :title => _("information about the packager") %>
+      </td>
+      <td style="text-align: right;"><%= maintainer.counter %></td>
+    </tr>
+  <% end %>
+<% end %>

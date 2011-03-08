@@ -17,6 +17,7 @@
 <div class="header"><%= _("New SRPMs") %></div>
 <p class="news" />
 
+<% # cache("home-#{branch.name}-#{params[:page]}".to_sym) do %>
 <% @srpms.each do |srpm| %>
   <span class="news-date-new">
     <%= link_to srpm.name, srpm_path(:id => srpm.name, :branch => srpm.branch.name), :class => 'news', :title => _("detailed information about the package") %>
@@ -35,19 +36,20 @@
   <div id="pkg-<%= srpm.name %>" style="display:block;margin-top:1em;">
     <b><%= _("Group:") %></b> <span class="news-text">
       <% if srpm.group.level == 0 %>
-	    <%= srpm.group.name %>
+        <%= srpm.group.name %>
       <% elsif srpm.group.level == 1 %>
-		<%= srpm.group.parent.name %>/<%= srpm.group.name %>
-	  <% elsif srpm.group.level == 2 %>
+        <%= srpm.group.parent.name %>/<%= srpm.group.name %>
+      <% elsif srpm.group.level == 2 %>
         <%= srpm.group.parent.parent.name %>/<%= srpm.group.parent.name %>/<%= srpm.group.name %>
-	  <% end %>
-	</span><br />
+      <% end %>
+    </span><br />
     <b><%= _("Summary:") %></b> <span class="news-text"><%= srpm.summary %></span><br />
     <b><%= _("Changes:") %></b> <div class="para"><%= simple_format(srpm.changelogtext) %></div>
   </div>
   <p class="news" />
 
 <% end %>
+<% # end %>
 
 <p class="break" />
   <div style="text-align:center">
@@ -63,14 +65,7 @@
   </div>
   <div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
   <table style="font-size:8pt;" width="100%">
-    <% @top15.each do |maintainer| %>
-      <tr>
-        <td style="text-align: left;">
-          <%= link_to maintainer.name, maintainer_path(:id => maintainer.login, :branch => 'Sisyphus'), :class => 'news', :title => _("information about the packager") %>
-        </td>
-        <td style="text-align: right;"><%= maintainer.counter %></td>
-      </tr>
-    <% end %>
+    <%= render :partial => 'top15' %>
     <tr><td colspan="2" align="center">...</td></tr>
   </table>
 </div><br />
