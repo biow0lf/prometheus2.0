@@ -19,6 +19,7 @@ gem 'exception_notification', :require => 'exception_notifier', :git => 'git://g
 gem 'rails_db_dump'
 #gem 'pretty_diff'
 gem 'memcache-client'
+gem 'nested_set'
 
 group :development, :test do
   gem 'ruby-debug'
