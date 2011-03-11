@@ -1,5 +1,4 @@
 class SrpmsController < ApplicationController
-
   def show
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
     if @srpm != nil
@@ -44,12 +43,6 @@ class SrpmsController < ApplicationController
       render :status => 404, :action => 'nosuchpackage'
     end
   end
-
-#   def patches
-#     @udiff = File.read("pmount-0.9.19-alt-ext4.patch")
-#     @pretty = PrettyDiff::Diff.new(@udiff)
-# #    @pretty.to_html
-#   end
 
   def get
     @mirrors = Mirror.where(:branch_id => @branch.id).where(:protocol ^ 'rsync').order('mirrors.order_id ASC')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115142010) do
+ActiveRecord::Schema.define(:version => 20110311044350) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -113,8 +113,8 @@ ActiveRecord::Schema.define(:version => 20110115142010) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "time_zone",  :default => "UTC"
-    t.string   "jabber",     :default => "null"
-    t.text     "info",       :default => "null"
+    t.string   "jabber",     :default => ""
+    t.text     "info",       :default => ""
     t.string   "website",    :default => ""
     t.string   "location",   :default => ""
   end
@@ -156,6 +156,17 @@ ActiveRecord::Schema.define(:version => 20110115142010) do
   add_index "packages", ["group_id"], :name => "index_packages_on_group_id"
   add_index "packages", ["sourcepackage"], :name => "index_packages_on_sourcepackage"
   add_index "packages", ["srpm_id"], :name => "index_packages_on_srpm_id"
+
+  create_table "patches", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "srpm_id"
+    t.binary   "patch"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "patches", ["branch_id"], :name => "index_patches_on_branch_id"
+  add_index "patches", ["srpm_id"], :name => "index_patches_on_srpm_id"
 
   create_table "repocop_patches", :force => true do |t|
     t.string   "name"
@@ -221,7 +232,6 @@ ActiveRecord::Schema.define(:version => 20110115142010) do
     t.string   "changelogname"
     t.text     "changelogtext"
     t.integer  "specfile_id"
-    t.integer  "builder_id"
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
