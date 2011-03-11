@@ -36,9 +36,9 @@ Prometheus20::Application.routes.draw do
           get 'changelog'
           get 'spec'
           get 'rawspec'
-          #get 'patches'
           get 'get'
         end
+        resources :patches
       end
 
       match 'home' => 'home#index'

@@ -9,4 +9,5 @@ class Branch < ActiveRecord::Base
   has_many :leaders
   has_many :teams
   has_many :mirrors
+  has_many :patches
 end
