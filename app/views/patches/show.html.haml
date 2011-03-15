@@ -1,0 +1,13 @@
+= javascript_include_tag 'highlight.pack'
+
+:javascript
+  hljs.tabReplace = '    ';
+  hljs.initHighlightingOnLoad();
+
+#main-content
+  %pre
+    %code.diff<= @patch.to_s
+
+#bottom-offset-l
+  #bottom-offset-r
+    &nbsp;
