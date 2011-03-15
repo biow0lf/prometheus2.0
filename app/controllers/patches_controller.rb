@@ -3,7 +3,7 @@ class PatchesController < ApplicationController
   end
 
   def show
-    @patch = File.read("pmount-0.9.19-alt-ext4.patch")
+    @patch = File.read("pmount-0.9.17-alt-floppy.patch")
   end
 
   def get
