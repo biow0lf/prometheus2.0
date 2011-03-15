@@ -17,7 +17,6 @@ gem 'whenever', :require => false
 gem 'newrelic_rpm'
 gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/rails/exception_notification.git'
 gem 'rails_db_dump'
-gem 'pretty_diff'
 gem 'memcache-client'
 gem 'nested_set'
 
