@@ -163,7 +163,7 @@ p.break {
     margin: 15px 0px 15px 0px; padding: 0px 0px 0px 0px; line-height: 1.5;
     text-align: justify; 
 }
-.header {
+div.header {
     padding: 0px 0px 0px 0px; font-size:13pt; letter-spacing: 0.2em;
     font-weight: bold; color: #202040; background: url("/images/gradHeader.png") repeat-x white;
 }
