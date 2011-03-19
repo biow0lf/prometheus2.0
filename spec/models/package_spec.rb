@@ -14,4 +14,9 @@ describe Package do
   it { should have_db_index :group_id }
   it { should have_db_index :sourcepackage }
   it { should have_db_index :srpm_id }
+
+  it { should have_many :provides }
+  it { should have_many :requires }
+  it { should have_many :obsoletes }
+  it { should have_many :conflicts }
 end

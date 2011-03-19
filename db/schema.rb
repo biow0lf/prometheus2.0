@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311044350) do
+ActiveRecord::Schema.define(:version => 20110319152346) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(:version => 20110311044350) do
   end
 
   add_index "changelogs", ["srpm_id"], :name => "index_changelogs_on_srpm_id"
+
+  create_table "conflicts", :force => true do |t|
+    t.integer  "package_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "version"
+    t.string   "release"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "file_caches", :force => true do |t|
     t.string   "name"
@@ -130,6 +140,16 @@ ActiveRecord::Schema.define(:version => 20110311044350) do
     t.datetime "updated_at"
   end
 
+  create_table "obsoletes", :force => true do |t|
+    t.integer  "package_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "version"
+    t.string   "release"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "packages", :force => true do |t|
     t.string   "filename"
     t.string   "sourcepackage"
@@ -168,6 +188,16 @@ ActiveRecord::Schema.define(:version => 20110311044350) do
   add_index "patches", ["branch_id"], :name => "index_patches_on_branch_id"
   add_index "patches", ["srpm_id"], :name => "index_patches_on_srpm_id"
 
+  create_table "provides", :force => true do |t|
+    t.integer  "package_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "version"
+    t.string   "release"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "repocop_patches", :force => true do |t|
     t.string   "name"
     t.string   "version"
@@ -197,6 +227,16 @@ ActiveRecord::Schema.define(:version => 20110311044350) do
   add_index "repocops", ["srcname"], :name => "index_repocops_on_srcname"
   add_index "repocops", ["srcrel"], :name => "index_repocops_on_srcrel"
   add_index "repocops", ["srcversion"], :name => "index_repocops_on_srcversion"
+
+  create_table "requires", :force => true do |t|
+    t.integer  "package_id"
+    t.string   "name"
+    t.string   "type"
+    t.string   "version"
+    t.string   "release"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "specfiles", :force => true do |t|
     t.integer  "srpm_id"

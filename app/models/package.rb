@@ -7,6 +7,11 @@ class Package < ActiveRecord::Base
   belongs_to :srpm
   belongs_to :group
 
+  has_many :requires
+  has_many :provides
+  has_many :obsoletes
+  has_many :conflicts
+
   def self.import_rpm(vendor, branch, file)
     b = Branch.where(:name => branch, :vendor => vendor).first
     rpm = RPM::Package::open(file)
