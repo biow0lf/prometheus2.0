@@ -32,8 +32,8 @@ class Package < ActiveRecord::Base
       when 3
         group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
       else
-        puts Time.now.to_s + ": too nested groups level"
-      end    
+        puts "#{Time.now.to_s}: too nested groups level"
+      end
 
       package.group_id = group.id
       package.epoch = rpm[1003]
@@ -51,10 +51,10 @@ class Package < ActiveRecord::Base
         $redis.set b.name + ":" + package.filename, 1
         #puts Time.now.to_s + ": updated '" + package.filename + "'"
       else
-        puts Time.now.to_s + ": failed to update '" + package.filename + "'"
+        puts "#{Time.now.to_s}: failed to update '#{package.filename}'"
       end
     else
-      puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+      puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
     end
   end
 
@@ -80,8 +80,8 @@ class Package < ActiveRecord::Base
           when 3
             group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
-            puts Time.now.to_s + ": too nested groups level"
-          end    
+            puts "#{Time.now.to_s}: too nested groups level"
+          end
 
           package.group_id = group.id
           package.epoch = rpm[1003]
@@ -97,10 +97,10 @@ class Package < ActiveRecord::Base
           package.srpm_id = srpm.id
           package.save!
         else
-          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+          puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
       rescue RuntimeError
-        puts "RuntimeError at file: " + file
+        puts "RuntimeError at file: #{file}"
       end
     end
   end
@@ -127,8 +127,8 @@ class Package < ActiveRecord::Base
           when 3
             group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
-            puts Time.now.to_s + ": too nested groups level"
-          end    
+            puts "#{Time.now.to_s}: too nested groups level"
+          end
 
           package.group_id = group.id
           package.epoch = rpm[1003]
@@ -144,10 +144,10 @@ class Package < ActiveRecord::Base
           package.srpm_id = srpm.id
           package.save!
         else
-          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+          puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
       rescue RuntimeError
-        puts "RuntimeError at file: " + file
+        puts "RuntimeError at file: #{file}"
       end
     end
   end
@@ -174,8 +174,8 @@ class Package < ActiveRecord::Base
           when 3
             group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
-            puts Time.now.to_s + ": too nested groups level"
-          end    
+            puts "#{Time.now.to_s}: too nested groups level"
+          end
 
           package.group_id = group.id
           package.epoch = rpm[1003]
@@ -191,14 +191,14 @@ class Package < ActiveRecord::Base
           package.srpm_id = srpm.id
           package.save!
         else
-          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+          puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
       rescue RuntimeError
-        puts "RuntimeError at file: " + file
+        puts "RuntimeError at file: #{file}"
       end
     end
   end
-  
+
   def self.import_packages_arm(vendor, branch, path)
     b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
@@ -212,7 +212,7 @@ class Package < ActiveRecord::Base
           package.version = rpm.version.v
           package.release = rpm.version.r
           package.arch = rpm.arch
-        
+
           case rpm[1016].split('/').count
           when 1
             group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
@@ -221,8 +221,8 @@ class Package < ActiveRecord::Base
           when 3
             group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
-            puts Time.now.to_s + ": too nested groups level"
-          end    
+            puts "#{Time.now.to_s}: too nested groups level"
+          end
 
           package.group_id = group.id
           package.epoch = rpm[1003]
@@ -238,10 +238,10 @@ class Package < ActiveRecord::Base
           package.srpm_id = srpm.id
           package.save!
         else
-          puts Time.now.to_s + ": srpm '" + rpm[1044] + "' not found in db"
+          puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
       rescue RuntimeError
-        puts "RuntimeError at file: " + file
+        puts "RuntimeError at file: #{file}"
       end
     end
   end
