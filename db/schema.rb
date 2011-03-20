@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320000344) do
+ActiveRecord::Schema.define(:version => 20110320144820) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -231,7 +231,6 @@ ActiveRecord::Schema.define(:version => 20110320000344) do
   create_table "requires", :force => true do |t|
     t.integer  "package_id"
     t.string   "name"
-    t.string   "type"
     t.string   "version"
     t.string   "release"
     t.datetime "created_at"
