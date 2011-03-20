@@ -50,6 +50,10 @@ class Package < ActiveRecord::Base
       if package.save
         $redis.set b.name + ":" + package.filename, 1
         #puts Time.now.to_s + ": updated '" + package.filename + "'"
+        Provide.import_provides(rpm, package)
+        Require.import_requires(rpm, package)
+        Conflict.import_conflicts(rpm, package)
+        Obsolete.import_obsoletes(rpm, package)
       else
         puts "#{Time.now.to_s}: failed to update '#{package.filename}'"
       end
