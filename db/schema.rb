@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320150232) do
+ActiveRecord::Schema.define(:version => 20110320150717) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -144,11 +144,12 @@ ActiveRecord::Schema.define(:version => 20110320150232) do
   create_table "obsoletes", :force => true do |t|
     t.integer  "package_id"
     t.string   "name"
-    t.string   "type"
     t.string   "version"
     t.string   "release"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "epoch"
+    t.integer  "flags"
   end
 
   create_table "packages", :force => true do |t|
