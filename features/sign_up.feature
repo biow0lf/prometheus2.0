@@ -9,6 +9,6 @@ Feature: Sign up
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I press "Sign up"
-    Then I should see "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
+    Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
     And a confirmation message should be sent to "email@example.com"
     And I should confirm my email "email@example.com"
