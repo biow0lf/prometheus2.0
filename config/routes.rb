@@ -4,6 +4,10 @@ Prometheus20::Application.routes.draw do
     resource :maintainer_profile, :only => [:edit, :update]
     resource :search, :only => :show, :id => /[^\/]+/
     root :to => 'home#index'
+    
+    match 'iphone/' => 'iphone#index', :as => 'iphone_home'
+    match 'iphone/packager/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
+    match 'iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
@@ -52,10 +56,6 @@ Prometheus20::Application.routes.draw do
   end
 
   match '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
-
-  match '(/:locale)/iphone/' => 'iphone#index', :locale => SUPPORTED_LOCALES
-  match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :locale => SUPPORTED_LOCALES
-  match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :locale => SUPPORTED_LOCALES
 
   match '(/:locale)/security' => 'pages#security', :as => 'security', :locale => SUPPORTED_LOCALES
 

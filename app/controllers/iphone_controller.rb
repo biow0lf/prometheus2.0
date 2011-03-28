@@ -4,7 +4,7 @@ class IphoneController < ApplicationController
   def index
     @maintainers = Maintainer.find_all_maintainers_in(params[:branch])
     @teams = Maintainer.find_all_teams_in(params[:branch])
-    @groups = Group.find_groups_in_sisyphus
+    @groups = @branch.groups.where(:parent_id => nil).order('LOWER(name)')
   end
 
   def maintainer_info
@@ -17,26 +17,21 @@ class IphoneController < ApplicationController
 #                      :login => params[:login],
 #                      :branch => @branch.name,
 #                      :vendor => @branch.vendor }
-    @gitrepos = Gitrepo.all :conditions => {
-                              :login => params[:login].downcase },
-                            :order => 'repo ASC'
-
+    @gitrepos = Gitrepo.where(:maintainer_id => @maintainer.id).order('LOWER(repo)')
   end
 
   def bygroup
     # TODO: branch can be not only Sisyphus!
-    @branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => 'Sisyphus' }
+    @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
 
-    groupname = params[:group]
-    groupname = groupname + '/' + params[:group2] if !params[:group2].nil?
-    groupname = groupname + '/' + params[:group3] if !params[:group3].nil?
-
-    @group = Group.first :conditions => {
-                               :name => groupname,
-                               :branch_id => @branch.id }
-    @srpms = Srpm.all :conditions => {
-                        :group_id => @group.id,
-                        :branch_id => @branch.id },
-                      :order => 'LOWER(name)'
+    @group = @branch.groups.where(:name => params[:group], :parent_id => nil).first
+    if !params[:group2].nil?
+      @group = @branch.groups.where(:name => params[:group2], :parent_id => @group.id).first
+      if !params[:group3].nil?
+        @group = @branch.groups.where(:name => params[:group3], :parent_id => @group.id).first
+      end
+    end
+    render :status => 404, :action => 'nosuchgroup' and return if @group == nil
+    @srpms = @group.srpms.find(:all, :order => 'LOWER(name)')
   end
 end

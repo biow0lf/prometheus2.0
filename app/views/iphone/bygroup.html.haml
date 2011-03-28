@@ -1,0 +1,9 @@
+.toolbar
+  %h1{ :id => 'pageTitle' }
+  %a{ :id => 'backButton', :class => 'button', :href => '#' }
+  %a{ :class => 'button', :href => '#searchForm' }
+    Search
+
+%ul{ :id => 'home', :title => 'Home', :selected => 'true' }
+  - @srpms.each do |srpm|
+    %li= srpm.name

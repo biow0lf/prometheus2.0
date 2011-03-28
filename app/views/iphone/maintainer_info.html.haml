@@ -1,0 +1,21 @@
+.toolbar
+  %h1{ :id => 'pageTitle' }
+  %a{ :id => 'backButton', :class => 'button', :href => '#' }
+  %a{ :class => 'button', :href => '#searchForm' }
+    Search
+
+%ul{ :id => 'home', :title => @maintainer.name, :selected => 'true' }
+  %li
+    %a{ :href => '#info' }= _('Information')
+  %li
+    %a{ :href => '#packages' }= _('Packages')
+  %li
+    %a{ :href => '#gear' }= _('Gear')
+  %li
+    %a{ :href => '#bugs' }= _('Bugs and FR')
+  %li
+    %a{ :href => '#repocop' }= _('Repocop')
+
+%ul{ :id => 'gear', :title => _('Gear') }
+  - @gitrepos.each do |gitrepo|
+    %li= gitrepo.repo
