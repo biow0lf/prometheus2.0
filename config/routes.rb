@@ -25,7 +25,7 @@ Prometheus20::Application.routes.draw do
       match 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
     end
 
-    scope ':branch', :branch => /[^\/]+/ do
+    scope ':branch', :branch => /[^\/]+/ do#, :branch => /[^iphone]/ do
       resources :maintainers, :only => :show do
         get 'srpms', :on => :member
       end
@@ -51,13 +51,13 @@ Prometheus20::Application.routes.draw do
     end
   end
 
-  match '(/:locale)/misc/bugs' => 'misc#bugs', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
 
-  match '(/:locale)/iphone/' => 'iphone#index', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/iphone/' => 'iphone#index', :locale => SUPPORTED_LOCALES
+  match '(/:locale)/iphone/packager/:login' => 'iphone#maintainer_info', :locale => SUPPORTED_LOCALES
+  match '(/:locale)/iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :locale => SUPPORTED_LOCALES
 
-  match '(/:locale)/security' => 'pages#security', :as => 'security', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/security' => 'pages#security', :as => 'security', :locale => SUPPORTED_LOCALES
 
 #  match '/repocop' => 'repocop#index'
 #  match '/repocop/by-test/:testname' => 'repocop#bytest'
@@ -72,15 +72,15 @@ Prometheus20::Application.routes.draw do
 #  match '(/:locale)/cli/maintainer/:login/allbugs' => 'cli#maintainer_allbugs'
 #  match '(/:locale)/cli/maintainer/:login/repocop' => 'cli#maintainer_repocop'
 
-  match '/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info', :constraints => { :locale => SUPPORTED_LOCALES }
-  #match '/cli/srpm/:vendor/:branch/:name/acls' => 'cli#srpm_acls', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/gear' => 'cli#srpm_gear', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/bugs' => 'cli#srpm_bugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info', :locale => SUPPORTED_LOCALES
+  #match '/cli/srpm/:vendor/:branch/:name/acls' => 'cli#srpm_acls', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/gear' => 'cli#srpm_gear', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/bugs' => 'cli#srpm_bugs', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop', :locale => SUPPORTED_LOCALES
 
   match '/cli/repocop/by-test/no_url_tag' => 'repocop#no_url_tag'
   match '/cli/repocop/by-test/invalid_url' => 'repocop#invalid_url'
