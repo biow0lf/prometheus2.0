@@ -44,7 +44,7 @@ Prometheus20::Application.routes.draw do
       match 'home' => 'home#index'
 
       match 'packages/:group(/:group2(/:group3))' => 'group#bygroup', :as => 'group'
-      match 'packages' => 'group#groups_list', :as => 'packages'
+      match 'packages' => 'group#index', :as => 'packages'
       match 'people' => 'home#maintainers_list', :as => 'maintainers'
       match 'rss' => 'rss#index', :as => 'rss'
 
