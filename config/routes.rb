@@ -72,15 +72,15 @@ Prometheus20::Application.routes.draw do
 #  match '(/:locale)/cli/maintainer/:login/allbugs' => 'cli#maintainer_allbugs'
 #  match '(/:locale)/cli/maintainer/:login/repocop' => 'cli#maintainer_repocop'
 
-  match '/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info', :locale => SUPPORTED_LOCALES
-  #match '/cli/srpm/:vendor/:branch/:name/acls' => 'cli#srpm_acls', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/gear' => 'cli#srpm_gear', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/bugs' => 'cli#srpm_bugs', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs', :locale => SUPPORTED_LOCALES
-  match '/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop', :locale => SUPPORTED_LOCALES
+  match '/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info'
+  #match '/cli/srpm/:vendor/:branch/:name/acls' => 'cli#srpm_acls'
+  match '/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog'
+  match '/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec'
+  match '/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get'
+  match '/cli/srpm/:vendor/:branch/:name/gear' => 'cli#srpm_gear'
+  match '/cli/srpm/:vendor/:branch/:name/bugs' => 'cli#srpm_bugs'
+  match '/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs'
+  match '/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop'
 
   match '/cli/repocop/by-test/no_url_tag' => 'repocop#no_url_tag'
   match '/cli/repocop/by-test/invalid_url' => 'repocop#invalid_url'
