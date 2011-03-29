@@ -10,4 +10,8 @@ class Branch < ActiveRecord::Base
   has_many :teams
   has_many :mirrors
   has_many :patches
+
+  def to_param
+    name
+  end
 end

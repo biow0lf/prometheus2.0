@@ -15,6 +15,10 @@ class Maintainer < ActiveRecord::Base
 
   attr_accessible :name, :email, :login, :team, :time_zone, :jabber, :info
 
+  def to_param
+    login
+  end
+
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
       begin

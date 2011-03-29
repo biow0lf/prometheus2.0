@@ -9,7 +9,7 @@
 <% @maintainers.each do |maintainer| %>
   <div style="margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;">
     <div style="float: left;">
-      <%= link_to maintainer.name, maintainer_path(:id => maintainer.login, :branch => @branch.name), :class => 'news' %> (<%= link_to maintainer.login, maintainer_path(:id => maintainer.login, :branch => @branch.name), :style => 'text-decoration: none; color: black;' %>)
+      <%= link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news' %> (<%= link_to maintainer.login, maintainer_path(@branch, maintainer), :style => 'text-decoration: none; color: black;' %>)
     </div>
     <div style="float: right;"> <%= maintainer.counter %></div>
   </div>

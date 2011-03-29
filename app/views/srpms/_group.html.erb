@@ -1,7 +1,7 @@
 <% if @srpm.group.level == 0 %>
-    <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.name %></b><br />
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= @srpm.group.name %></b><br />
 <% elsif @srpm.group.level == 1 %>
-    <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.parent.name %>/<%= @srpm.group.name %></b><br />
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= @srpm.group.parent.name %>/<%= @srpm.group.name %></b><br />
 <% elsif @srpm.group.level == 2 %>
-    <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group.parent.parent.name %>/<%= @srpm.group.parent.name %>/<%= @srpm.group.name %></b><br />
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= @srpm.group.parent.parent.name %>/<%= @srpm.group.parent.name %>/<%= @srpm.group.name %></b><br />
 <% end %>

@@ -1,21 +1,21 @@
 <% cache("#{params[:locale]}_srpms_#{@branch.name}_#{params[:page]}") do %>
 <% @srpms.each do |srpm| %>
   <span class="news-date-new">
-    <%= link_to srpm.name, srpm_path(:id => srpm.name, :branch => srpm.branch.name), :class => 'news', :title => _("detailed information about the package") %>
+    <%= link_to srpm.name, srpm_path(srpm.branch, srpm), :class => 'news', :title => _('detailed information about the package') %>
   </span>
 
   <% if srpm.maintainer %>
-  <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _("build") %>
-	  <%= link_to srpm.maintainer.name, maintainer_path(:id => srpm.maintainer.login, :branch => 'Sisyphus'), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
+  <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
+	  <%= link_to srpm.maintainer.name, maintainer_path(srpm.branch, srpm.maintainer), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
   </span>
   <% else %>
-  <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _("build") %>
+  <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
       <%= srpm.buildtime %>
   </span>
   <% end %>
 
   <div id="pkg-<%= srpm.name %>" style="display:block;margin-top:1em;">
-    <b><%= _("Group:") %></b> <span class="news-text">
+    <b><%= _('Group:') %></b> <span class="news-text">
       <% if srpm.group.level == 0 %>
         <%= srpm.group.name %>
       <% elsif srpm.group.level == 1 %>
@@ -24,8 +24,8 @@
         <%= srpm.group.parent.parent.name %>/<%= srpm.group.parent.name %>/<%= srpm.group.name %>
       <% end %>
     </span><br />
-    <b><%= _("Summary:") %></b> <span class="news-text"><%= srpm.summary %></span><br />
-    <b><%= _("Changes:") %></b> <div class="para"><%= simple_format(srpm.changelogtext) %></div>
+    <b><%= _('Summary:') %></b> <span class="news-text"><%= srpm.summary %></span><br />
+    <b><%= _('Changes:') %></b> <div class="para"><%= simple_format(srpm.changelogtext) %></div>
   </div>
   <p class="news" />
 

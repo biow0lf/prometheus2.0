@@ -1,9 +1,9 @@
-- title _("Prometheus 2.0 - Group - ") + @group.name
+- title _('Prometheus 2.0 - Group - %s') % @group.name
 
 #main-content
 
   .header
-    = _("Group")
+    = _('Group')
     \:: 
     = @group.name
 
@@ -12,19 +12,19 @@
     - @srpms.each do |srpm|
       %p.news
         %span{ :class => 'news-date-new' }
-          = link_to srpm.name, srpm_path(:id => srpm.name, :branch => @branch.name), :class => 'news', :title => _("detailed information about the package")
+          = link_to srpm.name, srpm_path(@branch, srpm), :class => 'news', :title => _('detailed information about the package')
         %br
         %br
-        %b= _("Current version:")
+        %b= _('Current version:')
         %span{ :class => 'news-text'}= "#{srpm.version}-#{srpm.release}"
         %br
-        %b= _("Build time:")
-        %span{ :class => 'news-text'}= "#{srpm.buildtime} (#{time_ago_in_words(srpm.buildtime)} #{_("ago")})"
+        %b= _('Build time:')
+        %span{ :class => 'news-text'}= "#{srpm.buildtime} (#{time_ago_in_words(srpm.buildtime)} #{_('ago')})"
         %br
-        %b= _("Summary:")
+        %b= _('Summary:')
         %span{ :class => 'news-text'}= srpm.summary
         %br
-        %b= _("Changes:")
+        %b= _('Changes:')
         %div.para= simple_format(srpm.changelogtext)
 
 #bottom-offset-l
