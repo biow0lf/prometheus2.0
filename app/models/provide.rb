@@ -1,5 +1,7 @@
 class Provide < ActiveRecord::Base
-  validates :package_id, :presence => true
+  belongs_to :package
+
+  validates :package, :presence => true
   validates :name, :presence => true
 
   def self.import_provides(rpm, package)

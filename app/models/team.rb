@@ -1,7 +1,7 @@
 class Team < ActiveRecord::Base
   validates :name, :presence => true
-  validates :branch_id, :presence => true
-  validates :maintainer_id, :presence => true
+  validates :branch, :presence => true
+  validates :maintainer, :presence => true
 
   belongs_to :branch
   belongs_to :maintainer

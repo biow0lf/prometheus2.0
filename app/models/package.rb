@@ -1,11 +1,11 @@
 class Package < ActiveRecord::Base
-  validates :srpm_id, :presence => true
-  validates :branch_id, :presence => true
-  validates :group_id, :presence => true
-
   belongs_to :branch
   belongs_to :srpm
   belongs_to :group
+
+  validates :srpm, :presence => true
+  validates :branch, :presence => true
+  validates :group, :presence => true
 
   has_many :requires
   has_many :provides

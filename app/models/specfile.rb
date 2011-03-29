@@ -1,6 +1,6 @@
 class Specfile < ActiveRecord::Base
-  validates :branch_id, :presence => true
-  validates :srpm_id, :presence => true
+  validates :branch, :presence => true
+  validates :srpm, :presence => true
   validates :spec, :presence => true
   
   belongs_to :srpm

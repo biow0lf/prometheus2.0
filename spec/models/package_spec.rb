@@ -5,9 +5,9 @@ describe Package do
   it { should belong_to :srpm }
   it { should belong_to :group }
 
-  it { should validate_presence_of :srpm_id }
-  it { should validate_presence_of :branch_id }
-  it { should validate_presence_of :group_id }
+  it { should validate_presence_of :srpm }
+  it { should validate_presence_of :branch }
+  it { should validate_presence_of :group }
 
   it { should have_db_index :arch }
   it { should have_db_index :branch_id }
