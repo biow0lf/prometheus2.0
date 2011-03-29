@@ -3,7 +3,6 @@
 == Setup and run
 
 Install:
-* RVM
 * Ruby EE 1.8.7 2011.03
 * ruby-rpm
 * bundler
@@ -12,7 +11,7 @@ Install:
 * gettext
 
 And then:
-* run "bundle --local" in project folder
+* run "bundle install" in project folder
 
 Prepare:
 * rake gettext:pack
