@@ -15,6 +15,17 @@ class Srpm < ActiveRecord::Base
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
   has_one :repocop_patch, :foreign_key => 'name', :primary_key => 'name'
 
+  define_index do
+    indexes name, :sortable => true
+    indexes summary
+    indexes description
+    indexes packages.name, :as => :packages_name, :sortable => true
+    indexes packages.summary, :as => :packages_summary
+    indexes packages.description, :as => :packages_description
+
+    has branch_id
+  end
+
   def to_param
     name
   end

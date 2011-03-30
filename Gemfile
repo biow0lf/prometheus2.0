@@ -19,6 +19,7 @@ gem 'exception_notification', :require => 'exception_notifier', :git => 'git://g
 gem 'rails_db_dump'
 gem 'memcache-client'
 gem 'nested_set'
+gem 'thinking-sphinx', :require => 'thinking_sphinx'
 
 group :development, :test do
   gem 'ruby-debug'
