@@ -86,6 +86,8 @@ Init database:
 * rake redis:cache
 * rake redis:cache_binary
 
+* rake ts:index
+
 TODO:
 
 * rake sisyphus:ftbfs_i586
