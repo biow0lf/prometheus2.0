@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320151231) do
+ActiveRecord::Schema.define(:version => 20110330164031) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -71,13 +71,6 @@ ActiveRecord::Schema.define(:version => 20110320151231) do
     t.datetime "updated_at"
     t.string   "epoch"
     t.integer  "flags"
-  end
-
-  create_table "file_caches", :force => true do |t|
-    t.string   "name"
-    t.binary   "file"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "gitrepos", :force => true do |t|
@@ -297,7 +290,6 @@ ActiveRecord::Schema.define(:version => 20110320151231) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
