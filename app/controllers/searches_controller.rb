@@ -10,9 +10,12 @@ class SearchesController < ApplicationController
       redirect_to :action => 'index'
     else
       @exact_srpm = Srpm.where(:name => params[:query].strip, :branch => @branch).first
-      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:query].strip.to_s.split).where(:branch => @branch).order("LOWER(srpms.name) ASC")
+      @search = Srpm.search(:name_or_summary_or_description_contains_all => params[:query].strip.to_s.split).where(:branch => @branch).includes(:branch).order("LOWER(srpms.name) ASC")
+      # @srpms = Srpm.select("DISTINCT(srpms.name), LOWER(srpms.name), srpms.*").joins(:packages).where(:branch => @branch).search(:name_or_summary_or_description_or_packages_name_or_packages_summary_or_packages_description_contains_all => params[:query].strip.to_s.split).order("LOWER(srpms.name) ASC")
+      # @srpms_count = Srpm.select("COUNT(DISTINCT(srpms.name)) AS count_all").joins(:packages).where(:branch => @branch).search(:name_or_summary_or_description_or_packages_name_or_packages_summary_or_packages_description_contains_all => params[:query].strip.to_s.split).first
       @srpms, @srpms_count = @search.all, @search.count
-      redirect_to(srpm_path(@branch, @srpms.first), :status => 302) if @search.count == 1
+      # @srpms = @search.all
+      redirect_to(srpm_path(@branch, @srpms.first), :status => 302) if @srpms.length == 1
     end
   end
 end
