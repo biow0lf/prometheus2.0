@@ -20,6 +20,7 @@ gem 'rails_db_dump'
 gem 'memcache-client'
 gem 'nested_set'
 gem 'thinking-sphinx', :require => 'thinking_sphinx'
+gem 'active_sanity'
 
 group :development, :test do
   gem 'ruby-debug'
