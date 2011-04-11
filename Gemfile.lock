@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/smartinez87/exception_notification.git
-  revision: 7cd4f04c1d784fa5d54ada7fe6072f89c821d406
+  revision: 1e8fb83c56d8c796f8022e7d27cb06bfe9158492
   specs:
     exception_notification (2.4.0)
 
@@ -114,7 +114,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
-    meta_search (1.0.3)
+    meta_search (1.0.4)
       actionpack (~> 3.0.2)
       activerecord (~> 3.0.2)
       activesupport (~> 3.0.2)
