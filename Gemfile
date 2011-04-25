@@ -14,7 +14,7 @@ gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
-#gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/smartinez87/exception_notification.git'
+gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_notification.git'
 gem 'rails_db_dump'
 gem 'memcache-client'
 gem 'nested_set'

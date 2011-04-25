@@ -39,7 +39,7 @@ module Prometheus20
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
     config.middleware.use ExceptionNotifier,
       :email_prefix => "[ERROR] ",
       :sender_address => %{"Sisyphus 2.0 Error" <prometheus-noreply@altlinux.org>},
