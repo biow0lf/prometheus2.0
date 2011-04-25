@@ -6,7 +6,6 @@ gem 'haml'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
-#gem 'SystemTimer' # for redis and ruby 1.8
 gem 'meta_search'
 gem 'meta_where'
 gem 'kaminari'
