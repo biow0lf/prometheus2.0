@@ -6,7 +6,7 @@ gem 'haml'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
-gem 'SystemTimer' # for redis and ruby 1.8
+#gem 'SystemTimer' # for redis and ruby 1.8
 gem 'meta_search'
 gem 'meta_where'
 gem 'kaminari'
@@ -15,7 +15,7 @@ gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
-gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/smartinez87/exception_notification.git'
+#gem 'exception_notification', :require => 'exception_notifier', :git => 'git://github.com/smartinez87/exception_notification.git'
 gem 'rails_db_dump'
 gem 'memcache-client'
 gem 'nested_set'
@@ -26,7 +26,7 @@ group :staging do
 end
 
 group :development, :test do
-  gem 'ruby-debug'
+  gem 'ruby-debug19'
   gem 'sqlite3-ruby'
   gem 'rspec-rails'
   gem 'capybara'
