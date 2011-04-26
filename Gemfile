@@ -2,7 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 gem 'pg'
-gem 'haml'
+# https://github.com/nex3/haml/issues/380
+gem 'haml', '3.0.25'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
@@ -18,7 +19,7 @@ gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_no
 gem 'rails_db_dump'
 gem 'memcache-client'
 gem 'nested_set'
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
+gem 'thinking-sphinx'
 
 group :staging do
   gem 'active_sanity'
