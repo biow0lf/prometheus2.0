@@ -2,8 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 gem 'pg'
-# https://github.com/nex3/haml/issues/380
-gem 'haml', '3.0.25'
+gem 'haml'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
