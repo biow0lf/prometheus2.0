@@ -34,9 +34,6 @@ group :development, :test do
   gem 'syntax' # for TextMate syntax highlight
   gem 'ffaker'
   gem 'factory_girl_rails'
-  # for gettext & haml
-  gem 'ruby_parser'
-  gem 'hpricot'
   # opening pages in browser
   gem 'launchy'
   # cucumber
