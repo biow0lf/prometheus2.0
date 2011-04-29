@@ -15,10 +15,12 @@ gem 'gettext', '>=1.9.3', :require => false
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
 gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_notification.git'
-gem 'rails_db_dump'
-gem 'memcache-client'
 gem 'nested_set'
 gem 'thinking-sphinx'
+
+group :production do
+  gem 'memcache-client'
+end
 
 group :staging do
   gem 'active_sanity'
