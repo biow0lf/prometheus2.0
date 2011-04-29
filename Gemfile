@@ -50,4 +50,5 @@ end
 group :test do
   gem 'autotest'
   gem 'shoulda'
+  gem 'email_spec'
 end
