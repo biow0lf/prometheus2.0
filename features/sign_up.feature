@@ -10,5 +10,9 @@ Feature: Sign up
     And I fill in "Password confirmation" with "password"
     And I press "Sign up"
     Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
-    And a confirmation message should be sent to "email@example.com"
-    And I should confirm my email "email@example.com"
+    And "email@example.com" should receive an email
+    When I open the email
+    Then I should see "Confirm my account" in the email body
+    When I follow "Confirm my account" in the email
+    And I should see "Your account was successfully confirmed. You are now signed in."
+    And I should see "Welcome, email@example.com!"
