@@ -5,9 +5,9 @@ Prometheus20::Application.routes.draw do
     resource :search, :only => :show, :id => /[^\/]+/
     root :to => 'home#index'
     
-    match 'iphone/' => 'iphone#index', :as => 'iphone_home'
-    match 'iphone/packager/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
-    match 'iphone/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
+    match 'm/' => 'iphone#index', :as => 'iphone_home'
+    match 'm/maintainer/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
+    match 'm/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
