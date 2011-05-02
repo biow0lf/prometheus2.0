@@ -23,6 +23,7 @@ group :production do
 end
 
 group :staging do
+  gem 'memcache-client'
   gem 'active_sanity'
 end
 
