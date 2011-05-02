@@ -18,6 +18,8 @@ module NavigationHelpers
       destroy_user_session_path
     when /my profile edit page/
       edit_maintainer_profile_path
+    when /the recover password page/
+      new_user_password_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
