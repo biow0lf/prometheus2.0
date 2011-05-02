@@ -91,7 +91,7 @@ GEM
       locale (>= 2.0.5)
     gettext_i18n_rails (0.2.19)
       fast_gettext
-    gherkin (2.3.6)
+    gherkin (2.3.7)
       json (>= 1.4.6)
     haml (3.1.1)
     haml-rails (0.3.4)
