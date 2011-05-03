@@ -93,6 +93,7 @@ h2. TODO
 * rake sisyphus:ftbfs_i586
 
 h2. License
+
 Prometheus 2.0 uses the MIT license. Please check the MIT-LICENSE file for more details.
 
 Add to cron:
