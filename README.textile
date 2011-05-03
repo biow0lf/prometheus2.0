@@ -1,8 +1,8 @@
-== Welcome to Prometheus 2.0
+h1. Welcome to Prometheus 2.0
 
-== Setup and run
+h2. Setup and run
 
-Install:
+h3. Install:
 * Ruby EE 1.8.7 2011.03
 * ruby-rpm
 * bundler
@@ -11,13 +11,13 @@ Install:
 * gettext
 * sphinx search engine
 
-And then:
+h3. And then:
 * run "bundle install" in project folder
 
-Prepare:
+h3. Prepare:
 * rake gettext:pack
 
-Init database:
+h3. Init database:
 * rake db:create
 * rake db:schema:load
 
@@ -88,10 +88,12 @@ Init database:
 
 * rake ts:index
 
-TODO:
+h2. TODO
 
 * rake sisyphus:ftbfs_i586
 
+h2. License
+Prometheus 2.0 uses the MIT license. Please check the MIT-LICENSE file for more details.
 
 Add to cron:
 0	0	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:groups sisyphusarm:groups platform5:groups 51:groups 50:groups 41:groups 40:groups 50:acls 50:leaders 50:teams 41:acls 41:leaders 41:teams 40:acls 40:leaders 40:teams >> /var/log/prometheus.log 2>&1"
