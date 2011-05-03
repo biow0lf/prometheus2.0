@@ -9,6 +9,7 @@ Install:
 * PostgreSQL 9.0 (with other databases it doesn't tested)
 * nginx + passenger
 * gettext
+* sphinx search engine
 
 And then:
 * run "bundle install" in project folder
