@@ -84,7 +84,6 @@ Init database:
 * rake 40:teams
 
 * rake redis:cache
-* rake redis:cache_binary
 
 * rake ts:index
 
