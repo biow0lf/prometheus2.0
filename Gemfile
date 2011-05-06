@@ -28,7 +28,6 @@ group :staging do
 end
 
 group :development, :test do
-  gem 'ruby_core_source' # hack for linecache19 0.5.12 building under altlinux
   gem 'ruby-debug19'
   gem 'sqlite3-ruby'
   gem 'rspec-rails'

@@ -238,7 +238,6 @@ DEPENDENCIES
   redis
   rspec-rails
   ruby-debug19
-  ruby_core_source
   shoulda
   silent-postgres
   sqlite3-ruby
