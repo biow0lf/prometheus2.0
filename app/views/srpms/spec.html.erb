@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package ") + @srpm.name + _(" - Spec") %>
+<% title _('Prometheus 2.0 - Package %s - Spec') % @srpm.name %>
 <% description "#{@srpm.name} - #{@srpm.summary}" %>
 <% keywords @srpm.summary %>
 
@@ -6,18 +6,18 @@
 
 <div id="rightbar">
 <div class="headleft">
-<div class="headright" title="<%= _("ALT Linux repositories") %>">
-  <%= _("ALT Linux repos") %>
+<div class="headright" title="<%= _('ALT Linux repositories') %>">
+  <%= _('ALT Linux repos') %>
 </div>
-<%= image_tag("collapse.gif", :id => 'topRPM', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
+<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
 </div>
-<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
-<table style="font-size:8pt;" width="100%">
+<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
+<table style="font-size: 8pt;" width="100%">
 
 <% @allsrpms.each do |rpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{rpm.branch.name}:", spec_srpm_path(:id => rpm.name, :branch => rpm.branch.name), :class => 'news' %>
+    <%= link_to "#{rpm.branch.name}:", spec_srpm_path(rpm.branch, rpm), :class => 'news' %>
   </td>
   <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
@@ -29,21 +29,21 @@
 
 <div style="height:3em;">
     <div id="rpmtop">
-        <%= render :partial => "group" %>
-        <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
+        <%= render :partial => 'group' %>
+        <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
     </div>
 </div>
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Spec") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_srpm_path(:id => @srpm.name), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_srpm_path(:id => @srpm.name), :class => 'news', :title => _("list of bugs and feature requests") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => @srpm.name), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" />
+<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Spec') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm), :class => 'news', :title => _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), :class => 'news', :title => _('list of bugs and feature requests') %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="news" />
 
 <% if @srpm.specfile_id %>
-<%= link_to _("Raw spec file"), rawspec_srpm_path(:id => @srpm.name, :branch => @srpm.branch.name), :class => 'news', :title => _("Raw spec file") %>
+<%= link_to _('Raw spec file'), rawspec_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('Raw spec file') %>
 
 <br/>
 
-<%= simple_format h(@srpm.specfile.spec.gsub('@altlinux', ' at altlinux')) %>
+<%= simple_format h(@srpm.specfile.spec.force_encoding("UTF-8").gsub('@altlinux', ' at altlinux')) %>
 <% else %>
 No imported yet.
 <% end %>
