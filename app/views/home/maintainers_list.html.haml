@@ -1,0 +1,27 @@
+- title _("Prometheus 2.0 - Maintainers")
+
+#main-content
+
+  %table{ :width => '100%', :style => 'font-size: 10pt;' }
+    %tr
+      %th= _("Maintainers")
+      %th= _("Teams")
+    %tr
+      %td{ :valign => 'top' }
+        - @maintainers.each do |maintainer|
+          %div{ :style => 'margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;' }
+            %div{ :style => 'float: left;' }
+              = link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news'
+              = link_to " (#{maintainer.login})", maintainer_path(@branch, maintainer), :style => 'text-decoration: none; color: black;'
+            %div{ :style => 'float: right;'}= maintainer.counter
+      %td{ :valign => 'top' }
+        - @teams.each do |team|
+          %div{ :style => 'margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;' }
+            %div{ :style => 'float: left;' }
+              = link_to team.name, team_path(:id => team.login[1..-1], :branch => @branch.name), :class => 'news'
+              = link_to " (#{team.login[1..-1]})", team_path(:id => team.login[1..-1], :branch => @branch.name), :style => 'text-decoration: none; color: black;'
+            %div{ :style => 'float: right'}= team.counter
+
+#bottom-offset-l
+  #bottom-offset-r
+    &nbsp;
