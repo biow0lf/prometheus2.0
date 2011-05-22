@@ -69,7 +69,7 @@ class Package < ActiveRecord::Base
         rpm = RPM::Package::open(file)
         if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
-          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.i586.rpm'
+          package.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.i586.rpm"
           package.sourcepackage = rpm[1044]
           package.name = rpm.name
           package.version = rpm.version.v
@@ -116,7 +116,7 @@ class Package < ActiveRecord::Base
         rpm = RPM::Package::open(file)
         if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
-          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.noarch.rpm'
+          package.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.noarch.rpm"
           package.sourcepackage = rpm[1044]
           package.name = rpm.name
           package.version = rpm.version.v
@@ -163,7 +163,7 @@ class Package < ActiveRecord::Base
         rpm = RPM::Package::open(file)
         if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
-          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.x86_64.rpm'
+          package.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.x86_64.rpm"
           package.sourcepackage = rpm[1044]
           package.name = rpm.name
           package.version = rpm.version.v
@@ -210,7 +210,7 @@ class Package < ActiveRecord::Base
         rpm = RPM::Package::open(file)
         if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
-          package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.' + rpm.arch + '.rpm'
+          package.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.#{rpm.arch}.rpm"
           package.sourcepackage = rpm[1044]
           package.name = rpm.name
           package.version = rpm.version.v
