@@ -48,6 +48,8 @@ class Srpm < ActiveRecord::Base
     b = Branch.where(:name => branch, :vendor => vendor).first
     Dir.glob(path).each do |file|
       begin
+        puts file
+
         rpm = RPM::Package::open(file)
         srpm = Srpm.new
         srpm.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.src.rpm"
