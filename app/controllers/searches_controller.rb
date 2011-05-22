@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     else
       @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     end
-    @branches = Branch.all
+    @branches = Branch.order('order_id').all
     if params[:query].nil? or params[:query].empty?
       redirect_to :action => 'index'
     else
