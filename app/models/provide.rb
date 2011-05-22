@@ -7,7 +7,7 @@ class Provide < ActiveRecord::Base
   def self.import_provides(rpm, package)
     rpm.provides.each do |p|
       provide = Provide.new
-      provide.package_id = package.id
+      provide.package = package
       provide.name = p.name
       provide.version = p.version.v
       provide.release = p.version.r

@@ -62,12 +62,12 @@ class Maintainer < ActiveRecord::Base
           end
         end
       rescue RuntimeError
-        puts "Bad src.rpm -- " + file
+        puts "RuntimeError at file: #{file}"
       end
     end
   end
 
-  def self.find_all_maintainers_in(branch)
+  def self.find_all_maintainers_in(branch_name)
     find_by_sql(["SELECT COUNT(acls.srpm_id) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login
@@ -78,10 +78,10 @@ class Maintainer < ActiveRecord::Base
                  AND branches.name = ?
                  AND branches.vendor = 'ALT Linux'
                  GROUP BY maintainers.name, maintainers.login
-                 ORDER BY maintainers.name ASC", branch])
+                 ORDER BY maintainers.name ASC", branch_name])
   end
 
-  def self.find_all_teams_in(branch)
+  def self.find_all_teams_in(branch_name)
     find_by_sql(["SELECT COUNT(acls.srpm_id) AS counter,
                         maintainers.name AS name,
                         maintainers.login AS login
@@ -92,7 +92,7 @@ class Maintainer < ActiveRecord::Base
                  AND branches.name = ?
                  AND branches.vendor = 'ALT Linux'
                  GROUP BY maintainers.name, maintainers.login
-                 ORDER BY maintainers.name ASC", branch])
+                 ORDER BY maintainers.name ASC", branch_name])
   end
 
   def self.top15

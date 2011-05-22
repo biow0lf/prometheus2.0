@@ -7,7 +7,7 @@ class Require < ActiveRecord::Base
   def self.import_requires(rpm, package)
     rpm.requires.each do |r|
       req = Require.new
-      req.package_id = package.id
+      req.package = package
       req.name = r.name
       req.version = r.version.v
       req.release = r.version.r

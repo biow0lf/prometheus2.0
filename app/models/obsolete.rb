@@ -7,7 +7,7 @@ class Obsolete < ActiveRecord::Base
   def self.import_obsoletes(rpm, package)
     rpm.obsoletes.each do |o|
       obsolete = Obsolete.new
-      obsolete.package_id = package.id
+      obsolete.package = package
       obsolete.name = o.name
       obsolete.version = o.version.v
       obsolete.release = o.version.r

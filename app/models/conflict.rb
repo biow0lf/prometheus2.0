@@ -7,7 +7,7 @@ class Conflict < ActiveRecord::Base
   def self.import_conflicts(rpm, package)
     rpm.conflicts.each do |c|
       conflict = Conflict.new
-      conflict.package_id = package.id
+      conflict.package = package
       conflict.name = c.name
       conflict.version = c.version.v
       conflict.release = c.version.r
