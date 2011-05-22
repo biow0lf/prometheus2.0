@@ -14,11 +14,19 @@ branch.order_id = 1
 branch.path = '/Sisyphus'
 branch.save!
 
+# add Platform6 branch
+branch = Branch.new
+branch.vendor = 'ALT Linux'
+branch.name = 'Platform6'
+branch.order_id = 2
+branch.path = '/p6/branch'
+branch.save!
+
 # add Platform5 branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
-branch.order_id = 2
+branch.order_id = 3
 branch.path = '/p5/branch'
 branch.save!
 
@@ -26,7 +34,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.1'
-branch.order_id = 3
+branch.order_id = 4
 branch.path = '/5.1/branch'
 branch.save!
 
@@ -34,7 +42,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.0'
-branch.order_id = 4
+branch.order_id = 5
 branch.path = '/5.0/branch'
 branch.save!
 
@@ -42,7 +50,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.1'
-branch.order_id = 5
+branch.order_id = 6
 branch.path = '/4.1/branch'
 branch.save!
 
@@ -50,7 +58,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.0'
-branch.order_id = 6
+branch.order_id = 7
 branch.path = '/4.0/branch'
 branch.save!
 
