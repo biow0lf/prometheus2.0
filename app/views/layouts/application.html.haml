@@ -11,6 +11,7 @@
     %link{ :rel => 'search',  :type => 'application/opensearchdescription+xml', :title => _("Prometheus2.0 search"), :href => '/opensearch.xml'}
     = csrf_meta_tag
     = stylesheet_link_tag 'alt', 'github'
+    =# stylesheet_link_tag 'github'
     %script{ :src => 'http://www.google.com/jsapi', :type => 'text/javascript' }
     %script{ :type => 'text/javascript' }
       google.load("jquery", "1.4.4");
@@ -81,7 +82,7 @@
         = "#{Date.today} | "
         %b= "#{_('SRPMs:')} "
         = Srpm.count_srpms_in(params[:branch])
-        = " | "
+        = ' | '
         - if user_signed_in?
           %b= "Welcome, #{current_user.email}! | "
           = link_to 'Sign out', destroy_user_session_path
@@ -89,9 +90,9 @@
             = " | "
             %b= link_to 'Edit my maintainer profile', edit_maintainer_profile_path
         - else
-          = link_to _("Sign in"), new_user_session_path
-          = _(" or ")
-          = link_to _("Sign up"), new_user_registration_path
+          = link_to _('Sign in'), new_user_session_path
+          = _(' or ')
+          = link_to _('Sign up'), new_user_registration_path
 
       %div{ :style => 'text-align: right' }
         = link_to_unless_current _('en'), '/en', :title => _('English') + " ".to_s
