@@ -48,7 +48,7 @@ class Package < ActiveRecord::Base
       srpm = branch.srpms.where(:filename => rpm[1044]).first
       package.srpm = srpm
       if package.save
-        $redis.set branch.name + ":" + package.filename, 1
+        $redis.set("#{branch.name}:#{package.filename}", 1)
         #puts Time.now.to_s + ": updated '" + package.filename + "'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
@@ -99,7 +99,9 @@ class Package < ActiveRecord::Base
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
-          package.save!
+          if package.save
+            $redis.set("#{branch.name}:#{package.filename}", 1)
+          end
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
@@ -146,7 +148,9 @@ class Package < ActiveRecord::Base
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
-          package.save!
+          if package.save
+            $redis.set("#{branch.name}:#{package.filename}", 1)
+          end
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
@@ -193,7 +197,9 @@ class Package < ActiveRecord::Base
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
-          package.save!
+          if package.save
+            $redis.set("#{branch.name}:#{package.filename}", 1)
+          end
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
@@ -240,7 +246,9 @@ class Package < ActiveRecord::Base
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
-          package.save!
+          if package.save
+            $redis.set("#{branch.name}:#{package.filename}", 1)
+          end
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
         end
