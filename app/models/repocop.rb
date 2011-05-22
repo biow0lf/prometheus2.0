@@ -8,9 +8,6 @@ class Repocop < ActiveRecord::Base
   validates :srcrel, :presence => true
   validates :testname, :presence => true
 
-# TODO: for repocop
-#  belongs_to :srpm
-
   def self.update_repocop
     ActiveRecord::Base.transaction do
       Repocop.delete_all
@@ -23,7 +20,7 @@ class Repocop < ActiveRecord::Base
       end
     end
   end
-  
+
   def self.update_repocop_cache
     branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     srpms = branch.srpms.all

@@ -13,7 +13,7 @@ class Gitrepo < ActiveRecord::Base
 
   def self.import_gitrepos(url)
     if Gitrepo.count(:all) == 0
-      branch = Branch.first :conditions => { :name => 'Sisyphus', :vendor => 'ALT Linux' }
+      branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
       file = open(URI.escape(url)).read
       file.each_line do |line|
         gitrepo = line.split[0]
@@ -23,19 +23,19 @@ class Gitrepo < ActiveRecord::Base
         package = gitrepo.split('/')[4]
         time = Time.at(line.split[1].to_i)
 
-        maintainer = Maintainer.first :conditions => { :login => login }
-        srpm = Srpm.first :conditions => { :name => package.gsub(/\.git/,''), :branch_id => branch.id }
+        maintainer = Maintainer.where(:login => login).first
+        srpm = Srpm.where(:name => package.gsub(/\.git/,''), :branch => branch).first
 
         if maintainer.nil?
-          puts Time.now.to_s + ": maintainer not found '" + login + "'"
+          puts "#{Time.now.to_s}: maintainer not found '#{login}'"
         elsif srpm.nil?
-          puts Time.now.to_s + ": srpm not found '" + package.gsub(/\.git/,'') + "'"
+          puts "#{Time.now.to_s}: srpm not found '#{package.gsub(/\.git/,'')}'"
         else
-          Gitrepo.create(:repo => package.gsub(/\.git/,''), :maintainer_id => maintainer.id, :lastchange => time, :srpm_id => srpm.id)
+          Gitrepo.create(:repo => package.gsub(/\.git/,''), :maintainer => maintainer, :lastchange => time, :srpm => srpm)
         end
       end
     else
-      puts Time.now.to_s + ": gitrepos already imported"
+      puts "#{Time.now.to_s}: gitrepos already imported"
     end
   end
 end

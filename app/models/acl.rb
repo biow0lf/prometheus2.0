@@ -7,9 +7,9 @@ class Acl < ActiveRecord::Base
   belongs_to :maintainer
   belongs_to :srpm
 
-  def self.import_acls(vendor, branch, url)
-    b = Branch.where(:name => branch, :vendor => vendor).first
-    if b.acls.count(:all) == 0
+  def self.import_acls(vendor_name, branch_name, url)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
+    if branch.acls.count(:all) == 0
       ActiveRecord::Base.transaction do
         file = open(URI.escape(url)).read
         file.each_line do |line|
@@ -21,31 +21,31 @@ class Acl < ActiveRecord::Base
             login = '@vim-plugins' if login == '@vim_plugins'
 
             maintainer = Maintainer.where(:login => login).first
-            srpm = b.srpms.where(:name => package).first
+            srpm = branch.srpms.where(:name => package).first
 
             if maintainer.nil?
-              puts Time.now.to_s + ": maintainer not found '" + login + "'"
+              puts "#{Time.now.to_s}: maintainer not found '#{login}'"
             elsif srpm.nil?
-              puts Time.now.to_s + ": srpm not found '" + package + "'"
+              puts "#{Time.now.to_s}: srpm not found '#{package}'"
             else
-              Acl.create(:srpm_id => srpm.id, :maintainer_id => maintainer.id, :branch_id => b.id)
+              Acl.create(:srpm => srpm, :maintainer => maintainer, :branch => branch)
             end
           end
         end
       end
     else
-      puts Time.now.to_s + ": acls already imported"
+      puts "#{Time.now.to_s}: acls already imported"
     end
   end
 
-  def self.create_acls_for_package(vendor, branch, url, package)
-    b = Branch.where(:name => branch, :vendor => vendor).first
-    b.srpms.where(:name => package).first.acls.delete_all
+  def self.create_acls_for_package(vendor_name, branch_name, url, package)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
+    branch.srpms.where(:name => package).first.acls.delete_all
     file = open(URI.escape(url)).read
     file.each_line do |line|
       packagename = line.split[0]
       if packagename == package
-        srpm = b.srpms.where(:name => packagename).first
+        srpm = branch.srpms.where(:name => packagename).first
         for i in 1..line.split.count-1
           login = line.split[i]
           login = 'php-coder' if login == 'php_coder'
@@ -53,10 +53,10 @@ class Acl < ActiveRecord::Base
           login = '@vim-plugins' if login == '@vim_plugins'
           maintainer = Maintainer.where(:login => login).first
           if maintainer.nil?
-            puts Time.now.to_s + ": maintainer not found '" + login + "'"
+            puts "#{Time.now.to_s}: maintainer not found '#{login}'"
           else
-            Acl.create(:srpm_id => srpm.id, :maintainer_id => maintainer.id, :branch_id => b.id)
-          end        
+            Acl.create(:srpm => srpm, :maintainer => maintainer, :branch => branch)
+          end
         end
       end
     end
