@@ -21,39 +21,39 @@ class Group < ActiveRecord::Base
                  ORDER BY groups.name")
   end
 
-  def self.import_groups(vendor, branch, url)
-    b = Branch.where(:name => branch, :vendor => vendor).first
-    if b.groups.count(:all) == 0
+  def self.import_groups(vendor_name, branch_name, url)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
+    if branch.groups.count(:all) == 0
       file = open(URI.escape(url)).read
       file.each_line do |line|
         line.gsub!(/\n/,'')
-        
+
         param0 = line.split('/')[0]
         param1 = line.split('/')[1]
         param2 = line.split('/')[2]
-        
-        if !Group.first(:conditions => { :name => param0, :branch_id => b.id, :parent_id => nil })
-          group0 = Group.create(:name => param0, :branch_id => b.id)
+
+        if !Group.first(:conditions => { :name => param0, :branch => branch, :parent_id => nil })
+          group0 = Group.create(:name => param0, :branch => branch)
         else
-          group0 = Group.first(:conditions => { :name => param0, :branch_id => b.id, :parent_id => nil })
+          group0 = Group.first(:conditions => { :name => param0, :branch => branch, :parent_id => nil })
         end
-        
+
         if param1 != nil
-          if !Group.first(:conditions => { :name => param1, :branch_id => b.id, :parent_id => group0.id })
-            group1 = Group.create(:name => param1, :branch_id => b.id)
+          if !Group.first(:conditions => { :name => param1, :branch => branch, :parent_id => group0.id })
+            group1 = Group.create(:name => param1, :branch => branch)
             group1.move_to_child_of(group0)
           else
-            group1 = Group.first(:conditions => { :name => param1, :branch_id => b.id, :parent_id => group0.id })
+            group1 = Group.first(:conditions => { :name => param1, :branch => branch, :parent_id => group0.id })
           end
         end
-        
+
         if param2 != nil
-          group2 = Group.create(:name => param2, :branch_id => b.id)
+          group2 = Group.create(:name => param2, :branch => branch)
           group2.move_to_child_of(group1)
         end
       end
     else
-      puts Time.now.to_s + ": groups already imported"
+      puts "#{Time.now.to_s}: groups already imported"
     end
   end
 end
