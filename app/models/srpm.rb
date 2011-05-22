@@ -44,12 +44,10 @@ class Srpm < ActiveRecord::Base
     end
   end
 
-  def self.import_srpms(vendor, branch, path)
-    b = Branch.where(:name => branch, :vendor => vendor).first
+  def self.import_srpms(vendor_name, branch_name, path)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
     Dir.glob(path).each do |file|
       begin
-        puts file
-
         rpm = RPM::Package::open(file)
         srpm = Srpm.new
         srpm.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.src.rpm"
@@ -59,13 +57,13 @@ class Srpm < ActiveRecord::Base
 
         case rpm[1016].split('/').count
         when 1
-          group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+          group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
         when 2
-          group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+          group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
         when 3
-          group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+          group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
         else
-          puts Time.now.to_s + ": too nested groups level"
+          puts "#{Time.now.to_s}: too nested groups level"
         end
 
         srpm.group_id = group.id
@@ -80,7 +78,7 @@ class Srpm < ActiveRecord::Base
         srpm.distribution = rpm[1010]
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
-        srpm.branch_id = b.id
+        srpm.branch_id = branch.id
         srpm.changelogtime = rpm.changelog.first.time
         srpm.changelogname = rpm.changelog.first.name
         srpm.changelogtext = rpm.changelog.first.text
@@ -93,10 +91,12 @@ class Srpm < ActiveRecord::Base
             changelog.changelogtext = c.text
             changelog.save!
           end
-          Specfile.import_specfile(file, srpm, b)
+          Specfile.import_specfile(file, srpm, branch)
         end
       rescue RuntimeError
         puts "RuntimeError at file: #{file}"
+      rescue ArgumentError
+        puts "ArgumentError at file: #{file}"
       end
     end
   end
