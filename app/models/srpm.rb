@@ -40,6 +40,10 @@ class Srpm < ActiveRecord::Base
     branch.srpms.each do |srpm|
       unless File.exists?("#{path}#{srpm.filename}")
         puts "#{Time.now.to_s}: deleted '#{srpm.filename}'"
+        srpm.packages.each do |package|
+          $redis.del("#{branch.name}:#{package.filename}")
+        end
+        $redis.del("#{branch.name}:#{srpm.filename}")
         $redis.decr("#{branch_name}:srpms:counter")
         srpm.destroy
       end
@@ -95,6 +99,7 @@ class Srpm < ActiveRecord::Base
           end
           Specfile.import_specfile(file, srpm, branch)
           $redis.incr("#{branch_name}:srpms:counter")
+          $redis.set("#{branch.name}:#{srpm.filename}", 1)
         end
       rescue RuntimeError
         puts "RuntimeError at file: #{file}"
@@ -109,10 +114,10 @@ class Srpm < ActiveRecord::Base
     rpm = RPM::Package::open(file)
     if branch.srpms.where(:name => rpm.name).all.count >= 1
       branch.srpms.where(:name => rpm.name).first.packages.each do |package|
-        $redis.del branch.name + ":" + package.filename
+        $redis.del("#{branch.name}:#{package.filename}")
       end
-      $redis.del branch.name + ":" + branch.srpms.where(:name => rpm.name).first.filename
-      Srpm.destroy_all(:branch_id => branch.id, :name => rpm.name)
+      $redis.del("#{branch.name}:#{branch.srpms.where(:name => rpm.name).first.filename}")
+      Srpm.destroy_all(:branch => branch, :name => rpm.name)
     end
     srpm = Srpm.new
     srpm.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.src.rpm"
@@ -147,7 +152,7 @@ class Srpm < ActiveRecord::Base
     srpm.changelogname = rpm.changelog.first.name
     srpm.changelogtext = rpm.changelog.first.text
     if srpm.save
-      $redis.set branch.name + ":" + srpm.filename, 1
+      $redis.set("#{branch.name}:#{srpm.filename}", 1)
       if branch.name == 'Sisyphus' && branch.vendor == 'ALT Linux'
         Leader.create_leader_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
         Acl.create_acls_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
