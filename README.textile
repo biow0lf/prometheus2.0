@@ -4,7 +4,7 @@ h2. Setup and run
 
 h3. Install:
 
-* Ruby EE 1.8.7 2011.03
+* Ruby 1.9.2p180
 * ruby-rpm
 * bundler
 * PostgreSQL 9.0 (with other databases it doesn't tested)
@@ -45,6 +45,8 @@ h3. Init database:
 * rake sisyphusarm:groups
 * rake sisyphusarm:srpms
 * rake sisyphusarm:binary
+
+* rake platform6:groups
 
 * rake platform5:groups
 * rake platform5:srpms
