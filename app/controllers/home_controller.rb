@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @branches = Branch.all
+    @branches = Branch.order('order_id').all
     if !fragment_exist? "#{params[:locale]}_top15"
       @top15 = Maintainer.top15
     end
