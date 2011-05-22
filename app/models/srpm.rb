@@ -31,7 +31,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def self.count_srpms_in(branch_name)
-    Branch.where(:name => branch_name, :vendor => 'ALT Linux').first.srpms.count
+    $redis.setnx("#{branch_name}:srpms:counter", Branch.where(:name => branch_name, :vendor => 'ALT Linux').first.srpms.count)
+    $redis.get("#{branch_name}:srpms:counter")
   end
 
   def self.remove_old_srpms(vendor_name, branch_name, path)
@@ -39,6 +40,7 @@ class Srpm < ActiveRecord::Base
     branch.srpms.each do |srpm|
       unless File.exists?("#{path}#{srpm.filename}")
         puts "#{Time.now.to_s}: deleted '#{srpm.filename}'"
+        $redis.decr("#{branch_name}:srpms:counter")
         srpm.destroy
       end
     end
@@ -92,6 +94,7 @@ class Srpm < ActiveRecord::Base
             changelog.save!
           end
           Specfile.import_specfile(file, srpm, branch)
+          $redis.incr("#{branch_name}:srpms:counter")
         end
       rescue RuntimeError
         puts "RuntimeError at file: #{file}"
@@ -172,6 +175,7 @@ class Srpm < ActiveRecord::Base
         changelog.save!                                                                                                                                              
       end
       Specfile.import_specfile(file, srpm, branch)
+      $redis.incr("#{branch_name}:srpms:counter")
       #puts Time.now.to_s + ": imported changelog for '" + srpm.filename + "'"
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
