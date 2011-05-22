@@ -3,12 +3,12 @@ namespace :redis do
   task :cache => :environment do
 
     puts "#{Time.now.to_s}: cache all *.src.rpm info in redis"
-    branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
+    branches = Branch.where(:vendor => 'ALT Linux').all
     branches.each do |branch|
-      if !$redis.exists branch.name + ":CACHED"
+      unless $redis.exists("#{branch.name}:CACHED")
         srpms = Srpm.all :conditions => { :branch_id => branch.id }
-        srpms.each { |srpm| $redis.set branch.name + ":" + srpm.filename, 1 }
-        $redis.set branch.name + ":CACHED", "yes"
+        srpms.each { |srpm| $redis.set("#{branch.name}:#{srpm.filename}", 1) }
+        $redis.set("#{branch.name}:CACHED", "yes")
       else
         puts "#{Time.now.to_s}: srpm info for #{branch.name} already in cache"
       end
@@ -16,12 +16,11 @@ namespace :redis do
     puts "#{Time.now.to_s}: end"
 
     puts "#{Time.now.to_s}: cache all binary files info in redis"
-    # branches = Branch.all :conditions => { :vendor => 'ALT Linux' }
     branches.each do |branch|
-      if !$redis.exists branch.name + ":binary:CACHED"
+      unless $redis.exists("#{branch.name}:binary:CACHED")
         packages = Package.all :conditions => { :branch_id => branch.id }
-        packages.each { |package| $redis.set branch.name + ":" + package.filename, 1 }
-        $redis.set branch.name + ":binary:CACHED", "yes"
+        packages.each { |package| $redis.set("#{branch.name}:#{package.filename}", 1) }
+        $redis.set("#{branch.name}:binary:CACHED", "yes")
       else
         puts "#{Time.now.to_s}: binary files info for #{branch.name} already in cache"
       end
