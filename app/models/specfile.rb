@@ -12,14 +12,14 @@ class Specfile < ActiveRecord::Base
     spec = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{specfilename}"`.force_encoding("BINARY")
 
     specfile = Specfile.new
-    specfile.srpm_id = srpm.id
-    specfile.branch_id = branch.id
+    specfile.srpm = srpm
+    specfile.branch = branch
     specfile.spec = spec
     unless specfile.save
       puts "shit happens"
     end
 
-    srpm.specfile_id = specfile.id
+    srpm.specfile = specfile
     unless srpm.save
       puts "shit happens"
     end
