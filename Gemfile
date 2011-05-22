@@ -18,6 +18,9 @@ gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_no
 gem 'nested_set'
 gem 'thinking-sphinx'
 
+# hack for lock rake version
+gem 'rake', '0.8.7'
+
 group :production do
   gem 'memcache-client'
 end

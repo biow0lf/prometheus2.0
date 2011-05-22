@@ -82,7 +82,7 @@ GEM
       railties (>= 3.0.0)
     fast_gettext (0.5.11)
     ffaker (1.7.0)
-    ffi (1.0.8)
+    ffi (1.0.9)
     gettext (2.1.0)
       locale (>= 2.0.5)
     gettext_i18n_rails (0.2.19)
@@ -125,7 +125,7 @@ GEM
     nested_set (1.6.4)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
-    newrelic_rpm (3.0.0)
+    newrelic_rpm (3.0.1)
     nokogiri (1.4.4)
     orm_adapter (0.0.5)
     pg (0.11.0)
@@ -155,7 +155,7 @@ GEM
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
       rspec-mocks (~> 2.6.0)
-    rspec-core (2.6.1)
+    rspec-core (2.6.2)
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.6.0)
@@ -231,6 +231,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rails (= 3.0.7)
+  rake (= 0.8.7)
   redis
   rspec-rails
   ruby-debug19
