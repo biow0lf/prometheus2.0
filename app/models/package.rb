@@ -12,10 +12,10 @@ class Package < ActiveRecord::Base
   has_many :obsoletes
   has_many :conflicts
 
-  def self.import_rpm(vendor, branch, file)
-    b = Branch.where(:name => branch, :vendor => vendor).first
+  def self.import_rpm(vendor_name, branch_name, file)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
     rpm = RPM::Package::open(file)
-    if b.srpms.where(:filename => rpm[1044]).count == 1
+    if branch.srpms.where(:filename => rpm[1044]).count == 1
       package = Package.new
       package.filename = file.split('/')[-1]
       package.sourcepackage = rpm[1044]
@@ -26,16 +26,16 @@ class Package < ActiveRecord::Base
 
       case rpm[1016].split('/').count
       when 1
-        group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+        group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
       when 2
-        group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+        group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
       when 3
-        group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+        group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
       else
         puts "#{Time.now.to_s}: too nested groups level"
       end
 
-      package.group_id = group.id
+      package.group = group
       package.epoch = rpm[1003]
       package.summary = rpm[1004]
       package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -44,11 +44,11 @@ class Package < ActiveRecord::Base
       package.description = rpm[1005]
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
-      package.branch_id = b.id
-      srpm = b.srpms.where(:filename => rpm[1044]).first
-      package.srpm_id = srpm.id
+      package.branch = branch
+      srpm = branch.srpms.where(:filename => rpm[1044]).first
+      package.srpm = srpm
       if package.save
-        $redis.set b.name + ":" + package.filename, 1
+        $redis.set branch.name + ":" + package.filename, 1
         #puts Time.now.to_s + ": updated '" + package.filename + "'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
@@ -62,12 +62,12 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.import_packages_i586(vendor, branch, path)
-    b = Branch.where(:name => branch, :vendor => vendor).first
+  def self.import_packages_i586(vendor_name, branch_name, path)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:filename => rpm[1044]).count == 1
+        if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.i586.rpm'
           package.sourcepackage = rpm[1044]
@@ -78,16 +78,16 @@ class Package < ActiveRecord::Base
 
           case rpm[1016].split('/').count
           when 1
-            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+            group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
           when 2
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
           when 3
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group_id = group.id
+          package.group = group
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -96,9 +96,9 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
-          package.branch_id = b.id
-          srpm = b.srpms.where(:filename => rpm[1044]).first
-          package.srpm_id = srpm.id
+          package.branch = branch
+          srpm = branch.srpms.where(:filename => rpm[1044]).first
+          package.srpm = srpm
           package.save!
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
@@ -109,12 +109,12 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.import_packages_noarch(vendor, branch, path)
-    b = Branch.where(:name => branch, :vendor => vendor).first
+  def self.import_packages_noarch(vendor_name, branch_name, path)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:filename => rpm[1044]).count == 1
+        if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.noarch.rpm'
           package.sourcepackage = rpm[1044]
@@ -125,16 +125,16 @@ class Package < ActiveRecord::Base
 
           case rpm[1016].split('/').count
           when 1
-            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+            group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
           when 2
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
           when 3
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group_id = group.id
+          package.group = group
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -143,9 +143,9 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
-          package.branch_id = b.id
-          srpm = b.srpms.where(:filename => rpm[1044]).first
-          package.srpm_id = srpm.id
+          package.branch = branch
+          srpm = branch.srpms.where(:filename => rpm[1044]).first
+          package.srpm = srpm
           package.save!
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
@@ -156,12 +156,12 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.import_packages_x86_64(vendor, branch, path)
-    b = Branch.where(:name => branch, :vendor => vendor).first
+  def self.import_packages_x86_64(vendor_name, branch_name, path)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:filename => rpm[1044]).count == 1
+        if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.x86_64.rpm'
           package.sourcepackage = rpm[1044]
@@ -172,16 +172,16 @@ class Package < ActiveRecord::Base
 
           case rpm[1016].split('/').count
           when 1
-            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+            group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
           when 2
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
           when 3
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group_id = group.id
+          package.group = group
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -190,9 +190,9 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
-          package.branch_id = b.id
-          srpm = b.srpms.where(:filename => rpm[1044]).first
-          package.srpm_id = srpm.id
+          package.branch = branch
+          srpm = branch.srpms.where(:filename => rpm[1044]).first
+          package.srpm = srpm
           package.save!
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
@@ -203,12 +203,12 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.import_packages_arm(vendor, branch, path)
-    b = Branch.where(:name => branch, :vendor => vendor).first
+  def self.import_packages_arm(vendor_name, branch_name, path)
+    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
-        if b.srpms.where(:filename => rpm[1044]).count == 1
+        if branch.srpms.where(:filename => rpm[1044]).count == 1
           package = Package.new
           package.filename = rpm.name + '-' + rpm.version.v + '-' + rpm.version.r + '.' + rpm.arch + '.rpm'
           package.sourcepackage = rpm[1044]
@@ -219,16 +219,16 @@ class Package < ActiveRecord::Base
 
           case rpm[1016].split('/').count
           when 1
-            group = b.groups.where(:name => rpm[1016], :parent_id => nil).first
+            group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
           when 2
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
           when 3
-            group = b.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
+            group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
           else
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group_id = group.id
+          package.group = group
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -237,9 +237,9 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
-          package.branch_id = b.id
-          srpm = b.srpms.where(:filename => rpm[1044]).first
-          package.srpm_id = srpm.id
+          package.branch = branch
+          srpm = branch.srpms.where(:filename => rpm[1044]).first
+          package.srpm = srpm
           package.save!
         else
           puts "#{Time.now.to_s}: srpm '#{rpm[1044]}' not found in db"
