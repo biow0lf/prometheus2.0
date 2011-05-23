@@ -75,11 +75,11 @@
 <b><%= _('ACL:') %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-  <% @acls.each do |acl| %>
-    <% if acl.maintainer.team %>
-      <li><%= link_to acl.maintainer.name, team_path(:id => acl.maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
+  <% @acls.each do |maintainer| %>
+    <% if maintainer[0] == '@' %>
+      <li><%= link_to maintainer.name, team_path(:id => maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
     <% else %>
-      <li><%= link_to acl.maintainer.name, maintainer_path(@branch, acl.maintainer), :class => 'news' %></li>
+      <li><%= link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news' %></li>
     <% end %>
   <% end %>
   </ul>
