@@ -1,8 +1,14 @@
 class SrpmsController < ApplicationController
   def show
-    @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
+    # @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer, :acls).first
+    @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
+      if $redis.exists("#{@branch.name}:#{@srpm.name}:acls}")
+        @acls = Maintainer.where(:login => $redis.zrange("#{@branch.name}:#{@srpm.name}:acls", 0, -1))
+      else
+        @acls = @srpm.acls.all
+      end
 
 #      @i586 = @srpm.packages.where(:arch => 'i586').order('packages.name ASC')
 #      @noarch = @srpm.packages.where(:arch => 'noarch').order('packages.name ASC')
