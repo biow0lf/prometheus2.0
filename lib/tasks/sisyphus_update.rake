@@ -51,6 +51,9 @@ namespace :sisyphus do
       end
     end
 
+    puts "#{Time.now.to_s}: update acls in redis cache"
+    Acl.update_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
+
     puts "#{Time.now.to_s}: end"
   end
 end
