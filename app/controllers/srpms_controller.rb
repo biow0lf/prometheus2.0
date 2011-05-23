@@ -4,7 +4,7 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer).first
     if @srpm != nil
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
-      if $redis.exists("#{@branch.name}:#{@srpm.name}:acls}")
+      if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
         @acls = Maintainer.where(:login => $redis.zrange("#{@branch.name}:#{@srpm.name}:acls", 0, -1))
       else
         @acls = @srpm.acls.all
