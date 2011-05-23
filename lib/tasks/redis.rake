@@ -1,6 +1,7 @@
 namespace :redis do
   desc "Cache all *.src.rpm and all binary *.rpm in redis"
   task :cache => :environment do
+    require 'open-uri'
 
     puts "#{Time.now.to_s}: cache all *.src.rpm info in redis"
     branches = Branch.where(:vendor => 'ALT Linux').all
@@ -25,6 +26,10 @@ namespace :redis do
         puts "#{Time.now.to_s}: binary files info for #{branch.name} already in cache"
       end
     end
+    puts "#{Time.now.to_s}: end"
+
+    puts "#{Time.now.to_s}: cache all acls in redis"
+    Acl.create_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
     puts "#{Time.now.to_s}: end"
 
   end

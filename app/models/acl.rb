@@ -61,4 +61,23 @@ class Acl < ActiveRecord::Base
       end
     end
   end
+
+  def self.create_redis_cache(vendor_name, branch_name, url)
+    branch = Branch.where(:vendor => vendor_name, :branch => branch_name).first
+    file = open(URI.escape(url)).read
+    file.each_line do |line|
+      package = line.split[0]
+      for i in 1..line.split.count-1
+        login = line.split[i]
+        login = 'php-coder' if login == 'php_coder'
+        login = 'p_solntsev' if login == 'psolntsev'
+        login = '@vim-plugins' if login == '@vim_plugins'
+        if i == 1
+          $redis.zadd("#{branch.name}:#{package}:acls", 1, login)
+        else
+          $redis.zadd("#{branch.name}:#{package}:acls", 10, login)
+        end
+      end
+    end
+  end
 end
