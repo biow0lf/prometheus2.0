@@ -46,6 +46,9 @@ namespace :"51" do
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
     end
 
+    puts "#{Time.now.to_s}: update acls in redis cache"
+    Acl.update_redis_cache('ALT Linux', '5.1', 'http://git.altlinux.org/acl/list.packages.5.1')
+
     puts "#{Time.now.to_s}: end"
   end
 end
