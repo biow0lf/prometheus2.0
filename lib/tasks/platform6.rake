@@ -3,7 +3,7 @@ namespace :platform6 do
   task :groups => :environment do
     require 'open-uri'
     puts "#{Time.now.to_s}: import RPM groups for Platform6 to database"
-    Group.import_groups 'ALT Linux', 'Platform6', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
+    Group.import_groups('ALT Linux', 'Platform6', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS')
     puts "#{Time.now.to_s}: end"
   end
 
@@ -11,7 +11,15 @@ namespace :platform6 do
   task :srpms => :environment do
     require 'rpm'
     puts "#{Time.now.to_s}: import *.src.rpm from Platform6 to database"
-    Srpm.import_srpms 'ALT Linux', 'Platform6', '/ALT/p6/files/SRPMS/*.src.rpm'
+    Srpm.import_srpms('ALT Linux', 'Platform6', '/ALT/p6/files/SRPMS/*.src.rpm')
+    puts "#{Time.now.to_s}: end"
+  end
+
+  desc 'Import *.i586.rpm from Platform6 to database'
+  task :i586 => :environment do
+    require 'rpm'
+    puts "#{Time.now.to_s}: import *.i586.rpm from Platform6 to database"
+    Package.import_packages_i586('ALT Linux', 'Platform6', '/ALT/p6/files/i586/RPMS/*.i586.rpm')
     puts "#{Time.now.to_s}: end"
   end
 
