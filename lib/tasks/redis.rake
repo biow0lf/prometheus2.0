@@ -4,7 +4,7 @@ namespace :redis do
     require 'open-uri'
 
     puts "#{Time.now.to_s}: cache all *.src.rpm info in redis"
-    branches = Branch.where(:vendor => 'ALT Linux').all
+    branches = Branch.where(:vendor => 'ALT Linux')
     branches.each do |branch|
       unless $redis.exists("#{branch.name}:CACHED")
         srpms = Srpm.where(:branch => branch)
