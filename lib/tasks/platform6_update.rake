@@ -21,6 +21,23 @@ namespace :platform6 do
         end
       end
 
+      puts "#{Time.now.to_s}: update *.i586.rpm/*.x86_64.rpm/*.noarch.rpm from Platform6 to database"
+      path_array = ['/ALT/p6/files/i586/RPMS/*.i586.rpm',
+                    '/ALT/p6/files/x86_64/RPMS/*.x86_64.rpm',
+                    '/ALT/p6/files/noarch/RPMS/*.noarch.rpm']
+      path_array.each do |path|
+        Dir.glob(path).each do |file|
+          begin
+            if !$redis.exists branch.name + ':' + file.split('/')[-1]
+              puts "#{Time.now.to_s}: update '#{file.split('/')[-1]}'"
+              Package.import_rpm(branch.vendor, branch.name, file)
+            end
+          rescue RuntimeError
+            puts "Bad .rpm: #{file}"
+          end
+        end
+      end
+
       Srpm.remove_old_srpms('ALT Linux', 'Platform6', '/ALT/p6/files/SRPMS/')
     end
 
