@@ -47,6 +47,10 @@ h3. Init database:
 * rake sisyphusarm:binary
 
 * rake platform6:groups
+* rake platform6:srpms
+* rake platform5:i586
+* rake platform5:noarch
+* rake platform5:x86_64
 
 * rake platform5:groups
 * rake platform5:srpms
