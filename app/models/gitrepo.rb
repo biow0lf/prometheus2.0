@@ -3,6 +3,7 @@ class Gitrepo < ActiveRecord::Base
   validates :lastchange, :presence => true
 
   belongs_to :maintainer
+  belongs_to :srpm
 
   def self.update_gitrepos(url)
     ActiveRecord::Base.transaction do
