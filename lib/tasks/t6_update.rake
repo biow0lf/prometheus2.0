@@ -21,7 +21,7 @@ namespace :t6 do
         end
       end
 
-      puts "#{Time.now.to_s}: update *.i586.rpm/*.x86_64.rpm/*.noarch.rpm from 5.1 to database"
+      puts "#{Time.now.to_s}: update *.i586.rpm/*.x86_64.rpm/*.noarch.rpm from t6 to database"
       path_array = ['/ALT/t6/files/i586/RPMS/*.i586.rpm',
                     '/ALT/t6/files/x86_64/RPMS/*.x86_64.rpm',
                     '/ALT/t6/files/noarch/RPMS/*.noarch.rpm']
