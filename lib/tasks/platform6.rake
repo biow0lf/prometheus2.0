@@ -23,4 +23,12 @@ namespace :platform6 do
     puts "#{Time.now.to_s}: end"
   end
 
+  desc 'Import *.noarch.rpm from Platform6 to database'
+  task :noarch => :environment do
+    require 'rpm'
+    puts "#{Time.now.to_s}: import *.noarch.rpm from Platform6 to database"
+    Package.import_packages_noarch('ALT Linux', 'Platform6', '/ALT/p6/files/noarch/RPMS/*.noarch.rpm')
+    puts "#{Time.now.to_s}: end"
+  end
+
 end
