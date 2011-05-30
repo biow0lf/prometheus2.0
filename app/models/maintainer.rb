@@ -11,7 +11,7 @@ class Maintainer < ActiveRecord::Base
   has_many :acls
   has_many :teams
   has_many :srpms, :through => :acls
-  has_many :gitrepos
+  has_many :gears
 
   attr_accessible :name, :email, :login, :team, :time_zone, :jabber, :info
 

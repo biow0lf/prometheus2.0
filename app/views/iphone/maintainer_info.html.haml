@@ -17,5 +17,5 @@
     %a{ :href => '#repocop' }= _('Repocop')
 
 %ul{ :id => 'gear', :title => _('Gear') }
-  - @gitrepos.each do |gitrepo|
-    %li= gitrepo.repo
+  - @gears.each do |gear|
+    %li= gear.repo

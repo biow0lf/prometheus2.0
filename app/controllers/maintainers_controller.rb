@@ -3,7 +3,7 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @acls = Acl.where(:maintainer_id => @maintainer.id, :branch_id => @branch.id)
+    @acls = Acl.where(:maintainer => @maintainer, :branch => @branch)
   end
 
   def srpms
@@ -29,7 +29,7 @@ class MaintainersController < ApplicationController
   def gear
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @gitrepos = Gitrepo.where(:maintainer_id => @maintainer.id).order('LOWER(repo)')
+    @gears = Gear.where(:maintainer => @maintainer).order('LOWER(repo)')
   end
 
   def bugs
@@ -56,6 +56,6 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).includes(:srpms).order('LOWER(srpms.name)').first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @srpms = @maintainer.srpms.where(:branch_id => @branch.id).includes(:repocops)
+    @srpms = @maintainer.srpms.where(:branch => @branch).includes(:repocops)
   end
 end

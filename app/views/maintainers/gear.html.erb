@@ -6,17 +6,17 @@
 <p class="break" />
 <span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_path(:id => @maintainer.login, :branch => @branch.name), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), srpms_maintainer_path(:id => @maintainer.login, :branch => @branch.name), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_maintainer_path(:id => @maintainer.login), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_maintainer_path(:id => @maintainer.login), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="break" />
 
-<% if @gitrepos.count != 0 %>
+<% if @gears.count != 0 %>
 <table style="pretty">
-  <% @gitrepos.each do |gitrepo| %>
+  <% @gears.each do |gear| %>
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-	    <% login = gitrepo.maintainer.login %>
-        <% login = 'php_coder' if gitrepo.maintainer.login == 'php-coder' %>
-        <% login = 'psolntsev' if gitrepo.maintainer.login == 'p_solntsev' %>
-        <%= link_to gitrepo.repo, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + gitrepo.repo + '.git', :class => 'news' %>
+	    <% login = gear.maintainer.login %>
+        <% login = 'php_coder' if gear.maintainer.login == 'php-coder' %>
+        <% login = 'psolntsev' if gear.maintainer.login == 'p_solntsev' %>
+        <%= link_to gear.repo, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + gear.repo + '.git', :class => 'news' %>
       </td>
-      <td><%= gitrepo.lastchange %></td>
+      <td><%= gear.lastchange %></td>
     </tr>
   <% end %>
 </table>

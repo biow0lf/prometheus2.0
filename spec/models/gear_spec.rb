@@ -1,7 +1,8 @@
 require 'spec_helper'
 
-describe Gitrepo do
+describe Gear do
   it { should belong_to :maintainer }
+  it { should belong_to :srpm }
 
   it { should validate_presence_of :repo }
   it { should validate_presence_of :lastchange }

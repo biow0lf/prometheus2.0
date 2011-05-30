@@ -1,4 +1,4 @@
-class Gitrepo < ActiveRecord::Base
+class Gear < ActiveRecord::Base
   validates :repo, :presence => true
   validates :lastchange, :presence => true
 
@@ -7,13 +7,13 @@ class Gitrepo < ActiveRecord::Base
 
   def self.update_gitrepos(url)
     ActiveRecord::Base.transaction do
-      Gitrepo.delete_all
-      Gitrepo.import_gitrepos(url)
+      Gear.delete_all
+      Gear.import_gitrepos(url)
     end
   end
 
   def self.import_gitrepos(url)
-    if Gitrepo.count(:all) == 0
+    if Gear.count(:all) == 0
       branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
       file = open(URI.escape(url)).read
       file.each_line do |line|
@@ -32,7 +32,7 @@ class Gitrepo < ActiveRecord::Base
         elsif srpm.nil?
           puts "#{Time.now.to_s}: srpm not found '#{package.gsub(/\.git/,'')}'"
         else
-          Gitrepo.create(:repo => package.gsub(/\.git/,''), :maintainer => maintainer, :lastchange => time, :srpm => srpm)
+          Gear.create(:repo => package.gsub(/\.git/,''), :maintainer => maintainer, :lastchange => time, :srpm => srpm)
         end
       end
     else

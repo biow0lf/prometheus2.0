@@ -17,7 +17,7 @@ class IphoneController < ApplicationController
 #                      :login => params[:login],
 #                      :branch => @branch.name,
 #                      :vendor => @branch.vendor }
-    @gitrepos = Gitrepo.where(:maintainer_id => @maintainer.id).order('LOWER(repo)')
+    @gears = Gear.where(:maintainer_id => @maintainer.id).order('LOWER(repo)')
   end
 
   def bygroup
