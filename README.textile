@@ -48,9 +48,12 @@ h3. Init database:
 
 * rake platform6:groups
 * rake platform6:srpms
-* rake platform5:i586
-* rake platform5:noarch
-* rake platform5:x86_64
+* rake platform6:i586
+* rake platform6:noarch
+* rake platform6:x86_64
+
+* rake t6:groups
+* rake t6:srpms
 
 * rake platform5:groups
 * rake platform5:srpms
@@ -107,5 +110,5 @@ h2. License
 Prometheus 2.0 uses the MIT license. Please check the MIT-LICENSE file for more details.
 
 Add to cron:
-0	0	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:groups sisyphusarm:groups platform5:groups 51:groups 50:groups 41:groups 40:groups 50:acls 50:leaders 50:teams 41:acls 41:leaders 41:teams 40:acls 40:leaders 40:teams >> /var/log/prometheus.log 2>&1"
-5	*	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:acls sisyphus:leaders sisyphus:teams sisyphus:gitrepos 51:acls 51:leaders 51:teams >> /var/log/prometheus.log 2>&1"
+0	0	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:groups sisyphusarm:groups platform5:groups 51:groups 50:groups 41:groups 40:groups 50:teams 41:teams 40:teams >> /var/log/prometheus.log 2>&1"
+5	*	*	*	*	/bin/bash -l -c "cd /home/prometheusapp/www/prometheus2.0 && rake RAILS_ENV=production sisyphus:teams sisyphus:gitrepos  51:teams >> /var/log/prometheus.log 2>&1"
