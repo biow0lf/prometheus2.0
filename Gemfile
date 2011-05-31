@@ -33,11 +33,14 @@ end
 group :development, :test do
   gem 'ruby-debug19'
   gem 'sqlite3-ruby'
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'syntax' # for TextMate syntax highlight
   gem 'ffaker'
   gem 'factory_girl_rails'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'remarkable_activerecord', :git => 'git://github.com/jeroenvandijk/remarkable.git'
+  gem 'email_spec'
   # opening pages in browser
   gem 'launchy'
   # cucumber
@@ -47,12 +50,5 @@ group :development, :test do
 end
 
 group :development do
-  gem 'haml-rails'
   gem 'silent-postgres'
-end
-
-group :test do
-  gem 'autotest'
-  gem 'shoulda'
-  gem 'email_spec'
 end
