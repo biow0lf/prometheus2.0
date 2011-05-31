@@ -10,7 +10,7 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @acls = Acl.where(:maintainer_id => @maintainer.id, :branch_id => @branch.id).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
+    @acls = Acl.where(:maintainer => @maintainer, :branch => @branch).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
   end
 
 #  def acls
@@ -35,20 +35,20 @@ class MaintainersController < ApplicationController
   def bugs
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @bugs = Bug.where(:assigned_to => params[:id].downcase + '@altlinux.org',
+    @bugs = Bug.where(:assigned_to => "#{params[:id].downcase}@altlinux.org",
                       :product => 'Sisyphus',
                       :bug_status => ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(:assigned_to => params[:id].downcase + '@altlinux.org',
+    @allbugs = Bug.where(:assigned_to => "#{params[:id].downcase}@altlinux.org",
                          :product => 'Sisyphus').order('bug_id DESC')
   end
 
   def allbugs
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @bugs = Bug.where(:assigned_to => params[:id].downcase + '@altlinux.org',
+    @bugs = Bug.where(:assigned_to => "#{params[:id].downcase}@altlinux.org",
                       :product => 'Sisyphus',
                       :bug_status => ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(:assigned_to => params[:id].downcase + '@altlinux.org',
+    @allbugs = Bug.where(:assigned_to => "#{params[:id].downcase}@altlinux.org",
                          :product => 'Sisyphus').order('bug_id DESC')
   end
 
