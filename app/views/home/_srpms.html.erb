@@ -6,11 +6,11 @@
 
   <% if srpm.maintainer %>
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
-	  <%= link_to srpm.maintainer.name, maintainer_path(srpm.branch, srpm.maintainer), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
+    <%= link_to srpm.maintainer.name, maintainer_path(srpm.branch, srpm.maintainer), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
   </span>
   <% else %>
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
-      <%= srpm.buildtime %>
+    <%= srpm.buildtime %>
   </span>
   <% end %>
 
