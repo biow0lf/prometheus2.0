@@ -1,0 +1,1 @@
+INSERT INTO repocop_patches (name, version, release, url) VALUES ('pam_alreadyloggedin','0.3.2','alt1','http://repocop.altlinux.org/pub/repocop/reports/diff/by-srpm/pam_alreadyloggedin-0.3.2-alt1.diff');
