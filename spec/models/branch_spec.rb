@@ -12,4 +12,8 @@ describe Branch do
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :vendor }
+
+  it "should return Branch.name on .to_param" do
+    Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux').to_param.should == 'Sisyphus'
+  end
 end
