@@ -99,7 +99,7 @@ GEM
     ffi (1.0.9)
     gettext (2.1.0)
       locale (>= 2.0.5)
-    gettext_i18n_rails (0.2.19)
+    gettext_i18n_rails (0.2.20)
       fast_gettext
     gherkin (2.3.10)
       json (>= 1.4.6)
@@ -184,7 +184,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
-    selenium-webdriver (0.2.0)
+    selenium-webdriver (0.2.1)
       childprocess (>= 0.1.7)
       ffi (>= 1.0.7)
       json_pure
