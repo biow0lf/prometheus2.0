@@ -1,0 +1,29 @@
+<div class='toolbar'>
+  <h1 id='pageTitle'></h1>
+  <a class='button' href='#' id='backButton'></a>
+  <a class='button' href='#searchForm'>Search</a>
+</div>
+
+<ul id='home' selected='true' title='<%= @maintainer.name %>'>
+  <li>
+    <a href='#info'><%= _('Information') %></a>
+  </li>
+  <li>
+    <a href='#packages'><%= _('Packages') %></a>
+  </li>
+  <li>
+    <a href='#gear'><%= _('Gear') %></a>
+  </li>
+  <li>
+    <a href='#bugs'><%= _('Bugs and FR') %></a>
+  </li>
+  <li>
+    <a href='#repocop'><%= _('Repocop') %></a>
+  </li>
+</ul>
+
+<ul id='gear' title='<%= _('Gear') %>'>
+  <%= @gears.each do |gear| %>
+    <li><%= gear.repo %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,11 @@
+<div class='toolbar'>
+  <h1 id='pageTitle'></h1>
+  <a class='button' href='#' id='backButton'></a>
+  <a class='button' href='#searchForm'>Search</a>
+</div>
+
+<ul id='home' selected='true' title='Home'>
+  <% @srpms.each do |srpm| %>
+    <li><%= srpm.name %></li>
+  <% end %>
+</ul>
