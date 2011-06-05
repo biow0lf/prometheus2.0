@@ -14,8 +14,8 @@ Feature: Recover password
     When I open the email
     Then I should see "Change my password" in the email body
     When I follow "Change my password" in the email
-    Then I fill in "Password" with "password"
-    And I fill in "Password confirmation" with "password"
+    Then I fill in "New password" with "password"
+    And I fill in "Confirm new password" with "password"
     And I press "Change my password"
     Then I should see "Your password was changed successfully. You are now signed in."
     And I should see "Welcome, email@example.com!"
