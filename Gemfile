@@ -13,13 +13,13 @@ gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
 gem 'whenever', :require => false
-gem 'newrelic_rpm'
 gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_notification.git'
 gem 'nested_set'
 gem 'thinking-sphinx'
 
 group :production do
   gem 'memcache-client'
+  gem 'newrelic_rpm'
 end
 
 group :staging do
@@ -27,15 +27,22 @@ group :staging do
   gem 'active_sanity'
 end
 
+group :development do
+  gem 'silent-postgres'
+end
+
 group :development, :test do
   gem 'ruby-debug19'
   gem 'sqlite3-ruby'
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+
+group :test do
   gem 'capybara'
   # gem 'syntax' # for TextMate syntax highlight
   gem 'ffaker'
   gem 'factory_girl_rails'
-  gem 'rspec'
-  gem 'rspec-rails'
   gem 'remarkable_activerecord', :git => 'git://github.com/jeroenvandijk/remarkable.git'
   gem 'email_spec'
   # opening pages in browser
@@ -44,8 +51,4 @@ group :development, :test do
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'
-end
-
-group :development do
-  gem 'silent-postgres'
 end
