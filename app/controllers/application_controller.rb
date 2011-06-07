@@ -4,19 +4,19 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  before_filter :default_locale
-  before_filter :fix_branch
+  before_filter :set_default_locale
+  before_filter :set_default_branch
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
-  def default_locale
+  def set_default_locale
     params[:locale] ||= 'en'
     I18n.locale = params[:locale]
     FastGettext.locale = params[:locale]
   end
 
-  def fix_branch
+  def set_default_branch
     params[:branch] ||= 'Sisyphus'
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
   end
