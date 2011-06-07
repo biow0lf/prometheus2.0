@@ -1,0 +1,1 @@
+INSERT INTO repocops (name, version, release, arch, srcname, srcversion, srcrel, testname, status, message) VALUES ('0ad','0.r08832','alt2.1','x86_64','0ad','0.r08832','alt2.1','sisyphus_check','ok',E'');

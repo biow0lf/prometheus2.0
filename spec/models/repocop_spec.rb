@@ -15,4 +15,9 @@ describe Repocop do
   it { should have_db_index :srcname }
   it { should have_db_index :srcrel }
   it { should have_db_index :srcversion }
+
+  pending "should import repocops from url" do
+    URI.stub(:escape).and_return("spec/data/prometeus2.txt")
+    expect{Repocop.update_repocop}.to change{Repocop.count}.from(0).to(1)
+  end
 end
