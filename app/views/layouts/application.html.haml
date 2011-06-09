@@ -85,7 +85,7 @@
         = ' | '
         - if user_signed_in?
           %b= "Welcome, #{current_user.email}! | "
-          = link_to 'Sign out', destroy_user_session_path
+          = link_to _('Sign out'), destroy_user_session_path
           - if current_user.is_alt_team?
             = " | "
             %b= link_to 'Edit my maintainer profile', edit_maintainer_profile_path
