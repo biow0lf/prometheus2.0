@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9.rc1'
+gem 'rails', '3.0.9.rc3'
 gem 'pg'
 gem 'haml'
 gem 'devise'
