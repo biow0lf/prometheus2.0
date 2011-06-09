@@ -1,8 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9.rc1'
 gem 'pg'
-gem 'haml'
+# for safebuffers fix
+# https://github.com/nex3/haml/commit/fc5a5cb21de15a7c2fde83d4e06a021b2d86c4f1
+gem 'haml', :git => 'git://github.com/nex3/haml.git'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
