@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: git://github.com/smartinez87/exception_notification.git
-  revision: 37b5bd2916178b336a0cd2abfd2ab17e850bef40
+  revision: 27fbdddf21c4bc704bb549c83f90e7bd1003aa3a
   specs:
     exception_notification (2.4.0)
 
@@ -64,26 +64,26 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    capybara (1.0.0.beta1)
+    capybara (1.0.0.rc1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      selenium-webdriver (>= 0.0.27)
+      selenium-webdriver (~> 0.2.0)
       xpath (~> 0.1.4)
     childprocess (0.1.9)
       ffi (~> 1.0.6)
     columnize (0.3.2)
     configuration (1.2.0)
-    cucumber (0.10.5)
+    cucumber (0.10.6)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
       gherkin (~> 2.4.0)
       json (>= 1.4.6)
       term-ansicolor (>= 1.0.5)
-    cucumber-rails (0.5.1)
-      capybara (>= 1.0.0.beta1)
-      cucumber (>= 0.10.3)
+    cucumber-rails (0.5.2)
+      capybara (>= 1.0.0.rc1)
+      cucumber (>= 0.10.5)
       nokogiri (>= 1.4.4)
       rack-test (>= 0.5.7)
     database_cleaner (0.6.7)
@@ -163,7 +163,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.9.2)
-    redis (2.2.0)
+    redis (2.2.1)
     riddle (1.3.3)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
