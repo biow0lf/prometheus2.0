@@ -16,6 +16,7 @@ gem 'whenever', :require => false
 gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_notification.git'
 gem 'nested_set'
 gem 'thinking-sphinx'
+gem 'rack-force_domain'
 
 group :production do
   gem 'memcache-client'
@@ -36,18 +37,16 @@ group :development, :test do
   gem 'sqlite3-ruby'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rcov', :require => false
 end
 
 group :test do
   gem 'capybara'
-  # gem 'syntax' # for TextMate syntax highlight
   gem 'ffaker'
   gem 'factory_girl_rails'
   gem 'remarkable_activerecord', :git => 'git://github.com/jeroenvandijk/remarkable.git'
   gem 'email_spec'
-  # opening pages in browser
   gem 'launchy'
-  # cucumber
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'
