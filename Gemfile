@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9.rc5'
+gem 'rails', '3.0.9'
 gem 'pg'
 gem 'haml'
 gem 'devise'
@@ -34,7 +34,7 @@ end
 
 group :development, :test do
   gem 'ruby-debug19'
-  gem 'sqlite3-ruby'
+  gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rcov', :require => false
