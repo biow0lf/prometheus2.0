@@ -6,7 +6,7 @@ h3. Install:
 
 * Ruby 1.9.2p180
 * ruby-rpm
-* bundler
+* bundler 1.1.pre.5
 * PostgreSQL 9.0 (with other databases it doesn't tested)
 * nginx + passenger
 * gettext
