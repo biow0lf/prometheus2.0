@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330164031) do
+ActiveRecord::Schema.define(:version => 20110530162217) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -73,7 +73,14 @@ ActiveRecord::Schema.define(:version => 20110330164031) do
     t.integer  "flags"
   end
 
-  create_table "gitrepos", :force => true do |t|
+  create_table "file_caches", :force => true do |t|
+    t.string   "name"
+    t.binary   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gears", :force => true do |t|
     t.string   "repo"
     t.datetime "lastchange"
     t.datetime "created_at"
@@ -82,8 +89,8 @@ ActiveRecord::Schema.define(:version => 20110330164031) do
     t.integer  "srpm_id"
   end
 
-  add_index "gitrepos", ["maintainer_id"], :name => "index_gitrepos_on_maintainer_id"
-  add_index "gitrepos", ["srpm_id"], :name => "index_gitrepos_on_srpm_id"
+  add_index "gears", ["maintainer_id"], :name => "index_gitrepos_on_maintainer_id"
+  add_index "gears", ["srpm_id"], :name => "index_gitrepos_on_srpm_id"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
