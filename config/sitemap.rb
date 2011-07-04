@@ -29,13 +29,13 @@ SitemapGenerator::Sitemap.create do
     Branch.find_each do |branch|
       branch.srpms.each do |srpm|
         add srpm_path(locale, branch, srpm)
-        changelog_srpm_path(locale, branch, srpm)
-        spec_srpm_path(locale, branch, srpm)
-        get_srpm_path(locale, branch, srpm)
-        gear_srpm_path(locale, srpm)
-        bugs_srpm_path(locale, srpm)
-        allbugs_srpm_path(locale, srpm)
-        repocop_srpm_path(locale, srpm)
+        add changelog_srpm_path(locale, branch, srpm)
+        add spec_srpm_path(locale, branch, srpm)
+        add get_srpm_path(locale, branch, srpm)
+        add gear_srpm_path(locale, srpm)
+        add bugs_srpm_path(locale, srpm)
+        add allbugs_srpm_path(locale, srpm)
+        add repocop_srpm_path(locale, srpm)
       end
     end
   end
