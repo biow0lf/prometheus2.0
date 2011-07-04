@@ -17,6 +17,7 @@ gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_no
 gem 'nested_set'
 gem 'thinking-sphinx'
 gem 'rack-force_domain'
+gem 'brewdler', :require => false
 
 group :production do
   gem 'memcache-client'

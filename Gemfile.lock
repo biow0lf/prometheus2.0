@@ -57,6 +57,8 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
+    brewdler (0.1.0)
+      commander
     builder (2.1.2)
     capybara (1.0.0.rc1)
       mime-types (>= 1.16)
@@ -68,6 +70,8 @@ GEM
     childprocess (0.1.9)
       ffi (~> 1.0.6)
     columnize (0.3.2)
+    commander (4.0.4)
+      highline (>= 1.5.0)
     configuration (1.2.0)
     cucumber (0.10.6)
       builder (>= 2.1.2)
@@ -104,6 +108,7 @@ GEM
     gherkin (2.4.0)
       json (>= 1.4.6)
     haml (3.1.2)
+    highline (1.6.2)
     i18n (0.5.0)
     json (1.5.1)
     json_pure (1.5.1)
@@ -216,6 +221,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_sanity
+  brewdler
   capybara
   cucumber
   cucumber-rails
