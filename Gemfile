@@ -18,6 +18,7 @@ gem 'nested_set'
 gem 'thinking-sphinx'
 gem 'rack-force_domain'
 gem 'brewdler', :require => false
+gem 'wirb', :require => false
 
 group :production do
   gem 'memcache-client'
