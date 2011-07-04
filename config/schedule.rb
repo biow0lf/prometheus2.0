@@ -6,11 +6,11 @@ every 1.day, :at => '5:00 am' do
   rake "sisyphus:bugs"
 end
 
-every 1.day, :at => '5:15 am' do
+every 1.day, :at => '6:15 am' do
   rake "sisyphus:repocops sisyphus:repocop_patches"
 end
 
-every 1.day, :at => '5:30 am' do
+every 1.day, :at => '6:30 am' do
   rake "sitemap:refresh"
 end
 
