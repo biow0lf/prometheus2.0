@@ -39,6 +39,17 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rcov', :require => false
+  gem 'stepdown', :require => false
+  gem 'guard'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'growl', :require => false if RUBY_PLATFORM =~ /darwin/i
+  # linux part is not tested
+  gem 'rb-inotify', :require => false if RUBY_PLATFORM =~ /linux/i
+  gem 'libnotify', :require => false if RUBY_PLATFORM =~ /linux/i
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'guard-cucumber'
+  gem 'guard-livereload'
 end
 
 group :test do
