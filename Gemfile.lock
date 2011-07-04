@@ -17,9 +17,9 @@ GIT
 
 GIT
   remote: git://github.com/smartinez87/exception_notification.git
-  revision: 27fbdddf21c4bc704bb549c83f90e7bd1003aa3a
+  revision: 24feff32725d1dc4f7663ed896c175d2a295ff83
   specs:
-    exception_notification (2.4.0)
+    exception_notification (2.4.1)
 
 GEM
   remote: http://rubygems.org/
