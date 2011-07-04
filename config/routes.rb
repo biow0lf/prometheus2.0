@@ -93,11 +93,11 @@ Prometheus20::Application.routes.draw do
 
 #  match '/cli/repocop/by-test/:name' => 'repocop#bytestname'
 
-  match '/sitemap.xml' => 'sitemap#sitemap'
-  match '/sitemap_basic.xml' => 'sitemap#sitemap_basic'
-  match '/:locale/sitemap1.xml' => 'sitemap#sitemap_part1', :locale => SUPPORTED_LOCALES
-  match '/:locale/sitemap2.xml' => 'sitemap#sitemap_part2', :locale => SUPPORTED_LOCALES
-  match '/:locale/sitemap3.xml' => 'sitemap#sitemap_part3', :locale => SUPPORTED_LOCALES
+  # match '/sitemap.xml' => 'sitemap#sitemap'
+  # match '/sitemap_basic.xml' => 'sitemap#sitemap_basic'
+  # match '/:locale/sitemap1.xml' => 'sitemap#sitemap_part1', :locale => SUPPORTED_LOCALES
+  # match '/:locale/sitemap2.xml' => 'sitemap#sitemap_part2', :locale => SUPPORTED_LOCALES
+  # match '/:locale/sitemap3.xml' => 'sitemap#sitemap_part3', :locale => SUPPORTED_LOCALES
 
   match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
   match '/:name' => 'redirector#index', :name => /[^\/]+/

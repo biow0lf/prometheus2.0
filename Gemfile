@@ -19,6 +19,7 @@ gem 'thinking-sphinx'
 gem 'rack-force_domain'
 gem 'brewdler', :require => false
 gem 'wirb', :require => false
+gem 'sitemap_generator'
 
 group :production do
   gem 'memcache-client'

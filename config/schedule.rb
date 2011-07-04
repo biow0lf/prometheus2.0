@@ -10,4 +10,8 @@ every 1.day, :at => '5:15 am' do
   rake "sisyphus:repocops sisyphus:repocop_patches"
 end
 
+every 1.day, :at => '5:30 am' do
+  rake "sitemap:refresh"
+end
+
 # Learn more: http://github.com/javan/whenever
