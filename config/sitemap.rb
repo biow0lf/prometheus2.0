@@ -25,6 +25,12 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
+  add '/', :changefreq => 'hourly'
+  add '/en', :changefreq => 'hourly'
+  add '/ru', :changefreq => 'hourly'
+  add '/uk', :changefreq => 'hourly'
+  add '/br', :changefreq => 'hourly'
+
   ['en', 'ru', 'uk', 'br'].each do |locale|
     Branch.find_each do |branch|
       branch.srpms.each do |srpm|
