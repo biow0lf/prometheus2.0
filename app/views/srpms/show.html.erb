@@ -60,17 +60,6 @@
 </div><br /><br />
 <% end %>
 
-<% unless @srpm.packages.nil? %>
-<b><%= _('List of rpms provided by this srpm:') %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <% @srpm.packages.map{|p| p.name }.sort.uniq.each do |name| %>
-      <li><%= name %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-
 <% unless @acls.empty? %>
 <b><%= _('ACL:') %></b>
 <div class="para" style="margin-left: 0em;">
@@ -82,6 +71,17 @@
       <li><%= link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news' %></li>
     <% end %>
   <% end %>
+  </ul>
+</div>
+<% end %>
+
+<% unless @srpm.packages.nil? %>
+<b><%= _('List of rpms provided by this srpm:') %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% @srpm.packages.map{|p| p.name }.sort.uniq.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
   </ul>
 </div>
 <% end %>
