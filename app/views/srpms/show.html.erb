@@ -43,10 +43,13 @@
 <% unless @ftbfs.empty? %>
   <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
   <% if @ftbfs.count == 2 %>
-    <span style="color: red;"><b><%= @ftbfs.first.weeks %></b></span> weeks on <b><%= @ftbfs.first.arch %></b> and
-    <span style="color: red;"><b><%= @ftbfs.last.weeks %></b></span> weeks on <b><%= @ftbfs.last.arch %></b><br/>
+    <% if @ftbfs.first.weeks == @ftbfs.last.weeks %>
+      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %>, <%= @ftbfs.last.arch %><br/>
+    <% else %>
+      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %> and <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br/>
+    <% end %>
   <% else %>
-    <span style="color: red;"><b><%= @ftbfs.last.weeks %></b></span> weeks on <b><%= @ftbfs.last.arch %></b><br/>
+    <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br/>
   <% end %>
 <% end %>
 <b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
