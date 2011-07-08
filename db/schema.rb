@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704024618) do
+ActiveRecord::Schema.define(:version => 20110708103440) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -71,6 +71,17 @@ ActiveRecord::Schema.define(:version => 20110704024618) do
     t.datetime "updated_at"
     t.string   "epoch"
     t.integer  "flags"
+  end
+
+  create_table "ftbfs", :force => true do |t|
+    t.string   "name"
+    t.string   "epoch"
+    t.string   "version"
+    t.string   "release"
+    t.integer  "weeks"
+    t.integer  "branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "gears", :force => true do |t|

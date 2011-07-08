@@ -10,6 +10,10 @@ every 1.day, :at => '6:15 am' do
   rake "sisyphus:repocops sisyphus:repocop_patches"
 end
 
+every 1.day, :at => '01:00 pm' do
+  rake "ftbfs:i586"
+end
+
 every :sunday, :at => '3:30 am' do
   rake "sitemap:refresh"
 end
