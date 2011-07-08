@@ -11,7 +11,7 @@ every 1.day, :at => '6:15 am' do
 end
 
 every 1.day, :at => '01:00 pm' do
-  rake "ftbfs:i586"
+  rake "ftbfs:update"
 end
 
 every :sunday, :at => '3:30 am' do
