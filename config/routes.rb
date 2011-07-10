@@ -19,6 +19,7 @@ Prometheus20::Application.routes.draw do
       match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
       match 'maintainers/:id/bugs' => 'maintainers#bugs', :as => 'bugs_maintainer'
       match 'maintainers/:id/allbugs' => 'maintainers#allbugs', :as => 'allbugs_maintainer'
+      match 'maintainers/:id/ftbfs' => 'maintainers#ftbfs', :as => 'ftbfs_maintainer'
       match 'maintainers/:id/repocop' => 'maintainers#repocop', :as => 'repocop_maintainer'
     end
 
