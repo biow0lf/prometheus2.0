@@ -139,7 +139,7 @@ GEM
     launchy (0.4.0)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
-    libnotify (0.5.6)
+    libnotify (0.5.7)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
     locale (2.0.5)
