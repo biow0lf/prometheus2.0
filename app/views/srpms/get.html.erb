@@ -100,9 +100,9 @@ function changeHref (val){
     <td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
       <b>&middot;</b>
       <% if @branch.name == 'SisyphusARM' %>
-        <a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/SRPMS.all/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a>
+        <a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/SRPMS.all/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a> (md5: <%= @srpm.md5 %>)
       <% else %>
-        <a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a>
+        <a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a> (md5: <%= @srpm.md5 %>)
       <% end %>
     </td>
     <td style="text-align: right;">
@@ -119,7 +119,7 @@ function changeHref (val){
 		<b>&middot;</b>
 	    <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/i586/RPMS/<%= i.filename %>" class="news">
 		  <%= i.filename %>
-		</a>
+		</a> (md5: <%= i.md5 %>)
 		</td><td style="text-align: right;">
 			<b><%= number_to_human_size(i.size) %></b>
 		</td></tr>
@@ -134,10 +134,10 @@ function changeHref (val){
 		<b>&middot;</b>
 		<% if @branch.name == 'SisyphusARM' %>
 		  <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/arm/RPMS/<%= n.filename %>" class="news"><%= n.filename %>
-		  </a>
+		  </a> (md5: <%= n.md5 %>)
 		<% else %>
   		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/noarch/RPMS/<%= n.filename %>" class="news"><%= n.filename %>
-  		</a>
+  		</a> (md5: <%= n.md5 %>)
 		<% end %>
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(n.size) %></b>
@@ -152,7 +152,7 @@ function changeHref (val){
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %>
-		</a>
+		</a> (md5: <%= x.md5 %>)
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(x.size) %></b>
 	</td></tr>
@@ -166,7 +166,7 @@ function changeHref (val){
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
 		<b>&middot;</b>
 		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %>
-		</a>
+		</a> (md5: <%= a.md5 %>)
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(a.size) %></b>
 	</td></tr>
@@ -178,4 +178,3 @@ function changeHref (val){
 </div>
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
-
