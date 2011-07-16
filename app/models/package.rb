@@ -44,6 +44,7 @@ class Package < ActiveRecord::Base
       package.description = rpm[1005]
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
+      package.md5 = `md5 #{file}`.split[3]
       package.branch = branch
       srpm = branch.srpms.where(:filename => rpm[1044]).first
       package.srpm = srpm
@@ -96,6 +97,7 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
+          package.md5 = `md5 #{file}`.split[3]
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
@@ -145,6 +147,7 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
+          package.md5 = `md5 #{file}`.split[3]
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
@@ -194,6 +197,7 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
+          package.md5 = `md5 #{file}`.split[3]
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
@@ -243,6 +247,7 @@ class Package < ActiveRecord::Base
           package.description = rpm[1005]
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
+          package.md5 = `md5 #{file}`.split[3]
           package.branch = branch
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
