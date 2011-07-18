@@ -12,6 +12,7 @@ class Maintainer < ActiveRecord::Base
   has_many :teams
   has_many :srpms, :through => :acls
   has_many :gears
+  has_many :ftbfs, :class_name => "Ftbfs"
 
   attr_accessible :name, :email, :login, :team, :time_zone, :jabber, :info
 

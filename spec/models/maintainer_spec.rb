@@ -6,6 +6,7 @@ describe Maintainer do
   it { should have_many :teams }
   it { should have_many(:srpms).through(:acls) }
   it { should have_many :gears }
+  it { should have_many :ftbfs }
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :email }
