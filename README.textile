@@ -105,9 +105,12 @@ h3. Init database:
 
 * rake ts:index
 
-h2. TODO
+h2. Run
 
-* rake sisyphus:ftbfs_i586
+* rake ts:start
+* redis-server config/redis.conf
+* service postgresql start
+* memcached -d -m 128
 
 h2. License
 
