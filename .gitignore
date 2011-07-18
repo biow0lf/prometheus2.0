@@ -15,3 +15,5 @@ vendor/plugins/newrelic_rpm/*
 locale/*/LC_MESSAGES/*.mo
 .rvmrc
 public/sitemap*.xml.gz
+dump.rdb
+
