@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110708124343) do
+ActiveRecord::Schema.define(:version => 20110718112218) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110708124343) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "arch"
+    t.integer  "maintainer_id"
   end
 
   create_table "gears", :force => true do |t|
@@ -176,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20110708124343) do
     t.integer  "srpm_id"
     t.integer  "branch_id"
     t.integer  "group_id"
+    t.string   "md5"
   end
 
   add_index "packages", ["arch"], :name => "index_packages_on_arch"
@@ -281,6 +283,7 @@ ActiveRecord::Schema.define(:version => 20110708124343) do
     t.string   "changelogname"
     t.text     "changelogtext"
     t.integer  "specfile_id"
+    t.string   "md5"
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
