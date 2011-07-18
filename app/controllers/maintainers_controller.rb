@@ -53,7 +53,10 @@ class MaintainersController < ApplicationController
   end
 
   def ftbfs
+    @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
+    @ftbfs = Ftbfs.where(:branch => @branch, :maintainer => @maintainer)
   end
 
   def repocop
