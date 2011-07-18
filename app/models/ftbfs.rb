@@ -1,7 +1,9 @@
 class Ftbfs < ActiveRecord::Base
   belongs_to :branch
+  belongs_to :maintainer
 
   validates :branch, :presence => true
+  validates :maintainer, :presence => true
 
   validates :name, :presence => true
   validates :version, :presence => true
@@ -23,9 +25,12 @@ class Ftbfs < ActiveRecord::Base
         epoch = nil
         version, release = evr.split('-')
       end
-      Ftbfs.create!(:name => name, :epoch => epoch, :version => version,
-                    :release => release, :weeks => weeks, :branch => branch,
-                    :arch => arch)
+      maintainers = line.split[3]
+      maintainers.split(',').each do |maintainer|
+        Ftbfs.create!(:name => name, :epoch => epoch, :version => version,
+                      :release => release, :weeks => weeks, :branch => branch,
+                      :arch => arch, :maintainer => maintainer)
+      end
     end
   end
 end
