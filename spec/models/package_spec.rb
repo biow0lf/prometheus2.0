@@ -8,6 +8,7 @@ describe Package do
   it { should validate_presence_of :srpm }
   it { should validate_presence_of :branch }
   it { should validate_presence_of :group }
+  it { should validate_presence_of :md5 }
 
   it { should have_db_index :arch }
   it { should have_db_index :branch_id }

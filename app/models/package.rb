@@ -6,6 +6,7 @@ class Package < ActiveRecord::Base
   validates :srpm, :presence => true
   validates :branch, :presence => true
   validates :group, :presence => true
+  validates :md5, :presence => true
 
   has_many :requires
   has_many :provides

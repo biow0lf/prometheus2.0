@@ -1,9 +1,11 @@
 class Srpm < ActiveRecord::Base
-  validates :branch, :presence => true
-  validates :group, :presence => true
-
   belongs_to :branch
   belongs_to :group
+
+  validates :branch, :presence => true
+  validates :group, :presence => true
+  validates :md5, :presence => true
+
   has_many :packages, :dependent => :destroy
   has_many :changelogs, :dependent => :destroy
   has_one :leader, :dependent => :destroy
