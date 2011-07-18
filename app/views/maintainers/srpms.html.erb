@@ -2,32 +2,32 @@
 
 <div id='main-content'>
 
-<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
+<div class="header"><%= _('Maintainer:') %> <%= @maintainer.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_path(@branch, @maintainer), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_maintainer_path(@maintainer), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_maintainer_path(@maintainer), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_maintainer_path(@maintainer), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="break" />
-<b><%= _("List of packages which was built by this maintainer:") %></b> [<%= @acls.count %>] <br /><br />
+<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path(@branch, @maintainer), :class => 'news', :title => _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Packages') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
+<b><%= _('List of packages which was built by this maintainer:') %></b> [<%= @acls.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
     <% if @branch.name == 'Sisyphus' %>
-      <th><%= raw _("repo<br/>cop") %></th>
+      <th><%= raw _('repo<br/>cop') %></th>
     <% end %>
-    <th><%= _("package") %></th>
-    <th><%= raw _("current<br />version") %></th>
-    <th><%= _("build time") %></th>
-    <th><%= _("age") %></th>
-    <th><%= _("Url") %></th>
-    <th><%= _("Summary") %></th>
+    <th><%= _('package') %></th>
+    <th><%= raw _('current<br />version') %></th>
+    <th><%= _('build time') %></th>
+    <th><%= _('age') %></th>
+    <th><%= _('Url') %></th>
+    <th><%= _('Summary') %></th>
   </tr>
 
   <% @acls.each do |acl| %>
   <tr>
     <% if @branch.name == 'Sisyphus' %>
       <td>
-        <%= link_to image_tag(acl.srpm.repocop + '.png', :size => '20x20', :alt => acl.srpm.repocop), repocop_srpm_path(:id => acl.srpm.name), :class => 'repocoplink', :title => 'repocop' %>
+        <%= link_to image_tag("#{acl.srpm.repocop}.png", :size => '20x20', :alt => acl.srpm.repocop), repocop_srpm_path(:id => acl.srpm.name), :class => 'repocoplink', :title => 'repocop' %>
         <% if acl.srpm.repocop_patch %>
           <br />
-          <%= link_to image_tag('patch.jpg', :alt => 'repocop patch'), acl.srpm.repocop_patch.url, :class => 'repocoplink', :title => _("repocop patch for the package") %>
+          <%= link_to image_tag('patch.jpg', :alt => 'repocop patch'), acl.srpm.repocop_patch.url, :class => 'repocoplink', :title => _('repocop patch for the package') %>
         <% end %>
       </td>
     <% end %>
@@ -36,7 +36,7 @@
     </td>
     <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
     <td><%= acl.srpm.buildtime %></td>
-    <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
+    <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= _('ago') %></td>
     <td>
       <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow' %><% else %>-<% end %>
     </td>

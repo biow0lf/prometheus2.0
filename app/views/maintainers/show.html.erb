@@ -10,12 +10,12 @@
 
 <p class="break" />
 
-<b><%= _("Website/Blog:") %></b> <% unless @maintainer.website.nil? %><%= link_to @maintainer.website, @maintainer.website %><% end %><br>
-<b><%= _("Location:") %></b> <%= @maintainer.location %><br>
-<b><%= _("Email:") %></b> <%= @maintainer.email %><br>
-<b><%= _("Jabber ID:") %></b> <%= @maintainer.jabber %><br>
-<b><%= _("Time Zone:") %></b> <%= @maintainer.time_zone %><br>
-<b><%= _("Information:") %></b>
+<b><%= _('Website/Blog:') %></b> <% unless @maintainer.website.nil? %><%= link_to @maintainer.website, @maintainer.website %><% end %><br>
+<b><%= _('Location:') %></b> <%= @maintainer.location %><br>
+<b><%= _('Email:') %></b> <%= @maintainer.email %><br>
+<b><%= _('Jabber ID:') %></b> <%= @maintainer.jabber %><br>
+<b><%= _('Time Zone:') %></b> <%= @maintainer.time_zone %><br>
+<b><%= _('Information:') %></b>
 <div class="para"><%= simple_format(@maintainer.info) %></div>
 
 <p class="break" />
