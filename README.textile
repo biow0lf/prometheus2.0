@@ -11,6 +11,7 @@ h3. Install:
 * nginx + passenger
 * gettext
 * sphinx search engine
+* md5 from coreutils
 
 h3. And then:
 
