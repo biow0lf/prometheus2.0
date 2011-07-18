@@ -27,8 +27,8 @@
 <% @srpm.repocops.each do |repocop| %>
   <% if repocop.status != 'skip' %>
   <tr>
-    <td><%= repocop.name %>-<%= repocop.version %>-<%= repocop.release %>.<%= repocop.arch %></td>
-    <td><%= image_tag(h(repocop.status) + '.png', :size => "20x20") %><br/><%= repocop.status %></td>
+    <td><%= "#{repocop.name}-#{repocop.version}-#{repocop.release}.#{repocop.arch}" %></td>
+    <td><%= image_tag("#{repocop.status}.png", :size => "20x20") %><br/><%= repocop.status %></td>
     <td><%= repocop.testname %></td>
     <td style="text-align:left">
       <% if repocop.message != '' %><%= repocop.message %><% else %>&nbsp;<% end %>
