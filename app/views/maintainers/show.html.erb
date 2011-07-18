@@ -2,23 +2,23 @@
 
 <div id='main-content'>
 
-<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
+<div class="header"><%= _('Maintainer:') %> <%= @maintainer.name %></div>
 <p class="break" />
-<span class="current">&nbsp;<b><%= _("Information") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_maintainer_path(@maintainer), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_maintainer_path(@maintainer), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_maintainer_path(@maintainer), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="break" />
+<span class="current">&nbsp;<b><%= _('Information') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
 
 <%= image_tag avatar_url(@maintainer) %>
 
 <p class="break" />
 
-<b><%= _("Website/Blog:") %></b> <% unless @maintainer.website.nil? %><%= link_to @maintainer.website, @maintainer.website %><% end %><br>
-<b><%= _("Location:") %></b> <%= @maintainer.location %><br>
-<b><%= _("Email:") %></b> <%= @maintainer.email %><br>
-<b><%= _("Jabber ID:") %></b> <%= @maintainer.jabber %><br>
-<b><%= _("Time Zone:") %></b> <%= @maintainer.time_zone %><br>
-<b><%= _("Information:") %></b>
+<b><%= _('Website/Blog:') %></b> <% unless @maintainer.website.nil? %><%= link_to @maintainer.website, @maintainer.website %><% end %><br>
+<b><%= _('Location:') %></b> <%= @maintainer.location %><br>
+<b><%= _('Email:') %></b> <%= @maintainer.email %><br>
+<b><%= _('Jabber ID:') %></b> <%= @maintainer.jabber %><br>
+<b><%= _('Time Zone:') %></b> <%= @maintainer.time_zone %><br>
+<b><%= _('Information:') %></b>
 <div class="para"><%= simple_format(@maintainer.info) %></div>
 
 <p class="break" />
-<b><%= _("Packages built by this maintainer:") %></b> <%= @acls.count %>
+<b><%= _('Packages built by this maintainer:') %></b> <%= @acls.count %>
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>

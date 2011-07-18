@@ -52,6 +52,13 @@ class MaintainersController < ApplicationController
                          :product => 'Sisyphus').order('bug_id DESC')
   end
 
+  def ftbfs
+    @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
+    @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
+    render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
+    @ftbfs = Ftbfs.where(:branch => @branch, :maintainer => @maintainer)
+  end
+
   def repocop
     @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).includes(:srpms).order('LOWER(srpms.name)').first

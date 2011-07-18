@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110716103804) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "arch"
+    t.integer  "maintainer_id"
   end
 
   create_table "gears", :force => true do |t|

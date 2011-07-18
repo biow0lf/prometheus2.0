@@ -2,31 +2,31 @@
 
 <div id='main-content'>
 
-<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
+<div class="header"><%= _('Maintainer:') %> <%= @maintainer.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_path(:id => @maintainer.login, :branch => 'Sisyphus'), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), srpms_maintainer_path(:id => @maintainer.login, :branch => 'Sisyphus'), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_maintainer_path(:id => @maintainer.login), :class => 'news', :title => _("gear") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_maintainer_path(:id => @maintainer.login), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" /><br />
-<b><%= _("Total records:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
+<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path('Sisyphus', @maintainer), :class => 'news', :title => _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path('Sisyphus', @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Bugs and FR') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="news" /><br />
+<b><%= _('Total records:') %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabunsel">&nbsp;<%= link_to _("open"), bugs_maintainer_path(:id => @maintainer.login), :class => 'news' %>&nbsp;</span>
-<span class="tabsel">&nbsp;<%= _("total") %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _('open'), bugs_maintainer_path(@maintainer), :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;<%= _('total') %>&nbsp;</span>
 </div>
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th><%= _("id") %></th>
-    <th><%= _("package") %></th>
-    <th><%= _("severity") %></th>
-    <th><%= _("status") %></th>
-    <th><%= _("resolution") %></th>
-    <th><%= _("reporter") %></th>
-    <th><%= _("summary") %></th>
+    <th><%= _('id') %></th>
+    <th><%= _('package') %></th>
+    <th><%= _('severity') %></th>
+    <th><%= _('status') %></th>
+    <th><%= _('resolution') %></th>
+    <th><%= _('reporter') %></th>
+    <th><%= _('summary') %></th>
   </tr>
 
 <% @allbugs.each do |bug| %>
   <tr>
     <td>
-      <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news' %>
+      <%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{bug.bug_id.to_s}", :class => 'news' %>
     </td>
     <td><%= bug.component %></td>
     <td><%= bug.bug_severity %></td>

@@ -13,7 +13,7 @@
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), spec_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_srpm_path(:name => params[:name]), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => params[:id]), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" /><br />
+<span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), spec_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_srpm_path(:name => params[:name]), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => params[:id]), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" /><br />
 
 <% if @allbugs.count == 0 %>
 
@@ -21,26 +21,26 @@
 
 <% else %>
 
-<b><%= _("Total:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
+<b><%= _('Total:') %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabsel">&nbsp;<%= _("open") %>&nbsp;</span>
-<span class="tabunsel">&nbsp;<%= link_to _("total"), allbugs_srpm_path(:id => params[:id]), :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;<%= _('open') %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _('total'), allbugs_srpm_path(:id => params[:id]), :class => 'news' %>&nbsp;</span>
 </div>
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th><%= _("id") %></th>
-    <th><%= _("severity") %></th>
-    <th><%= _("status") %></th>
-    <th><%= _("reporter") %></th>
-    <th><%= _("summary") %></th>
+    <th><%= _('id') %></th>
+    <th><%= _('severity') %></th>
+    <th><%= _('status') %></th>
+    <th><%= _('reporter') %></th>
+    <th><%= _('summary') %></th>
   </tr>
 
   <% @bugs.each do |bug| %>
   <tr>
     <td>
-      <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news' %>
+      <%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{bug.bug_id.to_s}", :class => 'news' %>
     </td>
     <td><%= bug.bug_severity %></td>
     <td><%= bug.bug_status %></td>

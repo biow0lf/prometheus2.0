@@ -2,19 +2,19 @@
 
 <div id='main-content'>
 
-<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
+<div class="header"><%= _('Maintainer:') %> <%= @maintainer.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _("Information"), maintainer_path(:id => @maintainer.login, :branch => @branch.name), :class => 'news', :title => _("information about maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Packages"), srpms_maintainer_path(:id => @maintainer.login, :branch => @branch.name), :class => 'news', :title => _("packages which was built by this maintainer") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Bugs and FR"), bugs_maintainer_path(:id => @maintainer.login), :class => 'news', :title => _("Bugs/FR statistics assigned to this maintainer") %>&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_maintainer_path(:id => @maintainer.login), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="break" />
+<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path(@branch, @maintainer), :class => 'news', :title => _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Gear') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
 
 <% if @gears.count != 0 %>
 <table style="pretty">
   <% @gears.each do |gear| %>
     <tr>
       <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-	    <% login = gear.maintainer.login %>
+        <% login = gear.maintainer.login %>
         <% login = 'php_coder' if gear.maintainer.login == 'php-coder' %>
         <% login = 'psolntsev' if gear.maintainer.login == 'p_solntsev' %>
-        <%= link_to gear.repo, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + gear.repo + '.git', :class => 'news' %>
+        <%= link_to gear.repo, "http://git.altlinux.org/people/#{login}/packages/?p=#{gear.repo}.git", :class => 'news' %>
       </td>
       <td><%= gear.lastchange %></td>
     </tr>
