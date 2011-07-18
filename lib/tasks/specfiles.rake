@@ -15,14 +15,14 @@ task :specfiles => :environment do
     specfile = Specfile.new
     specfile.srpm_id = srpm.id
     specfile.branch_id = branch.id
-    specfile.spec = spec    
+    specfile.spec = spec
     unless specfile.save
       p "shit happens"
     end
 
     srpm.specfile_id = specfile.id
     unless srpm.save
-        p "shit happens"
+      p "shit happens"
     end
   end
 
