@@ -1,10 +1,6 @@
 class SearchesController < ApplicationController
   def show
-    unless params[:branch_id].blank?
-      @branch = Branch.where(:id => params[:branch_id], :vendor => 'ALT Linux').first
-    else
-      @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
-    end
+    @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @branches = Branch.order('order_id').all
     if params[:query].nil? or params[:query].empty?
       redirect_to :action => 'index'
