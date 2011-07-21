@@ -25,8 +25,13 @@ class Ftbfs < ActiveRecord::Base
         epoch = nil
         version, release = evr.split('-')
       end
-      maintainers = line.split[3]
-      maintainers.split(',').each do |maintainer|
+      acls = line.split[3]
+      acls.split(',').each do |acl|
+        if acl[0] == '@'
+          maintainer = Maintainer.where(:login => acl, :team => true).first
+        else
+          maintainer = Maintainer.where(:login => acl, :team => false).first
+        end
         Ftbfs.create!(:name => name, :epoch => epoch, :version => version,
                       :release => release, :weeks => weeks, :branch => branch,
                       :arch => arch, :maintainer => maintainer)
