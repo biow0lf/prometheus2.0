@@ -16,7 +16,7 @@
 
   <% @ftbfs.each do |f| %>
     <tr>
-      <td><%= f.name %></td>
+      <td><%= link_to f.name, srpm_path('Sisyphus', f.name), :class => 'news' %></td>
       <td><%= "#{f.version}-#{f.release}" %></td>
       <td><%= f.arch %></td>
       <td><%= f.weeks %></td>
