@@ -6,7 +6,7 @@ task :md5 => :environment do
 
   Srpm.where(:md5 => nil, :branch => branch).limit(1000).each do |srpm|
     file = "/ALT/4.0/files/SRPMS/#{srpm.filename}"
-    md5 = `md5 #{file}`.split[3]
+    md5 = `/usr/bin/md5sum #{file}`.split[0]
     srpm.update_attribute(:md5, md5)
   end
 
