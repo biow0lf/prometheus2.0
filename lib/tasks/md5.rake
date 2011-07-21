@@ -4,7 +4,7 @@ task :md5 => :environment do
 
   branch = Branch.where(:name => '4.0', :vendor => 'ALT Linux').first
 
-  Srpm.where(:md5 => nil, :branch => branch).each do |srpm|
+  Srpm.where(:md5 => nil, :branch => branch).limit(1000).each do |srpm|
     file = "/ALT/4.0/files/SRPMS/#{srpm.filename}"
     md5 = `md5 #{file}`.split[3]
     srpm.update_attribute(:md5, md5)
