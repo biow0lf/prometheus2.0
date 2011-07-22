@@ -3,7 +3,10 @@ class SrpmsController < ApplicationController
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @srpm = @branch.srpms.where(:name => params[:id]).includes(:packages, :group, :branch, :leader, :maintainer).first
     if @srpm
-      @ftbfs = @branch.ftbfs.where(:name => @srpm.name).all
+      @ftbfs = @branch.ftbfs.where(:name => @srpm.name,
+                                   :version => @srpm.version,
+                                   :release => @srpm.release,
+                                   :epoch => @srpm.epoch).select('DISTINCT arch, weeks').all
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
       if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
         @acls = Maintainer.where(:login => $redis.zrange("#{@branch.name}:#{@srpm.name}:acls", 0, -1))
