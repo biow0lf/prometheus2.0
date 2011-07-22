@@ -69,6 +69,7 @@
       #top-auth
         #div1{ :style => 'display: block; margin-top: 20px' }
           = form_tag search_path(:branch => @branch.name), :method => :get do
+            = hidden_field_tag('branch', @branch.name)
             %table
               %tr
                 %td
