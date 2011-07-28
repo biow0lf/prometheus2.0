@@ -33,6 +33,7 @@ end
 
 group :development do
   gem 'silent-postgres'
+  # gem 'rack-webconsole'
 end
 
 group :development, :test do
