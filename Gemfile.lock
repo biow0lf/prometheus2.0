@@ -135,7 +135,7 @@ GEM
     json_pure (1.5.3)
     kaminari (0.12.4)
       rails (>= 3.0.0)
-    launchy (2.0.4)
+    launchy (2.0.5)
       addressable (~> 2.2.6)
     libnotify (0.5.7)
     linecache19 (0.5.12)
