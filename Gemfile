@@ -49,6 +49,7 @@ group :development, :test do
   # linux part is not tested
   gem 'rb-inotify', :require => false
   gem 'libnotify', :require => false
+  gem 'guard-test'
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-cucumber'
