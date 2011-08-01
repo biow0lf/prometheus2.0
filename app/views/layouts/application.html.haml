@@ -96,10 +96,10 @@
           = link_to _('Sign up'), new_user_registration_path
 
       %div{ :style => 'text-align: right' }
-        = link_to_unless_current _('en'), '/en', :title => _('English') + " ".to_s
-        = link_to_unless_current _('ru'), '/ru', :title => _('Russian') + " ".to_s
-        = link_to_unless_current _('uk'), '/uk', :title => _('Ukrainian') + " ".to_s
-        = link_to_unless_current _('br'), '/br', :title => _('Portuguese (Brasilian)')
+        = link_to_unless_current _('en'), current_page(request.fullpath, 'en'), :title => _('English') + " ".to_s
+        = link_to_unless_current _('ru'), current_page(request.fullpath, 'ru'), :title => _('Russian') + " ".to_s
+        = link_to_unless_current _('uk'), current_page(request.fullpath, 'uk'), :title => _('Ukrainian') + " ".to_s
+        = link_to_unless_current _('br'), current_page(request.fullpath, 'br'), :title => _('Portuguese (Brasilian)')
 
     %div{ :id => 'menu', :style => 'text-align: center' }
       %ul

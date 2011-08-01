@@ -22,4 +22,10 @@ module ApplicationHelper
     gravatar_id = Digest::MD5.hexdigest(maintainer.email.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=80&r=g"
   end
+
+  def current_page(url, lang)
+    return "/#{lang}" if url == '/'
+    url[1,2] = lang
+    url
+  end
 end
