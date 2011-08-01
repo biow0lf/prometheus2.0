@@ -13,7 +13,7 @@ gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
 gem 'whenever', :require => false
-gem 'exception_notification', :git => 'git://github.com/smartinez87/exception_notification.git'
+gem 'exception_notification'
 gem 'nested_set'
 gem 'thinking-sphinx'
 gem 'rack-force_domain'
