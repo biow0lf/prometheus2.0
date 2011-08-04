@@ -51,6 +51,7 @@ group :development, :test do
   gem 'libnotify', :require => false
   # guard-test 0.3.0 is broken
   # gem 'guard-test'
+  gem 'guard-rails'
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-cucumber'
