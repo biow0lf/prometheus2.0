@@ -16,4 +16,6 @@ locale/*/LC_MESSAGES/*.mo
 .rvmrc
 public/sitemap*.xml.gz
 dump.rdb
+db/sphinx/*
+config/development.sphinx.conf
 
