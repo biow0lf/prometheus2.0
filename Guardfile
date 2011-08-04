@@ -35,12 +35,7 @@ guard 'cucumber' do
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
 end
 
-guard 'test' do
-  watch(%r{^app/models/(.+)\.rb$})                   { |m| "test/unit/#{m[1]}_test.rb" }
-  watch(%r{^app/controllers/(.+)\.rb$})              { |m| "test/functional/#{m[1]}_test.rb" }
-  watch(%r{^app/views/.+\.rb$})                      { "test/integration" }
-  watch(%r{^lib/(.+)\.rb$})                          { |m| "test/#{m[1]}_test.rb" }
-  watch(%r{^test/.+_test.rb$})
-  watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
-  watch('test/test_helper.rb')                       { "test" }
+guard 'rails' do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
 end
