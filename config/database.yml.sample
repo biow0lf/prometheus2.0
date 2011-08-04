@@ -1,0 +1,30 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: prometheus_development
+  pool: 5
+  username: biow0lf
+  password:
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: prometheus_test
+  pool: 5
+  username: biow0lf
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  databade: prometheus_development
+  pool: 5
+  username: biow0lf
+  password:
+
+
+cucumber:
+  <<: *test
