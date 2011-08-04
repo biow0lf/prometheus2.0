@@ -46,8 +46,7 @@ module Prometheus20
       :exception_recipients => %w{igor.zubkov@gmail.com}
     if Rails.env.to_sym == :production
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
+      config.middleware.use Rack::Maintenance, :file => File.join('public', 'maintenance.html')
     end
-    config.middleware.use Rack::Maintenance,
-      :file => File.join('public', 'maintenance.html')
   end
 end
