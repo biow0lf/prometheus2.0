@@ -47,5 +47,7 @@ module Prometheus20
     if Rails.env.to_sym == :production
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
     end
+    config.middleware.use Rack::Maintenance,
+      :file => File.join('public', 'maintenance.html')
   end
 end

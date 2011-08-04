@@ -20,6 +20,7 @@ gem 'rack-force_domain'
 gem 'brewdler', :require => false
 gem 'wirb', :require => false
 gem 'sitemap_generator'
+gem 'rack-maintenance', :require => 'rack/maintenance'
 
 group :production do
   gem 'memcache-client'
