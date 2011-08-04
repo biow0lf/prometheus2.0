@@ -38,7 +38,6 @@ end
 
 group :development, :test do
   gem 'ruby-debug19'
-  gem 'sqlite3'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rcov', :require => false
