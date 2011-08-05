@@ -35,11 +35,6 @@ guard 'cucumber' do
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
 end
 
-# guard 'rails' do
-#   watch('Gemfile.lock')
-#   watch(%r{^(config|lib)/.*})
-# end
-
 guard 'test' do
   watch(%r{^lib/(.+)\.rb$})     { |m| "test/#{m[1]}_test.rb" }
   watch(%r{^test/.+_test\.rb$})
@@ -50,4 +45,16 @@ guard 'test' do
   watch(%r{^app/controllers/(.+)\.rb$})              { |m| "test/functional/#{m[1]}_test.rb" }
   watch(%r{^app/views/.+\.rb$})                      { "test/integration" }
   watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
+end
+
+guard 'annotate' do
+  watch('db/schema.rb')
+
+  # Uncomment the following line if you also want to run annotate anytime
+  # a model file changes
+  #watch('app/models/**/*.rb')
+
+  # Uncomment the following line if you are running routes annotation
+  # with the ":routes => true" option
+  #watch('config/routes.rb')
 end

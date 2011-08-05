@@ -55,6 +55,7 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-cucumber'
   gem 'guard-livereload'
+  gem 'guard-annotate'
 end
 
 group :test do
