@@ -46,15 +46,3 @@ guard 'test' do
   watch(%r{^app/views/.+\.rb$})                      { "test/integration" }
   watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
 end
-
-guard 'annotate' do
-  watch('db/schema.rb')
-
-  # Uncomment the following line if you also want to run annotate anytime
-  # a model file changes
-  #watch('app/models/**/*.rb')
-
-  # Uncomment the following line if you are running routes annotation
-  # with the ":routes => true" option
-  #watch('config/routes.rb')
-end
