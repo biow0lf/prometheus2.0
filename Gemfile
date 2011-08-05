@@ -18,6 +18,7 @@ gem 'thinking-sphinx'
 gem 'brewdler', :require => false
 gem 'wirb', :require => false
 gem 'sitemap_generator'
+gem 'globalize3'
 
 group :production do
   gem 'memcache-client'
