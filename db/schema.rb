@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110718112218) do
+ActiveRecord::Schema.define(:version => 20110805170900) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -97,6 +98,16 @@ ActiveRecord::Schema.define(:version => 20110718112218) do
 
   add_index "gears", ["maintainer_id"], :name => "index_gitrepos_on_maintainer_id"
   add_index "gears", ["srpm_id"], :name => "index_gitrepos_on_srpm_id"
+
+  create_table "group_translations", :force => true do |t|
+    t.integer  "group_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "group_translations", ["group_id"], :name => "index_group_translations_on_group_id"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
