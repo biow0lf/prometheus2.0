@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.0.10.rc1'
 gem 'pg'
 gem 'haml'
 gem 'devise'
@@ -13,10 +13,8 @@ gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false
 gem 'whenever', :require => false
-gem 'exception_notification'
 gem 'nested_set'
 gem 'thinking-sphinx'
-gem 'rack-force_domain'
 gem 'brewdler', :require => false
 gem 'wirb', :require => false
 gem 'sitemap_generator'
@@ -25,6 +23,8 @@ group :production do
   gem 'memcache-client'
   gem 'newrelic_rpm'
   gem 'rack-maintenance', :require => 'rack/maintenance'
+  gem 'rack-force_domain'
+  gem 'exception_notification'
 end
 
 group :staging do
