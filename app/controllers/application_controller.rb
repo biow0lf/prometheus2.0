@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def set_default_locale
     params[:locale] ||= 'en'
-    I18n.locale = params[:locale]
-    FastGettext.locale = params[:locale]
+    I18n.locale = params[:locale].to_sym
+    FastGettext.locale = params[:locale].to_sym
   end
 
   def set_default_branch
