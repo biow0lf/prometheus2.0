@@ -1,9 +1,9 @@
-db/seeds.rb.local
+.bundle
+db/*.sqlite3
 log/*.log
-db/development.sqlite3
-db/test.sqlite3
+tmp/
+.sass-cache/
 .DS_Store
-.sass-cache/*
 ._*
 *~
 Capfile
