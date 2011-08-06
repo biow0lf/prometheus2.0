@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "prometheus-noreply@altlinux.org"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -64,7 +64,7 @@ Devise.setup do |config|
   config.stretches = 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "97a195f34ebdfea2ec2c7574cd2ef1699e799c8860c35d3ce3b990a2abb3dc9308716f5cf0e0a3717f6406ae1457847b9f7f4e884ae151c4c46aff9cd8afada2"
+  config.pepper = "ed4b8294f2c3d590ec1404b5ab00396c1afe548a0f28d4967a1724f52ad56b8b789e53d08c39f6143f957cdaa0a3710dccae20005cbddaa8f0e7535a4f515ee2"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
@@ -80,13 +80,13 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 1.year
 
   # If true, a valid remember token can be re-used between multiple browsers.
-  # config.remember_across_browsers = true
+  config.remember_across_browsers = true
 
   # If true, extends the user's remember period when remembered via cookie.
-  # config.extend_remember_period = false
+  config.extend_remember_period = true
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
