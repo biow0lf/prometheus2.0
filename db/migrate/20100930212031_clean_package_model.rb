@@ -1,10 +1,10 @@
 class CleanPackageModel < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :packages, :branch
     remove_column :packages, :vendor
   end
 
-  def self.down
+  def down
     add_column :packages, :branch, :string
     add_column :packages, :vendor, :string
   end

@@ -1,5 +1,5 @@
 class CreateRequires < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :requires do |t|
       t.integer :package_id
       t.string :name
@@ -11,7 +11,7 @@ class CreateRequires < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :requires
   end
 end

@@ -1,10 +1,10 @@
 class ChangeStringToTextInBugsModelForShortDesc < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :bugs, :short_desc
     add_column :bugs, :short_desc, :text
   end
 
-  def self.down
+  def down
     remove_column :bugs, :short_desc
     add_column :bugs, :short_desc, :string
   end

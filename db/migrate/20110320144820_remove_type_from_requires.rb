@@ -1,9 +1,9 @@
 class RemoveTypeFromRequires < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :requires, :type
   end
 
-  def self.down
+  def down
     add_column :requires, :type, :string
   end
 end

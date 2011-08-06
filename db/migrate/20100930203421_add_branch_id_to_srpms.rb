@@ -1,9 +1,9 @@
 class AddBranchIdToSrpms < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :srpms, :branch_id, :integer
   end
 
-  def self.down
+  def down
     remove_column :srpms, :branch_id
   end
 end

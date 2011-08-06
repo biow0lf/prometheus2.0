@@ -1,5 +1,5 @@
 class CreateObsoletes < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :obsoletes do |t|
       t.integer :package_id
       t.string :name
@@ -11,7 +11,7 @@ class CreateObsoletes < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :obsoletes
   end
 end

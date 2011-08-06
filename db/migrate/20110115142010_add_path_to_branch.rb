@@ -1,9 +1,9 @@
 class AddPathToBranch < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :branches, :path, :string
   end
 
-  def self.down
+  def down
     remove_column :branches, :path
   end
 end

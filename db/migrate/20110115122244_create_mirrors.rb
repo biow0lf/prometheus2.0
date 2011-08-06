@@ -1,5 +1,5 @@
 class CreateMirrors < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :mirrors do |t|
       t.integer :branch_id
       t.integer :order_id
@@ -12,7 +12,7 @@ class CreateMirrors < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :mirrors
   end
 end

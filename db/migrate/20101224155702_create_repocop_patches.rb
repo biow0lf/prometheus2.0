@@ -1,5 +1,5 @@
 class CreateRepocopPatches < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :repocop_patches do |t|
       t.string :name
       t.string :version
@@ -12,7 +12,7 @@ class CreateRepocopPatches < ActiveRecord::Migration
     add_index :repocop_patches, :name
   end
 
-  def self.down
+  def down
     drop_table :repocop_patches
   end
 end

@@ -1,5 +1,5 @@
 class CreateBugs < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :bugs do |t|
       t.integer :bug_id
       t.string :bug_status
@@ -15,7 +15,7 @@ class CreateBugs < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :bugs
   end
 end

@@ -1,5 +1,5 @@
 class CreateProvides < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :provides do |t|
       t.integer :package_id
       t.string :name
@@ -11,7 +11,7 @@ class CreateProvides < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :provides
   end
 end

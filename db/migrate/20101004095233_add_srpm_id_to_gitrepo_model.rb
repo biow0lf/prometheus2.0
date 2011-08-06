@@ -1,11 +1,11 @@
 class AddSrpmIdToGitrepoModel < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :gitrepos, :srpm_id, :integer
     add_index :gitrepos, :srpm_id
     remove_column :gitrepos, :login
   end
 
-  def self.down
+  def down
     add_column :gitrepos, :login
     remove_index :gitrepos, :srpm_id
     remove_column :gitrepos, :srpm_id

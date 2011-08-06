@@ -1,5 +1,5 @@
 class CreateGroups < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :groups do |t|
       t.string :name
       t.string :branch
@@ -9,7 +9,7 @@ class CreateGroups < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :groups
   end
 end

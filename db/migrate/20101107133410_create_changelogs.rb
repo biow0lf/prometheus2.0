@@ -1,5 +1,5 @@
 class CreateChangelogs < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :changelogs do |t|
       t.integer :srpm_id
       t.string :changelogtime
@@ -12,7 +12,7 @@ class CreateChangelogs < ActiveRecord::Migration
     add_index :changelogs, :srpm_id
   end
 
-  def self.down
+  def down
     drop_table :changelogs
   end
 end

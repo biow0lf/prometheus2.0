@@ -1,9 +1,9 @@
 class AddBranchIdToGroups < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :groups, :branch_id, :integer
   end
 
-  def self.down
+  def down
     remove_column :groups, :branch_id
   end
 end

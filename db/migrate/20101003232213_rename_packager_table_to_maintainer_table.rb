@@ -1,9 +1,9 @@
 class RenamePackagerTableToMaintainerTable < ActiveRecord::Migration
-  def self.up
+  def up
     rename_table :packagers, :maintainers
   end
 
-  def self.down
+  def down
     rename_table :maintainers, :packagers
   end
 end

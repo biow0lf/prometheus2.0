@@ -1,9 +1,9 @@
 class RemoveAclsUrlFromBranches < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :branches, :acls_url
   end
 
-  def self.down
+  def down
     add_column :branches, :acls_url, :string
   end
 end

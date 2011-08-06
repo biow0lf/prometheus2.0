@@ -1,9 +1,9 @@
 class RemoveRpmGroupsUrlFromBranches < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :branches, :rpm_groups_url
   end
 
-  def self.down
+  def down
     add_column :branches, :rpm_groups_url, :string
   end
 end

@@ -1,9 +1,9 @@
 class RemoveLeadersUrlFromBranches < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :branches, :leaders_url
   end
 
-  def self.down
+  def down
     add_columnt :branches, :leaders_url, :string
   end
 end

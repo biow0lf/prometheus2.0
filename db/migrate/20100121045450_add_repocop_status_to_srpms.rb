@@ -1,9 +1,9 @@
 class AddRepocopStatusToSrpms < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :srpms, :repocop, :string, :default => 'skip'
   end
 
-  def self.down
+  def down
     remove_column :srpms, :repocop
   end
 end

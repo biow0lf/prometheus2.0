@@ -1,10 +1,10 @@
 class CleanAclModel < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :acls, :vendor
     remove_column :acls, :branch
   end
 
-  def self.down
+  def down
     add_column :acls, :vendor, :string
     add_column :acls, :branch, :string
   end

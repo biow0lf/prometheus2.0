@@ -1,9 +1,9 @@
 class AddSpecIdToSrpm < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :srpms, :specfile_id, :integer, :default => nil
   end
 
-  def self.down
+  def down
     remove_column :srpms, :specfile_id
   end
 end

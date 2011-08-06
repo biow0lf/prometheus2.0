@@ -1,5 +1,5 @@
 class CreateBranches < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :branches do |t|
       t.string :vendor
       t.string :name
@@ -16,7 +16,7 @@ class CreateBranches < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :branches
   end
 end

@@ -1,9 +1,9 @@
 class RemoveUrlFromBranches < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :branches, :url
   end
 
-  def self.down
+  def down
     add_column :branches, :url, :string
   end
 end

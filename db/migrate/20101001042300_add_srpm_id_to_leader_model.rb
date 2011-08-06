@@ -1,5 +1,5 @@
 class AddSrpmIdToLeaderModel < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :leaders, :srpm_id, :integer
     add_index :leaders, :srpm_id
     remove_column :leaders, :package
@@ -7,7 +7,7 @@ class AddSrpmIdToLeaderModel < ActiveRecord::Migration
     add_index :leaders, :packager_id
   end
 
-  def self.down
+  def down
     remove_index :leaders, :packager_id
     remove_column :leaders, :packager_id
     add_column :leaders, :package, :string

@@ -1,9 +1,9 @@
 class AddFlagsToRequires < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :requires, :flags, :integer
   end
 
-  def self.down
+  def down
     remove_column :requires, :flags
   end
 end

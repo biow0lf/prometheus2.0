@@ -1,9 +1,9 @@
 class AddGroupIdToSrpms < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :srpms, :group_id, :integer
   end
 
-  def self.down
+  def down
     remove_column :srpms, :group_id
   end
 end

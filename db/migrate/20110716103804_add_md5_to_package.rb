@@ -1,9 +1,9 @@
 class AddMd5ToPackage < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :packages, :md5, :string
   end
 
-  def self.down
+  def down
     remove_column :packages, :md5
   end
 end

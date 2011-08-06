@@ -1,5 +1,5 @@
 class CreateFtbfs < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :ftbfs do |t|
       t.string :name
       t.string :epoch
@@ -12,7 +12,7 @@ class CreateFtbfs < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :ftbfs
   end
 end

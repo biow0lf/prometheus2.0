@@ -1,5 +1,5 @@
 class AddLastChangelogData < ActiveRecord::Migration
-  def self.up
+  def up
 #    ActiveRecord::Base.transaction do
 #      srpms = Srpm.scoped
 #      srpms.each do |srpm|
@@ -7,7 +7,7 @@ class AddLastChangelogData < ActiveRecord::Migration
 #        
 #        srpm.changelogtime = changelog.changelogtime
 #        srpm.changelogname = changelog.changelogname
-#        srpm.changelogtext = changelog.changelogtext        
+#        srpm.changelogtext = changelog.changelogtext
 #        unless srpm.save
 #          p "shit happens!"
 #        end
@@ -15,6 +15,6 @@ class AddLastChangelogData < ActiveRecord::Migration
 #    end
   end
 
-  def self.down
+  def down
   end
 end

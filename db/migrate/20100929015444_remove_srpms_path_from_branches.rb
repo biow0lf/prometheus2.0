@@ -1,9 +1,9 @@
 class RemoveSrpmsPathFromBranches < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :branches, :srpms_path
   end
 
-  def self.down
+  def down
     add_column :branches, :srpms_path, :string
   end
 end

@@ -1,5 +1,5 @@
 class CreateGitrepos < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :gitrepos do |t|
       t.string :repo
       t.string :login
@@ -9,7 +9,7 @@ class CreateGitrepos < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :gitrepos
   end
 end

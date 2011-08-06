@@ -1,5 +1,5 @@
 class CreateTeams < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :teams do |t|
       t.string :name
       t.string :login
@@ -10,7 +10,7 @@ class CreateTeams < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :teams
   end
 end

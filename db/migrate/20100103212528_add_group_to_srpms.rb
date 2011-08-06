@@ -1,9 +1,9 @@
 class AddGroupToSrpms < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :srpms, :group, :string
   end
 
-  def self.down
+  def down
     remove_column :srpms, :group
   end
 end

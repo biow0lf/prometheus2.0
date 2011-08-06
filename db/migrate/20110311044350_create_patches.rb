@@ -1,5 +1,5 @@
 class CreatePatches < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :patches do |t|
       t.integer :branch_id
       t.integer :srpm_id
@@ -12,7 +12,7 @@ class CreatePatches < ActiveRecord::Migration
     add_index :patches, :srpm_id
   end
 
-  def self.down
+  def down
     drop_table :patches
   end
 end

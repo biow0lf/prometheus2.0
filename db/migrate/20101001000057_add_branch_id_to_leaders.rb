@@ -1,9 +1,9 @@
 class AddBranchIdToLeaders < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :leaders, :branch_id, :integer
   end
 
-  def self.down
+  def down
     remove_column :leaders, :branch_id
   end
 end

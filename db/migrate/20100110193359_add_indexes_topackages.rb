@@ -1,12 +1,12 @@
 class AddIndexesTopackages < ActiveRecord::Migration
-  def self.up
+  def up
     add_index :packages, :branch
     add_index :packages, :vendor
     add_index :packages, :sourcepackage
     add_index :packages, :arch
   end
 
-  def self.down
+  def down
     remove_index :packages, :branch
     remove_index :packages, :vendor
     remove_index :packages, :sourcepackage

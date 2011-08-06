@@ -1,9 +1,9 @@
 class AddGroupsUrlToBranches < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :branches, :rpm_groups_url, :string
   end
 
-  def self.down
+  def down
     remove_column :branches, :rpm_groups_url
   end
 end

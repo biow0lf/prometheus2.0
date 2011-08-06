@@ -1,10 +1,10 @@
 class CleanLeadersModel < ActiveRecord::Migration
-  def self.up
+  def up
     remove_column :leaders, :branch
     remove_column :leaders, :vendor
   end
 
-  def self.down
+  def down
     add_column :leaders, :branch, :string
     add_column :leaders, :vendor, :string
   end

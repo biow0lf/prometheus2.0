@@ -1,5 +1,5 @@
 class CreateSpecfiles < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :specfiles do |t|
       t.integer :srpm_id
       t.integer :branch_id
@@ -12,7 +12,7 @@ class CreateSpecfiles < ActiveRecord::Migration
     add_index :specfiles, :branch_id
   end
 
-  def self.down
+  def down
     drop_table :specfiles
   end
 end

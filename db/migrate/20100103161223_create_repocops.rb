@@ -1,5 +1,5 @@
 class CreateRepocops < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :repocops do |t|
       t.string :name
       t.string :version
@@ -16,7 +16,7 @@ class CreateRepocops < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :repocops
   end
 end

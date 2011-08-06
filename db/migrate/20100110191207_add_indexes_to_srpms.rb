@@ -1,9 +1,9 @@
 class AddIndexesToSrpms < ActiveRecord::Migration
-  def self.up
+  def up
     add_index :srpms, :name
   end
 
-  def self.down
+  def down
     remove_index :srpms, :name
   end
 end

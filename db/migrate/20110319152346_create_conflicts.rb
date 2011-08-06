@@ -1,5 +1,5 @@
 class CreateConflicts < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :conflicts do |t|
       t.integer :package_id
       t.string :name
@@ -11,7 +11,7 @@ class CreateConflicts < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :conflicts
   end
 end

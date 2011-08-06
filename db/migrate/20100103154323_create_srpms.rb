@@ -1,5 +1,5 @@
 class CreateSrpms < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :srpms do |t|
       t.string :branch
       t.string :vendor
@@ -19,7 +19,7 @@ class CreateSrpms < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :srpms
   end
 end

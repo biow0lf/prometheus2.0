@@ -1,5 +1,5 @@
 class CreatePackagers < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :packagers do |t|
       t.string :name
       t.string :email
@@ -10,7 +10,7 @@ class CreatePackagers < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :packagers
   end
 end

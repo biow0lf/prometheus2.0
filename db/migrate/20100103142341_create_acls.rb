@@ -1,5 +1,5 @@
 class CreateAcls < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :acls do |t|
       t.string :package
       t.string :login
@@ -10,7 +10,7 @@ class CreateAcls < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :acls
   end
 end

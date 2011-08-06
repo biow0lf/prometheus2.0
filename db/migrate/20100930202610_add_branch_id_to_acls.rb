@@ -1,9 +1,9 @@
 class AddBranchIdToAcls < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :acls, :branch_id, :integer
   end
 
-  def self.down
+  def down
     remove_column :acls, :branch_id
   end
 end

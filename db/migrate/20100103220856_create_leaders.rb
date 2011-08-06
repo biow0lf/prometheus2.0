@@ -1,5 +1,5 @@
 class CreateLeaders < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :leaders do |t|
       t.string :package
       t.string :login
@@ -9,7 +9,7 @@ class CreateLeaders < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :leaders
   end
 end

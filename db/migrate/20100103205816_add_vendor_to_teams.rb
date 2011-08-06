@@ -1,9 +1,9 @@
 class AddVendorToTeams < ActiveRecord::Migration
-  def self.up
+  def up
     add_column :teams, :vendor, :string
   end
 
-  def self.down
+  def down
     remove_column :teams, :vendor
   end
 end

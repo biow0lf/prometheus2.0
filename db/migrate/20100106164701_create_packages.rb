@@ -1,5 +1,5 @@
 class CreatePackages < ActiveRecord::Migration
-  def self.up
+  def up
     create_table :packages do |t|
       t.string :filename
       t.string :sourcepackage
@@ -21,7 +21,7 @@ class CreatePackages < ActiveRecord::Migration
     end
   end
 
-  def self.down
+  def down
     drop_table :packages
   end
 end
