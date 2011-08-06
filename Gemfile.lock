@@ -1,22 +1,3 @@
-GIT
-  remote: git://github.com/jeroenvandijk/remarkable.git
-  revision: d8436c10a2258a64fea551634c1bb63878931cb8
-  specs:
-    remarkable (4.0.0.alpha4)
-      rspec (>= 2.0.0.alpha11)
-    remarkable_activemodel (4.0.0.alpha4)
-      remarkable (~> 4.0.0.alpha4)
-      rspec (>= 2.0.0.alpha11)
-    remarkable_activerecord (4.0.0.alpha4)
-      activerecord (~> 3.0.0)
-      remarkable_activemodel (= 4.0.0.alpha4)
-      remarkable_core (= 4.0.0.alpha4)
-      rspec (~> 2.3)
-    remarkable_core (4.0.0.alpha4)
-      activesupport (~> 3.0.0)
-      i18n (~> 0.5)
-      rspec (~> 2.3)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -225,6 +206,7 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    shoulda (2.11.3)
     silent-postgres (0.0.8)
     sitemap_generator (2.0.1)
     stepdown (0.6.2)
@@ -293,10 +275,10 @@ DEPENDENCIES
   rb-inotify
   rcov
   redis
-  remarkable_activerecord!
   rspec
   rspec-rails
   ruby-debug19
+  shoulda
   silent-postgres
   sitemap_generator
   stepdown
