@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10.rc1'
+gem 'rails', '3.1.0.rc5'
+
 gem 'pg'
 gem 'haml'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
-gem 'meta_search'
-gem 'meta_where'
+gem 'meta_search', '1.1.0.pre2'
+gem 'squeel'
 gem 'kaminari'
 gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
@@ -19,6 +20,27 @@ gem 'brewdler', :require => false
 gem 'wirb', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+end
 
 group :production do
   gem 'memcache-client'
@@ -62,7 +84,6 @@ group :test do
   gem 'ffaker'
   gem 'factory_girl_rails'
   gem 'shoulda'
-  # gem 'remarkable_activerecord', :git => 'git://github.com/jeroenvandijk/remarkable.git'
   gem 'email_spec'
   gem 'launchy'
   gem 'cucumber'
