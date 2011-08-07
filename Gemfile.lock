@@ -89,10 +89,7 @@ GEM
     exception_notification (2.4.1)
     execjs (1.2.4)
       multi_json (~> 1.0)
-    factory_girl (2.0.3)
-    factory_girl_rails (1.1.0)
-      factory_girl (~> 2.0.0)
-      railties (>= 3.0.0)
+    fabrication (1.0.1)
     fast_gettext (0.5.13)
     ffaker (1.8.0)
     ffi (1.0.9)
@@ -282,7 +279,7 @@ DEPENDENCIES
   devise
   email_spec
   exception_notification
-  factory_girl_rails
+  fabrication
   fast_gettext (>= 0.4.8)
   ffaker
   gettext (>= 1.9.3)

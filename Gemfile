@@ -82,7 +82,7 @@ end
 group :test do
   gem 'capybara'
   gem 'ffaker'
-  gem 'factory_girl_rails'
+  gem 'fabrication'
   gem 'shoulda'
   gem 'email_spec'
   gem 'launchy'
