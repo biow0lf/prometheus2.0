@@ -97,7 +97,7 @@ GEM
       locale (>= 2.0.5)
     gettext_i18n_rails (0.2.20)
       fast_gettext
-    gherkin (2.4.5)
+    gherkin (2.4.6)
       json (>= 1.4.6)
     globalize3 (0.1.0)
       activemodel (>= 3.0.0)
