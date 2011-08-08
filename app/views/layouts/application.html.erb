@@ -82,7 +82,7 @@
                 <%= text_field_tag :query, params[:query] ? params[:query] : "", :placeholder => _('Search...'), :class => 'top-name', :size => '18' %>
               </td>
               <td valign='middle'>
-                <%= submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'sub1', :value => _('find'), :onmouseover => "m_on('sub1')", :onmouseout => "m_off('sub1')" %>
+                <%= submit_tag _('find'), :name => nil, :class => 'top-go', :id => 'sub1', :onmouseover => "m_on('sub1')", :onmouseout => "m_off('sub1')" %>
               </td>
             </tr>
           </table>
