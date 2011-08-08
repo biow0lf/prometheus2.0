@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
-  <ShortName>Prometheus.altlinux.org</ShortName>
-  <Description>Prometheus.altlinux.org</Description>
+  <ShortName>packages.altlinux.org</ShortName>
+  <Description>packages.altlinux.org</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">http://prometheus.altlinux.org/favicon.ico</Image>
-  <Url type="text/html" method="get" template="http://prometheus.altlinux.org/en/search?query={searchTerms}"></Url>
+  <Image width="16" height="16" type="image/x-icon">http://packages.altlinux.org/favicon.ico</Image>
+  <Url type="text/html" method="get" template="http://packages.altlinux.org/en/search?query={searchTerms}"></Url>
 </OpenSearchDescription>
