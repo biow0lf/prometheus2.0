@@ -129,6 +129,13 @@ GEM
       thor (~> 0.14)
     json (1.5.3)
     json_pure (1.5.3)
+    json_spec (0.6.0)
+      json (~> 1.0)
+      rspec (~> 2.0)
+    jsonify (0.1.0)
+    jsonify-rails (0.0.7)
+      actionpack (>= 3.0.0)
+      jsonify
     kaminari (0.12.4)
       rails (>= 3.0.0)
     launchy (2.0.5)
@@ -294,6 +301,8 @@ DEPENDENCIES
   guard-test
   haml
   jquery-rails
+  json_spec
+  jsonify-rails
   kaminari
   launchy
   libnotify

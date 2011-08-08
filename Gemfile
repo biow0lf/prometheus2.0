@@ -20,6 +20,7 @@ gem 'brewdler', :require => false
 gem 'wirb', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
+gem 'jsonify-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -85,6 +86,7 @@ group :test do
   gem 'fabrication'
   gem 'shoulda'
   gem 'email_spec'
+  gem 'json_spec'
   gem 'launchy'
   gem 'cucumber'
   gem 'cucumber-rails'
