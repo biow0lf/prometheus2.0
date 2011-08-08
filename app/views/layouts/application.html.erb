@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <meta content='text/html;charset=UTF-8' http-equiv='content-type' />
+  <meta content='<%= yield(:description) %>' name='description'>
+  <meta content='<%= yield(:keywords) %>' name='keywords'>
+  <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+  <link href='/opensearch.xml' rel='search' title='Prometheus2.0 search' type='application/opensearchdescription+xml'>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag 'alt', 'github' %>
+  <script src='http://www.google.com/jsapi' type='text/javascript'></script>
+  <script type='text/javascript'>
+    google.load("jquery", "1.4.4");
+  </script>
+  <%= javascript_include_tag 'rails', params[:locale] + '/local.js', :cache => "main_" + params[:locale] %>
+  <!-- <%#= javascript_include_tag "application" %> -->
+  <script>
+    //<![CDATA[
+    function chText(txt1, txt2, did) {
+      di = document.getElementById(did);
+      if (di.innerHTML == txt1) {
+        di.innerHTML = txt2;
+        di.style.backgroundColor = '#baccdd';
+      } else {
+        di.innerHTML = txt1;
+        di.style.backgroundColor = '#fafaff';
+      };
+    };
+    function m_on(lid) {
+      li = document.getElementById(lid);
+      li.style.backgroundColor = '#aabccd';
+      if (dli = document.getElementById('d' + lid)) {
+        dli.style.backgroundColor = '#aabccd';
+      };
+    };
+    function m_off(lid) {
+      li = document.getElementById(lid);
+      li.style.backgroundColor = '#fafaff';
+      if (dli = document.getElementById('d' + lid)) {
+        dli.style.backgroundColor = '#fafaff';
+      };
+    };
+    function show(divnum) {
+      for (i=1; i <= 3; i++ ) {
+        layersrc = document.getElementById('vk' + i);
+        layerdst = document.getElementById('div' + i);
+        if (i == divnum && layerdst.style.display == "none") {
+          layerdst.style.display = "block";
+          layersrc.style.backgroundColor = "#baccdd";
+        } else {
+          layerdst.style.display = "none";
+          layersrc.style.backgroundColor = "#fafaff";
+        };
+      };
+    };
+    //]]>
+  </script>
+</head>
+<body>
+  <div style='display: none;'>
+    <p class='notice'></p>
+    <p class='alert'></p>
+  </div>
+
+  <div id='top'>
+    <div id='top-logo'>
+      <a href='http://www.altlinux.org/'>
+        <%= image_tag('altlinux.gif', :style => 'border: 0px', :alt => _('ALT Linux Team - wiki'), :title => _('ALT Linux Team - wiki')) %>
+      </a>
+    </div>
+    <div id='top-menu'>
+      <%= _('Sisyphus repository') %>
+    </div>
+    <div id='top-auth'>
+      <div id='div1' style='display: block; margin-top: 20px'>
+        <%= form_tag search_path(:branch => @branch.name), :method => :get do %>
+          <%= hidden_field_tag('branch', @branch.name) %>
+          <table>
+            <tr>
+              <td>
+                <%= text_field_tag :query, params[:query] ? params[:query] : "", :placeholder => _('Search...'), :class => 'top-name', :size => '18' %>
+              </td>
+              <td valign='middle'>
+                <%= submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'sub1', :value => _('find'), :onmouseover => "m_on('sub1')", :onmouseout => "m_off('sub1')" %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id='top-line'>
+    <div id='vinfo'>
+      <b><%= _('Last update:') %> </b> <%= Date.today %> | <b><%= _('SRPMs:') %> </b> <%= Srpm.count_srpms_in(params[:branch]) %> | 
+      <% if user_signed_in? %>
+        <b><%= "Welcome, #{current_user.email}! | " %></b>
+        <%= link_to _('Sign out'), destroy_user_session_path %>
+        <% if current_user.is_alt_team? %>
+         | <b><%= link_to _('Edit my maintainer profile'), edit_maintainer_profile_path %></b>
+        <% end %>
+      <% else %>
+        <%= link_to _('Sign in'), new_user_session_path %><%= _(' or ') %>
+        <%= link_to _('Sign up'), new_user_registration_path %>
+      <% end %>
+    </div>
+    <div style='text-align: right'>
+      <%= link_to_unless_current _('en'), current_page(request.fullpath, 'en'), :title => _('English') %> 
+      <%= link_to_unless_current _('ru'), current_page(request.fullpath, 'ru'), :title => _('Russian') %> 
+      <%= link_to_unless_current _('uk'), current_page(request.fullpath, 'uk'), :title => _('Ukrainian') %> 
+      <%= link_to_unless_current _('br'), current_page(request.fullpath, 'br'), :title => _('Portuguese (Brasilian)') %>
+    </div>
+  </div>
+
+  <div id='menu' style='text-align: center'>
+    <ul>
+      <li id='li1' onmouseout="m_off('li1')" onmouseover="m_on('li1')">
+        <div id='dli1'>
+          <%= link_to_unless_current _('Home'), home_path(:branch => params[:branch]), :title => _('site home page') %>
+        </div>
+      </li>
+      <li id='li3' onmouseout="m_off('li3')" onmouseover="m_on('li3')">
+        <div id='dli3'>
+          <%= link_to_unless_current _('Packages'), packages_path(:branch => params[:branch]), :title => _('packages information') %>
+        </div>
+      </li>
+      <li id='li4' onmouseout="m_off('li4')" onmouseover="m_on('li4')">
+        <div id='dli4'>
+          <%= link_to_unless_current _('Maintainers'), maintainers_path(:branch => params[:branch]), :title => _('maintainers information') %>
+        </div>
+      </li>
+      <li id='li5' onmouseout="m_off('li5')" onmouseover="m_on('li5')">
+        <div id='dli5'>
+          <%= link_to_unless_current _('Security'), security_path, :title => _('security fixes') %>
+        </div>
+      </li>
+      <li id='li6' onmouseout="m_off('li6')" onmouseover="m_on('li6')">
+        <div id='dli6'>
+          <%= link_to_unless_current _('About'), project_path, :title => _('about Prometheus project') %>
+        </div>
+      </li>
+      <li id='li7' onmouseout="m_off('li7')" onmouseover="m_on('li7')">
+        <div id='dli7'>
+          <%= link_to_unless_current _('RSS'), rss_path(:branch => params[:branch]), :title => _('RSS') %>
+        </div>
+      </li>
+      <li id='li8' onmouseout="m_off('li8')" onmouseover="m_on('li8')">
+        <div id='dli8'>
+          <%= link_to _('Wiki'), _('http://en.altlinux.org/Sisyphus'), :title => _('sisyphus public site') %>
+        </div>
+      </li>
+      <% if params[:locale] == 'ru' %>
+        <li id='li9' onmouseout="m_off('li9')" onmouseover="m_on('li9')">
+          <div id='dli9'>
+            <%= link_to _('Blog'), _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'), :title => _('blog') %>
+          </div>
+        </li>
+        <li id='li10' onmouseout="m_off('li10')" onmouseover="m_on('li10')">
+          <div id='dli10'>
+            <%= link_to _('Planet'), _('http://planet.altlinux.org/'), :title => _('ALT Linux Planet') %>
+          </div>
+        </li>
+      <% end %>
+      <li id='li11' onmouseout="m_off('li11')" onmouseover="m_on('li11')">
+        <div id='dli11'>
+          <%= link_to _('Mailing list'), _('http://lists.altlinux.org/mailman/listinfo/community-en/'), :title => _('community-en@') %>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div id='main-offset'>
+    <%= yield %>
+  </div>
+
+  <div id='bottom'>
+    &copy;&nbsp;2009&ndash;2011&nbsp;<a class='news' href='mailto:icesik@altlinux.org'>Igor Zubkov</a>
+  </div>
+
+<%= render :partial => 'shared/ga' %>
+<%= render :partial => 'shared/ym' %>
+<%= render :partial => 'shared/woopra' %>
+
+</body>
+</html>
