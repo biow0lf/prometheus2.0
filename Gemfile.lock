@@ -299,7 +299,6 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   guard-test
-  haml
   jquery-rails
   json_spec
   jsonify-rails
