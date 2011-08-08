@@ -10,11 +10,8 @@
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag 'alt' %>
   <%#= stylesheet_link_tag 'github' %>
-  <script src='http://www.google.com/jsapi' type='text/javascript'></script>
-  <script type='text/javascript'>
-    google.load("jquery", "1.4.4");
-  </script>
-  <%= javascript_include_tag 'rails', params[:locale] + '/local.js', :cache => "main_" + params[:locale] %>
+  <%= javascript_include_tag 'application' %>
+  <!-- <%= javascript_include_tag 'rails', params[:locale] + '/local.js', :cache => "main_" + params[:locale] %> -->
   <!-- <%#= javascript_include_tag "application" %> -->
   <script>
     //<![CDATA[
