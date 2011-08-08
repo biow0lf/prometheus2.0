@@ -115,6 +115,9 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 0.4.0)
       json (>= 1.5.1)
+    guard-rails-assets (0.0.5)
+      guard
+      rake
     guard-rspec (0.4.0)
       guard (>= 0.4.0)
     guard-test (0.3.0)
@@ -297,6 +300,7 @@ DEPENDENCIES
   guard-bundler
   guard-cucumber
   guard-livereload
+  guard-rails-assets
   guard-rspec
   guard-test
   jquery-rails

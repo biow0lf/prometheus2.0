@@ -77,6 +77,7 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'guard-cucumber'
   gem 'guard-livereload'
+  gem 'guard-rails-assets'
 end
 
 group :test do
