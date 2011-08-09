@@ -61,6 +61,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'fabrication'
   gem 'ruby-debug19'
   gem 'rspec'
   gem 'rspec-rails'
@@ -69,7 +70,6 @@ group :development, :test do
   gem 'guard'
   gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
-  # linux part is not tested
   gem 'rb-inotify', :require => false
   gem 'libnotify', :require => false
   gem 'guard-test'
@@ -83,7 +83,6 @@ end
 group :test do
   gem 'capybara'
   gem 'ffaker'
-  gem 'fabrication'
   gem 'shoulda'
   gem 'email_spec'
   gem 'json_spec'
