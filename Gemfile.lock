@@ -115,10 +115,10 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 0.4.0)
       multi_json (~> 1.0.3)
-    guard-rails-assets (0.0.5)
+    guard-rails-assets (0.0.6)
       guard
       rake
-    guard-rspec (0.4.0)
+    guard-rspec (0.4.1)
       guard (>= 0.4.0)
     guard-test (0.3.0)
       guard (>= 0.2.2)
