@@ -14,8 +14,6 @@ module NavigationHelpers
       new_user_registration_path
     when /the sign in page/
       new_user_session_path
-    when /the sign out page/
-      destroy_user_session_path
     when /my profile edit page/
       edit_maintainer_profile_path
     when /the recover password page/

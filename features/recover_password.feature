@@ -3,8 +3,13 @@ Feature: Recover password
   A user
   Should be able to recover lost password
 
+  Background:
+    Given the following branch:
+      | name   | Sisyphus  |
+      | vendor | ALT Linux |
+
   Scenario: Recover password
-    Given I am signed up and confirmed as "email@example.com" with unknown password
+    Given I am signed up and confirmed as "email@example.com"
     And a clear email queue
     When I go to the recover password page
     And I fill in "Email" with "email@example.com"
@@ -14,8 +19,8 @@ Feature: Recover password
     When I open the email
     Then I should see "Change my password" in the email body
     When I follow "Change my password" in the email
-    Then I fill in "New password" with "password"
-    And I fill in "Confirm new password" with "password"
+    Then I fill in "New password" with "mynewpassword"
+    And I fill in "Confirm new password" with "mynewpassword"
     And I press "Change my password"
     Then I should see "Your password was changed successfully. You are now signed in."
     And I should see "Welcome, email@example.com!"

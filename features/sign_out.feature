@@ -3,9 +3,14 @@ Feature: User sign out
   A signed in user
   Should be able to sign out
 
+  Background:
+    Given the following branch:
+      | name   | Sisyphus  |
+      | vendor | ALT Linux |
+
   Scenario: User sign out
-    Given I am signed up and confirmed as "email@person.com/password"
-    When I sign in as "email@person.com/password"
+    Given I am signed up and confirmed as "email@person.com"
+    When I sign in as "email@person.com"
     Then I should see "Welcome, email@person.com!"
     And I sign out
     Then I should see "Signed out successfully."

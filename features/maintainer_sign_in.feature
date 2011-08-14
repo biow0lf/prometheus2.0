@@ -5,8 +5,8 @@ Feature: Manageming maintainer profile
 
   Background:
     Given the following branch:
-      | name     | Sisyphus  |
-      | vendor   | ALT Linux |
+      | name   | Sisyphus  |
+      | vendor | ALT Linux |
     And the following maintainer:
       | name  | Igor Zubkov         |
       | email | icesik@altlinux.org |
