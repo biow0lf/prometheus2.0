@@ -280,7 +280,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_sanity
-  arel (= 2.1.4)
   brewdler
   capybara
   coffee-rails (~> 3.1.0.rc)

@@ -1,8 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc5'
-# lock arel version
-gem 'arel', '2.1.4'
 
 gem 'pg'
 gem 'devise'
