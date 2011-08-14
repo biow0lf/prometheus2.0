@@ -2,8 +2,8 @@
 
 <script>
   //<![CDATA[
-  offImg = new Image(); offImg.src = "/assets/plus.gif";
-  onImg  = new Image(); onImg.src = "/assets/minus.gif";
+  offImg = new Image(); offImg.src = "<%= asset_path 'plus.gif' %>";
+  onImg  = new Image(); onImg.src = "<%= asset_path 'minus.gif' %>";
 
   function showGrp(dirid) {
     if (el = document.getElementById("dir" + dirid)) {
