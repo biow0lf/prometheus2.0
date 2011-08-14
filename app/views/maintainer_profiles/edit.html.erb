@@ -1,0 +1,33 @@
+<div id='main-content'>
+  <div class='header'><%= _('Update personal maintainer info') %></div>
+
+  <%= form_tag maintainer_profile_path, :method => :put do %>
+    <%= label_tag :website, _('Website/Blog:') %>
+    <%= text_field_tag :website, @maintainer.website %>
+    <br/>
+
+    <%= label_tag :location, _('Location:') %>
+    <%= text_field_tag :location, @maintainer.location %>
+    <br/>
+
+    <%= label_tag :time_zone, _('Time Zone:') %>
+    <%= select_tag :time_zone, time_zone_options_for_select(@maintainer.time_zone, nil, TZInfo::Timezone) %>
+    <br/>
+
+    <%= label_tag :jabber, _('Jabber ID:') %>
+    <%= text_field_tag :jabber, @maintainer.jabber %>
+    <br/>
+
+    <%= label_tag :info, _('Info:') %>
+    <%= text_area_tag :info, @maintainer.info, :size => '100x20' %>
+    <br/>
+
+    <%= submit_tag _('Update') %>
+  <% end %>
+</div>
+
+<div id='bottom-offset-l'>
+  <div id='bottom-offset-r'>
+    &nbsp;
+  </div>
+</div>
