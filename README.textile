@@ -7,7 +7,7 @@ h3. Install:
 * Ruby 1.9.2p290
 * RubyGems 1.8.8
 * ruby-rpm
-* bundler 1.1.pre.5
+* bundler 1.1.pre.7
 * PostgreSQL 9.0 (with other databases it doesn't tested)
 * nginx + passenger
 * gettext
