@@ -94,7 +94,7 @@
       <b><%= _('Last update:') %> </b> <%= Date.today %> | <b><%= _('SRPMs:') %> </b> <%= Srpm.count_srpms_in(params[:branch]) %> | 
       <% if user_signed_in? %>
         <b><%= "Welcome, #{current_user.email}! | " %></b>
-        <%= link_to _('Sign out'), destroy_user_session_path %>
+        <%= link_to _('Sign out'), destroy_user_session_path, :method => :delete %>
         <% if current_user.is_alt_team? %>
          | <b><%= link_to _('Edit my maintainer profile'), edit_maintainer_profile_path %></b>
         <% end %>
