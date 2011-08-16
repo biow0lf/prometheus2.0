@@ -4,7 +4,7 @@ Prometheus20::Application.routes.draw do
     resource :maintainer_profile, :only => [:edit, :update]
     resource :search, :only => :show, :id => /[^\/]+/
     root :to => 'home#index'
-    
+
     match 'm/' => 'iphone#index', :as => 'iphone_home'
     match 'm/maintainer/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
     match 'm/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
@@ -30,7 +30,7 @@ Prometheus20::Application.routes.draw do
       match 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
     end
 
-    scope ':branch', :branch => /[^\/]+/ do#, :branch => /[^iphone]/ do
+    scope ':branch', :branch => /[^\/]+/ do
       resources :maintainers, :only => :show do
         get 'srpms', :on => :member
       end
@@ -62,37 +62,6 @@ Prometheus20::Application.routes.draw do
 
 #  match '/repocop' => 'repocop#index'
 #  match '/repocop/by-test/:testname' => 'repocop#bytest'
-
-#  match '(/:locale)/cli/count/:branch/:vendor/' => 'cli#count'
-
-#  match '(/:locale)/cli/maintainers' => 'cli#maintainers'
-#  match '(/:locale)/cli/maintainer/:login' => 'cli#maintainer_name'
-#  match '(/:locale)/cli/maintainer/:login/acl' => 'cli#maintainer_acl'
-#  match '(/:locale)/cli/maintainer/:login/gear' => 'cli#maintainer_gear'
-#  match '(/:locale)/cli/maintainer/:login/bugs' => 'cli#maintainer_bugs'
-#  match '(/:locale)/cli/maintainer/:login/allbugs' => 'cli#maintainer_allbugs'
-#  match '(/:locale)/cli/maintainer/:login/repocop' => 'cli#maintainer_repocop'
-
-  match '/cli/srpm/:vendor/:branch/:name' => 'cli#srpm_info'
-  #match '/cli/srpm/:vendor/:branch/:name/acls' => 'cli#srpm_acls'
-  match '/cli/srpm/:vendor/:branch/:name/changelog' => 'cli#srpm_changelog'
-  match '/cli/srpm/:vendor/:branch/:name/spec' => 'cli#srpm_spec'
-  match '/cli/srpm/:vendor/:branch/:name/get' => 'cli#srpm_get'
-  match '/cli/srpm/:vendor/:branch/:name/gear' => 'cli#srpm_gear'
-  match '/cli/srpm/:vendor/:branch/:name/bugs' => 'cli#srpm_bugs'
-  match '/cli/srpm/:vendor/:branch/:name/allbugs' => 'cli#srpm_allbugs'
-  match '/cli/srpm/:vendor/:branch/:name/repocop' => 'cli#srpm_repocop'
-
-  match '/cli/repocop/by-test/no_url_tag' => 'repocop#no_url_tag'
-  match '/cli/repocop/by-test/invalid_url' => 'repocop#invalid_url'
-  match '/cli/repocop/by-test/invalid_vendor' => 'repocop#invalid_vendor'
-  match '/cli/repocop/by-test/invalid_distribution' => 'repocop#invalid_distribution'
-  match '/cli/repocop/by-test/srpms_summary_too_long' => 'repocop#srpms_summary_too_long'
-  match '/cli/repocop/by-test/packages_summary_too_long' => 'repocop#packages_summary_too_long'
-  match '/cli/repocop/by-test/srpms_summary_ended_with_dot' => 'repocop#srpms_summary_ended_with_dot'
-  match '/cli/repocop/by-test/packages_summary_ended_with_dot' => 'repocop#packages_summary_ended_with_dot'
-
-#  match '/cli/repocop/by-test/:name' => 'repocop#bytestname'
 
   match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
   match '/:name' => 'redirector#index', :name => /[^\/]+/
