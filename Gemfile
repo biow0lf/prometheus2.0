@@ -68,7 +68,7 @@ group :development, :test do
   gem 'rcov', :require => false
   gem 'stepdown', :require => false
   gem 'guard'
-  gem 'rb-fsevent', :require => false
+  gem 'rb-fsevent', '0.4.3', :require => false
   gem 'growl', :require => false
   gem 'rb-inotify', :require => false
   gem 'libnotify', :require => false
