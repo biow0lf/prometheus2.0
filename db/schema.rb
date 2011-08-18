@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805170900) do
+ActiveRecord::Schema.define(:version => 20110818200148) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -207,6 +208,14 @@ ActiveRecord::Schema.define(:version => 20110805170900) do
   add_index "patches", ["branch_id"], :name => "index_patches_on_branch_id"
   add_index "patches", ["srpm_id"], :name => "index_patches_on_srpm_id"
 
+  create_table "perl_watches", :force => true do |t|
+    t.string   "name"
+    t.string   "version"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "provides", :force => true do |t|
     t.integer  "package_id"
     t.string   "name"
@@ -313,12 +322,12 @@ ActiveRecord::Schema.define(:version => 20110805170900) do
   add_index "teams", ["maintainer_id"], :name => "index_teams_on_maintainer_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

@@ -7,6 +7,9 @@ class SrpmsController < ApplicationController
                                    :version => @srpm.version,
                                    :release => @srpm.release,
                                    :epoch => @srpm.epoch).select('DISTINCT arch, weeks').all
+      if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
+        @perl_watch = PerlWatch.where(:name => @srpm.name[5..-1]).first
+      end
       @allsrpms = Srpm.where(:name => params[:id]).joins(:branch).order('branches.order_id')
       if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
         @acls = Maintainer.where(:login => $redis.zrange("#{@branch.name}:#{@srpm.name}:acls", 0, -1))

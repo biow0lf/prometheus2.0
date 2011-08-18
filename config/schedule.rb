@@ -22,4 +22,8 @@ every :sunday, :at => '3:30 am' do
   rake "sitemap:refresh"
 end
 
+every :sunday, :at => '6:30 am' do
+  rake "perlwatch:update"
+end
+
 # Learn more: http://github.com/javan/whenever
