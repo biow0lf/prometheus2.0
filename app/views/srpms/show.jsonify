@@ -1,5 +1,4 @@
-json << { :srpm =>
-{
+json << {
   :branch => @branch.name,
   :name => @srpm.name,
   :version => @srpm.version,
@@ -15,4 +14,4 @@ json << { :srpm =>
   :md5 => @srpm.md5,
   :buildtime => @srpm.buildtime,
   :repocop => @srpm.repocop
-}}
+}
