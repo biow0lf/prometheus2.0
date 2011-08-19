@@ -58,5 +58,8 @@ module Prometheus20
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
       config.middleware.use Rack::Maintenance, :file => File.join('public', 'maintenance.html')
     end
+
+    # jsonify-rails
+    config.jsonify_format = :pretty
   end
 end
