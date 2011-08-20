@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0.rc6'
 
+# lock sprockets until https://github.com/rails/rails/issues/2598 will be fixed
+gem 'sprockets', '2.0.0.beta.13'
+
 gem 'pg'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
@@ -85,7 +88,6 @@ group :test do
   gem 'ffaker'
   gem 'shoulda'
   gem 'email_spec'
-  gem 'json_spec'
   gem 'launchy'
   gem 'cucumber'
   gem 'cucumber-rails'

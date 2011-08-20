@@ -21,6 +21,8 @@
 require 'cucumber/rails'
 # email_spec
 require 'email_spec/cucumber'
+# # json_spec
+# require 'json_spec/cucumber'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
