@@ -297,6 +297,7 @@ DEPENDENCIES
   guard-rails-assets
   guard-rspec
   guard-test
+  haml
   jquery-rails
   jsonify-rails
   kaminari
