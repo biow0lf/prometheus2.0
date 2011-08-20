@@ -20,95 +20,95 @@ h3. And then:
 
 h3. Prepare:
 
-* rake gettext:pack
+* bundle exec rake gettext:pack
 
 h3. Init database:
 
-* rake db:create
-* rake db:schema:load
+* bundle exec rake db:create
+* bundle exec rake db:schema:load
 
-* rake db:seed
+* bundle exec rake db:seed
 
-* rake sisyphus:maintainers
-* rake sisyphus:groups
-* rake sisyphus:srpms
-* rake sisyphus:i586
-* rake sisyphus:noarch
-* rake sisyphus:x86_64
-* rake sisyphus:acls
-* rake sisyphus:leaders
-* rake sisyphus:teams
+* bundle exec rake sisyphus:maintainers
+* bundle exec rake sisyphus:groups
+* bundle exec rake sisyphus:srpms
+* bundle exec rake sisyphus:i586
+* bundle exec rake sisyphus:noarch
+* bundle exec rake sisyphus:x86_64
+* bundle exec rake sisyphus:acls
+* bundle exec rake sisyphus:leaders
+* bundle exec rake sisyphus:teams
 
-* rake gear:import
+* bundle exec rake gear:import
 
-* rake sisyphus:bugs
-* rake sisyphus:repocops
+* bundle exec rake sisyphus:bugs
+* bundle exec rake sisyphus:repocops
 
-* rake sisyphusarm:groups
-* rake sisyphusarm:srpms
-* rake sisyphusarm:binary
+* bundle exec rake sisyphusarm:groups
+* bundle exec rake sisyphusarm:srpms
+* bundle exec rake sisyphusarm:binary
 
-* rake platform6:groups
-* rake platform6:srpms
-* rake platform6:i586
-* rake platform6:noarch
-* rake platform6:x86_64
+* bundle exec rake platform6:groups
+* bundle exec rake platform6:srpms
+* bundle exec rake platform6:i586
+* bundle exec rake platform6:noarch
+* bundle exec rake platform6:x86_64
 
-* rake t6:groups
-* rake t6:srpms
-* rake t6:i586
-* rake t6:noarch
-* rake t6:x86_64
+* bundle exec rake t6:groups
+* bundle exec rake t6:srpms
+* bundle exec rake t6:i586
+* bundle exec rake t6:noarch
+* bundle exec rake t6:x86_64
 
-* rake platform5:groups
-* rake platform5:srpms
-* rake platform5:i586
-* rake platform5:noarch
-* rake platform5:x86_64
+* bundle exec rake platform5:groups
+* bundle exec rake platform5:srpms
+* bundle exec rake platform5:i586
+* bundle exec rake platform5:noarch
+* bundle exec rake platform5:x86_64
 
-* rake 51:groups
-* rake 51:srpms
-* rake 51:i586
-* rake 51:noarch
-* rake 51:x86_64
-* rake 51:acls
-* rake 51:leaders
-* rake 51:teams
+* bundle exec rake 51:groups
+* bundle exec rake 51:srpms
+* bundle exec rake 51:i586
+* bundle exec rake 51:noarch
+* bundle exec rake 51:x86_64
+* bundle exec rake 51:acls
+* bundle exec rake 51:leaders
+* bundle exec rake 51:teams
 
-* rake 50:groups
-* rake 50:srpms
-* rake 50:i586
-* rake 50:noarch
-* rake 50:x86_64
-* rake 50:acls
-* rake 50:leaders
-* rake 50:teams
+* bundle exec rake 50:groups
+* bundle exec rake 50:srpms
+* bundle exec rake 50:i586
+* bundle exec rake 50:noarch
+* bundle exec rake 50:x86_64
+* bundle exec rake 50:acls
+* bundle exec rake 50:leaders
+* bundle exec rake 50:teams
 
-* rake 41:groups
-* rake 41:srpms
-* rake 41:i586
-* rake 41:noarch
-* rake 41:x86_64
-* rake 41:acls
-* rake 41:leaders
-* rake 41:teams
+* bundle exec rake 41:groups
+* bundle exec rake 41:srpms
+* bundle exec rake 41:i586
+* bundle exec rake 41:noarch
+* bundle exec rake 41:x86_64
+* bundle exec rake 41:acls
+* bundle exec rake 41:leaders
+* bundle exec rake 41:teams
 
-* rake 40:groups
-* rake 40:srpms
-* rake 40:i586
-* rake 40:noarch
-* rake 40:x86_64
-* rake 40:acls
-* rake 40:leaders
-* rake 40:teams
+* bundle exec rake 40:groups
+* bundle exec rake 40:srpms
+* bundle exec rake 40:i586
+* bundle exec rake 40:noarch
+* bundle exec rake 40:x86_64
+* bundle exec rake 40:acls
+* bundle exec rake 40:leaders
+* bundle exec rake 40:teams
 
-* rake redis:cache
+* bundle exec rake redis:cache
 
-* rake ts:index
+* bundle exec rake ts:index
 
 h2. Run
 
-* rake ts:start
+* bundle exec rake ts:start
 * redis-server config/redis.conf
 * service postgresql start
 * memcached -d -m 128
