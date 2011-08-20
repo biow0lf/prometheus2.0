@@ -1,16 +1,19 @@
 class MaintainersController < ApplicationController
+  # helper_method :sort_column, :sort_direction
+
   def show
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @acls = Acl.where(:maintainer => @maintainer, :branch => @branch)
+    @acls = Acl.where(:maintainer_id => @maintainer, :branch_id => @branch)
   end
 
   def srpms
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @acls = Acl.where(:maintainer => @maintainer, :branch => @branch).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
+    # @acls = Acl.where(:maintainer_id => @maintainer, :branch_id => @branch).includes(:srpm => [:repocop_patch]).order(sort_column + ' ' + sort_direction) #.order('LOWER(srpms.name)')
+    @acls = Acl.where(:maintainer_id => @maintainer, :branch_id => @branch).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
   end
 
 #  def acls
@@ -29,7 +32,7 @@ class MaintainersController < ApplicationController
   def gear
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @gears = Gear.where(:maintainer => @maintainer).order('LOWER(repo)')
+    @gears = Gear.where(:maintainer_id => @maintainer).order('LOWER(repo)')
   end
 
   def bugs
@@ -56,13 +59,23 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @ftbfs = Ftbfs.where(:branch => @branch, :maintainer => @maintainer)
+    @ftbfs = Ftbfs.where(:branch_id => @branch, :maintainer_id => @maintainer)
   end
 
   def repocop
     @branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
     @maintainer = Maintainer.where(:login => params[:id].downcase, :team => false).includes(:srpms).order('LOWER(srpms.name)').first
     render(:status => 404, :action => 'nosuchmaintainer') and return if @maintainer == nil
-    @srpms = @maintainer.srpms.where(:branch => @branch).includes(:repocops)
+    @srpms = @maintainer.srpms.where(:branch_id => @branch).includes(:repocops)
   end
+
+  # private
+  # 
+  # def sort_column
+  #   %w[srpms.name srpms.repocop].include?(params[:sort]) ? params[:sort] : 'srpms.name'
+  # end
+  # 
+  # def sort_direction
+  #   %w[asc desc].include?(params[:direction]) ?  params[:direction] : 'asc'
+  # end
 end
