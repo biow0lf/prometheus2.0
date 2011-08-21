@@ -10,7 +10,7 @@ class PerlWatch < ActiveRecord::Base
       index = 0
       result.each_line do |line|
         index += 1
-        return if index <= 9
+        next if index <= 9
         name = line.split[0]
         version = line.split[1]
         path = line.split[2]
