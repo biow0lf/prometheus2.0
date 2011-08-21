@@ -90,7 +90,7 @@ class Srpm < ActiveRecord::Base
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
         srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-        srpm.branch_id = branch.id
+        srpm.branch_id = branch
         srpm.changelogtime = rpm.changelog.first.time
         srpm.changelogname = rpm.changelog.first.name
         srpm.changelogtext = rpm.changelog.first.text
@@ -123,7 +123,7 @@ class Srpm < ActiveRecord::Base
         $redis.del("#{branch.name}:#{package.filename}")
       end
       $redis.del("#{branch.name}:#{branch.srpms.where(:name => rpm.name).first.filename}")
-      Srpm.destroy_all(:branch => branch, :name => rpm.name)
+      Srpm.destroy_all(:branch_id => branch, :name => rpm.name)
     end
     srpm = Srpm.new
     srpm.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.src.rpm"
@@ -154,7 +154,7 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-    srpm.branch_id = branch.id
+    srpm.branch_id = branch
     srpm.changelogtime = rpm.changelog.first.time
     srpm.changelogname = rpm.changelog.first.name
     srpm.changelogtext = rpm.changelog.first.text
