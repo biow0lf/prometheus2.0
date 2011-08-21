@@ -32,6 +32,7 @@ class Ftbfs < ActiveRecord::Base
         else
           false
         end
+        acl = 'php-coder' if acl == 'php_coder'
         maintainer = Maintainer.where(:login => acl, :team => team).first
         Ftbfs.create!(:name => name, :epoch => epoch, :version => version,
                       :release => release, :weeks => weeks, :branch => branch,
