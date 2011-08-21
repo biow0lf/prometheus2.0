@@ -7,8 +7,10 @@ class PerlWatch < ActiveRecord::Base
     result = gz.read
     ActiveRecord::Base.transaction do
       PerlWatch.delete_all
-      result.each_with_index do |line, index|
-        return if index <= 8
+      index = 0
+      result.each_line do |line|
+        index += 1
+        return if index <= 9
         name = line.split[0]
         version = line.split[1]
         path = line.split[2]
