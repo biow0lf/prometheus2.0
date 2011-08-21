@@ -90,7 +90,7 @@ class Srpm < ActiveRecord::Base
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
         srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-        srpm.branch_id = branch
+        srpm.branch = branch
         srpm.changelogtime = rpm.changelog.first.time
         srpm.changelogname = rpm.changelog.first.name
         srpm.changelogtext = rpm.changelog.first.text
@@ -154,7 +154,7 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-    srpm.branch_id = branch
+    srpm.branch = branch
     srpm.changelogtime = rpm.changelog.first.time
     srpm.changelogname = rpm.changelog.first.name
     srpm.changelogtext = rpm.changelog.first.text
