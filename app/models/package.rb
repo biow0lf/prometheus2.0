@@ -46,7 +46,7 @@ class Package < ActiveRecord::Base
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
       package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-      package.branch = branch
+      package.branch_id = branch.id
       srpm = branch.srpms.where(:filename => rpm[1044]).first
       package.srpm = srpm
       if package.save
@@ -99,7 +99,7 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
           if package.save
@@ -149,7 +149,7 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
           if package.save
@@ -199,7 +199,7 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
           if package.save
@@ -249,7 +249,7 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
           if package.save
