@@ -12,7 +12,7 @@ namespace :sisyphus do
       path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
       Dir.glob(path).each do |file|
         begin
-          if !$redis.exists branch.name + ":" + file.split('/')[-1]
+          if !$redis.exists "#{branch.name}:#{file.split('/')[-1]}"
             puts "#{Time.now.to_s}: updating '#{file.split('/')[-1]}'"
             Srpm.import_srpm(branch.vendor, branch.name, file)
           end
