@@ -5,14 +5,14 @@ h2. Setup and run
 h3. Install:
 
 * Ruby 1.9.2p290
-* RubyGems 1.8.8
+* RubyGems 1.8.9
 * ruby-rpm
 * bundler 1.1.pre.8
 * PostgreSQL 9.0 (with other databases it doesn't tested)
 * nginx + passenger
 * gettext
 * sphinx search engine
-* node.js 0.4.10
+* node.js 0.4.11
 * /usr/bin/md5sum from coreutils
 
 h3. And then:
