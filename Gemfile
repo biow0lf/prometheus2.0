@@ -63,6 +63,7 @@ end
 
 group :development do
   gem 'silent-postgres'
+  gem 'capistrano', :require => false
   # gem 'rack-webconsole'
 end
 
