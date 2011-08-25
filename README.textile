@@ -14,6 +14,7 @@ h3. Install:
 * sphinx search engine
 * node.js 0.4.11
 * /usr/bin/md5sum from coreutils
+* git
 
 h3. And then:
 
