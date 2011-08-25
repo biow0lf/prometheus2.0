@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require 'thinking_sphinx/deploy/capistrano'
 
 default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => false, :port => 222 }
@@ -39,5 +40,26 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/shared/config/redis.yml #{release_path}/config/redis.yml"
     run "cp -f #{deploy_to}/shared/config/initializers/devise.rb #{release_path}/config/initializers/"
     run "cp -f #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/"
+  end
+end
+
+task :before_update_code, :roles => [:app] do
+  thinking_sphinx.stop
+end
+
+task :after_update_code, :roles => [:app] do
+  thinking_sphinx.configure
+  thinking_sphinx.start
+end
+
+namespace :redis do
+  desc "Start the Redis server"
+  task :start do
+    run "/usr/sbin/redis-server /home/prometheusapp/www/shared/config/redis.conf"
+  end
+
+  desc "Stop the Redis server"
+  task :stop do
+    run 'echo "SHUTDOWN" | nc localhost 6379'
   end
 end
