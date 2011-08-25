@@ -6,8 +6,6 @@ tmp/
 .DS_Store
 ._*
 *~
-Capfile
-config/deploy.rb
 config/newrelic.yml
 config/redis.yml
 vendor/plugins/newrelic_rpm/*
