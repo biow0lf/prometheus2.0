@@ -40,6 +40,8 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/shared/config/redis.yml #{release_path}/config/redis.yml"
     run "cp -f #{deploy_to}/shared/config/initializers/devise.rb #{release_path}/config/initializers/"
     run "cp -f #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/"
+    # precompile the assets
+    run "cd #{release_path} && bundle exec rake assets:precompile"
   end
 end
 
@@ -61,5 +63,12 @@ namespace :redis do
   desc "Stop the Redis server"
   task :stop do
     run 'echo "SHUTDOWN" | nc localhost 6379'
+  end
+end
+
+namespace :memcached do
+  desc "Start the memcached server"
+  task :start do
+    run '/usr/bin/memcached -d -m 128'
   end
 end
