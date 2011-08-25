@@ -41,7 +41,7 @@ namespace :deploy do
     run "cp -f #{deploy_to}/shared/config/initializers/devise.rb #{release_path}/config/initializers/"
     run "cp -f #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/"
     # precompile the assets
-    run "cd #{release_path} && bundle exec rake assets:precompile"
+    run "cd #{current_path} && bundle exec rake assets:precompile"
   end
 end
 
