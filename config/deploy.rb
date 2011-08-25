@@ -1,22 +1,43 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+require 'bundler/capistrano'
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+default_run_options[:pty] = true
+set :ssh_options, { :forward_agent => false, :port => 222 }
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+set :application, "prometheus2.0"
+set :repository,  "git://github.com/biow0lf/prometheus2.0.git"
+set :scm, :git
+set :branch, :master
+set :user, "prometheusapp"
+set :group, "prometheusapp"
+set :deploy_via, :remote_cache
+# set :git_shallow_clone, 1
+set :use_sudo, false
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+set :deploy_to, "/home/prometheusapp/www"
+
+role :app, "packages.altlinux.org"
+role :web, "packages.altlinux.org"
+role :db, "packages.altlinux.org", :primary => true
 
 # If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
+# end passenger stuff
+
+after 'deploy:update_code', 'deploy:symlink_all'
+
+namespace :deploy do
+  desc "Symlinks all needed files"
+  task :symlink_all, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{deploy_to}/shared/config/newrelic.yml #{release_path}/config/newrelic.yml"
+    run "ln -nfs #{deploy_to}/shared/config/redis.yml #{release_path}/config/redis.yml"
+    run "cp -f #{deploy_to}/shared/config/initializers/devise.rb #{release_path}/config/initializers/"
+    run "cp -f #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/"
+  end
+end
