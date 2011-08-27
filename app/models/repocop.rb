@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Repocop < ActiveRecord::Base
   validates :name, :presence => true
   validates :version, :presence => true

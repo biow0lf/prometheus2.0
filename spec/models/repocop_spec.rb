@@ -16,8 +16,11 @@ describe Repocop do
   it { should have_db_index :srcrel }
   it { should have_db_index :srcversion }
 
-  pending "should import repocops from url" do
-    URI.stub(:escape).and_return("spec/data/prometeus2.txt")
+  it "should import repocops from url" do
+    page = `cat spec/data/prometeus2.txt`
+    FakeWeb.register_uri(:get,
+                         "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt",
+                         :response => page)
     expect{Repocop.update_repocop}.to change{Repocop.count}.from(0).to(1)
   end
 end
