@@ -16,7 +16,6 @@ namespace :sisyphus do
 
   desc "Import repocop patches list to database"
   task :repocop_patches => :environment do
-    require 'open-uri'
     puts Time.now.to_s + ': import repocop patches'
     RepocopPatch.update_repocop_patches
     puts Time.now.to_s + ': end'
