@@ -94,6 +94,7 @@ GEM
     execjs (1.2.4)
       multi_json (~> 1.0)
     fabrication (1.1.0)
+    fakeweb (1.3.0)
     fast_gettext (0.5.13)
     ffaker (1.8.0)
     ffi (1.0.9)
@@ -298,6 +299,7 @@ DEPENDENCIES
   email_spec
   exception_notification
   fabrication
+  fakeweb
   fast_gettext (>= 0.4.8)
   ffaker
   gettext (>= 1.9.3)
