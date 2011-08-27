@@ -246,7 +246,7 @@ GEM
     shoulda (2.11.3)
     silent-postgres (0.1.1)
     sitemap_generator (2.0.1)
-    sprockets (2.0.0.beta.13)
+    sprockets (2.0.0.beta.15)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)
@@ -336,7 +336,6 @@ DEPENDENCIES
   shoulda
   silent-postgres
   sitemap_generator
-  sprockets (= 2.0.0.beta.13)
   squeel
   stepdown
   thinking-sphinx
