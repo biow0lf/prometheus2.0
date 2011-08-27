@@ -14,4 +14,11 @@ describe Maintainer do
 
   # wtf? why?
   pending { should validate_uniqueness_of :login }
+
+  it "should return Maintainer.login on .to_param" do
+    Maintainer.create(:name => 'Igor Zubkov',
+                      :email => 'icesik@altlinux.org',
+                      :login => 'icesik',
+                      :team => false).to_param.should == 'icesik'
+  end
 end
