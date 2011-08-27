@@ -8,8 +8,11 @@ describe RepocopPatch do
 
   it { should have_db_index :name }
 
-  it "should import repocop patches list from url" do
-    URI.stub(:escape).and_return("spec/data/prometeus2-patches.sql")
+  it "should import repocops patches list from url" do
+    page = `cat spec/data/prometeus2-patches.sql`
+    FakeWeb.register_uri(:get,
+                         "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2-patches.sql",
+                         :response => page)
     expect{RepocopPatch.update_repocop_patches}.to change{RepocopPatch.count}.from(0).to(1)
   end
 end
