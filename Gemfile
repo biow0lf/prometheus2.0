@@ -76,12 +76,10 @@ group :development, :test do
   gem 'growl', :require => false
   gem 'rb-inotify', :require => false
   gem 'libnotify', :require => false
-  gem 'guard-test'
   gem 'guard-rspec'
   gem 'guard-bundler'
   gem 'guard-cucumber'
   gem 'guard-livereload'
-  gem 'guard-rails-assets'
 end
 
 group :test do
