@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Server: Apache/2.2.3 (CentOS)
+Last-Modified: Sun, 28 Aug 2011 22:27:15 GMT
+ETag: "3d75d1-101305-4ab9847cf76c0"
+Content-Type: application/x-gzip
+Content-Length: 460
+Date: Mon, 29 Aug 2011 01:27:00 GMT
+X-Varnish: 2029469518 2029469515
+Age: 2
+Via: 1.1 varnish
+Connection: keep-alive
+X-Served-By: eu3.develooper.com
+X-Cache: HIT
+X-Cache-Hits: 1
+
+File:         02packages.details.txt
+URL:          http://www.perl.com/CPAN/modules/02packages.details.txt
+Description:  Package names found in directory $CPAN/authors/id/
+Columns:      package name, version, path
+Intended-For: Automated fetch routines, namespace documentation.
+Written-By:   PAUSE version 1.14
+Line-Count:   92769
+Last-Updated: Sun, 28 Aug 2011 22:27:11 GMT
+
+AnyEvent::ZeroMQ                   0.01  J/JR/JROCKWAY/AnyEvent-ZeroMQ-0.01.tar.gz
