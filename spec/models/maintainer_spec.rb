@@ -20,4 +20,31 @@ describe Maintainer do
                        :login => 'icesik',
                        :team => false).to_param.should == 'icesik'
   end
+
+  it "should deny change email" do
+    maintainer = Maintainer.create!(:name => 'Igor Zubkov',
+                                    :email => 'icesik@altlinux.org',
+                                    :login => 'icesik',
+                                    :team => false)
+    maintainer.email = 'ldv@altlinux.org'
+    maintainer.save.should be_false
+  end
+
+  it "should deny change login" do
+    maintainer = Maintainer.create!(:name => 'Igor Zubkov',
+                                    :email => 'icesik@altlinux.org',
+                                    :login => 'icesik',
+                                    :team => false)
+    maintainer.login = 'ldv'
+    maintainer.save.should be_false
+  end
+
+  it "should deny change name" do
+    maintainer = Maintainer.create!(:name => 'Igor Zubkov',
+                                    :email => 'icesik@altlinux.org',
+                                    :login => 'icesik',
+                                    :team => false)
+    maintainer.name = 'Dmitry V. Levin'
+    maintainer.save.should be_false
+  end
 end
