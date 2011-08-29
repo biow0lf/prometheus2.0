@@ -1,4 +1,3 @@
-# require 'open-uri'
 require 'csv'
 
 class Bug < ActiveRecord::Base

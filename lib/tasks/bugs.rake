@@ -1,5 +1,3 @@
-# $KCODE="UTF8"
-
 namespace :sisyphus do
   desc "Import all bugs to database"
   task :bugs => :environment do
