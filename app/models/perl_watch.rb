@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'zlib'
+
 class PerlWatch < ActiveRecord::Base
   validates :name, :presence => true
 
