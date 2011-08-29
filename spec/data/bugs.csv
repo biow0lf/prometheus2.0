@@ -1,0 +1,2 @@
+bug_id,"bug_status","resolution","bug_severity","product","component","assigned_to","reporter","short_desc"
+22555,"CLOSED","FIXED","blocker","Sisyphus","openbox","icesik@altlinux.org","user@email.com","segfault"
