@@ -10,8 +10,17 @@ describe User do
     user.login.should == 'icesik'
   end
 
-  it "should return true for altlinux team member" do
+  it "should return true for @altlinux.org emails" do
     user = User.create!(:email => 'icesik@altlinux.org',
+                        :password => 'password',
+                        :password_confirmation => 'password')
+    user.confirmed_at = Time.zone.now
+    user.save!
+    user.is_alt_team?.should be_true
+  end
+
+  it "should return true for @altlinux.ru emails" do
+    user = User.create!(:email => 'icesik@altlinux.ru',
                         :password => 'password',
                         :password_confirmation => 'password')
     user.confirmed_at = Time.zone.now
