@@ -1,12 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0.rc8'
 
 # kill haml later
 gem 'haml'
 
 gem 'pg'
-gem 'devise'
+# devise 1.4.2 doesn't compatible with rails 3.1.0.rc8,
+# so using devise from master until next devise release
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => 'master'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
 gem 'meta_search', '1.1.0.pre2'
