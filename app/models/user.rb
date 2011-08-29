@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
       false
     end
   end
-  
+
   def login
     email.split('@')[0]
   end
