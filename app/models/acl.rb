@@ -1,11 +1,11 @@
 class Acl < ActiveRecord::Base
-  validates :branch, :presence => true
-  validates :maintainer, :presence => true
-  validates :srpm, :presence => true
-
   belongs_to :branch
   belongs_to :maintainer
   belongs_to :srpm
+
+  validates :branch, :presence => true
+  validates :maintainer, :presence => true
+  validates :srpm, :presence => true
 
   def self.import_acls(vendor_name, branch_name, url)
     branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
