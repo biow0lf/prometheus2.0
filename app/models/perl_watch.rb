@@ -6,8 +6,12 @@ class PerlWatch < ActiveRecord::Base
 
   def self.import_data(url)
     source = open(url)
-    gz = Zlib::GzipReader.new(source)
-    result = gz.read
+    if url.split('.')[-1] == 'gz'
+      gz = Zlib::GzipReader.new(source)
+      result = gz.read
+    else
+      result = source
+    end
     ActiveRecord::Base.transaction do
       PerlWatch.delete_all
       index = 0
