@@ -12,7 +12,13 @@ describe Maintainer do
   it { should validate_presence_of :email }
   it { should validate_presence_of :login }
 
-  # it { should validate_uniqueness_of :login }
+  it "should validate_uniqueness_of :login" do
+    Maintainer.create!(:name => 'Igor Zubkov',
+                       :email => 'icesik@altlinux.org',
+                       :login => 'icesik',
+                       :team => false)
+    should validate_uniqueness_of :login
+  end
 
   it "should return Maintainer.login on .to_param" do
     Maintainer.create!(:name => 'Igor Zubkov',
