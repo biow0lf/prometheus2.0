@@ -96,7 +96,7 @@ GEM
       rspec (~> 2.0)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    exception_notification (2.5.1)
+    exception_notification (2.5.2)
       actionmailer (>= 3.0.4)
     execjs (1.2.4)
       multi_json (~> 1.0)
