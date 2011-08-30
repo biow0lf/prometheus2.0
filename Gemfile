@@ -6,9 +6,7 @@ gem 'rails', '3.1.0.rc8'
 gem 'haml'
 
 gem 'pg'
-# devise 1.4.2 doesn't compatible with rails 3.1.0.rc8,
-# so using devise from master until next devise release
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :branch => 'master'
+gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'redis'
 gem 'meta_search', '1.1.0.pre2'
