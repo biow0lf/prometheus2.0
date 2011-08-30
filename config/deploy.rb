@@ -40,8 +40,6 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/shared/config/redis.yml #{release_path}/config/redis.yml"
     run "cp -f #{deploy_to}/shared/config/initializers/devise.rb #{release_path}/config/initializers/"
     run "cp -f #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/"
-    # sphinx
-    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
     # precompile the assets
     run "cd #{release_path} && bundle exec rake assets:precompile"
   end
@@ -52,7 +50,8 @@ task :before_update_code, :roles => [:app] do
 end
 
 task :after_update_code, :roles => [:app] do
-  thinking_sphinx.configure
+  run "cd #{release_path} && bundle exec rake RAILS_ENV=production thinking_sphinx:configure"
+  run "cd #{release_path} && bundle exec rake RAILS_ENV=production thinking_sphinx:index"
   thinking_sphinx.start
 end
 
