@@ -1,3 +1,5 @@
+require 'rpm'
+
 class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
@@ -77,7 +79,7 @@ class Srpm < ActiveRecord::Base
           puts "#{Time.now.to_s}: too nested groups level"
         end
 
-        srpm.group = group
+        srpm.group_id = group.id
         srpm.epoch = rpm[1003]
         srpm.summary = rpm[1004]
         # hack for very long summary in openmoko_dfu-util src.rpm
@@ -90,14 +92,14 @@ class Srpm < ActiveRecord::Base
         srpm.buildtime = Time.at(rpm[1006])
         srpm.size = File.size(file)
         srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-        srpm.branch = branch
+        srpm.branch_id = branch.id
         srpm.changelogtime = rpm.changelog.first.time
         srpm.changelogname = rpm.changelog.first.name
         srpm.changelogtext = rpm.changelog.first.text
         if srpm.save
           rpm.changelog.each do |c|
             changelog = Changelog.new
-            changelog.srpm = srpm
+            changelog.srpm_id = srpm.id
             changelog.changelogname = c.name
             changelog.changelogtime = c.time
             changelog.changelogtext = c.text
@@ -142,7 +144,7 @@ class Srpm < ActiveRecord::Base
       puts "#{Time.now.to_s}: too nested groups level"
     end
 
-    srpm.group = group
+    srpm.group_id = group.id
     srpm.epoch = rpm[1003]
     srpm.summary = rpm[1004]
     srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -154,7 +156,7 @@ class Srpm < ActiveRecord::Base
     srpm.buildtime = Time.at(rpm[1006])
     srpm.size = File.size(file)
     srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-    srpm.branch = branch
+    srpm.branch_id = branch.id
     srpm.changelogtime = rpm.changelog.first.time
     srpm.changelogname = rpm.changelog.first.name
     srpm.changelogtext = rpm.changelog.first.text
@@ -180,7 +182,7 @@ class Srpm < ActiveRecord::Base
       #puts Time.now.to_s + ": import changelog for '" + srpm.filename + "'"
       rpm.changelog.each do |c|
         changelog = Changelog.new
-        changelog.srpm = srpm
+        changelog.srpm_id = srpm.id
         changelog.changelogname = c.name
         changelog.changelogtime = c.time
         changelog.changelogtext = c.text

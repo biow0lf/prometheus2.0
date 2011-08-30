@@ -1,7 +1,6 @@
 namespace :sisyphusarm do
   desc "Update SisyphusARM stuff"
   task :update => :environment do
-    require 'rpm'
     require 'open-uri'
 
     branch = Branch.where(:name => 'SisyphusARM', :vendor => 'ALT Linux').first

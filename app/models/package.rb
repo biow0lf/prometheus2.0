@@ -1,3 +1,5 @@
+require 'rpm'
+
 class Package < ActiveRecord::Base
   belongs_to :branch
   belongs_to :srpm
@@ -36,7 +38,7 @@ class Package < ActiveRecord::Base
         puts "#{Time.now.to_s}: too nested groups level"
       end
 
-      package.group = group
+      package.group_id = group.id
       package.epoch = rpm[1003]
       package.summary = rpm[1004]
       package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -46,9 +48,9 @@ class Package < ActiveRecord::Base
       package.buildtime = Time.at(rpm[1006])
       package.size = File.size(file)
       package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-      package.branch = branch
+      package.branch_id = branch.id
       srpm = branch.srpms.where(:filename => rpm[1044]).first
-      package.srpm = srpm
+      package.srpm_id = srpm.id
       if package.save
         $redis.set("#{branch.name}:#{package.filename}", 1)
         #puts Time.now.to_s + ": updated '" + package.filename + "'"
@@ -89,7 +91,7 @@ class Package < ActiveRecord::Base
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group = group
+          package.group_id = group.id
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -99,7 +101,7 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
           package.srpm = srpm
           if package.save
@@ -139,7 +141,7 @@ class Package < ActiveRecord::Base
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group = group
+          package.group_id = group.id
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -149,9 +151,9 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
-          package.srpm = srpm
+          package.srpm_id = srpm.id
           if package.save
             $redis.set("#{branch.name}:#{package.filename}", 1)
           end
@@ -189,7 +191,7 @@ class Package < ActiveRecord::Base
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group = group
+          package.group_id = group.id
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -199,9 +201,9 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
-          package.srpm = srpm
+          package.srpm_id = srpm.id
           if package.save
             $redis.set("#{branch.name}:#{package.filename}", 1)
           end
@@ -239,7 +241,7 @@ class Package < ActiveRecord::Base
             puts "#{Time.now.to_s}: too nested groups level"
           end
 
-          package.group = group
+          package.group_id = group.id
           package.epoch = rpm[1003]
           package.summary = rpm[1004]
           package.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
@@ -249,9 +251,9 @@ class Package < ActiveRecord::Base
           package.buildtime = Time.at(rpm[1006])
           package.size = File.size(file)
           package.md5 = `/usr/bin/md5sum #{file}`.split[0]
-          package.branch = branch
+          package.branch_id = branch.id
           srpm = branch.srpms.where(:filename => rpm[1044]).first
-          package.srpm = srpm
+          package.srpm_id = srpm.id
           if package.save
             $redis.set("#{branch.name}:#{package.filename}", 1)
           end
