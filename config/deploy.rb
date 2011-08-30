@@ -7,6 +7,8 @@ require 'whenever/capistrano'
 default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => false, :port => 222 }
 
+set :keep_releases, 5
+
 set :application, "prometheus2.0"
 set :repository,  "git://github.com/biow0lf/prometheus2.0.git"
 set :scm, :git
