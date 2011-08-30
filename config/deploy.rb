@@ -1,6 +1,9 @@
 require 'bundler/capistrano'
 require 'thinking_sphinx/deploy/capistrano'
 
+set :whenever_command, 'bundle exec whenever'
+require 'whenever/capistrano'
+
 default_run_options[:pty] = true
 set :ssh_options, { :forward_agent => false, :port => 222 }
 
