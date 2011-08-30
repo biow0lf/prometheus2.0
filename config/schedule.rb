@@ -4,15 +4,15 @@ job_type :rake, "cd :path && RAILS_ENV=:environment bundle exec rake :task :outp
 #   rake "sisyphus:update platform6:update t6:update platform5:update 51:update 50:update 41:update 40:update gear:update ts:reindex"
 # end
 # 
-# every 1.day, :at => '5:30' do
+# every 1.day, :at => '05:30' do
 #   rake "sisyphusarm:update ts:reindex"
 # end
 
-every 1.day, :at => '5:00' do
+every 1.day, :at => '05:00' do
   rake "sisyphus:bugs"
 end
 
-# every 1.day, :at => '6:15' do
+# every 1.day, :at => '06:15' do
 #   rake "sisyphus:repocops sisyphus:repocop_patches"
 # end
 
@@ -20,11 +20,11 @@ every 1.day, :at => '13:00' do
   rake "ftbfs:update"
 end
 
-# every :sunday, :at => '3:30' do
+# every :sunday, :at => '03:30' do
 #   rake "sitemap:refresh"
 # end
 
-every :sunday, :at => '6:30' do
+every :sunday, :at => '06:30' do
   rake "perlwatch:update"
 end
 
