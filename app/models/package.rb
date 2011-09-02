@@ -1,4 +1,5 @@
-require 'rpm'
+# FIXME:
+# require 'rpm'
 
 class Package < ActiveRecord::Base
   belongs_to :branch

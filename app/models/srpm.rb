@@ -1,4 +1,5 @@
-require 'rpm'
+# FIXME:
+# require 'rpm'
 
 class Srpm < ActiveRecord::Base
   belongs_to :branch
