@@ -231,9 +231,9 @@ GEM
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
     sass (3.1.7)
-    sass-rails (3.1.0.rc.7)
-      actionpack (~> 3.1.0.rc6)
-      railties (~> 3.1.0.rc6)
+    sass-rails (3.1.0)
+      actionpack (~> 3.1.0)
+      railties (~> 3.1.0)
       sass (>= 3.1.4)
     selenium-webdriver (2.5.0)
       childprocess (>= 0.2.1)
@@ -328,7 +328,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby-debug19
-  sass-rails (~> 3.1.0.rc)
+  sass-rails (~> 3.1.0)
   shoulda
   silent-postgres
   sitemap_generator
