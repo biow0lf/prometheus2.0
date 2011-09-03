@@ -1,12 +1,10 @@
 rvm:
   - 1.9.2
-
 env:
   - ISOLATED=true
-
-branches:
-  only:
-    - master
+  - DB=redis
+  - DB=postgresql
 
 before_script:
-  - "psql -c 'create database myapp_test;' -U postgres >/dev/null"
+  - "psql -c 'create database prometheus_test;' -U postgres >/dev/null"
+  - "cp config/database.travis.yml config/database.yml"
