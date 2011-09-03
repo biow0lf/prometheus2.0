@@ -53,4 +53,24 @@ describe Maintainer do
     maintainer.name = 'Dmitry V. Levin'
     maintainer.save.should be_false
   end
+
+  it "should return true if Maintainer exists" do
+    maintainer = Maintainer.create!(:name => 'Igor Zubkov',
+                                    :email => 'icesik@altlinux.org',
+                                    :login => 'icesik',
+                                    :team => false)
+    Maintainer.login_exists?('icesik').should be_true
+  end
+
+  it "should return false if Maintainer not exists" do
+    Maintainer.login_exists?('ice').should be_false
+  end
+
+  it "should downcase login before checking for exists" do
+    maintainer = Maintainer.create!(:name => 'Igor Zubkov',
+                                    :email => 'icesik@altlinux.org',
+                                    :login => 'icesik',
+                                    :team => false)
+    Maintainer.login_exists?('ICESIK').should be_true
+  end
 end

@@ -1,3 +1,6 @@
+# FIXME:
+# require 'rpm'
+
 class Maintainer < ActiveRecord::Base
   validates :name, :presence => true
   validates :email, :presence => true
@@ -20,6 +23,14 @@ class Maintainer < ActiveRecord::Base
     login
   end
 
+  def self.login_exists?(login)
+    if Maintainer.where(:login => login.downcase).count > 0
+      true
+    else
+      false
+    end
+  end
+
   def self.import_maintainers_list(path)
     Dir.glob(path).each do |file|
       begin
@@ -28,9 +39,9 @@ class Maintainer < ActiveRecord::Base
         maintainer_name = maintainer.split('<')[0].chomp
         maintainer_name.strip!
         maintainer_email = maintainer.chop.split('<')[1]
-
+  
         maintainer_email.downcase!
-
+  
         maintainer_email.gsub!(' at altlinux.ru', '@altlinux.org')
         maintainer_email.gsub!(' at altlinux.org', '@altlinux.org')
         maintainer_email.gsub!(' at altlinux.net', '@altlinux.org')
