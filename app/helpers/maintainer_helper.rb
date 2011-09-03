@@ -11,13 +11,13 @@ module MaintainerHelper
     email.gsub!('@altlinux.ru', '@altlinux.org')
     email.gsub!('@altlinux.net', '@altlinux.org')
     email.gsub!('@altlinux.com', '@altlinux.org')
-    # email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
-    # email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
-    # email.gsub!(' at packages.altlinux.net', '@packages.altlinux.org')
-    # email.gsub!(' at packages.altlinux.com', '@packages.altlinux.org')
-    # email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
-    # email.gsub!('@packages.altlinux.net', '@packages.altlinux.org')
-    # email.gsub!('@packages.altlinux.com', '@packages.altlinux.org')
+    email.gsub!('ruby at packages.altlinux.org', 'ruby@packages.altlinux.org')
+    email.gsub!('ruby at packages.altlinux.ru', 'ruby@packages.altlinux.org')
+    email.gsub!('ruby at packages.altlinux.net', 'ruby@packages.altlinux.org')
+    email.gsub!('ruby at packages.altlinux.com', 'ruby@packages.altlinux.org')
+    email.gsub!('ruby@packages.altlinux.ru', 'ruby@packages.altlinux.org')
+    email.gsub!('ruby@packages.altlinux.net', 'ruby@packages.altlinux.org')
+    email.gsub!('ruby@packages.altlinux.com', 'ruby@packages.altlinux.org')
     email
   end
 end

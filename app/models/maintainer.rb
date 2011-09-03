@@ -2,6 +2,8 @@
 # require 'rpm'
 
 class Maintainer < ActiveRecord::Base
+  include MaintainerHelper
+
   validates :name, :presence => true
   validates :email, :presence => true
   validates :login, :presence => true, :uniqueness => true
@@ -24,57 +26,37 @@ class Maintainer < ActiveRecord::Base
   end
 
   def self.login_exists?(login)
-    if Maintainer.where(:login => login.downcase).count > 0
+    if Maintainer.where(:login => login.downcase, :team => false).count > 0
       true
     else
       false
     end
   end
 
-  def self.import_maintainers_list(path)
-    Dir.glob(path).each do |file|
-      begin
-        rpm = RPM::Package::open(file)
-        maintainer = rpm[1015]
-        maintainer_name = maintainer.split('<')[0].chomp
-        maintainer_name.strip!
-        maintainer_email = maintainer.chop.split('<')[1]
-  
-        maintainer_email.downcase!
-  
-        maintainer_email.gsub!(' at altlinux.ru', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux.org', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux.net', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux.com', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux dot org', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux dot ru', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux dot net', '@altlinux.org')
-        maintainer_email.gsub!(' at altlinux dot com', '@altlinux.org')
-        maintainer_email.gsub!('@altlinux.ru', '@altlinux.org')
-        maintainer_email.gsub!('@altlinux.net', '@altlinux.org')
-        maintainer_email.gsub!('@altlinux.com', '@altlinux.org')
-        maintainer_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
-        maintainer_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
-        maintainer_email.gsub!(' at packages.altlinux.net', '@packages.altlinux.org')
-        maintainer_email.gsub!(' at packages.altlinux.com', '@packages.altlinux.org')
-        maintainer_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
-        maintainer_email.gsub!('@packages.altlinux.net', '@packages.altlinux.org')
-        maintainer_email.gsub!('@packages.altlinux.com', '@packages.altlinux.org')
+  # TODO: move Maintainer team info in MaintainerTeam model with all stuff
+  def self.team_exists?(team_login)
+    if Maintainer.where(:login => team_login.downcase, :team => true).count > 0
+      true
+    else
+      false
+    end
+  end
 
-        maintainer_login = maintainer_email.split('@')[0]
-        maintainer_domain = maintainer_email.split('@')[1]
-
-        if maintainer_domain == 'packages.altlinux.org'
-          if Maintainer.count(:all, :conditions => { :team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
-            Maintainer.create(:team => true, :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email)
-          end
-        else
-          if Maintainer.count(:all, :conditions => { :team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email }) == 0
-            Maintainer.create(:team => false, :login => maintainer_login, :name => maintainer_name, :email => maintainer_email)
-          end
-        end
-      rescue RuntimeError
-        puts "RuntimeError at file: #{file}"
+  def self.import(maintainer)
+    name = maintainer.split('<')[0].chomp
+    name.strip!
+    email = maintainer.chop.split('<')[1]
+    email.downcase!
+    email = Maintainer.new.fix_maintainer_email(email)
+    login = email.split('@')[0]
+    domain = email.split('@')[1]
+    if domain == 'altlinux.org'
+      unless login_exists?(login)
+        Maintainer.create(:team => false, :login => login, :name => name, :email => email)
+      end
+    else
+      unless team_exists?(login)
+        Maintainer.create(:team => true, :login => login, :name => name, :email => email)
       end
     end
   end

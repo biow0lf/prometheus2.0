@@ -14,12 +14,12 @@ describe MaintainerHelper do
     fix_maintainer_email('icesik@altlinux.ru').should == 'icesik@altlinux.org'
     fix_maintainer_email('icesik@altlinux.net').should == 'icesik@altlinux.org'
     fix_maintainer_email('icesik@altlinux.com').should == 'icesik@altlinux.org'
-    # fix_maintainer_email( ' at packages.altlinux.org', '@packages.altlinux.org')
-    # fix_maintainer_email( ' at packages.altlinux.ru', '@packages.altlinux.org')
-    # fix_maintainer_email( ' at packages.altlinux.net', '@packages.altlinux.org')
-    # fix_maintainer_email( ' at packages.altlinux.com', '@packages.altlinux.org')
-    # fix_maintainer_email( '@packages.altlinux.ru', '@packages.altlinux.org')
-    # fix_maintainer_email( '@packages.altlinux.net', '@packages.altlinux.org')
-    # fix_maintainer_email( '@packages.altlinux.com', '@packages.altlinux.org')
+    fix_maintainer_email('ruby at packages.altlinux.org').should == 'ruby@packages.altlinux.org'
+    fix_maintainer_email('ruby at packages.altlinux.ru').should == 'ruby@packages.altlinux.org'
+    fix_maintainer_email('ruby at packages.altlinux.net').should == 'ruby@packages.altlinux.org'
+    fix_maintainer_email('ruby at packages.altlinux.com').should == 'ruby@packages.altlinux.org'
+    fix_maintainer_email('ruby@packages.altlinux.ru').should == 'ruby@packages.altlinux.org'
+    fix_maintainer_email('ruby@packages.altlinux.net').should == 'ruby@packages.altlinux.org'
+    fix_maintainer_email('ruby@packages.altlinux.com').should == 'ruby@packages.altlinux.org'
   end
 end
