@@ -6,5 +6,5 @@ env:
   - DB=postgresql
 
 before_script:
-  - "psql -c 'create database prometheus_test;' -U postgres >/dev/null"
   - "cp config/database.travis.yml config/database.yml"
+  - "psql -c 'create database prometheus_test;' -U postgres >/dev/null"
