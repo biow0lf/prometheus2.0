@@ -59,14 +59,6 @@ namespace :sisyphus do
     puts "#{Time.now.to_s}: end"
   end
 
-  desc 'Import maintainers list from src.rpm from Sisyphus to database'
-  task :maintainers => :environment do
-    require 'rpm'
-    puts "#{Time.now.to_s}: import maintainers list from *.src.rpm's"
-    Maintainer.import_maintainers_list('/ALT/Sisyphus/files/SRPMS/*.src.rpm')
-    puts "#{Time.now.to_s}: end"
-  end
-
   desc 'Import all teams from Sisyphus to database'
   task :teams => :environment do
     require 'open-uri'

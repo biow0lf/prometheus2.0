@@ -39,15 +39,6 @@ namespace :platform5 do
     puts "#{Time.now.to_s}: end"
   end
 
-  # TODO: kill this
-  desc 'Import maintainers list from src.rpm from Platform5 to database'
-  task :maintainers => :environment do
-    require 'rpm'
-    puts "#{Time.now.to_s}: import maintainers from src.rpm's"
-    Maintainer.import_maintainers_list('/ALT/p5/files/SRPMS/*.src.rpm')
-    puts "#{Time.now.to_s}: end"
-  end
-
 # TODO: remove this
 #  desc "Import all teams from Platform5 to database"
 #  task :teams => :environment do

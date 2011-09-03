@@ -55,14 +55,6 @@ namespace :"41" do
     puts Time.now.to_s + ": end"
   end
 
-  desc "Import maintainers list from src.rpm from 4.1 to database"
-  task :maintainers => :environment do
-    require 'rpm'
-    puts Time.now.to_s + ": import src.rpm's"
-    Maintainer.import_maintainers_list "/ALT/4.1/files/SRPMS/*.src.rpm"
-    puts Time.now.to_s + ": end"
-  end
-
   desc "Import all teams from 4.1 to database"
   task :teams => :environment do
     require 'open-uri'
