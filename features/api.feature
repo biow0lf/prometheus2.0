@@ -26,7 +26,6 @@ Feature: User API
 
   Scenario: Source rpm info
     When I visit "/en/Sisyphus/srpms/openbox"
-    # FIXME: Group should be "Graphical desktop/Other"
     Then the JSON response should be:
       """
       {
@@ -37,7 +36,7 @@ Feature: User API
         "epoch": null,
         "summary": "short description",
         "description": "long description",
-        "group": "Other",
+        "group": "Graphical desktop/Other",
         "license": "GPLv2+",
         "url": "http://openbox.org/",
         "size": "831617",
