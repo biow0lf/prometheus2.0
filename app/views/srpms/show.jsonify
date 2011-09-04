@@ -6,7 +6,7 @@ json << {
   :epoch => @srpm.epoch,
   :summary => @srpm.summary,
   :description => @srpm.description,
-  :group => @srpm.group.name,
+  :group => @srpm.group.full_name,
   :license => @srpm.license,
   :url => @srpm.url,
   :size => @srpm.size,
