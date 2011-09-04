@@ -7,7 +7,7 @@ class CreateSpecfiles < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+
     add_index :specfiles, :srpm_id
     add_index :specfiles, :branch_id
   end
