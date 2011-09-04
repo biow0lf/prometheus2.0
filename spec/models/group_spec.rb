@@ -10,6 +10,7 @@ describe Group do
   it { should validate_presence_of :name }
 
   it { should have_db_index :branch_id }
+  it { should have_db_index :parent_id }
 
   it "should return full group name on #full_name" do
     branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
@@ -65,5 +66,11 @@ describe Group do
     Group.first.name.should == 'Toys'
     I18n.locale = :ru
     Group.first.name.should == 'Развлечения'
+  end
+
+  it "should return group instance with id for 'Boot and Init'" do
+    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
+    Group.import_group(branch, 'System/Configuration/Boot and Init')
+    Group.in_branch(branch, 'System/Configuration/Boot and Init').name.should == 'Boot and Init'
   end
 end

@@ -8,4 +8,6 @@ describe Mirror do
   it { should validate_presence_of :name }
   it { should validate_presence_of :uri }
   it { should validate_presence_of :protocol }
+
+  it { should have_db_index :branch_id }
 end

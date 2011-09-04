@@ -32,14 +32,24 @@ class Group < ActiveRecord::Base
                  ORDER BY groups.name")
   end
 
-  def self.import_group(branch, group_string)
+  def self.import_group(branch, full_group)
     prev_id = nil
-    group_string.split('/').each_with_index  do |item, index|
+    full_group.split('/').each_with_index  do |item, index|
       group = Group.where(:branch_id => branch.id, :parent_id => prev_id, :name => item).first
       unless group
         group = Group.create(:branch_id => branch.id, :name => item, :parent_id => prev_id)
       end
       prev_id = group.id
     end
+  end
+
+  def self.in_branch(branch, full_group)
+    prev_id = nil
+    group = nil
+    full_group.split('/').each  do |item|
+      group = Group.where(:branch_id => branch.id, :parent_id => prev_id, :name => item).first
+      prev_id = group.id
+    end
+    group
   end
 end
