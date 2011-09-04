@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'spec_helper'
 
 describe Group do
@@ -50,5 +51,19 @@ describe Group do
     Group.all.third.branch_id.should == branch.id
     Group.all.third.name.should == 'Boot and Init'
     Group.all.third.parent_id.should == Group.all.second.id
+  end
+
+  it "should allow translate Group.name to russian" do
+    I18n.locale = :en
+    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
+    Group.create(:branch_id => branch.id, :name => 'Toys')
+    I18n.locale = :ru
+    group = Group.all.first
+    group.name = 'Развлечения'
+    group.save!
+    I18n.locale = :en
+    Group.first.name.should == 'Toys'
+    I18n.locale = :ru
+    Group.first.name.should == 'Развлечения'
   end
 end
