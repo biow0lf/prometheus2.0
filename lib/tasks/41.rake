@@ -7,14 +7,6 @@ namespace :"41" do
     puts Time.now.to_s + ": end"
   end
 
-  desc "Import RPM groups for 4.1 to database"
-  task :groups => :environment do
-    require 'open-uri'
-    puts Time.now.to_s + ": import groups"
-    Group.import_groups 'ALT Linux', '4.1', 'http://git.altlinux.org/gears/r/rpm.git?p=rpm.git;a=blob_plain;f=GROUPS'
-    puts Time.now.to_s + ": end"
-  end
-
   desc "Import *.src.rpm from 4.1 to database"
   task :srpms => :environment do
     require 'rpm'
