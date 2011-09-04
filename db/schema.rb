@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818200148) do
+ActiveRecord::Schema.define(:version => 20110904133721) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
     t.integer  "flags"
   end
 
+  add_index "conflicts", ["package_id"], :name => "index_conflicts_on_package_id"
+
   create_table "ftbfs", :force => true do |t|
     t.string   "name"
     t.string   "epoch"
@@ -86,6 +88,9 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
     t.string   "arch"
     t.integer  "maintainer_id"
   end
+
+  add_index "ftbfs", ["branch_id"], :name => "index_ftbfs_on_branch_id"
+  add_index "ftbfs", ["maintainer_id"], :name => "index_ftbfs_on_maintainer_id"
 
   create_table "gears", :force => true do |t|
     t.string   "repo"
@@ -120,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
   end
 
   add_index "groups", ["branch_id"], :name => "index_groups_on_branch_id"
+  add_index "groups", ["parent_id"], :name => "index_groups_on_parent_id"
 
   create_table "leaders", :force => true do |t|
     t.datetime "created_at"
@@ -158,6 +164,8 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
     t.datetime "updated_at"
   end
 
+  add_index "mirrors", ["branch_id"], :name => "index_mirrors_on_branch_id"
+
   create_table "obsoletes", :force => true do |t|
     t.integer  "package_id"
     t.string   "name"
@@ -168,6 +176,8 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
     t.string   "epoch"
     t.integer  "flags"
   end
+
+  add_index "obsoletes", ["package_id"], :name => "index_obsoletes_on_package_id"
 
   create_table "packages", :force => true do |t|
     t.string   "filename"
@@ -227,6 +237,8 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
     t.integer  "flags"
   end
 
+  add_index "provides", ["package_id"], :name => "index_provides_on_package_id"
+
   create_table "repocop_patches", :force => true do |t|
     t.string   "name"
     t.string   "version"
@@ -268,6 +280,8 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
     t.integer  "flags"
   end
 
+  add_index "requires", ["package_id"], :name => "index_requires_on_package_id"
+
   create_table "specfiles", :force => true do |t|
     t.integer  "srpm_id"
     t.integer  "branch_id"
@@ -308,6 +322,7 @@ ActiveRecord::Schema.define(:version => 20110818200148) do
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
   add_index "srpms", ["group_id"], :name => "index_srpms_on_group_id"
   add_index "srpms", ["name"], :name => "index_srpms_on_name"
+  add_index "srpms", ["specfile_id"], :name => "index_srpms_on_specfile_id"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
