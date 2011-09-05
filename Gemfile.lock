@@ -134,9 +134,9 @@ GEM
     json_pure (1.5.4)
       spruz (~> 0.2.8)
     jsonify (0.2.0)
-    jsonify-rails (0.1.0)
-      actionpack (>= 3.0.0)
-      jsonify
+    jsonify-rails (0.2.0)
+      actionpack
+      jsonify (>= 0.2.0)
     kaminari (0.12.4)
       rails (>= 3.0.0)
     launchy (2.0.5)
