@@ -8,7 +8,6 @@ gem 'haml'
 gem 'pg'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
-gem 'redis'
 gem 'meta_search', '1.1.0.pre2'
 gem 'squeel'
 gem 'kaminari'
@@ -23,6 +22,10 @@ gem 'wirb', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
+
+group :production, :development do
+  gem 'redis'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
