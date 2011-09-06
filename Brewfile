@@ -1,3 +1,5 @@
 redis
 postgresql
 memcached
+sphinx
+
