@@ -8,6 +8,7 @@ gem 'haml'
 gem 'pg'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
+# TODO: replace meta_search with ransack
 gem 'meta_search'
 gem 'squeel'
 gem 'kaminari'
@@ -22,6 +23,7 @@ gem 'wirb', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
+gem 'valium'
 
 group :production, :development do
   gem 'redis'
