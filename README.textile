@@ -116,6 +116,10 @@ h2. Run
 * service postgresql start
 * memcached -d -m 128 (as a user)
 
+h2. Deploy
+
+* cap deploy
+
 h2. License
 
 Prometheus 2.0 uses the MIT license. Please check the MIT-LICENSE file for more details.
