@@ -4,7 +4,7 @@ h2. Setup and run
 
 h3. Install:
 
-* Ruby 1.9.2p290
+* Ruby 1.9.3-preview1
 * RubyGems 1.8.10
 * ruby-rpm
 * bundler 1.1.pre.8
