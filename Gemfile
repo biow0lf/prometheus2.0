@@ -88,7 +88,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'ffaker'
+  # gem 'ffaker'
   gem 'shoulda'
   gem 'email_spec'
   gem 'launchy'
