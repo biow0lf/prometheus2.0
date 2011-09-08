@@ -245,7 +245,7 @@ GEM
       rubyzip
     shoulda (2.11.3)
     silent-postgres (0.1.1)
-    sitemap_generator (2.0.1)
+    sitemap_generator (2.1.0)
     sprockets (2.0.0)
       hike (~> 1.2)
       rack (~> 1.0)
