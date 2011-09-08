@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    aaronh-chronic (0.3.9)
     actionmailer (3.1.0)
       actionpack (= 3.1.0)
       mail (~> 2.3.0)
@@ -56,6 +55,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.2.2)
       ffi (~> 1.0.6)
+    chronic (0.6.3)
     coffee-rails (3.1.0)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0.rc1)
@@ -278,9 +278,9 @@ GEM
       activerecord (>= 3.0.2)
     warden (1.0.5)
       rack (>= 1.0)
-    whenever (0.6.8)
-      aaronh-chronic (>= 0.3.9)
+    whenever (0.7.0)
       activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
     wirb (0.4.1)
     xpath (0.1.4)
       nokogiri (~> 1.3)
