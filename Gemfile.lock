@@ -122,7 +122,7 @@ GEM
       em-websocket (>= 0.2.0)
       guard (>= 0.4.0)
       multi_json (~> 1.0.3)
-    guard-rspec (0.4.3)
+    guard-rspec (0.4.4)
       guard (>= 0.4.0)
     haml (3.1.2)
     highline (1.6.2)
