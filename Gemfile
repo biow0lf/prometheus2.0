@@ -5,6 +5,9 @@ gem 'rails', '3.1.0'
 # kill haml later
 gem 'haml'
 
+# lock rake version
+gem 'rake', '0.9.2'
+
 gem 'pg'
 gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
