@@ -1,6 +1,3 @@
-# FIXME:
-# require 'rpm'
-
 class Maintainer < ActiveRecord::Base
   include MaintainerHelper
 

@@ -4,9 +4,9 @@ Feature: Recover password
   Should be able to recover lost password
 
   Background:
-    Given the following branch:
-      | name   | Sisyphus  |
-      | vendor | ALT Linux |
+    Given the following branch exists:
+      | name     | vendor    |
+      | Sisyphus | ALT Linux |
 
   Scenario: Recover password
     Given I am signed up and confirmed as "email@example.com"

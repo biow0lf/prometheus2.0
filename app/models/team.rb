@@ -1,10 +1,10 @@
 class Team < ActiveRecord::Base
+  belongs_to :branch
+  belongs_to :maintainer
+
   validates :name, :presence => true
   validates :branch, :presence => true
   validates :maintainer, :presence => true
-
-  belongs_to :branch
-  belongs_to :maintainer
 
   def self.import_teams(vendor_name, branch_name, url)
     branch = Branch.where(:name => branch_name, :vendor => vendor_name).first

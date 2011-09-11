@@ -4,9 +4,9 @@ Feature: User sign out
   Should be able to sign out
 
   Background:
-    Given the following branch:
-      | name   | Sisyphus  |
-      | vendor | ALT Linux |
+    Given the following branch exists:
+      | name     | vendor    |
+      | Sisyphus | ALT Linux |
 
   Scenario: User sign out
     Given I am signed up and confirmed as "email@person.com"

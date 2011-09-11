@@ -4,14 +4,12 @@ Feature: Manageming maintainer profile
   Should be able to sign in and edit/update their profile
 
   Background:
-    Given the following branch:
-      | name   | Sisyphus  |
-      | vendor | ALT Linux |
-    And the following maintainer:
-      | name  | Igor Zubkov         |
-      | email | icesik@altlinux.org |
-      | login | icesik              |
-      | team  | false               |
+    Given the following branch exists:
+      | name     | vendor    |
+      | Sisyphus | ALT Linux |
+    And the following maintainer exists:
+      | name        | email               | login  | team  |
+      | Igor Zubkov | icesik@altlinux.org | icesik | false |
 
   Scenario: Maintainer sign in
     Given I am signed up and confirmed as "icesik@altlinux.org"

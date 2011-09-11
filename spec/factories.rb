@@ -1,0 +1,26 @@
+FactoryGirl.define do
+  factory :branch do
+    name 'Sisyphus'
+    vendor 'ALT Linux'
+    order_id 0
+  end
+
+  factory :group do
+    name 'Graphical desktop'
+    parent_id nil
+  end
+
+  factory :srpm do
+    name 'openbox'
+    version '3.4.11.1'
+    release 'alt1.1.1'
+    md5 'f87ff0eaa4e16b202539738483cd54d1'
+  end
+
+  factory :maintainer do
+    name 'Igor Zubkov'
+    email 'icesik@altlinux.org'
+    login 'icesik'
+    team false
+  end
+end

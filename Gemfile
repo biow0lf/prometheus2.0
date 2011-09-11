@@ -72,12 +72,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'fabrication'
   gem 'ruby-debug19'
-  gem 'rspec'
-  gem 'rspec-rails'
   gem 'rcov', :require => false
-  gem 'stepdown', :require => false
   gem 'guard'
   gem 'rb-fsevent', '0.4.3', :require => false
   gem 'growl', :require => false
@@ -90,6 +86,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
   gem 'capybara'
   # gem 'ffaker'
   gem 'shoulda'
@@ -100,4 +98,5 @@ group :test do
   gem 'database_cleaner'
   gem 'fakeweb'
   gem 'fakeredis'
+  gem 'factory_girl_rails'
 end

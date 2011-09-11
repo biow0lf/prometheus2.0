@@ -13,14 +13,14 @@ describe Group do
   it { should have_db_index :parent_id }
 
   it "should return full group name on #full_name" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
-    Group.import_group(branch, 'System/Configuration/Boot and Init')
+    branch = FactoryGirl.create(:branch)
+    Group.import(branch, 'System/Configuration/Boot and Init')
     Group.all.last.full_name.should == 'System/Configuration/Boot and Init'
   end
 
   it "should import group 'Shells'" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
-    Group.import_group(branch, 'Shells')
+    branch = FactoryGirl.create(:branch)
+    Group.import(branch, 'Shells')
     Group.all.count.should == 1
     Group.all.first.branch_id.should == branch.id
     Group.all.first.name.should == 'Shells'
@@ -28,8 +28,8 @@ describe Group do
   end
 
   it "should import group 'Archiving/Backup'" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
-    Group.import_group(branch, 'Archiving/Backup')
+    branch = FactoryGirl.create(:branch)
+    Group.import(branch, 'Archiving/Backup')
     Group.all.count.should == 2
     Group.all.first.branch_id.should == branch.id
     Group.all.first.name.should == 'Archiving'
@@ -40,8 +40,8 @@ describe Group do
   end
 
   it "should import group 'System/Configuration/Boot and Init'" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
-    Group.import_group(branch, 'System/Configuration/Boot and Init')
+    branch = FactoryGirl.create(:branch)
+    Group.import(branch, 'System/Configuration/Boot and Init')
     Group.all.count.should == 3
     Group.all.first.branch_id.should == branch.id
     Group.all.first.name.should == 'System'
@@ -56,7 +56,7 @@ describe Group do
 
   it "should allow translate Group.name to russian" do
     I18n.locale = :en
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
+    branch = FactoryGirl.create(:branch)
     Group.create(:branch_id => branch.id, :name => 'Toys')
     I18n.locale = :ru
     group = Group.all.first
@@ -69,8 +69,8 @@ describe Group do
   end
 
   it "should return group instance with id for 'Boot and Init'" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
-    Group.import_group(branch, 'System/Configuration/Boot and Init')
+    branch = FactoryGirl.create(:branch)
+    Group.import(branch, 'System/Configuration/Boot and Init')
     Group.in_branch(branch, 'System/Configuration/Boot and Init').name.should == 'Boot and Init'
   end
 end

@@ -83,7 +83,7 @@ class Srpm < ActiveRecord::Base
     srpm.filename = "#{srpm.name}-#{srpm.version}-#{srpm.release}.src.rpm"
 
     group_name = `rpm -qp --queryformat='%{GROUP}' #{file}`
-    Group.import_group(branch, group_name)
+    Group.import(branch, group_name)
     group = Group.in_branch(branch, group_name)
 
     srpm.group_id = group.id
