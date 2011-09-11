@@ -8,8 +8,9 @@ describe PerlWatch do
     FakeWeb.register_uri(:get,
                          "http://www.cpan.org/modules/02packages.details.txt",
                          :response => page)
-    expect{PerlWatch.import_data("http://www.cpan.org/modules/02packages.details.txt")}.to \
-    change{PerlWatch.count}.from(0).to(1)
+    expect{
+      PerlWatch.import_data("http://www.cpan.org/modules/02packages.details.txt")
+      }.to change{ PerlWatch.count }.from(0).to(1)
     PerlWatch.count.should == 1
     perlwatch = PerlWatch.first
     perlwatch.name.should == 'AnyEvent::ZeroMQ'

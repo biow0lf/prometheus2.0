@@ -13,8 +13,8 @@ describe Srpm do
   it { should have_one :repocop_patch }
   it { should have_many :patches }
 
-  pending "test :dependent => :destroy for :packages, :changelogs, :leaders, :acls"
-  pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
+  # pending "test :dependent => :destroy for :packages, :changelogs, :leaders, :acls"
+  # pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
 
   it { should validate_presence_of :branch }
   it { should validate_presence_of :group }
@@ -26,7 +26,7 @@ describe Srpm do
   it { should have_db_index :specfile_id }
 
   it "should return Srpm.name on .to_param" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
+    branch = FactoryGirl.create(:branch)
     group0 = Group.create!(:name => 'Graphical desktop', :branch_id => branch.id)
     group = Group.create!(:name => 'Other', :branch_id => branch.id)
     group.move_to_child_of(group0)
@@ -47,7 +47,7 @@ describe Srpm do
   end
 
   it "should import srpm file" do
-    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
+    branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
     Srpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
@@ -97,5 +97,10 @@ describe Srpm do
 
     $redis.get("#{branch.name}:#{srpm.filename}").should == "1"
     $redis.get("#{branch.name}:srpms:counter").should == "1"
+  end
+
+  it "should import all srpms from path" do
+    branch = FactoryGirl.create(:branch)
+    
   end
 end
