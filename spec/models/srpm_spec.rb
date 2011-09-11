@@ -45,4 +45,57 @@ describe Srpm do
                  :md5 => 'f87ff0eaa4e16b202539738483cd54d1',
                  :buildtime => '2010-11-24 23:58:02 UTC').to_param.should == 'openbox'
   end
+
+  it "should import srpm file" do
+    branch = Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux')
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
+    Srpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{NAME}' #{file}").and_return('openbox')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{VERSION}' #{file}").and_return('3.4.11.1')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{RELEASE}' #{file}").and_return('alt1.1.1')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{EPOCH}' #{file}").and_return('(none)')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{SUMMARY}' #{file}").and_return('short description')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{LICENSE}' #{file}").and_return('GPLv2+')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{URL}' #{file}").and_return('http://openbox.org/')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{DESCRIPTION}' #{file}").and_return('long description')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{VENDOR}' #{file}").and_return('ALT Linux Team')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{DISTRIBUTION}' #{file}").and_return('ALT Linux')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{BUILDTIME}' #{file}").and_return('1315301838')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}").and_return('1312545600')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}").and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    Srpm.should_receive(:`).with("rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}").and_return('- 3.4.11.1')
+
+    File.should_receive(:size).with(file).and_return(831617)
+
+    Specfile.should_receive(:import).and_return(true)
+    Changelog.should_receive(:import).and_return(true)
+
+    expect{
+      Srpm.import_srpm(branch, file)
+      }.to change{ Srpm.count }.from(0).to(1)
+
+    srpm = Srpm.first
+    srpm.name.should == 'openbox'
+    srpm.version.should == '3.4.11.1'
+    srpm.release.should == 'alt1.1.1'
+    srpm.epoch.should be_nil
+    srpm.summary.should == 'short description'
+    srpm.group.full_name.should == 'Graphical desktop/Other'
+    srpm.license.should == 'GPLv2+'
+    srpm.url.should == 'http://openbox.org/'
+    srpm.description.should == 'long description'
+    srpm.vendor.should == 'ALT Linux Team'
+    srpm.distribution.should == 'ALT Linux'
+    # FIXME:
+    # srpm.buildtime.should == Time.at(1315301838)
+    # srpm.changelogtime.should == Time.at(1312545600)
+    srpm.changelogname.should == 'Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1'
+    srpm.changelogtext.should == '- 3.4.11.1'
+    srpm.filename.should == 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+
+    $redis.get("#{branch.name}:#{srpm.filename}").should == "1"
+    $redis.get("#{branch.name}:srpms:counter").should == "1"
+  end
 end

@@ -1,6 +1,3 @@
-# FIXME:
-# require 'rpm'
-
 class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
@@ -58,142 +55,72 @@ class Srpm < ActiveRecord::Base
     end
   end
 
-  def self.import_srpms(vendor_name, branch_name, path)
-    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
-    Dir.glob(path).each do |file|
-      begin
-        rpm = RPM::Package::open(file)
-        srpm = Srpm.new
-        srpm.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.src.rpm"
-        srpm.name = rpm.name
-        srpm.version = rpm.version.v
-        srpm.release = rpm.version.r
+  # def self.import_srpms(vendor_name, branch_name, path)
+  #   branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
+  #   Dir.glob(path).each do |file|
+  #     begin
+  #       rpm = RPM::Package::open(file)
+  #       srpm = Srpm.new
+  #       srpm.summary = rpm[1004]
+  #       # hack for very long summary in openmoko_dfu-util src.rpm
+  #       srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
+  #     rescue RuntimeError
+  #       puts "RuntimeError at file: #{file}"
+  #     rescue ArgumentError
+  #       puts "ArgumentError at file: #{file}"
+  #     end
+  #   end
+  # end
 
-        case rpm[1016].split('/').count
-        when 1
-          group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
-        when 2
-          group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
-        when 3
-          group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
-        else
-          puts "#{Time.now.to_s}: too nested groups level"
-        end
-
-        srpm.group_id = group.id
-        srpm.epoch = rpm[1003]
-        srpm.summary = rpm[1004]
-        # hack for very long summary in openmoko_dfu-util src.rpm
-        srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-        srpm.license = rpm[1014]
-        srpm.url = rpm[1020]
-        srpm.description = rpm[1005]
-        srpm.vendor = rpm[1011]
-        srpm.distribution = rpm[1010]
-        srpm.buildtime = Time.at(rpm[1006])
-        srpm.size = File.size(file)
-        srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
-        srpm.branch_id = branch.id
-        srpm.changelogtime = rpm.changelog.first.time
-        srpm.changelogname = rpm.changelog.first.name
-        srpm.changelogtext = rpm.changelog.first.text
-        if srpm.save
-          rpm.changelog.each do |c|
-            changelog = Changelog.new
-            changelog.srpm_id = srpm.id
-            changelog.changelogname = c.name
-            changelog.changelogtime = c.time
-            changelog.changelogtext = c.text
-            changelog.save!
-          end
-          Specfile.import_specfile(file, srpm, branch)
-          $redis.incr("#{branch_name}:srpms:counter")
-          $redis.set("#{branch.name}:#{srpm.filename}", 1)
-        end
-      rescue RuntimeError
-        puts "RuntimeError at file: #{file}"
-      rescue ArgumentError
-        puts "ArgumentError at file: #{file}"
-      end
-    end
-  end
-
-  def self.import_srpm(vendor_name, branch_name, file)
-    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
-    rpm = RPM::Package::open(file)
-    if branch.srpms.where(:name => rpm.name).all.count >= 1
-      branch.srpms.where(:name => rpm.name).first.packages.each do |package|
-        $redis.del("#{branch.name}:#{package.filename}")
-      end
-      $redis.del("#{branch.name}:#{branch.srpms.where(:name => rpm.name).first.filename}")
-      Srpm.destroy_all(:branch_id => branch, :name => rpm.name)
-    end
+  def self.import_srpm(branch, file)
     srpm = Srpm.new
-    srpm.filename = "#{rpm.name}-#{rpm.version.v}-#{rpm.version.r}.src.rpm"
-    srpm.name = rpm.name
-    srpm.version = rpm.version.v
-    srpm.release = rpm.version.r
+    srpm.name = `rpm -qp --queryformat='%{NAME}' #{file}`
+    srpm.version = `rpm -qp --queryformat='%{VERSION}' #{file}`
+    srpm.release = `rpm -qp --queryformat='%{RELEASE}' #{file}`
+    srpm.epoch = `rpm -qp --queryformat='%{EPOCH}' #{file}`
+    # TODO: make test for this
+    srpm.epoch = nil if srpm.epoch == '(none)'
+    srpm.filename = "#{srpm.name}-#{srpm.version}-#{srpm.release}.src.rpm"
 
-    case rpm[1016].split('/').count
-    when 1
-      group = branch.groups.where(:name => rpm[1016], :parent_id => nil).first
-    when 2
-      group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first
-    when 3
-      group = branch.groups.where(:name => rpm[1016].split('/')[0], :parent_id => nil).first.children.where(:name => rpm[1016].split('/')[1]).first.children.where(:name => rpm[1016].split('/')[2]).first
-    else
-      puts "#{Time.now.to_s}: too nested groups level"
-    end
+    group_name = `rpm -qp --queryformat='%{GROUP}' #{file}`
+    Group.import_group(branch, group_name)
+    group = Group.in_branch(branch, group_name)
 
     srpm.group_id = group.id
-    srpm.epoch = rpm[1003]
-    srpm.summary = rpm[1004]
-    srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-    srpm.license = rpm[1014]
-    srpm.url = rpm[1020]
-    srpm.description = rpm[1005]
-    srpm.vendor = rpm[1011]
-    srpm.distribution = rpm[1010]
-    srpm.buildtime = Time.at(rpm[1006])
+    srpm.summary = `rpm -qp --queryformat='%{SUMMARY}' #{file}`
+    srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
+    srpm.license = `rpm -qp --queryformat='%{LICENSE}' #{file}`
+    srpm.url = `rpm -qp --queryformat='%{URL}' #{file}`
+    srpm.description = `rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
+    srpm.vendor = `rpm -qp --queryformat='%{VENDOR}' #{file}`
+    srpm.distribution = `rpm -qp --queryformat='%{DISTRIBUTION}' #{file}`
+    srpm.buildtime = Time.at(`rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
     srpm.size = File.size(file)
     srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
     srpm.branch_id = branch.id
-    srpm.changelogtime = rpm.changelog.first.time
-    srpm.changelogname = rpm.changelog.first.name
-    srpm.changelogtext = rpm.changelog.first.text
+    srpm.changelogtime = Time.at(`rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}`.to_i)
+    srpm.changelogname = `rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}`
+    srpm.changelogtext = `rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
     if srpm.save
       $redis.set("#{branch.name}:#{srpm.filename}", 1)
-      if branch.name == 'Sisyphus' && branch.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
-        Acl.create_acls_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.sisyphus', srpm.name)
-      elsif branch.name == '5.1' && branch.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
-        Acl.create_acls_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.5.1', srpm.name)
-      elsif branch.name == '5.0' && branch.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
-        Acl.create_acls_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.5.0', srpm.name)
-      elsif branch.name == '4.1' && branch.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
-        Acl.create_acls_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.4.1', srpm.name)
-      elsif branch.name == '4.0' && branch.vendor == 'ALT Linux'
-        Leader.create_leader_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
-        Acl.create_acls_for_package(branch.vendor, branch.name, 'http://git.altlinux.org/acl/list.packages.4.0', srpm.name)
-      end
-      #puts Time.now.to_s + ": updated '" + srpm.filename + "'"
-      #puts Time.now.to_s + ": import changelog for '" + srpm.filename + "'"
-      rpm.changelog.each do |c|
-        changelog = Changelog.new
-        changelog.srpm_id = srpm.id
-        changelog.changelogname = c.name
-        changelog.changelogtime = c.time
-        changelog.changelogtext = c.text
-        changelog.save!                                                                                                                                              
-      end
-      Specfile.import_specfile(file, srpm, branch)
-      $redis.incr("#{branch_name}:srpms:counter")
-      #puts Time.now.to_s + ": imported changelog for '" + srpm.filename + "'"
+      Changelog.import(branch, file, srpm)
+      Specfile.import(branch, file, srpm)
+      $redis.incr("#{branch.name}:srpms:counter")
+      # TODO: import acl and leader
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
     end
   end
+
+  # def self.import_srpm(vendor_name, branch_name, file)
+  #   branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
+  #   rpm = RPM::Package::open(file)
+  #   if branch.srpms.where(:name => rpm.name).all.count >= 1
+  #     branch.srpms.where(:name => rpm.name).first.packages.each do |package|
+  #       $redis.del("#{branch.name}:#{package.filename}")
+  #     end
+  #     $redis.del("#{branch.name}:#{branch.srpms.where(:name => rpm.name).first.filename}")
+  #     Srpm.destroy_all(:branch_id => branch, :name => rpm.name)
+  #   end
+  # end
 end
