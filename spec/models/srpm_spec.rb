@@ -101,6 +101,10 @@ describe Srpm do
 
   it "should import all srpms from path" do
     branch = FactoryGirl.create(:branch)
-    
+    path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
+    $redis.get("#{branch.name}:glibc-2.11.3-alt6.src.rpm").should be_nil
+    Dir.should_receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
+    Srpm.should_receive(:import).and_return(true)
+    Srpm.import_all(branch, path)
   end
 end

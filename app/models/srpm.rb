@@ -88,6 +88,7 @@ class Srpm < ActiveRecord::Base
 
     srpm.group_id = group.id
     srpm.summary = `rpm -qp --queryformat='%{SUMMARY}' #{file}`
+    # TODO: test for this
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
     srpm.license = `rpm -qp --queryformat='%{LICENSE}' #{file}`
     srpm.url = `rpm -qp --queryformat='%{URL}' #{file}`
@@ -109,6 +110,15 @@ class Srpm < ActiveRecord::Base
       # TODO: import acl and leader
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
+    end
+  end
+
+  def self.import_all(branch, path)
+    Dir.glob(path).each do |file|
+      unless $redis.exists("#{branch.name}:#{file.split('/')[-1]}")
+        puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
+        Srpm.import(branch, file)
+      end
     end
   end
 
