@@ -2,7 +2,6 @@ rvm:
   - 1.9.2
 env:
   - ISOLATED=true
-  - DB=redis
   - DB=postgresql
 
 before_script:
