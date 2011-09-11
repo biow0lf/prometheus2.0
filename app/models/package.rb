@@ -1,6 +1,3 @@
-# FIXME:
-# require 'rpm'
-
 class Package < ActiveRecord::Base
   belongs_to :branch
   belongs_to :srpm
