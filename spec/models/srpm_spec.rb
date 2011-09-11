@@ -73,7 +73,7 @@ describe Srpm do
     Changelog.should_receive(:import).and_return(true)
 
     expect{
-      Srpm.import_srpm(branch, file)
+      Srpm.import(branch, file)
       }.to change{ Srpm.count }.from(0).to(1)
 
     srpm = Srpm.first

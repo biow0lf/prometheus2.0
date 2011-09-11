@@ -72,7 +72,7 @@ class Srpm < ActiveRecord::Base
   #   end
   # end
 
-  def self.import_srpm(branch, file)
+  def self.import(branch, file)
     srpm = Srpm.new
     srpm.name = `rpm -qp --queryformat='%{NAME}' #{file}`
     srpm.version = `rpm -qp --queryformat='%{VERSION}' #{file}`
