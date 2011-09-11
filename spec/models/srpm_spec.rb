@@ -108,4 +108,31 @@ describe Srpm do
     RPM.should_receive(:check_md5).and_return(true)
     Srpm.import_all(branch, path)
   end
+
+  it "should remove old srpms from database" do
+    branch = FactoryGirl.create(:branch)
+    $redis.set("#{branch.name}:srpms:counter", 0)
+    group = FactoryGirl.create(:group, :branch_id => branch.id)
+    srpm1 = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    $redis.set("#{branch.name}:#{srpm1.filename}", 1)
+    $redis.incr("#{branch.name}:srpms:counter")
+    srpm2 = FactoryGirl.create(:srpm, :name => 'blackbox', :filename => 'blackbox-1.0-alt1.src.rpm', :branch_id => branch.id, :group_id => group.id)
+    $redis.set("#{branch.name}:#{srpm2.filename}", 1)
+    $redis.incr("#{branch.name}:srpms:counter")
+
+    path = '/ALT/Sisyphus/files/SRPMS/'
+
+    File.should_receive(:exists?).with("#{path}openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
+    File.should_receive(:exists?).with("#{path}blackbox-1.0-alt1.src.rpm").and_return(false)
+
+    expect{
+      Srpm.remove_old(branch, path)
+    }.to change{ Srpm.count }.from(2).to(1)
+
+    $redis.get("#{branch.name}:openbox-3.4.11.1-alt1.1.1.src.rpm").should == '1'
+    $redis.get("#{branch.name}:blackbox-1.0-alt1.src.rpm").should be_nil
+    $redis.get("#{branch.name}:srpms:counter").should == '1'
+
+    # TODO: add checks for sub packages, set-get-delete
+  end
 end

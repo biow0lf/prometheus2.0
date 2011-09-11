@@ -40,38 +40,6 @@ class Srpm < ActiveRecord::Base
     $redis.get("#{branch_name}:srpms:counter")
   end
 
-  def self.remove_old_srpms(vendor_name, branch_name, path)
-    branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
-    branch.srpms.each do |srpm|
-      unless File.exists?("#{path}#{srpm.filename}")
-        puts "#{Time.now.to_s}: deleted '#{srpm.filename}'"
-        srpm.packages.each do |package|
-          $redis.del("#{branch.name}:#{package.filename}")
-        end
-        $redis.del("#{branch.name}:#{srpm.filename}")
-        $redis.decr("#{branch_name}:srpms:counter")
-        srpm.destroy
-      end
-    end
-  end
-
-  # def self.import_srpms(vendor_name, branch_name, path)
-  #   branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
-  #   Dir.glob(path).each do |file|
-  #     begin
-  #       rpm = RPM::Package::open(file)
-  #       srpm = Srpm.new
-  #       srpm.summary = rpm[1004]
-  #       # hack for very long summary in openmoko_dfu-util src.rpm
-  #       srpm.summary = 'Broken' if rpm.name == 'openmoko_dfu-util'
-  #     rescue RuntimeError
-  #       puts "RuntimeError at file: #{file}"
-  #     rescue ArgumentError
-  #       puts "ArgumentError at file: #{file}"
-  #     end
-  #   end
-  # end
-
   def self.import(branch, file)
     srpm = Srpm.new
     srpm.name = `rpm -qp --queryformat='%{NAME}' #{file}`
@@ -89,6 +57,7 @@ class Srpm < ActiveRecord::Base
     srpm.group_id = group.id
     srpm.summary = `rpm -qp --queryformat='%{SUMMARY}' #{file}`
     # TODO: test for this
+    # hack for very long summary in openmoko_dfu-util src.rpm
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
     srpm.license = `rpm -qp --queryformat='%{LICENSE}' #{file}`
     srpm.url = `rpm -qp --queryformat='%{URL}' #{file}`
@@ -119,6 +88,21 @@ class Srpm < ActiveRecord::Base
       unless $redis.exists("#{branch.name}:#{file.split('/')[-1]}")
         puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
         Srpm.import(branch, file)
+      end
+    end
+  end
+
+  def self.remove_old(branch, path)
+    branch.srpms.each do |srpm|
+      unless File.exists?("#{path}#{srpm.filename}")
+        srpm.packages.each do |package|
+          puts "#{Time.now.to_s}: delete '#{package.filename}' from redis cache"
+          $redis.del("#{branch.name}:#{package.filename}")
+        end
+        puts "#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache"
+        $redis.del("#{branch.name}:#{srpm.filename}")
+        srpm.destroy
+        $redis.decr("#{branch.name}:srpms:counter")
       end
     end
   end
