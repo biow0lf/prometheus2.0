@@ -88,8 +88,8 @@ class Srpm < ActiveRecord::Base
 
   def self.import_all(branch, path)
     Dir.glob(path).each do |file|
-      next unless RPM.check_md5(file)
       unless $redis.exists("#{branch.name}:#{file.split('/')[-1]}")
+        next unless RPM.check_md5(file)
         puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
         Srpm.import(branch, file)
       end
