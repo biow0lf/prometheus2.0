@@ -66,4 +66,14 @@ describe Package do
 
     $redis.get("#{branch.name}:#{package.filename}").should == "1"
   end
+
+  it "should import all packages from path" do
+    branch = FactoryGirl.create(:branch)
+    pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
+    $redis.get("#{branch.name}:gcc-1.0-alt1.i586.rpm").should be_nil
+    Dir.should_receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
+    Package.should_receive(:import).and_return(true)
+    RPM.should_receive(:check_md5).and_return(true)
+    Package.import_all(branch, pathes)
+  end
 end
