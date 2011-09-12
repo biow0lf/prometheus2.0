@@ -35,9 +35,13 @@ class Srpm < ActiveRecord::Base
     name
   end
 
-  def self.count_srpms_in(branch_name)
-    $redis.setnx("#{branch_name}:srpms:counter", Branch.where(:name => branch_name, :vendor => 'ALT Linux').first.srpms.count)
-    $redis.get("#{branch_name}:srpms:counter")
+  def self.count_srpms(branch)
+    counter = $redis.get("#{branch.name}:srpms:counter")
+    if counter.nil?
+      $redis.set("#{branch.name}:srpms:counter", branch.srpms.count)
+      counter = $redis.get("#{branch.name}:srpms:counter")
+    end
+    counter
   end
 
   def self.import(branch, file)
@@ -106,16 +110,4 @@ class Srpm < ActiveRecord::Base
       end
     end
   end
-
-  # def self.import_srpm(vendor_name, branch_name, file)
-  #   branch = Branch.where(:name => branch_name, :vendor => vendor_name).first
-  #   rpm = RPM::Package::open(file)
-  #   if branch.srpms.where(:name => rpm.name).all.count >= 1
-  #     branch.srpms.where(:name => rpm.name).first.packages.each do |package|
-  #       $redis.del("#{branch.name}:#{package.filename}")
-  #     end
-  #     $redis.del("#{branch.name}:#{branch.srpms.where(:name => rpm.name).first.filename}")
-  #     Srpm.destroy_all(:branch_id => branch, :name => rpm.name)
-  #   end
-  # end
 end

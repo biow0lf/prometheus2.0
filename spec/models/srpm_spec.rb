@@ -135,4 +135,14 @@ describe Srpm do
 
     # TODO: add checks for sub packages, set-get-delete
   end
+
+  it "should cache srpms counter in redis" do
+    branch = FactoryGirl.create(:branch)
+    $redis.del("#{branch.name}:srpms:counter")
+    $redis.get("#{branch.name}:srpms:counter").should be_nil
+    group = FactoryGirl.create(:group, :branch_id => branch.id)
+    srpm = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    Srpm.count_srpms(branch)
+    $redis.get("#{branch.name}:srpms:counter").should == '1'
+  end
 end

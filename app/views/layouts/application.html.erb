@@ -89,7 +89,7 @@
 
   <div id='top-line'>
     <div id='vinfo'>
-      <b><%= _('Last update:') %> </b> <%= Date.today %> | <b><%= _('SRPMs:') %> </b> <%= Srpm.count_srpms_in(params[:branch]) %> | 
+      <b><%= _('Last update:') %> </b> <%= Date.today %> | <b><%= _('SRPMs:') %> </b> <%= Srpm.count_srpms(@branch) %> | 
       <% if user_signed_in? %>
         <b><%= "Welcome, #{current_user.email}! | " %></b>
         <%= link_to _('Sign out'), destroy_user_session_path, :method => :delete %>
