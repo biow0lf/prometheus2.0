@@ -20,9 +20,9 @@ every 1.day, :at => '13:00' do
   rake "ftbfs:update"
 end
 
-# every :sunday, :at => '03:30' do
-#   rake "sitemap:refresh"
-# end
+every :sunday, :at => '03:30' do
+  rake "sitemap:clean sitemap:refresh"
+end
 
 every :sunday, :at => '06:30' do
   rake "perlwatch:update"
