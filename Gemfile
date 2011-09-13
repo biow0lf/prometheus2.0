@@ -72,6 +72,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
   gem 'ruby-debug19'
   gem 'rcov', :require => false
   gem 'guard'
@@ -86,8 +88,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec'
-  gem 'rspec-rails'
   gem 'capybara'
   # gem 'ffaker'
   gem 'shoulda'
