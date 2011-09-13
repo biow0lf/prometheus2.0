@@ -9,10 +9,10 @@ namespace :sisyphus do
 
   desc 'Import *.src.rpm from Sisyphus to database'
   task :srpms => :environment do
-    require 'rpm'
     require 'open-uri'
     puts "#{Time.now.to_s}: import *.src.rpm from Sisyphus to database"
-    Srpm.import_srpms('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
+    branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
     puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update repocop cache"
     Repocop.update_repocop_cache
@@ -21,7 +21,6 @@ namespace :sisyphus do
 
   desc 'Import *.i586.rpm from Sisyphus to database'
   task :i586 => :environment do
-    require 'rpm'
     puts "#{Time.now.to_s}: import *.i586.rpm from Sisyphus to database"
     Package.import_packages_i586('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm')
     puts "#{Time.now.to_s}: end"
@@ -29,7 +28,6 @@ namespace :sisyphus do
 
   desc 'Import *.noarch.rpm from Sisyphus to database'
   task :noarch => :environment do
-    require 'rpm'
     puts "#{Time.now.to_s}: import *.noarch.rpm from Sisyphus to database"
     Package.import_packages_noarch('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm')
     puts "#{Time.now.to_s}: end"
@@ -37,7 +35,6 @@ namespace :sisyphus do
 
   desc 'Import *.x86_64.rpm from Sisyphus to database'
   task :x86_64 => :environment do
-    require 'rpm'
     puts "#{Time.now.to_s}: import *.x86_64.rpm from Sisyphus to database"
     Package.import_packages_x86_64('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm')
     puts "#{Time.now.to_s}: end"
