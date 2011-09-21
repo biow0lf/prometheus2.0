@@ -26,6 +26,7 @@ gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
 gem 'valium'
+gem 'unicorn'
 
 group :production, :development do
   gem 'redis'
@@ -41,12 +42,6 @@ end
 
 gem 'jquery-rails'
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
@@ -55,7 +50,6 @@ end
 group :production do
   gem 'memcache-client'
   gem 'newrelic_rpm'
-  gem 'rack-maintenance', :require => 'rack/maintenance'
   gem 'rack-force_domain'
   gem 'exception_notification'
 end
