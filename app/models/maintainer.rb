@@ -23,20 +23,12 @@ class Maintainer < ActiveRecord::Base
   end
 
   def self.login_exists?(login)
-    if Maintainer.where(login: login.downcase, team: false).count > 0
-      true
-    else
-      false
-    end
+    Maintainer.where(login: login.downcase, team: false).count > 0
   end
 
   # TODO: move Maintainer team info in MaintainerTeam model with all stuff
   def self.team_exists?(team_login)
-    if Maintainer.where(login: team_login.downcase, team: true).count > 0
-      true
-    else
-      false
-    end
+    Maintainer.where(login: team_login.downcase, team: true).count > 0
   end
 
   def self.import(maintainer)
