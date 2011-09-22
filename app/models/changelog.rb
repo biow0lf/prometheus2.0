@@ -1,10 +1,10 @@
 class Changelog < ActiveRecord::Base
   belongs_to :srpm
 
-  validates :srpm, :presence => true
-  validates :changelogtime, :presence => true
-  validates :changelogname, :presence => true
-  validates :changelogtext, :presence => true
+  validates :srpm, presence: true
+  validates :changelogtime, presence: true
+  validates :changelogname, presence: true
+  validates :changelogtext, presence: true
 
   def self.import(branch, file, srpm)
     changelogs = `rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`

@@ -1,20 +1,20 @@
 class Maintainer < ActiveRecord::Base
   include MaintainerHelper
 
-  validates :name, :presence => true
-  validates :email, :presence => true
-  validates :login, :presence => true, :uniqueness => true
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :login, presence: true, uniqueness: true
 
-  validates :name, :immutable => true
-  validates :email, :immutable => true
-  validates :login, :immutable => true
+  validates :name, immutable: true
+  validates :email, immutable: true
+  validates :login, immutable: true
 
   has_one :leader
   has_many :acls
   has_many :teams
-  has_many :srpms, :through => :acls
+  has_many :srpms, through: :acls
   has_many :gears
-  has_many :ftbfs, :class_name => "Ftbfs"
+  has_many :ftbfs, class_name: "Ftbfs"
 
   attr_accessible :name, :email, :login, :team, :time_zone, :jabber, :info
 
@@ -23,7 +23,7 @@ class Maintainer < ActiveRecord::Base
   end
 
   def self.login_exists?(login)
-    if Maintainer.where(:login => login.downcase, :team => false).count > 0
+    if Maintainer.where(login: login.downcase, team: false).count > 0
       true
     else
       false
@@ -32,7 +32,7 @@ class Maintainer < ActiveRecord::Base
 
   # TODO: move Maintainer team info in MaintainerTeam model with all stuff
   def self.team_exists?(team_login)
-    if Maintainer.where(:login => team_login.downcase, :team => true).count > 0
+    if Maintainer.where(login: team_login.downcase, team: true).count > 0
       true
     else
       false
@@ -49,11 +49,11 @@ class Maintainer < ActiveRecord::Base
     domain = email.split('@')[1]
     if domain == 'altlinux.org'
       unless login_exists?(login)
-        Maintainer.create(:team => false, :login => login, :name => name, :email => email)
+        Maintainer.create(team: false, login: login, name: name, email: email)
       end
     else
       unless team_exists?(login)
-        Maintainer.create(:team => true, :login => login, :name => name, :email => email)
+        Maintainer.create(team: true, login: login, name: name, email: email)
       end
     end
   end

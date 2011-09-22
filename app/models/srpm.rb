@@ -2,31 +2,31 @@ class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
 
-  validates :branch, :presence => true
-  validates :group, :presence => true
-  validates :md5, :presence => true
+  validates :branch, presence: true
+  validates :group, presence: true
+  validates :md5, presence: true
 
-  has_many :packages, :dependent => :destroy
-  has_many :changelogs, :dependent => :destroy
-  has_one :leader, :dependent => :destroy
-  has_one :maintainer, :through => :leader
-  has_many :acls, :dependent => :destroy
-  has_one :specfile, :dependent => :destroy
-  has_many :patches, :dependent => :destroy
+  has_many :packages, dependent: :destroy
+  has_many :changelogs, dependent: :destroy
+  has_one :leader, dependent: :destroy
+  has_one :maintainer, through: :leader
+  has_many :acls, dependent: :destroy
+  has_one :specfile, dependent: :destroy
+  has_many :patches, dependent: :destroy
 
-  has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
-  has_one :repocop_patch, :foreign_key => 'name', :primary_key => 'name'
+  has_many :repocops, foreign_key: 'srcname', primary_key: 'name'
+  has_one :repocop_patch, foreign_key: 'name', primary_key: 'name'
 
   define_index do
-    indexes name, :sortable => true
+    indexes name, sortable: true
     indexes summary
     indexes description
     indexes filename
-    indexes packages.name, :as => :packages_name, :sortable => true
-    indexes packages.summary, :as => :packages_summary
-    indexes packages.description, :as => :packages_description
-    indexes packages.filename, :as => :packages_filename
-    indexes packages.sourcepackage, :as => :packages_sourcepackage
+    indexes packages.name, as: :packages_name, sortable: true
+    indexes packages.summary, as: :packages_summary
+    indexes packages.description, as: :packages_description
+    indexes packages.filename, as: :packages_filename
+    indexes packages.sourcepackage, as: :packages_sourcepackage
 
     has branch_id
   end
@@ -77,6 +77,7 @@ class Srpm < ActiveRecord::Base
     srpm.changelogtext = `rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
     if srpm.save
       $redis.set("#{branch.name}:#{srpm.filename}", 1)
+      # FIXME:
       #Changelog.import(branch, file, srpm)
       Specfile.import(branch, file, srpm)
       $redis.incr("#{branch.name}:srpms:counter")

@@ -2,9 +2,9 @@ class Specfile < ActiveRecord::Base
   belongs_to :srpm
   belongs_to :branch
 
-  validates :branch, :presence => true
-  validates :srpm, :presence => true
-  validates :spec, :presence => true
+  validates :branch, presence: true
+  validates :srpm, presence: true
+  validates :spec, presence: true
 
   def self.import(branch, file, srpm)
     specfilename = `rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" "#{file}" | grep \"32 \" | sed -e 's/32 //'`

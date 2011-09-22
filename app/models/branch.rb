@@ -1,6 +1,6 @@
 class Branch < ActiveRecord::Base
-  validates :name, :presence => true
-  validates :vendor, :presence => true
+  validates :name, presence: true
+  validates :vendor, presence: true
 
   has_many :acls
   has_many :srpms
@@ -10,7 +10,7 @@ class Branch < ActiveRecord::Base
   has_many :teams
   has_many :mirrors
   has_many :patches
-  has_many :ftbfs, :class_name => "Ftbfs"
+  has_many :ftbfs, class_name: "Ftbfs"
 
   def to_param
     name

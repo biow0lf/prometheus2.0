@@ -3,10 +3,10 @@ class Package < ActiveRecord::Base
   belongs_to :srpm
   belongs_to :group
 
-  validates :srpm, :presence => true
-  validates :branch, :presence => true
-  validates :group, :presence => true
-  validates :md5, :presence => true
+  validates :srpm, presence: true
+  validates :branch, presence: true
+  validates :group, presence: true
+  validates :md5, presence: true
 
   has_many :requires
   has_many :provides
@@ -15,7 +15,7 @@ class Package < ActiveRecord::Base
 
   def self.import(branch, file)
     sourcerpm = `rpm -qp --queryformat='%{SOURCERPM}' #{file}`
-    if branch.srpms.where(:filename => sourcerpm).count == 1
+    if branch.srpms.where(filename: sourcerpm).count == 1
       package = Package.new
       package.filename = file.split('/')[-1]
       package.sourcepackage = sourcerpm
@@ -41,7 +41,7 @@ class Package < ActiveRecord::Base
       package.size = File.size(file)
       package.md5 = `/usr/bin/md5sum #{file}`.split[0]
       package.branch_id = branch.id
-      srpm = branch.srpms.where(:filename => sourcerpm).first
+      srpm = branch.srpms.where(filename: sourcerpm).first
       package.srpm_id = srpm.id
       if package.save
         $redis.set("#{branch.name}:#{package.filename}", 1)

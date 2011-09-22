@@ -2,7 +2,7 @@ require 'open-uri'
 require 'zlib'
 
 class PerlWatch < ActiveRecord::Base
-  validates :name, :presence => true
+  validates :name, presence: true
 
   def self.import_data(url)
     source = open(url)
@@ -21,7 +21,7 @@ class PerlWatch < ActiveRecord::Base
         name = line.split[0]
         version = line.split[1]
         path = line.split[2]
-        PerlWatch.create(:name => name, :version => version, :path => path)
+        PerlWatch.create(name: name, version: version, path: path)
       end
     end
   end

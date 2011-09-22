@@ -1,14 +1,14 @@
 require 'open-uri'
 
 class Repocop < ActiveRecord::Base
-  validates :name, :presence => true
-  validates :version, :presence => true
-  validates :release, :presence => true
-  validates :arch, :presence => true
-  validates :srcname, :presence => true
-  validates :srcversion, :presence => true
-  validates :srcrel, :presence => true
-  validates :testname, :presence => true
+  validates :name, presence: true
+  validates :version, presence: true
+  validates :release, presence: true
+  validates :arch, presence: true
+  validates :srcname, presence: true
+  validates :srcversion, presence: true
+  validates :srcrel, presence: true
+  validates :testname, presence: true
 
   def self.update_repocop
     ActiveRecord::Base.transaction do
@@ -24,12 +24,12 @@ class Repocop < ActiveRecord::Base
   end
 
   def self.update_repocop_cache
-    branch = Branch.where(:vendor => 'ALT Linux', :name => 'Sisyphus').first
+    branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
     srpms = branch.srpms.all
     srpms.each do |srpm|
-      repocops = Repocop.where(:srcname => srpm.name,
-                               :srcversion => srpm.version,
-                               :srcrel => srpm.release).all
+      repocops = Repocop.where(srcname: srpm.name,
+                               srcversion: srpm.version,
+                               srcrel: srpm.release).all
 
       repocop_status = 'skip'
       repocops.each do |repocop|

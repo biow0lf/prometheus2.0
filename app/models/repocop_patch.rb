@@ -1,10 +1,10 @@
 require 'open-uri'
 
 class RepocopPatch < ActiveRecord::Base
-  validates :name, :presence => true
-  validates :version, :presence => true
-  validates :release, :presence => true
-  validates :url, :presence => true
+  validates :name, presence: true
+  validates :version, presence: true
+  validates :release, presence: true
+  validates :url, presence: true
 
   def self.update_repocop_patches
     ActiveRecord::Base.transaction do

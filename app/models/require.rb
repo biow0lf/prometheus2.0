@@ -1,8 +1,8 @@
 class Require < ActiveRecord::Base
   belongs_to :package
 
-  validates :package, :presence => true
-  validates :name, :presence => true
+  validates :package, presence: true
+  validates :name, presence: true
 
   def self.import_requires(rpm, package)
     rpm.requires.each do |r|
