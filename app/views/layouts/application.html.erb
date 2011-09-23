@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application' %>
   <%#= stylesheet_link_tag 'github' %>
-  <%= javascript_include_tag 'application', "#{params[:locale]}/local", :cache => "main_#{params[:locale]}" %>
+  <%= javascript_include_tag 'application', "#{params[:locale]}/local" %>
   <script>
     //<![CDATA[
     function chText(txt1, txt2, did) {
