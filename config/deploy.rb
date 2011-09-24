@@ -143,7 +143,6 @@ def run_rake(cmd)
   run "cd #{current_path}; #{rake} #{cmd}"
 end
 
-=begin
 after 'deploy:update_code', 'deploy:symlink_all'
 
 namespace :deploy do
@@ -158,8 +157,6 @@ namespace :deploy do
     run "cd #{release_path} && bundle exec rake assets:precompile"
   end
 end
-
-=end
 
 task :before_update_code, :roles => [:app] do
   thinking_sphinx.stop
