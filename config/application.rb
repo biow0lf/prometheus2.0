@@ -56,7 +56,6 @@ module Prometheus20
         :sender_address => %{"Sisyphus 2.0 Error" <prometheus-noreply@altlinux.org>},
         :exception_recipients => %w{igor.zubkov@gmail.com}
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
-      config.middleware.use Rack::Maintenance, :file => File.join('public', 'maintenance.html')
     end
 
     # jsonify-rails
