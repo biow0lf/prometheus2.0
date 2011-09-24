@@ -20,7 +20,7 @@ describe Repocop do
     page = `cat spec/data/prometeus2.txt`
     FakeWeb.register_uri(:get,
                          "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt",
-                         :response => page)
+                         response: page)
     expect{
       Repocop.update_repocop
       }.to change{ Repocop.count }.from(0).to(1)

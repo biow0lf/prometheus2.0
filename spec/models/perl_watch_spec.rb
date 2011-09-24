@@ -7,7 +7,7 @@ describe PerlWatch do
     page = `cat spec/data/02packages.details.txt`
     FakeWeb.register_uri(:get,
                          "http://www.cpan.org/modules/02packages.details.txt",
-                         :response => page)
+                         response: page)
     expect{
       PerlWatch.import_data("http://www.cpan.org/modules/02packages.details.txt")
       }.to change{ PerlWatch.count }.from(0).to(1)

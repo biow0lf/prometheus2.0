@@ -27,23 +27,23 @@ describe Srpm do
 
   it "should return Srpm.name on .to_param" do
     branch = FactoryGirl.create(:branch)
-    group0 = Group.create!(:name => 'Graphical desktop', :branch_id => branch.id)
-    group = Group.create!(:name => 'Other', :branch_id => branch.id)
+    group0 = Group.create!(name: 'Graphical desktop', branch_id: branch.id)
+    group = Group.create!(name: 'Other', branch_id: branch.id)
     group.move_to_child_of(group0)
 
-    Srpm.create!(:branch_id => branch.id,
-                 :name => 'openbox',
-                 :version => '3.4.11.1',
-                 :release => 'alt1.1.1',
-                 :summary => 'short description',
-                 :description => 'long description',
-                 :group_id => group.id,
-                 :license => 'GPLv2+',
-                 :url => 'http://openbox.org/',
-                 :size => 831617,
-                 :filename => 'openbox-3.4.11.1-alt1.1.1.src.rpm',
-                 :md5 => 'f87ff0eaa4e16b202539738483cd54d1',
-                 :buildtime => '2010-11-24 23:58:02 UTC').to_param.should == 'openbox'
+    Srpm.create!(branch_id: branch.id,
+                 name: 'openbox',
+                 version: '3.4.11.1',
+                 release: 'alt1.1.1',
+                 summary: 'short description',
+                 description: 'long description',
+                 group_id: group.id,
+                 license: 'GPLv2+',
+                 url: 'http://openbox.org/',
+                 size: 831617,
+                 filename: 'openbox-3.4.11.1-alt1.1.1.src.rpm',
+                 md5: 'f87ff0eaa4e16b202539738483cd54d1',
+                 buildtime: '2010-11-24 23:58:02 UTC').to_param.should == 'openbox'
   end
 
   it "should import srpm file" do
@@ -112,11 +112,11 @@ describe Srpm do
   it "should remove old srpms from database" do
     branch = FactoryGirl.create(:branch)
     $redis.set("#{branch.name}:srpms:counter", 0)
-    group = FactoryGirl.create(:group, :branch_id => branch.id)
-    srpm1 = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     $redis.set("#{branch.name}:#{srpm1.filename}", 1)
     $redis.incr("#{branch.name}:srpms:counter")
-    srpm2 = FactoryGirl.create(:srpm, :name => 'blackbox', :filename => 'blackbox-1.0-alt1.src.rpm', :branch_id => branch.id, :group_id => group.id)
+    srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
     $redis.set("#{branch.name}:#{srpm2.filename}", 1)
     $redis.incr("#{branch.name}:srpms:counter")
 
@@ -140,8 +140,8 @@ describe Srpm do
     branch = FactoryGirl.create(:branch)
     $redis.del("#{branch.name}:srpms:counter")
     $redis.get("#{branch.name}:srpms:counter").should be_nil
-    group = FactoryGirl.create(:group, :branch_id => branch.id)
-    srpm = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     Srpm.count_srpms(branch)
     $redis.get("#{branch.name}:srpms:counter").should == '1'
   end

@@ -23,8 +23,8 @@ describe Package do
 
   it "should import package to database" do
     branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, :branch_id => branch.id)
-    srpm = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
 
     file = 'openbox-3.5.0-alt1.i586.rpm'
 

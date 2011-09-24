@@ -10,8 +10,8 @@ describe Specfile do
 
   it "should import spec file" do
     branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, :branch_id => branch.id)
-    srpm = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
 
     Specfile.should_receive(:`).with("rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" \"#{file}\" | grep \"32 \" | sed -e 's/32 //'").and_return('openbox.spec')

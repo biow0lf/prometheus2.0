@@ -15,6 +15,6 @@ describe Branch do
   it { should have_many :ftbfs }
 
   it "should return Branch.name on .to_param" do
-    Branch.create!(:name => 'Sisyphus', :vendor => 'ALT Linux').to_param.should == 'Sisyphus'
+    Branch.create!(name: 'Sisyphus', vendor: 'ALT Linux').to_param.should == 'Sisyphus'
   end
 end

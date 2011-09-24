@@ -12,8 +12,8 @@ describe Changelog do
 
   it "should import changelogs" do
     branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, :branch_id => branch.id)
-    srpm = FactoryGirl.create(:srpm, :branch_id => branch.id, :group_id => group.id)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
 
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     Changelog.should_receive(:`).with("rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}").and_return("1312545600\n**********\nMykola Grechukh <gns@altlinux.ru> 3.5.0-alt1\n**********\n3.4.11.1 -> 3.5.0\n**********\n1312545600\n**********\nMykola Grechukh <gns@altlinux.ru> 3.5.0-alt1\n**********\n3.4.11.1 -> 3.5.0\n**********\n")

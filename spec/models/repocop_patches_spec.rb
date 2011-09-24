@@ -12,7 +12,7 @@ describe RepocopPatch do
     page = `cat spec/data/prometeus2-patches.sql`
     FakeWeb.register_uri(:get,
                          "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2-patches.sql",
-                         :response => page)
+                         response: page)
     expect{
       RepocopPatch.update_repocop_patches
       }.to change{ RepocopPatch.count }.from(0).to(1)

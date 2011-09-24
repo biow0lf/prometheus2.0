@@ -57,7 +57,7 @@ describe Group do
   it "should allow translate Group.name to russian" do
     I18n.locale = :en
     branch = FactoryGirl.create(:branch)
-    Group.create(:branch_id => branch.id, :name => 'Toys')
+    Group.create(branch_id: branch.id, name: 'Toys')
     I18n.locale = :ru
     group = Group.all.first
     group.name = 'Развлечения'
