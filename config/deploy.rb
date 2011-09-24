@@ -94,7 +94,11 @@ namespace :deploy do
       ln -s #{shared_path}/log #{latest_release}/log &&
       ln -s #{shared_path}/system #{latest_release}/public/system &&
       ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
-      ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml
+      ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml &&
+      ln -sf #{shared_path}/newrelic.yml #{latest_release}/config/newrelic.yml &&
+      ln -sf #{shared_path}/redis.yml #{latest_release}/config/redis.yml &&
+      ln -sf #{shared_path}/devise.rb #{latest_release}/config/initializers/devise.rb &&
+      ln -sf #{shared_path}/secret_token.rb #{latest_release}/config/initializers/secret_token.rb
     CMD
 
     if fetch(:normalize_asset_timestamps, true)
@@ -143,20 +147,15 @@ def run_rake(cmd)
   run "cd #{current_path}; #{rake} #{cmd}"
 end
 
-after 'deploy:update_code', 'deploy:symlink_all'
-
-namespace :deploy do
-  desc "Symlinks all needed files"
-  task :symlink_all, :roles => :app do
-    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{deploy_to}/shared/config/newrelic.yml #{release_path}/config/newrelic.yml"
-    run "ln -nfs #{deploy_to}/shared/config/redis.yml #{release_path}/config/redis.yml"
-    run "cp -f #{deploy_to}/shared/config/initializers/devise.rb #{release_path}/config/initializers/"
-    run "cp -f #{deploy_to}/shared/config/initializers/secret_token.rb #{release_path}/config/initializers/"
-    # precompile the assets
-    run "cd #{release_path} && bundle exec rake assets:precompile"
-  end
-end
+# after 'deploy:update_code', 'deploy:symlink_all'
+#
+# namespace :deploy do
+#   desc "Symlinks all needed files"
+#   task :symlink_all, :roles => :app do
+#     # precompile the assets
+#     run "cd #{release_path} && bundle exec rake assets:precompile"
+#   end
+# end
 
 task :before_update_code, :roles => [:app] do
   thinking_sphinx.stop
