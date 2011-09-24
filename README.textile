@@ -6,16 +6,16 @@ h3. Install:
 
 * Ruby 1.9.3-preview1
 * RubyGems 1.8.10
-* bundler 1.1.pre.8
+* bundler 1.1.pre.9
 * PostgreSQL 9.0 (with other databases it doesn't tested)
-* nginx + passenger
+* nginx
 * gettext
 * sphinx search engine
-* node.js 0.4.11
+* node.js
 * /usr/bin/md5sum from coreutils
 * git
-* memcached 1.4.7
-* redis 2.2.12
+* memcached
+* redis
 
 h3. And then:
 
