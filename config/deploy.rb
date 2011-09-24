@@ -31,12 +31,6 @@ set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEA
 
 default_environment["RAILS_ENV"] = 'production'
 
-# Use our ruby-1.9.3-preview@prometheus gemset
-default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-1.9.3-preview1/bin:/usr/local/rvm/gems/ruby-1.9.3-preview1@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-preview1/bin:/usr/local/bin:/home/prometheusapp/bin:/bin:/usr/bin:/usr/local/bin"
-default_environment["GEM_HOME"]     = "/home/prometheusapp/.rvm/gems/ruby-1.9.3-preview1@prometheus"
-default_environment["GEM_PATH"]     = "/home/prometheusapp/.rvm/gems/ruby-1.9.3-preview1@prometheus:/home/prometheusapp/.rvm/gems/ruby-1.9.3-preview1@global"
-default_environment["RUBY_VERSION"] = "ruby-1.9.3-preview1"
-
 default_run_options[:shell] = 'bash'
 
 set :ssh_options, { :forward_agent => false, :port => 222 }
@@ -94,11 +88,11 @@ namespace :deploy do
       ln -s #{shared_path}/log #{latest_release}/log &&
       ln -s #{shared_path}/system #{latest_release}/public/system &&
       ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
-      ln -sf #{shared_path}/database.yml #{latest_release}/config/database.yml &&
-      ln -sf #{shared_path}/newrelic.yml #{latest_release}/config/newrelic.yml &&
-      ln -sf #{shared_path}/redis.yml #{latest_release}/config/redis.yml &&
-      ln -sf #{shared_path}/devise.rb #{latest_release}/config/initializers/devise.rb &&
-      ln -sf #{shared_path}/secret_token.rb #{latest_release}/config/initializers/secret_token.rb
+      ln -sf #{shared_path}/config/database.yml #{latest_release}/config/database.yml &&
+      ln -sf #{shared_path}/config/newrelic.yml #{latest_release}/config/newrelic.yml &&
+      ln -sf #{shared_path}/config/redis.yml #{latest_release}/config/redis.yml &&
+      ln -sf #{shared_path}/config/initializers/devise.rb #{latest_release}/config/initializers/devise.rb &&
+      ln -sf #{shared_path}/config/initializers/secret_token.rb #{latest_release}/config/initializers/secret_token.rb
     CMD
 
     if fetch(:normalize_asset_timestamps, true)
@@ -115,7 +109,7 @@ namespace :deploy do
 
   desc "Start unicorn"
   task :start, :except => { :no_release => true } do
-    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.rb -D"
+    run "cd #{current_path} && bundle exec unicorn_rails -c config/unicorn.rb -D"
   end
 
   desc "Stop unicorn"
@@ -157,15 +151,15 @@ end
 #   end
 # end
 
-task :before_update_code, :roles => [:app] do
-  thinking_sphinx.stop
-end
-
-task :after_update_code, :roles => [:app] do
-  run "cd #{release_path} && bundle exec rake thinking_sphinx:configure"
-  run "cd #{release_path} && bundle exec rake thinking_sphinx:index"
-  thinking_sphinx.start
-end
+# task :before_update_code, :roles => [:app] do
+#   thinking_sphinx.stop
+# end
+#
+# task :after_update_code, :roles => [:app] do
+#   run "cd #{release_path} && bundle exec rake thinking_sphinx:configure"
+#   run "cd #{release_path} && bundle exec rake thinking_sphinx:index"
+#   thinking_sphinx.start
+# end
 
 namespace :redis do
   desc "Start the Redis server"
