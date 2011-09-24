@@ -32,9 +32,9 @@ set(:previous_revision) { capture("cd #{current_path}; git rev-parse --short HEA
 default_environment["RAILS_ENV"] = 'production'
 
 # Use our ruby-1.9.3-preview@prometheus gemset
-default_environment["PATH"]         = "--"
-default_environment["GEM_HOME"]     = "/usr/local/rvm/gems/ruby-1.9.3-preview1"
-default_environment["GEM_PATH"]     = "--"
+default_environment["PATH"]         = "/usr/local/rvm/gems/ruby-1.9.3-preview1/bin:/usr/local/rvm/gems/ruby-1.9.3-preview1@global/bin:/usr/local/rvm/rubies/ruby-1.9.3-preview1/bin:/usr/local/bin:/home/prometheusapp/bin:/bin:/usr/bin:/usr/local/bin"
+default_environment["GEM_HOME"]     = "/home/prometheusapp/.rvm/gems/ruby-1.9.3-preview1@prometheus"
+default_environment["GEM_PATH"]     = "/home/prometheusapp/.rvm/gems/ruby-1.9.3-preview1@prometheus:/home/prometheusapp/.rvm/gems/ruby-1.9.3-preview1@global"
 default_environment["RUBY_VERSION"] = "ruby-1.9.3-preview1"
 
 default_run_options[:shell] = 'bash'
