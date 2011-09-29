@@ -205,7 +205,7 @@ GEM
       activerecord (~> 3.0)
       polyamorous (~> 0.5.0)
     rb-fsevent (0.4.3)
-    rb-inotify (0.8.6)
+    rb-inotify (0.8.8)
       ffi (>= 0.5.0)
     rcov (0.9.10)
     rdoc (3.9.4)
