@@ -28,7 +28,7 @@ gem 'jsonify-rails'
 gem 'valium'
 gem 'unicorn'
 
-group :production, :development do
+group :production, :development, :staging do
   gem 'redis'
 end
 
