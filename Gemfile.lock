@@ -207,7 +207,6 @@ GEM
     rb-fsevent (0.4.3)
     rb-inotify (0.8.8)
       ffi (>= 0.5.0)
-    rcov (0.9.10)
     rdoc (3.10)
       json (~> 1.4)
     redis (2.2.2)
@@ -334,7 +333,6 @@ DEPENDENCIES
   ransack
   rb-fsevent (= 0.4.3)
   rb-inotify
-  rcov
   redis
   rspec
   rspec-rails
