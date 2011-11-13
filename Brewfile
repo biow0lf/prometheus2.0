@@ -6,3 +6,4 @@ gettext
 node
 git
 nginx
+coreutils
