@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 namespace :perlwatch do
   desc 'Import CPAN info to database'
   task :update => :environment do

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # desc "Fix data"
 # task :fix_data => :environment do
 #   puts Time.now.to_s + ": fix"

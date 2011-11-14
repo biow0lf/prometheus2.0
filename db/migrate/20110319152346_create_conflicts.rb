@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateConflicts < ActiveRecord::Migration
   def up
     create_table :conflicts do |t|

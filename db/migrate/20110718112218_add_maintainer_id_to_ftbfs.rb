@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddMaintainerIdToFtbfs < ActiveRecord::Migration
   def up
     add_column :ftbfs, :maintainer_id, :integer

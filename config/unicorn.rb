@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # config/unicorn.rb
 # Set environment to development unless something else is specified
 env = ENV["RAILS_ENV"] || "development"

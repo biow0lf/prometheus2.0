@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddSrpmIdToPackages < ActiveRecord::Migration
   def up
     add_column :packages, :srpm_id, :integer

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Team < ActiveRecord::Base
   belongs_to :branch
   belongs_to :maintainer

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :platform5 do
 #   desc 'Import *.src.rpm from Platform5 to database'
 #   task :srpms => :environment do

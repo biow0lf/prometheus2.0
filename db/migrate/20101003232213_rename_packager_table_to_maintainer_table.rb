@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RenamePackagerTableToMaintainerTable < ActiveRecord::Migration
   def up
     rename_table :packagers, :maintainers

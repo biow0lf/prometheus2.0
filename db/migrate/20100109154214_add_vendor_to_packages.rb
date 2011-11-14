@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddVendorToPackages < ActiveRecord::Migration
   def up
     add_column :packages, :vendor, :string

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddLastChangelogData < ActiveRecord::Migration
   def up
 #    ActiveRecord::Base.transaction do

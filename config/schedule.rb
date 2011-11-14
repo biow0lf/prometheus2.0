@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 job_type :rake, "cd :path && RAILS_ENV=:environment bundle exec rake :task :output"
 
 # every 1.hour, :at => 5 do

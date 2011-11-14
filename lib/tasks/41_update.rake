@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :"41" do
 #   desc "Update 4.1 stuff"
 #   task :update => :environment do

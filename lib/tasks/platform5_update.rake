@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :platform5 do
 #   desc "Update Platform5 stuff"
 #   task :update => :environment do

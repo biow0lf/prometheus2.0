@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :t6 do
 #   desc 'Import *.src.rpm from t6 to database'
 #   task :srpms => :environment do

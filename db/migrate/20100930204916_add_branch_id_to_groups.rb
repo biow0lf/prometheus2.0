@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddBranchIdToGroups < ActiveRecord::Migration
   def up
     add_column :groups, :branch_id, :integer

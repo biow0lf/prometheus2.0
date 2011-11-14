@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RsyncController < ApplicationController
   def new
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first

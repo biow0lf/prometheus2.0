@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateGitrepos < ActiveRecord::Migration
   def up
     create_table :gitrepos do |t|

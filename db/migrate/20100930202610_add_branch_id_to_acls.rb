@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddBranchIdToAcls < ActiveRecord::Migration
   def up
     add_column :acls, :branch_id, :integer

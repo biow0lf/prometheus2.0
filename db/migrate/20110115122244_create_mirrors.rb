@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateMirrors < ActiveRecord::Migration
   def up
     create_table :mirrors do |t|

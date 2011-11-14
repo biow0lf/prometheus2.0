@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateRepocops < ActiveRecord::Migration
   def up
     create_table :repocops do |t|

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreatePatches < ActiveRecord::Migration
   def up
     create_table :patches do |t|

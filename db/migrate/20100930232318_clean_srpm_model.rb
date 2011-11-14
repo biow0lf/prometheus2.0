@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CleanSrpmModel < ActiveRecord::Migration
   def up
     remove_column :srpms, :branch

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class GroupController < ApplicationController
   def index
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first

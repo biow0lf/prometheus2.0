@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RssController < ApplicationController
   def index
     @branch = Branch.where(:name => params[:branch], :vendor => 'ALT Linux').first

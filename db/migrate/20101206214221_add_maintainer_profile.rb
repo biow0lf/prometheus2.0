@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddMaintainerProfile < ActiveRecord::Migration
   def up
     add_column :maintainers, :time_zone, :string, :default => "UTC"

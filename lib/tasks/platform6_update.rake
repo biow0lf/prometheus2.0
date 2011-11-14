@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :platform6 do
 #   desc "Update Platform6 stuff"
 #   task :update => :environment do

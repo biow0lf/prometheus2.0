@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CleanPackageModel < ActiveRecord::Migration
   def up
     remove_column :packages, :branch

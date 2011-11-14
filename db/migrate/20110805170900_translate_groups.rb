@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class TranslateGroups < ActiveRecord::Migration
   def up
     Group.create_translation_table!({ :name => :string }, { :migrate_data => true })

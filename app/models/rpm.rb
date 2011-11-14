@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Rpm
   def self.check_md5(file)
     output = `rpm -K --nogpg #{file}`
@@ -8,3 +10,5 @@ class Rpm
     end
   end
 end
+
+RPM = Rpm

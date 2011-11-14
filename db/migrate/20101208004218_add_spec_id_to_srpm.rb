@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddSpecIdToSrpm < ActiveRecord::Migration
   def up
     add_column :srpms, :specfile_id, :integer, :default => nil

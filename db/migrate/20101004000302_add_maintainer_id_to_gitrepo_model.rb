@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddMaintainerIdToGitrepoModel < ActiveRecord::Migration
   def up
     add_column :gitrepos, :maintainer_id, :integer

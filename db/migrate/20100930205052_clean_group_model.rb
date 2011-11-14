@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CleanGroupModel < ActiveRecord::Migration
   def up
     remove_column :groups, :branch

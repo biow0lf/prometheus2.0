@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddLocationAndWebsiteToMaintainer < ActiveRecord::Migration
   def up
     add_column :maintainers, :website, :string, :default => ""

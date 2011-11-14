@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddOrderIdToBranches < ActiveRecord::Migration
   def up
     add_column :branches, :order_id, :integer

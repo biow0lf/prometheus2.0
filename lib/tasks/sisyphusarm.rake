@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :sisyphusarm do
 #   desc "Import *.src.rpm from SisyphusARM to database"
 #   task :srpms => :environment do

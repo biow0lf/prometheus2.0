@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateBranches < ActiveRecord::Migration
   def up
     create_table :branches do |t|

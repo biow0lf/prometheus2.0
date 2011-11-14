@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddSrpmIdToLeaderModel < ActiveRecord::Migration
   def up
     add_column :leaders, :srpm_id, :integer

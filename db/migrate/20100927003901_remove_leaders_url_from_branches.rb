@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RemoveLeadersUrlFromBranches < ActiveRecord::Migration
   def up
     remove_column :branches, :leaders_url

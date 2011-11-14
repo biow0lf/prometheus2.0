@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddMaintainerIdToTeamModel < ActiveRecord::Migration
   def up
     add_column :teams, :maintainer_id, :integer

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Maintainer < ActiveRecord::Base
   include MaintainerHelper
 

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateLeaders < ActiveRecord::Migration
   def up
     create_table :leaders do |t|

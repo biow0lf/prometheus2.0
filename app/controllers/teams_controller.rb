@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class TeamsController < ApplicationController
   def show
     @team = Maintainer.where(:login => "@#{params[:id]}", :team => true).first

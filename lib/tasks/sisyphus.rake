@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 namespace :sisyphus do
   # TODO:
   # desc 'Import all ACL for packages from Sisyphus to database'

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RemoveSrpmsPathFromBranches < ActiveRecord::Migration
   def up
     remove_column :branches, :srpms_path

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :sisyphus do
 #   desc 'Update Sisyphus stuff'
 #   task :update => :environment do

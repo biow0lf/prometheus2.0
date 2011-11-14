@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateChangelogs < ActiveRecord::Migration
   def up
     create_table :changelogs do |t|

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddBranchIdToSrpms < ActiveRecord::Migration
   def up
     add_column :srpms, :branch_id, :integer

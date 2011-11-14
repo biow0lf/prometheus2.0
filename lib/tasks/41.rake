@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # namespace :"41" do
 #   desc "Import all ACL for packages from 4.1 to database"
 #   task :acls => :environment do

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RenamePackagerIdToMaintainerIdInLeaderModel < ActiveRecord::Migration
   def up
     remove_index :leaders, :packager_id

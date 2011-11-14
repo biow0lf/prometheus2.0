@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # desc "Update md5 field for all srpms and rpms"
 # task :md5 => :environment do
 #   puts Time.now

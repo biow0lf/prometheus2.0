@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class RedirectorController < ApplicationController
   def index
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first

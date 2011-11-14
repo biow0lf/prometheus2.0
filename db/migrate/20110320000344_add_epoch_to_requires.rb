@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddEpochToRequires < ActiveRecord::Migration
   def up
     add_column :requires, :epoch, :string

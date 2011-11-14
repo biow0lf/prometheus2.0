@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Leader < ActiveRecord::Base
   belongs_to :branch
   belongs_to :maintainer

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Specfile < ActiveRecord::Base
   belongs_to :srpm
   belongs_to :branch

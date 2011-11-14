@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddDistributionToSrpm < ActiveRecord::Migration
   def up
     add_column :srpms, :distribution, :string

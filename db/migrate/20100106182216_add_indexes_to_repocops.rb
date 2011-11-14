@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddIndexesToRepocops < ActiveRecord::Migration
   def up
     add_index :repocops, :srcname

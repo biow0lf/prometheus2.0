@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CleanLeadersModel < ActiveRecord::Migration
   def up
     remove_column :leaders, :branch

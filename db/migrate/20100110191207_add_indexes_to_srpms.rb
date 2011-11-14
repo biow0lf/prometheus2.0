@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddIndexesToSrpms < ActiveRecord::Migration
   def up
     add_index :srpms, :name

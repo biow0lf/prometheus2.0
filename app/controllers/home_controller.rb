@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class HomeController < ApplicationController
   def index
     @branches = Branch.order('order_id').all

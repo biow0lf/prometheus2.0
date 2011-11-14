@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddMissingIndexes2 < ActiveRecord::Migration
   def up
     add_index :conflicts, :package_id

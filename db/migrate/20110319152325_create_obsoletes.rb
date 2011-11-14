@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateObsoletes < ActiveRecord::Migration
   def up
     create_table :obsoletes do |t|

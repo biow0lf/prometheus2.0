@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateGroups < ActiveRecord::Migration
   def up
     create_table :groups do |t|

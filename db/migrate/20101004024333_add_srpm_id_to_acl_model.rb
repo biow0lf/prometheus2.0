@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddSrpmIdToAclModel < ActiveRecord::Migration
   def up
     add_column :acls, :srpm_id, :integer

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddArchToFtbfs < ActiveRecord::Migration
   def up
     add_column :ftbfs, :arch, :string

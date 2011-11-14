@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UpdateObsoleteModel < ActiveRecord::Migration
   def up
     remove_column :obsoletes, :type

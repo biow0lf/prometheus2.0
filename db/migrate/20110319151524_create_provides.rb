@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateProvides < ActiveRecord::Migration
   def up
     create_table :provides do |t|

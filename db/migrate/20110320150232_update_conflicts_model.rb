@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UpdateConflictsModel < ActiveRecord::Migration
   def up
     remove_column :conflicts, :type

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateSrpms < ActiveRecord::Migration
   def up
     create_table :srpms do |t|
