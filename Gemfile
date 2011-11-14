@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.2.rc1'
+gem 'rails', '3.1.2.rc2'
 
 # kill haml later
 gem 'haml'
