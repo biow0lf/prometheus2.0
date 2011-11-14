@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-job_type :rake, "cd :path && RAILS_ENV=:environment bundle exec rake :task :output"
+job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle exec rake :task :output"
 
 # every 1.hour, :at => 5 do
 #   rake "sisyphus:update platform6:update t6:update platform5:update 51:update 50:update 41:update 40:update gear:update ts:reindex"
