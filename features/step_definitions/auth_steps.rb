@@ -9,14 +9,14 @@ end
 
 Given /^I sign in as "(.*)"$/ do |email|
   password = 'password'
-  Given %{I go to the sign in page}
-  And %{I fill in "Email" with "#{email}"}
-  And %{I fill in "Password" with "#{password}"}
-  And %{I press "Sign in"}
-  Then %{I should see "Signed in successfully."}
+  step %{I go to the sign in page}
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Password" with "#{password}"}
+  step %{I press "Sign in"}
+  step %{I should see "Signed in successfully."}
 end
 
 Then /^I sign out$/ do
-  And %{I go to the home page}
-  And %{I follow "Sign out"}
+  step %{I go to the home page}
+  step %{I follow "Sign out"}
 end
