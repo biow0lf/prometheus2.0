@@ -2,7 +2,9 @@
 
 Given /^I am signed up and confirmed as "(.*)"$/ do |email|
   password = 'password'
-  @user = User.create!(:email => email, :password => password, :password_confirmation => password)
+  @user = User.create!(:email => email,
+                       :password => password,
+                       :password_confirmation => password)
   @user.confirmed_at = Time.zone.now
   @user.save!
 end
