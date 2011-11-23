@@ -1,4 +1,4 @@
-<% cache("#{params[:locale]}_srpms_#{@branch.name}_#{params[:page]}") do %>
+<% cache("#{I18n.locale}_srpms_#{@branch.name}_#{params[:page]}") do %>
 <% @srpms.each do |srpm| %>
   <span class="news-date-new">
     <%= link_to srpm.name, srpm_path(srpm.branch, srpm), :class => 'news', :title => _('detailed information about the package') %>
