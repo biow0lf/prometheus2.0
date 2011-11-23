@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'capistrano_colors'
 require 'bundler/capistrano'
 require 'thinking_sphinx/deploy/capistrano'
 
