@@ -1,0 +1,114 @@
+<% title _('Prometheus 2.0 - Search') %>
+
+<div id="main-content">
+
+  <div class="header" style="letter-spacing: 1px;"><%= _('Search') %></div>
+  <p class="break"></p>
+  <%= form_tag search_path(:branch => @branch.name), :method => :get do %>
+    <%= select_tag :branch, options_from_collection_for_select(@branches, 'name', 'name', @branch.name) %>
+    <%= text_field_tag :query, params[:query] ? params[:query] : 'Search...', :size => '20' %>
+    <%= submit_tag 'Search', :name => nil, :class => 'top-go', :id => 'subOn', :value => _('find'), :onmouseover => "m_on('subOn')", :onmouseout => "m_off('subOn')" %>
+  <% end %>
+
+  <br>
+  <br>
+  <%= _('On your query &quot;').html_safe %><b><%= params[:query] %></b>
+  <%= (_('&quot; in branch <b>%s</b> were found') % @branch.name).html_safe %>
+  <b><%= @srpms.length %></b>
+  <%= n_('RPM:', 'RPMs:', @srpms.length) %>
+
+  <p class="break"></p>
+  <br>
+  <table id='bugs' cellspacing='0' cellpadding='3'>
+    <tr>
+      <% if @branch.name == 'Sisyphus' %>
+        <th><%= raw _('repo<br/>cop') %></th>
+      <% end %>
+      <th><%= _('package') %></th>
+      <th><%= raw _('current<br />version') %></th>
+      <th><%= _('build time') %></th>
+      <th><%= _('age') %></th>
+      <th><%= _('Url') %></th>
+      <th><%= _('summary') %></th>
+    </tr>
+
+    <% if !@exact_srpm.nil? %>
+      <tr>
+        <% if @branch.name == 'Sisyphus' %>
+          <td>
+            <%= link_to image_tag("#{@exact_srpm.repocop}.png", :size => '20x20', :alt => @exact_srpm.repocop), repocop_srpm_path(@exact_srpm), :class => 'repocoplink', :title => 'repocop' %>
+          </td>
+        <% end %>
+        <td class="strange">
+          <%= link_to @exact_srpm.name, srpm_path(@exact_srpm.branch, @exact_srpm), :class => 'news' %>
+        </td>
+        <td><%= "#{@exact_srpm.version}-#{@exact_srpm.release}" %></td>
+        <td><%= @exact_srpm.buildtime %></td>
+        <td><%= "#{time_ago_in_words(@exact_srpm.buildtime)} #{_('ago')}" %></td>
+        <td>
+          <% if !@exact_srpm.url.nil? %>
+            <%= link_to @exact_srpm.url[0..27] + '...', @exact_srpm.url, :class => 'news', :rel => 'nofollow' %>
+          <% else %>
+            &ndash;
+          <% end %>
+        </td>
+        <td><%= @exact_srpm.summary %></td>
+      </tr>
+    <% end %>
+
+    <% if !@exact_srpm.nil? %>
+      <% @srpms.reject{|srpm| srpm.name == @exact_srpm.name}.each do |srpm| %>
+        <tr>
+          <% if @branch.name == 'Sisyphus' %>
+            <td>
+              <%= link_to image_tag("#{srpm.repocop}.png", :size => '20x20', :alt => srpm.repocop), repocop_srpm_path(srpm), :class => 'repocoplink', :title => 'repocop' %>
+            </td>
+          <% end %>
+          <td class="strange">
+            <%= link_to srpm.name, srpm_path(srpm.branch, srpm), :class => 'news' %>
+          </td>
+          <td><%= "#{srpm.version}-#{srpm.release}" %></td>
+          <td><%= srpm.buildtime %></td>
+          <td><%= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}" %></td>
+          <td>
+            <% if srpm.url != nil %>
+              <%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news', :rel => 'nofollow' %>
+            <% else %>
+              &ndash;
+            <% end %>
+          </td>
+          <td><%= srpm.summary %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <% @srpms.each do |srpm| %>
+        <tr>
+          <% if @branch.name == 'Sisyphus' %>
+            <td>
+              <%= link_to image_tag("#{srpm.repocop}.png", :size => '20x20', :alt => srpm.repocop), repocop_srpm_path(srpm), :class => 'repocoplink', :title => 'repocop' %>
+            </td>
+          <% end %>
+          <td class="strange">
+            <%= link_to srpm.name, srpm_path(srpm.branch, srpm), :class => 'news' %>
+          </td>
+          <td><%= "#{srpm.version}-#{srpm.release}" %></td>
+          <td><%= srpm.buildtime %></td>
+          <td><%= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}" %></td>
+          <td>
+            <% if srpm.url != nil %>
+              <%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news', :rel => 'nofollow' %>
+            <% else %>
+              &ndash;
+            <% end %>
+          <td><%= srpm.summary %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">
+    &nbsp;
+  </div>
+</div>
