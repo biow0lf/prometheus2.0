@@ -1,0 +1,19 @@
+<%= javascript_include_tag 'highlight.pack' %>
+<script type="text/javascript">
+  //<![CDATA[
+    hljs.tabReplace = '    ';
+    hljs.initHighlightingOnLoad();
+  //]]>
+</script>
+
+<div id="main-content">
+  <pre>
+    <code class="diff"><%= @patch.to_s %></code>
+  </pre>
+</div>
+
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">
+    &nbsp;
+  </div>
+</div>
