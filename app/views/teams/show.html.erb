@@ -1,0 +1,88 @@
+<% title _('Prometheus 2.0 - Team &laquo;%s&raquo;') % @team.name %>
+
+<div id="main-content">
+
+  <div class="header">
+    <%= _('Team:') %>
+    <%= @team.name %>
+  </div>
+
+  <p class="break"></p>
+  <b><%= _('Information:') %></b>
+  <div class="para"></div>
+
+  <p class="break"></p>
+  <% if !@leader.nil? %>
+    <b><%= _('Team leader:') %></b>
+    <% @leader.each do |leader| %>
+      <%= link_to leader.name, maintainer_path(:id => leader.login, :branch => @branch.name), :class => 'news', :title => _('information about the packager') %>
+    <% end %>
+    <p class="break"></p>
+  <% end %>
+
+  <b><%= _('Team members:') %></b>
+  <ul>
+    <% @members.each do |member| %>
+      <li><%= link_to member.name, maintainer_path(:id => member.login), :class => 'news', :title => _('information about the packager') %></li>
+    <% end %>
+  </ul>
+
+  <p class="break"></p>
+
+  <b><%= _('List of packages:') %></b>
+  [
+  <%= @acls.count %>
+  ]
+  <br>
+  <br>
+
+  <table id='bugs' cellspacing='0' cellpadding='3'>
+    <tr>
+      <% if @branch.name == 'Sisyphus' %>
+        <th><%= raw _('repo<br/>cop') %></th>
+      <% end %>
+      <th><%= _('package') %></th>
+      <th><%= raw _('current<br />version') %></th>
+      <th><%= _('build time') %></th>
+      <th><%= _('age') %></th>
+      <th><%= _('Url') %></th>
+      <th><%= _('Summary') %></th>
+    </tr>
+
+    <% @acls.each do |acl| %>
+      <% if !acl.srpm.nil? %>
+        <tr>
+          <% if @branch.name == 'Sisyphus' %>
+            <td>
+              <%= link_to image_tag("#{acl.srpm.repocop}.png", :size => '20x20', :alt => acl.srpm.repocop), repocop_srpm_path(acl.srpm), :class => 'repocoplink', :title => _('repocop') %>
+              <% if acl.srpm.repocop_patch %>
+                <br>
+                <%= link_to image_tag('patch.jpg', :alt => 'repocop patch'), acl.srpm.repocop_patch.url, :class => 'repocoplink', :title => _('repocop patch for the package') %>
+              <% end %>
+            </td>
+          <% end %>
+          <td class="strange">
+            <%= link_to acl.srpm.name, srpm_path(@branch, acl.srpm), :class => 'news', :title => _('detailed information about RPM') %>
+          </td>
+          <td><%= "#{acl.srpm.version}-#{acl.srpm.release}" %></td>
+          <td><%= acl.srpm.buildtime %></td>
+          <td><%= "#{time_ago_in_words(acl.srpm.buildtime)} #{_('ago')}" %></td>
+          <td>
+            <% if acl.srpm.url != nil %>
+              <%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news', :rel => 'nofollow' %>
+            <% else %>
+              -
+            <% end %>
+          </td>
+          <td style="text-align: left;"><%= acl.srpm.summary %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+
+<div id="bottom-offset-l">
+ <div id="bottom-offset-r">
+   &nbsp;
+ </div>
+</div>
