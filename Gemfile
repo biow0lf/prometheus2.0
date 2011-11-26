@@ -2,9 +2,6 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
-# kill haml later
-gem 'haml'
-
 # lock rake version
 gem 'rake', '0.9.2'
 
