@@ -246,7 +246,7 @@ GEM
       ffi (~> 1.0.9)
       json_pure
       rubyzip
-    shoulda (2.11.3)
+    shoulda-matchers (1.0.0)
     silent-postgres (0.1.1)
     simplecov (0.5.4)
       multi_json (~> 1.0.3)
@@ -341,7 +341,7 @@ DEPENDENCIES
   rspec-rails
   ruby-debug19
   sass-rails (~> 3.1.5)
-  shoulda
+  shoulda-matchers
   silent-postgres
   simplecov
   sitemap_generator

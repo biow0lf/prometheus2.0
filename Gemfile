@@ -81,7 +81,8 @@ end
 group :test do
   gem 'capybara'
   # gem 'ffaker'
-  gem 'shoulda'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
   gem 'cucumber'
