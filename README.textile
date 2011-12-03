@@ -7,9 +7,10 @@ h3. Install:
 * Ruby 1.9.3-p0
 * RubyGems 1.8.12
 * bundler 1.1.rc
-* PostgreSQL 9.0 (with other databases it doesn't tested)
+* PostgreSQL 9.1 (with other databases it doesn't tested)
 * nginx
 * gettext
+* curl
 * sphinx search engine
 * node.js
 * /usr/bin/md5sum from coreutils
