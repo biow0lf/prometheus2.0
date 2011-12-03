@@ -135,7 +135,7 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.3)
-    json_pure (1.6.2)
+    json_pure (1.6.3)
     jsonify (0.2.0)
     jsonify-rails (0.2.0)
       actionpack
