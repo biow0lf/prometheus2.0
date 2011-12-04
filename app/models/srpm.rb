@@ -39,7 +39,7 @@ class Srpm < ActiveRecord::Base
 
   def self.count_srpms(branch)
     counter = $redis.get("#{branch.name}:srpms:counter")
-    if counter.nil?
+    unless counter
       $redis.set("#{branch.name}:srpms:counter", branch.srpms.count)
       counter = $redis.get("#{branch.name}:srpms:counter")
     end
@@ -91,10 +91,10 @@ class Srpm < ActiveRecord::Base
 
   def self.import_all(branch, path)
     Dir.glob(path).each do |file|
-      unless $redis.exists("#{branch.name}:#{file.split('/')[-1]}")
+      unless $redis.exists("#{branch.name}:#{File.basename(file)}")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
-        puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
+        puts "#{Time.now.to_s}: import '#{File.basename(file)}'"
         Srpm.import(branch, file)
       end
     end
