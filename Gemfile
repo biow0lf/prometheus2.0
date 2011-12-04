@@ -10,7 +10,7 @@ gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'ransack'
 gem 'squeel'
-gem 'kaminari'
+gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
 gem 'fast_gettext', '>=0.4.8'
 gem 'gettext_i18n_rails'
 gem 'gettext', '>=1.9.3', :require => false

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: aee027c91bd7aa13312a8162d5edc79a501ebe3d
+  specs:
+    kaminari (0.12.4)
+      railties (>= 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -139,8 +146,6 @@ GEM
     jsonify-rails (0.2.0)
       actionpack
       jsonify (>= 0.2.0)
-    kaminari (0.12.4)
-      rails (>= 3.0.0)
     kgio (2.6.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
@@ -322,7 +327,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   jsonify-rails
-  kaminari
+  kaminari!
   launchy
   libnotify
   memcache-client
