@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Date: Sun, 04 Dec 2011 21:14:09 GMT
+Server: Apache
+Last-Modified: Sun, 04 Dec 2011 21:07:02 GMT
+ETag: "17541ff-bc16d-4edbe0f6"
+Accept-Ranges: bytes
+Content-Length: 50
+Content-Type: text/plain
+
+/people/icesik/packages/pulseaudio.git	1187627279
