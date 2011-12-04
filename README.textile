@@ -42,10 +42,11 @@ h3. Init database:
 * bundle exec rake sisyphus:leaders
 * bundle exec rake sisyphus:teams
 
-* bundle exec rake gear:import
-
 * bundle exec rake sisyphus:bugs
 * bundle exec rake sisyphus:repocops
+
+* bundle exec rake gear:import
+* bundle exec rake perlwatch:update
 
 * bundle exec rake sisyphusarm:srpms
 * bundle exec rake sisyphusarm:binary
