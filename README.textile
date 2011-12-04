@@ -34,7 +34,6 @@ h3. Init database:
 * bundle exec rake db:seed
 
 * bundle exec rake sisyphus:maintainers
-* bundle exec rake sisyphus:groups
 * bundle exec rake sisyphus:srpms
 * bundle exec rake sisyphus:i586
 * bundle exec rake sisyphus:noarch
@@ -48,29 +47,24 @@ h3. Init database:
 * bundle exec rake sisyphus:bugs
 * bundle exec rake sisyphus:repocops
 
-* bundle exec rake sisyphusarm:groups
 * bundle exec rake sisyphusarm:srpms
 * bundle exec rake sisyphusarm:binary
 
-* bundle exec rake platform6:groups
 * bundle exec rake platform6:srpms
 * bundle exec rake platform6:i586
 * bundle exec rake platform6:noarch
 * bundle exec rake platform6:x86_64
 
-* bundle exec rake t6:groups
 * bundle exec rake t6:srpms
 * bundle exec rake t6:i586
 * bundle exec rake t6:noarch
 * bundle exec rake t6:x86_64
 
-* bundle exec rake platform5:groups
 * bundle exec rake platform5:srpms
 * bundle exec rake platform5:i586
 * bundle exec rake platform5:noarch
 * bundle exec rake platform5:x86_64
 
-* bundle exec rake 51:groups
 * bundle exec rake 51:srpms
 * bundle exec rake 51:i586
 * bundle exec rake 51:noarch
@@ -79,7 +73,6 @@ h3. Init database:
 * bundle exec rake 51:leaders
 * bundle exec rake 51:teams
 
-* bundle exec rake 50:groups
 * bundle exec rake 50:srpms
 * bundle exec rake 50:i586
 * bundle exec rake 50:noarch
@@ -88,7 +81,6 @@ h3. Init database:
 * bundle exec rake 50:leaders
 * bundle exec rake 50:teams
 
-* bundle exec rake 41:groups
 * bundle exec rake 41:srpms
 * bundle exec rake 41:i586
 * bundle exec rake 41:noarch
@@ -97,7 +89,6 @@ h3. Init database:
 * bundle exec rake 41:leaders
 * bundle exec rake 41:teams
 
-* bundle exec rake 40:groups
 * bundle exec rake 40:srpms
 * bundle exec rake 40:i586
 * bundle exec rake 40:noarch
