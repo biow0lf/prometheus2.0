@@ -6,9 +6,9 @@ every 1.hour, :at => 5 do
   rake 'sisyphus:update platform6:update t6:update platform5:update 51:update 50:update 41:update 40:update gear:update ts:reindex'
 end
 
-# every 1.day, :at => '05:30' do
-#   rake "sisyphusarm:update ts:reindex"
-# end
+every 1.day, :at => '05:30' do
+  rake 'sisyphusarm:update ts:reindex'
+end
 
 every 1.day, :at => '05:00' do
   rake 'sisyphus:bugs'
