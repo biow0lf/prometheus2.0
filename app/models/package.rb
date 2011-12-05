@@ -64,6 +64,7 @@ class Package < ActiveRecord::Base
     pathes.each do |path|
       Dir.glob(path).each do |file|
         unless $redis.exists("#{branch.name}:#{file.split('/')[-1]}")
+          next unless File.exist?(file)
           next unless Rpm.check_md5(file)
           puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
           Package.import(branch, file)
