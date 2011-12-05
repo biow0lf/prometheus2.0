@@ -4,3 +4,5 @@ test:
   max_matches: 10000
 production:
   max_matches: 10000
+staging:
+  max_matches: 10000
