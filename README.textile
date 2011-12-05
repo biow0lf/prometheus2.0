@@ -33,7 +33,6 @@ h3. Init database:
 
 * bundle exec rake db:seed
 
-* bundle exec rake sisyphus:maintainers
 * bundle exec rake sisyphus:srpms
 * bundle exec rake sisyphus:i586
 * bundle exec rake sisyphus:noarch
@@ -44,9 +43,9 @@ h3. Init database:
 
 * bundle exec rake sisyphus:bugs
 * bundle exec rake sisyphus:repocops
-
 * bundle exec rake gear:import
 * bundle exec rake perlwatch:update
+* bundle exec rake ftbfs:update
 
 * bundle exec rake sisyphusarm:srpms
 * bundle exec rake sisyphusarm:binary
