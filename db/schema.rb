@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904133721) do
+ActiveRecord::Schema.define(:version => 20111205014133) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -315,14 +315,12 @@ ActiveRecord::Schema.define(:version => 20110904133721) do
     t.string   "changelogtime"
     t.string   "changelogname"
     t.text     "changelogtext"
-    t.integer  "specfile_id"
     t.string   "md5"
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
   add_index "srpms", ["group_id"], :name => "index_srpms_on_group_id"
   add_index "srpms", ["name"], :name => "index_srpms_on_name"
-  add_index "srpms", ["specfile_id"], :name => "index_srpms_on_specfile_id"
 
   create_table "teams", :force => true do |t|
     t.string   "name"
@@ -337,12 +335,12 @@ ActiveRecord::Schema.define(:version => 20110904133721) do
   add_index "teams", ["maintainer_id"], :name => "index_teams_on_maintainer_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
