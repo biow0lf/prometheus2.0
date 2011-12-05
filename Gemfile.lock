@@ -149,7 +149,7 @@ GEM
     kgio (2.6.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
-    libnotify (0.5.9)
+    libnotify (0.6.0)
     linecache19 (0.5.13)
       ruby_core_source (>= 0.1.4)
     locale (2.0.5)
