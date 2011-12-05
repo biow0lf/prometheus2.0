@@ -18,7 +18,5 @@ class Specfile < ActiveRecord::Base
     specfile.branch_id = branch.id
     specfile.spec = spec
     specfile.save
-    srpm.specfile = specfile
-    srpm.save
   end
 end
