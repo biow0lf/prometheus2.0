@@ -1,6 +1,20 @@
 # encoding: utf-8
 
 namespace :sisyphus do
+  desc 'Update Sisyphus stuff'
+  task :update => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: Update Sisyphus stuff"
+    puts "#{Time.now.to_s}: update *.src.rpm from Sisyphus to database"
+    branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
+    Srpm.remove_old(branch, '/ALT/Sisyphus/files/SRPMS/')
+    puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update repocop cache"
+    Repocop.update_repocop_cache
+    puts "#{Time.now.to_s}: end"
+  end
+
   # TODO:
   # desc 'Import all ACL for packages from Sisyphus to database'
   # task :acls => :environment do
@@ -14,13 +28,12 @@ namespace :sisyphus do
   task :srpms => :environment do
     require 'open-uri'
     puts "#{Time.now.to_s}: import *.src.rpm from Sisyphus to database"
-    branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
+    branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
-    Srpm.remove_old(branch, '/ALT/Sisyphus/files/SRPMS/')
     puts "#{Time.now.to_s}: end"
-    # puts "#{Time.now.to_s}: update repocop cache"
-    # Repocop.update_repocop_cache
-    # puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update repocop cache"
+    Repocop.update_repocop_cache
+    puts "#{Time.now.to_s}: end"
   end
 
   # TODO:
