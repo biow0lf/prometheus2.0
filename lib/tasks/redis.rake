@@ -6,16 +6,16 @@ namespace :redis do
     require 'open-uri'
 
     puts "#{Time.now.to_s}: cache all *.src.rpm info in redis"
-    branches = Branch.where(:vendor => 'ALT Linux')
+    branches = Branch.where(vendor: 'ALT Linux')
     branches.each do |branch|
-      srpms = Srpm.where(:branch_id => branch).select('filename')
+      srpms = Srpm.where(branch_id: branch).select('filename')
       srpms.each { |srpm| $redis.set("#{branch.name}:#{srpm.filename}", 1) }
     end
     puts "#{Time.now.to_s}: end"
 
     puts "#{Time.now.to_s}: cache all binary files info in redis"
     branches.each do |branch|
-      packages = Package.where(:branch_id => branch).select('filename')
+      packages = Package.where(branch_id: branch).select('filename')
       packages.each { |package| $redis.set("#{branch.name}:#{package.filename}", 1) }
     end
     puts "#{Time.now.to_s}: end"
