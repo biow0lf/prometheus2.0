@@ -31,9 +31,6 @@ namespace :sisyphus do
     branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
     puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update repocop cache"
-    Repocop.update_repocop_cache
-    puts "#{Time.now.to_s}: end"
   end
 
   # TODO:
