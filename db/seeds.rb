@@ -322,3 +322,7 @@ Maintainer.create(:name => 'XFCE Team', :email => 'xfce@packages.altlinux.org', 
 Maintainer.create(:name => 'VIm Plugins Development Team', :email => 'vim-plugins@packages.altlinux.org', :login => '@vim-plugins', :team => true)
 Maintainer.create(:name => 'FreeRadius Development Team', :email => 'freeradius@packages.altlinux.org', :login => '@freeradius', :team => true)
 Maintainer.create(:name => 'FTN Development Team', :email => 'ftn@packages.altlinux.org', :login => '@ftn', :team => true)
+Maintainer.create(:name => 'Java Team', :email => 'java@packages.altlinux.org', :login => '@java', :team => true)
+Maintainer.create(:name => 'Kernel Team', :email => 'kernel@packages.altlinux.org', :login => '@kernel', :team => true)
+Maintainer.create(:name => 'Ruby Team', :email => 'ruby@packages.altlinux.org', :login => '@ruby', :team => true)
+Maintainer.create(:name => 'Python Team', :email => 'python@packages.altlinux.org', :login => '@python', :team => true)
