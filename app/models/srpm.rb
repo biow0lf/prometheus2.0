@@ -60,6 +60,8 @@ class Srpm < ActiveRecord::Base
     Group.import(branch, group_name)
     group = Group.in_branch(branch, group_name)
 
+    Maintainer.import(`export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{file}`)
+
     srpm.group_id = group.id
     srpm.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
     # TODO: test for this

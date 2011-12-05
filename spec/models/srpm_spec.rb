@@ -59,6 +59,11 @@ describe Srpm do
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}").and_return('(none)')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}").and_return('short description')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
+
+    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{file}").and_return('Igor Zubkov <icesik@altlinux.org>')
+
+    Maintainer.should_receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
+
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}").and_return('GPLv2+')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{file}").and_return('http://openbox.org/')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}").and_return('long description')
@@ -72,7 +77,8 @@ describe Srpm do
     File.should_receive(:size).with(file).and_return(831617)
 
     Specfile.should_receive(:import).and_return(true)
-    Changelog.should_receive(:import).and_return(true)
+    # TODO:
+    #Changelog.should_receive(:import).and_return(true)
 
     expect{
       Srpm.import(branch, file)
