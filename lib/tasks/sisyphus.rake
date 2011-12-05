@@ -10,6 +10,13 @@ namespace :sisyphus do
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/Sisyphus/files/SRPMS/')
     puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
+    branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
+              '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
+              '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
+    Package.import_all(branch, pathes)
+    puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update repocop cache"
     Repocop.update_repocop_cache
     puts "#{Time.now.to_s}: end"
@@ -33,28 +40,17 @@ namespace :sisyphus do
     puts "#{Time.now.to_s}: end"
   end
 
-  # TODO:
-  # desc 'Import *.i586.rpm from Sisyphus to database'
-  # task :i586 => :environment do
-  #   puts "#{Time.now.to_s}: import *.i586.rpm from Sisyphus to database"
-  #   Package.import_packages_i586('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm')
-  #   puts "#{Time.now.to_s}: end"
-  # end
-  # 
-  # desc 'Import *.noarch.rpm from Sisyphus to database'
-  # task :noarch => :environment do
-  #   puts "#{Time.now.to_s}: import *.noarch.rpm from Sisyphus to database"
-  #   Package.import_packages_noarch('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm')
-  #   puts "#{Time.now.to_s}: end"
-  # end
-  # 
-  # desc 'Import *.x86_64.rpm from Sisyphus to database'
-  # task :x86_64 => :environment do
-  #   puts "#{Time.now.to_s}: import *.x86_64.rpm from Sisyphus to database"
-  #   Package.import_packages_x86_64('ALT Linux', 'Sisyphus', '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm')
-  #   puts "#{Time.now.to_s}: end"
-  # end
-  # 
+  desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database'
+  task :binary => :environment do
+    puts "#{Time.now.to_s}: import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
+    branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
+              '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
+              '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
+    Package.import_all(branch, pathes)
+    puts "#{Time.now.to_s}: end"
+  end
+
   # desc 'Import all leaders for packages from Sisyphus to database'
   # task :leaders => :environment do
   #   require 'open-uri'
