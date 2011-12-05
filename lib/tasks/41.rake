@@ -1,6 +1,17 @@
 # encoding: utf-8
 
-# namespace :"41" do
+namespace :"41" do
+  desc 'Update 4.1 stuff'
+  task :update => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: Update 4.1 stuff"
+    puts "#{Time.now.to_s}: update *.src.rpm from 4.1 to database"
+    branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/4.1/files/SRPMS/*.src.rpm')
+    Srpm.remove_old(branch, '/ALT/4.1/files/SRPMS/')
+    puts "#{Time.now.to_s}: end"
+  end
+
 #   desc "Import all ACL for packages from 4.1 to database"
 #   task :acls => :environment do
 #     require 'open-uri'
@@ -8,14 +19,16 @@
 #     Acl.import_acls('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
 #     puts "#{Time.now.to_s}: end"
 #   end
-# 
-#   desc "Import *.src.rpm from 4.1 to database"
-#   task :srpms => :environment do
-#     puts "#{Time.now.to_s}: import src.rpm's"
-#     Srpm.import_srpms('ALT Linux', '4.1', "/ALT/4.1/files/SRPMS/*.src.rpm")
-#     puts "#{Time.now.to_s}: end"
-#   end
-# 
+
+  desc 'Import *.src.rpm from 4.1 to database'
+  task :srpms => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import *.src.rpm from 4.1 to database"
+    branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/4.1/files/SRPMS/*.src.rpm')
+    puts "#{Time.now.to_s}: end"
+  end
+
 #   desc "Import *.i586.rpm from 4.1 to database"
 #   task :i586 => :environment do
 #     puts "#{Time.now.to_s}: import i586.rpm's"
@@ -52,4 +65,4 @@
 #     Team.import_teams('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.groups.4.1')
 #     puts "#{Time.now.to_s}: end"
 #   end
-# end
+end

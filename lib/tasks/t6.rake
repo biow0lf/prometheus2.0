@@ -1,14 +1,27 @@
 # encoding: utf-8
 
-# namespace :t6 do
-#   desc 'Import *.src.rpm from t6 to database'
-#   task :srpms => :environment do
-#     require 'rpm'
-#     puts "#{Time.now.to_s}: import *.src.rpm from t6 to database"
-#     Srpm.import_srpms('ALT Linux', 't6', '/ALT/t6/files/SRPMS/*.src.rpm')
-#     puts "#{Time.now.to_s}: end"
-#   end
-# 
+namespace :t6 do
+  desc 'Update t6 stuff'
+  task :update => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: Update t6 stuff"
+    puts "#{Time.now.to_s}: update *.src.rpm from t6 to database"
+    branch = Branch.where(name: 't6', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/t6/files/SRPMS/*.src.rpm')
+    Srpm.remove_old(branch, '/ALT/t6/files/SRPMS/')
+    puts "#{Time.now.to_s}: end"
+  end
+
+  desc 'Import *.src.rpm from t6 to database'
+  task :srpms => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import *.src.rpm from t6 to database"
+    branch = Branch.where(name: 't6', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/t6/files/SRPMS/*.src.rpm')
+    puts "#{Time.now.to_s}: end"
+  end
+
+# TODO:
 #   desc 'Import *.i586.rpm from t6 to database'
 #   task :i586 => :environment do
 #     require 'rpm'
@@ -32,4 +45,4 @@
 #     Package.import_packages_x86_64('ALT Linux', 't6', '/ALT/t6/files/x86_64/RPMS/*.x86_64.rpm')
 #     puts "#{Time.now.to_s}: end"
 #   end
-# end
+end

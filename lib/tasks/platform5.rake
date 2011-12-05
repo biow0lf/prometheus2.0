@@ -1,14 +1,27 @@
 # encoding: utf-8
 
-# namespace :platform5 do
-#   desc 'Import *.src.rpm from Platform5 to database'
-#   task :srpms => :environment do
-#     require 'rpm'
-#     puts "#{Time.now.to_s}: import *.src.rpm from Platform5 to database"
-#     Srpm.import_srpms('ALT Linux', 'Platform5', '/ALT/p5/files/SRPMS/*.src.rpm')
-#     puts "#{Time.now.to_s}: end"
-#   end
-# 
+namespace :platform5 do
+  desc 'Update Platform5 stuff'
+  task :update => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: Update Platform5 stuff"
+    puts "#{Time.now.to_s}: update *.src.rpm from Platform5 to database"
+    branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/p5/files/SRPMS/*.src.rpm')
+    Srpm.remove_old(branch, '/ALT/p5/files/SRPMS/')
+    puts "#{Time.now.to_s}: end"
+  end
+
+  desc 'Import *.src.rpm from Platform5 to database'
+  task :srpms => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import *.src.rpm from Platform5 to database"
+    branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
+    Srpm.import_all(branch, '/ALT/p5/files/SRPMS/*.src.rpm')
+    puts "#{Time.now.to_s}: end"
+  end
+
+# TODO:
 #   desc 'Import *.i586.rpm from Platform5 to database'
 #   task :i586 => :environment do
 #     require 'rpm'
@@ -41,4 +54,4 @@
 # #    Team.import_teams 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
 # #    puts Time.now.to_s + ": end"
 # #  end
-# end
+end
