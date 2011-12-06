@@ -25,7 +25,6 @@ describe Srpm do
   it { should have_db_index :branch_id }
   it { should have_db_index :group_id }
   it { should have_db_index :name }
-  it { should have_db_index :specfile_id }
 
   it "should return Srpm.name on .to_param" do
     branch = FactoryGirl.create(:branch)
