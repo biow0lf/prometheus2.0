@@ -99,7 +99,7 @@ GEM
     eventmachine (0.12.10)
     exception_notification (2.5.2)
       actionmailer (>= 3.0.4)
-    execjs (1.2.9)
+    execjs (1.2.11)
       multi_json (~> 1.0)
     factory_girl (2.3.2)
       activesupport
