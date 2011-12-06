@@ -55,7 +55,6 @@ group :development do
   gem 'silent-postgres'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
-  # gem 'rack-webconsole'
 end
 
 group :development, :test do
@@ -68,9 +67,7 @@ group :development, :test do
   gem 'rb-inotify', :require => false
   gem 'libnotify', :require => false
   gem 'guard-rspec'
-  gem 'guard-bundler'
   gem 'guard-cucumber'
-  gem 'guard-livereload'
 end
 
 group :test do
