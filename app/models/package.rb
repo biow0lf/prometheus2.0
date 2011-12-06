@@ -16,30 +16,30 @@ class Package < ActiveRecord::Base
   has_many :conflicts
 
   def self.import(branch, file)
-    sourcerpm = `rpm -qp --queryformat='%{SOURCERPM}' #{file}`
+    sourcerpm = `export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}`
     if branch.srpms.where(filename: sourcerpm).count == 1
       package = Package.new
       package.filename = file.split('/')[-1]
       package.sourcepackage = sourcerpm
-      package.name = `rpm -qp --queryformat='%{NAME}' #{file}`
-      package.version = `rpm -qp --queryformat='%{VERSION}' #{file}`
-      package.release = `rpm -qp --queryformat='%{RELEASE}' #{file}`
-      package.epoch = `rpm -qp --queryformat='%{EPOCH}' #{file}`
+      package.name = `export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}`
+      package.version = `export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}`
+      package.release = `export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{file}`
+      package.epoch = `export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}`
       # TODO: make test for this
       package.epoch = nil if package.epoch == '(none)'
-      package.arch = `rpm -qp --queryformat='%{ARCH}' #{file}`
+      package.arch = `export LANG=C && rpm -qp --queryformat='%{ARCH}' #{file}`
 
-      group_name = `rpm -qp --queryformat='%{GROUP}' #{file}`
+      group_name = `export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}`
       Group.import(branch, group_name)
       group = Group.in_branch(branch, group_name)
 
       package.group_id = group.id
-      package.summary = `rpm -qp --queryformat='%{SUMMARY}' #{file}`
+      package.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
       package.summary = 'Broken' if package.name == 'openmoko_dfu-util'
-      package.license = `rpm -qp --queryformat='%{LICENSE}' #{file}`
-      package.url = `rpm -qp --queryformat='%{URL}' #{file}`
-      package.description = `rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
-      package.buildtime = Time.at(`rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
+      package.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`
+      package.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{file}`
+      package.description = `export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
+      package.buildtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
       package.size = File.size(file)
       package.md5 = `/usr/bin/md5sum #{file}`.split[0]
       package.branch_id = branch.id
