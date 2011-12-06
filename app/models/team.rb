@@ -13,7 +13,7 @@ class Team < ActiveRecord::Base
     if branch.teams.count(:all) == 0
       file = open(URI.escape(url)).read
       file.each_line do |line|
-        team_name  = line.split[0]
+        team_name = line.split[0]
         for i in 1..line.split.count-1
           maintainer = Maintainer.where(login: line.split[i]).first
           if maintainer.nil?
