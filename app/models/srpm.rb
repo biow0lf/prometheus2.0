@@ -69,6 +69,8 @@ class Srpm < ActiveRecord::Base
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
     srpm.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`
     srpm.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{file}`
+    # TODO: make test for this
+    srpm.url = nil if srpm.url == '(none)'
     srpm.description = `export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
     srpm.vendor = `export LANG=C && rpm -qp --queryformat='%{VENDOR}' #{file}`
     srpm.distribution = `export LANG=C && rpm -qp --queryformat='%{DISTRIBUTION}' #{file}`
