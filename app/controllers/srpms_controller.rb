@@ -49,7 +49,7 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     if @srpm && @srpm.specfile
       send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
-    elsif @srpm && @srpm.specfile_id == nil
+    elsif @srpm && @srpm.specfile == nil
       render layout: false
     else
       render status: 404, action: 'nosuchpackage'
