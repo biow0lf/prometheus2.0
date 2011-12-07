@@ -62,7 +62,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'ruby-debug19'
   gem 'guard'
-  gem 'rb-fsevent', '0.4.3', :require => false
+  gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
   gem 'rb-inotify', :require => false
   gem 'libnotify', :require => false
