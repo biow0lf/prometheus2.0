@@ -75,11 +75,6 @@ class Acl < ActiveRecord::Base
         login = 'p_solntsev' if login == 'psolntsev'
         login = '@vim-plugins' if login == '@vim_plugins'
         $redis.sadd("#{branch.name}:#{package}:acls", login)
-        # if i == 1
-        #   $redis.zadd("#{branch.name}:#{package}:acls", 1, login)
-        # else
-        #   $redis.zadd("#{branch.name}:#{package}:acls", 10, login)
-        # end
       end
     end
   end
@@ -97,11 +92,6 @@ class Acl < ActiveRecord::Base
         login = 'p_solntsev' if login == 'psolntsev'
         login = '@vim-plugins' if login == '@vim_plugins'
         $redis.sadd("#{branch.name}:#{package}:acls", login)
-        # if i == 1
-        #   $redis.zadd("#{branch.name}:#{package}:acls", 1, login)
-        # else
-        #   $redis.zadd("#{branch.name}:#{package}:acls", 10, login)
-        # end
       end
       $redis.exec
     end
