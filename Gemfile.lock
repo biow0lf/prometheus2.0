@@ -271,8 +271,6 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
-    valium (0.4.0)
-      activerecord (>= 3.0.2)
     warden (1.1.0)
       rack (>= 1.0)
     whenever (0.7.0)
@@ -337,6 +335,5 @@ DEPENDENCIES
   thinking-sphinx
   uglifier
   unicorn
-  valium
   whenever
   wirb

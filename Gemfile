@@ -22,7 +22,6 @@ gem 'wirb', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
-gem 'valium'
 gem 'unicorn'
 
 group :production, :development, :staging do
