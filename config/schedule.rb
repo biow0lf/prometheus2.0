@@ -14,9 +14,10 @@ every 1.day, :at => '05:00' do
   rake 'sisyphus:bugs'
 end
 
-every 1.day, :at => '06:15' do
-  rake 'sisyphus:repocops sisyphus:repocop_patches'
-end
+# TODO: wait for updated repocop format
+# every 1.day, :at => '06:15' do
+#   rake 'sisyphus:repocops sisyphus:repocop_patches'
+# end
 
 every 1.day, :at => '13:00' do
   rake 'ftbfs:update'
