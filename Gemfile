@@ -18,7 +18,6 @@ gem 'whenever', :require => false
 gem 'nested_set'
 gem 'thinking-sphinx'
 gem 'brewdler', :require => false
-gem 'wirb', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
