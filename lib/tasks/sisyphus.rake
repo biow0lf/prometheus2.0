@@ -11,7 +11,6 @@ namespace :sisyphus do
     Srpm.remove_old(branch, '/ALT/Sisyphus/files/SRPMS/')
     puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
-    branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
               '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
@@ -42,6 +41,7 @@ namespace :sisyphus do
 
   desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database'
   task :binary => :environment do
+    require 'open-uri'
     puts "#{Time.now.to_s}: import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
     branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',

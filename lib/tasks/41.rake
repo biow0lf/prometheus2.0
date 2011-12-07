@@ -10,6 +10,12 @@ namespace :"41" do
     Srpm.import_all(branch, '/ALT/4.1/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/4.1/files/SRPMS/')
     puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from 4.1 to database"
+    pathes = ['/ALT/4.1/files/i586/RPMS/*.i586.rpm',
+              '/ALT/4.1/files/noarch/RPMS/*.noarch.rpm',
+              '/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm']
+    Package.import_all(branch, pathes)
+    puts "#{Time.now.to_s}: end"
   end
 
 #   desc "Import all ACL for packages from 4.1 to database"
@@ -29,27 +35,18 @@ namespace :"41" do
     puts "#{Time.now.to_s}: end"
   end
 
-#   desc "Import *.i586.rpm from 4.1 to database"
-#   task :i586 => :environment do
-#     puts "#{Time.now.to_s}: import i586.rpm's"
-#     Package.import_packages_i586('ALT Linux', '4.1', "/ALT/4.1/files/i586/RPMS/*.i586.rpm")
-#     puts "#{Time.now.to_s}: end"
-#   end
-# 
-#   desc "Import *.noarch.rpm from 4.1 to database"
-#   task :noarch => :environment do
-#     puts "#{Time.now.to_s}: import noarch.rpm's"
-#     Package.import_packages_noarch('ALT Linux', '4.1', "/ALT/4.1/files/noarch/RPMS/*.noarch.rpm")
-#     puts "#{Time.now.to_s}: end"
-#   end
-# 
-#   desc "Import *.x86_64.rpm from 4.1 to database"
-#   task :x86_64 => :environment do
-#     puts "#{Time.now.to_s}: import x86_64.rpm's"
-#     Package.import_packages_x86_64('ALT Linux', '4.1', "/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm")
-#     puts "#{Time.now.to_s}: end"
-#   end
-# 
+  desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from 4.1 to database'
+  task :binary => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from 4.1 to database"
+    branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
+    pathes = ['/ALT/4.1/files/i586/RPMS/*.i586.rpm',
+              '/ALT/4.1/files/noarch/RPMS/*.noarch.rpm',
+              '/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm']
+    Package.import_all(branch, pathes)
+    puts "#{Time.now.to_s}: end"
+  end
+
 #   desc "Import all ACL for packages from 4.1 to database (leaders)"
 #   task :leaders => :environment do
 #     require 'open-uri'

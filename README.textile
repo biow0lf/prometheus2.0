@@ -49,48 +49,34 @@ h3. Init database:
 * bundle exec rake sisyphusarm:binary
 
 * bundle exec rake platform6:srpms
-* bundle exec rake platform6:i586
-* bundle exec rake platform6:noarch
-* bundle exec rake platform6:x86_64
+* bundle exec rake platform6:binary
 
 * bundle exec rake t6:srpms
-* bundle exec rake t6:i586
-* bundle exec rake t6:noarch
-* bundle exec rake t6:x86_64
+* bundle exec rake t6:binary
 
 * bundle exec rake platform5:srpms
-* bundle exec rake platform5:i586
-* bundle exec rake platform5:noarch
-* bundle exec rake platform5:x86_64
+* bundle exec rake platform5:binary
 
 * bundle exec rake 51:srpms
-* bundle exec rake 51:i586
-* bundle exec rake 51:noarch
-* bundle exec rake 51:x86_64
+* bundle exec rake 51:binary
 * bundle exec rake 51:acls
 * bundle exec rake 51:leaders
 * bundle exec rake 51:teams
 
 * bundle exec rake 50:srpms
-* bundle exec rake 50:i586
-* bundle exec rake 50:noarch
-* bundle exec rake 50:x86_64
+* bundle exec rake 50:binary
 * bundle exec rake 50:acls
 * bundle exec rake 50:leaders
 * bundle exec rake 50:teams
 
 * bundle exec rake 41:srpms
-* bundle exec rake 41:i586
-* bundle exec rake 41:noarch
-* bundle exec rake 41:x86_64
+* bundle exec rake 41:binary
 * bundle exec rake 41:acls
 * bundle exec rake 41:leaders
 * bundle exec rake 41:teams
 
 * bundle exec rake 40:srpms
-* bundle exec rake 40:i586
-* bundle exec rake 40:noarch
-* bundle exec rake 40:x86_64
+* bundle exec rake 40:binary
 * bundle exec rake 40:acls
 * bundle exec rake 40:leaders
 * bundle exec rake 40:teams
