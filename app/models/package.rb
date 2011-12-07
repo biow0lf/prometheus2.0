@@ -38,6 +38,8 @@ class Package < ActiveRecord::Base
       package.summary = 'Broken' if package.name == 'openmoko_dfu-util'
       package.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`
       package.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{file}`
+      # TODO: make test for this
+      package.url = nil if package.url == '(none)'
       package.description = `export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
       package.buildtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
       package.size = File.size(file)
