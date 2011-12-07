@@ -13,5 +13,7 @@ json << {
   :filename => @srpm.filename,
   :md5 => @srpm.md5,
   :buildtime => @srpm.buildtime,
+  :vendor => @srpm.vendor,
+  :distribution => @srpm.distribution,
   :repocop => @srpm.repocop
 }

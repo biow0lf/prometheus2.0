@@ -9,8 +9,8 @@ Feature: User API
       | 0  | Graphical desktop |           | 0         |
       | 1  | Other             | 0         | 0         |
     Given the following srpm exists:
-      | branch_id | name    | version  | release  | summary           | description      | group_id | license | url                 | size   | filename                          | md5                              | buildtime               |
-      | 0         | openbox | 3.4.11.1 | alt1.1.1 | short description | long description | 1        | GPLv2+  | http://openbox.org/ | 831617 | openbox-3.4.11.1-alt1.1.1.src.rpm | f87ff0eaa4e16b202539738483cd54d1 | 2010-11-24 23:58:02 UTC |
+      | branch_id | name    | version  | release  | summary           | description      | group_id | license | url                 | size   | filename                          | md5                              | buildtime               | vendor         | distribution |
+      | 0         | openbox | 3.4.11.1 | alt1.1.1 | short description | long description | 1        | GPLv2+  | http://openbox.org/ | 831617 | openbox-3.4.11.1-alt1.1.1.src.rpm | f87ff0eaa4e16b202539738483cd54d1 | 2010-11-24 23:58:02 UTC | ALT Linux Team | ALT Linux    |
 
   Scenario: Source rpm info
     When I visit "/en/Sisyphus/srpms/openbox"
@@ -31,6 +31,8 @@ Feature: User API
         "filename": "openbox-3.4.11.1-alt1.1.1.src.rpm",
         "md5": "f87ff0eaa4e16b202539738483cd54d1",
         "buildtime": "2010-11-24 23:58:02 UTC",
+        "vendor": "ALT Linux Team",
+        "distribution": "ALT Linux",
         "repocop": "skip"
       }
       """
