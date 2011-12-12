@@ -2,8 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
-# lock rake version
-gem 'rake', '0.9.2'
+gem 'rake'
 
 gem 'pg'
 gem 'devise'
