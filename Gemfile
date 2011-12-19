@@ -52,12 +52,6 @@ group :development do
   gem 'silent-postgres'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
-end
-
-group :development, :test do
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'ruby-debug19'
   gem 'guard'
   gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
@@ -65,6 +59,12 @@ group :development, :test do
   gem 'libnotify', :require => false
   gem 'guard-rspec'
   gem 'guard-cucumber'
+end
+
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'ruby-debug19'
 end
 
 group :test do
