@@ -7,7 +7,7 @@ h2. Setup and run
 h3. Install:
 
 * Ruby 1.9.3-p0
-* RubyGems 1.8.12
+* RubyGems 1.8.12 (you will need install slimgems for gettext:find and gettext:pack)
 * bundler 1.1.rc.5
 * PostgreSQL 9.1 (with other databases it doesn't tested)
 * nginx
