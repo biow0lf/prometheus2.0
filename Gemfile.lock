@@ -291,7 +291,7 @@ DEPENDENCIES
   capistrano
   capistrano_colors
   capybara
-  coffee-rails (~> 3.1.0)
+  coffee-rails
   cucumber
   cucumber-rails
   database_cleaner
@@ -328,7 +328,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby-debug19
-  sass-rails (~> 3.1.5)
+  sass-rails
   shoulda-matchers
   silent-postgres
   simplecov
