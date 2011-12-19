@@ -9,7 +9,7 @@ class Changelog < ActiveRecord::Base
   validates :changelogtext, presence: true
 
   def self.import(branch, file, srpm)
-    changelogs = `rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
+    changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
     index = 0
     counter = 0
     changelog = Changelog.new
@@ -21,10 +21,10 @@ class Changelog < ActiveRecord::Base
         changelog.changelogtime = item
         index = 1
       elsif index == 1
-        changelog.changelogname = item
+        changelog.changelogname = item.force_encoding('binary')
         index = 2
       elsif index == 2
-        changelog.changelogtext = item
+        changelog.changelogtext = item.force_encoding('binary')
         changelog.save
         index = 0
       end
