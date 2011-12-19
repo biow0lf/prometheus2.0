@@ -108,8 +108,9 @@ GEM
     ffi (1.0.11)
     gettext (2.1.0)
       locale (>= 2.0.5)
-    gettext_i18n_rails (0.3.0)
+    gettext_i18n_rails (0.3.6)
       fast_gettext
+      ruby_parser
     gherkin (2.7.1)
       json (>= 1.4.6)
     globalize3 (0.1.0)
@@ -231,6 +232,8 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
+    ruby_parser (2.3.1)
+      sexp_processor (~> 3.0)
     rubyzip (0.9.5)
     sass (3.1.11)
     sass-rails (3.1.5)
@@ -243,6 +246,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    sexp_processor (3.0.9)
     shoulda-matchers (1.0.0)
     silent-postgres (0.1.1)
     simplecov (0.5.4)
