@@ -29,9 +29,8 @@ msgstr " - Gear"
 msgid " or "
 msgstr " или "
 
-#, fuzzy
 msgid "&quot; in branch <b>%s</b> were found"
-msgstr "&quot; в бранче %s было найдено"
+msgstr "&quot; в бранче <b>%s</b> было найдено"
 
 msgid "&raquo;"
 msgstr "&raquo;"
@@ -165,9 +164,8 @@ msgstr "статистика по кол-ву bugs/FR, адресованных 
 msgid "Build time:"
 msgstr "Время сборки:"
 
-#, fuzzy
 msgid "Built:"
-msgstr "Время сборки:"
+msgstr ""
 
 msgid "CPAN:"
 msgstr ""
@@ -322,9 +320,8 @@ msgstr "Нет такой команды!"
 msgid "On your query &quot;"
 msgstr "По запросу &quot;"
 
-#, fuzzy
 msgid "Other repositories"
-msgstr "наличие пакета в репозитариях gear"
+msgstr ""
 
 msgid "Package groups"
 msgstr "Группы пакетов"
@@ -347,9 +344,8 @@ msgstr ""
 msgid "Project Prometheus"
 msgstr "Проект Prometheus"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Group - %s"
-msgstr "Prometheus 2.0 - Intro"
+msgstr ""
 
 msgid "Prometheus 2.0 - Group - Error!"
 msgstr ""
@@ -375,21 +371,17 @@ msgstr "Prometheus 2.0 - Маинтейнеры и команды разрабо
 msgid "Prometheus 2.0 - Package "
 msgstr "Prometheus 2.0 - Пакет "
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package %s"
-msgstr "Prometheus 2.0 - Пакет "
+msgstr "Prometheus 2.0 - Пакет %s"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package %s - Download"
-msgstr "Prometheus 2.0 - Пакет "
+msgstr "Prometheus 2.0 - Пакет %s - Загрузить"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package %s - Repocop"
-msgstr "Prometheus 2.0 - Пакет "
+msgstr "Prometheus 2.0 - Пакет %s - Repocop"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package %s - Spec"
-msgstr "Prometheus 2.0 - Пакет "
+msgstr "Prometheus 2.0 - Пакет %s - Спек"
 
 msgid "Prometheus 2.0 - Package - Error!"
 msgstr "Prometheus 2.0 - Package - Error!"
@@ -403,9 +395,8 @@ msgstr "Prometheus 2.0 - Поиск по сайту"
 msgid "Prometheus 2.0 - Security"
 msgstr "Prometheus 2.0 - Безопасность"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Team &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
@@ -461,9 +452,8 @@ msgstr ""
 msgid "Sign in"
 msgstr "Войти"
 
-#, fuzzy
 msgid "Sign out"
-msgstr "Зарегистрироватся"
+msgstr ""
 
 msgid "Sign up"
 msgstr "Зарегистрироватся"
@@ -778,15 +768,6 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
-
-#~ msgid " - Download"
-#~ msgstr " - Загрузить"
-
-#~ msgid " - Repocop"
-#~ msgstr " - Repocop"
-
-#~ msgid " - Spec"
-#~ msgstr " - Спек"
 
 #~ msgid "News"
 #~ msgstr "Новости"
