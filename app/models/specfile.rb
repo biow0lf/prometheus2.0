@@ -11,7 +11,8 @@ class Specfile < ActiveRecord::Base
   def self.import(branch, file, srpm)
     specfilename = `rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" "#{file}" | grep \"32 \" | sed -e 's/32 //'`
     specfilename.strip!
-    spec = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{specfilename}"`.force_encoding("BINARY")
+    spec = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{specfilename}"`
+    spec.force_encoding('binary')
 
     specfile = Specfile.new
     specfile.srpm_id = srpm.id
