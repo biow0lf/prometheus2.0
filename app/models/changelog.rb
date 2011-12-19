@@ -10,24 +10,16 @@ class Changelog < ActiveRecord::Base
 
   def self.import(branch, file, srpm)
     changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
-    index = 0
-    counter = 0
     changelogs.force_encoding('binary')
-    changelogs.split("\n**********\n").each do |item|
-      counter += 1
-      if index == 0
-        changelog = Changelog.new
-        changelog.srpm_id = srpm.id
-        changelog.changelogtime = item
-        index = 1
-      elsif index == 1
-        changelog.changelogname = item
-        index = 2
-      elsif index == 2
-        changelog.changelogtext = item
-        changelog.save
-        index = 0
-      end
+    changelogs = changelogs.split("\n**********\n")
+    while !changelogs.empty?
+      record = changelogs.slice!(0..2)
+      changelog = Changelog.new
+      changelog.srpm_id = srpm.id
+      changelog.changelogtime = record[0]
+      changelog.changelogname = record[1]
+      changelog.changelogtext = record[2]
+      changelog.save
     end
   end
 end
