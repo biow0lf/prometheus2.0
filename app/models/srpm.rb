@@ -84,8 +84,7 @@ class Srpm < ActiveRecord::Base
     srpm.changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
     if srpm.save
       $redis.set("#{branch.name}:#{srpm.filename}", 1)
-      # FIXME:
-      #Changelog.import(branch, file, srpm)
+      Changelog.import(branch, file, srpm)
       Specfile.import(branch, file, srpm)
       $redis.incr("#{branch.name}:srpms:counter")
       # TODO: import acl and leader

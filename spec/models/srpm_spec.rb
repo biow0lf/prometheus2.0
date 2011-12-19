@@ -76,8 +76,8 @@ describe Srpm do
     File.should_receive(:size).with(file).and_return(831617)
 
     Specfile.should_receive(:import).and_return(true)
-    # TODO:
-    #Changelog.should_receive(:import).and_return(true)
+
+    Changelog.should_receive(:import).and_return(true)
 
     expect{
       Srpm.import(branch, file)
