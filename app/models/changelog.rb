@@ -12,7 +12,7 @@ class Changelog < ActiveRecord::Base
     changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
     index = 0
     counter = 0
-    changelog = Changelog.new
+    changelogs.force_encoding('binary')
     changelogs.split("\n**********\n").each do |item|
       counter += 1
       if index == 0
@@ -21,10 +21,10 @@ class Changelog < ActiveRecord::Base
         changelog.changelogtime = item
         index = 1
       elsif index == 1
-        changelog.changelogname = item.force_encoding('binary')
+        changelog.changelogname = item
         index = 2
       elsif index == 2
-        changelog.changelogtext = item.force_encoding('binary')
+        changelog.changelogtext = item
         changelog.save
         index = 0
       end
