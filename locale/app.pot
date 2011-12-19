@@ -7,108 +7,77 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-01-22 13:08+0200\n"
+"POT-Creation-Date: 2011-12-19 17:18+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: app/views/srpms/allbugs.html.erb:1
 msgid " - All bugs"
 msgstr ""
 
-#: app/views/srpms/bugs.html.erb:1
 msgid " - Bugs"
 msgstr ""
 
-#: app/views/srpms/changelog.html.erb:1
 msgid " - Changelog"
 msgstr ""
 
-#: app/views/srpms/get.html.erb:1
-msgid " - Download"
-msgstr ""
-
-#: app/views/srpms/gear.html.erb:1
 msgid " - Gear"
 msgstr ""
 
-#: app/views/srpms/repocop.html.erb:1
-msgid " - Repocop"
-msgstr ""
-
-#: app/views/srpms/spec.html.erb:1
-msgid " - Spec"
-msgstr ""
-
-#: app/views/layouts/application.html.haml:93
 msgid " or "
 msgstr ""
 
-#: app/views/searches/show.html.haml:16
-msgid "&quot; in branch %s were found"
+msgid "&quot; in branch <b>%s</b> were found"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:1 app/views/teams/show.html.haml:1
 msgid "&raquo;"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:1
 msgid "&raquo; - ACL"
 msgstr ""
 
-#: app/views/maintainers/bugs.html.erb:1
 msgid "&raquo; - Bugs and FR"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:1
 msgid "&raquo; - Bugs and FR (All)"
 msgstr ""
 
-#: app/views/maintainers/gear.html.erb:1
 msgid "&raquo; - Gear"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:1
 msgid "&raquo; - Packages"
 msgstr ""
 
-#: app/views/maintainers/repocop.html.erb:1
 msgid "&raquo; - Repocop"
 msgstr ""
 
-#: app/views/home/index.html.erb:95
+msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
+msgstr ""
+
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr ""
 
-#: app/views/rsync/new.html.erb:44
 msgid "<b>Limit<br />by size:</b><br />"
 msgstr ""
 
-#: app/views/pages/project.html.haml:27
 msgid ""
-"<b>Prometheus</b> project is an attempt to create analytic site for "
-"developers and users of\n"
+"<b>Prometheus</b> project is an attempt to create analytic site for developers and users of\n"
 "Sisyphus repository.<br /><br />\n"
 "\n"
-"It is useful for developers due to ability to more closely interoperate with "
-"other\n"
-"developers and users of respective packages.  This site is especially "
-"valueable\n"
-"to new ALT Linux Team members. It gives answers \"who is who\", \"who does "
-"what\",\n"
+"It is useful for developers due to ability to more closely interoperate with other\n"
+"developers and users of respective packages.  This site is especially valueable\n"
+"to new ALT Linux Team members. It gives answers \"who is who\", \"who does what\",\n"
 "\"what status is\" in interesting field.<br /><br />\n"
 "\n"
-"Sisyphus users can get full information about a package beforehand. There "
-"are\n"
-"handy links (site of origin, ALT Linux specific issues, wiki, etc.).<br /"
-"><br />\n"
+"Sisyphus users can get full information about a package beforehand. There are\n"
+"handy links (site of origin, ALT Linux specific issues, wiki, etc.).<br /><br />\n"
 "\n"
-"The project is useful for ALT Linux Ltd. and ALT Linux core team too, as it "
-"gives\n"
+"The project is useful for ALT Linux Ltd. and ALT Linux core team too, as it gives\n"
 "information about Sisyphus development, strong and weak aspects, actively\n"
 "supported and used groups of packages.<br /><br />\n"
 "\n"
@@ -117,1002 +86,646 @@ msgid ""
 "development within a small group or even one's self."
 msgstr ""
 
-#: app/views/home/index.html.erb:95
-msgid ""
-"<b>Q:</b> How can I skip heap of packages if I even don't know why I need "
-"them?"
+msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
 msgstr ""
 
-#: app/views/home/index.html.erb:8
-msgid ""
-"<b>Sisyphus</b> is daily updated free software repository by <abbr title="
-"\"Independent ALT Linux development team\">ALT&nbsp;Linux&nbsp;Team</abbr>. "
-"Participation in Sisyphus project is open for anyone. This project is based "
-"upon software packaging and dependency tracking technologies as well as "
-"robust developer collaboration processes. Any ALT&nbsp;Linux distribution "
-"and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a "
-"solution set constantly being under development which can be used to create "
-"universal or specialized <b>Linux distributions</b> or just <b>single "
-"systems</b>."
+msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:14
 msgid "ACL's"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:73 app/views/rebuild/index.html.haml:15
-#: app/views/srpms/__show.html.haml:124
 msgid "ACL:"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:134
 msgid "ALT Linux Planet"
 msgstr ""
 
-#: app/views/srpms/changelog.html.erb:8 app/views/srpms/get.html.erb:8
-#: app/views/srpms/show.html.erb:8 app/views/srpms/spec.html.erb:8
-#: app/views/srpms/__show.html.haml:8
+msgid "ALT Linux Team - Sisyphus packages info"
+msgstr ""
+
+msgid "ALT Linux Team - wiki"
+msgstr ""
+
 msgid "ALT Linux repos"
 msgstr ""
 
-#: app/views/srpms/changelog.html.erb:7 app/views/srpms/get.html.erb:7
-#: app/views/srpms/show.html.erb:7 app/views/srpms/spec.html.erb:7
-#: app/views/srpms/__show.html.haml:7
 msgid "ALT Linux repositories"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:13
-#: app/views/layouts/application.html.haml:121
 msgid "About"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:16
-#: app/views/layouts/application.html.haml:131
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
 msgid "Blog"
 msgstr ""
 
-#: app/views/iphone/maintainer_info.html.erb:11
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7 app/views/srpms/allbugs.html.erb:14
-#: app/views/srpms/bugs.html.erb:14 app/views/srpms/changelog.html.erb:37
-#: app/views/srpms/gear.html.erb:14 app/views/srpms/get.html.erb:37
-#: app/views/srpms/repocop.html.erb:14 app/views/srpms/show.html.erb:37
-#: app/views/srpms/spec.html.erb:37 app/views/srpms/__show.html.haml:69
 msgid "Bugs and FR"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7
 msgid "Bugs/FR statistics assigned to this maintainer"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:39 app/views/srpms/__show.html.haml:80
-msgid "Build date:"
-msgstr ""
-
-#: app/views/group/bygroup.html.haml:21
 msgid "Build time:"
 msgstr ""
 
-#: app/views/devise/registrations/edit.html.haml:26
+msgid "Built:"
+msgstr ""
+
+msgid "CPAN:"
+msgstr ""
+
 msgid "Cancel my account"
 msgstr ""
 
-#: app/views/devise/mailer/reset_password_instructions.html.haml:4
-#: app/views/devise/passwords/edit.html.haml:15
 msgid "Change my password"
 msgstr ""
 
-#: app/views/devise/passwords/edit.html.haml:3
 msgid "Change your password"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/show.html.erb:37 app/views/srpms/spec.html.erb:37
-#: app/views/srpms/__show.html.haml:45
 msgid "Changelog"
 msgstr ""
 
-#: app/views/home/index.html.erb:45 app/views/group/bygroup.html.haml:27
 msgid "Changes:"
 msgstr ""
 
-#: app/views/srpms/get.html.erb:88
 msgid "Choose a mirror:"
 msgstr ""
 
-#: app/views/devise/mailer/unlock_instructions.html.haml:4
 msgid "Click the link below to unlock your account:"
 msgstr ""
 
-#: app/views/devise/mailer/confirmation_instructions.html.haml:4
 msgid "Confirm my account"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:52 app/views/srpms/__show.html.haml:108
+msgid "Confirm new password"
+msgstr ""
+
 msgid "Current maintainer:"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:38 app/views/group/bygroup.html.haml:18
-#: app/views/srpms/__show.html.haml:77
 msgid "Current version:"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:49 app/views/srpms/__show.html.haml:102
 msgid "Description:"
 msgstr ""
 
-#: app/views/devise/shared/_links.haml:11
 msgid "Didn't receive confirmation instructions?"
 msgstr ""
 
-#: app/views/devise/shared/_links.haml:14
 msgid "Didn't receive unlock instructions?"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/show.html.erb:37 app/views/srpms/spec.html.erb:37
-#: app/views/srpms/__show.html.haml:57
 msgid "Download"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:15
+msgid "Edit my maintainer profile"
+msgstr ""
+
 msgid "Email:"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:97
 msgid "English"
 msgstr ""
 
-#: app/views/devise/shared/_links.haml:8
+msgid "FTBFS"
+msgstr ""
+
 msgid "Forgot your password?"
 msgstr ""
 
-#: app/views/iphone/maintainer_info.html.erb:10
-#: app/views/iphone/maintainer_info.html.erb:15
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7 app/views/srpms/allbugs.html.erb:14
-#: app/views/srpms/bugs.html.erb:14 app/views/srpms/changelog.html.erb:37
-#: app/views/srpms/gear.html.erb:14 app/views/srpms/get.html.erb:37
-#: app/views/srpms/repocop.html.erb:14 app/views/srpms/show.html.erb:37
-#: app/views/srpms/spec.html.erb:37 app/views/srpms/__show.html.haml:63
 msgid "Gear"
 msgstr ""
 
-#: app/views/srpms/_group.html.erb:2 app/views/srpms/_group.html.erb:4
-#: app/views/srpms/_group.html.erb:6 app/views/group/bygroup.html.haml:6
-#: app/views/srpms/__show.html.haml:23 app/views/srpms/__show.html.haml:27
-#: app/views/srpms/__show.html.haml:31
+msgid "Git repo"
+msgstr ""
+
 msgid "Group"
 msgstr ""
 
-#: app/views/home/index.html.erb:35
 msgid "Group:"
 msgstr ""
 
-#: app/views/rsync/new.html.erb:20
 msgid "Groups:"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:106
 msgid "Home"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:43 app/views/srpms/__show.html.haml:89
 msgid "Home page:"
 msgstr ""
 
-#: app/views/devise/mailer/reset_password_instructions.html.haml:5
 msgid "If you didn't request this, please ignore this email."
 msgstr ""
 
-#: app/views/maintainer_profiles/edit.html.haml:21
 msgid "Info:"
 msgstr ""
 
-#: app/views/iphone/maintainer_info.html.erb:8
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7
 msgid "Information"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:18 app/views/teams/show.html.haml:10
 msgid "Information:"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:16
-#: app/views/maintainer_profiles/edit.html.haml:17
 msgid "Jabber ID:"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:80
 msgid "Last update:"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:46 app/views/srpms/__show.html.haml:95
 msgid "License:"
 msgstr ""
 
-#: app/views/rebuild/index.html.haml:6
-msgid ""
-"List of packages needing rebuild without \"%undefine _configure_target\" "
-"hack:"
+msgid "List of packages needing rebuild without \"%undefine _configure_target\" hack:"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:8
-#: app/views/maintainers/srpms.html.erb:8
 msgid "List of packages which was built by this maintainer:"
 msgstr ""
 
-#: app/views/teams/show.html.haml:28
 msgid "List of packages:"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:62 app/views/srpms/__show.html.haml:117
 msgid "List of rpms provided by this srpm:"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:14
-#: app/views/maintainer_profiles/edit.html.haml:9
 msgid "Location:"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:18
-#: app/views/layouts/application.html.haml:137
 msgid "Mailing list"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/show.html.erb:37 app/views/srpms/spec.html.erb:37
-#: app/views/srpms/__show.html.haml:39
 msgid "Main"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:5
-#: app/views/maintainers/allbugs.html.erb:5
-#: app/views/maintainers/bugs.html.erb:5 app/views/maintainers/gear.html.erb:5
-#: app/views/maintainers/repocop.html.erb:5
-#: app/views/maintainers/show.html.erb:5
-#: app/views/maintainers/srpms.html.erb:5
 msgid "Maintainer:"
 msgstr ""
 
-#: app/views/home/maintainers_list.html.erb:6
-#: app/views/iphone/index.html.erb:10 app/views/iphone/index.html.erb:27
-#: app/views/layouts/application.html.haml:115
 msgid "Maintainers"
 msgstr ""
 
-#: app/views/home/index.html.erb:16
 msgid "New SRPMs"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:8
-#: app/views/layouts/application.html.haml:109
-msgid "News"
+msgid "New password"
 msgstr ""
 
-#: app/views/group/nosuchgroup.html.haml:5
 msgid "No such group!"
 msgstr ""
 
-#: app/views/srpms/nosuchpackage.html.haml:5
 msgid "No such package!"
 msgstr ""
 
-#: app/views/maintainers/nosuchmaintainer.html.haml:5
 msgid "No such packager!"
 msgstr ""
 
-#: app/views/teams/nosuchteam.html.haml:5
 msgid "No such team!"
 msgstr ""
 
-#: app/views/searches/show.html.haml:14
 msgid "On your query &quot;"
 msgstr ""
 
-#: app/views/group/groups_list.html.haml:21
+msgid "Other repositories"
+msgstr ""
+
 msgid "Package groups"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:9 app/views/iphone/index.html.erb:21
-#: app/views/iphone/maintainer_info.html.erb:9
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7
-#: app/views/layouts/application.html.haml:112
 msgid "Packages"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:22
 msgid "Packages built by this maintainer:"
 msgstr ""
 
-#: app/views/rebuild/index.html.haml:3
 msgid "Packages to rebuild:"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:17
-#: app/views/layouts/application.html.haml:134
 msgid "Planet"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:100
 msgid "Portuguese (Brasilian)"
 msgstr ""
 
-#: app/views/pages/project.html.haml:5
 msgid "Project Prometheus"
 msgstr ""
 
-#: app/views/group/bygroup.html.haml:1
-msgid "Prometheus 2.0 - Group - "
+msgid "Prometheus 2.0 - Group - %s"
 msgstr ""
 
-#: app/views/group/nosuchgroup.html.haml:1
 msgid "Prometheus 2.0 - Group - Error!"
 msgstr ""
 
-#: app/views/group/groups_list.html.haml:1
 msgid "Prometheus 2.0 - Groups"
 msgstr ""
 
-#: app/views/pages/project.html.haml:1
 msgid "Prometheus 2.0 - Information about the project"
 msgstr ""
 
-#: app/views/home/index.html.erb:1
 msgid "Prometheus 2.0 - Intro"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:1
-#: app/views/maintainers/allbugs.html.erb:1
-#: app/views/maintainers/bugs.html.erb:1 app/views/maintainers/gear.html.erb:1
-#: app/views/maintainers/repocop.html.erb:1
-#: app/views/maintainers/show.html.erb:1
-#: app/views/maintainers/srpms.html.erb:1
 msgid "Prometheus 2.0 - Maintainer &laquo;"
 msgstr ""
 
-#: app/views/maintainers/nosuchmaintainer.html.haml:1
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr ""
 
-#: app/views/home/maintainers_list.html.erb:1
 msgid "Prometheus 2.0 - Maintainers"
 msgstr ""
 
-#: app/views/pages/news.html.erb:1
-msgid "Prometheus 2.0 - News"
-msgstr ""
-
-#: app/views/srpms/allbugs.html.erb:1 app/views/srpms/bugs.html.erb:1
-#: app/views/srpms/changelog.html.erb:1 app/views/srpms/gear.html.erb:1
-#: app/views/srpms/get.html.erb:1 app/views/srpms/repocop.html.erb:1
-#: app/views/srpms/show.html.erb:1 app/views/srpms/spec.html.erb:1
-#: app/views/srpms/__show.html.haml:1
 msgid "Prometheus 2.0 - Package "
 msgstr ""
 
-#: app/views/srpms/nosuchpackage.html.haml:1
+msgid "Prometheus 2.0 - Package %s"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package %s - Download"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package %s - Repocop"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package %s - Spec"
+msgstr ""
+
 msgid "Prometheus 2.0 - Package - Error!"
 msgstr ""
 
-#: app/views/rsync/new.html.erb:1
 msgid "Prometheus 2.0 - Rsync Exclude"
 msgstr ""
 
-#: app/views/searches/show.html.haml:1
 msgid "Prometheus 2.0 - Search"
 msgstr ""
 
-#: app/views/pages/security.html.haml:1
 msgid "Prometheus 2.0 - Security"
 msgstr ""
 
-#: app/views/teams/show.html.haml:1
-msgid "Prometheus 2.0 - Team &laquo;"
+msgid "Prometheus 2.0 - Team &laquo;%s&raquo;"
 msgstr ""
 
-#: app/views/teams/nosuchteam.html.haml:1
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:11
-msgid "Prometheus2.0 search"
-msgstr ""
-
-#: app/views/rsync/new.html.erb:5
 msgid "RPM filter for rsync"
 msgstr ""
 
-#: app/views/searches/show.html.haml:18
 msgid "RPM:"
 msgid_plural "RPMs:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: app/views/iphone/index.html.erb:14
-#: app/views/layouts/application.html.haml:124
 msgid "RSS"
 msgstr ""
 
-#: app/views/iphone/maintainer_info.html.erb:12
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7 app/views/srpms/allbugs.html.erb:14
-#: app/views/srpms/bugs.html.erb:14 app/views/srpms/changelog.html.erb:37
-#: app/views/srpms/gear.html.erb:14 app/views/srpms/get.html.erb:37
-#: app/views/srpms/repocop.html.erb:14 app/views/srpms/show.html.erb:37
-#: app/views/srpms/spec.html.erb:37 app/views/srpms/__show.html.haml:73
+msgid "Raw spec file"
+msgstr ""
+
 msgid "Repocop"
 msgstr ""
 
-#: app/views/maintainers/repocop.html.erb:9
 msgid "Repocop messages:"
 msgstr ""
 
-#: app/views/devise/confirmations/new.html.haml:3
-#: app/views/devise/confirmations/new.html.haml:10
 msgid "Resend confirmation instructions"
 msgstr ""
 
-#: app/views/devise/unlocks/new.html.haml:3
-#: app/views/devise/unlocks/new.html.haml:10
 msgid "Resend unlock instructions"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:98
 msgid "Russian"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:82
 msgid "SRPMs:"
 msgstr ""
 
-#: app/views/searches/show.html.haml:5
 msgid "Search"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:74
 msgid "Search..."
 msgstr ""
 
-#: app/views/iphone/index.html.erb:12 app/views/iphone/index.html.erb:39
-#: app/views/layouts/application.html.haml:118
 msgid "Security"
 msgstr ""
 
-#: app/views/home/index.html.erb:99
 msgid "Select branch:"
 msgstr ""
 
-#: app/views/devise/sessions/new.html.haml:3
-#: app/views/devise/sessions/new.html.haml:17
-#: app/views/devise/shared/_links.haml:2
-#: app/views/layouts/application.html.haml:92
+msgid "Send me reset password instructions"
+msgstr ""
+
 msgid "Sign in"
 msgstr ""
 
-#: app/views/devise/registrations/new.html.haml:3
-#: app/views/devise/registrations/new.html.haml:18
-#: app/views/devise/shared/_links.haml:5
-#: app/views/layouts/application.html.haml:94
+msgid "Sign out"
+msgstr ""
+
 msgid "Sign up"
 msgstr ""
 
-#: app/views/home/index.html.erb:10
-msgid ""
-"Sisyphus is not intended for end users and its usage may result in "
-"unpredictable behaviour. You might want to use ALT Linux distributions and "
-"their usual updates if you want to run a reliable system."
+msgid "Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system."
 msgstr ""
 
-#: app/views/rsync/new.html.erb:7
 msgid ""
-"Sisyphus is permanently changed repository. New packages appears, old "
-"packages update. It is necessary to sync with Sisyphus\n"
-"permanent for a man who supports his copy of repository. The size of "
-"repository is about 15 Gb. It is rather expensive to sync \n"
+"Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus\n"
+"permanent for a man who supports his copy of repository. The size of repository is about 15 Gb. It is rather expensive to sync \n"
 "such amount of data. <br /><br />\n"
 "\n"
-"In many cases you don't need <u>all</u> packages. You can use option --"
-"exclude-from=FILE with rsync utility to exclude \n"
+"In many cases you don't need <u>all</u> packages. You can use option --exclude-from=FILE with rsync utility to exclude \n"
 "packages you don't need. <br /><br />\n"
 "\n"
-"This form helps you to create such file of exceptions. You can filter by "
-"group of packages and by size.<br /><br />\n"
+"This form helps you to create such file of exceptions. You can filter by group of packages and by size.<br /><br />\n"
 "<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:67
 msgid "Sisyphus repository"
 msgstr ""
 
-#: app/views/home/index.html.erb:95
 msgid "Sisyphus sync"
 msgstr ""
 
-#: app/views/srpms/show.html.erb:40 app/views/srpms/__show.html.haml:83
 msgid "Size:"
 msgstr ""
 
-#: app/views/devise/mailer/reset_password_instructions.html.haml:3
-msgid ""
-"Someone has requested a link to change your password, and you can do this "
-"through the link below."
+msgid "Someone has requested a link to change your password, and you can do this through the link below."
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:8 app/views/srpms/bugs.html.erb:8
-#: app/views/srpms/changelog.html.erb:31 app/views/srpms/gear.html.erb:8
-#: app/views/srpms/get.html.erb:31 app/views/srpms/repocop.html.erb:8
-#: app/views/srpms/show.html.erb:31 app/views/srpms/spec.html.erb:31
-#: app/views/srpms/__show.html.haml:33
 msgid "Source RPM:"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/show.html.erb:37 app/views/srpms/spec.html.erb:37
-#: app/views/srpms/__show.html.haml:51
 msgid "Spec"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:20 app/views/teams/show.html.haml:44
+msgid "Spec file not yet imported."
+msgstr ""
+
 msgid "Summary"
 msgstr ""
 
-#: app/views/home/index.html.erb:44 app/views/srpms/show.html.erb:48
-#: app/views/group/bygroup.html.haml:24 app/views/srpms/__show.html.haml:99
 msgid "Summary:"
 msgstr ""
 
-#: app/views/home/index.html.erb:78
 msgid "TOP RPMs"
 msgstr ""
 
-#: app/views/home/index.html.erb:59
 msgid "TOP maintainers"
 msgstr ""
 
-#: app/views/teams/show.html.haml:16
 msgid "Team leader:"
 msgstr ""
 
-#: app/views/teams/show.html.haml:21
 msgid "Team members:"
 msgstr ""
 
-#: app/views/teams/show.html.haml:6
 msgid "Team:"
 msgstr ""
 
-#: app/views/home/maintainers_list.html.erb:6
-#: app/views/iphone/index.html.erb:11 app/views/iphone/index.html.erb:33
 msgid "Teams"
 msgstr ""
 
-#: app/views/srpms/bugs.html.erb:18
-msgid "There is no bugreports for this ALT Bugzilla"
+msgid "There are no bugreports against this package"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:17
-#: app/views/maintainer_profiles/edit.html.haml:13
+msgid "Time"
+msgstr ""
+
 msgid "Time Zone:"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:8
-#: app/views/maintainers/bugs.html.erb:8
 msgid "Total records:"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:16 app/views/srpms/bugs.html.erb:22
 msgid "Total:"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:99
 msgid "Ukrainian"
 msgstr ""
 
-#: app/views/devise/mailer/unlock_instructions.html.haml:5
+msgid "Unhappy?"
+msgstr ""
+
 msgid "Unlock my account"
 msgstr ""
 
-#: app/views/devise/registrations/edit.html.haml:25
 msgid "Update"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:19
-#: app/views/searches/show.html.haml:30 app/views/teams/show.html.haml:43
+msgid "Update personal maintainer info"
+msgstr ""
+
 msgid "Url"
 msgstr ""
 
-#: app/views/maintainers/show.html.erb:13
-#: app/views/maintainer_profiles/edit.html.haml:5
 msgid "Website/Blog:"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:15
-#: app/views/layouts/application.html.haml:127
 msgid "Wiki"
 msgstr ""
 
-#: app/views/devise/mailer/confirmation_instructions.html.haml:3
-msgid "You can confirm your account through the link below:"
+msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
 
-#: app/views/devise/mailer/unlock_instructions.html.haml:3
-msgid ""
-"Your account has been locked due to an excessive amount of unsuccessful sign "
-"in attempts."
+msgid "Your password won't change until you access the link above and create a new one."
 msgstr ""
 
-#: app/views/devise/mailer/reset_password_instructions.html.haml:6
-msgid ""
-"Your password won't change until you access the link above and create a new "
-"one."
-msgstr ""
-
-#: app/views/layouts/application.html.haml:121
 msgid "about Prometheus project"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:18
-#: app/views/searches/show.html.haml:29 app/views/teams/show.html.haml:42
 msgid "age"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:39 app/views/srpms/show.html.erb:39
-#: app/views/group/bygroup.html.haml:22 app/views/searches/show.html.haml:42
-#: app/views/searches/show.html.haml:60 app/views/searches/show.html.haml:77
-#: app/views/srpms/__show.html.haml:81 app/views/teams/show.html.haml:59
 msgid "ago"
 msgstr ""
 
-#: app/views/rsync/new.html.erb:46
 msgid "any"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:131
+msgid "arch"
+msgstr ""
+
 msgid "blog"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:100
 msgid "br"
 msgstr ""
 
-#: app/views/home/index.html.erb:25 app/views/home/index.html.erb:29
 msgid "build"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:17
-#: app/views/searches/show.html.haml:28 app/views/teams/show.html.haml:41
 msgid "build time"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:137
 msgid "community-en@"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:16
-#: app/views/rebuild/index.html.haml:13 app/views/searches/show.html.haml:27
-#: app/views/teams/show.html.haml:40
 msgid "current<br />version"
 msgstr ""
 
-#: app/views/rebuild/index.html.haml:20 app/views/teams/show.html.haml:56
 msgid "detailed information about RPM"
 msgstr ""
 
-#: app/views/home/index.html.erb:21 app/views/group/bygroup.html.haml:15
 msgid "detailed information about the package"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/repocop.html.erb:14 app/views/srpms/show.html.erb:37
-#: app/views/srpms/spec.html.erb:37 app/views/srpms/__show.html.haml:57
 msgid "download latest version"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:97
 msgid "en"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:76
-#: app/views/searches/show.html.haml:10
 msgid "find"
 msgstr ""
 
-#: app/views/home/index.html.erb:95
 msgid "form"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/gear.html.erb:14 app/views/srpms/get.html.erb:37
-#: app/views/srpms/repocop.html.erb:14 app/views/srpms/show.html.erb:37
-#: app/views/srpms/spec.html.erb:37 app/views/srpms/__show.html.haml:45
 msgid "full changelog"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7
 msgid "gear"
 msgstr ""
 
-#: app/views/rsync/new.html.erb:57
 msgid "generate"
 msgstr ""
 
-#: app/views/home/index.html.erb:61 app/views/home/index.html.erb:80
-#: app/views/home/index.html.erb:92 app/views/home/index.html.erb:101
-#: app/views/srpms/changelog.html.erb:10 app/views/srpms/get.html.erb:10
-#: app/views/srpms/show.html.erb:10 app/views/srpms/spec.html.erb:10
-#: app/views/srpms/__show.html.haml:9
 msgid "hide window"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:15
-#: app/views/layouts/application.html.haml:127
 msgid "http://en.altlinux.org/Sisyphus"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:18
-#: app/views/layouts/application.html.haml:137
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:17
-#: app/views/layouts/application.html.haml:134
 msgid "http://planet.altlinux.org/"
 msgstr ""
 
-#: app/views/iphone/index.html.erb:16
-#: app/views/layouts/application.html.haml:131
 msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:17
-#: app/views/maintainers/bugs.html.erb:17 app/views/srpms/allbugs.html.erb:25
-#: app/views/srpms/bugs.html.erb:31
 msgid "id"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/spec.html.erb:37
 msgid "information about SRPM"
 msgstr ""
 
-#: app/views/home/index.html.erb:26 app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/srpms.html.erb:7 app/views/srpms/show.html.erb:54
-#: app/views/srpms/show.html.erb:56 app/views/rebuild/index.html.haml:24
-#: app/views/rebuild/index.html.haml:26 app/views/srpms/__show.html.haml:110
-#: app/views/srpms/__show.html.haml:112
 msgid "information about maintainer"
 msgstr ""
 
-#: app/views/home/index.html.erb:68 app/views/teams/show.html.haml:18
-#: app/views/teams/show.html.haml:24
 msgid "information about the packager"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:13
 msgid "leader"
 msgstr ""
 
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/show.html.erb:37 app/views/srpms/spec.html.erb:37
-#: app/views/srpms/__show.html.haml:69
+msgid "leave blank if you don't want to change it"
+msgstr ""
+
 msgid "list of bugs and feature requests"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:115
 msgid "maintainers information"
 msgstr ""
 
-#: app/views/maintainers/repocop.html.erb:16
-#: app/views/srpms/repocop.html.erb:22
 msgid "message"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:11
-#: app/views/maintainers/bugs.html.erb:11 app/views/srpms/allbugs.html.erb:19
-#: app/views/srpms/bugs.html.erb:25
 msgid "open"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:12
-#: app/views/maintainers/allbugs.html.erb:18
-#: app/views/maintainers/bugs.html.erb:18
-#: app/views/maintainers/repocop.html.erb:13
-#: app/views/maintainers/srpms.html.erb:15
-#: app/views/rebuild/index.html.haml:12 app/views/searches/show.html.haml:26
-#: app/views/teams/show.html.haml:39
 msgid "package"
 msgstr ""
 
-#: app/views/srpms/repocop.html.erb:19
 msgid "package id"
 msgstr ""
 
-#: app/views/rebuild/index.html.haml:14
 msgid "package leader"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:112
 msgid "packages information"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/repocop.html.erb:8
-#: app/views/maintainers/show.html.erb:7
 msgid "packages which was built by this maintainer"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:13
-#: app/views/searches/show.html.haml:25 app/views/teams/show.html.haml:38
 msgid "repo<br/>cop"
 msgstr ""
 
-#: app/views/teams/show.html.haml:51
 msgid "repocop"
 msgstr ""
 
-#: app/views/maintainers/acls.html.erb:7
-#: app/views/maintainers/allbugs.html.erb:7
-#: app/views/maintainers/bugs.html.erb:7 app/views/maintainers/gear.html.erb:7
-#: app/views/maintainers/show.html.erb:7
-#: app/views/maintainers/srpms.html.erb:7 app/views/srpms/allbugs.html.erb:14
-#: app/views/srpms/bugs.html.erb:14 app/views/srpms/changelog.html.erb:37
-#: app/views/srpms/gear.html.erb:14 app/views/srpms/get.html.erb:37
-#: app/views/srpms/show.html.erb:37 app/views/srpms/spec.html.erb:37
-#: app/views/srpms/__show.html.haml:73
 msgid "repocop bugreports"
 msgstr ""
 
-#: app/views/maintainers/srpms.html.erb:30 app/views/teams/show.html.haml:54
 msgid "repocop patch for the package"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:22
-#: app/views/maintainers/bugs.html.erb:21 app/views/srpms/allbugs.html.erb:29
-#: app/views/srpms/bugs.html.erb:34
 msgid "reporter"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:21
-#: app/views/srpms/allbugs.html.erb:28
 msgid "resolution"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:98
 msgid "ru"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:118
 msgid "security fixes"
 msgstr ""
 
-#: app/views/home/index.html.erb:98
 msgid "select branch"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:19
-#: app/views/maintainers/bugs.html.erb:19 app/views/srpms/allbugs.html.erb:26
-#: app/views/srpms/bugs.html.erb:32
 msgid "severity"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:127
 msgid "sisyphus public site"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:106
 msgid "site home page"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:109
-msgid "site news"
-msgstr ""
-
-#: app/views/home/index.html.erb:58
 msgid "sort maintainers by amount of packages"
 msgstr ""
 
-#: app/views/home/index.html.erb:77
 msgid "sort packages by amount of releases in the last half of year"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/gear.html.erb:14
-#: app/views/srpms/get.html.erb:37 app/views/srpms/repocop.html.erb:14
-#: app/views/srpms/show.html.erb:37 app/views/srpms/__show.html.haml:51
 msgid "spec"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:20
-#: app/views/maintainers/bugs.html.erb:20
-#: app/views/maintainers/repocop.html.erb:14
-#: app/views/srpms/allbugs.html.erb:27 app/views/srpms/bugs.html.erb:33
-#: app/views/srpms/repocop.html.erb:20
 msgid "status"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:23
-#: app/views/maintainers/bugs.html.erb:22 app/views/srpms/allbugs.html.erb:30
-#: app/views/srpms/bugs.html.erb:35 app/views/searches/show.html.haml:31
 msgid "summary"
 msgstr ""
 
-#: app/views/home/index.html.erb:108
 msgid "switch branch to it"
 msgstr ""
 
-#: app/views/maintainers/repocop.html.erb:15
-#: app/views/srpms/repocop.html.erb:21
 msgid "test"
 msgstr ""
 
-#: app/views/srpms/allbugs.html.erb:14 app/views/srpms/bugs.html.erb:14
-#: app/views/srpms/changelog.html.erb:37 app/views/srpms/get.html.erb:37
-#: app/views/srpms/repocop.html.erb:14 app/views/srpms/show.html.erb:37
-#: app/views/srpms/spec.html.erb:37 app/views/srpms/__show.html.haml:63
 msgid "this package in gear repositories"
 msgstr ""
 
-#: app/views/home/index.html.erb:90
 msgid "tips &amp; tricks"
 msgstr ""
 
-#: app/views/home/index.html.erb:89
 msgid "tips and tricks"
 msgstr ""
 
-#: app/views/maintainers/allbugs.html.erb:12
-#: app/views/maintainers/bugs.html.erb:12 app/views/srpms/allbugs.html.erb:20
-#: app/views/srpms/bugs.html.erb:26
 msgid "total"
 msgstr ""
 
-#: app/views/layouts/application.html.haml:99
 msgid "uk"
+msgstr ""
+
+msgid "we need your current password to confirm your changes"
+msgstr ""
+
+msgid "weeks"
 msgstr ""
