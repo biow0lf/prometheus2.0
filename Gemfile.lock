@@ -307,8 +307,8 @@ DEPENDENCIES
   factory_girl_rails
   fakeredis
   fakeweb
-  fast_gettext (>= 0.4.8)
-  gettext (>= 1.9.3)
+  fast_gettext
+  gettext
   gettext_i18n_rails
   globalize3
   growl
