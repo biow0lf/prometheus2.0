@@ -53,6 +53,7 @@ group :development do
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
+  gem 'rb-readline'
   gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
   gem 'rb-inotify', :require => false
