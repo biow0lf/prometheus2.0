@@ -17,7 +17,7 @@ gem 'nested_set'
 gem 'thinking-sphinx'
 gem 'brewdler', :require => false
 gem 'sitemap_generator'
-gem 'globalize3'
+gem 'globalize3', :git => 'git://github.com/svenfuchs/globalize3.git'
 gem 'jsonify-rails'
 gem 'unicorn'
 
