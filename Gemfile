@@ -62,15 +62,15 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec', '2.8.0.rc2'
+  gem 'rspec-rails', '2.8.0.rc2'
   gem 'ruby-debug19'
 end
 
 group :test do
   gem 'capybara'
   # gem 'ffaker'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.8.0.rc2'
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
