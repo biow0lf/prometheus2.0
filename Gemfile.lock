@@ -1,8 +1,10 @@
 GIT
   remote: git://github.com/amatsuda/kaminari.git
-  revision: aee027c91bd7aa13312a8162d5edc79a501ebe3d
+  revision: aa99b78c1bdd71c637da10ffba53c0d9affbb8a0
   specs:
     kaminari (0.12.4)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
       railties (>= 3.0.0)
 
 GIT
