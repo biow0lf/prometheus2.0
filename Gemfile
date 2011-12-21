@@ -48,7 +48,7 @@ group :staging do
 end
 
 group :development do
-  gem 'silent-postgres'
+  gem 'silent-postgres', :git => 'git://github.com/dmathieu/silent-postgres.git'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
