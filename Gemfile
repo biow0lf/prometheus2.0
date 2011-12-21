@@ -11,7 +11,7 @@ gem 'squeel'
 gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
-gem 'gettext', :require => false
+gem 'gettext', :git => 'git://github.com/cameel/gettext.git', :require => false
 gem 'whenever', :require => false
 gem 'nested_set'
 gem 'thinking-sphinx'
