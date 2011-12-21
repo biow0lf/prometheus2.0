@@ -42,7 +42,7 @@
   <% if changelog.changelogname.force_encoding("UTF-8").valid_encoding? &&
         changelog.changelogtext.force_encoding("UTF-8").valid_encoding? %>
   <p class="news" />
-  <b><%= changelog.changelogtime[0..9] %> <%= changelog.changelogname.gsub('@altlinux', ' at altlinux').gsub('@', ' at ') %></b> <br />
+  <b><%= Time.at(changelog.changelogtime.to_i) %> <%= changelog.changelogname.gsub('@altlinux', ' at altlinux').gsub('@', ' at ') %></b> <br />
   <ul class="change">
     <%= simple_format(changelog.changelogtext) %>
   </ul>
