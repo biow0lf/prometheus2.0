@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class AddIndexInGroupIdToSrpmModel < ActiveRecord::Migration
-  def up
+  def change
     add_index :srpms, :group_id
-  end
-
-  def down
-    remove_index :srpms, :group_id
   end
 end

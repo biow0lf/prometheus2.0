@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateBranches < ActiveRecord::Migration
-  def up
+  def change
     create_table :branches do |t|
       t.string :vendor
       t.string :name
@@ -16,9 +16,5 @@ class CreateBranches < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :branches
   end
 end

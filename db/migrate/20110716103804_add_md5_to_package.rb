@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class AddMd5ToPackage < ActiveRecord::Migration
-  def up
+  def change
     add_column :packages, :md5, :string
-  end
-
-  def down
-    remove_column :packages, :md5
   end
 end

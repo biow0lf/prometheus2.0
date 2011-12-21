@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateGroups < ActiveRecord::Migration
-  def up
+  def change
     create_table :groups do |t|
       t.string :name
       t.string :branch
@@ -9,9 +9,5 @@ class CreateGroups < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :groups
   end
 end

@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class AddPathToBranch < ActiveRecord::Migration
-  def up
+  def change
     add_column :branches, :path, :string
-  end
-
-  def down
-    remove_column :branches, :path
   end
 end

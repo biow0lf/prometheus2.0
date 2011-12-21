@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateBugs < ActiveRecord::Migration
-  def up
+  def change
     create_table :bugs do |t|
       t.integer :bug_id
       t.string :bug_status
@@ -15,9 +15,5 @@ class CreateBugs < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :bugs
   end
 end

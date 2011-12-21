@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateGitrepos < ActiveRecord::Migration
-  def up
+  def change
     create_table :gitrepos do |t|
       t.string :repo
       t.string :login
@@ -9,9 +9,5 @@ class CreateGitrepos < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :gitrepos
   end
 end

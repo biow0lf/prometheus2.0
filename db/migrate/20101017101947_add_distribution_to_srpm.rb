@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class AddDistributionToSrpm < ActiveRecord::Migration
-  def up
+  def change
     add_column :srpms, :distribution, :string
-  end
-
-  def down
-    remove_column :srpms, :distribution
   end
 end

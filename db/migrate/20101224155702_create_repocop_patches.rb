@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateRepocopPatches < ActiveRecord::Migration
-  def up
+  def change
     create_table :repocop_patches do |t|
       t.string :name
       t.string :version
@@ -12,9 +12,5 @@ class CreateRepocopPatches < ActiveRecord::Migration
     end
 
     add_index :repocop_patches, :name
-  end
-
-  def down
-    drop_table :repocop_patches
   end
 end

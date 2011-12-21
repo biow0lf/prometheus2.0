@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreatePackagers < ActiveRecord::Migration
-  def up
+  def change
     create_table :packagers do |t|
       t.string :name
       t.string :email
@@ -10,9 +10,5 @@ class CreatePackagers < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :packagers
   end
 end

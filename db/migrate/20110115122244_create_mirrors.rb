@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateMirrors < ActiveRecord::Migration
-  def up
+  def change
     create_table :mirrors do |t|
       t.integer :branch_id
       t.integer :order_id
@@ -12,9 +12,5 @@ class CreateMirrors < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :mirrors
   end
 end

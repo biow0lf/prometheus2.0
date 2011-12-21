@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class RemoveUrlFromBranches < ActiveRecord::Migration
-  def up
+  def change
     remove_column :branches, :url
-  end
-
-  def down
-    add_column :branches, :url, :string
   end
 end

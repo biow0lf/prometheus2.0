@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreatePackages < ActiveRecord::Migration
-  def up
+  def change
     create_table :packages do |t|
       t.string :filename
       t.string :sourcepackage
@@ -21,9 +21,5 @@ class CreatePackages < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :packages
   end
 end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateObsoletes < ActiveRecord::Migration
-  def up
+  def change
     create_table :obsoletes do |t|
       t.integer :package_id
       t.string :name
@@ -11,9 +11,5 @@ class CreateObsoletes < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :obsoletes
   end
 end

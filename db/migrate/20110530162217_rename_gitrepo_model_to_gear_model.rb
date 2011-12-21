@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class RenameGitrepoModelToGearModel < ActiveRecord::Migration
-  def up
+  def change
     rename_table :gitrepos, :gears
-  end
-
-  def down
-    rename_table :gears, :gitrepos
   end
 end

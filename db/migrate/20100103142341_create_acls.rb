@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateAcls < ActiveRecord::Migration
-  def up
+  def change
     create_table :acls do |t|
       t.string :package
       t.string :login
@@ -10,9 +10,5 @@ class CreateAcls < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :acls
   end
 end

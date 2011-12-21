@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateLeaders < ActiveRecord::Migration
-  def up
+  def change
     create_table :leaders do |t|
       t.string :package
       t.string :login
@@ -9,9 +9,5 @@ class CreateLeaders < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :leaders
   end
 end

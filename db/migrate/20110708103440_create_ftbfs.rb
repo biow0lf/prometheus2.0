@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateFtbfs < ActiveRecord::Migration
-  def up
+  def change
     create_table :ftbfs do |t|
       t.string :name
       t.string :epoch
@@ -12,9 +12,5 @@ class CreateFtbfs < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :ftbfs
   end
 end

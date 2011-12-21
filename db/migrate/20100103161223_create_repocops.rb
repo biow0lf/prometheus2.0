@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateRepocops < ActiveRecord::Migration
-  def up
+  def change
     create_table :repocops do |t|
       t.string :name
       t.string :version
@@ -16,9 +16,5 @@ class CreateRepocops < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :repocops
   end
 end

@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class AddBranchIdToLeaders < ActiveRecord::Migration
-  def up
+  def change
     add_column :leaders, :branch_id, :integer
-  end
-
-  def down
-    remove_column :leaders, :branch_id
   end
 end

@@ -1,11 +1,7 @@
 # encoding: utf-8
 
 class AddVendorToSrpm < ActiveRecord::Migration
-  def up
+  def change
     add_column :srpms, :vendor, :string
-  end
-
-  def down
-    remove_column :srpms, :vendor
   end
 end

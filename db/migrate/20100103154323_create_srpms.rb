@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreateSrpms < ActiveRecord::Migration
-  def up
+  def change
     create_table :srpms do |t|
       t.string :branch
       t.string :vendor
@@ -19,9 +19,5 @@ class CreateSrpms < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :srpms
   end
 end

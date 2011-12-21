@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CreatePatches < ActiveRecord::Migration
-  def up
+  def change
     create_table :patches do |t|
       t.integer :branch_id
       t.integer :srpm_id
@@ -12,9 +12,5 @@ class CreatePatches < ActiveRecord::Migration
 
     add_index :patches, :branch_id
     add_index :patches, :srpm_id
-  end
-
-  def down
-    drop_table :patches
   end
 end
