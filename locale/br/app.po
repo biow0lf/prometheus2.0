@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-19 17:18+0200\n"
+"POT-Creation-Date: 2011-12-22 01:51+0200\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -13,18 +13,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-msgid " - All bugs"
-msgstr ""
-
-msgid " - Bugs"
-msgstr ""
-
-msgid " - Changelog"
-msgstr ""
-
-msgid " - Gear"
-msgstr ""
 
 msgid " or "
 msgstr ""
@@ -337,19 +325,28 @@ msgstr ""
 msgid "Prometheus 2.0 - Maintainers"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package "
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s - Download"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Bugs"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s - Repocop"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s - Spec"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Download"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
 msgstr ""
 
 msgid "Prometheus 2.0 - Package - Error!"

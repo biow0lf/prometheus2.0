@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-19 17:18+0200\n"
+"POT-Creation-Date: 2011-12-22 01:51+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -13,18 +13,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-msgid " - All bugs"
-msgstr " - Все ошибки"
-
-msgid " - Bugs"
-msgstr " - Ошибки"
-
-msgid " - Changelog"
-msgstr " - Изменения"
-
-msgid " - Gear"
-msgstr " - Gear"
 
 msgid " or "
 msgstr " или "
@@ -368,20 +356,37 @@ msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgid "Prometheus 2.0 - Maintainers"
 msgstr "Prometheus 2.0 - Маинтейнеры и команды разработчиков"
 
-msgid "Prometheus 2.0 - Package "
-msgstr "Prometheus 2.0 - Пакет "
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
-msgid "Prometheus 2.0 - Package %s"
-msgstr "Prometheus 2.0 - Пакет %s"
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
-msgid "Prometheus 2.0 - Package %s - Download"
-msgstr "Prometheus 2.0 - Пакет %s - Загрузить"
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Bugs"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
-msgid "Prometheus 2.0 - Package %s - Repocop"
-msgstr "Prometheus 2.0 - Пакет %s - Repocop"
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
-msgid "Prometheus 2.0 - Package %s - Spec"
-msgstr "Prometheus 2.0 - Пакет %s - Спек"
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Download"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+
+#, fuzzy
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Package - Error!"
 msgstr "Prometheus 2.0 - Package - Error!"
@@ -769,11 +774,38 @@ msgstr ""
 msgid "weeks"
 msgstr ""
 
+#~ msgid " - All bugs"
+#~ msgstr " - Все ошибки"
+
+#~ msgid " - Bugs"
+#~ msgstr " - Ошибки"
+
+#~ msgid " - Changelog"
+#~ msgstr " - Изменения"
+
+#~ msgid " - Gear"
+#~ msgstr " - Gear"
+
 #~ msgid "News"
 #~ msgstr "Новости"
 
 #~ msgid "Prometheus 2.0 - News"
 #~ msgstr "Prometheus 2.0 - Новости"
+
+#~ msgid "Prometheus 2.0 - Package "
+#~ msgstr "Prometheus 2.0 - Пакет "
+
+#~ msgid "Prometheus 2.0 - Package %s"
+#~ msgstr "Prometheus 2.0 - Пакет %s"
+
+#~ msgid "Prometheus 2.0 - Package %s - Download"
+#~ msgstr "Prometheus 2.0 - Пакет %s - Загрузить"
+
+#~ msgid "Prometheus 2.0 - Package %s - Repocop"
+#~ msgstr "Prometheus 2.0 - Пакет %s - Repocop"
+
+#~ msgid "Prometheus 2.0 - Package %s - Spec"
+#~ msgstr "Prometheus 2.0 - Пакет %s - Спек"
 
 #~ msgid "site news"
 #~ msgstr "новости сайта"

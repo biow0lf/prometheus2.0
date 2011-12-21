@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-19 17:18+0200\n"
+"POT-Creation-Date: 2011-12-22 01:51+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,18 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-msgid " - All bugs"
-msgstr ""
-
-msgid " - Bugs"
-msgstr ""
-
-msgid " - Changelog"
-msgstr ""
-
-msgid " - Gear"
-msgstr ""
 
 msgid " or "
 msgstr ""
@@ -338,19 +326,28 @@ msgstr ""
 msgid "Prometheus 2.0 - Maintainers"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package "
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s - Download"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Bugs"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s - Repocop"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog"
 msgstr ""
 
-msgid "Prometheus 2.0 - Package %s - Spec"
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Download"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
+msgstr ""
+
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
 msgstr ""
 
 msgid "Prometheus 2.0 - Package - Error!"
