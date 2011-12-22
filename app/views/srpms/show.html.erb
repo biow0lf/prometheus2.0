@@ -81,7 +81,7 @@
 <b><%= _('License:') %></b> <span class="news-text"><%= @srpm.license %></span><br />
 
 <b><%= _('Summary:') %></b> <span class="news-text"><%= @srpm.summary %></span><br />
-<b><%= _('Description:') %></b> <div class="para"><%= simple_format @srpm.description %></div>
+<b><%= _('Description:') %></b> <div class="para"><%= simple_format h(@srpm.description) %></div>
 <p class="news" />
 <% unless @srpm.maintainer.nil? %>
 <div class="maintainer"><b><%= _('Current maintainer:') %></b>
