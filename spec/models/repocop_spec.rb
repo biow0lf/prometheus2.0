@@ -22,7 +22,7 @@ describe Repocop do
   it { should have_db_index :srcversion }
 
   it "should import repocops from url" do
-    page = `cat spec/data/prometeus2.txt`
+    page = `cat spec/data/prometeus2.sql`
     FakeWeb.register_uri(:get,
                          "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.sql",
                          response: page)
