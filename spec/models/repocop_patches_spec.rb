@@ -3,6 +3,9 @@
 require 'spec_helper'
 
 describe RepocopPatch do
+  it { should belong_to :branch }
+
+  it { should validate_presence_of :branch }
   it { should validate_presence_of :name }
   it { should validate_presence_of :version }
   it { should validate_presence_of :release }

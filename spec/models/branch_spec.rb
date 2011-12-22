@@ -15,6 +15,8 @@ describe Branch do
   it { should have_many :mirrors }
   it { should have_many :patches }
   it { should have_many :ftbfs }
+  it { should have_many :repocops }
+  it { should have_many :repocop_patches }
 
   it "should return Branch.name on .to_param" do
     Branch.create!(name: 'Sisyphus', vendor: 'ALT Linux').to_param.should == 'Sisyphus'

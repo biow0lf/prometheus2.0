@@ -5,6 +5,9 @@ require 'spec_helper'
 describe Repocop do
   pending { should belong_to :srpm }
 
+  it { should belong_to :branch }
+
+  it { should validate_presence_of :branch }
   it { should validate_presence_of :name }
   it { should validate_presence_of :version }
   it { should validate_presence_of :release }
@@ -21,7 +24,7 @@ describe Repocop do
   it "should import repocops from url" do
     page = `cat spec/data/prometeus2.txt`
     FakeWeb.register_uri(:get,
-                         "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt",
+                         "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.sql",
                          response: page)
     expect{
       Repocop.update_repocop
