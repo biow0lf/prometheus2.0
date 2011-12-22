@@ -44,7 +44,7 @@
   <p class="news" />
   <b><%= Time.at(changelog.changelogtime.to_i) %> <%= changelog.changelogname.gsub('@altlinux', ' at altlinux').gsub('@', ' at ') %></b> <br />
   <ul class="change">
-    <%= simple_format(changelog.changelogtext) %>
+    <%= simple_format(changelog.changelogtext).to_date %>
   </ul>
   <% else %>
   <p class="news" />
