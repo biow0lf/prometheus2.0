@@ -16,7 +16,7 @@ class Repocop < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       Repocop.delete_all
 
-      url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.txt"
+      url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2.sql"
       file = open(URI.escape(url)).read
 
       file.each_line do |line|
