@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/amatsuda/kaminari.git
-  revision: aa99b78c1bdd71c637da10ffba53c0d9affbb8a0
-  specs:
-    kaminari (0.12.4)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      railties (>= 3.0.0)
-
-GIT
   remote: git://github.com/cameel/gettext.git
   revision: f0b90f9d68a37fcba5c3f0b4eb1f7593185a7c2a
   specs:
@@ -157,6 +148,10 @@ GEM
     jsonify-rails (0.2.0)
       actionpack
       jsonify (>= 0.2.0)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     kgio (2.7.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
@@ -332,7 +327,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   jsonify-rails
-  kaminari!
+  kaminari
   launchy
   libnotify
   memcache-client
