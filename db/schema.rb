@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222010150) do
+ActiveRecord::Schema.define(:version => 20111222114836) do
 
   create_table "acls", :force => true do |t|
     t.datetime "created_at"
@@ -249,16 +249,17 @@ ActiveRecord::Schema.define(:version => 20111222010150) do
   add_index "repocop_patches", ["name"], :name => "index_repocop_patches_on_name"
 
   create_table "repocops", :force => true do |t|
-    t.string "name"
-    t.string "version"
-    t.string "release"
-    t.string "arch"
-    t.string "srcname"
-    t.string "srcversion"
-    t.string "srcrel"
-    t.string "testname"
-    t.string "status"
-    t.text   "message"
+    t.string  "name"
+    t.string  "version"
+    t.string  "release"
+    t.string  "arch"
+    t.string  "srcname"
+    t.string  "srcversion"
+    t.string  "srcrel"
+    t.string  "testname"
+    t.string  "status"
+    t.text    "message"
+    t.integer "branch_id"
   end
 
   add_index "repocops", ["srcname"], :name => "index_repocops_on_srcname"
