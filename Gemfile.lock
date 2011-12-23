@@ -292,7 +292,7 @@ GEM
       raindrops (~> 0.6)
     warden (1.1.0)
       rack (>= 1.0)
-    whenever (0.7.1)
+    whenever (0.7.2)
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
     xpath (0.1.4)
