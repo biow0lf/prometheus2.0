@@ -3,19 +3,23 @@
 require 'spec_helper'
 
 describe Repocop do
-  pending { should belong_to :srpm }
+  describe 'Associations' do
+    it { should belong_to :branch }
 
-  it { should belong_to :branch }
+    pending { should belong_to :srpm }
+  end
 
-  it { should validate_presence_of :branch }
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :version }
-  it { should validate_presence_of :release }
-  it { should validate_presence_of :arch }
-  it { should validate_presence_of :srcname }
-  it { should validate_presence_of :srcversion }
-  it { should validate_presence_of :srcrel }
-  it { should validate_presence_of :testname }
+  describe 'Validation' do
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :version }
+    it { should validate_presence_of :release }
+    it { should validate_presence_of :arch }
+    it { should validate_presence_of :srcname }
+    it { should validate_presence_of :srcversion }
+    it { should validate_presence_of :srcrel }
+    it { should validate_presence_of :testname }
+  end
 
   it { should have_db_index :srcname }
   it { should have_db_index :srcrel }

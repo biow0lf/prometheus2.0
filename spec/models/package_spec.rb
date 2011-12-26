@@ -3,25 +3,29 @@
 require 'spec_helper'
 
 describe Package do
-  it { should belong_to :branch }
-  it { should belong_to :srpm }
-  it { should belong_to :group }
+  describe 'Associations' do
+    it { should belong_to :branch }
+    it { should belong_to :srpm }
+    it { should belong_to :group }
 
-  it { should validate_presence_of :srpm }
-  it { should validate_presence_of :branch }
-  it { should validate_presence_of :group }
-  it { should validate_presence_of :md5 }
+    it { should have_many :provides }
+    it { should have_many :requires }
+    it { should have_many :obsoletes }
+    it { should have_many :conflicts }
+  end
+
+  describe 'Validation' do
+    it { should validate_presence_of :srpm }
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :group }
+    it { should validate_presence_of :md5 }
+  end
 
   it { should have_db_index :arch }
   it { should have_db_index :branch_id }
   it { should have_db_index :group_id }
   it { should have_db_index :sourcepackage }
   it { should have_db_index :srpm_id }
-
-  it { should have_many :provides }
-  it { should have_many :requires }
-  it { should have_many :obsoletes }
-  it { should have_many :conflicts }
 
   it "should import package to database" do
     branch = FactoryGirl.create(:branch)

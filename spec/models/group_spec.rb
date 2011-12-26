@@ -3,12 +3,16 @@
 require 'spec_helper'
 
 describe Group do
-  it { should belong_to :branch }
-  it { should have_many :srpms }
-  it { should have_many :packages }
+  describe 'Associations' do
+    it { should belong_to :branch }
+    it { should have_many :srpms }
+    it { should have_many :packages }
+  end
 
-  it { should validate_presence_of :branch }
-  it { should validate_presence_of :name }
+  describe 'Validation' do
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :name }
+  end
 
   it { should have_db_index :branch_id }
   it { should have_db_index :parent_id }

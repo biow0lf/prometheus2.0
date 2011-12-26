@@ -3,16 +3,20 @@
 require 'spec_helper'
 
 describe Maintainer do
-  it { should have_one :leader }
-  it { should have_many :acls }
-  it { should have_many :teams }
-  it { should have_many(:srpms).through(:acls) }
-  it { should have_many :gears }
-  it { should have_many :ftbfs }
+  describe 'Associations' do
+    it { should have_one :leader }
+    it { should have_many :acls }
+    it { should have_many :teams }
+    it { should have_many(:srpms).through(:acls) }
+    it { should have_many :gears }
+    it { should have_many :ftbfs }
+  end
 
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :email }
-  it { should validate_presence_of :login }
+  describe 'Validation' do
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :email }
+    it { should validate_presence_of :login }
+  end
 
   it "should validate_uniqueness_of :login" do
     Maintainer.create!(name: 'Igor Zubkov',

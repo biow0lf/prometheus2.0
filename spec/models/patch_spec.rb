@@ -3,12 +3,16 @@
 require 'spec_helper'
 
 describe Patch do
-  it { should belong_to :branch }
-  it { should belong_to :srpm }
+  describe 'Associations' do
+    it { should belong_to :branch }
+    it { should belong_to :srpm }
+  end
 
-  it { should validate_presence_of :branch }
-  it { should validate_presence_of :srpm }
-  it { should validate_presence_of :patch }
+  describe 'Validation' do
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :srpm }
+    it { should validate_presence_of :patch }
+  end
 
   it { should have_db_index :branch_id }
   it { should have_db_index :srpm_id }

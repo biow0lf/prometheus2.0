@@ -3,12 +3,16 @@
 require 'spec_helper'
 
 describe Changelog do
-  it { should belong_to :srpm }
+  describe 'Associations' do
+    it { should belong_to :srpm }
+  end
 
-  it { should validate_presence_of :srpm }
-  it { should validate_presence_of :changelogtime }
-  it { should validate_presence_of :changelogname }
-  it { should validate_presence_of :changelogtext }
+  describe 'Validation' do
+    it { should validate_presence_of :srpm }
+    it { should validate_presence_of :changelogtime }
+    it { should validate_presence_of :changelogname }
+    it { should validate_presence_of :changelogtext }
+  end
 
   it { should have_db_index :srpm_id }
 

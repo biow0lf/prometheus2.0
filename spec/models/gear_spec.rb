@@ -3,11 +3,15 @@
 require 'spec_helper'
 
 describe Gear do
-  it { should belong_to :maintainer }
-  it { should belong_to :srpm }
+  describe 'Associations' do
+    it { should belong_to :maintainer }
+    it { should belong_to :srpm }
+  end
 
-  it { should validate_presence_of :repo }
-  it { should validate_presence_of :lastchange }
+  describe 'Validation' do
+    it { should validate_presence_of :repo }
+    it { should validate_presence_of :lastchange }
+  end
 
   it { should have_db_index :maintainer_id }
   it { should have_db_index :srpm_id }

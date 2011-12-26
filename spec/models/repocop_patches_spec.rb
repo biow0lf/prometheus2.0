@@ -3,13 +3,17 @@
 require 'spec_helper'
 
 describe RepocopPatch do
-  it { should belong_to :branch }
+  describe 'Associations' do
+    it { should belong_to :branch }
+  end
 
-  it { should validate_presence_of :branch }
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :version }
-  it { should validate_presence_of :release }
-  it { should validate_presence_of :url }
+  describe 'Validation' do
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :version }
+    it { should validate_presence_of :release }
+    it { should validate_presence_of :url }
+  end
 
   it { should have_db_index :name }
 

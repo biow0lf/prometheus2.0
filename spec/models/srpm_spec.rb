@@ -3,24 +3,28 @@
 require 'spec_helper'
 
 describe Srpm do
-  it { should belong_to :branch }
-  it { should belong_to :group }
-  it { should have_many :packages }
-  it { should have_many :changelogs }
-  it { should have_one :leader }
-  it { should have_one(:maintainer).through(:leader) }
-  it { should have_many :acls }
-  it { should have_many :repocops }
-  it { should have_one :specfile }
-  it { should have_one :repocop_patch }
-  it { should have_many :patches }
+  describe 'Associations' do
+    it { should belong_to :branch }
+    it { should belong_to :group }
+    it { should have_many :packages }
+    it { should have_many :changelogs }
+    it { should have_one :leader }
+    it { should have_one(:maintainer).through(:leader) }
+    it { should have_many :acls }
+    it { should have_many :repocops }
+    it { should have_one :specfile }
+    it { should have_one :repocop_patch }
+    it { should have_many :patches }
+  end
 
   # pending "test :dependent => :destroy for :packages, :changelogs, :leaders, :acls"
   # pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
 
-  it { should validate_presence_of :branch }
-  it { should validate_presence_of :group }
-  it { should validate_presence_of :md5 }
+  describe 'Validation' do
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :group }
+    it { should validate_presence_of :md5 }
+  end
 
   it { should have_db_index :branch_id }
   it { should have_db_index :group_id }

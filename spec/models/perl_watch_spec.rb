@@ -3,7 +3,9 @@
 require 'spec_helper'
 
 describe PerlWatch do
-  it { should validate_presence_of :name }
+  describe 'Validation' do
+    it { should validate_presence_of :name }
+  end
 
   it "should import data from CPAN" do
     page = `cat spec/data/02packages.details.txt`
