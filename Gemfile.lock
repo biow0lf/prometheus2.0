@@ -108,6 +108,8 @@ GEM
       mail (~> 2.2)
       rspec (~> 2.0)
     erubis (2.7.0)
+    everywhere (1.0.0)
+      activerecord
     exception_notification (2.5.2)
       actionmailer (>= 3.0.4)
     execjs (1.2.13)
@@ -156,6 +158,7 @@ GEM
     launchy (2.0.5)
       addressable (~> 2.2.6)
     libnotify (0.6.0)
+      ffi (~> 1.0.0)
     linecache19 (0.5.13)
       ruby_core_source (>= 0.1.4)
     locale (2.0.5)
@@ -313,6 +316,7 @@ DEPENDENCIES
   database_cleaner
   devise (= 2.0.0.rc)
   email_spec
+  everywhere
   exception_notification
   factory_girl_rails
   fakeredis

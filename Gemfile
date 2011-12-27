@@ -9,6 +9,7 @@ gem 'devise', '2.0.0.rc'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'squeel'
 gem 'kaminari'
+gem 'everywhere'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', :git => 'git://github.com/cameel/gettext.git', :require => false
