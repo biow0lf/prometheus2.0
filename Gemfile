@@ -65,7 +65,6 @@ end
 group :development, :test do
   gem 'rspec', '2.8.0.rc2'
   gem 'rspec-rails', '2.8.0.rc2'
-  gem 'ruby-debug19'
 end
 
 group :test do
