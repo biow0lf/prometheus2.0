@@ -43,6 +43,7 @@ h3. Init database:
 
 * bundle exec rake sisyphus:bugs
 * bundle exec rake sisyphus:repocops
+* bundle exec rake sisyphus:repocop_patches
 * bundle exec rake gear:import
 * bundle exec rake perlwatch:update
 * bundle exec rake ftbfs:update
