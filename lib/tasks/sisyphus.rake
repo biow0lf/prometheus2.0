@@ -16,10 +16,8 @@ namespace :sisyphus do
               '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
     puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update repocop cache"
-    Repocop.update_repocop_cache
-    puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: expire cache"
+    # TODO: review and cleanup this code
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_top15")
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
