@@ -16,7 +16,7 @@ listen "/tmp/packages.altlinux.org.socket", :backlog => 64
 preload_app true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
-timeout 30
+timeout 60
 
 pid "/tmp/unicorn.my_site.pid"
 
