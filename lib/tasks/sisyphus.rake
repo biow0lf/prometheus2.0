@@ -16,8 +16,8 @@ namespace :sisyphus do
               '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
     puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: expire cache"
     # TODO: review and cleanup this code
+    puts "#{Time.now.to_s}: expire cache"
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_top15")
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
@@ -26,6 +26,7 @@ namespace :sisyphus do
         ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_#{page}")
       end
     end
+    puts "#{Time.now.to_s}: end"
     # puts "#{Time.now.to_s}: update acls in redis cache"
     # Acl.update_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
     # puts "#{Time.now.to_s}: end"
