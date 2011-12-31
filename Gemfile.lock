@@ -134,7 +134,7 @@ GEM
     guard-cucumber (0.7.4)
       cucumber (>= 0.10)
       guard (>= 0.8.3)
-    guard-rspec (0.5.10)
+    guard-rspec (0.5.11)
       guard (>= 0.8.4)
     highline (1.5.2)
     hike (1.2.1)
