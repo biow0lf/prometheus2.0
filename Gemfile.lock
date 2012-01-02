@@ -155,7 +155,7 @@ GEM
     kgio (2.7.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
-    libnotify (0.6.0)
+    libnotify (0.7.0)
       ffi (~> 1.0.0)
     locale (2.0.5)
     mail (2.3.0)
