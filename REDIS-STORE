@@ -1,0 +1,13 @@
+Internal structure of redis cache used in prometheus2.0:
+
+"#{branch.name}:srpms:counter" integer. Srpms counter for branch.
+
+e.g. "Sisyphus:srpms:counter" => 12837
+
+"#{branch.name}:#{srpm.filename}" 1 or nil. 1 if srpm imported.
+
+e.g. "Sisyphus:openbox-3.5.0-alt1.1.src.rpm" => 1
+
+"#{branch.name}:#{package.filename}" 1 or nil. 1 if binary package imported.
+
+e.g. "Sisyphus:openbox-3.5.0-alt1.1.i586.rpm" => 1
