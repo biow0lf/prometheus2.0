@@ -20,7 +20,7 @@ namespace :platform5 do
     puts "#{Time.now.to_s}: expire cache"
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
-      pages_counter = branch.srpms.where("srpms.created_at > '2010-11-09 09:00:00'").count + 1
+      pages_counter = (branch.srpms.where("srpms.created_at > '2010-11-09 09:00:00'").count / 50) + 1
       for page in 1..pages_counter do
         ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_#{page}")
       end
