@@ -6,7 +6,7 @@ GIT
       locale (>= 2.0.5)
 
 GIT
-  remote: git://github.com/dmathieu/silent-postgres.git
+  remote: git://github.com/dolzenko/silent-postgres.git
   revision: 756820917d202cc0f78485c176d7a710de960e60
   specs:
     silent-postgres (0.1.1)
