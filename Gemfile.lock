@@ -214,19 +214,19 @@ GEM
       json (~> 1.4)
     redis (2.2.2)
     riddle (1.5.1)
-    rspec (2.8.0.rc2)
-      rspec-core (= 2.8.0.rc2)
-      rspec-expectations (= 2.8.0.rc2)
-      rspec-mocks (= 2.8.0.rc2)
-    rspec-core (2.8.0.rc2)
-    rspec-expectations (2.8.0.rc2)
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+    rspec-core (2.8.0)
+    rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.8.0.rc2)
-    rspec-rails (2.8.0.rc2)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      railties (~> 3.0)
-      rspec (= 2.8.0.rc2)
+    rspec-mocks (2.8.0)
+    rspec-rails (2.8.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec (~> 2.8.0)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.2.3)
@@ -318,8 +318,8 @@ DEPENDENCIES
   rb-inotify
   rb-readline
   redis
-  rspec (= 2.8.0.rc2)
-  rspec-rails (= 2.8.0.rc2)
+  rspec
+  rspec-rails
   sass-rails
   shoulda-matchers
   silent-postgres!
