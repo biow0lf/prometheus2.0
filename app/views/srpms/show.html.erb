@@ -93,7 +93,7 @@
 </div><br/>
 <% end %>
 
-<% unless @acls.empty? %>
+<% if @acls %>
 <b><%= _('ACL:') %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
