@@ -327,3 +327,4 @@ Maintainer.create(:name => 'Kernel Team', :email => 'kernel@packages.altlinux.or
 Maintainer.create(:name => 'Ruby Team', :email => 'ruby@packages.altlinux.org', :login => '@ruby', :team => true)
 Maintainer.create(:name => 'Python Team', :email => 'python@packages.altlinux.org', :login => '@python', :team => true)
 Maintainer.create(:name => 'QA p6', :email => 'qa_p6@packages.altlinux.org', :login => '@qa_p6', :team => true)
+Maintainer.create(:name => 'QA p5', :email => 'qa_p5@packages.altlinux.org', :login => '@qa_p5', :team => true)
