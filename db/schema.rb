@@ -11,19 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222120639) do
-
-  create_table "acls", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "branch_id"
-    t.integer  "maintainer_id"
-    t.integer  "srpm_id"
-  end
-
-  add_index "acls", ["branch_id"], :name => "index_acls_on_branch_id"
-  add_index "acls", ["maintainer_id"], :name => "index_acls_on_maintainer_id"
-  add_index "acls", ["srpm_id"], :name => "index_acls_on_srpm_id"
+ActiveRecord::Schema.define(:version => 20120111035155) do
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
