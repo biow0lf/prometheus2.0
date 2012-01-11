@@ -31,6 +31,14 @@ namespace :t6 do
     # puts "#{Time.now.to_s}: end"
   end
 
+  desc 'Import all ACL for packages from t6 to database'
+  task :acls => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import all acls for packages from t6 to database"
+    Acl.create_redis_cache('ALT Linux', 't6', 'http://git.altlinux.org/acl/list.packages.t6')
+    puts "#{Time.now.to_s}: end"
+  end
+
   desc 'Import *.src.rpm from t6 to database'
   task :srpms => :environment do
     require 'open-uri'
