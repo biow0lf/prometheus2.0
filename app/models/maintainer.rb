@@ -12,9 +12,7 @@ class Maintainer < ActiveRecord::Base
   validates :login, immutable: true
 
   has_one :leader
-  has_many :acls
   has_many :teams
-  has_many :srpms, through: :acls
   has_many :gears
   has_many :ftbfs, class_name: 'Ftbfs'
 

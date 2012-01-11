@@ -9,7 +9,6 @@ describe Branch do
   end
 
   describe 'Associations' do
-    it { should have_many :acls }
     it { should have_many :srpms }
     it { should have_many :packages }
     it { should have_many :groups }

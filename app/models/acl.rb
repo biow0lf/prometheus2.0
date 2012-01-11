@@ -1,14 +1,6 @@
 # encoding: utf-8
 
 class Acl < ActiveRecord::Base
-  belongs_to :branch
-  belongs_to :maintainer
-  belongs_to :srpm
-
-  validates :branch, presence: true
-  validates :maintainer, presence: true
-  validates :srpm, presence: true
-
   def self.create_redis_cache(vendor_name, branch_name, url)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read
