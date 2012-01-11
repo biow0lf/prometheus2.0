@@ -26,6 +26,9 @@ namespace :platform5 do
       end
     end
     puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update acls in redis cache"
+    Acl.update_redis_cache('ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5')
+    puts "#{Time.now.to_s}: end"
   end
 
   desc 'Import all ACL for packages from Platform5 to database'

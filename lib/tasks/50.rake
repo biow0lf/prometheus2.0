@@ -26,9 +26,9 @@ namespace :"50" do
       end
     end
     puts "#{Time.now.to_s}: end"
-    # puts "#{Time.now.to_s}: update acls in redis cache"
-    # Acl.update_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
-    # puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update acls in redis cache"
+    Acl.update_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
+    puts "#{Time.now.to_s}: end"
   end
 
   desc 'Import all ACL for packages from 5.0 to database'
