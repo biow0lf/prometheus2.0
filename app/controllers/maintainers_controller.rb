@@ -7,7 +7,6 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    # @acls = Acl.where(maintainer_id: @maintainer, branch_id: @branch)
     @acls = $redis.smembers("Sisyphus:maintainers:#{params[:id].downcase}").count
   end
 
@@ -15,8 +14,6 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    # @acls = Acl.where(:maintainer_id => @maintainer, :branch_id => @branch).includes(:srpm => [:repocop_patch]).order(sort_column + ' ' + sort_direction) #.order('LOWER(srpms.name)')
-    # @acls = Acl.where(maintainer_id: @maintainer, branch_id: @branch).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
   end
 
@@ -68,9 +65,9 @@ class MaintainersController < ApplicationController
 
   def repocop
     @branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).includes(:srpms).order('LOWER(srpms.name)').first
+    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    @srpms = @maintainer.srpms.where(branch_id: @branch).includes(:repocops)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
 
   # private
