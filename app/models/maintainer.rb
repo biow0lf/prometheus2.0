@@ -79,16 +79,17 @@ class Maintainer < ActiveRecord::Base
   end
 
   def self.top15
-    find_by_sql("SELECT COUNT(acls.srpm_id) AS counter,
-                        maintainers.name AS name,
-                        maintainers.login AS login
-                 FROM branches, acls, maintainers
-                 WHERE branches.name = 'Sisyphus'
-                 AND branches.vendor = 'ALT Linux'
-                 AND branches.id = acls.branch_id
-                 AND acls.maintainer_id = maintainers.id
-                 AND maintainers.team = 'false'
-                 GROUP BY maintainers.name, maintainers.login
-                 ORDER BY 1 DESC LIMIT 15")
+    # find_by_sql("SELECT COUNT(acls.srpm_id) AS counter,
+    #                     maintainers.name AS name,
+    #                     maintainers.login AS login
+    #              FROM branches, acls, maintainers
+    #              WHERE branches.name = 'Sisyphus'
+    #              AND branches.vendor = 'ALT Linux'
+    #              AND branches.id = acls.branch_id
+    #              AND acls.maintainer_id = maintainers.id
+    #              AND maintainers.team = 'false'
+    #              GROUP BY maintainers.name, maintainers.login
+    #              ORDER BY 1 DESC LIMIT 15")
+    []
   end
 end
