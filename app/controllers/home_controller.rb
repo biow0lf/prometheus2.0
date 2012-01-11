@@ -12,7 +12,8 @@ class HomeController < ApplicationController
   end
 
   def maintainers_list
-    @maintainers = Maintainer.find_all_maintainers_in(params[:branch])
-    @teams = Maintainer.find_all_teams_in(params[:branch])
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @maintainers = Maintainer.where(team: false)
+    @teams = Maintainer.where(team: true)
   end
 end

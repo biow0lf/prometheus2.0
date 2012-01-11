@@ -14,7 +14,7 @@
               <%= link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news' %>
               <%= link_to " (#{maintainer.login})", maintainer_path(@branch, maintainer), :style => 'text-decoration: none; color: black;' %>
             </div>
-            <div style='float: right;'><%= maintainer.counter %></div>
+            <div style='float: right;'><%= $redis.smembers("#{@branch.name}:maintainers:#{maintainer.login}").count %></div>
           </div>
         <% end %>
       </td>
@@ -25,7 +25,7 @@
               <%= link_to team.name, team_path(:id => team.login[1..-1], :branch => @branch.name), :class => 'news' %>
               <%= link_to " (#{team.login[1..-1]})", team_path(:id => team.login[1..-1], :branch => @branch.name), :style => 'text-decoration: none; color: black;' %>
             </div>
-            <div style='float: right;'><%= team.counter %></div>
+            <div style='float: right;'><%= $redis.smembers("#{@branch.name}:maintainers:#{team.login}").count %></div>
           </div>
         <% end %>
       </td>
