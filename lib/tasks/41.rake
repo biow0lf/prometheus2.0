@@ -31,13 +31,13 @@ namespace :"41" do
     # puts "#{Time.now.to_s}: end"
   end
 
-#   desc "Import all ACL for packages from 4.1 to database"
-#   task :acls => :environment do
-#     require 'open-uri'
-#     puts "#{Time.now.to_s}: import acls"
-#     Acl.import_acls('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
-#     puts "#{Time.now.to_s}: end"
-#   end
+  desc 'Import all ACL for packages from 4.1 to database'
+  task :acls => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import all acls for packages from 4.1 to database"
+    Acl.create_redis_cache('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
+    puts "#{Time.now.to_s}: end"
+  end
 
   desc 'Import *.src.rpm from 4.1 to database'
   task :srpms => :environment do
