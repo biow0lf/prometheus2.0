@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
 
     # $redis.smembers("Sisyphus:maintainers:@ruby")
 
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).includes(:repocop_patch).order('LOWER(srpms.name)')
 
     # @acls = Acl.where(maintainer_id: @team.id, branch_id: @branch.id).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
     # @leader = Team.find_by_sql(["SELECT maintainers.login, maintainers.name
