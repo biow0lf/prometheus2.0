@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 
   def maintainers_list
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @maintainers = Maintainer.where(team: false)
-    @teams = Maintainer.where(team: true)
+    @maintainers = Maintainer.where(team: false).order(:name)
+    @teams = Maintainer.where(team: true).order(:name)
   end
 end
