@@ -16,7 +16,8 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     # @acls = Acl.where(:maintainer_id => @maintainer, :branch_id => @branch).includes(:srpm => [:repocop_patch]).order(sort_column + ' ' + sort_direction) #.order('LOWER(srpms.name)')
-    @acls = Acl.where(maintainer_id: @maintainer, branch_id: @branch).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
+    # @acls = Acl.where(maintainer_id: @maintainer, branch_id: @branch).includes(:srpm => [:repocop_patch]).order('LOWER(srpms.name)')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
   end
 
 #  def acls
