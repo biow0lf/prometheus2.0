@@ -16,7 +16,7 @@ listen "/tmp/packages.altlinux.org.socket", :backlog => 64
 preload_app true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
-timeout 60
+timeout 600
 
 pid "/tmp/unicorn.my_site.pid"
 
@@ -24,7 +24,7 @@ pid "/tmp/unicorn.my_site.pid"
 if env == "production"
   # Help ensure your application will always spawn in the symlinked
   # "current" directory that Capistrano sets up.
-  working_directory "/home/prometheusapp/www/current"
+  working_directory "/home/prometheusapp/current"
 
   # feel free to point this anywhere accessible on the filesystem
   user 'prometheusapp', 'prometheusapp'
