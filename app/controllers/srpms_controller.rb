@@ -15,8 +15,6 @@ class SrpmsController < ApplicationController
       @allsrpms = Srpm.where(name: params[:id]).joins(:branch).order('branches.order_id')
       if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
         @acls = Maintainer.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls")).order(:name)
-      else
-        @acls = @srpm.acls.all
       end
     else
       render status: 404, action: 'nosuchpackage'
