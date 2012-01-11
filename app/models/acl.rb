@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class Acl < ActiveRecord::Base
+class Acl
   def self.create_redis_cache(vendor_name, branch_name, url)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read
