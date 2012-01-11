@@ -132,6 +132,7 @@ describe Srpm do
     srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
     $redis.set("#{branch.name}:#{srpm2.filename}", 1)
     $redis.incr("#{branch.name}:srpms:counter")
+    $redis.sadd("#{branch.name}:#{srpm2.name}:acls", "icesik")
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 
@@ -145,6 +146,7 @@ describe Srpm do
     $redis.get("#{branch.name}:openbox-3.4.11.1-alt1.1.1.src.rpm").should == '1'
     $redis.get("#{branch.name}:blackbox-1.0-alt1.src.rpm").should be_nil
     $redis.get("#{branch.name}:srpms:counter").should == '1'
+    $redis.get("#{branch.name}:#{srpm2.name}:acls").should be_nil
 
     # TODO: add checks for sub packages, set-get-delete
   end

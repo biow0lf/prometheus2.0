@@ -32,14 +32,13 @@ namespace :sisyphus do
     # puts "#{Time.now.to_s}: end"
   end
 
-  # TODO:
-  # desc 'Import all ACL for packages from Sisyphus to database'
-  # task :acls => :environment do
-  #   require 'open-uri'
-  #   puts "#{Time.now.to_s}: import all acls for packages from Sisyphus to database"
-  #   Acl.import_acls('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.t6')
-  #   puts "#{Time.now.to_s}: end"
-  # end
+  desc 'Import all ACL for packages from Sisyphus to database'
+  task :acls => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import all acls for packages from Sisyphus to database"
+    Acl.create_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
+    puts "#{Time.now.to_s}: end"
+  end
 
   desc 'Import *.src.rpm from Sisyphus to database'
   task :srpms => :environment do

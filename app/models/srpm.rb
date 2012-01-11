@@ -113,6 +113,8 @@ class Srpm < ActiveRecord::Base
         end
         puts "#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache"
         $redis.del("#{branch.name}:#{srpm.filename}")
+        puts "#{Time.now.to_s}: delete acls for '#{srpm.filename}' from redis cache"
+        $redis.del("#{branch.name}:#{srpm.name}:acls")
         srpm.destroy
         $redis.decr("#{branch.name}:srpms:counter")
       end
