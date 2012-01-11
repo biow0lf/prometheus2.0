@@ -28,6 +28,14 @@ namespace :platform5 do
     puts "#{Time.now.to_s}: end"
   end
 
+  desc 'Import all ACL for packages from Platform5 to database'
+  task :acls => :environment do
+    require 'open-uri'
+    puts "#{Time.now.to_s}: import all acls for packages from Platform5 to database"
+    Acl.create_redis_cache('ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5')
+    puts "#{Time.now.to_s}: end"
+  end
+
   desc 'Import *.src.rpm from Platform5 to database'
   task :srpms => :environment do
     require 'open-uri'
