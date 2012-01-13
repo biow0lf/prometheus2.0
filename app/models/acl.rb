@@ -7,13 +7,13 @@ class Acl
     Maintainer.all.each { |maintainer| $redis.del("#{branch.name}:maintainers:#{maintainer.login}") }
     file.each_line do |line|
       package = line.split[0]
-      $redis.sadd("#{branch.name}:maintainers:#{login}", package)
       for i in 1..line.split.count-1
         login = line.split[i]
         login = 'php-coder' if login == 'php_coder'
         login = 'p_solntsev' if login == 'psolntsev'
         login = '@vim-plugins' if login == '@vim_plugins'
         $redis.sadd("#{branch.name}:#{package}:acls", login)
+        $redis.sadd("#{branch.name}:maintainers:#{login}", package)
       end
     end
   end
@@ -25,7 +25,6 @@ class Acl
     Maintainer.all.each { |maintainer| $redis.del("#{branch.name}:maintainers:#{maintainer.login}") }
     file.each_line do |line|
       package = line.split[0]
-      $redis.sadd("#{branch.name}:maintainers:#{login}", package)
       $redis.del("#{branch.name}:#{package}:acls")
       for i in 1..line.split.count-1
         login = line.split[i]
@@ -33,6 +32,7 @@ class Acl
         login = 'p_solntsev' if login == 'psolntsev'
         login = '@vim-plugins' if login == '@vim_plugins'
         $redis.sadd("#{branch.name}:#{package}:acls", login)
+        $redis.sadd("#{branch.name}:maintainers:#{login}", package)
       end
     end
     $redis.exec
