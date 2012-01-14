@@ -15,6 +15,8 @@ class Package < ActiveRecord::Base
   has_many :obsoletes
   has_many :conflicts
 
+  after_save :set_srpms_delta_flag
+
   def self.import(branch, file)
     sourcerpm = `export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}`
     if branch.srpms.where(filename: sourcerpm).count == 1
@@ -73,5 +75,12 @@ class Package < ActiveRecord::Base
         end
       end
     end
+  end
+
+private
+
+  def set_srpms_delta_flag
+    srpm.delta = true
+    srpm.save
   end
 end
