@@ -38,7 +38,7 @@ class Ftbfs < ActiveRecord::Base
         maintainer = Maintainer.where(login: acl, team: team).first
         Ftbfs.create!(name: name, epoch: epoch, version: version,
                       release: release, weeks: weeks, branch: branch,
-                      arch: arch, maintainer: maintainer)
+                      arch: arch, maintainer: maintainer) if maintainer
       end
     end
   end
