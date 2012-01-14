@@ -82,6 +82,7 @@
       <% end %>
     <% else %>
       <% @srpms.each do |srpm| %>
+        <% if srpm %>
         <tr>
           <% if @branch.name == 'Sisyphus' %>
             <td>
@@ -102,6 +103,7 @@
             <% end %>
           <td><%= srpm.summary %></td>
         </tr>
+        <% end %>
       <% end %>
     <% end %>
   </table>
