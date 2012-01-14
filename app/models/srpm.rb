@@ -32,7 +32,7 @@ class Srpm < ActiveRecord::Base
 
     has branch_id
 
-    set_property :delta => true
+    set_property :delta => :datetime, :threshold => 1.hour
   end
 
   def to_param
