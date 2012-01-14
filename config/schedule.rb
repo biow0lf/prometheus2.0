@@ -18,9 +18,9 @@ every 1.day, :at => '06:15' do
   rake 'sisyphus:repocops sisyphus:repocop_patches'
 end
 
-# every 1.day, :at => '13:00' do
-#   rake 'ftbfs:update'
-# end
+every 1.day, :at => '13:00' do
+  rake 'ftbfs:update'
+end
 
 every :sunday, :at => '03:30' do
   rake 'sitemap:clean sitemap:refresh'
