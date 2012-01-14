@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111035155) do
+ActiveRecord::Schema.define(:version => 20120114134721) do
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
@@ -302,6 +302,7 @@ ActiveRecord::Schema.define(:version => 20120111035155) do
     t.string   "changelogname"
     t.text     "changelogtext"
     t.string   "md5"
+    t.boolean  "delta",         :default => true,   :null => false
   end
 
   add_index "srpms", ["branch_id"], :name => "index_srpms_on_branch_id"
