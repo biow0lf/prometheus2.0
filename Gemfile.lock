@@ -122,7 +122,7 @@ GEM
     ffi (1.0.11)
     gettext_i18n_rails (0.4.1)
       fast_gettext
-    gherkin (2.7.2)
+    gherkin (2.7.3)
       json (>= 1.4.6)
     growl (1.0.3)
     guard (0.10.0)
