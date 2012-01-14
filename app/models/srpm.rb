@@ -31,6 +31,8 @@ class Srpm < ActiveRecord::Base
     indexes packages.sourcepackage, as: :packages_sourcepackage
 
     has branch_id
+
+    set_property :delta => true
   end
 
   def to_param
