@@ -1,8 +1,12 @@
 development:
   max_matches: 10000
+  min_infix_len: 3
 test:
   max_matches: 10000
+  min_infix_len: 3
 production:
   max_matches: 10000
+  min_infix_len: 3
 staging:
   max_matches: 10000
+  min_infix_len: 3
