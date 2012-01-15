@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/dolzenko/silent-postgres.git
-  revision: 756820917d202cc0f78485c176d7a710de960e60
+  revision: eded8f249942b11fe9dacafc02a85b6594282fcc
   specs:
     silent-postgres (0.1.1)
 
