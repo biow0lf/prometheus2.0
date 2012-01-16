@@ -11,15 +11,6 @@ GIT
   specs:
     silent-postgres (0.1.1)
 
-GIT
-  remote: git://github.com/svenfuchs/globalize3.git
-  revision: 6115ab5a93a96e46707e4537ee9d17b882445730
-  specs:
-    globalize3 (0.2.0.beta4)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      paper_trail (~> 2)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -124,6 +115,10 @@ GEM
       fast_gettext
     gherkin (2.7.3)
       json (>= 1.4.6)
+    globalize3 (0.2.0.beta6)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      paper_trail (~> 2)
     growl (1.0.3)
     guard (0.10.0)
       ffi (>= 0.5.0)
@@ -299,7 +294,7 @@ DEPENDENCIES
   fast_gettext
   gettext!
   gettext_i18n_rails
-  globalize3!
+  globalize3 (= 0.2.0.beta6)
   growl
   guard
   guard-cucumber
