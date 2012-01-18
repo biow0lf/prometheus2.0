@@ -8,6 +8,7 @@
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
+    <th><%= _('branch') %></th>
     <th><%= _('package') %></th>
     <th><%= raw _('current<br />version') %></th>
     <th><%= _('arch') %></th>
@@ -16,6 +17,7 @@
 
   <% @ftbfs.each do |f| %>
     <tr>
+      <td><%= f.branch.name %></td>
       <td><%= link_to f.name, srpm_path('Sisyphus', f.name), :class => 'news' %></td>
       <td><%= "#{f.version}-#{f.release}" %></td>
       <td><%= f.arch %></td>
