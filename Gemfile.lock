@@ -234,7 +234,8 @@ GEM
       multi_json (~> 1.0.4)
       rubyzip
     shoulda-matchers (1.0.0)
-    sitemap_generator (2.2.1)
+    sitemap_generator (3.0.0)
+      builder
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
