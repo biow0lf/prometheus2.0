@@ -5,7 +5,7 @@ gem 'rails', '3.2.1'
 gem 'rake'
 
 gem 'pg'
-gem 'devise', '2.0.0.rc'
+gem 'devise'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'squeel'
 gem 'kaminari'
