@@ -29,6 +29,9 @@ namespace :t6 do
     puts "#{Time.now.to_s}: update acls in redis cache"
     Acl.update_redis_cache('ALT Linux', 't6', 'http://git.altlinux.org/acl/list.packages.t6')
     puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update time"
+    $redis.set("#{branch.name}:updated_at", Time.now.to_s)
+    puts "#{Time.now.to_s}: end"
   end
 
   desc 'Import all ACL for packages from t6 to database'

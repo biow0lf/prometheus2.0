@@ -24,6 +24,9 @@ namespace :sisyphusarm do
       end
     end
     puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update time"
+    $redis.set("#{branch.name}:updated_at", Time.now.to_s)
+    puts "#{Time.now.to_s}: end"
   end
 
   desc 'Import *.src.rpm from SisyphusARM to database'
