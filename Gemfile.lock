@@ -113,7 +113,7 @@ GEM
     ffi (1.0.11)
     gettext_i18n_rails (0.4.3)
       fast_gettext
-    gherkin (2.7.4)
+    gherkin (2.7.6)
       json (>= 1.4.6)
     globalize3 (0.2.0.beta6)
       activemodel (>= 3.0.0)
