@@ -139,9 +139,9 @@ GEM
     json (1.6.5)
     jsonify (0.3.1)
       multi_json (~> 1.0)
-    jsonify-rails (0.2.0)
+    jsonify-rails (0.3.1)
       actionpack
-      jsonify (>= 0.2.0)
+      jsonify (>= 0.3.1)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
