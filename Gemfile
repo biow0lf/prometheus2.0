@@ -21,7 +21,6 @@ gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'globalize3', '0.2.0.beta8'
 gem 'jsonify-rails'
-gem 'unicorn'
 
 group :production, :development, :staging do
   gem 'redis'
@@ -42,15 +41,17 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rack-force_domain'
   gem 'exception_notification'
+  gem 'unicorn'
 end
 
 group :staging do
   gem 'memcache-client'
   gem 'active_sanity'
+  gem 'unicorn'
 end
 
 group :development do
-  gem 'silent-postgres', :git => 'git://github.com/dolzenko/silent-postgres.git'
+  gem 'silent-postgres'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
