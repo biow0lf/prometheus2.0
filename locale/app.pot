@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-22 01:51+0200\n"
+"POT-Creation-Date: 2012-02-13 01:31+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
 msgstr ""
 
-msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
+msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
 msgstr ""
 
 msgid "ACL's"
@@ -302,7 +302,7 @@ msgstr ""
 msgid "Project Prometheus"
 msgstr ""
 
-msgid "Prometheus 2.0 - Group - %s"
+msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
 msgstr ""
 
 msgid "Prometheus 2.0 - Group - Error!"
@@ -460,6 +460,9 @@ msgstr ""
 msgid "Spec file not yet imported."
 msgstr ""
 
+msgid "Specfile is not UTF-8 valid."
+msgstr ""
+
 msgid "Summary"
 msgstr ""
 
@@ -548,6 +551,9 @@ msgid "blog"
 msgstr ""
 
 msgid "br"
+msgstr ""
+
+msgid "branch"
 msgstr ""
 
 msgid "build"

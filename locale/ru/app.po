@@ -1,10 +1,10 @@
 # This file is distributed under the same license as the prometheus package.
-# Igor Zubkov <igor.zubkov@gmail.com>, 2009-2010
+# Igor Zubkov <igor.zubkov@gmail.com>, 2009-2012
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-22 01:51+0200\n"
+"POT-Creation-Date: 2012-02-13 01:31+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -106,9 +106,8 @@ msgstr ""
 msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
 msgstr "<b>Q:</b> Как избежать копирования множества пакетов, необходимость которых, лично вам, сомнительна?"
 
-#, fuzzy
-msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
-msgstr "<b>Sisyphus</b> &mdash; ежедневно обновляемый репозиторий пакетов свободных программ <abbr title=\"Независимая команда разработчиков ALT Linux\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участие в Sisyphus открыто для всех желающих. В основе Sisyphus лежат технологии сборки программ и учета зависимостей между ними, а также отработанные процессы по взаимодействию между разработчиками. Для использования Sisyphus достаточно наличие любого дистрибутива ALT&nbsp;Linux и средства управления пакетами программ <b>APT</b>. Sisyphus &mdash; это постоянно развивающийся набор решений, на основе которого возможно создание универсальных или специализированных <b>дистрибутивов Linux</b> и <b>одиночных внедрений</b>."
+msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
+msgstr "<b>Sisyphus</b> &mdash; ежедневно обновляемый репозиторий пакетов свободных программ <abbr title=\"Независимая команда разработчиков ALT Linux\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участие в Sisyphus открыто для всех желающих. В основе Sisyphus лежат технологии сборки программ и учета зависимостей между ними, а также отработанные процессы по взаимодействию между разработчиками. Для использования Sisyphus достаточно наличие любого дистрибутива ALT&nbsp;Linux и средства управления пакетами программ <b>APT</b>. Sisyphus &mdash; это постоянно развивающийся набор решений, на основе которого возможно создание универсальных или специализированных <b>дистрибутивов Linux</b> и <b>одиночных внедрений</b>."
 
 msgid "ACL's"
 msgstr "ACL's"
@@ -332,8 +331,8 @@ msgstr ""
 msgid "Project Prometheus"
 msgstr "Проект Prometheus"
 
-msgid "Prometheus 2.0 - Group - %s"
-msgstr ""
+msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Группa &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Group - Error!"
 msgstr ""
@@ -356,37 +355,29 @@ msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgid "Prometheus 2.0 - Maintainers"
 msgstr "Prometheus 2.0 - Маинтейнеры и команды разработчиков"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo;"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Все ошибки"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Bugs"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Ошибки"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Изменения"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Download"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Загрузить"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Gear"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Repocop"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
-msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Спек"
 
 msgid "Prometheus 2.0 - Package - Error!"
 msgstr "Prometheus 2.0 - Package - Error!"
@@ -505,6 +496,9 @@ msgstr "Спек"
 msgid "Spec file not yet imported."
 msgstr ""
 
+msgid "Specfile is not UTF-8 valid."
+msgstr ""
+
 msgid "Summary"
 msgstr "О пакете"
 
@@ -529,9 +523,8 @@ msgstr "Команда:"
 msgid "Teams"
 msgstr "Команды разработчиков"
 
-#, fuzzy
 msgid "There are no bugreports against this package"
-msgstr "Для данного пакета не найдено ни одной записи в ALT Bugzilla"
+msgstr ""
 
 msgid "Time"
 msgstr ""
@@ -587,14 +580,16 @@ msgstr "назад"
 msgid "any"
 msgstr "любой"
 
-#, fuzzy
 msgid "arch"
-msgstr "Поиск по сайту"
+msgstr ""
 
 msgid "blog"
 msgstr "блог о sisyphus"
 
 msgid "br"
+msgstr ""
+
+msgid "branch"
 msgstr ""
 
 msgid "build"
@@ -773,39 +768,3 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
-
-#~ msgid " - All bugs"
-#~ msgstr " - Все ошибки"
-
-#~ msgid " - Bugs"
-#~ msgstr " - Ошибки"
-
-#~ msgid " - Changelog"
-#~ msgstr " - Изменения"
-
-#~ msgid " - Gear"
-#~ msgstr " - Gear"
-
-#~ msgid "News"
-#~ msgstr "Новости"
-
-#~ msgid "Prometheus 2.0 - News"
-#~ msgstr "Prometheus 2.0 - Новости"
-
-#~ msgid "Prometheus 2.0 - Package "
-#~ msgstr "Prometheus 2.0 - Пакет "
-
-#~ msgid "Prometheus 2.0 - Package %s"
-#~ msgstr "Prometheus 2.0 - Пакет %s"
-
-#~ msgid "Prometheus 2.0 - Package %s - Download"
-#~ msgstr "Prometheus 2.0 - Пакет %s - Загрузить"
-
-#~ msgid "Prometheus 2.0 - Package %s - Repocop"
-#~ msgstr "Prometheus 2.0 - Пакет %s - Repocop"
-
-#~ msgid "Prometheus 2.0 - Package %s - Spec"
-#~ msgstr "Prometheus 2.0 - Пакет %s - Спек"
-
-#~ msgid "site news"
-#~ msgstr "новости сайта"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-22 01:51+0200\n"
+"POT-Creation-Date: 2012-02-13 01:31+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -78,7 +78,7 @@ msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need
 msgstr "<b>Q:</b> Як уникнути копіювання безлічі пакетів, необхідність яких, особисто Вам, сумнівна?"
 
 #, fuzzy
-msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
+msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
 msgstr "<b>Sisyphus</b> &mdash; репозиторій пакетів вільних програм, який щоденно оновлюється <abbr title=\"Незалежна команда розробників ALT Linux\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участь у Sisyphus відкрита для всіх бажаючих. В основі Sisyphus лежать технології збірки програм та обліку залежностей між ними, а також відпрацьовані процеси по взаємодії між розробниками. Для використання Sisyphus достатньо наявності будь-якого дистрибутива ALT&nbsp;Linux та засобів управління пакетами програм <b>APT</b>. Sisyphus &mdash; це набір рішень, що постійно розвиваються, на основі якого можливе створення універсальних чи спеціалізованих <b>дистрибутивів Linux</b> і <b>одиночних впроваджень</b>."
 
 msgid "ACL's"
@@ -306,8 +306,8 @@ msgid "Project Prometheus"
 msgstr "Проект Prometheus"
 
 #, fuzzy
-msgid "Prometheus 2.0 - Group - %s"
-msgstr "Prometheus 2.0 - Intro"
+msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Команда &laquo;"
 
 msgid "Prometheus 2.0 - Group - Error!"
 msgstr ""
@@ -474,6 +474,9 @@ msgstr "Спек"
 msgid "Spec file not yet imported."
 msgstr ""
 
+msgid "Specfile is not UTF-8 valid."
+msgstr ""
+
 msgid "Summary"
 msgstr "Про пакет"
 
@@ -565,6 +568,9 @@ msgstr "блог про sisyphus"
 
 msgid "br"
 msgstr "br"
+
+msgid "branch"
+msgstr ""
 
 msgid "build"
 msgstr ""
@@ -757,6 +763,10 @@ msgstr ""
 
 #~ msgid "News"
 #~ msgstr "Новини"
+
+#, fuzzy
+#~ msgid "Prometheus 2.0 - Group - %s"
+#~ msgstr "Prometheus 2.0 - Intro"
 
 #~ msgid "Prometheus 2.0 - News"
 #~ msgstr "Prometheus 2.0 - Новини"

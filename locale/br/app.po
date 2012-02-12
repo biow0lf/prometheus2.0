@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2011-12-22 01:51+0200\n"
+"POT-Creation-Date: 2012-02-13 01:31+0200\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -75,7 +75,7 @@ msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need
 msgstr "<b>Q:</b> Como posso saltar Escombreira de pacotes se eu ainda não sei porque eu preciso deles?"
 
 #, fuzzy
-msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus.  Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
+msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
 msgstr "<b>Sisyphus</b> &mdash; é um repositório de software livre diariamente atualizado pela <abbr title=\"ALT Linux\">Equipe ALT&nbsp;Linux&nbsp;</abbr>.A participação no projeto Sisyphus é aberto. Na base deste projeto, existem tecnologias de embedded e dependências o software de rastreamento e também conhecidos processos de interação desenvolvedores. ALT Qualquer distribuição Linux e pacote gestor <b>APT</b>. Sisyphus &mdash; está permanentemente desenvolvido um conjunto de soluções. Você pode usá-las para criar e se especializar em <b>Distribuições Linux</b> e <b>integrações de projetos</b>."
 
 msgid "ACL's"
@@ -301,7 +301,7 @@ msgstr ""
 msgid "Project Prometheus"
 msgstr ""
 
-msgid "Prometheus 2.0 - Group - %s"
+msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
 msgstr ""
 
 msgid "Prometheus 2.0 - Group - Error!"
@@ -460,6 +460,9 @@ msgstr ""
 msgid "Spec file not yet imported."
 msgstr ""
 
+msgid "Specfile is not UTF-8 valid."
+msgstr ""
+
 msgid "Summary"
 msgstr ""
 
@@ -548,6 +551,9 @@ msgid "blog"
 msgstr ""
 
 msgid "br"
+msgstr ""
+
+msgid "branch"
 msgstr ""
 
 msgid "build"
