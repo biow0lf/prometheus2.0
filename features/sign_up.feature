@@ -14,7 +14,7 @@ Feature: Sign up
     And I fill in "Password" with "password"
     And I fill in "Password confirmation" with "password"
     And I press "Sign up"
-    Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
+    Then I should see "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
     And "email@example.com" should receive an email
     When I open the email
     Then I should see "Confirm my account" in the email body
