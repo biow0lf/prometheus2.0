@@ -41,10 +41,11 @@
 <% if @srpm.specfile %>
 <%= link_to _('Raw spec file'), rawspec_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('Raw spec file') %>
 
-<br/>
+<br><br>
 
 <% if @srpm.specfile.spec.force_encoding("UTF-8").valid_encoding? %>
-<%= simple_format h(@srpm.specfile.spec.force_encoding("UTF-8").gsub('@altlinux', ' at altlinux')) %>
+<%#= simple_format h(@srpm.specfile.spec.force_encoding("UTF-8").gsub('@altlinux', ' at altlinux')) %>
+<%= raw colorize_specfile @srpm.specfile.spec %>
 <% else %>
 <%= _('Specfile is not UTF-8 valid.') %>
 <% end %>
