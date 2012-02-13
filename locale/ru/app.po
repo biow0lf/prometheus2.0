@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-02-13 01:31+0200\n"
+"POT-Creation-Date: 2012-02-13 02:00+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -19,27 +19,6 @@ msgstr " или "
 
 msgid "&quot; in branch <b>%s</b> were found"
 msgstr "&quot; в бранче <b>%s</b> было найдено"
-
-msgid "&raquo;"
-msgstr "&raquo;"
-
-msgid "&raquo; - ACL"
-msgstr "&raquo; - ACL"
-
-msgid "&raquo; - Bugs and FR"
-msgstr "&raquo; - Bugs and FR"
-
-msgid "&raquo; - Bugs and FR (All)"
-msgstr "&raquo; - Bugs and FR (All)"
-
-msgid "&raquo; - Gear"
-msgstr "&raquo; - Gear"
-
-msgid "&raquo; - Packages"
-msgstr "&raquo; - Пакеты"
-
-msgid "&raquo; - Repocop"
-msgstr "&raquo; - Repocop"
 
 msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
 msgstr ""
@@ -338,7 +317,7 @@ msgid "Prometheus 2.0 - Group - Error!"
 msgstr ""
 
 msgid "Prometheus 2.0 - Groups"
-msgstr ""
+msgstr "Prometheus 2.0 - Группы"
 
 msgid "Prometheus 2.0 - Information about the project"
 msgstr "Prometheus 2.0 - Информация о проекте"
@@ -346,13 +325,34 @@ msgstr "Prometheus 2.0 - Информация о проекте"
 msgid "Prometheus 2.0 - Intro"
 msgstr "Prometheus 2.0 - Intro"
 
-msgid "Prometheus 2.0 - Maintainer &laquo;"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;"
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo;"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - ACL"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - ACL"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Bugs and FR"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR (All)"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Bugs and FR (All)"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - FTBFS"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Gear"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Gear"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Packages"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Пакеты"
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop"
+msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Repocop"
 
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
 
-msgid "Prometheus 2.0 - Maintainers"
+msgid "Prometheus 2.0 - Maintainers &amp; Teams"
 msgstr "Prometheus 2.0 - Маинтейнеры и команды разработчиков"
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"

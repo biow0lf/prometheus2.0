@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-02-13 01:31+0200\n"
+"POT-Creation-Date: 2012-02-13 02:00+0200\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -18,27 +18,6 @@ msgid " or "
 msgstr ""
 
 msgid "&quot; in branch <b>%s</b> were found"
-msgstr ""
-
-msgid "&raquo;"
-msgstr ""
-
-msgid "&raquo; - ACL"
-msgstr ""
-
-msgid "&raquo; - Bugs and FR"
-msgstr ""
-
-msgid "&raquo; - Bugs and FR (All)"
-msgstr ""
-
-msgid "&raquo; - Gear"
-msgstr ""
-
-msgid "&raquo; - Packages"
-msgstr ""
-
-msgid "&raquo; - Repocop"
 msgstr ""
 
 msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
@@ -316,13 +295,34 @@ msgstr ""
 msgid "Prometheus 2.0 - Intro"
 msgstr ""
 
-msgid "Prometheus 2.0 - Maintainer &laquo;"
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo;"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - ACL"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR (All)"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Gear"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Packages"
+msgstr ""
+
+msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop"
 msgstr ""
 
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr ""
 
-msgid "Prometheus 2.0 - Maintainers"
+msgid "Prometheus 2.0 - Maintainers &amp; Teams"
 msgstr ""
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
