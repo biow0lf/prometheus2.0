@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.1'
 
-gem 'rake'
+gem 'rake', :require => false
 
 gem 'pg'
 gem 'devise'
