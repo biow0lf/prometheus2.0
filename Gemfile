@@ -19,7 +19,7 @@ gem 'thinking-sphinx'
 gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 gem 'brewdler', :require => false
 gem 'sitemap_generator'
-gem 'globalize3', '0.2.0.beta8'
+gem 'globalize3'
 gem 'jsonify-rails'
 
 group :production, :development, :staging do
