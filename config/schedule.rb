@@ -7,7 +7,7 @@ every 1.hour, :at => 5 do
 end
 
 every 1.day, :at => '05:30' do
-  rake 'sisyphusarm:update ts:reindex'
+  rake 'sisyphusarm:update ts:in:delta'
 end
 
 every 1.day, :at => '05:00' do
