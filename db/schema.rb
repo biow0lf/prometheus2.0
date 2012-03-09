@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114134721) do
+ActiveRecord::Schema.define(:version => 20120309170422) do
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120114134721) do
     t.binary   "changelogtext"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "delta",         :default => true, :null => false
   end
 
   add_index "changelogs", ["srpm_id"], :name => "index_changelogs_on_srpm_id"
