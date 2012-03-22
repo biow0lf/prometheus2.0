@@ -151,7 +151,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
-    mime-types (1.17.2)
+    mime-types (1.18)
     multi_json (1.1.0)
     nested_set (1.7.0)
       activerecord (>= 3.0.0)
