@@ -302,7 +302,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rack-force_domain
-  rails (= 3.2.2)
+  rails (~> 3.2)
   rake
   rb-fsevent
   rb-inotify
