@@ -141,7 +141,7 @@ GEM
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
     kgio (2.7.3)
-    launchy (2.0.5)
+    launchy (2.1.0)
       addressable (~> 2.2.6)
     libnotify (0.7.2)
       ffi (~> 1.0.0)
