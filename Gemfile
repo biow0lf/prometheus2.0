@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 3.2'
+gem 'strong_parameters'
 
 gem 'rake', :require => false
 
