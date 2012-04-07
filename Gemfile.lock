@@ -101,7 +101,7 @@ GEM
     ffi (1.0.11)
     gettext (2.2.0)
       locale
-    gettext_i18n_rails (0.4.5)
+    gettext_i18n_rails (0.4.6)
       fast_gettext
     gherkin (2.9.3)
       json (>= 1.4.6)
