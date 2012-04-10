@@ -14,7 +14,7 @@
 #
 # $ backup -t my_backup [-c <path_to_configuration_file>]
 
-database_yml = File.expand_path('../config/database.yml', __FILE__)
+database_yml = 'config/database.yml'
 RAILS_ENV    = ENV['RAILS_ENV'] || 'development'
 
 require 'yaml'
