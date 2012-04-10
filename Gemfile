@@ -24,6 +24,7 @@ gem 'globalize3'
 gem 'jsonify-rails'
 gem 'backup', :require => false
 gem 'backup-task'
+gem 'net-ssh', '~> 2.1.4' # for backup gem
 
 group :production, :development, :staging do
   gem 'redis'
