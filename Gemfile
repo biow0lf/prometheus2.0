@@ -23,6 +23,7 @@ gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
 gem 'backup', :require => false
+gem 'backup-task'
 
 group :production, :development, :staging do
   gem 'redis'
