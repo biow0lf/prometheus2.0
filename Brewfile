@@ -7,3 +7,4 @@ node
 git
 nginx
 coreutils
+bzip2
