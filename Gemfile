@@ -22,6 +22,7 @@ gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
 gem 'jsonify-rails'
+gem 'backup', :require => false
 
 group :production, :development, :staging do
   gem 'redis'
