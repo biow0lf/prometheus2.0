@@ -15,7 +15,7 @@ Feature: Manageming maintainer profile
     Given I am signed up and confirmed as "icesik@altlinux.org"
     And I sign in as "icesik@altlinux.org"
     And I should see "Edit my maintainer profile"
-  
+
   Scenario: User sign in
     Given I am signed up and confirmed as "email@example.com"
     And I sign in as "email@example.com"

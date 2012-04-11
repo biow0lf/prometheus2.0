@@ -9,16 +9,16 @@ class MaintainerProfilesController < ApplicationController
 
   def update
     @maintainer = Maintainer.where(login: current_user.login).first
-    @maintainer.info = params[:info]
-    @maintainer.jabber = params[:jabber]
-    @maintainer.time_zone = params[:time_zone]
-    @maintainer.location = params[:location]
-    @maintainer.website = params[:website]
-
-    if @maintainer.save
+    if @maintainer.update_attributes(maintainer_params)
       redirect_to maintainer_path(id: current_user.login, branch: 'Sisyphus', locale: I18n.locale)
     else
       render text: 'Fail'
     end
+  end
+
+private
+
+  def maintainer_params
+    params.permit(:info, :jabber, :time_zone, :location, :website)
   end
 end
