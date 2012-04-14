@@ -234,7 +234,8 @@ GEM
       ffi (~> 1.0)
       multi_json (~> 1.0)
       rubyzip
-    shoulda-matchers (1.0.0)
+    shoulda-matchers (1.1.0)
+      activesupport (>= 3.0.0)
     silent-postgres (0.1.1)
     sitemap_generator (3.1.1)
       builder
