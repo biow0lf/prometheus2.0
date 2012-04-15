@@ -5,6 +5,11 @@ namespace :"51" do
   task :update => :environment do
     require 'open-uri'
     puts "#{Time.now.to_s}: Update 5.1 stuff"
+    if $redis.get('__SYNC__')
+      puts "#{Time.now.to_s}: update is locked by another cron script"
+      Process.exit!(true)
+    end
+    $redis.set('__SYNC__', 1)
     puts "#{Time.now.to_s}: update *.src.rpm from 5.1 to database"
     branch = Branch.where(name: '5.1', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/5.1/files/SRPMS/*.src.rpm')
@@ -32,6 +37,7 @@ namespace :"51" do
     puts "#{Time.now.to_s}: update time"
     $redis.set("#{branch.name}:updated_at", Time.now.to_s)
     puts "#{Time.now.to_s}: end"
+    $redis.del('__SYNC__')
   end
 
   desc 'Import all ACL for packages from 5.1 to database'
