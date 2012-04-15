@@ -6,6 +6,13 @@ namespace :redis do
     require 'open-uri'
 
     puts "#{Time.now.to_s}: cache all *.src.rpm info in redis"
+
+    if $redis.get('__SYNC__')
+      puts "#{Time.now.to_s}: update is locked by another cron script"
+      Process.exit!(true)
+    end
+    $redis.set('__SYNC__', 1)
+
     branches = Branch.where(vendor: 'ALT Linux')
     branches.each do |branch|
       srpms = Srpm.where(branch_id: branch).select('filename')
@@ -31,5 +38,6 @@ namespace :redis do
     Acl.create_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
     puts "#{Time.now.to_s}: end"
 
+    $redis.del('__SYNC__')
   end
 end
