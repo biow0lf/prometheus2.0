@@ -7,7 +7,7 @@ every 1.day, :at => '00:00' do
 end
 
 every '5 1-23 * * *' do
-  rake 'sisyphus:update platform6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update ts:in:delta'
+  rake 'sisyphus:update p6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update ts:in:delta'
 end
 
 every 1.day, :at => '05:30' do

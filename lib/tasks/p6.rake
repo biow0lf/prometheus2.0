@@ -1,16 +1,16 @@
 # encoding: utf-8
 
-namespace :platform6 do
-  desc 'Update Platform6 stuff'
+namespace :p6 do
+  desc 'Update p6 stuff'
   task :update => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: Update Platform6 stuff"
+    puts "#{Time.now.to_s}: Update p6 stuff"
     if $redis.get('__SYNC__')
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
     $redis.set('__SYNC__', 1)
-    puts "#{Time.now.to_s}: update *.src.rpm from Platform6 to database"
+    puts "#{Time.now.to_s}: update *.src.rpm from p6 to database"
     branch = Branch.where(name: 'Platform6', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/p6/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/p6/files/SRPMS/')
@@ -40,27 +40,27 @@ namespace :platform6 do
     $redis.del('__SYNC__')
   end
 
-  desc 'Import all ACL for packages from Platform6 to database'
+  desc 'Import all ACL for packages from p6 to database'
   task :acls => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: import all acls for packages from Platform6 to database"
+    puts "#{Time.now.to_s}: import all acls for packages from p6 to database"
     Acl.create_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
     puts "#{Time.now.to_s}: end"
   end
 
-  desc 'Import *.src.rpm from Platform6 to database'
+  desc 'Import *.src.rpm from p6 to database'
   task :srpms => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: import *.src.rpm from Platform6 to database"
+    puts "#{Time.now.to_s}: import *.src.rpm from p6 to database"
     branch = Branch.where(name: 'Platform6', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/p6/files/SRPMS/*.src.rpm')
     puts "#{Time.now.to_s}: end"
   end
 
-  desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Platform6 to database'
+  desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p6 to database'
   task :binary => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
+    puts "#{Time.now.to_s}: import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p6 to database"
     branch = Branch.where(name: 'Platform6', vendor: 'ALT Linux').first
     pathes = ['/ALT/p6/files/i586/RPMS/*.i586.rpm',
               '/ALT/p6/files/noarch/RPMS/*.noarch.rpm',
