@@ -102,7 +102,7 @@ h2. Run
 
 h2. Deploy
 
-* cap deploy
+* bundle exec cap deploy
 
 h2. License
 
