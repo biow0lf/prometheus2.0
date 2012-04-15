@@ -60,9 +60,9 @@ h3. Init database:
 * bundle exec rake t6:binary
 * bundle exec rake t6:acls
 
-* bundle exec rake platform5:srpms
-* bundle exec rake platform5:binary
-* bundle exec rake platform5:acls
+* bundle exec rake p5:srpms
+* bundle exec rake p5:binary
+* bundle exec rake p5:acls
 
 * bundle exec rake 51:srpms
 * bundle exec rake 51:binary

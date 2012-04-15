@@ -1,16 +1,16 @@
 # encoding: utf-8
 
-namespace :platform5 do
-  desc 'Update Platform5 stuff'
+namespace :p5 do
+  desc 'Update p5 stuff'
   task :update => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: Update Platform5 stuff"
+    puts "#{Time.now.to_s}: Update p5 stuff"
     if $redis.get('__SYNC__')
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
     $redis.set('__SYNC__', 1)
-    puts "#{Time.now.to_s}: update *.src.rpm from Platform5 to database"
+    puts "#{Time.now.to_s}: update *.src.rpm from p5 to database"
     branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/p5/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/p5/files/SRPMS/')
@@ -40,24 +40,24 @@ namespace :platform5 do
     $redis.del('__SYNC__')
   end
 
-  desc 'Import all ACL for packages from Platform5 to database'
+  desc 'Import all ACL for packages from p5 to database'
   task :acls => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: import all acls for packages from Platform5 to database"
+    puts "#{Time.now.to_s}: import all acls for packages from p5 to database"
     Acl.create_redis_cache('ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5')
     puts "#{Time.now.to_s}: end"
   end
 
-  desc 'Import *.src.rpm from Platform5 to database'
+  desc 'Import *.src.rpm from p5 to database'
   task :srpms => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: import *.src.rpm from Platform5 to database"
+    puts "#{Time.now.to_s}: import *.src.rpm from p5 to database"
     branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/p5/files/SRPMS/*.src.rpm')
     puts "#{Time.now.to_s}: end"
   end
 
-  desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Platform5 to database'
+  desc 'Import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p5 to database'
   task :binary => :environment do
     require 'open-uri'
     puts "#{Time.now.to_s}: import *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Platform5 to database"
