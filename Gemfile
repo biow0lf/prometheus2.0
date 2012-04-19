@@ -7,6 +7,7 @@ gem 'rake', :require => false
 
 gem 'pg'
 gem 'devise'
+gem 'pry', :group => :development
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'squeel'
 gem 'kaminari'
