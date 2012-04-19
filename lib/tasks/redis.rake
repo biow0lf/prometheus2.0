@@ -28,14 +28,14 @@ namespace :redis do
     puts "#{Time.now.to_s}: end"
 
     puts "#{Time.now.to_s}: cache all acls in redis"
-    Acl.create_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
-    Acl.create_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
-    Acl.create_redis_cache('ALT Linux', 't6', 'http://git.altlinux.org/acl/list.packages.t6')
-    Acl.create_redis_cache('ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5')
-    Acl.create_redis_cache('ALT Linux', '5.1', 'http://git.altlinux.org/acl/list.packages.5.1')
-    Acl.create_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
-    Acl.create_redis_cache('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
-    Acl.create_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
+    Acl.update_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
+    Acl.update_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
+    Acl.update_redis_cache('ALT Linux', 't6', 'http://git.altlinux.org/acl/list.packages.t6')
+    Acl.update_redis_cache('ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5')
+    Acl.update_redis_cache('ALT Linux', '5.1', 'http://git.altlinux.org/acl/list.packages.5.1')
+    Acl.update_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
+    Acl.update_redis_cache('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
+    Acl.update_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
     puts "#{Time.now.to_s}: end"
 
     $redis.del('__SYNC__')

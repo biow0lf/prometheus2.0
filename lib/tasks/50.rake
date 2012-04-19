@@ -44,7 +44,7 @@ namespace :"50" do
   task :acls => :environment do
     require 'open-uri'
     puts "#{Time.now.to_s}: import all acls for packages from 5.0 to database"
-    Acl.create_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
+    Acl.update_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
     puts "#{Time.now.to_s}: end"
   end
 
