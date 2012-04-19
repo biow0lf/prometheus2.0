@@ -1,10 +1,12 @@
 # encoding: utf-8
 
+#require 'open-uri'
+
 class Acl
   def self.create_redis_cache(vendor_name, branch_name, url)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read
-    Maintainer.all.each do |maintainer|
+    Maintainer.select('login').all.each do |maintainer|
       $redis.del("#{branch.name}:maintainers:#{maintainer.login}")
     end
     file.each_line do |line|
@@ -24,7 +26,7 @@ class Acl
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read
     $redis.multi
-    Maintainer.all.each do |maintainer|
+    Maintainer.select('login').all.each do |maintainer|
       $redis.del("#{branch.name}:maintainers:#{maintainer.login}")
     end
     file.each_line do |line|
