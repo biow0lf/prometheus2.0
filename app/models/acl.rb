@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-#require 'open-uri'
+require 'open-uri'
 
 class Acl
   def self.update_redis_cache(vendor_name, branch_name, url)

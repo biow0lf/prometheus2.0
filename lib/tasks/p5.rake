@@ -42,7 +42,6 @@ namespace :p5 do
 
   desc 'Import all ACL for packages from p5 to database'
   task :acls => :environment do
-    require 'open-uri'
     puts "#{Time.now.to_s}: import all acls for packages from p5 to database"
     Acl.update_redis_cache('ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.packages.p5')
     puts "#{Time.now.to_s}: end"
