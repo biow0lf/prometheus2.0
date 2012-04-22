@@ -2,12 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.2'
 gem 'strong_parameters'
+gem 'jbuilder'
 
 gem 'rake', :require => false
 
 gem 'pg'
 gem 'devise'
-gem 'pry', :group => :development
+gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'squeel'
 gem 'kaminari'
@@ -22,7 +23,6 @@ gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'globalize3'
-gem 'jsonify-rails'
 gem 'backup', :require => false
 gem 'backup-task'
 gem 'net-ssh', '~> 2.1.4' # for backup gem

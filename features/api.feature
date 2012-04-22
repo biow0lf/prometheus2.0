@@ -11,8 +11,11 @@ Feature: User API
     Given the following srpm exists:
       | branch_id | name    | version  | release  | summary           | description      | group_id | license | url                 | size   | filename                          | md5                              | buildtime               | vendor         | distribution |
       | 0         | openbox | 3.4.11.1 | alt1.1.1 | short description | long description | 1        | GPLv2+  | http://openbox.org/ | 831617 | openbox-3.4.11.1-alt1.1.1.src.rpm | f87ff0eaa4e16b202539738483cd54d1 | 2010-11-24 23:58:02 UTC | ALT Linux Team | ALT Linux    |
+    Given the following acls exists:
+      | branch   | package | login  |
+      | Sisyphus | openbox | icesik |
 
-  Scenario: Source rpm info
+  Scenario: Source RPM info
     When I visit "/en/Sisyphus/srpms/openbox"
     Then the JSON response should be:
       """
@@ -30,10 +33,9 @@ Feature: User API
         "size": "831617",
         "filename": "openbox-3.4.11.1-alt1.1.1.src.rpm",
         "md5": "f87ff0eaa4e16b202539738483cd54d1",
-        "buildtime": "2010-11-24 23:58:02 UTC",
+        "buildtime": "2010-11-24T23:58:02Z",
         "vendor": "ALT Linux Team",
         "distribution": "ALT Linux",
         "repocop": "skip"
       }
       """
-

@@ -59,8 +59,5 @@ module Prometheus20
         :exception_recipients => %w{igor.zubkov@gmail.com}
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
     end
-
-    # jsonify-rails
-    config.jsonify_format = :pretty
   end
 end
