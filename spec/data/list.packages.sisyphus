@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Sat, 27 Aug 2011 16:29:00 GMT
+Server: Apache/2.2.19 (Unix)
+Last-Modified: Sat, 27 Aug 2011 01:16:45 GMT
+ETag: "2a013b-3b0c-4ab726a4e9940"
+Accept-Ranges: bytes
+Content-Length: 107
+Content-Type: text/plain
+
+rpm	ldv at
+chkrootkit	php_coder @everybody
+docs-cppreference	psolntsev @qa
+vim-plugin-CRefVIM	@vim_plugins
