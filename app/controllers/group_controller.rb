@@ -6,7 +6,7 @@ class GroupController < ApplicationController
     @groups = @branch.groups.where(parent_id: nil).order('LOWER(name)')
   end
 
-  def bygroup
+  def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @group = @branch.groups.where(name: params[:group], parent_id: nil).first
     if !params[:group2].nil?

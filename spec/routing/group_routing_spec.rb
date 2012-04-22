@@ -21,14 +21,14 @@ describe GroupController do
     # TODO?
     # it "should route /Sisyphus/packages/Accessibility to group#bygroup" do
     #   { :get => "/Sisyphus/packages/Accessibility" }.should route_to(:controller => 'group',
-    #                                                                  :action => 'bygroup',
+    #                                                                  :action => 'show',
     #                                                                  :branch => 'Sisyphus',
     #                                                                  :group => 'Accessibility')
     # end
 
     it "should route /en/Sisyphus/packages/Accessibility to group#bygroup" do
       { :get => "/en/Sisyphus/packages/Accessibility" }.should route_to(:controller => 'group',
-                                                                        :action => 'bygroup',
+                                                                        :action => 'show',
                                                                         :locale => 'en',
                                                                         :branch => 'Sisyphus',
                                                                         :group => 'Accessibility')
@@ -37,7 +37,7 @@ describe GroupController do
     # TODO?
     # it "should route /Sisyphus/packages/Archiving/Compression to group#bygroup" do
     #   { :get => "/Sisyphus/packages/Archiving/Compression" }.should route_to(:controller => 'group',
-    #                                                                          :action => 'bygroup',
+    #                                                                          :action => 'show',
     #                                                                          :branch => 'Sisyphus',
     #                                                                          :group => 'Archiving',
     #                                                                          :group2 => 'Compression')
@@ -45,7 +45,7 @@ describe GroupController do
 
     it "should route /en/Sisyphus/packages/Archiving/Compression to group#bygroup" do
       { :get => "/en/Sisyphus/packages/Archiving/Compression" }.should route_to(:controller => 'group',
-                                                                                :action => 'bygroup',
+                                                                                :action => 'show',
                                                                                 :locale => 'en',
                                                                                 :branch => 'Sisyphus',
                                                                                 :group => 'Archiving',
@@ -55,7 +55,7 @@ describe GroupController do
     # TODO?
     # it "should route /Sisyphus/packages/System/Configuration/Hardware to group#bygroup" do
     #   { :get => "/Sisyphus/packages/System/Configuration/Hardware" }.should route_to(:controller => 'group',
-    #                                                                                  :action => 'bygroup',
+    #                                                                                  :action => 'show',
     #                                                                                  :branch => 'Sisyphus',
     #                                                                                  :group => 'System',
     #                                                                                  :group2 => 'Configuration',
@@ -64,7 +64,7 @@ describe GroupController do
 
     it "should route /en/Sisyphus/packages/System/Configuration/Hardware to group#bygroup" do
       { :get => "/en/Sisyphus/packages/System/Configuration/Hardware" }.should route_to(:controller => 'group',
-                                                                                        :action => 'bygroup',
+                                                                                        :action => 'show',
                                                                                         :locale => 'en',
                                                                                         :branch => 'Sisyphus',
                                                                                         :group => 'System',
