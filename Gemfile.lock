@@ -323,7 +323,6 @@ DEPENDENCIES
   libnotify
   memcache-client
   nested_set
-  net-ssh (~> 2.3.0)
   newrelic_rpm
   pg
   pry

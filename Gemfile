@@ -25,7 +25,6 @@ gem 'sitemap_generator'
 gem 'globalize3'
 gem 'backup', :require => false
 gem 'backup-task'
-gem 'net-ssh', '~> 2.3.0' # for backup gem
 
 group :production, :development, :staging do
   gem 'redis'
