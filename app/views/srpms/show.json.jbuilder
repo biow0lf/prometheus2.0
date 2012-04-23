@@ -15,3 +15,4 @@ json.buildtime    @srpm.buildtime
 json.vendor       @srpm.vendor
 json.distribution @srpm.distribution
 json.repocop      @srpm.repocop
+json.acls         @srpm.acls

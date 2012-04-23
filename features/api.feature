@@ -11,6 +11,9 @@ Feature: User API
     Given the following srpm exists:
       | branch_id | name    | version  | release  | summary           | description      | group_id | license | url                 | size   | filename                          | md5                              | buildtime               | vendor         | distribution |
       | 0         | openbox | 3.4.11.1 | alt1.1.1 | short description | long description | 1        | GPLv2+  | http://openbox.org/ | 831617 | openbox-3.4.11.1-alt1.1.1.src.rpm | f87ff0eaa4e16b202539738483cd54d1 | 2010-11-24 23:58:02 UTC | ALT Linux Team | ALT Linux    |
+    Given the following maintainer exists:
+      | name        | email               | login  | team  | time_zone | jabber              | info | website              | location         |
+      | Igor Zubkov | icesik@altlinux.org | icesik | false | UTC       | icesik@altlinux.org | Me   | http://biow0lf.pp.ua | Donetsk, Ukraine |
     Given the following acls exists:
       | branch   | package | login  |
       | Sisyphus | openbox | icesik |
@@ -36,6 +39,18 @@ Feature: User API
         "buildtime": "2010-11-24T23:58:02Z",
         "vendor": "ALT Linux Team",
         "distribution": "ALT Linux",
-        "repocop": "skip"
+        "repocop": "skip",
+        "acls": "icesik"
       }
       """
+
+#  Scenario: Changelog
+#    When I visit "/en/Sisyphus/srpms/openbox/changelog"
+#    Then the JSON response should be:
+#      """
+#        "branch": "Sisyphus",
+#        "name": "openbox",
+#        "version": "3.4.11.1",
+#        "release": "alt1.1.1",
+#        "epoch": null
+#      """

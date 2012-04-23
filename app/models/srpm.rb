@@ -39,6 +39,14 @@ class Srpm < ActiveRecord::Base
     name
   end
 
+  def acls
+    if $redis.exists("#{self.branch.name}:#{self.name}:acls")
+      Maintainer.where(login: $redis.smembers("#{self.branch.name}:#{self.name}:acls")).order(:name).select('login').map(&:login).join(',')
+    else
+      nil
+    end
+  end
+
   def self.count_srpms(branch)
     counter = $redis.get("#{branch.name}:srpms:counter")
     unless counter
