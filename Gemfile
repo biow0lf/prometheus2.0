@@ -57,6 +57,7 @@ end
 
 group :development do
   gem 'silent-postgres'
+  gem 'quiet_assets'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
