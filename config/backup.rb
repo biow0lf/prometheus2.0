@@ -44,15 +44,6 @@ Backup::Model.new(:db_backup, 'Database Backup') do
 #    # db.redis_cli_utility = '/opt/local/bin/redis-cli'
 #  end
 
-#  store_with RSync do |server|
-#    server.username = nil
-#    server.password = nil
-#    server.ip       = nil
-#    server.port     = nil
-#    server.path     = '~/backups/'
-#    server.local    = true # true if you want to store locally
-#  end
-
   store_with Local do |local|
     local.path = '~/backups/'
     local.keep = 100
