@@ -50,8 +50,7 @@ Backup::Model.new(:db_backup, 'Database Backup') do
   end
 
   compress_with Bzip2 do |compression|
-    compression.best = true
-    compression.fast = false
+    compression.level = 9
   end
 end
 
