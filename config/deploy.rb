@@ -146,6 +146,9 @@ def run_rake(cmd)
   run "cd #{current_path}; #{rake} #{cmd}"
 end
 
+before "deploy:finalize_update", "bundle:install"
+
+
 # after 'deploy:update_code', 'deploy:symlink_all'
 #
 # namespace :deploy do
