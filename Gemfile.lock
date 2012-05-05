@@ -42,7 +42,7 @@ GEM
     brewdler (0.1.0)
       commander
     builder (3.0.0)
-    capistrano (2.11.2)
+    capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
