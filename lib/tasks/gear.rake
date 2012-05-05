@@ -10,7 +10,7 @@ namespace :gear do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     Gear.import_gitrepos('http://git.altlinux.org/people-packages-list')
     puts "#{Time.now.to_s}: end"
     $redis.del('__SYNC__')
@@ -25,7 +25,7 @@ namespace :gear do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
     puts "#{Time.now.to_s}: end"
     $redis.del('__SYNC__')

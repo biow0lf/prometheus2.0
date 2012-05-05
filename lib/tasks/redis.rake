@@ -11,7 +11,7 @@ namespace :redis do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
 
     branches = Branch.where(vendor: 'ALT Linux')
     branches.each do |branch|

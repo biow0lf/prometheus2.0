@@ -9,7 +9,7 @@ namespace :sisyphusarm do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     puts "#{Time.now.to_s}: update *.src.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')

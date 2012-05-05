@@ -12,5 +12,5 @@ e.g. "Sisyphus:openbox-3.5.0-alt1.1.src.rpm" => 1
 
 e.g. "Sisyphus:openbox-3.5.0-alt1.1.i586.rpm" => 1
 
-"__SYNC__" update cron script (any) is already running.
+"__SYNC__" => Process.pid -- update cron script (any) is already running.
 

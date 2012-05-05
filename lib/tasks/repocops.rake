@@ -8,7 +8,7 @@ namespace :sisyphus do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     Repocop.update_repocop
     Repocop.update_repocop_cache
     puts "#{Time.now.to_s}: end"
@@ -22,7 +22,7 @@ namespace :sisyphus do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     Repocop.update_repocop_cache
     puts "#{Time.now.to_s}: end"
     $redis.del('__SYNC__')
@@ -35,7 +35,7 @@ namespace :sisyphus do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     RepocopPatch.update_repocop_patches
     puts "#{Time.now.to_s}: end"
     $redis.del('__SYNC__')

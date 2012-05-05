@@ -9,7 +9,7 @@ namespace :"41" do
       puts "#{Time.now.to_s}: update is locked by another cron script"
       Process.exit!(true)
     end
-    $redis.set('__SYNC__', 1)
+    $redis.set('__SYNC__', Process.pid)
     puts "#{Time.now.to_s}: update *.src.rpm from 4.1 to database"
     branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/4.1/files/SRPMS/*.src.rpm')
