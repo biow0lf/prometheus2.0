@@ -55,6 +55,7 @@ group :staging do
 end
 
 group :development do
+  gem 'sextant'
   gem 'silent-postgres'
   gem 'quiet_assets'
   gem 'capistrano', :require => false
