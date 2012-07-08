@@ -89,7 +89,7 @@ GEM
       mail (~> 2.2)
       rspec (~> 2.0)
     erubis (2.7.0)
-    everywhere (1.0.0)
+    everywhere (2.0.0)
       activerecord
     exception_notification (2.6.1)
       actionmailer (>= 3.0.4)
