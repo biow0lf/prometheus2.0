@@ -39,7 +39,7 @@ GEM
       backup (~> 3.0.9)
     bcrypt-ruby (3.0.1)
     blankslate (2.1.2.4)
-    brewdler (0.1.0)
+    brewdler (0.2.0)
       commander
     builder (3.0.0)
     capistrano (2.12.0)
