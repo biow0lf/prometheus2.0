@@ -6,7 +6,18 @@ gem 'jbuilder'
 
 gem 'rake', :require => false
 
-gem 'pg'
+group :postgresql do
+  gem 'pg'
+end
+
+group :mysql do
+  gem 'mysql2'
+end
+
+group :sqlite do
+  gem 'sqlite3'
+end
+
 gem 'devise'
 gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'

@@ -159,6 +159,7 @@ GEM
     method_source (0.8)
     mime-types (1.19)
     multi_json (1.3.6)
+    mysql2 (0.3.11)
     nested_set (1.7.0)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
@@ -258,6 +259,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.6)
     squeel (1.0.7)
       activerecord (~> 3.0)
       activesupport (~> 3.0)
@@ -328,6 +330,7 @@ DEPENDENCIES
   launchy
   libnotify
   memcache-client
+  mysql2
   nested_set
   newrelic_rpm
   pg
@@ -347,6 +350,7 @@ DEPENDENCIES
   shoulda-matchers
   silent-postgres
   sitemap_generator
+  sqlite3
   squeel
   strong_parameters
   thinking-sphinx
