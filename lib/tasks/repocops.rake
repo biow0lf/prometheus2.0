@@ -6,7 +6,7 @@ namespace :sisyphus do
     puts "#{Time.now.to_s}: import repocop reports"
     if $redis.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__'))
+                Process::kill(0, $redis.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -30,8 +30,19 @@ namespace :sisyphus do
   task :update_repocop_cache => :environment do
     puts "#{Time.now.to_s}: update repocop cache"
     if $redis.get('__SYNC__')
-      puts "#{Time.now.to_s}: update is locked by another cron script"
-      Process.exit!(true)
+      exist = begin
+                Process::kill(0, $redis.get('__SYNC__').to_i)
+                true
+              rescue
+                false
+              end
+      if exist
+        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Process.exit!(true)
+      else
+        puts "#{Time.now.to_s}: dead lock found and deleted"
+        $redis.del('__SYNC__')
+      end
     end
     $redis.set('__SYNC__', Process.pid)
     Repocop.update_repocop_cache
@@ -43,8 +54,19 @@ namespace :sisyphus do
   task :repocop_patches => :environment do
     puts "#{Time.now.to_s}: import repocop patches"
     if $redis.get('__SYNC__')
-      puts "#{Time.now.to_s}: update is locked by another cron script"
-      Process.exit!(true)
+      exist = begin
+                Process::kill(0, $redis.get('__SYNC__').to_i)
+                true
+              rescue
+                false
+              end
+      if exist
+        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Process.exit!(true)
+      else
+        puts "#{Time.now.to_s}: dead lock found and deleted"
+        $redis.del('__SYNC__')
+      end
     end
     $redis.set('__SYNC__', Process.pid)
     RepocopPatch.update_repocop_patches

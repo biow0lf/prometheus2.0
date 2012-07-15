@@ -9,7 +9,7 @@ namespace :redis do
 
     if $redis.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__'))
+                Process::kill(0, $redis.get('__SYNC__').to_i)
                 true
               rescue
                 false

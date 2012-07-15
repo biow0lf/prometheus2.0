@@ -7,7 +7,7 @@ namespace :"51" do
     puts "#{Time.now.to_s}: Update 5.1 stuff"
     if $redis.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__'))
+                Process::kill(0, $redis.get('__SYNC__').to_i)
                 true
               rescue
                 false
