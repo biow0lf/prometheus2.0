@@ -6,8 +6,20 @@ namespace :sisyphus do
     require 'open-uri'
     puts "#{Time.now.to_s}: Update Sisyphus stuff"
     if $redis.get('__SYNC__')
-      puts "#{Time.now.to_s}: update is locked by another cron script"
-      Process.exit!(true)
+      pid = $redis.get('__SYNC__')
+      exist = begin
+                Process::kill(0, pid)
+                true
+              rescue
+                false
+              end
+      if exist
+        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Process.exit!(true)
+      else
+        puts "#{Time.now.to_s}: dead lock found and deleted"
+        $redis.del('__SYNC__')
+      end
     end
     $redis.set('__SYNC__', Process.pid)
     puts "#{Time.now.to_s}: update *.src.rpm from Sisyphus to database"
