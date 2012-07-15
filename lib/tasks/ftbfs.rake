@@ -7,8 +7,19 @@ namespace :ftbfs do
 
     puts "#{Time.now.to_s}: import ftbfs list for i586 and x86_64"
     if $redis.get('__SYNC__')
-      puts "#{Time.now.to_s}: update is locked by another cron script"
-      Process.exit!(true)
+      exist = begin
+                Process::kill(0, $redis.get('__SYNC__'))
+                true
+              rescue
+                false
+              end
+      if exist
+        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Process.exit!(true)
+      else
+        puts "#{Time.now.to_s}: dead lock found and deleted"
+        $redis.del('__SYNC__')
+      end
     end
     $redis.set('__SYNC__', Process.pid)
     Ftbfs.transaction do
