@@ -54,6 +54,7 @@ gem 'jquery-rails'
 group :production do
   gem 'memcache-client'
   gem 'newrelic_rpm'
+  gem 'newrelic-redis'
   gem 'rack-force_domain'
   gem 'exception_notification'
   gem 'unicorn'
