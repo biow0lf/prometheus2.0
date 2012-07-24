@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class RepocopController < ApplicationController
-  layout nil
+  layout false
 
   def no_url_tag
     @branch = Branch.where(:name => 'Sisyphus', :vendor => 'ALT Linux').first
