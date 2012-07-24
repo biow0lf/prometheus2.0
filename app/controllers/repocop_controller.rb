@@ -74,6 +74,6 @@ class RepocopController < ApplicationController
 
   def srpms_install_s
     @branch = Branch.where(name: 'Sisyphus', :vendor => 'ALT Linux').first
-    @specfiles = Specfile.where(branch_id: @branch.id).where("spec LIKE ?", '%install -s%').include(:srpm)
+    @specfiles = Specfile.where(branch_id: @branch.id).where("spec LIKE ?", '%install -s%').includes(:srpm)
   end
 end
