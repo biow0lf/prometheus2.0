@@ -1,0 +1,3 @@
+<% @specfiles.each do |spec| %>
+<%= spec.srpm.name %>-<%= spec.srpm.version %>-<%= spec.srpm.release %> install_s
+<% end %>

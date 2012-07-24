@@ -65,6 +65,8 @@ Prometheus20::Application.routes.draw do
 #  match '/repocop' => 'repocop#index'
 #  match '/repocop/by-test/:testname' => 'repocop#bytest'
 
+  match '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
+
   match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
   match '/:name' => 'redirector#index', :name => /[^\/]+/
 end
