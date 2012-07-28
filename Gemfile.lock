@@ -58,6 +58,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.4)
       ffi (~> 1.0, >= 1.0.6)
+    choice (0.1.6)
     chronic (0.6.7)
     coderay (1.0.7)
     coffee-rails (3.2.2)
@@ -206,6 +207,11 @@ GEM
       activesupport (= 3.2.7)
       bundler (~> 1.0)
       railties (= 3.2.7)
+    rails-erd (1.0.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     railties (3.2.7)
       actionpack (= 3.2.7)
       activesupport (= 3.2.7)
@@ -238,6 +244,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.11.0)
+    ruby-graphviz (1.0.8)
     rubyzip (0.9.9)
     sass (3.1.20)
     sass-rails (3.2.5)
@@ -342,6 +349,7 @@ DEPENDENCIES
   quiet_assets
   rack-force_domain
   rails (~> 3.2)
+  rails-erd
   rake
   rb-fsevent
   rb-inotify

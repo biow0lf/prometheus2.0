@@ -67,6 +67,7 @@ group :staging do
 end
 
 group :development do
+  gem 'rails-erd'
   gem 'sextant'
   gem 'silent-postgres'
   gem 'quiet_assets'
