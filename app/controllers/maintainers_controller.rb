@@ -33,7 +33,7 @@ class MaintainersController < ApplicationController
   def gear
     @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    @gears = Gear.where(maintainer_id: @maintainer).order('LOWER(repo)')
+    @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
   end
 
   def bugs
