@@ -42,6 +42,8 @@ GEM
     brewdler (0.2.0)
       commander
     builder (3.0.0)
+    bullet (4.1.5)
+      uniform_notifier (~> 1.0.0)
     capistrano (2.12.0)
       highline
       net-scp (>= 1.0.0)
@@ -296,6 +298,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
     whenever (0.7.3)
@@ -312,6 +315,7 @@ DEPENDENCIES
   backup
   backup-task
   brewdler
+  bullet
   capistrano
   capistrano_colors
   capybara

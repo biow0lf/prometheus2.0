@@ -71,6 +71,7 @@ group :development do
   gem 'sextant'
   gem 'silent-postgres'
   gem 'quiet_assets'
+  gem 'bullet'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
