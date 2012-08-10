@@ -36,9 +36,7 @@ h3. Init database:
 
 * bundle exec rake db:seed
 
-* bundle exec rake sisyphus:srpms
-* bundle exec rake sisyphus:binary
-* bundle exec rake sisyphus:acls
+* bundle exec rake sisyphus:update
 * bundle exec rake sisyphus:leaders
 * bundle exec rake sisyphus:teams
 
