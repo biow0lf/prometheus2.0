@@ -11,7 +11,6 @@ class Maintainer < ActiveRecord::Base
   validates :email, immutable: true
   validates :login, immutable: true
 
-  has_one :leader
   has_many :teams
   has_many :gears
   has_many :ftbfs, class_name: 'Ftbfs'

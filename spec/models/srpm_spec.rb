@@ -8,8 +8,6 @@ describe Srpm do
     it { should belong_to :group }
     it { should have_many :packages }
     it { should have_many :changelogs }
-    it { should have_one :leader }
-    it { should have_one(:maintainer).through(:leader) }
     it { should have_many :repocops }
     it { should have_one :specfile }
     it { should have_one :repocop_patch }

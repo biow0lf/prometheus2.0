@@ -10,8 +10,6 @@ class Srpm < ActiveRecord::Base
 
   has_many :packages, dependent: :destroy
   has_many :changelogs, dependent: :destroy
-  has_one :leader, dependent: :destroy
-  has_one :maintainer, through: :leader
   has_one :specfile, dependent: :destroy
   has_many :patches, dependent: :destroy
 

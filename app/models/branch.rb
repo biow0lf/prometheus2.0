@@ -7,7 +7,6 @@ class Branch < ActiveRecord::Base
   has_many :srpms
   has_many :packages
   has_many :groups
-  has_many :leaders
   has_many :teams
   has_many :mirrors
   has_many :patches
