@@ -50,39 +50,25 @@ h3. Init database:
 * bundle exec rake sisyphusarm:srpms
 * bundle exec rake sisyphusarm:binary
 
-* bundle exec rake p6:srpms
-* bundle exec rake p6:binary
-* bundle exec rake p6:acls
+* bundle exec rake p6:update
 
-* bundle exec rake t6:srpms
-* bundle exec rake t6:binary
-* bundle exec rake t6:acls
+* bundle exec rake t6:update
 
-* bundle exec rake p5:srpms
-* bundle exec rake p5:binary
-* bundle exec rake p5:acls
+* bundle exec rake p5:update
 
-* bundle exec rake 51:srpms
-* bundle exec rake 51:binary
-* bundle exec rake 51:acls
+* bundle exec rake 51:update
 * bundle exec rake 51:leaders
 * bundle exec rake 51:teams
 
-* bundle exec rake 50:srpms
-* bundle exec rake 50:binary
-* bundle exec rake 50:acls
+* bundle exec rake 50:update
 * bundle exec rake 50:leaders
 * bundle exec rake 50:teams
 
-* bundle exec rake 41:srpms
-* bundle exec rake 41:binary
-* bundle exec rake 41:acls
+* bundle exec rake 41:update
 * bundle exec rake 41:leaders
 * bundle exec rake 41:teams
 
-* bundle exec rake 40:srpms
-* bundle exec rake 40:binary
-* bundle exec rake 40:acls
+* bundle exec rake 40:update
 * bundle exec rake 40:leaders
 * bundle exec rake 40:teams
 
