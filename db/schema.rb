@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309170422) do
+ActiveRecord::Schema.define(:version => 20120810072827) do
 
   create_table "branches", :force => true do |t|
     t.string   "vendor"
@@ -115,18 +115,6 @@ ActiveRecord::Schema.define(:version => 20120309170422) do
 
   add_index "groups", ["branch_id"], :name => "index_groups_on_branch_id"
   add_index "groups", ["parent_id"], :name => "index_groups_on_parent_id"
-
-  create_table "leaders", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "branch_id"
-    t.integer  "srpm_id"
-    t.integer  "maintainer_id"
-  end
-
-  add_index "leaders", ["branch_id"], :name => "index_leaders_on_branch_id"
-  add_index "leaders", ["maintainer_id"], :name => "index_leaders_on_maintainer_id"
-  add_index "leaders", ["srpm_id"], :name => "index_leaders_on_srpm_id"
 
   create_table "maintainers", :force => true do |t|
     t.string   "name"
