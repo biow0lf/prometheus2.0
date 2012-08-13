@@ -125,9 +125,6 @@ GEM
     guard-cucumber (1.2.0)
       cucumber (>= 1.2.0)
       guard (>= 1.1.0)
-    guard-redis (0.1.0)
-      guard (>= 0.4.0)
-      redis (~> 2.2.2)
     guard-rspec (1.2.1)
       guard (>= 1.1)
     highline (1.6.13)
@@ -340,7 +337,6 @@ DEPENDENCIES
   growl
   guard
   guard-cucumber
-  guard-redis
   guard-rspec
   jbuilder
   jquery-rails
