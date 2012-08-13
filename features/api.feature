@@ -1,22 +1,10 @@
 Feature: User API
 
   Background:
-    Given the following branch exists:
-      | id | name     | vendor    |
-      | 0  | Sisyphus | ALT Linux |
-    Given the following groups exists:
-      | id | name              | parent_id | branch_id |
-      | 0  | Graphical desktop |           | 0         |
-      | 1  | Other             | 0         | 0         |
-    Given the following srpm exists:
-      | branch_id | name    | version  | release  | summary           | description      | group_id | license | url                 | size   | filename                          | md5                              | buildtime               | vendor         | distribution |
-      | 0         | openbox | 3.4.11.1 | alt1.1.1 | short description | long description | 1        | GPLv2+  | http://openbox.org/ | 831617 | openbox-3.4.11.1-alt1.1.1.src.rpm | f87ff0eaa4e16b202539738483cd54d1 | 2010-11-24 23:58:02 UTC | ALT Linux Team | ALT Linux    |
-    Given the following maintainer exists:
-      | name        | email               | login  | team  | time_zone | jabber              | info | website              | location         |
-      | Igor Zubkov | icesik@altlinux.org | icesik | false | UTC       | icesik@altlinux.org | Me   | http://biow0lf.pp.ua | Donetsk, Ukraine |
-    Given the following acls exists:
-      | branch   | package | login  |
-      | Sisyphus | openbox | icesik |
+    Given we have branch "Sisyphus"
+    Given we have group "Graphical desktop/Other" in branch "Sisyphus"
+    Given we have srpm "openbox" in branch "Sisyphus"
+    Given we have maintainer "Igor Zubkov"
 
   Scenario: Source RPM info
     When I visit "/en/Sisyphus/srpms/openbox"
