@@ -4,9 +4,7 @@ Feature: User sign in
   Should be able to sign in
 
   Background:
-    Given the following branch exists:
-      | name     | vendor    |
-      | Sisyphus | ALT Linux |
+    Given we have branch "Sisyphus"
 
   Scenario: User sign in
     Given I am signed up and confirmed as "email@example.com"

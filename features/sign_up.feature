@@ -4,9 +4,7 @@ Feature: Sign up
   Should be able to sign up
 
   Background:
-    Given the following branch exists:
-      | name     | vendor    |
-      | Sisyphus | ALT Linux |
+    Given we have branch "Sisyphus"
 
   Scenario: User sign up
     When I go to the sign up page
