@@ -83,15 +83,16 @@
 <b><%= _('Summary:') %></b> <span class="news-text"><%= @srpm.summary %></span><br />
 <b><%= _('Description:') %></b> <div class="para"><%= simple_format h(@srpm.description) %></div>
 <p class="news" />
-<% if @srpm.maintainer %>
-<div class="maintainer"><b><%= _('Current maintainer:') %></b>
-<% if @srpm.maintainer.team %>
-  <%= link_to @srpm.maintainer.name, team_path(:id => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
-<% else %>
-  <%= link_to @srpm.maintainer.name, maintainer_path(@branch, @srpm.maintainer), :class => 'news', :title => _('information about maintainer') %>
-<% end %>
+<!--
+<%# if @srpm.maintainer %>
+<div class="maintainer"><b><%#= _('Current maintainer:') %></b>
+<%# if @srpm.maintainer.team %>
+  <%#= link_to @srpm.maintainer.name, team_path(:id => @srpm.maintainer.login[1..-1], :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
+<%# else %>
+  <%#= link_to @srpm.maintainer.name, maintainer_path(@branch, @srpm.maintainer), :class => 'news', :title => _('information about maintainer') %>
+<%# end %>
 </div><br/>
-<% end %>
+<%# end %>-->
 
 <% if @acls %>
 <b><%= _('ACL:') %></b>
