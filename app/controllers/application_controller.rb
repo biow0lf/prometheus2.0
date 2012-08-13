@@ -27,10 +27,10 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-#  def load_branch
-#    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+  def load_branch
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
 #    if @branch == nil
 #      render status: 404 and return
 #    end
-#  end
+  end
 end
