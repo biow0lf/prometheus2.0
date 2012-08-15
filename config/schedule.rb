@@ -3,7 +3,7 @@
 job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle exec rake :task :output"
 
 every 1.day, :at => '00:00' do
-  rake 'db:backup'
+  rake 'db:backup ts:index'
 end
 
 every '5 1-23 * * *' do
@@ -32,10 +32,6 @@ end
 
 every :sunday, :at => '06:30' do
   rake 'perlwatch:update'
-end
-
-every :sunday, :at => '07:30' do
-  rake 'ts:index'
 end
 
 # Learn more: http://github.com/javan/whenever
