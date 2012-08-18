@@ -3,6 +3,7 @@
 job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle exec rake :task :output"
 
 every 1.day, :at => '00:00' do
+  command 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
   rake 'db:backup ts:index'
 end
 
