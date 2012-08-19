@@ -3,7 +3,7 @@
 class TeamsController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @team = Maintainer.where(login: "@#{params[:id]}", team: true).first
+    @team = MaintainerTeam.where(login: "@#{params[:id]}").first
 
     render(status: 404, action: 'nosuchteam') and return if @team == nil
 
