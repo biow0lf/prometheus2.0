@@ -94,6 +94,19 @@
 </div><br/>
 <%# end %>-->
 
+<% if @leader %>
+<b><%= _('Leader:') %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% if @leader.team? %>
+      <li><%= link_to @leader.name, team_path(:id => @leader.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
+    <% else %>
+      <li><%= link_to @leader.name, maintainer_path(@branch, @leader), :class => 'news' %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <% if @acls %>
 <b><%= _('ACL:') %></b>
 <div class="para" style="margin-left: 0em;">
