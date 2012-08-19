@@ -16,7 +16,7 @@ class MaintainerProfilesController < ApplicationController
     end
   end
 
-private
+  private
 
   def maintainer_params
     params.permit(:info, :jabber, :time_zone, :location, :website)
