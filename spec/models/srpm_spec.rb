@@ -14,7 +14,7 @@ describe Srpm do
     it { should have_many :patches }
   end
 
-  # pending "test :dependent => :destroy for :packages, :changelogs, :leaders, :acls"
+  # pending "test :dependent => :destroy for :packages, :changelogs, :acls"
   # pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
 
   describe 'Validation' do
@@ -130,6 +130,7 @@ describe Srpm do
     $redis.set("#{branch.name}:#{srpm2.filename}", 1)
     $redis.incr("#{branch.name}:srpms:counter")
     $redis.sadd("#{branch.name}:#{srpm2.name}:acls", "icesik")
+    $redis.set("#{branch.name}:#{srpm2.name}:leader", "icesik")
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 
@@ -144,6 +145,7 @@ describe Srpm do
     $redis.get("#{branch.name}:blackbox-1.0-alt1.src.rpm").should be_nil
     $redis.get("#{branch.name}:srpms:counter").should == '1'
     $redis.get("#{branch.name}:#{srpm2.name}:acls").should be_nil
+    $redis.get("#{branch.name}:#{srpm2.name}:leader").should be_nil
 
     # TODO: add checks for sub packages, set-get-delete
   end
