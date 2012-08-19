@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AddDeltaToSrpms < ActiveRecord::Migration
   def change
     add_column :srpms, :delta, :boolean, :default => true, :null => false
