@@ -69,17 +69,4 @@ describe MaintainerTeam do
                            login: 'ruby')
     MaintainerTeam.team_exists?('RUBY').should be_true
   end
-
-  it "should create new MaintainerTeam" do
-    expect{
-      MaintainerTeam.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-      }.to change{ MaintainerTeam.count }.from(0).to(1)
-  end
-
-  it "should not create new MaintainerTeam" do
-    MaintainerTeam.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    expect{
-      MaintainerTeam.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-      }.to_not change{ MaintainerTeam.count }.from(1).to(2)
-  end
 end

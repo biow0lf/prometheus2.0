@@ -25,11 +25,6 @@ class Maintainer < ActiveRecord::Base
     Maintainer.where(login: login.downcase, team: false).count > 0
   end
 
-  # TODO: move Maintainer team info in MaintainerTeam model with all stuff
-  def self.team_exists?(team_login)
-    Maintainer.where(login: team_login.downcase, team: true).count > 0
-  end
-
   def self.import(maintainer)
     name = maintainer.split('<')[0].chomp
     name.strip!
@@ -42,10 +37,12 @@ class Maintainer < ActiveRecord::Base
       unless login_exists?(login)
         Maintainer.create(team: false, login: login, name: name, email: email)
       end
-    else
-      unless team_exists?(login)
-        Maintainer.create(team: true, login: login, name: name, email: email)
+    elsif domain == 'packages.altlinux.org'
+      unless MaintainerTeam.team_exists?(login)
+        MaintainerTeam.create(login: login, name: name, email: email)
       end
+    else
+      raise 'Broken domain in Packager: tag'
     end
   end
 

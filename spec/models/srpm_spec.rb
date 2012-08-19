@@ -64,6 +64,8 @@ describe Srpm do
 
     Maintainer.should_receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
 
+    MaintainerTeam.should_not_receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
+
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}").and_return('GPLv2+')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{file}").and_return('http://openbox.org/')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}").and_return('long description')
