@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810072827) do
+ActiveRecord::Schema.define(:version => 20120819193336) do
 
   create_table "branches", :force => true do |t|
     t.string    "vendor"
@@ -115,6 +115,14 @@ ActiveRecord::Schema.define(:version => 20120810072827) do
 
   add_index "groups", ["branch_id"], :name => "index_groups_on_branch_id"
   add_index "groups", ["parent_id"], :name => "index_groups_on_parent_id"
+
+  create_table "maintainer_teams", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
+    t.string   "login",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "maintainers", :force => true do |t|
     t.string    "name"
