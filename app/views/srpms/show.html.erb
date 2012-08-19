@@ -112,7 +112,7 @@
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @acls.each do |maintainer| %>
-    <% if maintainer[0] == '@' %>
+    <% if maintainer.team? %>
       <li><%= link_to maintainer.name, team_path(:id => maintainer.login[1..-1], :branch => @branch.name), :class => 'news' %></li>
     <% else %>
       <li><%= link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news' %></li>
