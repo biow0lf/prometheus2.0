@@ -91,6 +91,14 @@ class Srpm < ActiveRecord::Base
     srpm.changelogtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}`.to_i)
     srpm.changelogname = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}`
     srpm.changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
+
+    email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
+    if email
+      email = Maintainer.new.fix_maintainer_email(email)
+      maintainer = Maintainer.where(email: email).first
+      srpm.builder_id = maintainer.id
+    end
+
     if srpm.save
       $redis.set("#{branch.name}:#{srpm.filename}", 1)
       Changelog.import(branch, file, srpm)
