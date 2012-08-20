@@ -20,8 +20,7 @@ class MaintainersController < ApplicationController
 #  def acls
 #    @branch = Branch.where(:name => params[:branch], :vendor => "ALT Linux").first
 #    @maintainer = Maintainer.first :conditions => {
-#                                     :login => params[:id].downcase,
-#                                     :team => false }
+#                                     :login => params[:id].downcase }
 #    @acls = Acl.all :conditions => {
 #                      :login => params[:login],
 #                      :branch_id => @branch.id }
