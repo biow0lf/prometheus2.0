@@ -60,7 +60,7 @@
 <b><%= _('Current version:') %></b> <%= "#{@srpm.version}-#{@srpm.release}" %><br />
 <b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;
 "><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br />
-<% unless @ftbfs.empty? %>
+<% if @ftbfs %>
   <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
   <% if @ftbfs.count == 2 %>
     <% if @ftbfs.first.weeks == @ftbfs.last.weeks %>
