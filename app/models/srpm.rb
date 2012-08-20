@@ -94,6 +94,7 @@ class Srpm < ActiveRecord::Base
 
     email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
     if email
+      email.downcase!
       email = Maintainer.new.fix_maintainer_email(email)
       maintainer = Maintainer.where(email: email).first
       srpm.builder_id = maintainer.id
