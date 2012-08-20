@@ -3,7 +3,7 @@ Given /^we have branch "(.*?)"$/ do |name|
 end
 
 Given /^we have maintainer "(.*?)"$/ do |name|
-  Maintainer.create!(name: name, email: 'icesik@altlinux.org', login: 'icesik', team: false)
+  Maintainer.create!(name: name, email: 'icesik@altlinux.org', login: 'icesik')
 end
 
 Given /^we have group "(.*?)" in branch "(.*?)"$/ do |full_group_name, branch_name|

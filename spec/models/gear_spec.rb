@@ -23,10 +23,9 @@ describe Gear do
     group = Group.create!(name: 'Servers', branch_id: branch.id)
     group.move_to_child_of(group0)
 
-    Maintainer.create(name: 'Igor Zubkov',
-                      email: 'icesik@altlinux.org',
-                      login: 'icesik',
-                      team: false)
+    Maintainer.create!(name: 'Igor Zubkov',
+                       email: 'icesik@altlinux.org',
+                       login: 'icesik')
 
     Srpm.create(branch_id: branch.id,
                 name: 'pulseaudio',

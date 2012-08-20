@@ -11,8 +11,7 @@ class IphoneController < ApplicationController
 
   def maintainer_info
     @branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
-    @maintainer = Maintainer.where(login: params[:login].downcase,
-                                   team: false).first
+    @maintainer = Maintainer.where(login: params[:login].downcase).first
 #    @acls = Acl.all :select => 'package',
 #                    :conditions => {
 #                      :login => params[:login],

@@ -18,23 +18,20 @@ describe Maintainer do
   it "should validate_uniqueness_of :login" do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
-                       login: 'icesik',
-                       team: false)
+                       login: 'icesik')
     should validate_uniqueness_of :login
   end
 
   it "should return Maintainer.login on .to_param" do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
-                       login: 'icesik',
-                       team: false).to_param.should == 'icesik'
+                       login: 'icesik').to_param.should == 'icesik'
   end
 
   it "should deny change email" do
     maintainer = Maintainer.create!(name: 'Igor Zubkov',
                                     email: 'icesik@altlinux.org',
-                                    login: 'icesik',
-                                    team: false)
+                                    login: 'icesik')
     maintainer.email = 'ldv@altlinux.org'
     maintainer.save.should be_false
   end
@@ -42,8 +39,7 @@ describe Maintainer do
   it "should deny change login" do
     maintainer = Maintainer.create!(name: 'Igor Zubkov',
                                     email: 'icesik@altlinux.org',
-                                    login: 'icesik',
-                                    team: false)
+                                    login: 'icesik')
     maintainer.login = 'ldv'
     maintainer.save.should be_false
   end
@@ -51,8 +47,7 @@ describe Maintainer do
   it "should deny change name" do
     maintainer = Maintainer.create!(name: 'Igor Zubkov',
                                     email: 'icesik@altlinux.org',
-                                    login: 'icesik',
-                                    team: false)
+                                    login: 'icesik')
     maintainer.name = 'Dmitry V. Levin'
     maintainer.save.should be_false
   end
@@ -60,8 +55,7 @@ describe Maintainer do
   it "should return true if Maintainer exists" do
     maintainer = Maintainer.create!(name: 'Igor Zubkov',
                                     email: 'icesik@altlinux.org',
-                                    login: 'icesik',
-                                    team: false)
+                                    login: 'icesik')
     Maintainer.login_exists?('icesik').should be_true
   end
 
@@ -72,22 +66,21 @@ describe Maintainer do
   it "should downcase login before checking for exists" do
     maintainer = Maintainer.create!(name: 'Igor Zubkov',
                                     email: 'icesik@altlinux.org',
-                                    login: 'icesik',
-                                    team: false)
+                                    login: 'icesik')
     Maintainer.login_exists?('ICESIK').should be_true
   end
 
   it "should create one Maintainer" do
     expect{
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-      }.to change{ Maintainer.where(team: false).count }.from(0).to(1)
+      }.to change{ Maintainer.count }.from(0).to(1)
   end
 
   it "should not create Maintainer if Maintainer already exists" do
     Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
     expect{
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-      }.to_not change{ Maintainer.where(team: false).count }.from(1).to(2)
+      }.to_not change{ Maintainer.count }.from(1).to(2)
   end
 
   it "should create new Maintainer team" do

@@ -24,7 +24,6 @@ FactoryGirl.define do
     name 'Igor Zubkov'
     email 'icesik@altlinux.org'
     login 'icesik'
-    team false
   end
 
   factory :maintainer_team do

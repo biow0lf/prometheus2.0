@@ -17,7 +17,12 @@ class SrpmsController < ApplicationController
         @acls = Maintainer.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls")).order(:name)
       end
       if $redis.exists("#{@branch.name}:#{@srpm.name}:leader")
-        @leader = Maintainer.where(login: $redis.get("#{@branch.name}:#{@srpm.name}:leader")).first
+        login = $redis.get("#{@branch.name}:#{@srpm.name}:leader")
+        if login[0] == '@'
+          @leader = MaintainerTeam.where(login: login).first
+        else
+          @leader = Maintainer.where(login: login).first
+        end
       end
     else
       render status: 404, action: 'nosuchpackage'

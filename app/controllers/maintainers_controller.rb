@@ -5,14 +5,14 @@ class MaintainersController < ApplicationController
 
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @acls = $redis.smembers("Sisyphus:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
   end
@@ -31,13 +31,13 @@ class MaintainersController < ApplicationController
 #  end
 
   def gear
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
   end
 
   def bugs
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
                       product: 'Sisyphus',
@@ -47,7 +47,7 @@ class MaintainersController < ApplicationController
   end
 
   def allbugs
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
                       product: 'Sisyphus',
@@ -58,15 +58,14 @@ class MaintainersController < ApplicationController
 
   def ftbfs
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    # @ftbfs = Ftbfs.where(branch_id: @branch, maintainer_id: @maintainer)
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
   end
 
   def repocop
     @branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
-    @maintainer = Maintainer.where(login: params[:id].downcase, team: false).first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
