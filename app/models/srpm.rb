@@ -140,9 +140,6 @@ class Srpm < ActiveRecord::Base
       login = email.split('@')[0]
       logins << login
     end
-    # logins.sort!
-    # logins.uniq!
-    # logins
     Maintainer.where(login: logins.sort.uniq).order(:name)
   end
 end
