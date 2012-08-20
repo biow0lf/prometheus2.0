@@ -29,16 +29,24 @@ class Ftbfs < ActiveRecord::Base
       end
       acls = line.split[3]
       acls.split(',').each do |acl|
-        team = if acl[0] == '@'
-          true
-        else
-          false
+        # FIXME: add support for teams
+        if acl[0] != '@'
+          acl = 'php-coder' if acl == 'php_coder'
+          maintainer = Maintainer.where(login: acl).first
+          Ftbfs.create!(name: name, epoch: epoch, version: version,
+                        release: release, weeks: weeks, branch: branch,
+                        arch: arch, maintainer: maintainer) if maintainer
         end
-        acl = 'php-coder' if acl == 'php_coder'
-        maintainer = Maintainer.where(login: acl, team: team).first
-        Ftbfs.create!(name: name, epoch: epoch, version: version,
-                      release: release, weeks: weeks, branch: branch,
-                      arch: arch, maintainer: maintainer) if maintainer
+        # team = if acl[0] == '@'
+        #   true
+        # else
+        #   false
+        # end
+        # acl = 'php-coder' if acl == 'php_coder'
+        # maintainer = Maintainer.where(login: acl, team: team).first
+        # Ftbfs.create!(name: name, epoch: epoch, version: version,
+        #               release: release, weeks: weeks, branch: branch,
+        #               arch: arch, maintainer: maintainer) if maintainer
       end
     end
   end
