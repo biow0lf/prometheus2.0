@@ -94,6 +94,20 @@
 </div><br/>
 <% end %>
 
+<% if @contributors %>
+<b><%= _('List of contributors') %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+    <% @contributors.each do |contributor| %>
+      <li>
+        <%= link_to contributor.name, maintainer_path(@branch, contributor), :class => 'news',
+          :title => _('information about the packager') %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
 <% if @maintainers || @teams %>
 <b><%= _('ACL:') %></b>
 <div class="para" style="margin-left: 0em;">
