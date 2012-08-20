@@ -134,6 +134,7 @@ class Srpm < ActiveRecord::Base
       name = changelog.changelogname.split('<')[0].chomp
       name.strip!
       email = changelog.changelogname.chop.split('<')[1]
+      next if email.nil?
       email.downcase!
       email = Maintainer.new.fix_maintainer_email(email)
       login = email.split('@')[0]
