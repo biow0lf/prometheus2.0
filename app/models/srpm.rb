@@ -127,4 +127,21 @@ class Srpm < ActiveRecord::Base
       end
     end
   end
+
+  def self.contributors(branch, srpm)
+    logins = []
+    branch.srpms.where(name: srpm.name).first.changelogs.each do |changelog|
+      name = changelog.changelogname.split('<')[0].chomp
+      name.strip!
+      email = changelog.changelogname.chop.split('<')[1]
+      email.downcase!
+      email = Maintainer.new.fix_maintainer_email(email)
+      login = email.split('@')[0]
+      logins << login
+    end
+    # logins.sort!
+    # logins.uniq!
+    # logins
+    Maintainer.where(login: logins.sort.uniq).order(:name)
+  end
 end
