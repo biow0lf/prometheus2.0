@@ -1,0 +1,5 @@
+check process postmaster with pidfile /var/lib/pgsql/data/postmaster.pid
+	start program = "/sbin/service postgresql start"
+	stop  program = "/sbin/service postgresql stop"
+	if 5 restarts with 5 cycles then timeout
+
