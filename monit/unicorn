@@ -1,5 +1,6 @@
 check process unicorn with pidfile /tmp/unicorn.my_site.pid
-	start program = "/bin/su -l -c 'cd /home/prometheusapp/www/current && RAILS_ENV=production bundle exec unicorn_rails -c config/unicorn.rb -D'"
-	stop program = "/bin/kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
+	start program = "/bin/su -l -c 'cd /home/prometheusapp/www/current && RAILS_ENV=production bundle exec unicorn_rails -c config/unicorn.rb -D' -s /bin/bash prometheusapp"
+	stop program = "/bin/su -l -c 'kill -s QUIT `cat /tmp/unicorn.my_site.pid` -s /bin/bash prometheusapp"
 	if 5 restarts with 5 cycles then timeout
+	if mem > 1024.0 MB then exec "/bin/su -l -c 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`' -s /bin/bash prometheusapp"
 
