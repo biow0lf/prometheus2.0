@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-02-13 02:00+0200\n"
+"POT-Creation-Date: 2012-08-29 03:01+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -211,6 +211,9 @@ msgstr "Останнє оновлення:"
 msgid "License:"
 msgstr "Ліцензія:"
 
+msgid "List of contributors:"
+msgstr ""
+
 msgid "List of packages needing rebuild without \"%undefine _configure_target\" hack:"
 msgstr ""
 
@@ -243,6 +246,10 @@ msgstr ""
 
 msgid "New password"
 msgstr ""
+
+#, fuzzy
+msgid "No such branch!"
+msgstr "Немає такої команди!"
 
 msgid "No such group!"
 msgstr ""
