@@ -274,9 +274,8 @@ msgstr "Новые пакеты"
 msgid "New password"
 msgstr ""
 
-#, fuzzy
 msgid "No such branch!"
-msgstr "Нет такой команды!"
+msgstr "Нет такого бранча!"
 
 msgid "No such group!"
 msgstr "Нет такой группы!"
