@@ -1,0 +1,5 @@
+check process redis-server with pidfile /home/prometheusapp/www/redis.pid
+	start program = "/bin/su -l -c '/usr/sbin/redis-server /home/prometheusapp/www/shared/config/redis.conf' -s /bin/bash prometheusapp"
+	stop program = "/bin/su -l -c '/bin/echo \"SHUTDOWN\" | /usr/bin/nc localhost 6379'"
+	if 5 restarts with 5 cycles then timeout
+
