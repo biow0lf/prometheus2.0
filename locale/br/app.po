@@ -524,6 +524,9 @@ msgstr ""
 msgid "Physics"
 msgstr ""
 
+msgid "Patches"
+msgstr ""
+
 msgid "Planet"
 msgstr ""
 
@@ -747,6 +750,9 @@ msgid "Sound"
 msgstr ""
 
 msgid "Source RPM:"
+msgstr ""
+
+msgid "Sources"
 msgstr ""
 
 msgid "Spec"
@@ -1007,6 +1013,9 @@ msgstr "informações do pacote"
 msgid "packages which was built by this maintainer"
 msgstr ""
 
+msgid "patches"
+msgstr ""
+
 msgid "repo<br/>cop"
 msgstr ""
 
@@ -1048,6 +1057,9 @@ msgstr "ordenar por valor dos mantenedores de pacotes"
 
 msgid "sort packages by amount of releases in the last half of year"
 msgstr "ordenar por pacotes montante das emissões na última metade do ano"
+
+msgid "sources"
+msgstr ""
 
 msgid "spec"
 msgstr ""

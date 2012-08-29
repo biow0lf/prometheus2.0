@@ -557,6 +557,9 @@ msgstr "Perl"
 msgid "Physics"
 msgstr "Физика"
 
+msgid "Patches"
+msgstr "Патчи"
+
 msgid "Planet"
 msgstr "Планета"
 
@@ -787,6 +790,9 @@ msgstr "Звук"
 
 msgid "Source RPM:"
 msgstr ""
+
+msgid "Sources"
+msgstr "Исходники"
 
 msgid "Spec"
 msgstr "Спек"
@@ -1046,6 +1052,9 @@ msgstr "информация о пакетах"
 msgid "packages which was built by this maintainer"
 msgstr "просмотреть пакеты, собранные майнтейнером"
 
+msgid "patches"
+msgstr "просмотреть патчи пакета"
+
 msgid "repo<br/>cop"
 msgstr "repo<br/>cop"
 
@@ -1087,6 +1096,9 @@ msgstr "выборка лидеров по количеству пакетов"
 
 msgid "sort packages by amount of releases in the last half of year"
 msgstr "выборка пакетов по количеству релизов за последние пол-года"
+
+msgid "sources"
+msgstr "исходники"
 
 msgid "spec"
 msgstr "просмотреть spec пакета"
