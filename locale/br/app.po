@@ -209,7 +209,7 @@ msgid "License:"
 msgstr "Licença:"
 
 msgid "List of contributors:"
-msgstr ""
+msgstr "Lista dos contribuidores:"
 
 msgid "List of packages needing rebuild without \"%undefine _configure_target\" hack:"
 msgstr ""
