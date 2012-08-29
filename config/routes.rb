@@ -45,7 +45,8 @@ Prometheus20::Application.routes.draw do
           get 'rawspec'
           get 'get'
         end
-        resources :patches
+        resources :patches, :only => [:index, :show]
+        resources :sources, :only => [:index, :show]
       end
 
       match 'home' => 'home#index'

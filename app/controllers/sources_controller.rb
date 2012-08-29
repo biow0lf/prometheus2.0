@@ -1,12 +1,11 @@
 # encoding: utf-8
 
-class PatchesController < ApplicationController
+class SourcesController < ApplicationController
   def index
   end
 
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @patch = File.read("pmount-0.9.17-alt-floppy.patch")
   end
 
   def get
