@@ -1,0 +1,5 @@
+check process unicorn with pidfile /tmp/unicorn.my_site.pid
+	start program = "/bin/su -l -c 'cd /home/prometheusapp/www/current && RAILS_ENV=production bundle exec unicorn_rails -c config/unicorn.rb -D'"
+	stop program = "/bin/kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
+	if 5 restarts with 5 cycles then timeout
+
