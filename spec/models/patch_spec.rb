@@ -12,6 +12,8 @@ describe Patch do
     it { should validate_presence_of :branch }
     it { should validate_presence_of :srpm }
     it { should validate_presence_of :patch }
+    it { should validate_presence_of :filename }
+    it { should validate_presence_of :size }
   end
 
   it { should have_db_index :branch_id }

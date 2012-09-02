@@ -94,6 +94,7 @@ class Srpm < ActiveRecord::Base
     srpm.changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
 
     email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
+
     if email
       email.downcase!
       email = Maintainer.new.fix_maintainer_email(email)
@@ -105,6 +106,7 @@ class Srpm < ActiveRecord::Base
       $redis.set("#{branch.name}:#{srpm.filename}", 1)
       Changelog.import(branch, file, srpm)
       Specfile.import(branch, file, srpm)
+      Patch.import(branch, file, srpm)
       $redis.incr("#{branch.name}:srpms:counter")
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"

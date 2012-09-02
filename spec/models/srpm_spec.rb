@@ -53,6 +53,8 @@ describe Srpm do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
+    maintainer = Maintainer.create!(:login => 'icesik', :email => 'icesik@altlinux.org', :name => 'Igor Zubkov')
+
     Srpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}").and_return('openbox')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}").and_return('3.4.11.1')
@@ -83,6 +85,8 @@ describe Srpm do
     Changelog.should_receive(:import).and_return(true)
 #    Patch.should_receive(:import).and_return(true)
 #    Source.should_receive(:import).and_return(true)
+
+    Patch.should_receive(:import).and_return(true)
 
     expect{
       Srpm.import(branch, file)
