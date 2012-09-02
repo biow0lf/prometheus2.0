@@ -13,7 +13,7 @@ class Patch < ActiveRecord::Base
   def import(branch, file, srpm)
     files = `rpmquery --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{file}`
     hsh = {}
-    files.split("\n").each {|line| hsh[line.split("\t")[0]] = line.split("\t")[1]}
+    files.split("\n").each { |line| hsh[line.split("\t")[0]] = line.split("\t")[1] }
     patches = `rpmquery --qf '[%{PATCH}\n]' -p #{file}`
     patches.each do |filename|
       content = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{filename}"`
