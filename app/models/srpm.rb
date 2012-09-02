@@ -107,6 +107,7 @@ class Srpm < ActiveRecord::Base
       Changelog.import(branch, file, srpm)
       Specfile.import(branch, file, srpm)
       Patch.import(branch, file, srpm)
+      Source.import(branch, file, srpm)
       $redis.incr("#{branch.name}:srpms:counter")
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"

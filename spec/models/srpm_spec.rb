@@ -88,6 +88,8 @@ describe Srpm do
 
     Patch.should_receive(:import).and_return(true)
 
+    Source.should_receive(:import).and_return(true)
+
     expect{
       Srpm.import(branch, file)
       }.to change{ Srpm.count }.from(0).to(1)
