@@ -32,8 +32,7 @@ h3. Prepare:
 h3. Init database:
 
 * bundle exec rake db:create
-* bundle exec rake db:schema:load
-
+* bundle exec rake db:migrate
 * bundle exec rake db:seed
 
 * bundle exec rake sisyphus:update
