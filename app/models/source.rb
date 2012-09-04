@@ -15,7 +15,7 @@ class Source < ActiveRecord::Base
     hsh = {}
     files.split("\n").each { |line| hsh[line.split("\t")[0]] = line.split("\t")[1] }
     sources = `rpmquery --qf '[%{SOURCE}\n]' -p #{file}`
-    sourcees.each do |filename|
+    sources.split("\n").each do |filename|
       content = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{filename}"`
       source = Source.new
       source.source = content
