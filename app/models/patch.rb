@@ -10,7 +10,7 @@ class Patch < ActiveRecord::Base
   validates :filename, presence: true
   validates :size, presence: true
 
-  def import(branch, file, srpm)
+  def self.import(branch, file, srpm)
     files = `rpmquery --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{file}`
     hsh = {}
     files.split("\n").each { |line| hsh[line.split("\t")[0]] = line.split("\t")[1] }
