@@ -18,7 +18,7 @@ class Patch < ActiveRecord::Base
     patches.split("\n").each do |filename|
       content = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{filename}"`
       patch = Patch.new
-      patch.patch = content
+      patch.patch = content.force_encoding("BINARY")
       patch.size = hsh[filename].to_i
       patch.filename = filename
       patch.branch_id = branch.id
