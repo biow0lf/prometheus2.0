@@ -79,7 +79,7 @@ h2. Run
 
 * bundle exec rake ts:start
 * bundle exec rake assets:precompile
-* redis-server config/redis.conf
+* redis-server redis.conf
 * service postgresql start
 * memcached -d -m 128 (as a user)
 
