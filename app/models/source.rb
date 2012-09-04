@@ -18,7 +18,7 @@ class Source < ActiveRecord::Base
     sources.split("\n").each do |filename|
       content = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{filename}"`
       source = Source.new
-      source.source = content
+      source.source = content.force_encoding("BINARY")
       source.size = hsh[filename].to_i
       source.filename = filename
       source.branch_id = branch.id
