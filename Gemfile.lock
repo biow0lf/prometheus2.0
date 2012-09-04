@@ -123,7 +123,7 @@ GEM
       guard (>= 1.1.0)
     guard-rspec (1.2.1)
       guard (>= 1.1)
-    highline (1.6.13)
+    highline (1.6.14)
     hike (1.2.1)
     i18n (0.6.0)
     jbuilder (0.5.0)
