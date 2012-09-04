@@ -12,6 +12,7 @@ describe Srpm do
     it { should have_one :specfile }
     it { should have_one :repocop_patch }
     it { should have_many :patches }
+    it { should have_many :sources }
   end
 
   # pending "test :dependent => :destroy for :packages, :changelogs, :acls"
@@ -79,8 +80,9 @@ describe Srpm do
     File.should_receive(:size).with(file).and_return(831617)
 
     Specfile.should_receive(:import).and_return(true)
-
     Changelog.should_receive(:import).and_return(true)
+#    Patch.should_receive(:import).and_return(true)
+#    Source.should_receive(:import).and_return(true)
 
     expect{
       Srpm.import(branch, file)
