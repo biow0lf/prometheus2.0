@@ -36,7 +36,6 @@ h3. Init database:
 * bundle exec rake db:seed
 
 * bundle exec rake sisyphus:update
-* bundle exec rake sisyphus:leaders
 * bundle exec rake sisyphus:teams
 
 * bundle exec rake sisyphus:bugs
@@ -56,19 +55,15 @@ h3. Init database:
 * bundle exec rake p5:update
 
 * bundle exec rake 51:update
-* bundle exec rake 51:leaders
 * bundle exec rake 51:teams
 
 * bundle exec rake 50:update
-* bundle exec rake 50:leaders
 * bundle exec rake 50:teams
 
 * bundle exec rake 41:update
-* bundle exec rake 41:leaders
 * bundle exec rake 41:teams
 
 * bundle exec rake 40:update
-* bundle exec rake 40:leaders
 * bundle exec rake 40:teams
 
 * bundle exec rake redis:cache
