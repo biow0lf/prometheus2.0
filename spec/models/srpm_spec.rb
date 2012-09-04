@@ -83,11 +83,7 @@ describe Srpm do
 
     Specfile.should_receive(:import).and_return(true)
     Changelog.should_receive(:import).and_return(true)
-#    Patch.should_receive(:import).and_return(true)
-#    Source.should_receive(:import).and_return(true)
-
     Patch.should_receive(:import).and_return(true)
-
     Source.should_receive(:import).and_return(true)
 
     expect{
