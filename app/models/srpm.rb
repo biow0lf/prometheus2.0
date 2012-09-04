@@ -91,13 +91,15 @@ class Srpm < ActiveRecord::Base
     srpm.branch_id = branch.id
     srpm.changelogtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}`.to_i)
     srpm.changelogname = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}`
-    srpm.changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
+    changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
+    srpm.changelogtext = changelogtext
 
     email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
 
     if email
       email.downcase!
       email = Maintainer.new.fix_maintainer_email(email)
+      Maintainer.import_from_changelogname(changelogtext)
       maintainer = Maintainer.where(email: email).first
       srpm.builder_id = maintainer.id
     end

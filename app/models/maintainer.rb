@@ -46,6 +46,27 @@ class Maintainer < ActiveRecord::Base
     end
   end
 
+  def self.import_from_changelogname(changelogname)
+    name = changelogname.split('<')[0].chomp
+    name.strip!
+    email = changelogname.chop.split('<')[1].split('>')[0]
+    email.downcase!
+    email = Maintainer.new.fix_maintainer_email(email)
+    login = email.split('@')[0]
+    domain = email.split('@')[1]
+    if domain == 'altlinux.org'
+      unless login_exists?(login)
+        Maintainer.create(login: login, name: name, email: email)
+      end
+    elsif domain == 'packages.altlinux.org'
+      unless MaintainerTeam.team_exists?(login)
+        MaintainerTeam.create(login: login, name: name, email: email)
+      end
+    else
+      raise 'Broken domain in CHANGELOGNAME: tag'
+    end
+  end
+
   def self.top15(branch)
     maintainers = []
 
