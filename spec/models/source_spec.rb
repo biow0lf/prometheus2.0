@@ -9,7 +9,6 @@ describe Source do
   describe 'Validation' do
     it { should validate_presence_of :branch }
     it { should validate_presence_of :srpm }
-    it { should validate_presence_of :source }
     it { should validate_presence_of :filename }
     it { should validate_presence_of :size }
   end
