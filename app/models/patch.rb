@@ -16,7 +16,7 @@ class Patch < ActiveRecord::Base
     files.split("\n").each { |line| hsh[line.split("\t")[0]] = line.split("\t")[1] }
     patches = `rpmquery --qf '[%{PATCH}\n]' -p #{file}`
     patches.split("\n").each do |filename|
-      content = `rpm2cpio "#{file}" | cpio -i --to-stdout "#{filename}"`
+      content = `rpm2cpio "#{file}" | cpio -i --quiet --to-stdout "#{filename}"`
       patch = Patch.new
       patch.patch = content.force_encoding("BINARY")
       patch.size = hsh[filename].to_i
