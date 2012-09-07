@@ -23,7 +23,7 @@ every 1.day, :at => '05:00' do
   rake 'sisyphus:bugs'
 end
 
-every 1.day, :at => '06:15' do
+every 1.day, :at => '06:45' do
   rake 'sisyphus:repocops sisyphus:repocop_patches'
 end
 
