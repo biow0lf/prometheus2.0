@@ -33,7 +33,6 @@ gem 'thinking-sphinx'
 gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 gem 'brewdler', :require => false
 gem 'sitemap_generator'
-gem 'globalize3'
 gem 'backup', :require => false
 gem 'backup-task'
 
