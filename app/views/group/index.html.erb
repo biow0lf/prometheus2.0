@@ -28,31 +28,31 @@
 
     <% @groups.each do |group| %>
       <% if group.leaf? %>
-        <%= link_to group.name, group_path(:group => group.name), :class => 'news', :style => 'margin-left: 14px;' %>
+        <%= link_to _(group.name), group_path(:group => group.name), :class => 'news', :style => 'margin-left: 14px;' %>
           (<%= group.srpms.count %>)
         <br/>
       <% else %>
         <% index += 1 %>
         <div onclick="showGrp('<%= index %>')" class='grplist'>
           <%= image_tag('plus.gif', :name => "img#{index}", :style => 'text-align: left; margin: 4px 4px 4px 0px; float: left;', :size => '10x10', :title => '', :alt => '') %>
-          <%= group.name %>
+          <%= _(group.name) %>
         </div>
         <div id="dir<%= index %>" class='grphid' style='display: none'>
           <% group.children.each do |child| %>
             <% if child.leaf? %>
-              <%= link_to child.name, group_path(:group => group.name, :group2 => child.name), :class => 'news', :style => 'margin-left: 14px;' %>
+              <%= link_to _(child.name), group_path(:group => group.name, :group2 => child.name), :class => 'news', :style => 'margin-left: 14px;' %>
               (<%= child.srpms.count %>)
               <br/>
             <% else %>
               <% index += 1 %>
               <div onclick="showGrp('<%= index %>')" class='grplist'>
                 <%= image_tag('plus.gif', :name => "img#{index}", :style => 'text-align: left; margin: 4px 4px 4px 0px; float: left;', :size => '10x10', :title => '', :alt => '') %>
-                <%= child.name %>
+                <%= _(child.name) %>
               </div>
               <div id="dir<%= index %>" class='grphid' style='display: none'>
                 <% child.children.each do |c| %>
                   <% if c.leaf? %>
-                    <%= link_to c.name, group_path(:group => group.name, :group2 => child.name, :group3 => c.name), :class => 'news', :style => 'margin-left: 14px;' %>
+                    <%= link_to _(c.name), group_path(:group => group.name, :group2 => child.name, :group3 => c.name), :class => 'news', :style => 'margin-left: 14px;' %>
                     (<%= c.srpms.count %>)
                     <br/>
                   <% else %>
