@@ -15,7 +15,7 @@
   <%= _('On your query &quot;').html_safe %><b><%= params[:query] %></b>
   <%= (_('&quot; in branch <b>%s</b> were found') % @branch.name).html_safe %>
   <b><%= @srpms.length %></b>
-  <%= n_('RPM:', 'RPMs:', @srpms.length) %>
+  <%= n_('RPM:', 'RPMs:', @srpms.total_entries) %>
 
   <p class="break"></p>
   <br>
