@@ -12,10 +12,10 @@ class Group < ActiveRecord::Base
   has_many :packages
 
   def full_name
-    full = self.name
+    full = _(self.name)
     parent = self.parent
     while parent
-      full = "#{parent.name}/#{full}"
+      full = "#{_(parent.name)}/#{full}"
       parent = parent.parent
     end
     full

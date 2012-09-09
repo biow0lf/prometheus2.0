@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-08-29 03:01+0300\n"
+"POT-Creation-Date: 2012-09-09 09:07+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -112,20 +112,56 @@ msgstr ""
 msgid "About"
 msgstr "О проекте"
 
+msgid "Accessibility"
+msgstr "Доступность"
+
+msgid "Adventure"
+msgstr "Приключения"
+
+msgid "Antivirus"
+msgstr "Антивирус"
+
+msgid "Arcade"
+msgstr "Аркады"
+
+msgid "Archiving"
+msgstr "Архивирование"
+
 msgid "Are you sure?"
 msgstr ""
+
+msgid "Astronomy"
+msgstr "Астрономия"
 
 msgid "Back"
 msgstr ""
 
+msgid "Backup"
+msgstr "Резервное копирование"
+
+msgid "Base"
+msgstr "Основа"
+
+msgid "Biology"
+msgstr "Биология"
+
 msgid "Blog"
 msgstr "Блог"
+
+msgid "Boards"
+msgstr "Настольные"
+
+msgid "Books"
+msgstr "Документация"
+
+msgid "Boot and Init"
+msgstr "Загрузка и инициализация"
 
 msgid "Bugs and FR"
 msgstr "Bugs and FR"
 
 msgid "Bugs/FR statistics assigned to this maintainer"
-msgstr "статистика по кол-ву bugs/FR, адресованных данному маинтейнеру"
+msgstr "статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"
 
 msgid "Build time:"
 msgstr "Время сборки:"
@@ -133,11 +169,23 @@ msgstr "Время сборки:"
 msgid "Built:"
 msgstr ""
 
+msgid "C"
+msgstr "C"
+
+msgid "C++"
+msgstr "C++"
+
 msgid "CPAN:"
 msgstr ""
 
 msgid "Cancel my account"
 msgstr ""
+
+msgid "Cards"
+msgstr "Карты"
+
+msgid "Cd burning"
+msgstr "Создание CD"
 
 msgid "Change my password"
 msgstr ""
@@ -151,11 +199,32 @@ msgstr "Изменения"
 msgid "Changes:"
 msgstr "Изменения:"
 
+msgid "Chat"
+msgstr "Chat"
+
+msgid "Chemistry"
+msgstr "Химия"
+
 msgid "Choose a mirror:"
 msgstr "Выберите зеркало:"
 
 msgid "Click the link below to unlock your account:"
 msgstr ""
+
+msgid "Communications"
+msgstr "Коммуникации"
+
+msgid "Compression"
+msgstr "Сжатие"
+
+msgid "Computer books"
+msgstr "Компьютерная литература"
+
+msgid "Computer science"
+msgstr "Компьютерные науки"
+
+msgid "Configuration"
+msgstr "Настройка"
 
 msgid "Confirm my account"
 msgstr ""
@@ -163,14 +232,32 @@ msgstr ""
 msgid "Confirm new password"
 msgstr ""
 
+msgid "Console"
+msgstr "Консольные"
+
 msgid "Current maintainer:"
-msgstr "Текущий маинтейнер:"
+msgstr "Текущий майнтейнер:"
 
 msgid "Current version:"
 msgstr "Текущая версия:"
 
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Databases"
+msgstr "Базы данных"
+
+msgid "Debug"
+msgstr "Отладка"
+
+msgid "Debuggers"
+msgstr "Отладчики"
+
 msgid "Description:"
 msgstr "Описание:"
+
+msgid "Development"
+msgstr "Разработка"
 
 msgid "Didn't receive confirmation instructions?"
 msgstr ""
@@ -178,29 +265,95 @@ msgstr ""
 msgid "Didn't receive unlock instructions?"
 msgstr ""
 
+msgid "Documentation"
+msgstr "Документация"
+
 msgid "Download"
 msgstr "Загрузить"
 
 msgid "Edit my maintainer profile"
 msgstr ""
 
+msgid "Editors"
+msgstr "Редакторы"
+
+msgid "Education"
+msgstr "Обучение"
+
+msgid "Educational"
+msgstr "Обучающие"
+
 msgid "Email:"
 msgstr ""
+
+msgid "Emulators"
+msgstr "Эмуляторы"
+
+msgid "Engineering"
+msgstr "Технические приложения"
 
 msgid "English"
 msgstr ""
 
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+msgid "Erlang"
+msgstr "Erlang"
+
 msgid "FTBFS"
 msgstr ""
+
+msgid "FTN"
+msgstr "FTN"
+
+msgid "FVWM based"
+msgstr "FVWM-подобные"
+
+msgid "Faqs"
+msgstr "Faqs"
+
+msgid "File tools"
+msgstr "Работа с файлами"
+
+msgid "File transfer"
+msgstr "Передача файлов"
+
+msgid "Fonts"
+msgstr "Шрифты"
 
 msgid "Forgot your password?"
 msgstr ""
 
+msgid "Functional"
+msgstr "Функциональные языки"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "GNOME and GTK+"
+msgstr "GNOME и GTK+"
+
+msgid "GNUstep"
+msgstr "GNUstep"
+
+msgid "Games"
+msgstr "Игры"
+
 msgid "Gear"
 msgstr "Gear"
 
+msgid "Geosciences"
+msgstr "Науки о земле"
+
 msgid "Git repo"
 msgstr ""
+
+msgid "Graphical desktop"
+msgstr "Графические оболочки"
+
+msgid "Graphics"
+msgstr "Графика"
 
 msgid "Group"
 msgstr "Группа"
@@ -211,14 +364,32 @@ msgstr "Группа:"
 msgid "Groups:"
 msgstr "Группы:"
 
+msgid "Hardware"
+msgstr "Оборудование"
+
+msgid "Haskell"
+msgstr "Haskell"
+
 msgid "Home"
 msgstr "Главная"
 
 msgid "Home page:"
 msgstr "Домашняя страница:"
 
+msgid "Howtos"
+msgstr "Howtos"
+
+msgid "IRC"
+msgstr "IRC"
+
+msgid "Icewm"
+msgstr "Icewm"
+
 msgid "If you didn't request this, please ignore this email."
 msgstr ""
+
+msgid "Igor Zubkov"
+msgstr "Игорь Зубков"
 
 msgid "Info:"
 msgstr ""
@@ -229,14 +400,44 @@ msgstr "Информация"
 msgid "Information:"
 msgstr "Информация:"
 
+msgid "Instant messaging"
+msgstr "Мгновенные сообщения"
+
+msgid "Internationalization"
+msgstr "Интернационализация"
+
 msgid "Jabber ID:"
 msgstr ""
+
+msgid "Java"
+msgstr "Java"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "KDE and QT"
+msgstr "KDE и QT"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Kernel and hardware"
+msgstr "Ядро и оборудование"
 
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
+msgid "Legacy libraries"
+msgstr "Устаревшие библиотеки"
+
+msgid "Libraries"
+msgstr "Библиотеки"
+
 msgid "License:"
 msgstr "Лицензия:"
+
+msgid "Lisp"
+msgstr "Lisp"
 
 msgid "List of contributors:"
 msgstr "Список всех майнтейнеров, принимавших участие<br>в данной и/или предыдущих сборках пакета:"
@@ -245,7 +446,7 @@ msgid "List of packages needing rebuild without \"%undefine _configure_target\" 
 msgstr "Список пакетов, которые необходимо пересобрать без хака \"%undefine _configure_target\":"
 
 msgid "List of packages which was built by this maintainer:"
-msgstr "Список пакетов, собранных маинтейнером:"
+msgstr "Список пакетов, собранных майнтейнером:"
 
 msgid "List of packages:"
 msgstr "Список пакетов собранных командой:"
@@ -253,8 +454,20 @@ msgstr "Список пакетов собранных командой:"
 msgid "List of rpms provided by this srpm:"
 msgstr "Список rpm-пакетов, предоставляемый данным srpm-пакетом:"
 
+msgid "Litterature"
+msgstr "Литература"
+
 msgid "Location:"
 msgstr ""
+
+msgid "MATE"
+msgstr "MATE"
+
+msgid "ML"
+msgstr "ML"
+
+msgid "Mail"
+msgstr "Почта"
 
 msgid "Mailing list"
 msgstr "Рассылка"
@@ -263,16 +476,34 @@ msgid "Main"
 msgstr "Главная"
 
 msgid "Maintainer:"
-msgstr "Маинтейнер:"
+msgstr "Майнтейнер:"
 
 msgid "Maintainers"
-msgstr "Маинтейнеры"
+msgstr "Майнтейнеры"
+
+msgid "Mathematics"
+msgstr "Математика"
+
+msgid "Medicine"
+msgstr "Медицина"
+
+msgid "Monitoring"
+msgstr "Мониторинг"
+
+msgid "Motif"
+msgstr "Motif"
+
+msgid "Networking"
+msgstr "Сеть"
 
 msgid "New SRPMs"
 msgstr "Новые пакеты"
 
 msgid "New password"
 msgstr ""
+
+msgid "News"
+msgstr "Новости"
 
 msgid "No such branch!"
 msgstr "Нет такого бранча!"
@@ -284,13 +515,22 @@ msgid "No such package!"
 msgstr "Нет такого пакета!"
 
 msgid "No such packager!"
-msgstr "Нет такого маинтейнера!"
+msgstr "Нет такого майнтейнера!"
 
 msgid "No such team!"
 msgstr "Нет такой команды!"
 
+msgid "Objective-C"
+msgstr "Objective-C"
+
+msgid "Office"
+msgstr "Офис"
+
 msgid "On your query &quot;"
 msgstr "По запросу &quot;"
+
+msgid "Other"
+msgstr "Прочее"
 
 msgid "Other repositories"
 msgstr ""
@@ -302,16 +542,28 @@ msgid "Packages"
 msgstr "Пакеты"
 
 msgid "Packages built by this maintainer:"
-msgstr "Всего пакетов собранных маинтейнером:"
+msgstr "Всего пакетов собранных майнтейнером:"
 
 msgid "Packages to rebuild:"
 msgstr "Список пакетов на пересборку:"
+
+msgid "Packaging"
+msgstr "Пакеты"
+
+msgid "Perl"
+msgstr "Perl"
+
+msgid "Physics"
+msgstr "Физика"
 
 msgid "Planet"
 msgstr "Планета"
 
 msgid "Portuguese (Brasilian)"
 msgstr ""
+
+msgid "Printing"
+msgstr "Печать"
 
 msgid "Project Prometheus"
 msgstr "Проект Prometheus"
@@ -332,34 +584,34 @@ msgid "Prometheus 2.0 - Intro"
 msgstr "Prometheus 2.0 - Intro"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - ACL"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - ACL"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - ACL"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Bugs and FR"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Bugs and FR"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR (All)"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Bugs and FR (All)"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Bugs and FR (All)"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - FTBFS"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - FTBFS"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Gear"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Gear"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Gear"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Packages"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Пакеты"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Пакеты"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Repocop"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Repocop"
 
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
 
 msgid "Prometheus 2.0 - Maintainers &amp; Teams"
-msgstr "Prometheus 2.0 - Маинтейнеры и команды разработчиков"
+msgstr "Prometheus 2.0 - Майнтейнеры и команды разработчиков"
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
 msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo;"
@@ -403,6 +655,18 @@ msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
 
+msgid "Publishing"
+msgstr "Издательство"
+
+msgid "Puzzles"
+msgstr "Головоломки"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "Python3"
+msgstr "Python3"
+
 msgid "RPM filter for rsync"
 msgstr "Фильтр пакетов для rsync"
 
@@ -418,6 +682,9 @@ msgstr "RSS"
 msgid "Raw spec file"
 msgstr ""
 
+msgid "Remote access"
+msgstr "Удаленный доступ"
+
 msgid "Repocop"
 msgstr "Repocop"
 
@@ -430,11 +697,26 @@ msgstr ""
 msgid "Resend unlock instructions"
 msgstr ""
 
+msgid "Rox"
+msgstr "Rox"
+
+msgid "Ruby"
+msgstr "Ruby"
+
 msgid "Russian"
 msgstr ""
 
 msgid "SRPMs:"
 msgstr "Пакетов:"
+
+msgid "Sawfish"
+msgstr "Sawfish"
+
+msgid "Scheme"
+msgstr "Scheme"
+
+msgid "Sciences"
+msgstr "Науки"
 
 msgid "Search"
 msgstr "Поиск по сайту"
@@ -450,6 +732,12 @@ msgstr ""
 
 msgid "Send me reset password instructions"
 msgstr ""
+
+msgid "Servers"
+msgstr "Серверы"
+
+msgid "Shells"
+msgstr "Интерпретаторы команд"
 
 msgid "Sign in"
 msgstr "Войти"
@@ -493,6 +781,9 @@ msgstr "Размер архива:"
 msgid "Someone has requested a link to change your password, and you can do this through the link below."
 msgstr ""
 
+msgid "Sound"
+msgstr "Звук"
+
 msgid "Source RPM:"
 msgstr ""
 
@@ -505,17 +796,32 @@ msgstr ""
 msgid "Specfile is not UTF-8 valid."
 msgstr ""
 
+msgid "Sports"
+msgstr "Спорт"
+
+msgid "Strategy"
+msgstr "Стратегия"
+
+msgid "Sugar"
+msgstr "Sugar"
+
 msgid "Summary"
 msgstr "О пакете"
 
 msgid "Summary:"
 msgstr "О пакете:"
 
+msgid "System"
+msgstr "Система"
+
 msgid "TOP RPMs"
 msgstr "TOP пакеты"
 
 msgid "TOP maintainers"
-msgstr "TOP маинтейнеры"
+msgstr "TOP майнтейнеры"
+
+msgid "Tcl"
+msgstr "Tcl"
 
 msgid "Team leader:"
 msgstr "Лидер команды:"
@@ -529,6 +835,12 @@ msgstr "Команда:"
 msgid "Teams"
 msgstr "Команды разработчиков"
 
+msgid "Terminals"
+msgstr "Терминалы"
+
+msgid "Text tools"
+msgstr "Работа с текстами"
+
 msgid "There are no bugreports against this package"
 msgstr ""
 
@@ -538,11 +850,23 @@ msgstr ""
 msgid "Time Zone:"
 msgstr ""
 
+msgid "Tools"
+msgstr "Инструменты"
+
 msgid "Total records:"
 msgstr "Всего записей:"
 
 msgid "Total:"
 msgstr "Всего записей:"
+
+msgid "Toys"
+msgstr "Развлечения"
+
+msgid "True type"
+msgstr "True type"
+
+msgid "Type1"
+msgstr "Type1"
 
 msgid "Ukrainian"
 msgstr ""
@@ -562,17 +886,41 @@ msgstr ""
 msgid "Url"
 msgstr "Url"
 
+msgid "Video"
+msgstr "Видео"
+
+msgid "WWW"
+msgstr "WWW"
+
 msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
 msgstr "Wiki"
 
+msgid "Window Maker"
+msgstr "Window Maker"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "X11 bitmap"
+msgstr "X11 растровые"
+
+msgid "XFce"
+msgstr "XFce"
+
+msgid "XFree86"
+msgstr "XFree86"
+
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."
 msgstr ""
+
+msgid "ZProducts"
+msgstr "ZProducts"
 
 msgid "about Prometheus project"
 msgstr "проект Prometheus"
@@ -659,7 +1007,7 @@ msgid "information about SRPM"
 msgstr "просмотреть информацию о пакете"
 
 msgid "information about maintainer"
-msgstr "просмотреть информацию о маинтейнере"
+msgstr "просмотреть информацию о майнтейнере"
 
 msgid "information about the packager"
 msgstr "информация о сборщике"
@@ -674,7 +1022,7 @@ msgid "list of bugs and feature requests"
 msgstr "список багов и предложений по улучшению"
 
 msgid "maintainers information"
-msgstr "информация о маинтейнерах"
+msgstr "информация о майнтейнерах"
 
 msgid "message"
 msgstr "сообщение"
@@ -695,7 +1043,7 @@ msgid "packages information"
 msgstr "информация о пакетах"
 
 msgid "packages which was built by this maintainer"
-msgstr "просмотреть пакеты, собранные маинтейнером"
+msgstr "просмотреть пакеты, собранные майнтейнером"
 
 msgid "repo<br/>cop"
 msgstr "repo<br/>cop"

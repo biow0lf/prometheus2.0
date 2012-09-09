@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-08-29 03:01+0300\n"
+"POT-Creation-Date: 2012-09-09 09:07+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -53,7 +53,6 @@ msgstr ""
 msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
 msgstr "<b>Q:</b> Como posso saltar Escombreira de pacotes se eu ainda não sei porque eu preciso deles?"
 
-#, fuzzy
 msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
 msgstr "<b>Sisyphus</b> &mdash; é um repositório de software livre diariamente atualizado pela <abbr title=\"ALT Linux\">Equipe ALT&nbsp;Linux&nbsp;</abbr>.A participação no projeto Sisyphus é aberto. Na base deste projeto, existem tecnologias de embedded e dependências o software de rastreamento e também conhecidos processos de interação desenvolvedores. ALT Qualquer distribuição Linux e pacote gestor <b>APT</b>. Sisyphus &mdash; está permanentemente desenvolvido um conjunto de soluções. Você pode usá-las para criar e se especializar em <b>Distribuições Linux</b> e <b>integrações de projetos</b>."
 
@@ -81,13 +80,49 @@ msgstr ""
 msgid "About"
 msgstr "Sobre"
 
+msgid "Accessibility"
+msgstr ""
+
+msgid "Adventure"
+msgstr ""
+
+msgid "Antivirus"
+msgstr ""
+
+msgid "Arcade"
+msgstr ""
+
+msgid "Archiving"
+msgstr ""
+
 msgid "Are you sure?"
+msgstr ""
+
+msgid "Astronomy"
 msgstr ""
 
 msgid "Back"
 msgstr ""
 
+msgid "Backup"
+msgstr ""
+
+msgid "Base"
+msgstr ""
+
+msgid "Biology"
+msgstr ""
+
 msgid "Blog"
+msgstr ""
+
+msgid "Boards"
+msgstr ""
+
+msgid "Books"
+msgstr ""
+
+msgid "Boot and Init"
 msgstr ""
 
 msgid "Bugs and FR"
@@ -99,14 +134,25 @@ msgstr ""
 msgid "Build time:"
 msgstr "Construido em:"
 
-#, fuzzy
 msgid "Built:"
-msgstr "Data da compilação:"
+msgstr ""
+
+msgid "C"
+msgstr ""
+
+msgid "C++"
+msgstr ""
 
 msgid "CPAN:"
 msgstr ""
 
 msgid "Cancel my account"
+msgstr ""
+
+msgid "Cards"
+msgstr ""
+
+msgid "Cd burning"
 msgstr ""
 
 msgid "Change my password"
@@ -121,10 +167,31 @@ msgstr ""
 msgid "Changes:"
 msgstr "Mudanças:"
 
+msgid "Chat"
+msgstr ""
+
+msgid "Chemistry"
+msgstr ""
+
 msgid "Choose a mirror:"
 msgstr ""
 
 msgid "Click the link below to unlock your account:"
+msgstr ""
+
+msgid "Communications"
+msgstr ""
+
+msgid "Compression"
+msgstr ""
+
+msgid "Computer books"
+msgstr ""
+
+msgid "Computer science"
+msgstr ""
+
+msgid "Configuration"
 msgstr ""
 
 msgid "Confirm my account"
@@ -133,19 +200,40 @@ msgstr ""
 msgid "Confirm new password"
 msgstr ""
 
+msgid "Console"
+msgstr ""
+
 msgid "Current maintainer:"
 msgstr "Mantenedor currente:"
 
 msgid "Current version:"
 msgstr "Versão atual:"
 
+msgid "DNS"
+msgstr ""
+
+msgid "Databases"
+msgstr ""
+
+msgid "Debug"
+msgstr ""
+
+msgid "Debuggers"
+msgstr ""
+
 msgid "Description:"
 msgstr "Descrição:"
+
+msgid "Development"
+msgstr ""
 
 msgid "Didn't receive confirmation instructions?"
 msgstr ""
 
 msgid "Didn't receive unlock instructions?"
+msgstr ""
+
+msgid "Documentation"
 msgstr ""
 
 msgid "Download"
@@ -154,22 +242,85 @@ msgstr ""
 msgid "Edit my maintainer profile"
 msgstr ""
 
+msgid "Editors"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Educational"
+msgstr ""
+
 msgid "Email:"
+msgstr ""
+
+msgid "Emulators"
+msgstr ""
+
+msgid "Engineering"
 msgstr ""
 
 msgid "English"
 msgstr ""
 
+msgid "Enlightenment"
+msgstr ""
+
+msgid "Erlang"
+msgstr ""
+
 msgid "FTBFS"
+msgstr ""
+
+msgid "FTN"
+msgstr ""
+
+msgid "FVWM based"
+msgstr ""
+
+msgid "Faqs"
+msgstr ""
+
+msgid "File tools"
+msgstr ""
+
+msgid "File transfer"
+msgstr ""
+
+msgid "Fonts"
 msgstr ""
 
 msgid "Forgot your password?"
 msgstr ""
 
+msgid "Functional"
+msgstr ""
+
+msgid "GNOME"
+msgstr ""
+
+msgid "GNOME and GTK+"
+msgstr ""
+
+msgid "GNUstep"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
 msgid "Gear"
 msgstr ""
 
+msgid "Geosciences"
+msgstr ""
+
 msgid "Git repo"
+msgstr ""
+
+msgid "Graphical desktop"
+msgstr ""
+
+msgid "Graphics"
 msgstr ""
 
 msgid "Group"
@@ -181,13 +332,31 @@ msgstr ""
 msgid "Groups:"
 msgstr ""
 
+msgid "Hardware"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
 msgid "Home"
 msgstr "Home"
 
 msgid "Home page:"
 msgstr ""
 
+msgid "Howtos"
+msgstr ""
+
+msgid "IRC"
+msgstr ""
+
+msgid "Icewm"
+msgstr ""
+
 msgid "If you didn't request this, please ignore this email."
+msgstr ""
+
+msgid "Igor Zubkov"
 msgstr ""
 
 msgid "Info:"
@@ -199,14 +368,44 @@ msgstr ""
 msgid "Information:"
 msgstr ""
 
+msgid "Instant messaging"
+msgstr ""
+
+msgid "Internationalization"
+msgstr ""
+
 msgid "Jabber ID:"
+msgstr ""
+
+msgid "Java"
+msgstr ""
+
+msgid "KDE"
+msgstr ""
+
+msgid "KDE and QT"
+msgstr ""
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Kernel and hardware"
 msgstr ""
 
 msgid "Last update:"
 msgstr "Última atualização:"
 
+msgid "Legacy libraries"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
 msgid "License:"
 msgstr "Licença:"
+
+msgid "Lisp"
+msgstr ""
 
 msgid "List of contributors:"
 msgstr "Lista dos contribuidores:"
@@ -223,7 +422,19 @@ msgstr ""
 msgid "List of rpms provided by this srpm:"
 msgstr "Lista dos rpms provida por esta srpm:"
 
+msgid "Litterature"
+msgstr ""
+
 msgid "Location:"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "ML"
+msgstr ""
+
+msgid "Mail"
 msgstr ""
 
 msgid "Mailing list"
@@ -238,11 +449,29 @@ msgstr ""
 msgid "Maintainers"
 msgstr "Mantenedores"
 
+msgid "Mathematics"
+msgstr ""
+
+msgid "Medicine"
+msgstr ""
+
+msgid "Monitoring"
+msgstr ""
+
+msgid "Motif"
+msgstr ""
+
+msgid "Networking"
+msgstr ""
+
 msgid "New SRPMs"
 msgstr ""
 
 msgid "New password"
 msgstr ""
+
+msgid "News"
+msgstr "Notícias"
 
 msgid "No such branch!"
 msgstr ""
@@ -259,7 +488,16 @@ msgstr ""
 msgid "No such team!"
 msgstr ""
 
+msgid "Objective-C"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
 msgid "On your query &quot;"
+msgstr ""
+
+msgid "Other"
 msgstr ""
 
 msgid "Other repositories"
@@ -277,10 +515,22 @@ msgstr ""
 msgid "Packages to rebuild:"
 msgstr ""
 
+msgid "Packaging"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "Physics"
+msgstr ""
+
 msgid "Planet"
 msgstr ""
 
 msgid "Portuguese (Brasilian)"
+msgstr ""
+
+msgid "Printing"
 msgstr ""
 
 msgid "Project Prometheus"
@@ -373,6 +623,18 @@ msgstr ""
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr ""
 
+msgid "Publishing"
+msgstr ""
+
+msgid "Puzzles"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Python3"
+msgstr ""
+
 msgid "RPM filter for rsync"
 msgstr ""
 
@@ -388,6 +650,9 @@ msgstr "RSS"
 msgid "Raw spec file"
 msgstr ""
 
+msgid "Remote access"
+msgstr ""
+
 msgid "Repocop"
 msgstr ""
 
@@ -400,10 +665,25 @@ msgstr ""
 msgid "Resend unlock instructions"
 msgstr ""
 
+msgid "Rox"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
 msgid "Russian"
 msgstr ""
 
 msgid "SRPMs:"
+msgstr ""
+
+msgid "Sawfish"
+msgstr ""
+
+msgid "Scheme"
+msgstr ""
+
+msgid "Sciences"
 msgstr ""
 
 msgid "Search"
@@ -419,6 +699,12 @@ msgid "Select branch:"
 msgstr ""
 
 msgid "Send me reset password instructions"
+msgstr ""
+
+msgid "Servers"
+msgstr ""
+
+msgid "Shells"
 msgstr ""
 
 msgid "Sign in"
@@ -457,6 +743,9 @@ msgstr "Tamanho:"
 msgid "Someone has requested a link to change your password, and you can do this through the link below."
 msgstr ""
 
+msgid "Sound"
+msgstr ""
+
 msgid "Source RPM:"
 msgstr ""
 
@@ -469,17 +758,32 @@ msgstr ""
 msgid "Specfile is not UTF-8 valid."
 msgstr ""
 
+msgid "Sports"
+msgstr ""
+
+msgid "Strategy"
+msgstr ""
+
+msgid "Sugar"
+msgstr ""
+
 msgid "Summary"
 msgstr ""
 
 msgid "Summary:"
 msgstr "Sumário:"
 
+msgid "System"
+msgstr ""
+
 msgid "TOP RPMs"
 msgstr "TOP RPMS"
 
 msgid "TOP maintainers"
 msgstr "TOP mantenedores"
+
+msgid "Tcl"
+msgstr ""
 
 msgid "Team leader:"
 msgstr ""
@@ -493,6 +797,12 @@ msgstr ""
 msgid "Teams"
 msgstr "Equipe"
 
+msgid "Terminals"
+msgstr ""
+
+msgid "Text tools"
+msgstr ""
+
 msgid "There are no bugreports against this package"
 msgstr ""
 
@@ -502,10 +812,22 @@ msgstr ""
 msgid "Time Zone:"
 msgstr ""
 
+msgid "Tools"
+msgstr ""
+
 msgid "Total records:"
 msgstr ""
 
 msgid "Total:"
+msgstr ""
+
+msgid "Toys"
+msgstr ""
+
+msgid "True type"
+msgstr ""
+
+msgid "Type1"
 msgstr ""
 
 msgid "Ukrainian"
@@ -526,16 +848,40 @@ msgstr ""
 msgid "Url"
 msgstr ""
 
+msgid "Video"
+msgstr ""
+
+msgid "WWW"
+msgstr ""
+
 msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
 msgstr "Wiki"
 
+msgid "Window Maker"
+msgstr ""
+
+msgid "X11"
+msgstr ""
+
+msgid "X11 bitmap"
+msgstr ""
+
+msgid "XFce"
+msgstr ""
+
+msgid "XFree86"
+msgstr ""
+
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."
+msgstr ""
+
+msgid "ZProducts"
 msgstr ""
 
 msgid "about Prometheus project"
@@ -738,9 +1084,6 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
-
-#~ msgid "News"
-#~ msgstr "Notícias"
 
 #~ msgid "site news"
 #~ msgstr "notícias do website"
