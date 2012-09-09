@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-08-29 03:01+0300\n"
+"POT-Creation-Date: 2012-09-09 07:42+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -112,14 +112,50 @@ msgstr ""
 msgid "About"
 msgstr "О проекте"
 
+msgid "Accessibility"
+msgstr "Доступность"
+
+msgid "Adventure"
+msgstr ""
+
+msgid "Antivirus"
+msgstr ""
+
+msgid "Arcade"
+msgstr ""
+
+msgid "Archiving"
+msgstr "Архивирование"
+
 msgid "Are you sure?"
+msgstr ""
+
+msgid "Astronomy"
 msgstr ""
 
 msgid "Back"
 msgstr ""
 
+msgid "Backup"
+msgstr "Резервное копирование"
+
+msgid "Base"
+msgstr ""
+
+msgid "Biology"
+msgstr ""
+
 msgid "Blog"
 msgstr "Блог"
+
+msgid "Boards"
+msgstr ""
+
+msgid "Books"
+msgstr ""
+
+msgid "Boot and Init"
+msgstr ""
 
 msgid "Bugs and FR"
 msgstr "Bugs and FR"
@@ -133,11 +169,23 @@ msgstr "Время сборки:"
 msgid "Built:"
 msgstr ""
 
+msgid "C"
+msgstr ""
+
+msgid "C++"
+msgstr ""
+
 msgid "CPAN:"
 msgstr ""
 
 msgid "Cancel my account"
 msgstr ""
+
+msgid "Cards"
+msgstr ""
+
+msgid "Cd burning"
+msgstr "Создание CD"
 
 msgid "Change my password"
 msgstr ""
@@ -151,16 +199,41 @@ msgstr "Изменения"
 msgid "Changes:"
 msgstr "Изменения:"
 
+msgid "Chat"
+msgstr ""
+
+msgid "Chemistry"
+msgstr ""
+
 msgid "Choose a mirror:"
 msgstr "Выберите зеркало:"
 
 msgid "Click the link below to unlock your account:"
 msgstr ""
 
+msgid "Communications"
+msgstr ""
+
+msgid "Compression"
+msgstr "Сжатие"
+
+msgid "Computer books"
+msgstr ""
+
+msgid "Computer science"
+msgstr ""
+
+#, fuzzy
+msgid "Configuration"
+msgstr "Информация"
+
 msgid "Confirm my account"
 msgstr ""
 
 msgid "Confirm new password"
+msgstr ""
+
+msgid "Console"
 msgstr ""
 
 msgid "Current maintainer:"
@@ -169,13 +242,31 @@ msgstr "Текущий маинтейнер:"
 msgid "Current version:"
 msgstr "Текущая версия:"
 
+msgid "DNS"
+msgstr ""
+
+msgid "Databases"
+msgstr ""
+
+msgid "Debug"
+msgstr ""
+
+msgid "Debuggers"
+msgstr ""
+
 msgid "Description:"
 msgstr "Описание:"
+
+msgid "Development"
+msgstr ""
 
 msgid "Didn't receive confirmation instructions?"
 msgstr ""
 
 msgid "Didn't receive unlock instructions?"
+msgstr ""
+
+msgid "Documentation"
 msgstr ""
 
 msgid "Download"
@@ -184,22 +275,85 @@ msgstr "Загрузить"
 msgid "Edit my maintainer profile"
 msgstr ""
 
+msgid "Editors"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Educational"
+msgstr ""
+
 msgid "Email:"
+msgstr ""
+
+msgid "Emulators"
+msgstr ""
+
+msgid "Engineering"
 msgstr ""
 
 msgid "English"
 msgstr ""
 
+msgid "Enlightenment"
+msgstr ""
+
+msgid "Erlang"
+msgstr ""
+
 msgid "FTBFS"
+msgstr ""
+
+msgid "FTN"
+msgstr ""
+
+msgid "FVWM based"
+msgstr ""
+
+msgid "Faqs"
+msgstr ""
+
+msgid "File tools"
+msgstr ""
+
+msgid "File transfer"
+msgstr ""
+
+msgid "Fonts"
 msgstr ""
 
 msgid "Forgot your password?"
 msgstr ""
 
+msgid "Functional"
+msgstr ""
+
+msgid "GNOME"
+msgstr ""
+
+msgid "GNOME and GTK+"
+msgstr ""
+
+msgid "GNUstep"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
 msgid "Gear"
 msgstr "Gear"
 
+msgid "Geosciences"
+msgstr ""
+
 msgid "Git repo"
+msgstr ""
+
+msgid "Graphical desktop"
+msgstr ""
+
+msgid "Graphics"
 msgstr ""
 
 msgid "Group"
@@ -211,11 +365,26 @@ msgstr "Группа:"
 msgid "Groups:"
 msgstr "Группы:"
 
+msgid "Hardware"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
 msgid "Home"
 msgstr "Главная"
 
 msgid "Home page:"
 msgstr "Домашняя страница:"
+
+msgid "Howtos"
+msgstr ""
+
+msgid "IRC"
+msgstr ""
+
+msgid "Icewm"
+msgstr ""
 
 msgid "If you didn't request this, please ignore this email."
 msgstr ""
@@ -229,14 +398,44 @@ msgstr "Информация"
 msgid "Information:"
 msgstr "Информация:"
 
+msgid "Instant messaging"
+msgstr ""
+
+msgid "Internationalization"
+msgstr ""
+
 msgid "Jabber ID:"
+msgstr ""
+
+msgid "Java"
+msgstr ""
+
+msgid "KDE"
+msgstr ""
+
+msgid "KDE and QT"
+msgstr ""
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Kernel and hardware"
 msgstr ""
 
 msgid "Last update:"
 msgstr "Последнее обновление:"
 
+msgid "Legacy libraries"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
 msgid "License:"
 msgstr "Лицензия:"
+
+msgid "Lisp"
+msgstr ""
 
 msgid "List of contributors:"
 msgstr "Список всех майнтейнеров, принимавших участие<br>в данной и/или предыдущих сборках пакета:"
@@ -253,7 +452,19 @@ msgstr "Список пакетов собранных командой:"
 msgid "List of rpms provided by this srpm:"
 msgstr "Список rpm-пакетов, предоставляемый данным srpm-пакетом:"
 
+msgid "Litterature"
+msgstr ""
+
 msgid "Location:"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "ML"
+msgstr ""
+
+msgid "Mail"
 msgstr ""
 
 msgid "Mailing list"
@@ -268,10 +479,28 @@ msgstr "Маинтейнер:"
 msgid "Maintainers"
 msgstr "Маинтейнеры"
 
+msgid "Mathematics"
+msgstr ""
+
+msgid "Medicine"
+msgstr ""
+
+msgid "Monitoring"
+msgstr ""
+
+msgid "Motif"
+msgstr ""
+
+msgid "Networking"
+msgstr ""
+
 msgid "New SRPMs"
 msgstr "Новые пакеты"
 
 msgid "New password"
+msgstr ""
+
+msgid "News"
 msgstr ""
 
 msgid "No such branch!"
@@ -289,8 +518,17 @@ msgstr "Нет такого маинтейнера!"
 msgid "No such team!"
 msgstr "Нет такой команды!"
 
+msgid "Objective-C"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
 msgid "On your query &quot;"
 msgstr "По запросу &quot;"
+
+msgid "Other"
+msgstr "Прочее"
 
 msgid "Other repositories"
 msgstr ""
@@ -307,10 +545,23 @@ msgstr "Всего пакетов собранных маинтейнером:"
 msgid "Packages to rebuild:"
 msgstr "Список пакетов на пересборку:"
 
+#, fuzzy
+msgid "Packaging"
+msgstr "Пакеты"
+
+msgid "Perl"
+msgstr ""
+
+msgid "Physics"
+msgstr ""
+
 msgid "Planet"
 msgstr "Планета"
 
 msgid "Portuguese (Brasilian)"
+msgstr ""
+
+msgid "Printing"
 msgstr ""
 
 msgid "Project Prometheus"
@@ -403,6 +654,18 @@ msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
 
+msgid "Publishing"
+msgstr ""
+
+msgid "Puzzles"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Python3"
+msgstr ""
+
 msgid "RPM filter for rsync"
 msgstr "Фильтр пакетов для rsync"
 
@@ -418,6 +681,9 @@ msgstr "RSS"
 msgid "Raw spec file"
 msgstr ""
 
+msgid "Remote access"
+msgstr ""
+
 msgid "Repocop"
 msgstr "Repocop"
 
@@ -430,11 +696,26 @@ msgstr ""
 msgid "Resend unlock instructions"
 msgstr ""
 
+msgid "Rox"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
 msgid "Russian"
 msgstr ""
 
 msgid "SRPMs:"
 msgstr "Пакетов:"
+
+msgid "Sawfish"
+msgstr ""
+
+msgid "Scheme"
+msgstr ""
+
+msgid "Sciences"
+msgstr ""
 
 msgid "Search"
 msgstr "Поиск по сайту"
@@ -449,6 +730,12 @@ msgid "Select branch:"
 msgstr ""
 
 msgid "Send me reset password instructions"
+msgstr ""
+
+msgid "Servers"
+msgstr ""
+
+msgid "Shells"
 msgstr ""
 
 msgid "Sign in"
@@ -493,6 +780,9 @@ msgstr "Размер архива:"
 msgid "Someone has requested a link to change your password, and you can do this through the link below."
 msgstr ""
 
+msgid "Sound"
+msgstr ""
+
 msgid "Source RPM:"
 msgstr ""
 
@@ -505,17 +795,32 @@ msgstr ""
 msgid "Specfile is not UTF-8 valid."
 msgstr ""
 
+msgid "Sports"
+msgstr ""
+
+msgid "Strategy"
+msgstr ""
+
+msgid "Sugar"
+msgstr ""
+
 msgid "Summary"
 msgstr "О пакете"
 
 msgid "Summary:"
 msgstr "О пакете:"
 
+msgid "System"
+msgstr ""
+
 msgid "TOP RPMs"
 msgstr "TOP пакеты"
 
 msgid "TOP maintainers"
 msgstr "TOP маинтейнеры"
+
+msgid "Tcl"
+msgstr ""
 
 msgid "Team leader:"
 msgstr "Лидер команды:"
@@ -529,6 +834,12 @@ msgstr "Команда:"
 msgid "Teams"
 msgstr "Команды разработчиков"
 
+msgid "Terminals"
+msgstr ""
+
+msgid "Text tools"
+msgstr ""
+
 msgid "There are no bugreports against this package"
 msgstr ""
 
@@ -538,11 +849,23 @@ msgstr ""
 msgid "Time Zone:"
 msgstr ""
 
+msgid "Tools"
+msgstr ""
+
 msgid "Total records:"
 msgstr "Всего записей:"
 
 msgid "Total:"
 msgstr "Всего записей:"
+
+msgid "Toys"
+msgstr ""
+
+msgid "True type"
+msgstr ""
+
+msgid "Type1"
+msgstr ""
 
 msgid "Ukrainian"
 msgstr ""
@@ -562,16 +885,40 @@ msgstr ""
 msgid "Url"
 msgstr "Url"
 
+msgid "Video"
+msgstr ""
+
+msgid "WWW"
+msgstr ""
+
 msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
 msgstr "Wiki"
 
+msgid "Window Maker"
+msgstr ""
+
+msgid "X11"
+msgstr ""
+
+msgid "X11 bitmap"
+msgstr ""
+
+msgid "XFce"
+msgstr ""
+
+msgid "XFree86"
+msgstr ""
+
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."
+msgstr ""
+
+msgid "ZProducts"
 msgstr ""
 
 msgid "about Prometheus project"
@@ -774,3 +1121,384 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
+
+msgid "Accessibility"
+msgstr "Доступность"
+
+msgid "Archiving"
+msgstr "Архивирование"
+
+msgid "Backup"
+msgstr "Резервное копирование"
+
+msgid "Cd burning"
+msgstr "Создание CD"
+
+msgid "Compression"
+msgstr "Сжатие"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Books"
+msgstr "Документация"
+
+msgid "Computer books"
+msgstr "Компьютерная литература"
+
+msgid "Faqs"
+msgstr "Faqs"
+
+msgid "Howtos"
+msgstr "Howtos"
+
+msgid "Litterature"
+msgstr "Литература"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Communications"
+msgstr "Коммуникации"
+
+msgid "Databases"
+msgstr "Базы данных"
+
+msgid "Development"
+msgstr "Разработка"
+
+msgid "C"
+msgstr "C"
+
+msgid "C++"
+msgstr "C++"
+
+msgid "Databases"
+msgstr "Базы данных"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Debug"
+msgstr "Отладка"
+
+msgid "Debuggers"
+msgstr "Отладчики"
+
+msgid "Erlang"
+msgstr "Erlang"
+
+msgid "Functional"
+msgstr "Функциональные языки"
+
+msgid "GNOME and GTK+"
+msgstr "GNOME и GTK+"
+
+msgid "Haskell"
+msgstr "Haskell"
+
+msgid "Java"
+msgstr "Java"
+
+msgid "KDE and QT"
+msgstr "KDE и QT"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Lisp"
+msgstr "Lisp"
+
+msgid "ML"
+msgstr "ML"
+
+msgid "Objective-C"
+msgstr "Objective-C"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Perl"
+msgstr "Perl"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "Python3"
+msgstr "Python3"
+
+msgid "Ruby"
+msgstr "Ruby"
+
+msgid "Scheme"
+msgstr "Scheme"
+
+msgid "Tcl"
+msgstr "Tcl"
+
+msgid "Tools"
+msgstr "Инструменты"
+
+msgid "Documentation"
+msgstr "Документация"
+
+msgid "Editors"
+msgstr "Редакторы"
+
+msgid "Education"
+msgstr "Обучение"
+
+msgid "Emulators"
+msgstr "Эмуляторы"
+
+msgid "Engineering"
+msgstr "Технические приложения"
+
+msgid "File tools"
+msgstr "Работа с файлами"
+
+msgid "Games"
+msgstr "Игры"
+
+msgid "Adventure"
+msgstr "Приключения"
+
+msgid "Arcade"
+msgstr "Аркады"
+
+msgid "Boards"
+msgstr "Настольные"
+
+msgid "Cards"
+msgstr "Карты"
+
+msgid "Educational"
+msgstr "Обучающие"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Puzzles"
+msgstr "Головоломки"
+
+msgid "Sports"
+msgstr "Спорт"
+
+msgid "Strategy"
+msgstr "Стратегия"
+
+msgid "Graphical desktop"
+msgstr "Графические оболочки"
+
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+msgid "FVWM based"
+msgstr "FVWM-подобные"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "GNUstep"
+msgstr "GNUstep"
+
+msgid "Icewm"
+msgstr "Icewm"
+
+msgid "KDE"
+msgstr "KDE"
+
+msgid "MATE"
+msgstr "MATE"
+
+msgid "Motif"
+msgstr "Motif"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Rox"
+msgstr "Rox"
+
+msgid "Sawfish"
+msgstr "Sawfish"
+
+msgid "Sugar"
+msgstr "Sugar"
+
+msgid "Window Maker"
+msgstr "Window Maker"
+
+msgid "XFce"
+msgstr "XFce"
+
+msgid "Graphics"
+msgstr "Графика"
+
+msgid "Monitoring"
+msgstr "Мониторинг"
+
+msgid "Networking"
+msgstr "Сети"
+
+msgid "Chat"
+msgstr "Chat"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "File transfer"
+msgstr "Передача файлов"
+
+msgid "FTN"
+msgstr "FTN"
+
+msgid "IRC"
+msgstr "IRC"
+
+msgid "Instant messaging"
+msgstr "Мгновенные сообщения"
+
+msgid "Mail"
+msgstr "Почта"
+
+msgid "News"
+msgstr "Новости"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Remote access"
+msgstr "Удаленный доступ"
+
+msgid "WWW"
+msgstr "WWW"
+
+msgid "Office"
+msgstr "Офис"
+
+msgid "Publishing"
+msgstr "Издательство"
+
+msgid "Sciences"
+msgstr "Науки"
+
+msgid "Astronomy"
+msgstr "Астрономия"
+
+msgid "Biology"
+msgstr "Биология"
+
+msgid "Chemistry"
+msgstr "Химия"
+
+msgid "Computer science"
+msgstr "Компьютерные науки"
+
+msgid "Geosciences"
+msgstr "Науки о земле"
+
+msgid "Mathematics"
+msgstr "Математика"
+
+msgid "Medicine"
+msgstr "Медицина"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Physics"
+msgstr "Физика"
+
+msgid "Security"
+msgstr "Безопасность"
+
+msgid "Antivirus"
+msgstr "Антивирус"
+
+msgid "Networking"
+msgstr "Сети"
+
+msgid "Shells"
+msgstr "Интерпретаторы команд"
+
+msgid "Sound"
+msgstr "Звук"
+
+msgid "System"
+msgstr "Система"
+
+msgid "Base"
+msgstr "Основа"
+
+msgid "Configuration"
+msgstr "Настройка"
+
+msgid "Boot and Init"
+msgstr "Загрузка и инициализация"
+
+msgid "Hardware"
+msgstr "Оборудование"
+
+msgid "Networking"
+msgstr "Сеть"
+
+msgid "Other"
+msgstr "Прочее"
+
+msgid "Packaging"
+msgstr "Пакеты"
+
+msgid "Printing"
+msgstr "Печать"
+
+msgid "Fonts"
+msgstr "Шрифты"
+
+msgid "Console"
+msgstr "Консольные"
+
+msgid "True type"
+msgstr "True type"
+
+msgid "Type1"
+msgstr "Type1"
+
+msgid "X11 bitmap"
+msgstr "X11 растровые"
+
+msgid "Internationalization"
+msgstr "Интернационализация"
+
+msgid "Kernel and hardware"
+msgstr "Ядро и оборудование"
+
+msgid "Libraries"
+msgstr "Библиотеки"
+
+msgid "Legacy libraries"
+msgstr "Устаревшие библиотеки"
+
+msgid "Servers"
+msgstr "Серверы"
+
+msgid "ZProducts"
+msgstr "ZProducts"
+
+msgid "X11"
+msgstr "X11"
+
+msgid "XFree86"
+msgstr "XFree86"
+
+msgid "Terminals"
+msgstr "Терминалы"
+
+msgid "Text tools"
+msgstr "Работа с текстами"
+
+msgid "Toys"
+msgstr "Развлечения"
+
+msgid "Video"
+msgstr "Видео"

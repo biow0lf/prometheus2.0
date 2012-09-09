@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
-"POT-Creation-Date: 2012-08-29 03:01+0300\n"
+"POT-Creation-Date: 2012-09-09 07:42+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -84,14 +84,50 @@ msgstr ""
 msgid "About"
 msgstr "Про проект"
 
+msgid "Accessibility"
+msgstr ""
+
+msgid "Adventure"
+msgstr ""
+
+msgid "Antivirus"
+msgstr ""
+
+msgid "Arcade"
+msgstr ""
+
+msgid "Archiving"
+msgstr ""
+
 msgid "Are you sure?"
+msgstr ""
+
+msgid "Astronomy"
 msgstr ""
 
 msgid "Back"
 msgstr ""
 
+msgid "Backup"
+msgstr ""
+
+msgid "Base"
+msgstr ""
+
+msgid "Biology"
+msgstr ""
+
 msgid "Blog"
 msgstr "Блог"
+
+msgid "Boards"
+msgstr ""
+
+msgid "Books"
+msgstr ""
+
+msgid "Boot and Init"
+msgstr ""
 
 msgid "Bugs and FR"
 msgstr "Bugs and FR"
@@ -106,10 +142,22 @@ msgstr "Час збірки:"
 msgid "Built:"
 msgstr "Час збірки:"
 
+msgid "C"
+msgstr ""
+
+msgid "C++"
+msgstr ""
+
 msgid "CPAN:"
 msgstr ""
 
 msgid "Cancel my account"
+msgstr ""
+
+msgid "Cards"
+msgstr ""
+
+msgid "Cd burning"
 msgstr ""
 
 msgid "Change my password"
@@ -124,16 +172,41 @@ msgstr "Зміни"
 msgid "Changes:"
 msgstr "Зміни:"
 
+msgid "Chat"
+msgstr ""
+
+msgid "Chemistry"
+msgstr ""
+
 msgid "Choose a mirror:"
 msgstr "Виберіть дзеркало:"
 
 msgid "Click the link below to unlock your account:"
 msgstr ""
 
+msgid "Communications"
+msgstr ""
+
+msgid "Compression"
+msgstr ""
+
+msgid "Computer books"
+msgstr ""
+
+msgid "Computer science"
+msgstr ""
+
+#, fuzzy
+msgid "Configuration"
+msgstr "Інформація"
+
 msgid "Confirm my account"
 msgstr ""
 
 msgid "Confirm new password"
+msgstr ""
+
+msgid "Console"
 msgstr ""
 
 msgid "Current maintainer:"
@@ -142,13 +215,31 @@ msgstr "Поточний майнтейнер:"
 msgid "Current version:"
 msgstr "Поточна версія:"
 
+msgid "DNS"
+msgstr ""
+
+msgid "Databases"
+msgstr ""
+
+msgid "Debug"
+msgstr ""
+
+msgid "Debuggers"
+msgstr ""
+
 msgid "Description:"
 msgstr "Опис:"
+
+msgid "Development"
+msgstr ""
 
 msgid "Didn't receive confirmation instructions?"
 msgstr ""
 
 msgid "Didn't receive unlock instructions?"
+msgstr ""
+
+msgid "Documentation"
 msgstr ""
 
 msgid "Download"
@@ -157,22 +248,85 @@ msgstr "Завантажити"
 msgid "Edit my maintainer profile"
 msgstr ""
 
+msgid "Editors"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Educational"
+msgstr ""
+
 msgid "Email:"
+msgstr ""
+
+msgid "Emulators"
+msgstr ""
+
+msgid "Engineering"
 msgstr ""
 
 msgid "English"
 msgstr "English"
 
+msgid "Enlightenment"
+msgstr ""
+
+msgid "Erlang"
+msgstr ""
+
 msgid "FTBFS"
+msgstr ""
+
+msgid "FTN"
+msgstr ""
+
+msgid "FVWM based"
+msgstr ""
+
+msgid "Faqs"
+msgstr ""
+
+msgid "File tools"
+msgstr ""
+
+msgid "File transfer"
+msgstr ""
+
+msgid "Fonts"
 msgstr ""
 
 msgid "Forgot your password?"
 msgstr ""
 
+msgid "Functional"
+msgstr ""
+
+msgid "GNOME"
+msgstr ""
+
+msgid "GNOME and GTK+"
+msgstr ""
+
+msgid "GNUstep"
+msgstr ""
+
+msgid "Games"
+msgstr ""
+
 msgid "Gear"
 msgstr "Gear"
 
+msgid "Geosciences"
+msgstr ""
+
 msgid "Git repo"
+msgstr ""
+
+msgid "Graphical desktop"
+msgstr ""
+
+msgid "Graphics"
 msgstr ""
 
 msgid "Group"
@@ -184,11 +338,26 @@ msgstr ""
 msgid "Groups:"
 msgstr ""
 
+msgid "Hardware"
+msgstr ""
+
+msgid "Haskell"
+msgstr ""
+
 msgid "Home"
 msgstr "Головна"
 
 msgid "Home page:"
 msgstr "Домашня сторінка:"
+
+msgid "Howtos"
+msgstr ""
+
+msgid "IRC"
+msgstr ""
+
+msgid "Icewm"
+msgstr ""
 
 msgid "If you didn't request this, please ignore this email."
 msgstr ""
@@ -202,14 +371,44 @@ msgstr "Інформація"
 msgid "Information:"
 msgstr "Інформація:"
 
+msgid "Instant messaging"
+msgstr ""
+
+msgid "Internationalization"
+msgstr ""
+
 msgid "Jabber ID:"
+msgstr ""
+
+msgid "Java"
+msgstr ""
+
+msgid "KDE"
+msgstr ""
+
+msgid "KDE and QT"
+msgstr ""
+
+msgid "Kernel"
+msgstr ""
+
+msgid "Kernel and hardware"
 msgstr ""
 
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
+msgid "Legacy libraries"
+msgstr ""
+
+msgid "Libraries"
+msgstr ""
+
 msgid "License:"
 msgstr "Ліцензія:"
+
+msgid "Lisp"
+msgstr ""
 
 msgid "List of contributors:"
 msgstr ""
@@ -226,7 +425,19 @@ msgstr "Перелік пакетів, зібраних командою:"
 msgid "List of rpms provided by this srpm:"
 msgstr "Перелік rpm-пакетів, що надаються цим srpm-пакетом:"
 
+msgid "Litterature"
+msgstr ""
+
 msgid "Location:"
+msgstr ""
+
+msgid "MATE"
+msgstr ""
+
+msgid "ML"
+msgstr ""
+
+msgid "Mail"
 msgstr ""
 
 msgid "Mailing list"
@@ -241,11 +452,29 @@ msgstr "Майнтейнер:"
 msgid "Maintainers"
 msgstr "Майнтейнери"
 
+msgid "Mathematics"
+msgstr ""
+
+msgid "Medicine"
+msgstr ""
+
+msgid "Monitoring"
+msgstr ""
+
+msgid "Motif"
+msgstr ""
+
+msgid "Networking"
+msgstr ""
+
 msgid "New SRPMs"
 msgstr ""
 
 msgid "New password"
 msgstr ""
+
+msgid "News"
+msgstr "Новини"
 
 #, fuzzy
 msgid "No such branch!"
@@ -263,8 +492,17 @@ msgstr "Немає такого майнтейнера!"
 msgid "No such team!"
 msgstr "Немає такої команди!"
 
+msgid "Objective-C"
+msgstr ""
+
+msgid "Office"
+msgstr ""
+
 msgid "On your query &quot;"
 msgstr "За запитом &quot;"
+
+msgid "Other"
+msgstr ""
 
 #, fuzzy
 msgid "Other repositories"
@@ -282,11 +520,24 @@ msgstr "Усього пакетів, зібраних майнтейнером:"
 msgid "Packages to rebuild:"
 msgstr ""
 
+#, fuzzy
+msgid "Packaging"
+msgstr "Пакети"
+
+msgid "Perl"
+msgstr ""
+
+msgid "Physics"
+msgstr ""
+
 msgid "Planet"
 msgstr "Планета"
 
 msgid "Portuguese (Brasilian)"
 msgstr "Portuguese (Brasilian)"
+
+msgid "Printing"
+msgstr ""
 
 msgid "Project Prometheus"
 msgstr "Проект Prometheus"
@@ -397,6 +648,18 @@ msgstr "Prometheus 2.0 - Команда &laquo;"
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
 
+msgid "Publishing"
+msgstr ""
+
+msgid "Puzzles"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Python3"
+msgstr ""
+
 msgid "RPM filter for rsync"
 msgstr ""
 
@@ -412,6 +675,9 @@ msgstr "RSS"
 msgid "Raw spec file"
 msgstr ""
 
+msgid "Remote access"
+msgstr ""
+
 msgid "Repocop"
 msgstr "Repocop"
 
@@ -424,11 +690,26 @@ msgstr ""
 msgid "Resend unlock instructions"
 msgstr ""
 
+msgid "Rox"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
 msgid "Russian"
 msgstr "Russian"
 
 msgid "SRPMs:"
 msgstr "Пакетів:"
+
+msgid "Sawfish"
+msgstr ""
+
+msgid "Scheme"
+msgstr ""
+
+msgid "Sciences"
+msgstr ""
 
 msgid "Search"
 msgstr "Пошук"
@@ -443,6 +724,12 @@ msgid "Select branch:"
 msgstr ""
 
 msgid "Send me reset password instructions"
+msgstr ""
+
+msgid "Servers"
+msgstr ""
+
+msgid "Shells"
 msgstr ""
 
 msgid "Sign in"
@@ -481,6 +768,9 @@ msgstr "Розмір архіва:"
 msgid "Someone has requested a link to change your password, and you can do this through the link below."
 msgstr ""
 
+msgid "Sound"
+msgstr ""
+
 msgid "Source RPM:"
 msgstr ""
 
@@ -493,17 +783,32 @@ msgstr ""
 msgid "Specfile is not UTF-8 valid."
 msgstr ""
 
+msgid "Sports"
+msgstr ""
+
+msgid "Strategy"
+msgstr ""
+
+msgid "Sugar"
+msgstr ""
+
 msgid "Summary"
 msgstr "Про пакет"
 
 msgid "Summary:"
 msgstr "Про пакет:"
 
+msgid "System"
+msgstr ""
+
 msgid "TOP RPMs"
 msgstr "TOP пакети"
 
 msgid "TOP maintainers"
 msgstr "TOP майнтейнери"
+
+msgid "Tcl"
+msgstr ""
 
 msgid "Team leader:"
 msgstr "Лідер команди:"
@@ -517,6 +822,12 @@ msgstr "Команда:"
 msgid "Teams"
 msgstr "Команди розробників"
 
+msgid "Terminals"
+msgstr ""
+
+msgid "Text tools"
+msgstr ""
+
 #, fuzzy
 msgid "There are no bugreports against this package"
 msgstr "Для цього пакета не знайдено жодного запису в ALT Bugzilla"
@@ -527,11 +838,23 @@ msgstr ""
 msgid "Time Zone:"
 msgstr ""
 
+msgid "Tools"
+msgstr ""
+
 msgid "Total records:"
 msgstr "Усього записів:"
 
 msgid "Total:"
 msgstr "Усього записів:"
+
+msgid "Toys"
+msgstr ""
+
+msgid "True type"
+msgstr ""
+
+msgid "Type1"
+msgstr ""
 
 msgid "Ukrainian"
 msgstr "Ukrainian"
@@ -551,16 +874,40 @@ msgstr ""
 msgid "Url"
 msgstr "Url"
 
+msgid "Video"
+msgstr ""
+
+msgid "WWW"
+msgstr ""
+
 msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
 msgstr "Wiki"
 
+msgid "Window Maker"
+msgstr ""
+
+msgid "X11"
+msgstr ""
+
+msgid "X11 bitmap"
+msgstr ""
+
+msgid "XFce"
+msgstr ""
+
+msgid "XFree86"
+msgstr ""
+
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."
+msgstr ""
+
+msgid "ZProducts"
 msgstr ""
 
 msgid "about Prometheus project"
@@ -797,9 +1144,6 @@ msgstr ""
 
 #~ msgid "&raquo; - Repocop"
 #~ msgstr "&raquo; - Repocop"
-
-#~ msgid "News"
-#~ msgstr "Новини"
 
 #, fuzzy
 #~ msgid "Prometheus 2.0 - Group - %s"
