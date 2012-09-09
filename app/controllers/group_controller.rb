@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class GroupController < ApplicationController
-  before_filter :load_branch
+#  before_filter :load_branch
 
   def index
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
@@ -19,6 +19,6 @@ class GroupController < ApplicationController
       end
     end
     render status: 404, action: 'nosuchgroup' and return if @group == nil
-    @srpms = @group.srpms.find(:all, order: 'LOWER(name)')
+    @srpms = @group.srpms.order('LOWER(name)').page(params[:page]).per(300)
   end
 end
