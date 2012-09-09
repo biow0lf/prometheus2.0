@@ -1,4 +1,3 @@
-
 N_('Accessibility')
 N_('Adventure')
 N_('Antivirus')
