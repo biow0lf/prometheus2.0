@@ -28,7 +28,7 @@ class Maintainer < ActiveRecord::Base
   def self.import(maintainer)
     name = maintainer.split('<')[0].chomp
     name.strip!
-    email = maintainer.chop.split('<')[1]
+    email = maintainer.chop.split('<')[1].split('>')[0]
     email.downcase!
     email = Maintainer.new.fix_maintainer_email(email)
     login = email.split('@')[0]
