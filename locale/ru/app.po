@@ -1,5 +1,6 @@
 # This file is distributed under the same license as the prometheus package.
-# Igor Zubkov <igor.zubkov@gmail.com>, 2009-2012
+# Igor Zubkov <icesik@altlinux.org>, 2009-2012
+# Motsyo Gennadi <drool@altlinux.ru>, 2012.
 #
 msgid ""
 msgstr ""
@@ -101,13 +102,13 @@ msgid "ALT Linux Team - Sisyphus packages info"
 msgstr ""
 
 msgid "ALT Linux Team - wiki"
-msgstr ""
+msgstr "ALT Linux Team - вики"
 
 msgid "ALT Linux repos"
-msgstr ""
+msgstr "Репозитории ALT Linux"
 
 msgid "ALT Linux repositories"
-msgstr ""
+msgstr "Репозитории ALT Linux"
 
 msgid "About"
 msgstr "О проекте"
