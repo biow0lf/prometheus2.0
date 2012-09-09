@@ -161,7 +161,7 @@ msgid "Bugs and FR"
 msgstr "Bugs and FR"
 
 msgid "Bugs/FR statistics assigned to this maintainer"
-msgstr "статистика по кол-ву bugs/FR, адресованных данному маинтейнеру"
+msgstr "статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"
 
 msgid "Build time:"
 msgstr "Время сборки:"
@@ -236,7 +236,7 @@ msgid "Console"
 msgstr "Консольные"
 
 msgid "Current maintainer:"
-msgstr "Текущий маинтейнер:"
+msgstr "Текущий майнтейнер:"
 
 msgid "Current version:"
 msgstr "Текущая версия:"
@@ -443,7 +443,7 @@ msgid "List of packages needing rebuild without \"%undefine _configure_target\" 
 msgstr "Список пакетов, которые необходимо пересобрать без хака \"%undefine _configure_target\":"
 
 msgid "List of packages which was built by this maintainer:"
-msgstr "Список пакетов, собранных маинтейнером:"
+msgstr "Список пакетов, собранных майнтейнером:"
 
 msgid "List of packages:"
 msgstr "Список пакетов собранных командой:"
@@ -473,10 +473,10 @@ msgid "Main"
 msgstr "Главная"
 
 msgid "Maintainer:"
-msgstr "Маинтейнер:"
+msgstr "Майнтейнер:"
 
 msgid "Maintainers"
-msgstr "Маинтейнеры"
+msgstr "Майнтейнеры"
 
 msgid "Mathematics"
 msgstr "Математика"
@@ -512,7 +512,7 @@ msgid "No such package!"
 msgstr "Нет такого пакета!"
 
 msgid "No such packager!"
-msgstr "Нет такого маинтейнера!"
+msgstr "Нет такого майнтейнера!"
 
 msgid "No such team!"
 msgstr "Нет такой команды!"
@@ -539,7 +539,7 @@ msgid "Packages"
 msgstr "Пакеты"
 
 msgid "Packages built by this maintainer:"
-msgstr "Всего пакетов собранных маинтейнером:"
+msgstr "Всего пакетов собранных майнтейнером:"
 
 msgid "Packages to rebuild:"
 msgstr "Список пакетов на пересборку:"
@@ -581,34 +581,34 @@ msgid "Prometheus 2.0 - Intro"
 msgstr "Prometheus 2.0 - Intro"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo;"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - ACL"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - ACL"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - ACL"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Bugs and FR"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Bugs and FR"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR (All)"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Bugs and FR (All)"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Bugs and FR (All)"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - FTBFS"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - FTBFS"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Gear"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Gear"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Gear"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Packages"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Пакеты"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Пакеты"
 
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop"
-msgstr "Prometheus 2.0 - Маинтейнер &laquo;%s&raquo; - Repocop"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - Repocop"
 
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
 
 msgid "Prometheus 2.0 - Maintainers &amp; Teams"
-msgstr "Prometheus 2.0 - Маинтейнеры и команды разработчиков"
+msgstr "Prometheus 2.0 - Майнтейнеры и команды разработчиков"
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
 msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo;"
@@ -815,7 +815,7 @@ msgid "TOP RPMs"
 msgstr "TOP пакеты"
 
 msgid "TOP maintainers"
-msgstr "TOP маинтейнеры"
+msgstr "TOP майнтейнеры"
 
 msgid "Tcl"
 msgstr "Tcl"
@@ -1004,7 +1004,7 @@ msgid "information about SRPM"
 msgstr "просмотреть информацию о пакете"
 
 msgid "information about maintainer"
-msgstr "просмотреть информацию о маинтейнере"
+msgstr "просмотреть информацию о майнтейнере"
 
 msgid "information about the packager"
 msgstr "информация о сборщике"
@@ -1019,7 +1019,7 @@ msgid "list of bugs and feature requests"
 msgstr "список багов и предложений по улучшению"
 
 msgid "maintainers information"
-msgstr "информация о маинтейнерах"
+msgstr "информация о майнтейнерах"
 
 msgid "message"
 msgstr "сообщение"
@@ -1040,7 +1040,7 @@ msgid "packages information"
 msgstr "информация о пакетах"
 
 msgid "packages which was built by this maintainer"
-msgstr "просмотреть пакеты, собранные маинтейнером"
+msgstr "просмотреть пакеты, собранные майнтейнером"
 
 msgid "repo<br/>cop"
 msgstr "repo<br/>cop"
