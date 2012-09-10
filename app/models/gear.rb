@@ -31,7 +31,7 @@ class Gear < ActiveRecord::Base
       if maintainer.nil?
         puts "#{Time.now.to_s}: maintainer not found '#{login}'"
       elsif srpm.nil?
-        puts "#{Time.now.to_s}: srpm not found '#{package.gsub(/\.git/,'')}'"
+#        puts "#{Time.now.to_s}: srpm not found '#{package.gsub(/\.git/,'')}'"
       else
         Gear.create(repo: package.gsub(/\.git/,''), maintainer: maintainer, lastchange: time, srpm: srpm)
       end
