@@ -25,15 +25,15 @@ namespace :"40" do
     branch = Branch.where(name: '4.0', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/4.0/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/4.0/files/SRPMS/')
-    puts "#{Time.now.to_s}: end"
+#    puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from 4.0 to database"
     pathes = ['/ALT/4.0/files/i586/RPMS/*.i586.rpm',
               '/ALT/4.0/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/4.0/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
-    puts "#{Time.now.to_s}: end"
+#    puts "#{Time.now.to_s}: end"
     # TODO: review and cleanup this code
-    puts "#{Time.now.to_s}: expire cache"
+#    puts "#{Time.now.to_s}: expire cache"
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_top15_#{branch.name}")
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
@@ -42,16 +42,16 @@ namespace :"40" do
         ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_#{page}")
       end
     end
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update acls in redis cache"
+#    puts "#{Time.now.to_s}: end"
+#    puts "#{Time.now.to_s}: update acls in redis cache"
     Acl.update_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update leaders in redis cache"
+#    puts "#{Time.now.to_s}: end"
+#    puts "#{Time.now.to_s}: update leaders in redis cache"
     Leader.update_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update time"
+#    puts "#{Time.now.to_s}: end"
+#    puts "#{Time.now.to_s}: update time"
     $redis.set("#{branch.name}:updated_at", Time.now.to_s)
-    puts "#{Time.now.to_s}: end"
+#    puts "#{Time.now.to_s}: end"
     $redis.del('__SYNC__')
   end
 
