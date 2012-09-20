@@ -8,7 +8,8 @@ every 1.hour do
 end
 
 every 1.day, :at => '00:10' do
-  rake 'db:backup ts:index'
+##  rake 'db:backup ts:index'
+  rake 'ts:index'
 end
 
 ##every '5 1-23 * * *' do
