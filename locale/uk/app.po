@@ -179,9 +179,8 @@ msgstr ""
 msgid "Computer science"
 msgstr ""
 
-#, fuzzy
 msgid "Configuration"
-msgstr "Інформація"
+msgstr ""
 
 msgid "Confirm my account"
 msgstr ""
@@ -462,9 +461,8 @@ msgstr ""
 msgid "News"
 msgstr "Новини"
 
-#, fuzzy
 msgid "No such branch!"
-msgstr "Немає такої команди!"
+msgstr ""
 
 msgid "No such group!"
 msgstr ""
@@ -490,9 +488,8 @@ msgstr "За запитом &quot;"
 msgid "Other"
 msgstr ""
 
-#, fuzzy
 msgid "Other repositories"
-msgstr "наявність пакета в репозитаріях gear"
+msgstr ""
 
 msgid "Package groups"
 msgstr "Групи пакетів"
@@ -506,9 +503,8 @@ msgstr "Усього пакетів, зібраних майнтейнером:"
 msgid "Packages to rebuild:"
 msgstr ""
 
-#, fuzzy
 msgid "Packaging"
-msgstr "Пакети"
+msgstr ""
 
 msgid "Patches"
 msgstr ""
@@ -531,9 +527,8 @@ msgstr ""
 msgid "Project Prometheus"
 msgstr "Проект Prometheus"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
 msgid "Prometheus 2.0 - Group - Error!"
 msgstr ""
@@ -547,37 +542,29 @@ msgstr "Prometheus 2.0 - Інформація про проект"
 msgid "Prometheus 2.0 - Intro"
 msgstr "Prometheus 2.0 - Intro"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Майнтейнер &laquo;"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo;"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - ACL"
-msgstr "Prometheus 2.0 - Майнтейнер &laquo;"
+msgstr "Prometheus 2.0 - Майнтейнер &laquo;%s&raquo; - ACL"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Bugs and FR (All)"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Gear"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Packages"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
@@ -614,9 +601,8 @@ msgstr "Prometheus 2.0 - Команда &laquo;"
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
 msgstr "Prometheus 2.0 - Команда &laquo;"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
 msgid "Prometheus 2.0 - Package - Error!"
 msgstr "Prometheus 2.0 - Package - Error!"
@@ -630,9 +616,8 @@ msgstr "Prometheus 2.0 - Пошук по сайту"
 msgid "Prometheus 2.0 - Security"
 msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Team &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
@@ -905,9 +890,8 @@ msgstr "назад"
 msgid "any"
 msgstr ""
 
-#, fuzzy
 msgid "arch"
-msgstr "Пошук"
+msgstr ""
 
 msgid "blog"
 msgstr "блог про sisyphus"
@@ -1100,65 +1084,3 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
-
-#~ msgid " - Changelog"
-#~ msgstr " - Changelog"
-
-#~ msgid " - Gear"
-#~ msgstr " - Gear"
-
-#~ msgid " - Repocop"
-#~ msgstr " - Repocop"
-
-#~ msgid " - Spec"
-#~ msgstr " - Спек"
-
-#~ msgid "&raquo;"
-#~ msgstr "&raquo;"
-
-#~ msgid "&raquo; - ACL"
-#~ msgstr "&raquo; - ACL"
-
-#~ msgid "&raquo; - Bugs and FR"
-#~ msgstr "&raquo; - Bugs and FR"
-
-#~ msgid "&raquo; - Bugs and FR (All)"
-#~ msgstr "&raquo; - Bugs and FR (All)"
-
-#~ msgid "&raquo; - Gear"
-#~ msgstr "&raquo; - Gear"
-
-#~ msgid "&raquo; - Packages"
-#~ msgstr "&raquo; - Пакети"
-
-#~ msgid "&raquo; - Repocop"
-#~ msgstr "&raquo; - Repocop"
-
-#, fuzzy
-#~ msgid "Prometheus 2.0 - Group - %s"
-#~ msgstr "Prometheus 2.0 - Intro"
-
-#~ msgid "Prometheus 2.0 - News"
-#~ msgstr "Prometheus 2.0 - Новини"
-
-#~ msgid "Prometheus 2.0 - Package "
-#~ msgstr "Prometheus 2.0 - Пакет "
-
-#, fuzzy
-#~ msgid "Prometheus 2.0 - Package %s"
-#~ msgstr "Prometheus 2.0 - Пакет "
-
-#, fuzzy
-#~ msgid "Prometheus 2.0 - Package %s - Download"
-#~ msgstr "Prometheus 2.0 - Пакет "
-
-#, fuzzy
-#~ msgid "Prometheus 2.0 - Package %s - Repocop"
-#~ msgstr "Prometheus 2.0 - Пакет "
-
-#, fuzzy
-#~ msgid "Prometheus 2.0 - Package %s - Spec"
-#~ msgstr "Prometheus 2.0 - Пакет "
-
-#~ msgid "site news"
-#~ msgstr "новини сайта"

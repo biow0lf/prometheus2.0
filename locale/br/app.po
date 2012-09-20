@@ -1070,6 +1070,3 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
-
-#~ msgid "site news"
-#~ msgstr "notícias do website"
