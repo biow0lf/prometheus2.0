@@ -38,7 +38,7 @@ GEM
     backup-task (0.2.0)
       backup (~> 3.0.9)
     bcrypt-ruby (3.0.1)
-    blankslate (2.1.2.4)
+    blankslate (3.1.2)
     brewdler (0.2.0)
       commander
     builder (3.0.0)
