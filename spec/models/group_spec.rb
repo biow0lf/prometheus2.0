@@ -59,20 +59,6 @@ describe Group do
     Group.all.third.parent_id.should == Group.all.second.id
   end
 
-  it "should allow translate Group.name to russian" do
-    I18n.locale = :en
-    branch = FactoryGirl.create(:branch)
-    Group.create(branch_id: branch.id, name: 'Toys')
-    I18n.locale = :ru
-    group = Group.all.first
-    group.name = 'Развлечения'
-    group.save!
-    I18n.locale = :en
-    Group.first.name.should == 'Toys'
-    I18n.locale = :ru
-    Group.first.name.should == 'Развлечения'
-  end
-
   it "should return group instance with id for 'Boot and Init'" do
     branch = FactoryGirl.create(:branch)
     Group.import(branch, 'System/Configuration/Boot and Init')
