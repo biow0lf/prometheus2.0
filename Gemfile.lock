@@ -116,8 +116,8 @@ GEM
     ffi (1.0.11)
     gettext (2.2.1)
       locale
-    gettext_i18n_rails (0.6.6)
-      fast_gettext
+    gettext_i18n_rails (0.7.1)
+      fast_gettext (>= 0.4.8)
     gherkin (2.11.2)
       json (>= 1.4.6)
     growl (1.0.3)
