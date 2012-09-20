@@ -149,7 +149,7 @@ GEM
     libwebsocket (0.1.5)
       addressable
     listen (0.5.1)
-    locale (2.0.6)
+    locale (2.0.8)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
