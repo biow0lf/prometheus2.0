@@ -26,7 +26,7 @@ gem 'kaminari'
 gem 'everywhere'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
-gem 'gettext', '2.2.1', :require => false
+gem 'gettext', :require => false
 gem 'whenever', :require => false
 gem 'nested_set'
 gem 'thinking-sphinx'
