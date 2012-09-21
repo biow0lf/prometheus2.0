@@ -77,9 +77,9 @@
               <td>
                 <%= text_field_tag :query, params[:query] ? params[:query] : "", :placeholder => _('Search...'), :class => 'top-name', :size => '18' %>
               </td>
-              <td valign="middle">
-                <input type="submit" class="top-go" id="sub1" value="<%= _('find') %>" onmouseover="m_on('sub1')"
-                onmouseout="m_off('sub1')" />
+              <td valign='middle'>
+                <input type='submit' class='top-go' id='sub1' value="<%= _('find') %>"
+                       onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
               </td>
             </tr>
           </table>
@@ -147,7 +147,7 @@
           <%= link_to _('Wiki'), _('http://en.altlinux.org/Sisyphus'), :title => _('sisyphus public site') %>
         </div>
       </li>
-      <% if I18n.locale == 'ru' %>
+      <% if I18n.locale == :ru %>
         <li id='li9' onmouseout="m_off('li9')" onmouseover="m_on('li9')">
           <div id='dli9'>
             <%= link_to _('Blog'), _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'), :title => _('blog') %>
