@@ -14,6 +14,7 @@ class HomeController < ApplicationController
 
   def maintainers_list
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branches = Branch.order('order_id').all
     @maintainers = Maintainer.order(:name)
     @teams = MaintainerTeam.order(:name)
   end

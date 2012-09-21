@@ -1,6 +1,30 @@
 <% title _('Prometheus 2.0 - Maintainers &amp; Teams') %>
 
 <div id='main-content'>
+
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= _('ALT Linux repositories') %>">
+  <%= _('ALT Linux repositories') %>
+</div>
+<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<% @branches.each do |branch| %>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to branch.name, maintainers_path(branch), :class => 'news' %>
+  </td>
+  <td style="text-align: right;"><%= Srpm.count_srpms(branch) %></td>
+</tr>
+<% end %>
+
+</table>
+</div>
+</div>
+
   <table style='font-size: 10pt;' width='100%'>
     <tr>
       <th><%= _('Maintainers') %></th>
