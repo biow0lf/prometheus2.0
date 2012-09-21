@@ -149,7 +149,7 @@ msgid "Build time:"
 msgstr "Время сборки:"
 
 msgid "Built:"
-msgstr ""
+msgstr "Собрано:"
 
 msgid "C"
 msgstr ""
@@ -254,7 +254,7 @@ msgid "Download"
 msgstr "Загрузить"
 
 msgid "Edit my maintainer profile"
-msgstr ""
+msgstr "Редактировать мой профиль майнтейнера"
 
 msgid "Editors"
 msgstr "Редакторы"
@@ -371,7 +371,7 @@ msgid "Igor Zubkov"
 msgstr "Игорь Зубков"
 
 msgid "Info:"
-msgstr ""
+msgstr "Информация:"
 
 msgid "Information"
 msgstr "Информация"
@@ -437,7 +437,7 @@ msgid "Litterature"
 msgstr "Литература"
 
 msgid "Location:"
-msgstr ""
+msgstr "Расположение:"
 
 msgid "MATE"
 msgstr ""
@@ -512,7 +512,7 @@ msgid "Other"
 msgstr "Прочее"
 
 msgid "Other repositories"
-msgstr ""
+msgstr "Прочие репозитории"
 
 msgid "Package groups"
 msgstr "Группы пакетов"
@@ -551,7 +551,7 @@ msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
 msgstr "Prometheus 2.0 - Группa &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Group - Error!"
-msgstr ""
+msgstr "Prometheus 2.0 - Группа не найдена!"
 
 msgid "Prometheus 2.0 - Groups"
 msgstr "Prometheus 2.0 - Группы"
@@ -620,7 +620,7 @@ msgid "Prometheus 2.0 - Package - Error!"
 msgstr ""
 
 msgid "Prometheus 2.0 - Rsync Exclude"
-msgstr ""
+msgstr "Prometheus 2.0 - Исключения Rsync"
 
 msgid "Prometheus 2.0 - Search"
 msgstr "Prometheus 2.0 - Поиск по сайту"
@@ -719,7 +719,7 @@ msgid "Sign in"
 msgstr "Войти"
 
 msgid "Sign out"
-msgstr ""
+msgstr "Выйти"
 
 msgid "Sign up"
 msgstr "Зарегистрироватся"
@@ -813,7 +813,7 @@ msgid "Text tools"
 msgstr "Работа с текстами"
 
 msgid "There are no bugreports against this package"
-msgstr ""
+msgstr "По этому пакету нет сообщений об ошибках"
 
 msgid "Time"
 msgstr ""
@@ -846,10 +846,10 @@ msgid "Unlock my account"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Обновить"
 
 msgid "Update personal maintainer info"
-msgstr ""
+msgstr "Обновить персональную информацию майнтейнера"
 
 msgid "Url"
 msgstr ""
@@ -861,7 +861,7 @@ msgid "WWW"
 msgstr ""
 
 msgid "Website/Blog:"
-msgstr ""
+msgstr "Сайт/Блог:"
 
 msgid "Wiki"
 msgstr ""
