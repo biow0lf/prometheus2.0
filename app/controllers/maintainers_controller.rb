@@ -7,7 +7,7 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    @acls = $redis.smembers("Sisyphus:maintainers:#{params[:id].downcase}").count
+    @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
