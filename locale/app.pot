@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 18:22+0300\n"
+"POT-Creation-Date: 2012-09-21 13:52+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -244,9 +244,6 @@ msgid "Emulators"
 msgstr ""
 
 msgid "Engineering"
-msgstr ""
-
-msgid "English"
 msgstr ""
 
 msgid "Enlightenment"
@@ -516,9 +513,6 @@ msgstr ""
 msgid "Planet"
 msgstr ""
 
-msgid "Portuguese (Brasilian)"
-msgstr ""
-
 msgid "Printing"
 msgstr ""
 
@@ -657,9 +651,6 @@ msgid "Rox"
 msgstr ""
 
 msgid "Ruby"
-msgstr ""
-
-msgid "Russian"
 msgstr ""
 
 msgid "SRPMs:"
@@ -812,9 +803,6 @@ msgstr ""
 msgid "Type1"
 msgstr ""
 
-msgid "Ukrainian"
-msgstr ""
-
 msgid "Unhappy?"
 msgstr ""
 
@@ -884,9 +872,6 @@ msgstr ""
 msgid "blog"
 msgstr ""
 
-msgid "br"
-msgstr ""
-
 msgid "branch"
 msgstr ""
 
@@ -909,9 +894,6 @@ msgid "detailed information about the package"
 msgstr ""
 
 msgid "download latest version"
-msgstr ""
-
-msgid "en"
 msgstr ""
 
 msgid "find"
@@ -1010,9 +992,6 @@ msgstr ""
 msgid "resolution"
 msgstr ""
 
-msgid "ru"
-msgstr ""
-
 msgid "security fixes"
 msgstr ""
 
@@ -1062,9 +1041,6 @@ msgid "tips and tricks"
 msgstr ""
 
 msgid "total"
-msgstr ""
-
-msgid "uk"
 msgstr ""
 
 msgid "we need your current password to confirm your changes"

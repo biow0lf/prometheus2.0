@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 18:22+0300\n"
+"POT-Creation-Date: 2012-09-21 13:52+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -277,9 +277,6 @@ msgstr "Эмуляторы"
 msgid "Engineering"
 msgstr "Технические приложения"
 
-msgid "English"
-msgstr ""
-
 msgid "Enlightenment"
 msgstr ""
 
@@ -547,9 +544,6 @@ msgstr "Физика"
 msgid "Planet"
 msgstr "Планета"
 
-msgid "Portuguese (Brasilian)"
-msgstr ""
-
 msgid "Printing"
 msgstr "Печать"
 
@@ -689,9 +683,6 @@ msgid "Rox"
 msgstr ""
 
 msgid "Ruby"
-msgstr ""
-
-msgid "Russian"
 msgstr ""
 
 msgid "SRPMs:"
@@ -851,9 +842,6 @@ msgstr ""
 msgid "Type1"
 msgstr ""
 
-msgid "Ukrainian"
-msgstr ""
-
 msgid "Unhappy?"
 msgstr ""
 
@@ -923,9 +911,6 @@ msgstr ""
 msgid "blog"
 msgstr "блог о sisyphus"
 
-msgid "br"
-msgstr ""
-
 msgid "branch"
 msgstr ""
 
@@ -949,9 +934,6 @@ msgstr "подробная информация о пакете"
 
 msgid "download latest version"
 msgstr "загрузить последнюю версию пакета"
-
-msgid "en"
-msgstr ""
 
 msgid "find"
 msgstr "искать"
@@ -1049,9 +1031,6 @@ msgstr "сообщено"
 msgid "resolution"
 msgstr "разрешение"
 
-msgid "ru"
-msgstr ""
-
 msgid "security fixes"
 msgstr "исправления уязвимостей"
 
@@ -1102,9 +1081,6 @@ msgstr "полезные советы"
 
 msgid "total"
 msgstr "все баги"
-
-msgid "uk"
-msgstr ""
 
 msgid "we need your current password to confirm your changes"
 msgstr ""

@@ -103,10 +103,10 @@
       <% end %>
     </div>
     <div style='text-align: right'>
-      <%= link_to_unless_current _('en'), current_page(request.fullpath, 'en'), :title => _('English') %> 
-      <%= link_to_unless_current _('ru'), current_page(request.fullpath, 'ru'), :title => _('Russian') %> 
-      <%= link_to_unless_current _('uk'), current_page(request.fullpath, 'uk'), :title => _('Ukrainian') %> 
-      <%= link_to_unless_current _('br'), current_page(request.fullpath, 'br'), :title => _('Portuguese (Brasilian)') %>
+      <%= link_to_unless_current 'en', current_page(request.fullpath, 'en'), :title => 'English' %> 
+      <%= link_to_unless_current 'ru', current_page(request.fullpath, 'ru'), :title => 'Russian' %> 
+      <%= link_to_unless_current 'uk', current_page(request.fullpath, 'uk'), :title => 'Ukrainian' %> 
+      <%= link_to_unless_current 'br', current_page(request.fullpath, 'br'), :title => 'Portuguese (Brasilian)' %>
     </div>
   </div>
 

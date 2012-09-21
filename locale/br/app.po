@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 18:22+0300\n"
+"POT-Creation-Date: 2012-09-21 13:52+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -241,9 +241,6 @@ msgid "Emulators"
 msgstr ""
 
 msgid "Engineering"
-msgstr ""
-
-msgid "English"
 msgstr ""
 
 msgid "Enlightenment"
@@ -513,9 +510,6 @@ msgstr ""
 msgid "Planet"
 msgstr ""
 
-msgid "Portuguese (Brasilian)"
-msgstr ""
-
 msgid "Printing"
 msgstr ""
 
@@ -655,9 +649,6 @@ msgid "Rox"
 msgstr ""
 
 msgid "Ruby"
-msgstr ""
-
-msgid "Russian"
 msgstr ""
 
 msgid "SRPMs:"
@@ -810,9 +801,6 @@ msgstr ""
 msgid "Type1"
 msgstr ""
 
-msgid "Ukrainian"
-msgstr ""
-
 msgid "Unhappy?"
 msgstr ""
 
@@ -882,9 +870,6 @@ msgstr ""
 msgid "blog"
 msgstr ""
 
-msgid "br"
-msgstr ""
-
 msgid "branch"
 msgstr ""
 
@@ -907,9 +892,6 @@ msgid "detailed information about the package"
 msgstr ""
 
 msgid "download latest version"
-msgstr ""
-
-msgid "en"
 msgstr ""
 
 msgid "find"
@@ -1008,9 +990,6 @@ msgstr ""
 msgid "resolution"
 msgstr ""
 
-msgid "ru"
-msgstr ""
-
 msgid "security fixes"
 msgstr "as correções de segurança"
 
@@ -1060,9 +1039,6 @@ msgid "tips and tricks"
 msgstr "dicas e truques"
 
 msgid "total"
-msgstr ""
-
-msgid "uk"
 msgstr ""
 
 msgid "we need your current password to confirm your changes"
