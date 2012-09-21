@@ -5,6 +5,7 @@ class MaintainersController < ApplicationController
 
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branches = Branch.order('order_id').all
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count

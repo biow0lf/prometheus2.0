@@ -2,6 +2,29 @@
 
 <div id='main-content'>
 
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= _('ALT Linux repositories') %>">
+  <%= _('ALT Linux repositories') %>
+</div>
+<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<% @branches.each do |branch| %>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to branch.name, maintainer_path(branch, @maintainer), :class => 'news' %>
+  </td>
+  <td style="text-align: right;"><%= $redis.smembers("#{branch.name}:maintainers:#{@maintainer.login}").count %></td>
+</tr>
+<% end %>
+
+</table>
+</div>
+</div>
+
 <div class="header"><%= _('Maintainer:') %> <%= @maintainer.name %></div>
 <p class="break" />
 <span class="current">&nbsp;<b><%= _('Information') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
