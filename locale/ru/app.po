@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 14:11+0300\n"
+"POT-Creation-Date: 2012-09-21 14:58+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -970,9 +970,6 @@ msgstr "просмотреть информацию о пакете"
 
 msgid "information about maintainer"
 msgstr "просмотреть информацию о майнтейнере"
-
-msgid "information about the packager"
-msgstr "информация о сборщике"
 
 msgid "leader"
 msgstr ""

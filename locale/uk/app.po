@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 14:11+0300\n"
+"POT-Creation-Date: 2012-09-21 14:58+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -932,9 +932,6 @@ msgstr "переглянути інформацію про пакет"
 
 msgid "information about maintainer"
 msgstr "переглянути інформацію про майнтейнера"
-
-msgid "information about the packager"
-msgstr "інформація про пакувальника"
 
 msgid "leader"
 msgstr ""

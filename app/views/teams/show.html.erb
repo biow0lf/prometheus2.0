@@ -15,7 +15,7 @@
   <% if @leader %>
     <b><%= _('Team leader:') %></b>
     <% @leader.each do |leader| %>
-      <%= link_to leader.name, maintainer_path(:id => leader.login, :branch => @branch.name), :class => 'news', :title => _('information about the packager') %>
+      <%= link_to leader.name, maintainer_path(:id => leader.login, :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
     <% end %>
     <p class="break"></p>
   <% end %>
@@ -23,7 +23,7 @@
   <b><%= _('Team members:') %></b>
   <ul>
     <% @members.each do |member| %>
-      <li><%= link_to member.name, maintainer_path(:id => member.login), :class => 'news', :title => _('information about the packager') %></li>
+      <li><%= link_to member.name, maintainer_path(:id => member.login), :class => 'news', :title => _('information about maintainer') %></li>
     <% end %>
   </ul>
 
