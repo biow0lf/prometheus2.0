@@ -74,13 +74,13 @@ msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=
 msgstr "<b>Sisyphus</b> &mdash; ежедневно обновляемый репозиторий пакетов свободных программ <abbr title=\"Независимая команда разработчиков ALT Linux\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участие в Sisyphus открыто для всех желающих. В основе Sisyphus лежат технологии сборки программ и учета зависимостей между ними, а также отработанные процессы по взаимодействию между разработчиками. Для использования Sisyphus достаточно наличие любого дистрибутива ALT&nbsp;Linux и средства управления пакетами программ <b>APT</b>. Sisyphus &mdash; это постоянно развивающийся набор решений, на основе которого возможно создание универсальных или специализированных <b>дистрибутивов Linux</b> и <b>одиночных внедрений</b>."
 
 msgid "ACL's"
-msgstr "ACL's"
+msgstr ""
 
 msgid "ACL:"
-msgstr "ACL:"
+msgstr ""
 
 msgid "ALT Linux Planet"
-msgstr "ALT Linux Planet"
+msgstr ""
 
 msgid "ALT Linux Team - Sisyphus packages info"
 msgstr ""
@@ -143,7 +143,7 @@ msgid "Boot and Init"
 msgstr "Загрузка и инициализация"
 
 msgid "Bugs and FR"
-msgstr "Bugs and FR"
+msgstr ""
 
 msgid "Bugs/FR statistics assigned to this maintainer"
 msgstr "статистика по кол-ву bugs/FR, адресованных данному майнтейнеру"
@@ -155,10 +155,10 @@ msgid "Built:"
 msgstr ""
 
 msgid "C"
-msgstr "C"
+msgstr ""
 
 msgid "C++"
-msgstr "C++"
+msgstr ""
 
 msgid "CPAN:"
 msgstr ""
@@ -185,7 +185,7 @@ msgid "Changes:"
 msgstr "Изменения:"
 
 msgid "Chat"
-msgstr "Chat"
+msgstr ""
 
 msgid "Chemistry"
 msgstr "Химия"
@@ -227,7 +227,7 @@ msgid "Current version:"
 msgstr "Текущая версия:"
 
 msgid "DNS"
-msgstr "DNS"
+msgstr ""
 
 msgid "Databases"
 msgstr "Базы данных"
@@ -281,22 +281,22 @@ msgid "English"
 msgstr ""
 
 msgid "Enlightenment"
-msgstr "Enlightenment"
+msgstr ""
 
 msgid "Erlang"
-msgstr "Erlang"
+msgstr ""
 
 msgid "FTBFS"
 msgstr ""
 
 msgid "FTN"
-msgstr "FTN"
+msgstr ""
 
 msgid "FVWM based"
 msgstr "FVWM-подобные"
 
 msgid "Faqs"
-msgstr "Faqs"
+msgstr ""
 
 msgid "File tools"
 msgstr "Работа с файлами"
@@ -314,19 +314,19 @@ msgid "Functional"
 msgstr "Функциональные языки"
 
 msgid "GNOME"
-msgstr "GNOME"
+msgstr ""
 
 msgid "GNOME and GTK+"
 msgstr "GNOME и GTK+"
 
 msgid "GNUstep"
-msgstr "GNUstep"
+msgstr ""
 
 msgid "Games"
 msgstr "Игры"
 
 msgid "Gear"
-msgstr "Gear"
+msgstr ""
 
 msgid "Geosciences"
 msgstr "Науки о земле"
@@ -353,7 +353,7 @@ msgid "Hardware"
 msgstr "Оборудование"
 
 msgid "Haskell"
-msgstr "Haskell"
+msgstr ""
 
 msgid "Home"
 msgstr "Главная"
@@ -362,13 +362,13 @@ msgid "Home page:"
 msgstr "Домашняя страница:"
 
 msgid "Howtos"
-msgstr "Howtos"
+msgstr ""
 
 msgid "IRC"
-msgstr "IRC"
+msgstr ""
 
 msgid "Icewm"
-msgstr "Icewm"
+msgstr ""
 
 msgid "If you didn't request this, please ignore this email."
 msgstr ""
@@ -395,10 +395,10 @@ msgid "Jabber ID:"
 msgstr ""
 
 msgid "Java"
-msgstr "Java"
+msgstr ""
 
 msgid "KDE"
-msgstr "KDE"
+msgstr ""
 
 msgid "KDE and QT"
 msgstr "KDE и QT"
@@ -422,7 +422,7 @@ msgid "License:"
 msgstr "Лицензия:"
 
 msgid "Lisp"
-msgstr "Lisp"
+msgstr ""
 
 msgid "List of contributors:"
 msgstr "Список всех майнтейнеров, принимавших участие<br>в данной и/или предыдущих сборках пакета:"
@@ -446,10 +446,10 @@ msgid "Location:"
 msgstr ""
 
 msgid "MATE"
-msgstr "MATE"
+msgstr ""
 
 msgid "ML"
-msgstr "ML"
+msgstr ""
 
 msgid "Mail"
 msgstr "Почта"
@@ -476,7 +476,7 @@ msgid "Monitoring"
 msgstr "Мониторинг"
 
 msgid "Motif"
-msgstr "Motif"
+msgstr ""
 
 msgid "Networking"
 msgstr "Сеть"
@@ -506,7 +506,7 @@ msgid "No such team!"
 msgstr "Нет такой команды!"
 
 msgid "Objective-C"
-msgstr "Objective-C"
+msgstr ""
 
 msgid "Office"
 msgstr "Офис"
@@ -626,7 +626,7 @@ msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
 msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Спек"
 
 msgid "Prometheus 2.0 - Package - Error!"
-msgstr "Prometheus 2.0 - Package - Error!"
+msgstr ""
 
 msgid "Prometheus 2.0 - Rsync Exclude"
 msgstr ""
@@ -641,7 +641,7 @@ msgid "Prometheus 2.0 - Team &laquo;%s&raquo;"
 msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Team - Error!"
-msgstr "Prometheus 2.0 - Team - Error!"
+msgstr ""
 
 msgid "Publishing"
 msgstr "Издательство"
@@ -686,10 +686,10 @@ msgid "Resend unlock instructions"
 msgstr ""
 
 msgid "Rox"
-msgstr "Rox"
+msgstr ""
 
 msgid "Ruby"
-msgstr "Ruby"
+msgstr ""
 
 msgid "Russian"
 msgstr ""
@@ -698,10 +698,10 @@ msgid "SRPMs:"
 msgstr "Пакетов:"
 
 msgid "Sawfish"
-msgstr "Sawfish"
+msgstr ""
 
 msgid "Scheme"
-msgstr "Scheme"
+msgstr ""
 
 msgid "Sciences"
 msgstr "Науки"
@@ -786,7 +786,7 @@ msgid "Strategy"
 msgstr "Стратегия"
 
 msgid "Sugar"
-msgstr "Sugar"
+msgstr ""
 
 msgid "Summary"
 msgstr "О пакете"
@@ -804,7 +804,7 @@ msgid "TOP maintainers"
 msgstr "TOP майнтейнеры"
 
 msgid "Tcl"
-msgstr "Tcl"
+msgstr ""
 
 msgid "Team leader:"
 msgstr "Лидер команды:"
@@ -846,10 +846,10 @@ msgid "Toys"
 msgstr "Развлечения"
 
 msgid "True type"
-msgstr "True type"
+msgstr ""
 
 msgid "Type1"
-msgstr "Type1"
+msgstr ""
 
 msgid "Ukrainian"
 msgstr ""
@@ -867,34 +867,34 @@ msgid "Update personal maintainer info"
 msgstr ""
 
 msgid "Url"
-msgstr "Url"
+msgstr ""
 
 msgid "Video"
 msgstr "Видео"
 
 msgid "WWW"
-msgstr "WWW"
+msgstr ""
 
 msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
-msgstr "Wiki"
+msgstr ""
 
 msgid "Window Maker"
-msgstr "Window Maker"
+msgstr ""
 
 msgid "X11"
-msgstr "X11"
+msgstr ""
 
 msgid "X11 bitmap"
 msgstr "X11 растровые"
 
 msgid "XFce"
-msgstr "XFce"
+msgstr ""
 
 msgid "XFree86"
-msgstr "XFree86"
+msgstr ""
 
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
@@ -903,7 +903,7 @@ msgid "Your password won't change until you access the link above and create a n
 msgstr ""
 
 msgid "ZProducts"
-msgstr "ZProducts"
+msgstr ""
 
 msgid "about Prometheus project"
 msgstr "проект Prometheus"
@@ -963,7 +963,7 @@ msgid "full changelog"
 msgstr "просмотреть полный changelog пакета"
 
 msgid "gear"
-msgstr "gear"
+msgstr ""
 
 msgid "generate"
 msgstr "сформировать"
@@ -984,7 +984,7 @@ msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
 msgid "id"
-msgstr "id"
+msgstr ""
 
 msgid "information about SRPM"
 msgstr "просмотреть информацию о пакете"
