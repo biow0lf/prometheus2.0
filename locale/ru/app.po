@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 13:56+0300\n"
+"POT-Creation-Date: 2012-09-21 14:11+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -87,9 +87,6 @@ msgstr ""
 
 msgid "ALT Linux Team - wiki"
 msgstr "ALT Linux Team - вики"
-
-msgid "ALT Linux repos"
-msgstr "Репозитории ALT Linux"
 
 msgid "ALT Linux repositories"
 msgstr "Репозитории ALT Linux"

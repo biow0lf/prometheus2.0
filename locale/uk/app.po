@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 13:56+0300\n"
+"POT-Creation-Date: 2012-09-21 14:11+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -55,9 +55,6 @@ msgid "ALT Linux Team - Sisyphus packages info"
 msgstr ""
 
 msgid "ALT Linux Team - wiki"
-msgstr ""
-
-msgid "ALT Linux repos"
 msgstr ""
 
 msgid "ALT Linux repositories"
