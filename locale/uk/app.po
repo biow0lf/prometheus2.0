@@ -39,9 +39,8 @@ msgstr ""
 msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
 msgstr "<b>Q:</b> Як уникнути копіювання безлічі пакетів, необхідність яких, особисто Вам, сумнівна?"
 
-#, fuzzy
 msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
-msgstr "<b>Sisyphus</b> &mdash; репозиторій пакетів вільних програм, який щоденно оновлюється <abbr title=\"Незалежна команда розробників ALT Linux\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участь у Sisyphus відкрита для всіх бажаючих. В основі Sisyphus лежать технології збірки програм та обліку залежностей між ними, а також відпрацьовані процеси по взаємодії між розробниками. Для використання Sisyphus достатньо наявності будь-якого дистрибутива ALT&nbsp;Linux та засобів управління пакетами програм <b>APT</b>. Sisyphus &mdash; це набір рішень, що постійно розвиваються, на основі якого можливе створення універсальних чи спеціалізованих <b>дистрибутивів Linux</b> і <b>одиночних впроваджень</b>."
+msgstr "<b>Sisyphus</b> &mdash; репозиторій пакетів вільних програм, який щоденно оновлюється <abbr title=\"Незалежна команда розробників ALT Linux\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участь у Sisyphus відкрита для всіх бажаючих. В основі Sisyphus лежать технології збірки програм та обліку залежностей між ними, а також відпрацьовані процеси по взаємодії між розробниками. Для використання Sisyphus достатньо наявності будь-якого дистрибутива ALT&nbsp;Linux та засобів управління пакетами програм <b>APT</b>. Sisyphus &mdash; це набір рішень, що постійно розвиваються, на основі якого можливе створення універсальних чи спеціалізованих <b>дистрибутивів Linux</b> і <b>одиночних впроваджень</b>."
 
 msgid "ACL's"
 msgstr "ACL's"
@@ -68,49 +67,49 @@ msgid "About"
 msgstr "Про проект"
 
 msgid "Accessibility"
-msgstr ""
+msgstr "Доступність"
 
 msgid "Adventure"
-msgstr ""
+msgstr "Пригоди"
 
 msgid "Antivirus"
-msgstr ""
+msgstr "Антивірус"
 
 msgid "Arcade"
-msgstr ""
+msgstr "Аркади"
 
 msgid "Archiving"
-msgstr ""
+msgstr "Архівування"
 
 msgid "Are you sure?"
 msgstr ""
 
 msgid "Astronomy"
-msgstr ""
+msgstr "Астрономія"
 
 msgid "Back"
 msgstr ""
 
 msgid "Backup"
-msgstr ""
+msgstr "Резервне копіювання"
 
 msgid "Base"
-msgstr ""
+msgstr "Основа"
 
 msgid "Biology"
-msgstr ""
+msgstr "Біологія"
 
 msgid "Blog"
 msgstr "Блог"
 
 msgid "Boards"
-msgstr ""
+msgstr "Настільні"
 
 msgid "Books"
-msgstr ""
+msgstr "Документація"
 
 msgid "Boot and Init"
-msgstr ""
+msgstr "Завантаження та ініціалізація"
 
 msgid "Bugs and FR"
 msgstr "Bugs and FR"
@@ -121,15 +120,14 @@ msgstr "статистика по к-сті bugs/FR, адресованих да
 msgid "Build time:"
 msgstr "Час збірки:"
 
-#, fuzzy
 msgid "Built:"
-msgstr "Час збірки:"
+msgstr ""
 
 msgid "C"
-msgstr ""
+msgstr "C"
 
 msgid "C++"
-msgstr ""
+msgstr "C++"
 
 msgid "CPAN:"
 msgstr ""
@@ -138,10 +136,10 @@ msgid "Cancel my account"
 msgstr ""
 
 msgid "Cards"
-msgstr ""
+msgstr "Карти"
 
 msgid "Cd burning"
-msgstr ""
+msgstr "Створення CD"
 
 msgid "Change my password"
 msgstr ""
@@ -159,7 +157,7 @@ msgid "Chat"
 msgstr ""
 
 msgid "Chemistry"
-msgstr ""
+msgstr "Хімія"
 
 msgid "Choose a mirror:"
 msgstr "Виберіть дзеркало:"
@@ -168,19 +166,19 @@ msgid "Click the link below to unlock your account:"
 msgstr ""
 
 msgid "Communications"
-msgstr ""
+msgstr "Комунікації"
 
 msgid "Compression"
-msgstr ""
+msgstr "Стиснення"
 
 msgid "Computer books"
-msgstr ""
+msgstr "Комп'ютерна література"
 
 msgid "Computer science"
-msgstr ""
+msgstr "Комп'ютерні науки"
 
 msgid "Configuration"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Confirm my account"
 msgstr ""
@@ -189,7 +187,7 @@ msgid "Confirm new password"
 msgstr ""
 
 msgid "Console"
-msgstr ""
+msgstr "Консольні"
 
 msgid "Current maintainer:"
 msgstr "Поточний майнтейнер:"
@@ -201,19 +199,19 @@ msgid "DNS"
 msgstr ""
 
 msgid "Databases"
-msgstr ""
+msgstr "Бази даних"
 
 msgid "Debug"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Debuggers"
-msgstr ""
+msgstr "Налаштовувачі"
 
 msgid "Description:"
 msgstr "Опис:"
 
 msgid "Development"
-msgstr ""
+msgstr "Розробка"
 
 msgid "Didn't receive confirmation instructions?"
 msgstr ""
@@ -222,7 +220,7 @@ msgid "Didn't receive unlock instructions?"
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Документація"
 
 msgid "Download"
 msgstr "Завантажити"
@@ -231,22 +229,22 @@ msgid "Edit my maintainer profile"
 msgstr ""
 
 msgid "Editors"
-msgstr ""
+msgstr "Редактори"
 
 msgid "Education"
-msgstr ""
+msgstr "Навчання"
 
 msgid "Educational"
-msgstr ""
+msgstr "Навчальні"
 
 msgid "Email:"
 msgstr ""
 
 msgid "Emulators"
-msgstr ""
+msgstr "Емулятори"
 
 msgid "Engineering"
-msgstr ""
+msgstr "Технічні застосування"
 
 msgid "English"
 msgstr "English"
@@ -264,52 +262,52 @@ msgid "FTN"
 msgstr ""
 
 msgid "FVWM based"
-msgstr ""
+msgstr "FVWM-подібні"
 
 msgid "Faqs"
 msgstr ""
 
 msgid "File tools"
-msgstr ""
+msgstr "Робота з файлами"
 
 msgid "File transfer"
-msgstr ""
+msgstr "Передача файлів"
 
 msgid "Fonts"
-msgstr ""
+msgstr "Шрифти"
 
 msgid "Forgot your password?"
 msgstr ""
 
 msgid "Functional"
-msgstr ""
+msgstr "Функціональні мови"
 
 msgid "GNOME"
 msgstr ""
 
 msgid "GNOME and GTK+"
-msgstr ""
+msgstr "GNOME та GTK+"
 
 msgid "GNUstep"
 msgstr ""
 
 msgid "Games"
-msgstr ""
+msgstr "Ігри"
 
 msgid "Gear"
 msgstr "Gear"
 
 msgid "Geosciences"
-msgstr ""
+msgstr "Науки про землю"
 
 msgid "Git repo"
 msgstr ""
 
 msgid "Graphical desktop"
-msgstr ""
+msgstr "Графічні оболонки"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Графіка"
 
 msgid "Group"
 msgstr "Групa"
@@ -321,7 +319,7 @@ msgid "Groups:"
 msgstr ""
 
 msgid "Hardware"
-msgstr ""
+msgstr "Обладнання"
 
 msgid "Haskell"
 msgstr ""
@@ -357,10 +355,10 @@ msgid "Information:"
 msgstr "Інформація:"
 
 msgid "Instant messaging"
-msgstr ""
+msgstr "Миттєві повідомлення"
 
 msgid "Internationalization"
-msgstr ""
+msgstr "Інтернаціоналізація"
 
 msgid "Jabber ID:"
 msgstr ""
@@ -372,22 +370,22 @@ msgid "KDE"
 msgstr ""
 
 msgid "KDE and QT"
-msgstr ""
+msgstr "KDE та QT"
 
 msgid "Kernel"
-msgstr ""
+msgstr "Ядро"
 
 msgid "Kernel and hardware"
-msgstr ""
+msgstr "Ядро та обладнання"
 
 msgid "Last update:"
 msgstr "Останнє оновлення:"
 
 msgid "Legacy libraries"
-msgstr ""
+msgstr "Застарілі бібліотеки"
 
 msgid "Libraries"
-msgstr ""
+msgstr "Бібліотеки"
 
 msgid "License:"
 msgstr "Ліцензія:"
@@ -411,7 +409,7 @@ msgid "List of rpms provided by this srpm:"
 msgstr "Перелік rpm-пакетів, що надаються цим srpm-пакетом:"
 
 msgid "Litterature"
-msgstr ""
+msgstr "Література"
 
 msgid "Location:"
 msgstr ""
@@ -423,7 +421,7 @@ msgid "ML"
 msgstr ""
 
 msgid "Mail"
-msgstr ""
+msgstr "Пошта"
 
 msgid "Mailing list"
 msgstr "Розсилка"
@@ -438,19 +436,19 @@ msgid "Maintainers"
 msgstr "Майнтейнери"
 
 msgid "Mathematics"
-msgstr ""
+msgstr "Математика"
 
 msgid "Medicine"
-msgstr ""
+msgstr "Медицина"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Моніторинг"
 
 msgid "Motif"
 msgstr ""
 
 msgid "Networking"
-msgstr ""
+msgstr "Мережі"
 
 msgid "New SRPMs"
 msgstr ""
@@ -480,13 +478,13 @@ msgid "Objective-C"
 msgstr ""
 
 msgid "Office"
-msgstr ""
+msgstr "Офіс"
 
 msgid "On your query &quot;"
 msgstr "За запитом &quot;"
 
 msgid "Other"
-msgstr ""
+msgstr "Інше"
 
 msgid "Other repositories"
 msgstr ""
@@ -504,7 +502,7 @@ msgid "Packages to rebuild:"
 msgstr ""
 
 msgid "Packaging"
-msgstr ""
+msgstr "Пакети"
 
 msgid "Patches"
 msgstr ""
@@ -513,7 +511,7 @@ msgid "Perl"
 msgstr ""
 
 msgid "Physics"
-msgstr ""
+msgstr "Фізика"
 
 msgid "Planet"
 msgstr "Планета"
@@ -522,7 +520,7 @@ msgid "Portuguese (Brasilian)"
 msgstr "Portuguese (Brasilian)"
 
 msgid "Printing"
-msgstr ""
+msgstr "Друк"
 
 msgid "Project Prometheus"
 msgstr "Проект Prometheus"
@@ -569,37 +567,29 @@ msgstr ""
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
 msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
 
-#, fuzzy
 msgid "Prometheus 2.0 - Maintainers &amp; Teams"
-msgstr "Prometheus 2.0 - Майнтейнер &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo;"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Bugs"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Download"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
-#, fuzzy
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
-msgstr "Prometheus 2.0 - Команда &laquo;"
+msgstr ""
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
 msgstr ""
@@ -623,10 +613,10 @@ msgid "Prometheus 2.0 - Team - Error!"
 msgstr "Prometheus 2.0 - Team - Error!"
 
 msgid "Publishing"
-msgstr ""
+msgstr "Видавництво"
 
 msgid "Puzzles"
-msgstr ""
+msgstr "Головоломки"
 
 msgid "Python"
 msgstr ""
@@ -650,7 +640,7 @@ msgid "Raw spec file"
 msgstr ""
 
 msgid "Remote access"
-msgstr ""
+msgstr "Віддалений доступ"
 
 msgid "Repocop"
 msgstr "Repocop"
@@ -683,7 +673,7 @@ msgid "Scheme"
 msgstr ""
 
 msgid "Sciences"
-msgstr ""
+msgstr "Науки"
 
 msgid "Search"
 msgstr "Пошук"
@@ -701,10 +691,10 @@ msgid "Send me reset password instructions"
 msgstr ""
 
 msgid "Servers"
-msgstr ""
+msgstr "Сервери"
 
 msgid "Shells"
-msgstr ""
+msgstr "Інтерпретатори команд"
 
 msgid "Sign in"
 msgstr ""
@@ -734,7 +724,7 @@ msgid "Someone has requested a link to change your password, and you can do this
 msgstr ""
 
 msgid "Sound"
-msgstr ""
+msgstr "Звук"
 
 msgid "Source RPM:"
 msgstr ""
@@ -752,10 +742,10 @@ msgid "Specfile is not UTF-8 valid."
 msgstr ""
 
 msgid "Sports"
-msgstr ""
+msgstr "Спорт"
 
 msgid "Strategy"
-msgstr ""
+msgstr "Стратегія"
 
 msgid "Sugar"
 msgstr ""
@@ -767,7 +757,7 @@ msgid "Summary:"
 msgstr "Про пакет:"
 
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 msgid "TOP RPMs"
 msgstr "TOP пакети"
@@ -791,14 +781,13 @@ msgid "Teams"
 msgstr "Команди розробників"
 
 msgid "Terminals"
-msgstr ""
+msgstr "Термінали"
 
 msgid "Text tools"
-msgstr ""
+msgstr "Робота з текстами"
 
-#, fuzzy
 msgid "There are no bugreports against this package"
-msgstr "Для цього пакета не знайдено жодного запису в ALT Bugzilla"
+msgstr ""
 
 msgid "Time"
 msgstr ""
@@ -807,7 +796,7 @@ msgid "Time Zone:"
 msgstr ""
 
 msgid "Tools"
-msgstr ""
+msgstr "Інструменти"
 
 msgid "Total records:"
 msgstr "Усього записів:"
@@ -816,7 +805,7 @@ msgid "Total:"
 msgstr "Усього записів:"
 
 msgid "Toys"
-msgstr ""
+msgstr "Розваги"
 
 msgid "True type"
 msgstr ""
@@ -843,7 +832,7 @@ msgid "Url"
 msgstr "Url"
 
 msgid "Video"
-msgstr ""
+msgstr "Відео"
 
 msgid "WWW"
 msgstr ""
@@ -861,7 +850,7 @@ msgid "X11"
 msgstr ""
 
 msgid "X11 bitmap"
-msgstr ""
+msgstr "X11 растрові"
 
 msgid "XFce"
 msgstr ""
