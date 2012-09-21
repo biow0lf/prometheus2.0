@@ -79,6 +79,9 @@
 <% end %>
 
 <b><%= _('License:') %></b> <span class="news-text"><%= @srpm.license %></span><br />
+<!-- TODO:
+<b><%= _('Group:') %></b> <span class="news-text"><%= @srpm.group.full_name %></span><br />
+-->
 
 <b><%= _('Summary:') %></b> <span class="news-text"><%= @srpm.summary %></span><br />
 <b><%= _('Description:') %></b> <div class="para"><%= simple_format h(@srpm.description) %></div>
