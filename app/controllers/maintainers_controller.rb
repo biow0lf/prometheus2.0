@@ -13,6 +13,7 @@ class MaintainersController < ApplicationController
 
   def srpms
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branches = Branch.order('order_id').all
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
