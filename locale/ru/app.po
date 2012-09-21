@@ -80,7 +80,7 @@ msgid "ACL:"
 msgstr ""
 
 msgid "ALT Linux Planet"
-msgstr ""
+msgstr "Планета ALT Linux"
 
 msgid "ALT Linux Team - Sisyphus packages info"
 msgstr ""
