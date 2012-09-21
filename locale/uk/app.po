@@ -43,13 +43,13 @@ msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=
 msgstr "<b>Sisyphus</b> &mdash; репозиторій пакетів вільних програм, який щоденно оновлюється <abbr title=\"Незалежна команда розробників ALT Linux\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участь у Sisyphus відкрита для всіх бажаючих. В основі Sisyphus лежать технології збірки програм та обліку залежностей між ними, а також відпрацьовані процеси по взаємодії між розробниками. Для використання Sisyphus достатньо наявності будь-якого дистрибутива ALT&nbsp;Linux та засобів управління пакетами програм <b>APT</b>. Sisyphus &mdash; це набір рішень, що постійно розвиваються, на основі якого можливе створення універсальних чи спеціалізованих <b>дистрибутивів Linux</b> і <b>одиночних впроваджень</b>."
 
 msgid "ACL's"
-msgstr "ACL's"
+msgstr ""
 
 msgid "ACL:"
-msgstr "ACL:"
+msgstr ""
 
 msgid "ALT Linux Planet"
-msgstr "ALT Linux Planet"
+msgstr ""
 
 msgid "ALT Linux Team - Sisyphus packages info"
 msgstr ""
@@ -112,7 +112,7 @@ msgid "Boot and Init"
 msgstr "Завантаження та ініціалізація"
 
 msgid "Bugs and FR"
-msgstr "Bugs and FR"
+msgstr ""
 
 msgid "Bugs/FR statistics assigned to this maintainer"
 msgstr "статистика по к-сті bugs/FR, адресованих даному майнтейнеру"
@@ -124,10 +124,10 @@ msgid "Built:"
 msgstr ""
 
 msgid "C"
-msgstr "C"
+msgstr ""
 
 msgid "C++"
-msgstr "C++"
+msgstr ""
 
 msgid "CPAN:"
 msgstr ""
@@ -247,7 +247,7 @@ msgid "Engineering"
 msgstr "Технічні застосування"
 
 msgid "English"
-msgstr "English"
+msgstr ""
 
 msgid "Enlightenment"
 msgstr ""
@@ -295,7 +295,7 @@ msgid "Games"
 msgstr "Ігри"
 
 msgid "Gear"
-msgstr "Gear"
+msgstr ""
 
 msgid "Geosciences"
 msgstr "Науки про землю"
@@ -517,7 +517,7 @@ msgid "Planet"
 msgstr "Планета"
 
 msgid "Portuguese (Brasilian)"
-msgstr "Portuguese (Brasilian)"
+msgstr ""
 
 msgid "Printing"
 msgstr "Друк"
@@ -565,7 +565,7 @@ msgid "Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop"
 msgstr ""
 
 msgid "Prometheus 2.0 - Maintainer - Error! no such packager"
-msgstr "Prometheus 2.0 - Maintainer - Error! no such packager"
+msgstr ""
 
 msgid "Prometheus 2.0 - Maintainers &amp; Teams"
 msgstr ""
@@ -595,7 +595,7 @@ msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
 msgstr ""
 
 msgid "Prometheus 2.0 - Package - Error!"
-msgstr "Prometheus 2.0 - Package - Error!"
+msgstr ""
 
 msgid "Prometheus 2.0 - Rsync Exclude"
 msgstr ""
@@ -610,7 +610,7 @@ msgid "Prometheus 2.0 - Team &laquo;%s&raquo;"
 msgstr "Prometheus 2.0 - Команда &laquo;%s&raquo;"
 
 msgid "Prometheus 2.0 - Team - Error!"
-msgstr "Prometheus 2.0 - Team - Error!"
+msgstr ""
 
 msgid "Publishing"
 msgstr "Видавництво"
@@ -634,7 +634,7 @@ msgstr[1] "пакетa:"
 msgstr[2] "пакетов:"
 
 msgid "RSS"
-msgstr "RSS"
+msgstr ""
 
 msgid "Raw spec file"
 msgstr ""
@@ -643,7 +643,7 @@ msgid "Remote access"
 msgstr "Віддалений доступ"
 
 msgid "Repocop"
-msgstr "Repocop"
+msgstr ""
 
 msgid "Repocop messages:"
 msgstr "Повідомлення від repocop:"
@@ -814,7 +814,7 @@ msgid "Type1"
 msgstr ""
 
 msgid "Ukrainian"
-msgstr "Ukrainian"
+msgstr ""
 
 msgid "Unhappy?"
 msgstr ""
@@ -841,7 +841,7 @@ msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
-msgstr "Wiki"
+msgstr ""
 
 msgid "Window Maker"
 msgstr ""
@@ -886,7 +886,7 @@ msgid "blog"
 msgstr "блог про sisyphus"
 
 msgid "br"
-msgstr "br"
+msgstr ""
 
 msgid "branch"
 msgstr ""
@@ -913,7 +913,7 @@ msgid "download latest version"
 msgstr "завантажити останню версію пакета"
 
 msgid "en"
-msgstr "en"
+msgstr ""
 
 msgid "find"
 msgstr "пошук"
@@ -925,7 +925,7 @@ msgid "full changelog"
 msgstr "переглянути повний changelog пакета"
 
 msgid "gear"
-msgstr "gear"
+msgstr ""
 
 msgid "generate"
 msgstr ""
@@ -946,7 +946,7 @@ msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 msgstr "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
 
 msgid "id"
-msgstr "id"
+msgstr ""
 
 msgid "information about SRPM"
 msgstr "переглянути інформацію про пакет"
@@ -994,10 +994,10 @@ msgid "patches"
 msgstr ""
 
 msgid "repo<br/>cop"
-msgstr "repo<br/>cop"
+msgstr ""
 
 msgid "repocop"
-msgstr "repocop"
+msgstr ""
 
 msgid "repocop bugreports"
 msgstr "звіти repocop про знайдені помилки та зауваження"
@@ -1012,7 +1012,7 @@ msgid "resolution"
 msgstr "дозвіл"
 
 msgid "ru"
-msgstr "ru"
+msgstr ""
 
 msgid "security fixes"
 msgstr "виправлення вразливостей"
@@ -1066,7 +1066,7 @@ msgid "total"
 msgstr "всі баги"
 
 msgid "uk"
-msgstr "uk"
+msgstr ""
 
 msgid "we need your current password to confirm your changes"
 msgstr ""

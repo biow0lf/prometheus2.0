@@ -665,7 +665,7 @@ msgstr[1] "пакетa:"
 msgstr[2] "пакетов:"
 
 msgid "RSS"
-msgstr "RSS"
+msgstr ""
 
 msgid "Raw spec file"
 msgstr ""
@@ -674,7 +674,7 @@ msgid "Remote access"
 msgstr "Удаленный доступ"
 
 msgid "Repocop"
-msgstr "Repocop"
+msgstr ""
 
 msgid "Repocop messages:"
 msgstr "Сообщения от repocop:"
@@ -1032,10 +1032,10 @@ msgid "patches"
 msgstr "просмотреть патчи пакета"
 
 msgid "repo<br/>cop"
-msgstr "repo<br/>cop"
+msgstr ""
 
 msgid "repocop"
-msgstr "repocop"
+msgstr ""
 
 msgid "repocop bugreports"
 msgstr "отчеты repocop о найденных ошибках и замечаниях"

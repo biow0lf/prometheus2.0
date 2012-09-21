@@ -43,7 +43,7 @@ msgid "ACL's"
 msgstr ""
 
 msgid "ACL:"
-msgstr "ACL:"
+msgstr ""
 
 msgid "ALT Linux Planet"
 msgstr ""
@@ -631,7 +631,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "RSS"
-msgstr "RSS"
+msgstr ""
 
 msgid "Raw spec file"
 msgstr ""
@@ -757,7 +757,7 @@ msgid "System"
 msgstr ""
 
 msgid "TOP RPMs"
-msgstr "TOP RPMS"
+msgstr ""
 
 msgid "TOP maintainers"
 msgstr "TOP mantenedores"
@@ -838,7 +838,7 @@ msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
-msgstr "Wiki"
+msgstr ""
 
 msgid "Window Maker"
 msgstr ""
