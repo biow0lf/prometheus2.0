@@ -2,9 +2,32 @@
 
 <div id="main-content">
 
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= _('ALT Linux repositories') %>">
+  <%= _('ALT Linux repositories') %>
+</div>
+<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<% @branches.each do |branch| %>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to branch.name, team_path(branch, @team.login[1..-1]), :class => 'news' %>
+  </td>
+  <td style="text-align: right;"><%= $redis.smembers("#{branch.name}:maintainers:#{@team.login}").count  %></td>
+</tr>
+<% end %>
+
+</table>
+</div>
+</div>
+
+
   <div class="header">
-    <%= _('Team:') %>
-    <%= @team.name %>
+    <%= _('Team:') %> <%= @team.name %>
   </div>
 
   <p class="break"></p>
