@@ -22,15 +22,15 @@ This form helps you to create such file of exceptions. You can filter by group o
 
 <% @groups.each do |group| %>
   <% if group.leaf? %>
-    <input type="checkbox" name="grps" value="<%= group.id %>"><label><%= group.name %></label><br />
+    <input type="checkbox" name="grps" value="<%= group.id %>"><label><%= _(group.name) %></label><br />
   <% else %>
     <% group.children.each do |child| %>
       <% if child.leaf? %>
-        <input type="checkbox" name="grps" value="<%= child.id %>"><label><%= group.name %>/<%= child.name %></label><br />
+        <input type="checkbox" name="grps" value="<%= child.id %>"><label><%= _(group.name) %>/<%= _(child.name) %></label><br />
       <% else %>
         <% child.children.each do |c| %>
           <% if c.leaf? %>
-            <input type="checkbox" name="grps" value="<%= c.id %>"><label><%= group.name %>/<%= child.name %>/<%= c.name %></label><br />
+            <input type="checkbox" name="grps" value="<%= c.id %>"><label><%= _(group.name) %>/<%= _(child.name) %>/<%= _(c.name) %></label><br />
           <% else %>
             TODO
           <% end %>
