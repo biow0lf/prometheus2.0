@@ -864,7 +864,7 @@ msgid "Website/Blog:"
 msgstr "Сайт/Блог:"
 
 msgid "Wiki"
-msgstr ""
+msgstr "Вики"
 
 msgid "Window Maker"
 msgstr ""
