@@ -16,7 +16,7 @@ class MaintainersController < ApplicationController
     @branches = Branch.order('order_id').all
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)').page(params[:page]).per(300)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
   end
 
 #  def acls
