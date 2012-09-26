@@ -43,12 +43,12 @@
   <% @srpm.sources.each do |source| %>
   <tr>
     <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-      <%= link_to source.filename, nil, :class => 'news' %>
+      <%= link_to source.filename, download_srpm_source_path(@branch, @srpm, source), :class => 'news' %>
     </td>
     <td> <b><%= number_to_human_size(source.size) %></b> </td>
     <td>
       <% if source.source? %>
-        <%= link_to _('Download'), nil, :class => 'news' %>
+        <%= link_to _('Download'), download_srpm_source_path(@branch, @srpm, source), :class => 'news' %>
       <% else %>
         &nbsp;
       <% end %>
