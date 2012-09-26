@@ -19,6 +19,6 @@ class GroupController < ApplicationController
       end
     end
     render status: 404, action: 'nosuchgroup' and return if @group == nil
-    @srpms = @group.srpms.order('LOWER(name)').page(params[:page]).per(300)
+    @srpms = @group.srpms.order('LOWER(name)')
   end
 end
