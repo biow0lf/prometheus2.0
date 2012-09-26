@@ -47,7 +47,11 @@
     </td>
     <td> <b><%= number_to_human_size(source.size) %></b> </td>
     <td>
-      <%= link_to_if source.source?, _('Download'), nil, :class => 'news' %>
+      <% if source.source? %>
+        <%= link_to _('Download'), nil, :class => 'news' %>
+      <% else %>
+        &nbsp;
+      <% end %>
     </td>
   </tr>
   <% end %>
