@@ -46,7 +46,11 @@ Prometheus20::Application.routes.draw do
           get 'get'
         end
         resources :patches, :only => [:index, :show]
-        resources :sources, :only => [:index, :show]
+        resources :sources, :only => :index do
+          member do
+            get 'download'
+          end
+        end
       end
 
       match 'home' => 'home#index'
