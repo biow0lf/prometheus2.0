@@ -47,9 +47,7 @@ Prometheus20::Application.routes.draw do
         end
         resources :patches, :only => [:index, :show]
         resources :sources, :only => :index do
-          member do
-            get 'download'
-          end
+          get 'download', :on => :member
         end
       end
 
