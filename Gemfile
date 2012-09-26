@@ -35,6 +35,7 @@ gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'backup', :require => false
 gem 'backup-task'
+gem 'coderay'
 
 group :production, :development, :staging do
   gem 'redis'

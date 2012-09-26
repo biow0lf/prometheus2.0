@@ -312,6 +312,7 @@ DEPENDENCIES
   capistrano
   capistrano_colors
   capybara
+  coderay
   coffee-rails
   cucumber
   cucumber-rails
