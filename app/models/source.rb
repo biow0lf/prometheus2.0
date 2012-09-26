@@ -30,4 +30,8 @@ class Source < ActiveRecord::Base
       source.save
     end
   end
+
+  def to_param
+    filename
+  end
 end
