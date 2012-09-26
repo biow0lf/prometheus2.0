@@ -2,13 +2,6 @@
 <% description "#{@srpm.name} - #{@srpm.summary}" %>
 <% keywords @srpm.summary %>
 
-<!-- <div id="main-content">
-  <pre>
-    <code class="diff">Hello!<%#= @patch.to_s %></code>
-  </pre>
-</div>
-
- -->
 <div id='main-content'>
 
 <div id="rightbar">
@@ -53,7 +46,9 @@
       <%= link_to source.filename, nil, :class => 'news' %>
     </td>
     <td> <b><%= number_to_human_size(source.size) %></b> </td>
-    <td><%= link_to _('Download'), nil, :class => 'news' %></td>
+    <td>
+      <%= link_to_if source.source?, _('Download'), nil, :class => 'news' %>
+    </td>
   </tr>
   <% end %>
 </table>
