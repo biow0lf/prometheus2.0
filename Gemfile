@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2'
 gem 'strong_parameters'
-gem 'jbuilder', :git => 'git://github.com/rails/jbuilder.git'
+gem 'jbuilder'
 
 gem 'rake', :require => false
 
