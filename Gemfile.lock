@@ -38,7 +38,7 @@ GEM
     backup-task (0.2.0)
       backup (~> 3.0.9)
     bcrypt-ruby (3.0.1)
-    brewdler (0.2.0)
+    brewdler (0.2.1)
       commander
     builder (3.0.3)
     bullet (4.1.6)
