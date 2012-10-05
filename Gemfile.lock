@@ -219,7 +219,7 @@ GEM
     rb-readline (0.4.2)
     rdoc (3.12)
       json (~> 1.4)
-    redis (3.0.1)
+    redis (3.0.2)
     riddle (1.5.3)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
