@@ -279,9 +279,6 @@ GEM
       polyglot (>= 0.3.1)
     ts-datetime-delta (1.0.3)
       thinking-sphinx (>= 1.3.8)
-    turbo-sprockets-rails3 (0.1.7)
-      railties (>= 3.1.0)
-      sprockets (>= 2.0.0)
     tzinfo (0.3.33)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -363,7 +360,6 @@ DEPENDENCIES
   strong_parameters
   thinking-sphinx
   ts-datetime-delta
-  turbo-sprockets-rails3
   uglifier
   unicorn
   whenever
