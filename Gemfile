@@ -36,7 +36,7 @@ gem 'sitemap_generator'
 gem 'backup', :require => false
 gem 'backup-task'
 gem 'coderay'
-gem 'turbo-sprockets-rails3', :require => false
+gem 'turbo-sprockets-rails3'
 
 group :production, :development, :staging do
   gem 'redis'
