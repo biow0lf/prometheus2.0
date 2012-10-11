@@ -3,31 +3,28 @@
 class SrpmsController < ApplicationController
   def show
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :group, :branch).first
-    if @srpm
-      @ftbfs = @branch.ftbfs.where(name: @srpm.name,
-                                   version: @srpm.version,
-                                   release: @srpm.release,
-                                   epoch: @srpm.epoch).select('DISTINCT id, arch, weeks').all
-      @contributors = Srpm.contributors(@branch, @srpm)
-      if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
-        @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :group, :branch).first!
+
+    @ftbfs = @branch.ftbfs.where(name: @srpm.name,
+                                 version: @srpm.version,
+                                 release: @srpm.release,
+                                 epoch: @srpm.epoch).select('DISTINCT id, arch, weeks').all
+    @contributors = Srpm.contributors(@branch, @srpm)
+    if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
+      @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
+    end
+    @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
+    if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
+      @maintainers = Maintainer.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] == '@'}).order(:name)
+      @teams = MaintainerTeam.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] != '@'}).order(:name)
+    end
+    if $redis.exists("#{@branch.name}:#{@srpm.name}:leader")
+      login = $redis.get("#{@branch.name}:#{@srpm.name}:leader")
+      if login[0] == '@'
+        @leader = MaintainerTeam.where(login: login).first
+      else
+        @leader = Maintainer.where(login: login).first
       end
-      @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
-      if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
-        @maintainers = Maintainer.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] == '@'}).order(:name)
-        @teams = MaintainerTeam.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] != '@'}).order(:name)
-      end
-      if $redis.exists("#{@branch.name}:#{@srpm.name}:leader")
-        login = $redis.get("#{@branch.name}:#{@srpm.name}:leader")
-        if login[0] == '@'
-          @leader = MaintainerTeam.where(login: login).first
-        else
-          @leader = Maintainer.where(login: login).first
-        end
-      end
-    else
-      render status: 404, action: 'nosuchpackage'
     end
   end
 
