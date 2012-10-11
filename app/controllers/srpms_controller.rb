@@ -99,7 +99,7 @@ class SrpmsController < ApplicationController
       names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
       @bugs = Bug.where(component: names,
                         bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
-                  order('bug_id DESC').count
+                  order('bug_id DESC')
       @allbugs = Bug.where(component: names).order('bug_id DESC')
     else
       render status: 404, action: 'nosuchpackage'
@@ -114,7 +114,7 @@ class SrpmsController < ApplicationController
       names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
       @bugs = Bug.where(component: names,
                         bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
-                  order('bug_id DESC').count
+                  order('bug_id DESC')
       @allbugs = Bug.where(component: names).order('bug_id DESC')
     else
       render status: 404, action: 'nosuchpackage'
