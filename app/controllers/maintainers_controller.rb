@@ -32,24 +32,31 @@ class MaintainersController < ApplicationController
 #  end
 
   def gear
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
   end
 
   def bugs
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
-    @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
-                      product: 'Sisyphus',
-                      bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
-                         product: 'Sisyphus').order('bug_id DESC')
+    # TODO: add Branch support
+    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
+
+    names = @srpms.map {|srpm| srpm.packages.map {|package| package.name } }.flatten.sort.uniq
+
+    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
+    @allbugs = Bug.where(component: names).order('bug_id DESC')
+
+#    @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
+#                      product: 'Sisyphus',
+#                      bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
+#    @allbugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
+#                         product: 'Sisyphus').order('bug_id DESC')
   end
 
   def allbugs
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
                       product: 'Sisyphus',
                       bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
@@ -59,15 +66,13 @@ class MaintainersController < ApplicationController
 
   def ftbfs
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
   end
 
   def repocop
     @branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
 
