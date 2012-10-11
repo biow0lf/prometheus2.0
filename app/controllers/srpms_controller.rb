@@ -92,31 +92,31 @@ class SrpmsController < ApplicationController
   end
 
   def bugs
-    # TODO: search for bugs not only by srpm.name, but and by packages.name
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
 
-    @bugs = Bug.where(component: params[:id],
-                      bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']
-                      ).order('bug_id DESC')
-
-    @allbugs = Bug.where(component: params[:id]).order("bug_id DESC")
-    unless @srpm
+    if @srpm
+      names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
+      @bugs = Bug.where(component: names,
+                        bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                  order('bug_id DESC').count
+      @allbugs = Bug.where(component: names).order('bug_id DESC')
+    else
       render status: 404, action: 'nosuchpackage'
     end
   end
 
   def allbugs
-    # TODO: search for bugs not only by srpm.name, but and by packages.name
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
 
-    @bugs = Bug.where(component: params[:id],
-                      bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']
-                      ).order('bug_id DESC')
-
-    @allbugs = Bug.where(component: params[:id]).order('bug_id DESC')
-    unless @srpm
+    if @srpm
+      names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
+      @bugs = Bug.where(component: names,
+                        bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                  order('bug_id DESC').count
+      @allbugs = Bug.where(component: names).order('bug_id DESC')
+    else
       render status: 404, action: 'nosuchpackage'
     end
   end
