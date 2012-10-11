@@ -4,14 +4,14 @@ class MaintainersController < ApplicationController
   # helper_method :sort_column, :sort_direction
 
   def show
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branches = Branch.order('order_id').all
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branches = Branch.order('order_id').all
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
@@ -38,8 +38,8 @@ class MaintainersController < ApplicationController
 
   def bugs
     # TODO: add Branch support
-    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    # @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.find_by_name_and_vendor!('Sisyphus', 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
@@ -55,8 +55,8 @@ class MaintainersController < ApplicationController
 
   def allbugs
     # TODO: add Branch support
-    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    # @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.find_by_name_and_vendor!('Sisyphus', 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
@@ -71,13 +71,13 @@ class MaintainersController < ApplicationController
   end
 
   def ftbfs
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
   end
 
   def repocop
-    @branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
