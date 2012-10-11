@@ -6,16 +6,14 @@ class MaintainersController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id').all
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id').all
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render(status: 404, action: 'nosuchmaintainer') and return if @maintainer == nil
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
   end
 
@@ -43,10 +41,16 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
-    names = @srpms.map {|srpm| srpm.packages.map {|package| package.name } }.flatten.sort.uniq
+    names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
-    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(component: names).order('bug_id DESC')
+#    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
+    @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
+                where(bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                order('bug_id DESC')
+
+
+    @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
+                   order('bug_id DESC')
 
 #    @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
 #                      product: 'Sisyphus',
