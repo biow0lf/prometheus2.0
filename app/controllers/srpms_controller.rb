@@ -2,7 +2,7 @@
 
 class SrpmsController < ApplicationController
   def show
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :group, :branch).first
     if @srpm
       @ftbfs = @branch.ftbfs.where(name: @srpm.name,
@@ -32,7 +32,7 @@ class SrpmsController < ApplicationController
   end
 
   def changelog
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     if @srpm
       @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
@@ -43,7 +43,7 @@ class SrpmsController < ApplicationController
   end
 
   def spec
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     if @srpm
       @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
@@ -53,7 +53,7 @@ class SrpmsController < ApplicationController
   end
 
   def rawspec
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     if @srpm && @srpm.specfile
       send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
@@ -65,7 +65,7 @@ class SrpmsController < ApplicationController
   end
 
   def get
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @mirrors = Mirror.where(branch_id: @branch).where{protocol != 'rsync'}.order('mirrors.order_id ASC')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     if @srpm
@@ -80,7 +80,7 @@ class SrpmsController < ApplicationController
   end
 
   def gear
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
 
     if @srpm
@@ -93,7 +93,7 @@ class SrpmsController < ApplicationController
 
   def bugs
     # TODO: search for bugs not only by srpm.name, but and by packages.name
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
 
     @bugs = Bug.where(component: params[:id],
@@ -108,7 +108,7 @@ class SrpmsController < ApplicationController
 
   def allbugs
     # TODO: search for bugs not only by srpm.name, but and by packages.name
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
 
     @bugs = Bug.where(component: params[:id],
@@ -122,7 +122,7 @@ class SrpmsController < ApplicationController
   end
 
   def repocop
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     if @srpm
       @repocops = Repocop.where(srcname: @srpm.name,
