@@ -14,7 +14,9 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id').all
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocop_patch).order('LOWER(srpms.name)')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
+                           includes(:repocop_patch).
+                           order('LOWER(srpms.name)')
   end
 
 #  def acls
@@ -43,29 +45,29 @@ class MaintainersController < ApplicationController
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
-#    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
                 where(bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
                 order('bug_id DESC')
 
-
     @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
                    order('bug_id DESC')
-
-#    @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
-#                      product: 'Sisyphus',
-#                      bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-#    @allbugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
-#                         product: 'Sisyphus').order('bug_id DESC')
   end
 
   def allbugs
+    # TODO: add Branch support
+    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
-    @bugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
-                      product: 'Sisyphus',
-                      bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(assigned_to: "#{params[:id].downcase}@altlinux.org",
-                         product: 'Sisyphus').order('bug_id DESC')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
+
+    names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
+
+    @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
+                where(bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                order('bug_id DESC')
+
+    @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
+                   order('bug_id DESC')
   end
 
   def ftbfs
@@ -81,11 +83,11 @@ class MaintainersController < ApplicationController
   end
 
   # private
-  # 
+  #
   # def sort_column
   #   %w[srpms.name srpms.repocop].include?(params[:sort]) ? params[:sort] : 'srpms.name'
   # end
-  # 
+  #
   # def sort_direction
   #   %w[asc desc].include?(params[:direction]) ?  params[:direction] : 'asc'
   # end
