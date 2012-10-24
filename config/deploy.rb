@@ -2,7 +2,6 @@
 
 require 'capistrano_colors'
 require 'bundler/capistrano'
-require 'thinking_sphinx/deploy/capistrano'
 
 set :whenever_command, 'bundle exec whenever'
 require 'whenever/capistrano'
@@ -157,16 +156,6 @@ before "deploy:finalize_update", "bundle:install"
 #     # precompile the assets
 #     run "cd #{release_path} && bundle exec rake assets:precompile"
 #   end
-# end
-
-# task :before_update_code, :roles => [:app] do
-#   thinking_sphinx.stop
-# end
-#
-# task :after_update_code, :roles => [:app] do
-#   run "cd #{release_path} && bundle exec rake thinking_sphinx:configure"
-#   run "cd #{release_path} && bundle exec rake thinking_sphinx:index"
-#   thinking_sphinx.start
 # end
 
 namespace :redis do

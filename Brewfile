@@ -1,10 +1,10 @@
 redis
 postgresql
 memcached
-sphinx
 gettext
 node
 git
 nginx
 coreutils
 bzip2
+elasticsearch
