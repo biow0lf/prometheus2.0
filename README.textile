@@ -14,7 +14,7 @@ h3. Install:
 * nginx
 * gettext
 * curl
-* ElasticSearch
+* sphinx search engine
 * node.js
 * /usr/bin/md5sum from coreutils
 * git

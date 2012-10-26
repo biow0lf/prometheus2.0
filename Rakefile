@@ -5,3 +5,5 @@
 require File.expand_path('../config/application', __FILE__)
 
 Prometheus20::Application.load_tasks
+
+require 'thinking_sphinx/deltas/datetime_delta/tasks'
