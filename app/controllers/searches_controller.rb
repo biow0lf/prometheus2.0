@@ -11,6 +11,7 @@ class SearchesController < ApplicationController
       #@srpms = nil
       @search = Srpm.search do
         fulltext params[:query]
+        with(:branch_id, @branch.id)
       end
       @srpms = @search.results
       redirect_to(srpm_path(@branch, @srpms.first), status: 302) if @srpms.count == 1
