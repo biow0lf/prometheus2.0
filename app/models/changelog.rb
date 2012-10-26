@@ -19,7 +19,7 @@ class Changelog < ActiveRecord::Base
       changelog.changelogtime = record[0]
       changelog.changelogname = record[1]
       changelog.changelogtext = record[2]
-      changelog.save
+      changelog.save!
     end
   end
 end
