@@ -1,9 +1,6 @@
 # encoding: utf-8
 
 class Srpm < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
-
   belongs_to :branch
   belongs_to :group
 
