@@ -62,6 +62,10 @@ class Srpm < ActiveRecord::Base
     end
   end
 
+  def self.paginate(options = {})
+    page(options[:page]).per(options[:per_page])
+  end
+
   def to_param
     name
   end
