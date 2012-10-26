@@ -27,7 +27,7 @@ class Source < ActiveRecord::Base
       source.filename = filename
       source.branch_id = branch.id
       source.srpm_id = srpm.id
-      source.save
+      source.save!
     end
   end
 
