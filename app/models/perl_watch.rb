@@ -23,7 +23,7 @@ class PerlWatch < ActiveRecord::Base
         name = line.split[0]
         version = line.split[1]
         path = line.split[2]
-        PerlWatch.create(name: name, version: version, path: path)
+        PerlWatch.create!(name: name, version: version, path: path)
       end
     end
   end
