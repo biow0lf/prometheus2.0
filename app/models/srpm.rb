@@ -25,6 +25,7 @@ class Srpm < ActiveRecord::Base
     text :description
     text :filename
     text :url
+    text :md5
 #    indexes packages.name, as: :packages_name, sortable: true
 #    indexes packages.summary, as: :packages_summary
 #    indexes packages.description, as: :packages_description
