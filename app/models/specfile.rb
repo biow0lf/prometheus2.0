@@ -18,6 +18,6 @@ class Specfile < ActiveRecord::Base
     specfile.srpm_id = srpm.id
     specfile.branch_id = branch.id
     specfile.spec = spec
-    specfile.save
+    specfile.save!
   end
 end
