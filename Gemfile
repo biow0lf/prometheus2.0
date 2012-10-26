@@ -18,6 +18,7 @@ group :sqlite do
   gem 'sqlite3'
 end
 
+gem 'tire'
 gem 'devise'
 gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'
@@ -29,8 +30,6 @@ gem 'gettext_i18n_rails'
 gem 'gettext', :require => false
 gem 'whenever', :require => false
 gem 'nested_set'
-gem 'thinking-sphinx'
-gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'backup', :require => false
