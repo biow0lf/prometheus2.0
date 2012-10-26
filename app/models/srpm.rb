@@ -1,9 +1,6 @@
 # encoding: utf-8
 
 class Srpm < ActiveRecord::Base
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
-
   belongs_to :branch
   belongs_to :group
 
@@ -22,44 +19,21 @@ class Srpm < ActiveRecord::Base
 
   has_one :builder, class_name: "Maintainer", foreign_key: 'id', primary_key: 'builder_id'
 
-  mapping do
-    indexes :name
-    indexes :summary
-    indexes :description
-    indexes :filename
-    indexes :url
-#    indexes packages.name, as: :packages_name, sortable: true
-#    indexes packages.summary, as: :packages_summary
-#    indexes packages.description, as: :packages_description
-#    indexes packages.filename, as: :packages_filename
-#    indexes packages.sourcepackage, as: :packages_sourcepackage
-#
-#    has branch_id
-#
-#    set_property :delta => :datetime, :threshold => 1.hour
-  end
+  define_index do
+    indexes name, sortable: true
+    indexes summary
+    indexes description
+    indexes filename
+    indexes url
+    indexes packages.name, as: :packages_name, sortable: true
+    indexes packages.summary, as: :packages_summary
+    indexes packages.description, as: :packages_description
+    indexes packages.filename, as: :packages_filename
+    indexes packages.sourcepackage, as: :packages_sourcepackage
 
-#  define_index do
-#    indexes name, sortable: true
-#    indexes summary
-#    indexes description
-#    indexes filename
-#    indexes url
-#    indexes packages.name, as: :packages_name, sortable: true
-#    indexes packages.summary, as: :packages_summary
-#    indexes packages.description, as: :packages_description
-#    indexes packages.filename, as: :packages_filename
-#    indexes packages.sourcepackage, as: :packages_sourcepackage
-#
-#    has branch_id
-#
-#    set_property :delta => :datetime, :threshold => 1.hour
-#  end
+    has branch_id
 
-  def self.search(params)
-    tire.search(load: true) do
-      query { string params[:query] }
-    end
+    set_property :delta => :datetime, :threshold => 1.hour
   end
 
   def to_param
