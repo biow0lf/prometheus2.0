@@ -20,6 +20,7 @@ end
 
 gem 'sunspot_rails'
 gem 'sunspot_solr' #, group: :development
+gem 'progress_bar'
 gem 'devise'
 gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'
