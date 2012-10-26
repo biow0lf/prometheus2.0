@@ -22,21 +22,8 @@ class Srpm < ActiveRecord::Base
 
   has_one :builder, class_name: "Maintainer", foreign_key: 'id', primary_key: 'builder_id'
 
-  mapping do
-    indexes :name
-    indexes :summary
-    indexes :description
-    indexes :filename
-    indexes :url
-#    indexes packages.name, as: :packages_name, sortable: true
-#    indexes packages.summary, as: :packages_summary
-#    indexes packages.description, as: :packages_description
-#    indexes packages.filename, as: :packages_filename
-#    indexes packages.sourcepackage, as: :packages_sourcepackage
-#
-#    has branch_id
-#
-#    set_property :delta => :datetime, :threshold => 1.hour
+  searchable do
+    text :name
   end
 
 #  define_index do
@@ -55,16 +42,6 @@ class Srpm < ActiveRecord::Base
 #
 #    set_property :delta => :datetime, :threshold => 1.hour
 #  end
-
-  def self.search(params)
-    tire.search(load: true) do
-      query { string params[:query] }
-    end
-  end
-
-  def self.paginate(options = {})
-    page(options[:page]).per(options[:per_page])
-  end
 
   def to_param
     name

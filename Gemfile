@@ -18,7 +18,8 @@ group :sqlite do
   gem 'sqlite3'
 end
 
-gem 'tire'
+gem 'sunspot_rails'
+gem 'sunspot_solr' #, group: :development
 gem 'devise'
 gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'
