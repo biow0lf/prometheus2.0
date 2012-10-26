@@ -21,6 +21,15 @@ class Srpm < ActiveRecord::Base
 
   searchable do
     text :name
+    text :summary
+    text :description
+    text :filename
+    text :url
+#    indexes packages.name, as: :packages_name, sortable: true
+#    indexes packages.summary, as: :packages_summary
+#    indexes packages.description, as: :packages_description
+#    indexes packages.filename, as: :packages_filename
+#    indexes packages.sourcepackage, as: :packages_sourcepackage
     integer :branch_id
   end
 
