@@ -8,7 +8,11 @@ class SearchesController < ApplicationController
       redirect_to action: 'index'
     else
       #@srpms = Srpm.search(params[:query], :order => :name, :max_matches => 10_000, :per_page => 10_000, :with => { :branch_id => @branch.id }, :include => :branch)
-      @srpms = nil
+      #@srpms = nil
+      @search = Srpm.search do
+        fulltext params[:query]
+      end
+      @srpms = @search.results
       redirect_to(srpm_path(@branch, @srpms.first), status: 302) if @srpms.count == 1
     end
   end
