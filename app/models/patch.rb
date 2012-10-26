@@ -27,7 +27,7 @@ class Patch < ActiveRecord::Base
       patch.filename = filename
       patch.branch_id = branch.id
       patch.srpm_id = srpm.id
-      patch.save
+      patch.save!
     end
   end
 end
