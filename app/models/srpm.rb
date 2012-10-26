@@ -21,6 +21,7 @@ class Srpm < ActiveRecord::Base
 
   searchable do
     text :name
+    integer :branch_id
   end
 
 #  define_index do
