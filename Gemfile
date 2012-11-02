@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.9.rc1'
+gem 'rails', '~> 3.2.9.rc2'
 gem 'strong_parameters'
 gem 'jbuilder'
 
