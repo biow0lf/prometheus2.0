@@ -115,7 +115,7 @@ GEM
     gherkin (2.11.5)
       json (>= 1.4.6)
     growl (1.0.3)
-    guard (1.5.2)
+    guard (1.5.3)
       listen (>= 0.4.2)
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
