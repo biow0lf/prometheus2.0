@@ -24,7 +24,7 @@
     <th><%= _('message') %></th>
   </tr>
 
-<% @srpm.repocops.each do |repocop| %>
+<% @repocops.each do |repocop| %>
   <% if repocop.status != 'skip' %>
   <tr>
     <td><%= "#{repocop.name}-#{repocop.version}-#{repocop.release}.#{repocop.arch}" %></td>
