@@ -7,14 +7,14 @@ h2. Setup and run
 
 h3. Install:
 
-* Ruby 1.9.3-p194
+* Ruby 1.9.3-p327
 * RubyGems 1.8.24
 * bundler 1.2.1
 * PostgreSQL 9.1 (some features will not work in other db)
 * nginx
 * gettext
 * curl
-* ElasticSearch
+* Solr
 * node.js
 * /usr/bin/md5sum from coreutils
 * git
