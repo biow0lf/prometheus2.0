@@ -32,9 +32,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
-    backup (3.0.25)
+    backup (3.0.27)
       open4 (~> 1.3.0)
-      thor (~> 0.15.4)
+      thor (>= 0.15.4, < 2)
     backup-task (0.2.0)
       backup (~> 3.0.9)
     bcrypt-ruby (3.0.1)
@@ -287,7 +287,7 @@ GEM
       nokogiri
       sunspot (= 1.3.3)
     sunspot_solr (1.3.3)
-    thor (0.15.4)
+    thor (0.16.0)
     tilt (1.3.3)
     treetop (1.4.12)
       polyglot
