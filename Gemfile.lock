@@ -106,7 +106,6 @@ GEM
       redis (~> 3.0.0)
     fakeweb (1.3.0)
     fast_gettext (0.6.11)
-    fattr (2.2.1)
     ffi (1.1.5)
     gettext (2.3.3)
       locale
@@ -174,17 +173,11 @@ GEM
     newrelic_rpm (3.5.2.17)
     nokogiri (1.5.5)
     open4 (1.3.0)
-    options (2.3.0)
-      fattr
     orm_adapter (0.4.0)
     pg (0.14.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
-    pr_geohash (1.0.0)
-    progress_bar (0.4.0)
-      highline (~> 1.6.1)
-      options (~> 2.3.0)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -228,8 +221,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redis (3.0.2)
-    rsolr (1.0.8)
-      builder (>= 2.1.2)
+    riddle (1.5.3)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -280,18 +272,17 @@ GEM
       actionpack (~> 3.1)
       activemodel (~> 3.1)
       railties (~> 3.1)
-    sunspot (1.3.3)
-      pr_geohash (~> 1.0)
-      rsolr (~> 1.0.7)
-    sunspot_rails (1.3.3)
-      nokogiri
-      sunspot (= 1.3.3)
-    sunspot_solr (1.3.3)
+    thinking-sphinx (2.0.13)
+      activerecord (>= 3.0.3)
+      builder (>= 2.1.2)
+      riddle (>= 1.5.3)
     thor (0.16.0)
     tilt (1.3.3)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    ts-datetime-delta (1.0.3)
+      thinking-sphinx (>= 1.3.8)
     turbolinks (0.5.1)
     tzinfo (0.3.35)
     uglifier (1.3.0)
@@ -353,7 +344,6 @@ DEPENDENCIES
   newrelic-redis
   newrelic_rpm
   pg
-  progress_bar
   pry
   quiet_assets
   rack-force_domain
@@ -374,8 +364,8 @@ DEPENDENCIES
   sqlite3
   squeel
   strong_parameters
-  sunspot_rails
-  sunspot_solr
+  thinking-sphinx
+  ts-datetime-delta
   turbolinks
   uglifier
   unicorn

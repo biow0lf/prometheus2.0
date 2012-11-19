@@ -2,6 +2,7 @@
 
 require 'capistrano_colors'
 require 'bundler/capistrano'
+require 'thinking_sphinx/deploy/capistrano'
 
 set :whenever_command, 'bundle exec whenever'
 require 'whenever/capistrano'

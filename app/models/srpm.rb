@@ -19,37 +19,22 @@ class Srpm < ActiveRecord::Base
 
   has_one :builder, class_name: "Maintainer", foreign_key: 'id', primary_key: 'builder_id'
 
-#  searchable do
-#    text :name
-#    text :summary
-#    text :description
-#    text :filename
-#    text :url
-#    text :md5
-##    indexes packages.name, as: :packages_name, sortable: true
-##    indexes packages.summary, as: :packages_summary
-##    indexes packages.description, as: :packages_description
-##    indexes packages.filename, as: :packages_filename
-##    indexes packages.sourcepackage, as: :packages_sourcepackage
-#    integer :branch_id
-#  end
+  define_index do
+    indexes name, sortable: true
+    indexes summary
+    indexes description
+    indexes filename
+    indexes url
+    indexes packages.name, as: :packages_name, sortable: true
+    indexes packages.summary, as: :packages_summary
+    indexes packages.description, as: :packages_description
+    indexes packages.filename, as: :packages_filename
+    indexes packages.sourcepackage, as: :packages_sourcepackage
 
-#  define_index do
-#    indexes name, sortable: true
-#    indexes summary
-#    indexes description
-#    indexes filename
-#    indexes url
-#    indexes packages.name, as: :packages_name, sortable: true
-#    indexes packages.summary, as: :packages_summary
-#    indexes packages.description, as: :packages_description
-#    indexes packages.filename, as: :packages_filename
-#    indexes packages.sourcepackage, as: :packages_sourcepackage
-#
-#    has branch_id
-#
-#    set_property :delta => :datetime, :threshold => 1.hour
-#  end
+    has branch_id
+
+    set_property :delta => :datetime, :threshold => 1.hour
+  end
 
   def to_param
     name

@@ -7,13 +7,7 @@ class SearchesController < ApplicationController
     if params[:query].nil? || params[:query].empty?
       redirect_to action: 'index'
     else
-      #@srpms = Srpm.search(params[:query], :order => :name, :max_matches => 10_000, :per_page => 10_000, :with => { :branch_id => @branch.id }, :include => :branch)
-      #@srpms = nil
-      @search = Sunspot.search(Srpm) do |query|
-        query.fulltext params[:query]
-        query.with :branch_id, @branch.id
-      end
-      @srpms = @search.results
+      @srpms = Srpm.search(params[:query], :order => :name, :max_matches => 10_000, :per_page => 10_000, :with => { :branch_id => @branch.id }, :include => :branch)
       redirect_to(srpm_path(@branch, @srpms.first), status: 302) if @srpms.count == 1
     end
   end

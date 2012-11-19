@@ -3,19 +3,20 @@
 job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle exec rake :task :output"
 
 every 1.hour do
+  rake 'thinking_sphinx:restart'
   command 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
 end
 
 ##every 1.day, :at => '00:10' do
-##  rake 'db:backup'
+##  rake 'db:backup ts:index'
 ##end
 
 every '5 1-23 * * *' do
-  rake 'sisyphus:update p6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update'
+  rake 'sisyphus:update p6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update ts:in:delta'
 end
 
 #every 1.day, :at => '05:30' do
-#  rake 'sisyphusarm:update'
+#  rake 'sisyphusarm:update ts:in:delta'
 #end
 
 every 1.day, :at => '05:00' do
