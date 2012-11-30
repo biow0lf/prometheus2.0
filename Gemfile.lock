@@ -143,7 +143,8 @@ GEM
       addressable (~> 2.3)
     libnotify (0.8.0)
       ffi (>= 1.0.11)
-    libwebsocket (0.1.6.1)
+    libwebsocket (0.1.7.1)
+      addressable
       websocket
     listen (0.6.0)
     locale (2.0.8)
