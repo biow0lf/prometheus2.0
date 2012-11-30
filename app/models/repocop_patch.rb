@@ -15,7 +15,7 @@ class RepocopPatch < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       RepocopPatch.delete_all
 
-      url = "http://repocop.altlinux.org/pub/repocop/prometeus2/prometeus2-patches.sql"
+      url = "http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql"
       file = open(URI.escape(url)).read
 
       file.each_line do |line|
