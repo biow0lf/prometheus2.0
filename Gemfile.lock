@@ -265,7 +265,7 @@ GEM
     sitemap_generator (3.4)
       builder
     slop (3.3.3)
-    sprockets (2.2.1)
+    sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -290,7 +290,7 @@ GEM
       polyglot (>= 0.3.1)
     ts-datetime-delta (1.0.3)
       thinking-sphinx (>= 1.3.8)
-    turbolinks (0.5.2)
+    turbolinks (0.6.1)
       coffee-rails
     tzinfo (0.3.35)
     uglifier (1.3.0)
