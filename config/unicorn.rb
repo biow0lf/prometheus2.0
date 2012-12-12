@@ -20,6 +20,14 @@ timeout 600
 
 pid "/tmp/unicorn.my_site.pid"
 
+# Enable this flag to have unicorn test client connections by writing the
+# beginning of the HTTP headers before calling the application.  This
+# prevents calling the application for connections that have disconnected
+# while queued.  This is only guaranteed to detect clients on the same
+# host unicorn runs on, and unlikely to detect disconnects even on a
+# fast LAN.
+check_client_connection true
+
 # Production specific settings
 if env == "production"
   # Help ensure your application will always spawn in the symlinked
