@@ -82,6 +82,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
+    dalli (2.5.0)
     database_cleaner (0.9.1)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
@@ -165,7 +166,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    memcache-client (1.8.5)
     metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.19)
@@ -349,6 +349,7 @@ DEPENDENCIES
   coffee-rails
   cucumber
   cucumber-rails
+  dalli
   database_cleaner
   devise
   email_spec
@@ -369,7 +370,6 @@ DEPENDENCIES
   kaminari
   launchy
   libnotify
-  memcache-client
   mysql2
   nested_set
   newrelic_rpm

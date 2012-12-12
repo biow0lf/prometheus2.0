@@ -55,7 +55,7 @@ end
 gem 'jquery-rails'
 
 group :production do
-  gem 'memcache-client'
+  gem 'dalli'
   gem 'newrelic_rpm'
 #  gem 'newrelic-redis'
   gem 'rack-force_domain'
@@ -64,7 +64,7 @@ group :production do
 end
 
 group :staging do
-  gem 'memcache-client'
+  gem 'dalli'
   gem 'active_sanity'
   gem 'unicorn'
 end
