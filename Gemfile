@@ -75,6 +75,8 @@ group :development do
   gem 'silent-postgres'
   gem 'quiet_assets'
   gem 'bullet'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
