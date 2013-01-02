@@ -163,7 +163,7 @@ GEM
     libwebsocket (0.1.7.1)
       addressable
       websocket
-    listen (0.6.0)
+    listen (0.7.0)
     locale (2.0.8)
     lumberjack (1.0.2)
     mail (2.4.4)
