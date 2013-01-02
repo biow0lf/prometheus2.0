@@ -47,7 +47,7 @@ GEM
     brewdler (0.2.1)
       commander
     builder (3.0.4)
-    bullet (4.2.0)
+    bullet (4.3.0)
       uniform_notifier
     capistrano (2.13.5)
       highline
@@ -327,7 +327,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uniform_notifier (1.1.0)
+    uniform_notifier (1.1.1)
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.5)
