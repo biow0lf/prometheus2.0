@@ -292,7 +292,7 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
       railties (~> 3.0)
-    thinking-sphinx (2.0.13)
+    thinking-sphinx (2.0.14)
       activerecord (>= 3.0.3)
       builder (>= 2.1.2)
       riddle (>= 1.5.3)
