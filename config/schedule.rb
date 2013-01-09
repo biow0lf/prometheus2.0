@@ -26,7 +26,7 @@ every 1.day, :at => '06:45' do
   rake 'sisyphus:repocops sisyphus:repocop_patches'
 end
 
-every 1.day, :at => '13:00' do
+every 1.day, :at => '12:50' do
   rake 'ftbfs:update'
 end
 
