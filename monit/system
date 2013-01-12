@@ -1,2 +1,2 @@
-check system localhost.localdomain
-	if memory usage > 70% then exec "/bin/su -l -c 'kill -s USR2 `cat /tmp/unicorn.my_site.pid` -s /bin/bash prometheusapp"
+#check system localhost.localdomain
+#	if memory usage > 70% then exec "/bin/su -l -c 'kill -s USR2 `cat /tmp/unicorn.my_site.pid` -s /bin/bash prometheusapp"
