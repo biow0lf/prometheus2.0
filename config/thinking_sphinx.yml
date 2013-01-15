@@ -1,16 +1,16 @@
 development:
   max_matches: 10000
   min_infix_len: 3
-  mem_limit: 512M
+  mem_limit: 768M
 test:
   max_matches: 10000
   min_infix_len: 3
-  mem_limit: 512M
+  mem_limit: 768M
 production:
   max_matches: 10000
   min_infix_len: 3
-  mem_limit: 512M
+  mem_limit: 768M
 staging:
   max_matches: 10000
   min_infix_len: 3
-  mem_limit: 512M
+  mem_limit: 768M
