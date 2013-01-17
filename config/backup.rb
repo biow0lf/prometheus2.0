@@ -46,7 +46,7 @@ Backup::Model.new(:db_backup, 'Database Backup') do
 
   store_with Local do |local|
     local.path = '~/backups/'
-    local.keep = 30
+    local.keep = 7
   end
 
   compress_with Bzip2 do |compression|
