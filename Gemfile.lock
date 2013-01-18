@@ -154,7 +154,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.7.4)
+    kgio (2.8.0)
     launchy (2.1.2)
       addressable (~> 2.3)
     levenshtein (0.2.2)
