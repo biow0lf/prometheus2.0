@@ -44,7 +44,7 @@ GEM
     binding_of_caller (0.6.8)
     bourne (1.1.2)
       mocha (= 0.10.5)
-    brewdler (0.2.1)
+    brewdler (0.3.0)
       commander
     builder (3.0.4)
     bullet (4.3.0)
