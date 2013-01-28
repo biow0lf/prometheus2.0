@@ -8,7 +8,7 @@ h2. Setup and run
 h3. Install:
 
 * Ruby 1.9.3-p374
-* RubyGems 1.8.24
+* RubyGems 1.8.25
 * bundler 1.2.3
 * PostgreSQL 9.1 (some features will not work in other db)
 * nginx
