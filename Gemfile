@@ -77,6 +77,7 @@ group :development do
   gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'meta_request'
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
