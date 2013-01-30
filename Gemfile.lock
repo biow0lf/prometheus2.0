@@ -125,8 +125,8 @@ GEM
       locale
     gettext_i18n_rails (0.9.1)
       fast_gettext (>= 0.4.8)
-    gherkin (2.11.5)
-      json (>= 1.4.6)
+    gherkin (2.11.6)
+      json (>= 1.7.6)
     growl (1.0.3)
     guard (1.6.2)
       listen (>= 0.6.0)
