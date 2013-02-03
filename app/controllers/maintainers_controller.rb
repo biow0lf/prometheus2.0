@@ -17,7 +17,6 @@ class MaintainersController < ApplicationController
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
                            includes(:repocop_patch).
                            order(sort_column + ' ' + sort_direction)
-#                           order('LOWER(srpms.name)')
   end
 
 #  def acls
