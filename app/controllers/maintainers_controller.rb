@@ -16,7 +16,7 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
                            includes(:repocop_patch).
-                           order(sort_column + ' ' + sort_direction)
+                           order(sort_column_with_lower + ' ' + sort_direction)
   end
 
 #  def acls
@@ -86,6 +86,11 @@ class MaintainersController < ApplicationController
 
   def sort_column
     %w[name buildtime].include?(params[:sort]) ? params[:sort] : 'name'
+  end
+
+  def sort_column_with_lower
+    return sort_column unless sort_column == 'name'
+    sort_column = 'LOWER(name)'
   end
 
   def sort_direction
