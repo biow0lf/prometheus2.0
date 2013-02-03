@@ -35,10 +35,12 @@
     <% if @branch.name == 'Sisyphus' %>
       <th><%= raw _('repo<br/>cop') %></th>
     <% end %>
-    <th><%= _('package') %></th>
+    <!-- <th><%= link_to _('package'), :sort => 'name' %></th> -->
+    <th><%= sortable 'name' %></th>
     <th><%= raw _('current<br />version') %></th>
     <th><%= _('build time') %></th>
-    <th><%= _('age') %></th>
+    <!-- <th><%= link_to _('age'), :sort => 'buildtime' %></th> -->
+    <th><%= sortable 'buildtime' %></th>
     <th><%= _('Url') %></th>
     <th><%= _('Summary') %></th>
   </tr>

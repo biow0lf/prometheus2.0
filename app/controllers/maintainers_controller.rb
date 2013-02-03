@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class MaintainersController < ApplicationController
-  # helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction
 
   def show
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
@@ -16,7 +16,8 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
                            includes(:repocop_patch).
-                           order('LOWER(srpms.name)')
+                           order(sort_column + ' ' + sort_direction)
+#                           order('LOWER(srpms.name)')
   end
 
 #  def acls
@@ -82,13 +83,13 @@ class MaintainersController < ApplicationController
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
 
-  # private
-  #
-  # def sort_column
-  #   %w[srpms.name srpms.repocop].include?(params[:sort]) ? params[:sort] : 'srpms.name'
-  # end
-  #
-  # def sort_direction
-  #   %w[asc desc].include?(params[:direction]) ?  params[:direction] : 'asc'
-  # end
+  private
+
+  def sort_column
+    %w[name buildtime].include?(params[:sort]) ? params[:sort] : 'name'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : 'asc'
+  end
 end
