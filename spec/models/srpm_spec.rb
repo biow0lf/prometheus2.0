@@ -28,7 +28,7 @@ describe Srpm do
   it { should have_db_index :group_id }
   it { should have_db_index :name }
 
-  it "should return Srpm.name on .to_param" do
+  it 'should return Srpm.name on .to_param' do
     branch = FactoryGirl.create(:branch)
     group0 = Group.create!(name: 'Graphical desktop', branch_id: branch.id)
     group = Group.create!(name: 'Other', branch_id: branch.id)
@@ -49,7 +49,7 @@ describe Srpm do
                  buildtime: '2010-11-24 23:58:02 UTC').to_param.should == 'openbox'
   end
 
-  it "should import srpm file" do
+  it 'should import srpm file' do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
@@ -113,7 +113,7 @@ describe Srpm do
     $redis.get("#{branch.name}:srpms:counter").should == "1"
   end
 
-  it "should import all srpms from path" do
+  it 'should import all srpms from path' do
     branch = FactoryGirl.create(:branch)
     path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
     $redis.get("#{branch.name}:glibc-2.11.3-alt6.src.rpm").should be_nil
@@ -125,7 +125,7 @@ describe Srpm do
     Srpm.import_all(branch, path)
   end
 
-  it "should remove old srpms from database" do
+  it 'should remove old srpms from database' do
     branch = FactoryGirl.create(:branch)
     $redis.set("#{branch.name}:srpms:counter", 0)
     group = FactoryGirl.create(:group, branch_id: branch.id)
@@ -156,7 +156,7 @@ describe Srpm do
     # TODO: add checks for sub packages, set-get-delete
   end
 
-  it "should cache srpms counter in redis" do
+  it 'should cache srpms counter in redis' do
     branch = FactoryGirl.create(:branch)
     $redis.del("#{branch.name}:srpms:counter")
     $redis.get("#{branch.name}:srpms:counter").should be_nil

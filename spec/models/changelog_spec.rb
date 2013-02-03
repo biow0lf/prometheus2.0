@@ -16,7 +16,7 @@ describe Changelog do
 
   it { should have_db_index :srpm_id }
 
-  it "should import changelogs" do
+  it 'should import changelogs' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)

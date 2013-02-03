@@ -27,7 +27,7 @@ describe Package do
   it { should have_db_index :sourcepackage }
   it { should have_db_index :srpm_id }
 
-  it "should import package to database" do
+  it 'should import package to database' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
@@ -73,7 +73,7 @@ describe Package do
     $redis.get("#{branch.name}:#{package.filename}").should == "1"
   end
 
-  it "should import all packages from path" do
+  it 'should import all packages from path' do
     branch = FactoryGirl.create(:branch)
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
     $redis.get("#{branch.name}:gcc-1.0-alt1.i586.rpm").should be_nil

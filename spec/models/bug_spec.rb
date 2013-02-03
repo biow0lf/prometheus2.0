@@ -7,7 +7,7 @@ describe Bug do
   it { should have_db_index :bug_status }
   it { should have_db_index :product }
 
-  it "should import bugs from url" do
+  it 'should import bugs from url' do
     bugs = `cat spec/data/bugs.csv`
     Bug.should_receive(:`).with('curl --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"').and_return(bugs)
     Bug.import('https://bugzilla.altlinux.org/buglist.cgi?ctype=csv')

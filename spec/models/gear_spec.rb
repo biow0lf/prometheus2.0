@@ -16,7 +16,7 @@ describe Gear do
   it { should have_db_index :maintainer_id }
   it { should have_db_index :srpm_id }
 
-  it "should import gitrepos" do
+  it 'should import gear repos' do
     branch = FactoryGirl.create(:branch)
 
     group0 = Group.create!(name: 'System', branch_id: branch.id)
@@ -43,7 +43,7 @@ describe Gear do
 
     page = `cat spec/data/people-packages-list`
     FakeWeb.register_uri(:get,
-                         "http://git.altlinux.org/people-packages-list",
+                         'http://git.altlinux.org/people-packages-list',
                          response: page)
 
     expect{

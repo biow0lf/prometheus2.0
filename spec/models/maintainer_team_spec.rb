@@ -15,20 +15,20 @@ describe MaintainerTeam do
     it { should validate_presence_of :login }
   end
 
-  it "should validate_uniqueness_of :login" do
+  it 'should validate_uniqueness_of :login' do
     MaintainerTeam.create!(name: 'Ruby Team',
                            email: 'ruby@packages.altlinux.org',
                            login: 'ruby')
     should validate_uniqueness_of :login
   end
 
-  it "should return Maintainer.login on .to_param" do
+  it 'should return Maintainer.login on .to_param' do
     MaintainerTeam.create!(name: 'Ruby Team',
                            email: 'ruby@packages.altlinux.org',
                            login: 'ruby').to_param.should == 'ruby'
   end
 
-  it "should deny change email" do
+  it 'should deny change email' do
     maintainer_team = MaintainerTeam.create!(name: 'Ruby Team',
                                              email: 'ruby@packages.altlinux.org',
                                              login: 'ruby')
@@ -36,7 +36,7 @@ describe MaintainerTeam do
     maintainer_team.save.should be_false
   end
 
-  it "should deny change login" do
+  it 'should deny change login' do
     maintainer_team = MaintainerTeam.create!(name: 'Ruby Team',
                                              email: 'ruby@packages.altlinux.org',
                                              login: 'ruby')
@@ -44,7 +44,7 @@ describe MaintainerTeam do
     maintainer_team.save.should be_false
   end
 
-  it "should deny change name" do
+  it 'should deny change name' do
     maintainer_team = MaintainerTeam.create!(name: 'Ruby Team',
                                              email: 'ruby@packages.altlinux.org',
                                              login: 'ruby')
@@ -52,18 +52,18 @@ describe MaintainerTeam do
     maintainer_team.save.should be_false
   end
 
-  it "should return true if MaintainerTeam exists" do
+  it 'should return true if MaintainerTeam exists' do
     MaintainerTeam.create!(name: 'Ruby Maintainers Team',
                            email: 'ruby@packages.altlinux.org',
                            login: 'ruby')
     MaintainerTeam.team_exists?('ruby').should be_true
   end
 
-  it "should return false if Maintainer team not exists" do
+  it 'should return false if Maintainer team not exists' do
     MaintainerTeam.team_exists?('non_exists_team').should be_false
   end
 
-  it "should downcase login before checking for exists" do
+  it 'should downcase login before checking for exists' do
     MaintainerTeam.create!(name: 'Ruby Maintainers Team',
                            email: 'ruby@packages.altlinux.org',
                            login: 'ruby')

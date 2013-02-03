@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe User do
-  it "should return login on User.login" do
+  it 'should return login on User.login' do
     user = User.create!(email: 'icesik@altlinux.org',
                         password: 'password',
                         password_confirmation: 'password')
@@ -12,7 +12,7 @@ describe User do
     user.login.should == 'icesik'
   end
 
-  it "should return true for @altlinux.org emails" do
+  it 'should return true for @altlinux.org emails' do
     user = User.create!(email: 'icesik@altlinux.org',
                         password: 'password',
                         password_confirmation: 'password')
@@ -21,7 +21,7 @@ describe User do
     user.is_alt_team?.should be_true
   end
 
-  it "should return true for @altlinux.ru emails" do
+  it 'should return true for @altlinux.ru emails' do
     user = User.create!(email: 'icesik@altlinux.ru',
                         password: 'password',
                         password_confirmation: 'password')
@@ -30,7 +30,7 @@ describe User do
     user.is_alt_team?.should be_true
   end
 
-  it "should return false for non altlinux team member" do
+  it 'should return false for non altlinux team member' do
     user = User.create!(email: 'user@email.com',
                         password: 'password',
                         password_confirmation: 'password')
@@ -39,7 +39,7 @@ describe User do
     user.is_alt_team?.should be_false
   end
 
-  it "should deny change email" do
+  it 'should deny change email' do
     user = User.create!(email: 'user@email.com',
                         password: 'password',
                         password_confirmation: 'password')

@@ -14,7 +14,7 @@ describe Specfile do
     it { should validate_presence_of :spec }
   end
 
-  it "should import spec file" do
+  it 'should import spec file' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
