@@ -84,7 +84,9 @@ group :development do
   gem 'rb-readline'
   gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
-  gem 'rb-inotify', :require => false
+  # gem 'rb-inotify', :require => false
+  # 0.9.0 breaks guard
+  gem 'rb-inotify', '~> 0.8.8', :require => false
   gem 'libnotify', :require => false
   gem 'guard-rspec'
   gem 'guard-cucumber'

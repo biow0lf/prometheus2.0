@@ -236,7 +236,7 @@ GEM
     raindrops (0.10.0)
     rake (10.0.3)
     rb-fsevent (0.9.3)
-    rb-inotify (0.9.0)
+    rb-inotify (0.8.8)
       ffi (>= 0.5.0)
     rb-readline (0.4.2)
     rdoc (3.12)
@@ -391,7 +391,7 @@ DEPENDENCIES
   rails-erd
   rake
   rb-fsevent
-  rb-inotify
+  rb-inotify (~> 0.8.8)
   rb-readline
   redis
   rspec
