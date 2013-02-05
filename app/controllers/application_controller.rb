@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_default_locale
   before_filter :set_default_branch
 
+  helper_method :sort_column, :sort_order, :sort_order_next
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
@@ -32,5 +34,19 @@ class ApplicationController < ActionController::Base
 #    if @branch == nil
 #      render status: 404 and return
 #    end
+  end
+
+  def sort_column
+    %w[status name age].include?(params[:sort]) ? params[:sort] : 'name'
+  end
+
+  def sort_order
+    %w[asc desc].include?(params[:order]) ? params[:order] : 'asc'
+  end
+
+  def sort_order_next(column)
+    return 'desc' if params[:order] == 'asc' && params[:sort] == column
+    return 'asc' if params[:order] == 'desc' && params[:sort] == column
+    'asc'
   end
 end

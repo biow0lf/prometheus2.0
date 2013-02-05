@@ -33,12 +33,15 @@
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
     <% if @branch.name == 'Sisyphus' %>
-      <th><%= raw _('repo<br/>cop') %></th>
+      <th>
+        <%= raw _('repo<br/>cop') %><br>
+        <%= link_to image_tag('stock_navigate-prev.png'), :sort => 'status', :order => sort_order_next('status') %>
+      </th>
     <% end %>
-    <th><%= sortable 'name', _('package') %></th>
+    <th><%= _('package') %><br><%= link_to image_tag('stock_navigate-prev.png'), :sort => 'name', :order => sort_order_next('name') %></th>
     <th><%= raw _('current<br />version') %></th>
     <th><%= _('build time') %></th>
-    <th><%= sortable 'buildtime', _('age') %></th>
+    <th><%= _('age') %><br><%= link_to image_tag('stock_navigate-prev.png'), :sort => 'age', :order => sort_order_next('age') %></th>
     <th><%= _('Url') %></th>
     <th><%= _('Summary') %></th>
   </tr>

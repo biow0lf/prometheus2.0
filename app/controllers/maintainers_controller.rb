@@ -1,8 +1,6 @@
 # encoding: utf-8
 
 class MaintainersController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   def show
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branches = Branch.order('order_id').all
@@ -14,9 +12,26 @@ class MaintainersController < ApplicationController
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branches = Branch.order('order_id').all
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+
+    order  = ""
+    order += "LOWER(name)" if sort_column == 'name'
+    order += "buildtime" if sort_column == 'age'
+
+    if sort_column == 'status'
+      order += "CASE repocop
+                WHEN 'skip'         THEN 1
+                WHEN 'ok'           THEN 2
+                WHEN 'experimental' THEN 3
+                WHEN 'info'         THEN 4
+                WHEN 'warn'         THEN 5
+                WHEN 'fail'         THEN 6
+                END"
+    end
+
+    order += " " + sort_order
+
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
-                           includes(:repocop_patch).
-                           order(sort_column_with_lower + ' ' + sort_direction)
+                           includes(:repocop_patch).order(order)
   end
 
 #  def acls
@@ -80,20 +95,5 @@ class MaintainersController < ApplicationController
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
-  end
-
-  private
-
-  def sort_column
-    %w[name buildtime].include?(params[:sort]) ? params[:sort] : 'name'
-  end
-
-  def sort_column_with_lower
-    return sort_column unless sort_column == 'name'
-    sort_column = 'LOWER(name)'
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : 'asc'
   end
 end
