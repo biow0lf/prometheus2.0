@@ -14,7 +14,7 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
 
     order  = ""
-    order += "LOWER(srpm.name)" if sort_column == 'name'
+    order += "LOWER(srpms.name)" if sort_column == 'name'
     order += "buildtime" if sort_column == 'age'
 
     if sort_column == 'status'
