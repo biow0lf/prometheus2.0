@@ -25,13 +25,13 @@ namespace :sisyphusarm do
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/Sisyphus/arm/SRPMS.all/')
-#    puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
     Package.import_all(branch, pathes)
-#    puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: end"
     # TODO: review and cleanup this code
-#    puts "#{Time.now.to_s}: expire cache"
+    puts "#{Time.now.to_s}: expire cache"
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
       pages_counter = (branch.srpms.where("srpms.created_at > '2010-11-09 09:00:00'").count / 50) + 1
@@ -39,10 +39,10 @@ namespace :sisyphusarm do
         ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_#{page}")
       end
     end
-#    puts "#{Time.now.to_s}: end"
-#    puts "#{Time.now.to_s}: update time"
+    puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: update time"
     $redis.set("#{branch.name}:updated_at", Time.now.to_s)
-#    puts "#{Time.now.to_s}: end"
+    puts "#{Time.now.to_s}: end"
     $redis.del('__SYNC__')
   end
 
