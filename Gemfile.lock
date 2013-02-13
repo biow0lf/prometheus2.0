@@ -168,7 +168,7 @@ GEM
     mime-types (1.21)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
-    multi_json (1.5.1)
+    multi_json (1.6.0)
     mysql2 (0.3.11)
     nested_set (1.7.1)
       activerecord (>= 3.0.0)
