@@ -2,3 +2,7 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run Prometheus20::Application
+
+require 'unicorn/oob_gc'
+
+use Unicorn::OobGC, 10
