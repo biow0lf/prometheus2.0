@@ -6,7 +6,7 @@
 
   <% if srpm.builder %>
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
-    <%= link_to srpm.builder.name, maintainer_path(srpm.branch, srpm.builder), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
+    <%= link_to _(srpm.builder.name), maintainer_path(srpm.branch, srpm.builder), :class => 'news', :title => _('information about maintainer') %>, <%= srpm.buildtime %>
   </span>
   <% else %>
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
