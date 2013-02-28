@@ -15,7 +15,7 @@
   <% end %>
 
   <div id="pkg-<%= srpm.name %>" style="display:block;margin-top:1em;">
-    <b><%= _('Group:') %></b> <span class="news-text"><%= srpm.group.full_name %></span><br />
+    <b><%= _('Group:') %></b> <span class="news-text"><%= _(srpm.group.full_name) %></span><br />
     <b><%= _('Summary:') %></b> <span class="news-text"><%= srpm.summary %></span><br />
     <b><%= _('Changes:') %></b> <div class="para"><%= simple_format(srpm.changelogtext) %></div>
   </div>
