@@ -21,6 +21,7 @@ group :sqlite do
   gem 'sqlite3'
 end
 
+gem 'unicorn'
 gem 'devise'
 gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'
@@ -60,7 +61,6 @@ group :production do
 #  gem 'newrelic-redis'
   gem 'rack-force_domain'
   gem 'exception_notification'
-  gem 'unicorn'
 end
 
 group :staging do
