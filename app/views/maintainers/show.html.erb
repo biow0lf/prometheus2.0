@@ -25,7 +25,7 @@
 </div>
 </div>
 
-<div class="header"><%= _('Maintainer:') %> <%= @maintainer.name %></div>
+<div class="header"><%= _('Maintainer:') %> <%= _(@maintainer.name) %></div>
 <p class="break" />
 <span class="current">&nbsp;<b><%= _('Information') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
 

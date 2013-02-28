@@ -92,7 +92,7 @@
 <% if @leader.class.to_s == 'MaintainerTeam' %>
   <%= link_to @leader.name, team_path(@branch, @leader.login[1..-1]), :class => 'news', :title => _('information about maintainer') %>
 <% else %>
-  <%= link_to @leader.name, maintainer_path(@branch, @leader), :class => 'news', :title => _('information about maintainer') %>
+  <%= link_to _(@leader.name), maintainer_path(@branch, @leader), :class => 'news', :title => _('information about maintainer') %>
 <% end %>
 </div><br/>
 <% end %>
@@ -103,7 +103,7 @@
   <ul>
     <% @contributors.each do |contributor| %>
       <li>
-        <%= link_to contributor.name, maintainer_path(@branch, contributor), :class => 'news',
+        <%= link_to _(contributor.name), maintainer_path(@branch, contributor), :class => 'news',
           :title => _('information about maintainer') %>
       </li>
     <% end %>
@@ -116,7 +116,7 @@
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @maintainers.each do |maintainer| %>
-    <li><%= link_to maintainer.name, maintainer_path(@branch, maintainer), :class => 'news',
+    <li><%= link_to _(maintainer.name), maintainer_path(@branch, maintainer), :class => 'news',
           :title => _('information about maintainer') %></li>
   <% end %>
   <% @teams.each do |team| %>
