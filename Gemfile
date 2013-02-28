@@ -22,6 +22,8 @@ group :sqlite do
 end
 
 gem 'unicorn'
+gem 'unicorn-worker-killer'
+
 gem 'devise'
 gem 'pry', :group => [:development, :test]
 #gem 'recaptcha', :require => 'recaptcha/rails'
