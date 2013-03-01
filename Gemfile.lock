@@ -309,8 +309,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    unicorn-worker-killer (0.3.2)
-      unicorn (~> 4)
     uniform_notifier (1.1.1)
     warden (1.2.1)
       rack (>= 1.0)
@@ -390,5 +388,4 @@ DEPENDENCIES
   turbolinks
   uglifier
   unicorn
-  unicorn-worker-killer
   whenever
