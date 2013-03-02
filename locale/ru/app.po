@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-01 15:30+0200\n"
+"POT-Creation-Date: 2013-03-02 16:52+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -95,6 +95,12 @@ msgstr "О проекте"
 
 msgid "Accessibility"
 msgstr "Доступность"
+
+msgid "Alexey Shabalin"
+msgstr "Алексей Шабалин"
+
+msgid "Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus <b><a href=\"http://en.altlinux.org/Regular\">regular LiveCD builds</a></b>."
+msgstr "Для использования Sisyphus достаточно наличие любого дистрибутива ALT&nbsp;Linux и средства управления пакетами программ <b>APT</b>; оценить текущее состояние может быть удобно при помощи <b><a href=\"http://www.altlinux.org/Regular\">регулярных сборок</a> LiveCD</b>."
 
 msgid "Archiving/Backup"
 msgstr "Архивирование/Резервное копирование"
@@ -884,6 +890,9 @@ msgstr ""
 
 msgid "Video"
 msgstr "Видео"
+
+msgid "Vitaly Lipatov"
+msgstr "Виталий Липатов"
 
 msgid "Website/Blog:"
 msgstr "Сайт/Блог:"
