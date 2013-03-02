@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-02 18:04+0200\n"
+"POT-Creation-Date: 2013-03-02 18:12+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -194,6 +194,9 @@ msgstr "Текущая версия:"
 
 msgid "Databases"
 msgstr "Базы данных"
+
+msgid "Denis Smirnov"
+msgstr "Денис Смирнов"
 
 msgid "Description:"
 msgstr "Описание:"
