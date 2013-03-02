@@ -1,4 +1,5 @@
 N_('Alexey Shabalin')
+N_('Andriy Stepanov')
 N_('Dmitriy Kulik')
 N_('Eugene Prokopiev')
 N_('Igor Zubkov')
