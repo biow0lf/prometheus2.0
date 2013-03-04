@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-04 16:29+0200\n"
+"POT-Creation-Date: 2013-03-04 16:46+0200\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -382,6 +382,9 @@ msgid "Home page:"
 msgstr ""
 
 msgid "If you didn't request this, please ignore this email."
+msgstr ""
+
+msgid "Igor Vlasenko"
 msgstr ""
 
 msgid "Igor Zubkov"
