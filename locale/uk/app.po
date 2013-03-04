@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-04 16:46+0200\n"
+"POT-Creation-Date: 2013-03-04 17:09+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -634,6 +634,9 @@ msgstr[1] "пакетa:"
 msgstr[2] "пакетов:"
 
 msgid "RSS"
+msgstr ""
+
+msgid "Radik Usupov"
 msgstr ""
 
 msgid "Raw spec file"
