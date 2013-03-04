@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-02 18:12+0200\n"
+"POT-Creation-Date: 2013-03-04 15:00+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,6 +67,9 @@ msgid "Accessibility"
 msgstr ""
 
 msgid "Alexey Shabalin"
+msgstr ""
+
+msgid "Andrey Cherepanov"
 msgstr ""
 
 msgid "Andriy Stepanov"
@@ -439,6 +442,9 @@ msgid "Michael Shigorin"
 msgstr ""
 
 msgid "Monitoring"
+msgstr ""
+
+msgid "Motsyo Gennadi"
 msgstr ""
 
 msgid "Networking/Chat"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-02 18:12+0200\n"
+"POT-Creation-Date: 2013-03-04 15:00+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -67,6 +67,9 @@ msgid "Accessibility"
 msgstr "Доступність"
 
 msgid "Alexey Shabalin"
+msgstr ""
+
+msgid "Andrey Cherepanov"
 msgstr ""
 
 msgid "Andriy Stepanov"
@@ -440,6 +443,9 @@ msgstr "Михайло Шигорін"
 
 msgid "Monitoring"
 msgstr "Моніторинг"
+
+msgid "Motsyo Gennadi"
+msgstr "Моцьо Геннадій"
 
 msgid "Networking/Chat"
 msgstr "Мережі/Chat"
