@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-04 17:22+0200\n"
+"POT-Creation-Date: 2013-03-04 17:27+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -268,6 +268,9 @@ msgid "Editors"
 msgstr ""
 
 msgid "Education"
+msgstr ""
+
+msgid "Egor Vyscrebentsov"
 msgstr ""
 
 msgid "Email:"
