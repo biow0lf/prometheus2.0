@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-04 18:24+0200\n"
+"POT-Creation-Date: 2013-03-05 16:35+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -428,6 +428,9 @@ msgstr "Игорь Власенко"
 
 msgid "Igor Zubkov"
 msgstr "Игорь Зубков"
+
+msgid "Ildar Mulyukov"
+msgstr "Ильдар Мулюков"
 
 msgid "Info:"
 msgstr "Информация:"
