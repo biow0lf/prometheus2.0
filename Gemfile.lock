@@ -38,7 +38,7 @@ GEM
     backup-task (0.2.0)
       backup (~> 3.0.9)
     bcrypt-ruby (3.0.1)
-    better_errors (0.7.0)
+    better_errors (0.7.2)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
