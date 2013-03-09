@@ -2,9 +2,10 @@ Feature: User API
 
   Background:
     Given we have branch "Sisyphus"
-    Given we have group "Graphical desktop/Other" in branch "Sisyphus"
-    Given we have srpm "openbox" in branch "Sisyphus"
-    Given we have maintainer "Igor Zubkov"
+    And we have group "Graphical desktop/Other" in branch "Sisyphus"
+    And we have srpm "openbox" in branch "Sisyphus"
+    And we have maintainer "Igor Zubkov"
+    And we have acls "icesik" for source rpm "openbox" in branch "Sisyphus"
 
   Scenario: Source RPM info
     When I visit "/en/Sisyphus/srpms/openbox"
