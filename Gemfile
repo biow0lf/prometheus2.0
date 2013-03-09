@@ -14,7 +14,7 @@ group :postgresql do
 end
 
 group :mysql do
-  gem 'mysql2'
+  gem 'mysql2', '0.3.12b4'
 end
 
 group :sqlite do
@@ -32,6 +32,7 @@ gem 'gettext_i18n_rails'
 gem 'gettext', :require => false
 gem 'whenever', :require => false
 gem 'nested_set'
+gem 'mysql2', '0.3.12b4' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 gem 'brewdler', :require => false
@@ -93,6 +94,7 @@ end
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+#  gem 'debugger'
 end
 
 group :test do
