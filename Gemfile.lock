@@ -48,7 +48,7 @@ GEM
     brewdler (0.3.1)
       commander
     builder (3.0.4)
-    bullet (4.3.1)
+    bullet (4.4.0)
       uniform_notifier
     capistrano (2.14.2)
       highline
