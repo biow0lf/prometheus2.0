@@ -170,6 +170,7 @@ GEM
     method_source (0.8.1)
     middleware (0.1.0)
     mime-types (1.21)
+    minitest (3.5.0)
     mocha (0.12.7)
       metaclass (~> 0.0.1)
     multi_json (1.6.1)
@@ -363,6 +364,7 @@ DEPENDENCIES
   launchy
   libnotify
   meta_request
+  minitest (= 3.5.0)
   mysql2 (= 0.3.12b4)
   nested_set
   newrelic_rpm
