@@ -34,7 +34,6 @@ gem 'whenever', :require => false
 gem 'nested_set'
 gem 'mysql2', '0.3.12b4' # for thinking-sphinx
 gem 'thinking-sphinx'
-gem 'ts-datetime-delta', :require => 'thinking_sphinx/deltas/datetime_delta'
 gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'backup', :require => false

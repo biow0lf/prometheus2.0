@@ -302,8 +302,6 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    ts-datetime-delta (1.0.3)
-      thinking-sphinx (>= 1.3.8)
     turbolinks (1.0.0)
       coffee-rails
     tzinfo (0.3.37)
@@ -390,7 +388,6 @@ DEPENDENCIES
   squeel
   strong_parameters
   thinking-sphinx
-  ts-datetime-delta
   turbolinks
   uglifier
   unicorn
