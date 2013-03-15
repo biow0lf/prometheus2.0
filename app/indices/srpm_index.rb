@@ -1,4 +1,4 @@
-ThinkingSphinx::Index.define :srpm, :with => :active_record do
+ThinkingSphinx::Index.define :srpm, :with => :active_record, :delta => true do
   indexes name, sortable: true
   indexes summary
   indexes description
