@@ -100,8 +100,6 @@ group :test do
   # gem 'ffaker'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  # http://stackoverflow.com/questions/12752905/no-mocha-monkey-patch-for-minitest-version-runtimeerror
-  gem 'minitest', '3.5.0'
   gem 'email_spec'
   gem 'launchy'
   gem 'cucumber'
