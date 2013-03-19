@@ -94,6 +94,7 @@ describe SrpmsController do
     it "should route /en/Sisyphus/srpms/glibc/gear to srpms#gear" do
       { :get => "/en/Sisyphus/srpms/glibc/gear" }.should route_to(:controller => 'srpms',
                                                                   :action => 'gear',
+                                                                  :branch => 'Sisyphus',
                                                                   :id => 'glibc',
                                                                   :locale => 'en')
     end
