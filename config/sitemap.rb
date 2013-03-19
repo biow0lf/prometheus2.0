@@ -40,7 +40,7 @@ SitemapGenerator::Sitemap.create do
         add changelog_srpm_path(locale, branch, srpm)
         add spec_srpm_path(locale, branch, srpm)
         add get_srpm_path(locale, branch, srpm)
-        add gear_srpm_path(locale, srpm)
+        add gear_srpm_path(locale, branch, srpm)
         add bugs_srpm_path(locale, srpm)
         add allbugs_srpm_path(locale, srpm)
         add repocop_srpm_path(locale, srpm)

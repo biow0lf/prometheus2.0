@@ -26,7 +26,6 @@ Prometheus20::Application.routes.draw do
     end
 
     scope 'Sisyphus', :id => /[^\/]+/ do
-      match 'srpms/:id/gear' => 'srpms#gear', :as => 'gear_srpm'
       match 'srpms/:id/bugs' => 'srpms#bugs', :as => 'bugs_srpm'
       match 'srpms/:id/allbugs' => 'srpms#allbugs', :as => 'allbugs_srpm'
       match 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
@@ -44,6 +43,7 @@ Prometheus20::Application.routes.draw do
           get 'spec'
           get 'rawspec'
           get 'get'
+          get 'gear'
         end
         resources :patches, :only => [:index, :show]
         resources :sources, :only => :index do
