@@ -7,28 +7,28 @@ Prometheus20::Application.routes.draw do
     resource :search, :only => :show, :id => /[^\/]+/
     root :to => 'home#index'
 
-    match 'm/' => 'iphone#index', :as => 'iphone_home'
-    match 'm/maintainer/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
-    match 'm/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
+    get 'm/' => 'iphone#index', :as => 'iphone_home'
+    get 'm/maintainer/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
+    get 'm/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
-    match 'project' => 'pages#project'
+    get 'project' => 'pages#project'
     resources :rsync, :controller => :rsync, :only => [:new]
     resources :rebuild, :controller => :rebuild, :only => [:index]
 
     scope 'Sisyphus' do
-      match 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
-      match 'maintainers/:id/bugs' => 'maintainers#bugs', :as => 'bugs_maintainer'
-      match 'maintainers/:id/allbugs' => 'maintainers#allbugs', :as => 'allbugs_maintainer'
-      match 'maintainers/:id/ftbfs' => 'maintainers#ftbfs', :as => 'ftbfs_maintainer'
-      match 'maintainers/:id/repocop' => 'maintainers#repocop', :as => 'repocop_maintainer'
+      get 'maintainers/:id/gear' => 'maintainers#gear', :as => 'gear_maintainer'
+      get 'maintainers/:id/bugs' => 'maintainers#bugs', :as => 'bugs_maintainer'
+      get 'maintainers/:id/allbugs' => 'maintainers#allbugs', :as => 'allbugs_maintainer'
+      get 'maintainers/:id/ftbfs' => 'maintainers#ftbfs', :as => 'ftbfs_maintainer'
+      get 'maintainers/:id/repocop' => 'maintainers#repocop', :as => 'repocop_maintainer'
     end
 
     scope 'Sisyphus', :id => /[^\/]+/ do
-      match 'srpms/:id/bugs' => 'srpms#bugs', :as => 'bugs_srpm'
-      match 'srpms/:id/allbugs' => 'srpms#allbugs', :as => 'allbugs_srpm'
-      match 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
+      get 'srpms/:id/bugs' => 'srpms#bugs', :as => 'bugs_srpm'
+      get 'srpms/:id/allbugs' => 'srpms#allbugs', :as => 'allbugs_srpm'
+      get 'srpms/:id/repocop' => 'srpms#repocop', :as => 'repocop_srpm'
     end
 
     scope ':branch', :branch => /[^\/]+/ do
@@ -51,25 +51,24 @@ Prometheus20::Application.routes.draw do
         end
       end
 
-      match 'home' => 'home#index'
+      get 'home' => 'home#index'
 
-      match 'packages/:group(/:group2(/:group3))' => 'group#show', :as => 'group'
-      match 'packages' => 'group#index', :as => 'packages'
-      match 'people' => 'home#maintainers_list', :as => 'maintainers'
-      match 'rss' => 'rss#index', :as => 'rss'
-
+      get 'packages/:group(/:group2(/:group3))' => 'group#show', :as => 'group'
+      get 'packages' => 'group#index', :as => 'packages'
+      get 'people' => 'home#maintainers_list', :as => 'maintainers'
+      get 'rss' => 'rss#index', :as => 'rss'
     end
   end
 
-  match '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
+  get '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
 
-  match '(/:locale)/security' => 'pages#security', :as => 'security', :locale => SUPPORTED_LOCALES
+  get '(/:locale)/security' => 'pages#security', :as => 'security', :locale => SUPPORTED_LOCALES
 
-#  match '/repocop' => 'repocop#index'
-#  match '/repocop/by-test/:testname' => 'repocop#bytest'
+#  get '/repocop' => 'repocop#index'
+#  get '/repocop/by-test/:testname' => 'repocop#bytest'
 
-  match '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
+  get '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
 
-  match '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
-  match '/:name' => 'redirector#index', :name => /[^\/]+/
+  get '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
+  get '/:name' => 'redirector#index', :name => /[^\/]+/
 end
