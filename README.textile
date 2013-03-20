@@ -23,20 +23,20 @@ h3. Install:
 
 h3. And then:
 
-* run "bundle install" in project folder
+* run @bundle install@ in project folder
 
 h3. Prepare:
 
-* bundle exec rake gettext:pack
+* @bundle exec rake gettext:pack@
 
 h3. Init database:
 
-* bundle exec rake db:create
-* bundle exec rake db:migrate
-* bundle exec rake db:seed
+* @bundle exec rake db:create@
+* @bundle exec rake db:migrate@
+* @bundle exec rake db:seed@
 
-* bundle exec rake sisyphus:update
-* bundle exec rake sisyphus:teams
+* @bundle exec rake sisyphus:update@
+* @bundle exec rake sisyphus:teams@
 
 * bundle exec rake sisyphus:bugs
 * bundle exec rake sisyphus:repocops
