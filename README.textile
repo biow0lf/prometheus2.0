@@ -38,49 +38,49 @@ h3. Init database:
 * @bundle exec rake sisyphus:update@
 * @bundle exec rake sisyphus:teams@
 
-* bundle exec rake sisyphus:bugs
-* bundle exec rake sisyphus:repocops
-* bundle exec rake sisyphus:repocop_patches
-* bundle exec rake gear:import
-* bundle exec rake perlwatch:update
-* bundle exec rake ftbfs:update
+* @bundle exec rake sisyphus:bugs@
+* @bundle exec rake sisyphus:repocops@
+* @bundle exec rake sisyphus:repocop_patches@
+* @bundle exec rake gear:import@
+* @bundle exec rake perlwatch:update@
+* @bundle exec rake ftbfs:update@
 
-* bundle exec rake sisyphusarm:srpms
-* bundle exec rake sisyphusarm:binary
+* @bundle exec rake sisyphusarm:srpms@
+* @bundle exec rake sisyphusarm:binary@
 
-* bundle exec rake p6:update
+* @bundle exec rake p6:update@
 
-* bundle exec rake t6:update
+* @bundle exec rake t6:update@
 
-* bundle exec rake p5:update
+* @bundle exec rake p5:update@
 
-* bundle exec rake 51:update
-* bundle exec rake 51:teams
+* @bundle exec rake 51:update@
+* @bundle exec rake 51:teams@
 
-* bundle exec rake 50:update
-* bundle exec rake 50:teams
+* @bundle exec rake 50:update@
+* @bundle exec rake 50:teams@
 
-* bundle exec rake 41:update
-* bundle exec rake 41:teams
+* @bundle exec rake 41:update@
+* @bundle exec rake 41:teams@
 
-* bundle exec rake 40:update
-* bundle exec rake 40:teams
+* @bundle exec rake 40:update@
+* @bundle exec rake 40:teams@
 
-* bundle exec rake redis:cache
+* @bundle exec rake redis:cache@
 
-* bundle exec rake ts:index
+* @bundle exec rake ts:index@
 
 h2. Run
 
-* bundle exec rake ts:start
-* bundle exec rake assets:precompile
-* redis-server redis.conf
-* service postgresql start
-* memcached -d -m 128 (as a user)
+* @bundle exec rake ts:start@
+* @bundle exec rake assets:precompile@
+* @redis-server redis.conf@
+* @service postgresql start@
+* @memcached -d -m 128@ (as a user)
 
 h2. Deploy
 
-* bundle exec cap deploy
+* @bundle exec cap deploy@
 
 h2. License
 
