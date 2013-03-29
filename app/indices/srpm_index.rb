@@ -1,3 +1,4 @@
+=begin
 ThinkingSphinx::Index.define :srpm, :with => :active_record, :delta => true do
   indexes name, sortable: true
   indexes summary
@@ -14,3 +15,4 @@ ThinkingSphinx::Index.define :srpm, :with => :active_record, :delta => true do
 
   set_property :delta => :datetime, :threshold => 1.hour
 end
+=end
