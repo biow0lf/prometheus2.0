@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-12 05:11+0200\n"
+"POT-Creation-Date: 2013-03-30 11:49+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -926,6 +926,9 @@ msgstr "Обновить персональную информацию майн�
 
 msgid "Url"
 msgstr ""
+
+msgid "Valentin Rosavitskiy"
+msgstr "Валентин Росавицкий"
 
 msgid "Video"
 msgstr "Видео"

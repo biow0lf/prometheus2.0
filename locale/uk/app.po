@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-12 05:11+0200\n"
+"POT-Creation-Date: 2013-03-30 11:49+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -890,6 +890,9 @@ msgstr ""
 
 msgid "Url"
 msgstr "Url"
+
+msgid "Valentin Rosavitskiy"
+msgstr "Валентин Росавіцький"
 
 msgid "Video"
 msgstr "Відео"

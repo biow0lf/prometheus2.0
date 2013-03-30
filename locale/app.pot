@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-12 05:11+0200\n"
+"POT-Creation-Date: 2013-03-30 11:49+0200\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -888,6 +888,9 @@ msgid "Update personal maintainer info"
 msgstr ""
 
 msgid "Url"
+msgstr ""
+
+msgid "Valentin Rosavitskiy"
 msgstr ""
 
 msgid "Video"
