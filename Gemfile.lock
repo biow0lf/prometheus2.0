@@ -173,7 +173,7 @@ GEM
     mocha (0.13.3)
       metaclass (~> 0.0.1)
     multi_json (1.7.2)
-    mysql2 (0.3.12b5)
+    mysql2 (0.3.12b6)
     nested_set (1.7.1)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
@@ -359,7 +359,7 @@ DEPENDENCIES
   launchy
   libnotify
   meta_request
-  mysql2 (= 0.3.12b5)
+  mysql2 (= 0.3.12b6)
   nested_set
   newrelic_rpm
   pg
