@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 namespace :db do
   desc "Back up the database"
   task :backup do
