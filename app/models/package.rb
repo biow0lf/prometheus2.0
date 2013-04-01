@@ -81,7 +81,6 @@ class Package < ActiveRecord::Base
 
   def set_srpms_delta_flag
     srpm.delta = true
-    # TODO: srpm.save!
     srpm.save
   end
 end
