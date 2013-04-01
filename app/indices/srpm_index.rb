@@ -1,5 +1,5 @@
-=begin
-ThinkingSphinx::Index.define :srpm, :with => :active_record, :delta => true do
+#ThinkingSphinx::Index.define :srpm, :with => :active_record, :delta => true do
+ThinkingSphinx::Index.define :srpm, :with => :active_record do
   indexes name, sortable: true
   indexes summary
   indexes description
@@ -13,6 +13,5 @@ ThinkingSphinx::Index.define :srpm, :with => :active_record, :delta => true do
 
   has branch_id
 
-  set_property :delta => :datetime, :threshold => 1.hour
+#  set_property :delta => :datetime, :threshold => 1.hour
 end
-=end
