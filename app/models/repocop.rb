@@ -44,8 +44,7 @@ class Repocop < ActiveRecord::Base
         repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail'
         repocop_status = 'fail' if repocop.status == 'fail'
       end
-      srpm.repocop = repocop_status
-      srpm.save!
+      srpm.update_column(:repocop, repocop_status)
     end
   end
 end
