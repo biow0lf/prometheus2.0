@@ -177,3 +177,9 @@ namespace :memcached do
     run '/usr/bin/memcached -d -m 128'
   end
 end
+
+namespace :thinking_sphinx do
+  task :symlink_indexes do
+    puts "Disabled thinking_sphinx:symlink_indexes"
+  end
+end
