@@ -6,13 +6,9 @@ every 1.hour do
   command 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
 end
 
-##every 1.day, :at => '00:10' do
-##  rake 'ts:index'
-##end
-
-##every 1.day, :at => '00:10' do
-##  rake 'ts:rebuild'
-##end
+every 1.day, :at => '00:10' do
+  rake 'ts:rebuild'
+end
 
 ##every 1.day, :at => '00:10' do
 ##  rake 'db:backup'
