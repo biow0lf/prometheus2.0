@@ -2,15 +2,20 @@ development:
   max_matches: 10000
   min_infix_len: 3
   mem_limit: 768M
+  quiet_deltas: true
 test:
   max_matches: 10000
   min_infix_len: 3
   mem_limit: 768M
+  quiet_deltas: true
 production:
   max_matches: 10000
   min_infix_len: 3
   mem_limit: 768M
+  quiet_deltas: true
 staging:
   max_matches: 10000
   min_infix_len: 3
   mem_limit: 768M
+  quiet_deltas: true
+
