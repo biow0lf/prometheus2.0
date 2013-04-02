@@ -180,6 +180,36 @@ end
 
 namespace :thinking_sphinx do
   task :symlink_indexes do
-    puts "Disabled thinking_sphinx:symlink_indexes"
+  end
+
+  task :shared_sphinx_folder do
+  end
+end
+
+namespace :deploy do
+  namespace :rollback do
+    task :default do
+    end
+
+    task :cleanup do
+    end
+
+    task :code do
+    end
+
+    task :repo do
+    end
+  end
+
+  task :cleanup do
+  end
+
+  task :create_symlink do
+  end
+
+  task :symlink do
+  end
+
+  task :upload do
   end
 end
