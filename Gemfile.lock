@@ -116,7 +116,7 @@ GEM
     fast_gettext (0.7.0)
     ffi (1.6.0)
     formatador (0.2.4)
-    gettext (2.3.7)
+    gettext (2.3.8)
       levenshtein
       locale
     gettext_i18n_rails (0.9.3)
