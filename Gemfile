@@ -9,9 +9,6 @@ gem 'turbolinks'
 
 gem 'rake', :require => false
 
-gem 'unicorn'
-gem 'unicorn-worker-killer'
-
 group :postgresql do
   gem 'pg'
 end
@@ -62,6 +59,8 @@ group :production do
 #  gem 'newrelic-redis'
   gem 'rack-force_domain'
   gem 'exception_notification'
+  gem 'unicorn'
+  gem 'unicorn-worker-killer'
 end
 
 group :staging do
