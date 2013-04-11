@@ -12,4 +12,4 @@ Feature: User sign in
     When I fill in "Email" with "email@example.com"
     And I fill in "Password" with "password"
     And I press "Sign in"
-#    Then I should see "Signed in successfully."
+    Then I should see "Signed in successfully."

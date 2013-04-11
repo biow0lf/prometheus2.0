@@ -11,4 +11,4 @@ Feature: User sign out
     When I sign in as "email@person.com"
     Then I should see "Welcome, email@person.com!"
     And I sign out
-#    Then I should see "Signed out successfully."
+    Then I should see "Signed out successfully."
