@@ -114,7 +114,7 @@ GEM
     gettext (2.3.8)
       levenshtein
       locale
-    gettext_i18n_rails (0.9.3)
+    gettext_i18n_rails (0.9.4)
       fast_gettext (>= 0.4.8)
     gherkin (2.11.8)
       multi_json (~> 1.3)
