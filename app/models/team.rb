@@ -20,9 +20,15 @@ class Team < ActiveRecord::Base
             puts "#{Time.now.to_s}: maintainer not found '#{line.split[i]}'"
           else
             if i == 1
-              Team.create(name: team_name, maintainer: maintainer, leader: true, branch: branch)
+              Team.create(name: team_name,
+                          maintainer: maintainer,
+                          leader: true,
+                          branch: branch)
             else
-              Team.create(name: team_name, maintainer: maintainer, leader: false, branch: branch)
+              Team.create(name: team_name,
+                          maintainer: maintainer,
+                          leader: false,
+                          branch: branch)
             end
           end
         end

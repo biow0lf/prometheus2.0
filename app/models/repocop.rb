@@ -38,10 +38,22 @@ class Repocop < ActiveRecord::Base
 
       repocop_status = 'skip'
       repocops.each do |repocop|
-        repocop_status = 'ok' if repocop.status == 'ok' and repocop_status != 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail'
-        repocop_status = 'info' if repocop.status == 'info' and repocop_status != 'experimental' and repocop_status != 'warn' and repocop_status != 'fail'
-        repocop_status = 'experimental' if repocop.status == 'experimental' and repocop_status != 'warn' and repocop_status != 'fail'
-        repocop_status = 'warn' if repocop.status == 'warn' and repocop_status != 'fail'
+        if repocop.status == 'ok' && repocop_status != 'info' &&
+           repocop_status != 'experimental' && repocop_status != 'warn' &&
+           repocop_status != 'fail'
+          repocop_status = 'ok'
+        end
+        if repocop.status == 'info' && repocop_status != 'experimental' &&
+           repocop_status != 'warn' && repocop_status != 'fail'
+          repocop_status = 'info'
+        end
+        if repocop.status == 'experimental' && repocop_status != 'warn' &&
+           repocop_status != 'fail'
+          repocop_status = 'experimental'
+        end
+        if repocop.status == 'warn' && repocop_status != 'fail'
+          repocop_status = 'warn'
+        end
         repocop_status = 'fail' if repocop.status == 'fail'
       end
       srpm.update_column(:repocop, repocop_status)

@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   def is_alt_team?
-    if email.split('@')[1] == 'altlinux.org' || email.split('@')[1] == 'altlinux.ru'
+    if email.split('@')[1] == 'altlinux.org' ||
+       email.split('@')[1] == 'altlinux.ru'
       true
     else
       false

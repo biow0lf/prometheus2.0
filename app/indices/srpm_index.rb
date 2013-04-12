@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 ThinkingSphinx::Index.define :srpm, with: :active_record, delta: true do
   indexes name, sortable: true
   indexes summary
@@ -12,5 +14,5 @@ ThinkingSphinx::Index.define :srpm, with: :active_record, delta: true do
 
   has branch_id
 
-  set_property :delta => true
+  set_property delta: true
 end

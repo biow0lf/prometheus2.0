@@ -5,8 +5,8 @@ class Group < ActiveRecord::Base
 
   belongs_to :branch
 
-  validates :branch, :presence => true
-  validates :name, :presence => true
+  validates :branch, presence: true
+  validates :name, presence: true
 
   has_many :srpms
   has_many :packages
@@ -36,9 +36,13 @@ class Group < ActiveRecord::Base
   def self.import(branch, full_group)
     prev_id = nil
     full_group.split('/').each_with_index  do |item, index|
-      group = Group.where(:branch_id => branch.id, :parent_id => prev_id, :name => item).first
+      group = Group.where(branch_id: branch.id,
+                          parent_id: prev_id,
+                          name: item).first
       unless group
-        group = Group.create(:branch_id => branch.id, :name => item, :parent_id => prev_id)
+        group = Group.create(branch_id: branch.id,
+                             name: item,
+                             parent_id: prev_id)
       end
       prev_id = group.id
     end
@@ -48,7 +52,9 @@ class Group < ActiveRecord::Base
     prev_id = nil
     group = nil
     full_group.split('/').each  do |item|
-      group = Group.where(:branch_id => branch.id, :parent_id => prev_id, :name => item).first
+      group = Group.where(branch_id: branch.id,
+                          parent_id: prev_id,
+                          name: item).first
       prev_id = group.id
     end
     group
