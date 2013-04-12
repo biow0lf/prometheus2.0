@@ -1,6 +1,7 @@
 # encoding: utf-8
 
-# Methods added to this helper will be available to all templates in the application.
+# Methods added to this helper will be available to all templates in the
+# application.
 module ApplicationHelper
   def title(page_title)
     content_for(:title) { page_title.html_safe }
@@ -12,7 +13,7 @@ module ApplicationHelper
 
   def keywords(string)
     # http://en.wikipedia.org/wiki/Most_common_words_in_English
-    skiplist = "the be to of and a in i it for not on he as you do at this but his by from or an".split(' ')
+    skiplist = %w(the be to of and a in i it for not on he as you do at this but his by from or an)
     content_for(:keywords) { (string.split(' ') - skiplist).join(', ') }
   end
 
@@ -27,7 +28,7 @@ module ApplicationHelper
 
   def current_page(url, lang)
     return "/#{lang}" if url == '/'
-    url[1,2] = lang
+    url[1, 2] = lang
     url
   end
 end

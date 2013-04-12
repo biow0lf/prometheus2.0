@@ -1,18 +1,22 @@
-Given /^we have branch "(.*?)"$/ do |name|
+Given(/^we have branch "(.*?)"$/) do |name|
   Branch.create!(name: name, vendor: 'ALT Linux')
 end
 
-Given /^we have maintainer "(.*?)"$/ do |name|
+Given(/^we have maintainer "(.*?)"$/) do |name|
   Maintainer.create!(name: name, email: 'icesik@altlinux.org', login: 'icesik')
 end
 
-Given /^we have group "(.*?)" in branch "(.*?)"$/ do |full_group_name, branch_name|
+Given(/^we have group "(.*?)" in branch "(.*?)"$/) do |full_group_name, branch_name|
   branch = Branch.where(name: branch_name).first
-  group1 = Group.create!(name: full_group_name.split('/')[0], branch_id: branch.id, parent_id: nil)
-  group2 = Group.create!(name: full_group_name.split('/')[1], branch_id: branch.id, parent_id: group1.id)
+  group1 = Group.create!(name: full_group_name.split('/')[0],
+                         branch_id: branch.id,
+                         parent_id: nil)
+  group2 = Group.create!(name: full_group_name.split('/')[1],
+                         branch_id: branch.id,
+                         parent_id: group1.id)
 end
 
-Given /^we have srpm "(.*?)" in branch "(.*?)"$/ do |srpm_name, branch_name|
+Given(/^we have srpm "(.*?)" in branch "(.*?)"$/) do |srpm_name, branch_name|
   branch = Branch.where(name: branch_name).first
   group = Group.last
   srpm = Srpm.create!(branch_id: branch.id, name: srpm_name,
@@ -27,6 +31,6 @@ Given /^we have srpm "(.*?)" in branch "(.*?)"$/ do |srpm_name, branch_name|
                       vendor: 'ALT Linux Team', distribution: 'ALT Linux')
 end
 
-Given /^we have in "(.*?)" in acls for package "(.*?)" in branch "(.*?)"$/ do |acl, package, branch|
+Given(/^we have in "(.*?)" in acls for package "(.*?)" in branch "(.*?)"$/) do |acl, package, branch|
   $redis.sadd("#{branch}:#{package}:acls", acl)
 end
