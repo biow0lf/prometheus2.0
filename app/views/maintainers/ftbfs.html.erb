@@ -1,16 +1,16 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS") % _(@maintainer.name) %>
+<% title _('Prometheus 2.0 - Maintainer &laquo;%s&raquo; - FTBFS') % _(@maintainer.name) %>
 
 <div id='main-content'>
 
 <div class="header"><%= _('Maintainer:') %> <%= _(@maintainer.name) %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path(@branch, @maintainer), :class => 'news', :title => _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('FTBFS') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
+<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path(@branch, @maintainer), class: 'news', title: _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), class: 'news', title: _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), class: 'news', title: _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), class: 'news', title: _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('FTBFS') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="break" />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
     <th><%= _('branch') %></th>
     <th><%= _('package') %></th>
-    <th><%= raw _('current<br />version') %></th>
+    <th><%= raw _('current<br>version') %></th>
     <th><%= _('arch') %></th>
     <th><%= _('weeks') %></th>
   </tr>
@@ -18,13 +18,12 @@
   <% @ftbfs.each do |f| %>
     <tr>
       <td><%= f.branch.name %></td>
-      <td><%= link_to f.name, srpm_path(f.branch, f.name), :class => 'news' %></td>
+      <td><%= link_to f.name, srpm_path(f.branch, f.name), class: 'news' %></td>
       <td><%= "#{f.version}-#{f.release}" %></td>
       <td><%= f.arch %></td>
       <td><%= f.weeks %></td>
     </tr>
   <% end %>
-
 </table>
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>

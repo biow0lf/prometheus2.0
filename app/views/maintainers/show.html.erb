@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;%s&raquo;") % _(@maintainer.name) %>
+<% title _('Prometheus 2.0 - Maintainer &laquo;%s&raquo;') % _(@maintainer.name) %>
 
 <div id='main-content'>
 
@@ -7,7 +7,7 @@
 <div class="headright" title="<%= _('ALT Linux repositories') %>">
   <%= _('ALT Linux repositories') %>
 </div>
-<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
 </div>
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
@@ -15,7 +15,7 @@
 <% @branches.each do |branch| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to branch.name, maintainer_path(branch, @maintainer), :class => 'news' %>
+    <%= link_to branch.name, maintainer_path(branch, @maintainer), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= $redis.smembers("#{branch.name}:maintainers:#{@maintainer.login}").count %></td>
 </tr>
@@ -27,13 +27,13 @@
 
 <div class="header"><%= _('Maintainer:') %> <%= _(@maintainer.name) %></div>
 <p class="break" />
-<span class="current">&nbsp;<b><%= _('Information') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="break" />
+<span class="current">&nbsp;<b><%= _('Information') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path(@branch, @maintainer), class: 'news', title: _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), class: 'news', title: _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), class: 'news', title: _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), class: 'news', title: _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="break" />
 
-<%= image_tag avatar_url(@maintainer), size: '210x210', alt: _(@maintainer.name) %>
+<%= image_tag(avatar_url(@maintainer), size: '210x210', alt: _(@maintainer.name)) %>
 
 <p class="break" />
 
-<b><%= _('Website/Blog:') %></b> <% unless @maintainer.website.nil? %><%= link_to @maintainer.website, @maintainer.website %><% end %><br>
+<b><%= _('Website/Blog:') %></b> <% unless @maintainer.website.empty? %><%= link_to @maintainer.website, @maintainer.website %><% end %><br>
 <b><%= _('Location:') %></b> <%= @maintainer.location %><br>
 <b><%= _('Email:') %></b> <%= @maintainer.email %><br>
 <b><%= _('Jabber ID:') %></b> <%= @maintainer.jabber %><br>

@@ -1,12 +1,12 @@
-<% title _("Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop") % _(@maintainer.name) %>
+<% title _('Prometheus 2.0 - Maintainer &laquo;%s&raquo; - Repocop') % _(@maintainer.name) %>
 
 <div id='main-content'>
 
 <div class="header"><%= _('Maintainer:') %> <%= _(@maintainer.name) %></div>
 
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path('Sisyphus', @maintainer), :class => 'news', :title => _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path('Sisyphus', @maintainer), :class => 'news', :title => _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), :class => 'news', :title => _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), :class => 'news', :title => _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), :class => 'news', :title => _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Repocop') %></b>&nbsp;</span><p class="break" />
-<b><%= _('Repocop messages:') %></b><br /><br />
+<span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path('Sisyphus', @maintainer), class: 'news', title: _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path('Sisyphus', @maintainer), class: 'news', title: _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), class: 'news', title: _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_maintainer_path(@maintainer), class: 'news', title: _('Bugs/FR statistics assigned to this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), class: 'news', title: _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Repocop') %></b>&nbsp;</span><p class="break" />
+<b><%= _('Repocop messages:') %></b><br><br>
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
@@ -19,12 +19,13 @@
 <% if @srpms %>
   <% @srpms.each do |srpm| %>
     <% srpm.repocops.each do |repocop| %>
-      <% if repocop.status != 'skip' and repocop.status != 'ok' %>
+      <!-- Optimize!!! -->
+      <% if repocop.status != 'skip' && repocop.status != 'ok' %>
         <tr>
           <td class="strange">
-            <%= link_to "#{repocop.name}-#{repocop.version}-#{repocop.release}.#{repocop.arch}", srpm_path('Sisyphus', srpm), :class => 'news', :title => _('detailed information about RPM') %>
+            <%= link_to "#{repocop.name}-#{repocop.version}-#{repocop.release}.#{repocop.arch}", srpm_path('Sisyphus', srpm), class: 'news', title: _('detailed information about RPM') %>
           </td>
-          <td><%= image_tag("#{repocop.status}.png", :size => '20x20') %><br /><%= repocop.status %></td>
+          <td><%= image_tag("#{repocop.status}.png", size: '20x20') %><br><%= repocop.status %></td>
           <td><%= repocop.testname %></td>
           <td style="text-align:left"><%= repocop.message %></td>
         </tr>
