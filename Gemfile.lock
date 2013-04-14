@@ -257,7 +257,6 @@ GEM
       rails (>= 3.2)
     shoulda-matchers (2.0.0)
       activesupport (>= 3.0.0)
-    silent-postgres (0.1.1)
     sitemap_generator (3.4)
       builder
     slop (3.4.4)
@@ -365,7 +364,6 @@ DEPENDENCIES
   sass-rails
   sextant
   shoulda-matchers
-  silent-postgres
   sitemap_generator
   sqlite3
   squeel

@@ -71,7 +71,6 @@ end
 group :development do
   gem 'rails-erd'
   gem 'sextant'
-  gem 'silent-postgres'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'better_errors'
