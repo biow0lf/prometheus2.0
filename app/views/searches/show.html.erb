@@ -32,57 +32,8 @@
       <th><%= _('summary') %></th>
     </tr>
 
-    <% if !@exact_srpm.empty? %>
-      <tr>
-        <% if @branch.name == 'Sisyphus' %>
-          <td>
-            <%= link_to image_tag("#{@exact_srpm.repocop}.png", size: '20x20', alt: @exact_srpm.repocop), repocop_srpm_path(@exact_srpm), class: 'repocoplink', title: _('repocop') %>
-          </td>
-        <% end %>
-        <td class="strange">
-          <%= link_to @exact_srpm.name, srpm_path(@exact_srpm.branch, @exact_srpm), class: 'news' %>
-        </td>
-        <td><%= "#{@exact_srpm.version}-#{@exact_srpm.release}" %></td>
-        <td><%= @exact_srpm.buildtime %></td>
-        <td><%= "#{time_ago_in_words(@exact_srpm.buildtime)} #{_('ago')}" %></td>
-        <td>
-          <% if !@exact_srpm.url.empty? %>
-            <%= link_to "#{@exact_srpm.url[0..27]}...", @exact_srpm.url, class: 'news', rel: 'nofollow' %>
-          <% else %>
-            &ndash;
-          <% end %>
-        </td>
-        <td><%= @exact_srpm.summary %></td>
-      </tr>
-    <% end %>
-
-    <% if !@exact_srpm.empty? %>
-      <% @srpms.reject{|srpm| srpm.name == @exact_srpm.name}.each do |srpm| %>
-        <tr>
-          <% if @branch.name == 'Sisyphus' %>
-            <td>
-              <%= link_to image_tag("#{srpm.repocop}.png", size: '20x20', alt: srpm.repocop), repocop_srpm_path(srpm), class: 'repocoplink', title: _('repocop') %>
-            </td>
-          <% end %>
-          <td class="strange">
-            <%= link_to srpm.name, srpm_path(srpm.branch, srpm), class: 'news' %>
-          </td>
-          <td><%= "#{srpm.version}-#{srpm.release}" %></td>
-          <td><%= srpm.buildtime %></td>
-          <td><%= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}" %></td>
-          <td>
-            <% if srpm.url != nil %>
-              <%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %>
-            <% else %>
-              &ndash;
-            <% end %>
-          </td>
-          <td><%= srpm.summary %></td>
-        </tr>
-      <% end %>
-    <% else %>
-      <% @srpms.each do |srpm| %>
-        <% if srpm %>
+    <% @srpms.each do |srpm| %>
+      <% if srpm %>
         <tr>
           <% if @branch.name == 'Sisyphus' %>
             <td>
@@ -103,7 +54,6 @@
             <% end %>
           <td><%= srpm.summary %></td>
         </tr>
-        <% end %>
       <% end %>
     <% end %>
   </table>
