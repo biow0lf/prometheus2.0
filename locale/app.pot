@@ -30,10 +30,10 @@ msgstr ""
 msgid "<b>A:</b> Create filter for rsync with the help of this"
 msgstr ""
 
-msgid "<b>Limit<br />by size:</b><br />"
+msgid "<b>Limit<br>by size:</b><br>"
 msgstr ""
 
-msgid "<b>Prometheus</b> project is an attempt to create analytic site for developers and users of\\nSisyphus repository.<br /><br />\\n\\nIt is useful for developers due to ability to more closely interoperate with other\\ndevelopers and users of respective packages.  This site is especially valueable\\nto new ALT Linux Team members. It gives answers \"who is who\", \"who does what\",\\n\"what status is\" in interesting field.<br /><br />\\n\\nSisyphus users can get full information about a package beforehand. There are\\nhandy links (site of origin, ALT Linux specific issues, wiki, etc.).<br /><br />\\n\\nThe project is useful for ALT Linux Ltd. and ALT Linux core team too, as it gives\\ninformation about Sisyphus development, strong and weak aspects, actively\\nsupported and used groups of packages.<br /><br />\\n\\nAnother nice property of the project is posibility to use it together with\\nany other package repository snapshot (not only Sisyphus itself), for local\\ndevelopment within a small group or even one's self."
+msgid "<b>Prometheus</b> project is an attempt to create analytic site for developers and users of\\nSisyphus repository.<br><br>\\n\\nIt is useful for developers due to ability to more closely interoperate with other\\ndevelopers and users of respective packages.  This site is especially valueable\\nto new ALT Linux Team members. It gives answers \"who is who\", \"who does what\",\\n\"what status is\" in interesting field.<br><br>\\n\\nSisyphus users can get full information about a package beforehand. There are\\nhandy links (site of origin, ALT Linux specific issues, wiki, etc.).<br><br>\\n\\nThe project is useful for ALT Linux Ltd. and ALT Linux core team too, as it gives\\ninformation about Sisyphus development, strong and weak aspects, actively\\nsupported and used groups of packages.<br><br>\\n\\nAnother nice property of the project is posibility to use it together with\\nany other package repository snapshot (not only Sisyphus itself), for local\\ndevelopment within a small group or even one's self."
 msgstr ""
 
 msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
@@ -734,7 +734,7 @@ msgstr ""
 msgid "Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system."
 msgstr ""
 
-msgid "Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus\\npermanent for a man who supports his copy of repository. The size of repository is about 15 Gb. It is rather expensive to sync \\nsuch amount of data. <br /><br />\\n\\nIn many cases you don't need <u>all</u> packages. You can use option --exclude-from=FILE with rsync utility to exclude \\npackages you don't need. <br /><br />\\n\\nThis form helps you to create such file of exceptions. You can filter by group of packages and by size.<br /><br />\\n<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
+msgid "Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus\\npermanent for a man who supports his copy of repository. The size of repository is about 15 Gb. It is rather expensive to sync \\nsuch amount of data.<br><br>\\n\\nIn many cases you don't need <u>all</u> packages. You can use option --exclude-from=FILE with rsync utility to exclude \\npackages you don't need. <br><br>\\n\\nThis form helps you to create such file of exceptions. You can filter by group of packages and by size.<br><br>\\n<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
 msgstr ""
 
 msgid "Sisyphus repository"
@@ -941,7 +941,7 @@ msgstr ""
 msgid "community-en@"
 msgstr ""
 
-msgid "current<br />version"
+msgid "current<br>version"
 msgstr ""
 
 msgid "detailed information about RPM"
@@ -1028,7 +1028,7 @@ msgstr ""
 msgid "patches"
 msgstr ""
 
-msgid "repo<br/>cop"
+msgid "repo<br>cop"
 msgstr ""
 
 msgid "repocop"
