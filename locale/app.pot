@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-30 11:49+0200\n"
+"POT-Creation-Date: 2013-04-14 23:46+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -516,6 +516,9 @@ msgstr ""
 msgid "No such group!"
 msgstr ""
 
+msgid "No such package!"
+msgstr ""
+
 msgid "No such team!"
 msgstr ""
 
@@ -550,6 +553,9 @@ msgid "Planet"
 msgstr ""
 
 msgid "Project Prometheus"
+msgstr ""
+
+msgid "Prometheus 2.0 - 404"
 msgstr ""
 
 msgid "Prometheus 2.0 - Group &laquo;%s&raquo;"
@@ -734,7 +740,7 @@ msgstr ""
 msgid "Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system."
 msgstr ""
 
-msgid "Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus\\npermanent for a man who supports his copy of repository. The size of repository is about 15 Gb. It is rather expensive to sync \\nsuch amount of data.<br><br>\\n\\nIn many cases you don't need <u>all</u> packages. You can use option --exclude-from=FILE with rsync utility to exclude \\npackages you don't need. <br><br>\\n\\nThis form helps you to create such file of exceptions. You can filter by group of packages and by size.<br><br>\\n<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
+msgid "Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus\\npermanent for a man who supports his copy of repository. The size of repository is about 15 Gb. It is rather expensive to sync \\nsuch amount of data.<br><br>\\n\\nIn many cases you don't need <u>all</u> packages. You can use option --exclude-from=FILE with rsync utility to exclude \\npackages you don't need.<br><br>\\n\\nThis form helps you to create such file of exceptions. You can filter by group of packages and by size.<br><br>\\n<b>Warning:</b> filters combined together with a logical &quot;AND&quot;"
 msgstr ""
 
 msgid "Sisyphus repository"
@@ -1035,6 +1041,9 @@ msgid "repocop"
 msgstr ""
 
 msgid "repocop bugreports"
+msgstr ""
+
+msgid "repocop patch"
 msgstr ""
 
 msgid "repocop patch for the package"
