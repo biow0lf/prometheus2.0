@@ -4,23 +4,23 @@
   <%= form_tag maintainer_profile_path, :method => :put do %>
     <%= label_tag :website, _('Website/Blog:') %>
     <%= text_field_tag :website, @maintainer.website %>
-    <br/>
+    <br>
 
     <%= label_tag :location, _('Location:') %>
     <%= text_field_tag :location, @maintainer.location %>
-    <br/>
+    <br>
 
     <%= label_tag :time_zone, _('Time Zone:') %>
     <%= select_tag :time_zone, time_zone_options_for_select(@maintainer.time_zone, nil, TZInfo::Timezone) %>
-    <br/>
+    <br>
 
     <%= label_tag :jabber, _('Jabber ID:') %>
     <%= text_field_tag :jabber, @maintainer.jabber %>
-    <br/>
+    <br>
 
     <%= label_tag :info, _('Info:') %>
-    <%= text_area_tag :info, @maintainer.info, :size => '100x20' %>
-    <br/>
+    <%= text_area_tag :info, @maintainer.info, size: '100x20' %>
+    <br>
 
     <%= submit_tag _('Update') %>
   <% end %>

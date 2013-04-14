@@ -1,36 +1,36 @@
-<% title _("Prometheus 2.0 - Rsync Exclude") %>
+<% title _('Prometheus 2.0 - Rsync Exclude') %>
 
 <div id='main-content'>
 
-<div class="header"><%= _("RPM filter for rsync") %></div>
+<div class="header"><%= _('RPM filter for rsync') %></div>
 <p style="text-align:justify">
 <%= _("Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus
 permanent for a man who supports his copy of repository. The size of repository is about 15 Gb. It is rather expensive to sync 
-such amount of data. <br /><br />
+such amount of data.<br><br>
 
 In many cases you don't need <u>all</u> packages. You can use option --exclude-from=FILE with rsync utility to exclude 
-packages you don't need. <br /><br />
+packages you don't need.<br><br>
 
-This form helps you to create such file of exceptions. You can filter by group of packages and by size.<br /><br />
+This form helps you to create such file of exceptions. You can filter by group of packages and by size.<br><br>
 <b>Warning:</b> filters combined together with a logical &quot;AND&quot;").html_safe %>
 </p>
 <form name="exclude" method="post" action="/cgi-bin/rsync_exclude.pl">
 <table style="border: #f0f0f0 solid 1px;" cellpadding="4">
 <tr><td style="vertical-align:top">
-<b><%= _("Groups:") %></b><br />
+<b><%= _('Groups:') %></b><br>
 <div id="groups-exclude-form" class="top-name">
 
 <% @groups.each do |group| %>
   <% if group.leaf? %>
-    <input type="checkbox" name="grps" value="<%= group.id %>"><label><%= _(group.name) %></label><br />
+    <input type="checkbox" name="grps" value="<%= group.id %>"><label><%= _(group.name) %></label><br>
   <% else %>
     <% group.children.each do |child| %>
       <% if child.leaf? %>
-        <input type="checkbox" name="grps" value="<%= child.id %>"><label><%= _(group.name) %>/<%= _(child.name) %></label><br />
+        <input type="checkbox" name="grps" value="<%= child.id %>"><label><%= _(group.name) %>/<%= _(child.name) %></label><br>
       <% else %>
         <% child.children.each do |c| %>
           <% if c.leaf? %>
-            <input type="checkbox" name="grps" value="<%= c.id %>"><label><%= _(group.name) %>/<%= _(child.name) %>/<%= _(c.name) %></label><br />
+            <input type="checkbox" name="grps" value="<%= c.id %>"><label><%= _(group.name) %>/<%= _(child.name) %>/<%= _(c.name) %></label><br>
           <% else %>
             TODO
           <% end %>
@@ -41,7 +41,7 @@ This form helps you to create such file of exceptions. You can filter by group o
 <% end %>
 </div>
 </td><td style="vertical-align:top">
-<%= raw _("<b>Limit<br />by size:</b><br />") %>
+<%= raw _("<b>Limit<br>by size:</b><br>") %>
 <select name="size" class="top-name">
 <option value="0" selected="selected"><%= _("any") %></option>
 <option value="1">&gt; 1Mb</option>
@@ -54,7 +54,7 @@ This form helps you to create such file of exceptions. You can filter by group o
 </td>
 </tr>
 <tr><td colspan="2" style="text-align:center">
-<input type="submit" value="<%= _("generate") %>" class="top-name"/>
+<input type="submit" value="<%= _('generate') %>" class="top-name"/>
 </td></tr>
 </table>
 </form>

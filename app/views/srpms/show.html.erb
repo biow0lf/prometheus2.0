@@ -9,7 +9,7 @@
 <div class="headright" title="<%= _('ALT Linux repositories') %>">
   <%= _('ALT Linux repositories') %>
 </div>
-<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
 </div>
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
@@ -17,21 +17,21 @@
 <% @allsrpms.each do |rpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm), :class => 'news' %>
+    <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
 <% end %>
 
 </table>
-</div><br/>
+</div><br>
 
 <% if @perl_watch %>
 <div class="headleft">
   <div class="headright" title="<%= _('Other repositories') %>">
     <%= _('Other repositories') %>
   </div>
-<%= image_tag('collapse.gif', :id => 'otherREPO', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+<%= image_tag('collapse.gif', id: 'otherREPO', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
 </div>
 <div id="otherREPODiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
@@ -42,7 +42,7 @@
   <td style="text-align: right;"><%= @perl_watch.version %></td>
   </tr>
 </table>
-</div><br />
+</div><br>
 <% end %>
 
 </div>
@@ -50,37 +50,36 @@
 <div style="height:3em;">
   <div id="rpmtop">
     <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.group.full_name) %></b><br />
-    <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
+    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
   </div>
 </div>
 
 <div>
 <p class="break" />
-<span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), :class => 'news', :title => _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), :class => 'news', :title => _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), :class => 'news', :title => _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span><p class="news" />
-<b><%= _('Current version:') %></b> <%= "#{@srpm.version}-#{@srpm.release}" %><br />
-<b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;
-"><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br />
+<span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" />
+<b><%= _('Current version:') %></b> <%= "#{@srpm.version}-#{@srpm.release}" %><br>
+<b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br>
 <% unless @ftbfs.empty? %>
   <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
   <% if @ftbfs.count == 2 %>
     <% if @ftbfs.first.weeks == @ftbfs.last.weeks %>
-      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %>, <%= @ftbfs.last.arch %><br/>
+      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %>, <%= @ftbfs.last.arch %><br>
     <% else %>
-      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %> and <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br/>
+      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %> and <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
     <% end %>
   <% else %>
-    <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br/>
+    <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
   <% end %>
 <% end %>
-<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
+<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br><br>
 
 <% if @srpm.url %>
-<b><%= _('Home page:') %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news', :rel => 'nofollow' %><br /><br />
+<b><%= _('Home page:') %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, class: 'news', rel: 'nofollow' %><br><br>
 <% end %>
 
-<b><%= _('License:') %></b> <span class="news-text"><%= @srpm.license %></span><br />
+<b><%= _('License:') %></b> <span class="news-text"><%= @srpm.license %></span><br>
 <!-- TODO:
-<b><%= _('Group:') %></b> <span class="news-text"><%= @srpm.group.full_name %></span><br />
+<b><%= _('Group:') %></b> <span class="news-text"><%= @srpm.group.full_name %></span><br>
 -->
 
 <b><%= _('Summary:') %></b> <span class="news-text"><%= @srpm.summary %></span><br />
@@ -90,11 +89,11 @@
 <% if @leader %>
 <div class="maintainer"><b><%= _('Current maintainer:') %></b>
 <% if @leader.class.to_s == 'MaintainerTeam' %>
-  <%= link_to @leader.name, team_path(@branch, @leader.login[1..-1]), :class => 'news', :title => _('information about maintainer') %>
+  <%= link_to @leader.name, team_path(@branch, @leader.login[1..-1]), class: 'news', title: _('information about maintainer') %>
 <% else %>
-  <%= link_to _(@leader.name), maintainer_path(@branch, @leader), :class => 'news', :title => _('information about maintainer') %>
+  <%= link_to _(@leader.name), maintainer_path(@branch, @leader), class: 'news', title: _('information about maintainer') %>
 <% end %>
-</div><br/>
+</div><br>
 <% end %>
 
 <% if @contributors %>
@@ -103,8 +102,8 @@
   <ul>
     <% @contributors.each do |contributor| %>
       <li>
-        <%= link_to _(contributor.name), maintainer_path(@branch, contributor), :class => 'news',
-          :title => _('information about maintainer') %>
+        <%= link_to _(contributor.name), maintainer_path(@branch, contributor), class: 'news',
+            title: _('information about maintainer') %>
       </li>
     <% end %>
   </ul>
@@ -116,11 +115,15 @@
 <div class="para" style="margin-left: 0em;">
   <ul>
   <% @maintainers.each do |maintainer| %>
-    <li><%= link_to _(maintainer.name), maintainer_path(@branch, maintainer), :class => 'news',
-          :title => _('information about maintainer') %></li>
+    <li>
+      <%= link_to _(maintainer.name), maintainer_path(@branch, maintainer), class: 'news',
+          title: _('information about maintainer') %>
+    </li>
   <% end %>
   <% @teams.each do |team| %>
-    <li><%= link_to team.name, team_path(@branch, team.login[1..-1]), :class => 'news' %></li>
+    <li>
+      <%= link_to team.name, team_path(@branch, team.login[1..-1]), class: 'news' %>
+    </li>
   <% end %>
   </ul>
 </div>

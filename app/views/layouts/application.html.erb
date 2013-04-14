@@ -62,7 +62,7 @@
   <div id='top'>
     <div id='top-logo'>
       <a href='http://www.altlinux.org/'>
-        <%= image_tag('altlinux.gif', :style => 'border: 0px', :alt => _('ALT Linux Team - wiki'), :title => _('ALT Linux Team - wiki')) %>
+        <%= image_tag('altlinux.gif', style: 'border: 0px', alt: _('ALT Linux Team - wiki'), title: _('ALT Linux Team - wiki')) %>
       </a>
     </div>
     <div id='top-menu'>
@@ -70,12 +70,12 @@
     </div>
     <div id='top-auth'>
       <div id='div1' style='display: block; margin-top: 20px'>
-        <%= form_tag search_path(:branch => @branch.name), :method => :get do %>
+        <%= form_tag search_path(branch: @branch.name), method: :get do %>
           <%= hidden_field_tag('branch', @branch.name) %>
           <table>
             <tr>
               <td>
-                <%= text_field_tag :query, params[:query] ? params[:query] : "", :placeholder => _('Search...'), :class => 'top-name', :size => '18' %>
+                <%= text_field_tag :query, params[:query] ? params[:query] : "", placeholder: _('Search...'), class: 'top-name', size: '18' %>
               </td>
               <td valign='middle'>
                 <input type='submit' class='top-go' id='sub1' value="<%= _('find') %>"
@@ -93,7 +93,7 @@
       <b><%= _('Last update:') %> </b> <%= $redis.get("#{@branch.name}:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= Srpm.count_srpms(@branch) %> | 
       <% if user_signed_in? %>
         <b><%= "Welcome, #{current_user.email}! | " %></b>
-        <%= link_to _('Sign out'), destroy_user_session_path, :method => :delete %>
+        <%= link_to _('Sign out'), destroy_user_session_path, method: :delete %>
         <% if current_user.is_alt_team? %>
          | <b><%= link_to _('Edit my maintainer profile'), edit_maintainer_profile_path %></b>
         <% end %>
@@ -114,54 +114,54 @@
     <ul>
       <li id='li1' onmouseout="m_off('li1')" onmouseover="m_on('li1')">
         <div id='dli1'>
-          <%= link_to_unless_current _('Home'), home_path(:branch => params[:branch]), :title => _('site home page') %>
+          <%= link_to_unless_current _('Home'), home_path(branch: params[:branch]), title: _('site home page') %>
         </div>
       </li>
       <li id='li3' onmouseout="m_off('li3')" onmouseover="m_on('li3')">
         <div id='dli3'>
-          <%= link_to_unless_current _('Packages'), packages_path(:branch => params[:branch]), :title => _('packages information') %>
+          <%= link_to_unless_current _('Packages'), packages_path(branch: params[:branch]), title: _('packages information') %>
         </div>
       </li>
       <li id='li4' onmouseout="m_off('li4')" onmouseover="m_on('li4')">
         <div id='dli4'>
-          <%= link_to_unless_current _('Maintainers'), maintainers_path(:branch => params[:branch]), :title => _('maintainers information') %>
+          <%= link_to_unless_current _('Maintainers'), maintainers_path(branch: params[:branch]), title: _('maintainers information') %>
         </div>
       </li>
       <li id='li5' onmouseout="m_off('li5')" onmouseover="m_on('li5')">
         <div id='dli5'>
-          <%= link_to_unless_current _('Security'), security_path, :title => _('security fixes') %>
+          <%= link_to_unless_current _('Security'), security_path, title: _('security fixes') %>
         </div>
       </li>
       <li id='li6' onmouseout="m_off('li6')" onmouseover="m_on('li6')">
         <div id='dli6'>
-          <%= link_to_unless_current _('About'), project_path, :title => _('about Prometheus project') %>
+          <%= link_to_unless_current _('About'), project_path, title: _('about Prometheus project') %>
         </div>
       </li>
       <li id='li7' onmouseout="m_off('li7')" onmouseover="m_on('li7')">
         <div id='dli7'>
-          <%= link_to_unless_current _('RSS'), rss_path(:branch => params[:branch]), :title => _('RSS') %>
+          <%= link_to_unless_current _('RSS'), rss_path(branch: params[:branch]), title: _('RSS') %>
         </div>
       </li>
       <li id='li8' onmouseout="m_off('li8')" onmouseover="m_on('li8')">
         <div id='dli8'>
-          <%= link_to _('Wiki'), _('http://en.altlinux.org/Sisyphus'), :title => _('sisyphus public site') %>
+          <%= link_to _('Wiki'), _('http://en.altlinux.org/Sisyphus'), title: _('sisyphus public site') %>
         </div>
       </li>
       <% if I18n.locale == :ru %>
         <li id='li9' onmouseout="m_off('li9')" onmouseover="m_on('li9')">
           <div id='dli9'>
-            <%= link_to _('Blog'), _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'), :title => _('blog') %>
+            <%= link_to _('Blog'), _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'), title: _('blog') %>
           </div>
         </li>
         <li id='li10' onmouseout="m_off('li10')" onmouseover="m_on('li10')">
           <div id='dli10'>
-            <%= link_to _('Planet'), _('http://planet.altlinux.org/'), :title => _('ALT Linux Planet') %>
+            <%= link_to _('Planet'), _('http://planet.altlinux.org/'), title: _('ALT Linux Planet') %>
           </div>
         </li>
       <% end %>
       <li id='li11' onmouseout="m_off('li11')" onmouseover="m_on('li11')">
         <div id='dli11'>
-          <%= link_to _('Mailing list'), _('http://lists.altlinux.org/mailman/listinfo/community-en/'), :title => _('community-en@') %>
+          <%= link_to _('Mailing list'), _('http://lists.altlinux.org/mailman/listinfo/community-en/'), title: _('community-en@') %>
         </div>
       </li>
     </ul>
