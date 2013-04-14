@@ -1,24 +1,24 @@
-<% title _("Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs") % @srpm.name %>
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - All bugs') % @srpm.name %>
 <% description "#{@srpm.name} - #{@srpm.summary}" %>
 <% keywords @srpm.summary %>
 
 <div id='main-content'>
 
 <div style="height:3em;">
-    <div id="rpmtop">
-        <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.group.full_name) %></b><br />
-        <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
-    </div>
+  <div id="rpmtop">
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.group.full_name) %></b><br />
+    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
+  </div>
 </div>
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _("Main"), srpm_path(:branch => params[:branch], :id => params[:id]), :class => 'news', :title => _("information about SRPM") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Changelog"), changelog_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("full changelog") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Spec"), spec_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("spec") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), :class => 'news', :title => _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), :class => 'news', :title => _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Download"), get_srpm_path(:id => params[:id], :branch => params[:branch]), :class => 'news', :title => _("download latest version") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Gear"), gear_srpm_path(:branch => params[:branch], :id => params[:id]), :class => 'news', :title => _("this package in gear repositories") %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _("Repocop"), repocop_srpm_path(:id => params[:id]), :class => 'news', :title => _("repocop bugreports") %>&nbsp;</span><p class="news" /><br />
+<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(branch: params[:branch], id: params[:id]), class: 'news', title: _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', :title => _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', :title => _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(branch: params[:branch], id: params[:id]), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Bugs and FR') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(id: params[:id]), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" /><br />
 
 <b><%= _('Total:') %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabunsel">&nbsp;<%= link_to _('open'), bugs_srpm_path(:id => params[:id]), :class => 'news' %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _('open'), bugs_srpm_path(id: params[:id]), class: 'news' %>&nbsp;</span>
 <span class="tabsel">&nbsp;<%= _('total') %>&nbsp;</span>
 </div>
 
@@ -33,18 +33,17 @@
   </tr>
 
   <% @allbugs.each do |bug| %>
-  <tr>
-    <td><%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{bug.bug_id.to_s}", :class => 'news' %></td>
-    <td><%= bug.bug_severity %></td>
-    <td><%= bug.bug_status %></td>
-    <td><%= bug.resolution %></td>
-    <td><%= bug.reporter.gsub('@', ' at ') %></td>
-    <td style="text-align: left">
-      <%= bug.short_desc %>
-    </td>
-  </tr>
+    <tr>
+      <td><%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{bug.bug_id.to_s}", class: 'news' %></td>
+      <td><%= bug.bug_severity %></td>
+      <td><%= bug.bug_status %></td>
+      <td><%= bug.resolution %></td>
+      <td><%= bug.reporter.gsub('@', ' at ') %></td>
+      <td style="text-align: left">
+        <%= bug.short_desc %>
+      </td>
+    </tr>
   <% end %>
-
 </table>
 
 </div>
