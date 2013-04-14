@@ -7,7 +7,7 @@
 <div class="headright" title="<%= _('ALT Linux repositories') %>">
   <%= _('ALT Linux repositories') %>
 </div>
-<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
 </div>
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
@@ -15,7 +15,7 @@
 <% @branches.each do |branch| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to branch.name, team_path(branch, @team.login[1..-1]), :class => 'news' %>
+    <%= link_to branch.name, team_path(branch, @team.login[1..-1]), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= $redis.smembers("#{branch.name}:maintainers:#{@team.login}").count  %></td>
 </tr>
@@ -38,7 +38,7 @@
   <% if @leader %>
     <b><%= _('Team leader:') %></b>
     <% @leader.each do |leader| %>
-      <%= link_to leader.name, maintainer_path(:id => leader.login, :branch => @branch.name), :class => 'news', :title => _('information about maintainer') %>
+      <%= link_to leader.name, maintainer_path(id: leader.login, branch: @branch.name), class: 'news', title: _('information about maintainer') %>
     <% end %>
     <p class="break"></p>
   <% end %>
@@ -46,7 +46,7 @@
   <b><%= _('Team members:') %></b>
   <ul>
     <% @members.each do |member| %>
-      <li><%= link_to member.name, maintainer_path(:id => member.login), :class => 'news', :title => _('information about maintainer') %></li>
+      <li><%= link_to member.name, maintainer_path(id: member.login), class: 'news', title: _('information about maintainer') %></li>
     <% end %>
   </ul>
 
@@ -76,24 +76,24 @@
       <tr>
         <% if @branch.name == 'Sisyphus' %>
           <td>
-            <%= link_to image_tag("#{srpm.repocop}.png", :size => '20x20', :alt => srpm.repocop), repocop_srpm_path(srpm), :class => 'repocoplink', :title => _('repocop') %>
+            <%= link_to image_tag("#{srpm.repocop}.png", size: '20x20', alt: srpm.repocop), repocop_srpm_path(srpm), class: 'repocoplink', title: _('repocop') %>
             <% if srpm.repocop_patch %>
               <br>
-              <%= link_to image_tag('patch.jpg', :alt => 'repocop patch'), srpm.repocop_patch.url, :class => 'repocoplink', :title => _('repocop patch for the package') %>
+              <%= link_to image_tag('patch.jpg', alt: _('repocop patch')), srpm.repocop_patch.url, class: 'repocoplink', title: _('repocop patch for the package') %>
             <% end %>
           </td>
         <% end %>
         <td class="strange">
-          <%= link_to srpm.name, srpm_path(@branch, srpm), :class => 'news', :title => _('detailed information about RPM') %>
+          <%= link_to srpm.name, srpm_path(@branch, srpm), class: 'news', title: _('detailed information about RPM') %>
         </td>
         <td><%= "#{srpm.version}-#{srpm.release}" %></td>
         <td><%= srpm.buildtime %></td>
         <td><%= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}" %></td>
         <td>
           <% if srpm.url %>
-            <%= link_to srpm.url[0..27] + '...', srpm.url, :class => 'news', :rel => 'nofollow' %>
+            <%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %>
           <% else %>
-            -
+            &ndash;
           <% end %>
         </td>
         <td style="text-align: left;"><%= srpm.summary %></td>
