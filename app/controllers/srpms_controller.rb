@@ -3,7 +3,8 @@
 class SrpmsController < ApplicationController
   def show
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
 
     @ftbfs = @branch.ftbfs.where(name: @srpm.name,
                                  version: @srpm.version,
