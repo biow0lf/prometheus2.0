@@ -31,14 +31,16 @@ class SrpmsController < ApplicationController
 
   def changelog
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
   def spec
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
@@ -55,7 +57,8 @@ class SrpmsController < ApplicationController
   def get
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @mirrors = Mirror.where(branch_id: @branch).where{protocol != 'rsync'}.order('mirrors.order_id ASC')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
 
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
     @i586 = @srpm.packages.where(arch: 'i586').order('packages.name ASC')
@@ -66,7 +69,8 @@ class SrpmsController < ApplicationController
 
   def gear
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
 
     # TODO: use srpm_id !
     @gears = Gear.where(repo: params[:id]).includes(:maintainer).order('lastchange DESC')
@@ -74,7 +78,8 @@ class SrpmsController < ApplicationController
 
   def bugs
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
@@ -84,7 +89,8 @@ class SrpmsController < ApplicationController
 
   def allbugs
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
@@ -94,7 +100,8 @@ class SrpmsController < ApplicationController
 
   def repocop
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
     @repocops = Repocop.where(srcname: @srpm.name,
                               srcversion: @srpm.version,
                               srcrel: @srpm.release)
