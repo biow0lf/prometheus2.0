@@ -9,7 +9,7 @@
 <div class="headright" title="<%= _('ALT Linux repositories') %>">
   <%= _('ALT Linux repositories') %>
 </div>
-<%= image_tag('collapse.gif', :id => 'topRPM', :class => 'close', :title => _('hide window'), :alt => _('hide window'), :size => '10x9') %>
+<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
 </div>
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size: 8pt;" width="100%">
@@ -17,41 +17,41 @@
 <% @allsrpms.each do |rpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{rpm.branch.name}:", get_srpm_path(rpm.branch, rpm), :class => 'news' %>
+    <%= link_to "#{rpm.branch.name}:", get_srpm_path(rpm.branch, rpm), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
 </tr>
 <% end %>
 
 </table>
-</div><br />
+</div><br>
 </div>
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.group.full_name) %></b><br />
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.group.full_name) %></b><br>
     <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
   </div>
 </div>
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), :class => 'news', :title => _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), :class => 'news', :title => _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Download') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), :class => 'news', :title => _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), :class => 'news', :title => _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), :class => 'news', :title => _('repocop bugreports') %>&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(@srpm.branch, @srpm), class: 'news', title: _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Download') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span>
 
 <script type="text/javascript">
 <!--
 function changeHref (val){
   <% counter = 0 %>
   <% if @branch.name == 'SisyphusARM' %>
-    url<%= counter %> = "<%= @branch.path + '/arm/SRPMS.all/' + @srpm.filename %>";
+    <%= "url#{counter} = \"#{@branch.path}/arm/SRPMS.all/#{@srpm.filename}\";".html_safe %>
   <% else %>
-    url<%= counter %> = "<%= @branch.path + '/files/SRPMS/' + @srpm.filename %>";
+    <%= "url#{counter} = \"#{@branch.path}/files/SRPMS/#{@srpm.filename}\";".html_safe %>
   <% end %>
   <% counter += 1 %>
 
   <% if @i586.count != 0 %>
     <% @i586.each do |i| %>
-      url<%= counter %> = "<%= @branch.path + '/files/i586/RPMS/' + i.filename %>";
+      <%= "url#{counter} = \"#{@branch.path}/files/i586/RPMS/#{i.filename}\";".html_safe %>
       <% counter += 1 %>
     <% end %>
   <% end %>
@@ -87,7 +87,7 @@ function changeHref (val){
 </script>
 <p />
 
-&nbsp;<b><%= _("Choose a mirror:") %></b>
+&nbsp;<b><%= _('Choose a mirror:') %></b>
 <select name="mirror" onchange="changeHref(this.value)" class="top-name" style="margin-left: 1em;">
 <% @mirrors.each do |mirror| %>
   <%= "<option value=\"#{mirror.id}\">#{mirror.name}</option>".html_safe %>
@@ -150,13 +150,13 @@ function changeHref (val){
   <tr><td><br><b>x86_64:</b></td></tr>
   <% @x86_64.each do |x| %>
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
-		<b>&middot;</b>
-		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %>
-		</a> (md5: <%= x.md5 %>)
-	</td><td style="text-align:right;">
-		<b><%= number_to_human_size(x.size) %></b>
-	</td></tr>
-	<% counter += 1 %>
+        <b>&middot;</b>
+        <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %>
+        </a> (md5: <%= x.md5 %>)
+    </td><td style="text-align:right;">
+        <b><%= number_to_human_size(x.size) %></b>
+    </td></tr>
+    <% counter += 1 %>
   <% end %>
 <% end %>
 
@@ -164,13 +164,13 @@ function changeHref (val){
   <tr><td><br><b>arm:</b></td></tr>
   <% @arm.each do |a| %>
   <tr><td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
-		<b>&middot;</b>
-		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %>
-		</a> (md5: <%= a.md5 %>)
-	</td><td style="text-align:right;">
-		<b><%= number_to_human_size(a.size) %></b>
-	</td></tr>
-	<% counter += 1 %>
+        <b>&middot;</b>
+      <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/RPMS.classic/<%= a.filename %>" class="news"><%= a.filename %>
+      </a> (md5: <%= a.md5 %>)
+    </td><td style="text-align:right;">
+        <b><%= number_to_human_size(a.size) %></b>
+    </td></tr>
+    <% counter += 1 %>
   <% end %>
 <% end %>
 

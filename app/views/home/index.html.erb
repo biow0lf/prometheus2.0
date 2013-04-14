@@ -7,66 +7,66 @@
 <p style="text-align: justify;">
 <span class="news-text">
 <%= raw _("<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>.") %>
-<br /><br />
+<br><br>
 <%= raw _("Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus <b><a href=\"http://en.altlinux.org/Regular\">regular LiveCD builds</a></b>.") %>
-<br /><br />
-<%= _("Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system.") %>
+<br><br>
+<%= _('Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system.') %>
 </span>
 </p>
 <p class="break" />
 
 <p class="news" />
-<div class="header"><%= _("New SRPMs") %></div>
+<div class="header"><%= _('New SRPMs') %></div>
 <p class="news" />
 
-<%= render :partial => 'srpms' %>
+<%= render partial: 'srpms' %>
 
 <div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
   <div class="headleft">
-    <div class="headright" title="<%= _("sort maintainers by amount of packages") %>">
+    <div class="headright" title="<%= _('sort maintainers by amount of packages') %>">
       <%= _("TOP maintainers") %>
     </div>
-    <%= image_tag("collapse.gif", :id => 'topMain' , :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
+    <%= image_tag('collapse.gif', id: 'topMain', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
   </div>
   <div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
   <table style="font-size:8pt;" width="100%">
-    <%= render :partial => 'top15' %>
+    <%= render partial: 'top15' %>
     <tr><td colspan="2" align="center">&hellip;</td></tr>
   </table>
-</div><br />
+</div><br>
     <div class="headleft">
-      <div class="headright" title="<%= _("sort packages by amount of releases in the last half of year") %>">
-        <%= _("TOP RPMs") %>
+      <div class="headright" title="<%= _('sort packages by amount of releases in the last half of year') %>">
+        <%= _('TOP RPMs') %>
       </div>
-      <%= image_tag("collapse.gif", :id => 'topRPM', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
+      <%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
     </div>
   <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
   <table style="font-size:8pt;" width="100%">
 <!--#include virtual="/cgi-bin/stats.pl?type=activity" -->
   <tr><td colspan="2" align="center">&hellip;</td></tr>
   </table>
-</div><br />
+</div><br>
     <div class="headleft">
-      <div class="headright" title="<%= _("tips and tricks") %>">
-        <%= raw _("tips &amp; tricks") %>
+      <div class="headright" title="<%= _('tips and tricks') %>">
+        <%= raw _('tips &amp; tricks') %>
       </div>
-      <%= image_tag("collapse.gif", :id => 'topTips', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
+      <%= image_tag('collapse.gif', id: 'topTips', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
     </div>
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-      <b><%= _("Sisyphus sync") %></b><br /><%= raw _("<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?") %><br /><%= raw _("<b>A:</b> Create filter for rsync with the help of this") %> <%= link_to _("form"), new_rsync_path, :class => 'news' %>
-    </div><br />
+      <b><%= _('Sisyphus sync') %></b><br><%= raw _('<b>Q:</b> How can I skip heap of packages if I even don\'t know why I need them?') %><br><%= raw _('<b>A:</b> Create filter for rsync with the help of this') %> <%= link_to _('form'), new_rsync_path, class: 'news' %>
+    </div><br>
     <div class="headleft">
-      <div class="headright" title="<%= _("select branch") %>">
-        <%= _("Select branch:") %>
+      <div class="headright" title="<%= _('select branch') %>">
+        <%= _('Select branch:') %>
       </div>
-      <%= image_tag("collapse.gif", :id => 'topBranches', :class => 'close', :title => _("hide window"), :alt => _("hide window"), :size => "10x9") %>
+      <%= image_tag('collapse.gif', id: 'topBranches', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
     </div>
     <div id="topBranchesDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
       <table style="font-size:8pt;" width="100%">
       <% @branches.each do |branch| %>
           <tr>
             <td style="text-align: left;">
-              <%= link_to branch.name, home_path(:branch => branch.name), :class => 'news', :title => _("switch branch to it") %>
+              <%= link_to branch.name, home_path(branch: branch.name), class: 'news', title: _('switch branch to it') %>
             </td>
             <td style="text-align: right;"><%= branch.srpms.count(:all) %></td>
           </tr>
@@ -76,4 +76,3 @@
 </div>
 
 <!--#include virtual="/inc/bottom.shtml?skipit" -->
-
