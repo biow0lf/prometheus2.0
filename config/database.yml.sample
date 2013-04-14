@@ -45,6 +45,7 @@ test: &test
   pool: 5
   username: prometheus2.0
   password:
+  min_messages: WARNING
 
 production:
   adapter: postgresql
