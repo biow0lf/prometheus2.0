@@ -91,7 +91,11 @@
         <td><%= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}" %></td>
         <td>
           <% if srpm.url %>
-            <%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %>
+            <% if srpm.url.length > 27 %>
+              <%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %>
+            <% else %>
+              <%= link_to srpm.url, srpm.url, class: 'news', rel: 'nofollow' %>
+            <% end %>
           <% else %>
             &ndash;
           <% end %>

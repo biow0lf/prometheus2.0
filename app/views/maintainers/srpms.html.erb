@@ -66,9 +66,17 @@
     <td>
       <% if srpm.url %>
         <% if srpm.url.length > 27 %>
-          <% if srpm.url %><%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %><% else %>&ndash;<% end %>
+          <% if srpm.url %>
+            <%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %>
+          <% else %>
+            &ndash;
+          <% end %>
         <% else %>
-          <% if srpm.url %><%= link_to srpm.url, srpm.url, class: 'news', rel: 'nofollow' %><% else %>&ndash;<% end %>
+          <% if srpm.url %>
+            <%= link_to srpm.url, srpm.url, class: 'news', rel: 'nofollow' %>
+          <% else %>
+            &ndash;
+          <% end %>
         <% end %>
       <% end %>
     </td>
