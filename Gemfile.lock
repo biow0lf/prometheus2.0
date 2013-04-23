@@ -46,7 +46,7 @@ GEM
     builder (3.0.4)
     bullet (4.6.0)
       uniform_notifier
-    capistrano (2.14.2)
+    capistrano (2.15.1)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
