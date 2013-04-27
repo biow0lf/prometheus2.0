@@ -89,6 +89,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'hirb'
   gem 'rspec'
   gem 'rspec-rails'
 #  gem 'debugger'
