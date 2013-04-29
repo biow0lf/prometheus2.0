@@ -38,6 +38,8 @@ gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'backup', :require => false
 gem 'coderay'
+# rb-readline 0.5.0 breaks rails console
+gem 'rb-readline', '0.4.2'
 
 group :production, :development, :staging do
   gem 'redis'
@@ -79,7 +81,6 @@ group :development do
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'guard'
-  gem 'rb-readline'
   gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
   gem 'rb-inotify', '~> 0.9', :require => false
