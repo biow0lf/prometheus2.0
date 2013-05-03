@@ -6,7 +6,7 @@
   <p class="break"></p>
   <%= form_tag search_path(branch: @branch.name), method: :get do %>
     <%= select_tag :branch, options_from_collection_for_select(@branches, 'name', 'name', @branch.name) %>
-    <%= text_field_tag :query, params[:query] ? params[:query] : 'Search...', size: '20' %>
+    <%= text_field_tag :query, params[:query] ? params[:query] : 'Search...', size: '20', x-webkit-speech: '' %>
     <%= submit_tag 'Search', name: nil, class: 'top-go', id: 'subOn', value: _('find'), onmouseover: "m_on('subOn')", onmouseout: "m_off('subOn')" %>
   <% end %>
 
