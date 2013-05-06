@@ -1,7 +1,5 @@
-# encoding: utf-8
-
-# Load the rails application
+# Load the rails application.
 require File.expand_path('../application', __FILE__)
 
-# Initialize the rails application
+# Initialize the rails application.
 Prometheus20::Application.initialize!

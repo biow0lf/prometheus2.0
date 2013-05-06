@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreatePerlWatches < ActiveRecord::Migration
   def change
     create_table :perl_watches do |t|

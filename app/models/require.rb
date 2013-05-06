@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Require < ActiveRecord::Base
   belongs_to :package
 

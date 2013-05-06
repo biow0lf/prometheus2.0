@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class UpdateProvideModel < ActiveRecord::Migration
   def change
     remove_column :provides, :type

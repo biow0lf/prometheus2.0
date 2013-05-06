@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Group < ActiveRecord::Base
   acts_as_nested_set
 

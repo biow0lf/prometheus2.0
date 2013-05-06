@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Rpm
   def self.check_md5(file)
     output = `export LANG=C && rpm -K --nogpg #{file}`

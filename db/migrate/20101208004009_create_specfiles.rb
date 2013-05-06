@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateSpecfiles < ActiveRecord::Migration
   def change
     create_table :specfiles do |t|

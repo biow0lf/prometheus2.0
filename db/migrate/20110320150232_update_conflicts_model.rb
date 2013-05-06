@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class UpdateConflictsModel < ActiveRecord::Migration
   def change
     remove_column :conflicts, :type

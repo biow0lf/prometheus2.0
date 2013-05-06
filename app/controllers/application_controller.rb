@@ -1,18 +1,19 @@
-# encoding: utf-8
-
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+
   before_filter :set_default_locale
   before_filter :set_default_branch
 
   helper_method :sort_column, :sort_order, :sort_order_next
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  helper_method :user_signed_in?
+
+  # TODO: remove this method after fixing devise auth
+  def user_signed_in?
+    nil
+  end
 
   def set_default_locale
     params[:locale] ||= 'en'
@@ -22,6 +23,7 @@ class ApplicationController < ActionController::Base
 
   def set_default_branch
     params[:branch] ||= 'Sisyphus'
+    params[:branch] = 'Sisyphus' if params[:branch] == 'All'
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
   end
 

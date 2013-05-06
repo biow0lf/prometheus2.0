@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CleanTeamModel < ActiveRecord::Migration
   def change
     remove_column :teams, :branch

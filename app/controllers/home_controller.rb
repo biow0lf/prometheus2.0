@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class HomeController < ApplicationController
   def index
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')

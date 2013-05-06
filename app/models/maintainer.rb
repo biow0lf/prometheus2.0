@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Maintainer < ActiveRecord::Base
   include MaintainerHelper
 
@@ -14,9 +12,6 @@ class Maintainer < ActiveRecord::Base
   has_many :teams
   has_many :gears
   has_many :ftbfs, class_name: 'Ftbfs'
-
-  attr_accessible :name, :email, :login, :time_zone, :jabber, :info, :location,
-                  :website
 
   def to_param
     login

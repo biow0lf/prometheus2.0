@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Gear < ActiveRecord::Base
   belongs_to :maintainer
   belongs_to :srpm

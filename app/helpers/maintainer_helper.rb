@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module MaintainerHelper
   def fix_maintainer_email(email)
     email.gsub!(' at altlinux.ru', '@altlinux.org')

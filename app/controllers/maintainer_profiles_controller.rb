@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class MaintainerProfilesController < ApplicationController
   before_filter :authenticate_user!
 

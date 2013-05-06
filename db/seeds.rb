@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # add Sisyphus branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'

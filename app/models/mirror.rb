@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Mirror < ActiveRecord::Base
   belongs_to :branch
 

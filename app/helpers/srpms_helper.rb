@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module SrpmsHelper
   def colorize_specfile(text)
     text.force_encoding('UTF-8')

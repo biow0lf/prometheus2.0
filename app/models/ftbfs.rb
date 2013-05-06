@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Ftbfs < ActiveRecord::Base
   belongs_to :branch
   belongs_to :maintainer

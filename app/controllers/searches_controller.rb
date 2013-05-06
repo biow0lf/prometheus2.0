@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class SearchesController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first

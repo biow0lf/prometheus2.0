@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CleanBranches < ActiveRecord::Migration
   def change
     remove_column :branches, :binary_x86_path

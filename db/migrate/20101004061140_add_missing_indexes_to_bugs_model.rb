@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddMissingIndexesToBugsModel < ActiveRecord::Migration
   def change
     add_index :bugs, :assigned_to

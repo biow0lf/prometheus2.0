@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateBugs < ActiveRecord::Migration
   def change
     create_table :bugs do |t|

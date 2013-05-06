@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddGroupIdToPackageModel < ActiveRecord::Migration
   def change
     add_column :packages, :group_id, :integer

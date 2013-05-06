@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateFtbfs < ActiveRecord::Migration
   def change
     create_table :ftbfs do |t|

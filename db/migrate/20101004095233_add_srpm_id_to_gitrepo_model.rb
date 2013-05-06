@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddSrpmIdToGitrepoModel < ActiveRecord::Migration
   def change
     add_column :gitrepos, :srpm_id, :integer

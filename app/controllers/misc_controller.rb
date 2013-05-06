@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class MiscController < ApplicationController
   def bugs
     @bug_statuses = Bug.unscoped.select("DISTINCT bug_status").order("bugs.bug_status ASC").all

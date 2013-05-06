@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddIndexesToAcls < ActiveRecord::Migration
   def change
     add_index :acls, :branch

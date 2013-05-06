@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class GroupController < ApplicationController
 #  before_filter :load_branch
 

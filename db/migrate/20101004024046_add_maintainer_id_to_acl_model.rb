@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddMaintainerIdToAclModel < ActiveRecord::Migration
   def change
     remove_index :acls, :login
