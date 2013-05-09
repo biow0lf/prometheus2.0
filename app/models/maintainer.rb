@@ -9,6 +9,8 @@ class Maintainer < ActiveRecord::Base
   validates :email, immutable: true
   validates :login, immutable: true
 
+  attr_accessible :name, :email, :login, :time_zone, :jabber, :info, :website, :location
+
   has_many :teams
   has_many :gears
   has_many :ftbfs, class_name: 'Ftbfs'
