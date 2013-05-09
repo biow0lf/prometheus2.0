@@ -2,6 +2,8 @@ class Branch < ActiveRecord::Base
   validates :name, presence: true
   validates :vendor, presence: true
 
+  attr_accessible :name, :vendor, :path, :order_id
+
   has_many :srpms
   has_many :packages
   has_many :groups
