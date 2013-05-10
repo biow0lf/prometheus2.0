@@ -8,7 +8,7 @@ Feature: User API
     And we have acls "icesik" for source rpm "openbox" in branch "Sisyphus"
 
   Scenario: Source RPM info
-    When I visit "/en/Sisyphus/srpms/openbox"
+    When I visit "/api/v1/Sisyphus/srpms/openbox"
     Then the JSON response should be:
       """
       {
@@ -32,6 +32,7 @@ Feature: User API
         "acls": "icesik"
       }
       """
+
 
 #  Scenario: Changelog
 #    When I visit "/en/Sisyphus/srpms/openbox/changelog"
