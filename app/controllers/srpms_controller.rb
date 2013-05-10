@@ -82,7 +82,7 @@ class SrpmsController < ApplicationController
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
     @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(component: names).order('bug_id DESC')
+    @allbugs = Bug.where(component: names).order('bug_id DESC').count
   end
 
   def allbugs
@@ -92,7 +92,7 @@ class SrpmsController < ApplicationController
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
+    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC').count
     @allbugs = Bug.where(component: names).order('bug_id DESC')
   end
 
