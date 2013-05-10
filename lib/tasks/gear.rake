@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 namespace :gear do
   desc 'Import all git repos to database'
   task :import => :environment do

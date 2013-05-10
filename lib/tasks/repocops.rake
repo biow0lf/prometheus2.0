@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 namespace :sisyphus do
   desc 'Import repocop reports to database'
   task :repocops => :environment do

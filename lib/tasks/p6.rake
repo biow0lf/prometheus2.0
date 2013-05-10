@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 namespace :p6 do
   desc 'Update p6 stuff'
   task :update => :environment do
