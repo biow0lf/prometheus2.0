@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0.rc1'
+gem 'protected_attributes'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'uglifier', '>= 1.3.0'
@@ -19,7 +20,6 @@ gem 'devise', '3.0.0.rc'
 gem 'kaminari'
 gem 'everywhere' # TODO: check this later, maybe remove it
 gem 'nested_set'
-gem 'protected_attributes' # for nested_set. remove this game later
 gem 'mysql2', '0.3.12b6' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'fast_gettext'
@@ -47,18 +47,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
 group :test, :development do
   gem 'pry'
   gem 'rspec-rails'
@@ -71,14 +59,13 @@ group :test do
   gem 'fakeweb'
   gem 'fakeredis'
   gem 'shoulda-matchers'
+  gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'email_spec'
 
 # TODO: check this later
-#  gem 'capybara'
 #  # gem 'ffaker'
-#  gem 'rspec-rails'
 #  gem 'launchy'
 end
 
@@ -90,8 +77,8 @@ group :development do
   gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'quiet_assets'
 
-  # gem 'quiet_assets'
   # gem 'rails-erd'
   # gem 'meta_request'
   # gem 'rb-fsevent', require: false
