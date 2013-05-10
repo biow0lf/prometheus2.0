@@ -78,9 +78,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'rails-erd'
+  gem 'meta_request'
 
-  # gem 'rails-erd'
-  # gem 'meta_request'
   # gem 'rb-fsevent', require: false
   # gem 'growl', require: false
   # gem 'rb-inotify', '~> 0.9', require: false
