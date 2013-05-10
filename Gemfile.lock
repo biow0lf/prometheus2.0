@@ -125,7 +125,7 @@ GEM
     guard-cucumber (1.4.0)
       cucumber (>= 1.2.0)
       guard (>= 1.1.0)
-    guard-rspec (3.0.0)
+    guard-rspec (2.6.0)
       guard (>= 1.8)
       rspec (~> 2.13)
     highline (1.6.18)
@@ -334,7 +334,7 @@ DEPENDENCIES
   gettext_i18n_rails
   guard
   guard-cucumber
-  guard-rspec
+  guard-rspec (= 2.6.0)
   hirb
   jbuilder (~> 1.0.1)
   jquery-rails

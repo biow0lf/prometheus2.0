@@ -71,7 +71,7 @@ end
 
 group :development do
   gem 'guard'
-  gem 'guard-rspec'
+  gem 'guard-rspec', '2.6.0'
   gem 'guard-cucumber'
   gem 'xray-rails' # ctrl-shift-x :)
   gem 'bullet'
