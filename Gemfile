@@ -46,7 +46,6 @@ end
 group :test, :development do
   gem 'pry'
   gem 'rspec-rails'
-  gem 'hirb'
   gem 'wirb'
 end
 

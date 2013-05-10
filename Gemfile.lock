@@ -130,7 +130,6 @@ GEM
       rspec (~> 2.13)
     highline (1.6.18)
     hike (1.2.2)
-    hirb (0.7.1)
     i18n (0.6.4)
     innertube (1.0.2)
     jquery-rails (2.2.1)
@@ -333,7 +332,6 @@ DEPENDENCIES
   guard
   guard-cucumber
   guard-rspec (= 2.6.0)
-  hirb
   jquery-rails
   kaminari
   meta_request
