@@ -10,11 +10,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :user_signed_in?
 
-  # TODO: remove this method after fixing devise auth
-  def user_signed_in?
-    nil
-  end
-
   def set_default_locale
     params[:locale] ||= 'en'
     I18n.locale = params[:locale].to_sym
