@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   devise :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email#, :password, :password_confirmation,
-#                  :confirmed_at
+  attr_accessible :email, :password
 
   def is_alt_team?
     if email.split('@')[1] == 'altlinux.org' ||
