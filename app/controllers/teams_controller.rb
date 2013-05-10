@@ -22,6 +22,6 @@ class TeamsController < ApplicationController
                              AND teams.name = ?
                              AND teams.branch_id = branches.id
                              AND branches.name = ?
-                             ORDER BY LOWER(maintainers.name)", "@#{params[:id]}", @branch.name ])
+                             ORDER BY LOWER(maintainers.name)", "@#{params[:id]}", @branch.name])
   end
 end
