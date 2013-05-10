@@ -18,6 +18,12 @@ class Srpm < ActiveRecord::Base
   has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
                     primary_key: 'builder_id'
 
+  attr_accessible :filename, :name, :version, :release, :epoch, :summary,
+                  :license, :url, :description, :buildtime, :size, :repocop,
+                  :branch_id, :group_id, :vendor, :distribution, :changelogtime,
+                  :changelogname, :changelogtext, :md5, :delta, :builder_id,
+                  :groupname
+
   def to_param
     name
   end

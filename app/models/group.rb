@@ -9,6 +9,8 @@ class Group < ActiveRecord::Base
   has_many :srpms
   has_many :packages
 
+  attr_accessible :name, :branch_id, :parent_id, :lft, :rgt
+
   def full_name
     full = self.name
     parent = self.parent

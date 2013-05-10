@@ -11,6 +11,8 @@ class Ftbfs < ActiveRecord::Base
   validates :weeks, presence: true
   validates :arch, presence: true
 
+  attr_accessible :name, :epoch, :version, :release, :weeks, :branch_id, :arch, :maintainer_id
+
   def self.update_ftbfs(vendor_name, branch_name, url, arch)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read

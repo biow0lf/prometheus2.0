@@ -4,6 +4,8 @@ class Obsolete < ActiveRecord::Base
   validates :package, presence: true
   validates :name, presence: true
 
+  attr_accessible :package_id, :name, :version, :release, :epoch, :flags
+
 # FIXME: this code is broken
 #  def self.import_obsoletes(rpm, package)
 #    rpm.obsoletes.each do |o|

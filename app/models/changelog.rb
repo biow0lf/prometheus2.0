@@ -1,6 +1,8 @@
 class Changelog < ActiveRecord::Base
   belongs_to :srpm
 
+  attr_accessible :srpm_id, :changelogtime, :changelogname, :changelogtext, :delta
+
   validates :srpm, presence: true
   validates :changelogtime, presence: true
   validates :changelogname, presence: true

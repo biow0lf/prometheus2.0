@@ -6,6 +6,8 @@ class Team < ActiveRecord::Base
   validates :branch, presence: true
   validates :maintainer, presence: true
 
+  attr_accessible :name, :leader, :branch_id, :maintainer_id
+
   def self.import_teams(vendor_name, branch_name, url)
     branch = Branch.where(name: branch_name, vendor: vendor_name).first
     if branch.teams.count(:all) == 0

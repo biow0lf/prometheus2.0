@@ -5,6 +5,8 @@ class Gear < ActiveRecord::Base
   validates :repo, presence: true
   validates :lastchange, presence: true
 
+  attr_accessible :repo, :lastchange, :maintainer_id, :srpm_id
+
   def self.update_gitrepos(url)
     ActiveRecord::Base.transaction do
       Gear.delete_all

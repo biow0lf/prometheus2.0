@@ -15,6 +15,11 @@ class Package < ActiveRecord::Base
 
   after_save :set_srpms_delta_flag
 
+  attr_accessible :filename, :sourcepackage, :name, :version, :release, :epoch,
+                  :arch, :summary, :license, :url, :description, :buildtime,
+                  :size, :srpm_id, :branch_id, :group_id, :md5, :groupname
+
+
   def self.import(branch, file)
     sourcerpm = `export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}`
     if branch.srpms.where(filename: sourcerpm).count == 1

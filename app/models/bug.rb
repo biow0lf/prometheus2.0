@@ -1,6 +1,9 @@
 require 'csv'
 
 class Bug < ActiveRecord::Base
+  attr_accessible :bug_id, :bug_status, :resolution, :bug_severity, :product,
+                  :component, :assigned_to, :reporter, :short_desc
+
   def self.import(url)
     ActiveRecord::Base.transaction do
       Bug.delete_all

@@ -6,4 +6,6 @@ class Mirror < ActiveRecord::Base
   validates :name, presence: true
   validates :uri, presence: true
   validates :protocol, presence: true
+
+  attr_accessible :branch_id, :order_id, :name, :country, :uri, :protocol
 end

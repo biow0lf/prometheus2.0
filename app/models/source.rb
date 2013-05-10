@@ -9,6 +9,8 @@ class Source < ActiveRecord::Base
   validates :filename, presence: true
   validates :size, presence: true
 
+  attr_accessible :branch_id, :srpm_id, :source, :filename, :size
+
   def self.import(branch, file, srpm)
     files = `rpmquery --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{file}`
     hsh = {}

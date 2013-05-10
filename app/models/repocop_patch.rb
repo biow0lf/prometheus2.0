@@ -9,6 +9,8 @@ class RepocopPatch < ActiveRecord::Base
   validates :release, presence: true
   validates :url, presence: true
 
+  attr_accessible :name, :version, :release, :url, :branch_id
+
   def self.update_repocop_patches
     ActiveRecord::Base.transaction do
       RepocopPatch.delete_all

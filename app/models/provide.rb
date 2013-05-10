@@ -4,6 +4,8 @@ class Provide < ActiveRecord::Base
   validates :package, presence: true
   validates :name, presence: true
 
+  attr_accessible :package_id, :name, :version, :release, :epoch, :flags
+
 # FIXME: this code is broken
 #  def self.import_provides(rpm, package)
 #    rpm.provides.each do |p|

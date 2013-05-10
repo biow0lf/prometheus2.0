@@ -13,6 +13,9 @@ class Repocop < ActiveRecord::Base
   validates :srcrel, presence: true
   validates :testname, presence: true
 
+  attr_accessible :name, :version, :release, :arch, :srcname, :srcversion,
+                  :srcrel, :testname, :status, :message, :branch_id
+
   def self.update_repocop
     ActiveRecord::Base.transaction do
       Repocop.delete_all

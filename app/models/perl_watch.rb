@@ -4,6 +4,8 @@ require 'zlib'
 class PerlWatch < ActiveRecord::Base
   validates :name, presence: true
 
+  attr_accessible :name, :version, :path
+
   def self.import_data(url)
     source = open(url)
     if url.split('.')[-1] == 'gz'

@@ -6,6 +6,8 @@ class Specfile < ActiveRecord::Base
   validates :srpm, presence: true
   validates :spec, presence: true
 
+  attr_accessible :srpm_id, :branch_id, :spec
+
   def self.import(branch, file, srpm)
     specfilename = `rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" "#{file}" | grep \"32 \" | sed -e 's/32 //'`
     specfilename.strip!

@@ -1,6 +1,8 @@
 class Conflict < ActiveRecord::Base
   belongs_to :package
 
+  attr_accessible :package_id, :name, :version, :release, :epoch, :flags
+
   validates :package, presence: true
   validates :name, presence: true
 
