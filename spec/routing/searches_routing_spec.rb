@@ -3,20 +3,22 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe SearchesController do
   describe "routing" do
     it "should route /search?utf8=✓&branch=Sisyphus&query=openbox to home#index" do
-      { :get => "/search?utf8=✓&branch=Sisyphus&query=openbox" }.should route_to(:controller => 'searches',
-                                                                                 :action => 'show')
-                                                                                 # :utf8 => '✓',
-                                                                                 # :branch => 'Sisyphus',
-                                                                                 # :query => 'openbox')
+      # FIXME: replace "yep" with "✓"
+      { :get => "/search?utf8=yep&branch=Sisyphus&query=openbox" }.should route_to(:controller => 'searches',
+                                                                                   :action => 'show',
+                                                                                   :utf8 => 'yep',
+                                                                                   :branch => 'Sisyphus',
+                                                                                   :query => 'openbox')
     end
 
     it "should route /en/search?utf8=✓&branch=Sisyphus&query=openbox to home#index" do
-      { :get => "/en/search?utf8=✓&branch=Sisyphus&query=openbox" }.should route_to(:controller => 'searches',
-                                                                                    :action => 'show',
-                                                                                    # :utf8 => '✓',
-                                                                                    # :branch => 'Sisyphus',
-                                                                                    # :query => 'openbox',
-                                                                                    :locale => 'en')
+      # FIXME: replace "yep" with "✓"
+      { :get => "/en/search?utf8=yep&branch=Sisyphus&query=openbox" }.should route_to(:action => 'show',
+                                                                                      :controller => 'searches',
+                                                                                      :locale => 'en',
+                                                                                      :utf8 => 'yep',
+                                                                                      :branch => 'Sisyphus',
+                                                                                      :query => 'openbox')
     end
   end
 end
