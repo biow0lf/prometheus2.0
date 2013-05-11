@@ -1,4 +1,5 @@
 Prometheus20::Application.routes.draw do
+# TODO: add specs for this
   scope 'api' do
     scope 'v1' do
       scope ':branch', :branch => /[^\/]+/ do
@@ -20,6 +21,21 @@ Prometheus20::Application.routes.draw do
             get 'repocop' => 'api/v1/srpms#repocop', :as => nil
           end
         end
+
+        scope 'repocop' do
+          get '/' => 'api/v1/repocop#index', :as => nil
+          get ':testname' => 'api/v1/repocop#show', :as => nil
+        end
+
+        scope 'people' do
+          get '/' => 'api/v1/maintainers#index', :as => nil
+          scope ':login' do
+            get '/' => 'api/v1/maintainers#show', :as => nil
+            get 'srpms' => 'api/v1/maintainers#srpms', :as => nil
+            get 'gear' => 'api/v1/maintainers#gear', :as => nil
+          end
+        end
+# END
 
 #        resources :srpms, :id => /[^\/]+/, :only => :show, :as => 'api_v1_srpm_show' do
 #          member do
@@ -99,7 +115,9 @@ Prometheus20::Application.routes.draw do
 
   get '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
 
-  get '(/:locale)/security' => 'pages#security', :as => 'security', :locale => SUPPORTED_LOCALES
+# TODO: spec this
+  get '(/:locale)/:branch/security' => 'security#index', :as => 'security', :locale => SUPPORTED_LOCALES
+# END
 
 #  get '/repocop' => 'repocop#index'
 #  get '/repocop/by-test/:testname' => 'repocop#bytest'
