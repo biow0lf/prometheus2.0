@@ -1,4 +1,43 @@
 Prometheus20::Application.routes.draw do
+  scope 'api' do
+    scope 'v1' do
+      scope ':branch', :branch => /[^\/]+/ do
+#        resources :srpm, :id => /[^\/]+/, :only => :show do
+#          member do
+#            get 'changelog'
+#          end
+#        end
+
+        get 'srpms' => 'api/v1/srpms#srpms_list', :as => nil
+
+        scope 'srpms' do
+          scope ':id', :id => /[^\/]+/ do
+            get '/' => 'api/v1/srpms#show', :as => nil
+            get 'changelog' => 'api/v1/srpms#changelog', :as => nil
+            get 'gear' => 'api/v1/srpms#gear', :as => nil
+            get 'bugs' => 'api/v1/srpms#bugs', :as => nil
+            get 'allbugs' => 'api/v1/srpms#allbugs', :as => nil
+            get 'repocop' => 'api/v1/srpms#repocop', :as => nil
+          end
+        end
+
+#        resources :srpms, :id => /[^\/]+/, :only => :show, :as => 'api_v1_srpm_show' do
+#          member do
+#            get 'changelog'
+#            get 'spec'
+#            get 'rawspec'
+#            get 'get'
+#            get 'gear'
+#          end
+#          resources :patches, :only => [:index, :show]
+#          resources :sources, :only => :index do
+#            get 'download', :on => :member
+#          end
+#        end
+      end
+    end
+  end
+
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users
     resource :maintainer_profile, :only => [:edit, :update]

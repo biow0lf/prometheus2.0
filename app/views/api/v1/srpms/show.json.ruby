@@ -1,0 +1,20 @@
+{
+  branch:       @branch.name,
+  name:         @srpm.name,
+  version:      @srpm.version,
+  release:      @srpm.release,
+  epoch:        @srpm.epoch,
+  summary:      @srpm.summary,
+  description:  @srpm.description,
+  group:        @srpm.group.full_name,
+  license:      @srpm.license,
+  url:          @srpm.url,
+  size:         @srpm.size,
+  filename:     @srpm.filename,
+  md5:          @srpm.md5,
+  buildtime:    @srpm.buildtime,
+  vendor:       @srpm.vendor,
+  distribution: @srpm.distribution,
+  repocop:      @srpm.repocop,
+  acls:         @srpm.acls
+}.to_json
