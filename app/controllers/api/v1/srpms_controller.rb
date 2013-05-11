@@ -18,7 +18,7 @@ class Api::V1::SrpmsController < ApplicationController
   def gear
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).first
-    @gears = Gear.where(repo: params[:id]).includes(:maintainer).order('lastchange DESC')
+    @gears = Gear.where(repo: params[:id]).order('lastchange DESC')
   end
 
   def bugs
@@ -30,7 +30,7 @@ class Api::V1::SrpmsController < ApplicationController
 
   def allbugs
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    @srpm = @branch.srpms.where(name: params[:id]).first
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
     @allbugs = Bug.where(component: names).order('bug_id DESC')
   end
