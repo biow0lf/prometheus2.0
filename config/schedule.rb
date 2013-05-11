@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle exec rake :task :output"
 
 every 1.hour do
