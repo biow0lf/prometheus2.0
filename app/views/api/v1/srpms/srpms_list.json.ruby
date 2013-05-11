@@ -1,6 +1,6 @@
 hash = Hash.new
 
-hash[:branch]  = @branch.name
+hash[:branch] = @branch.name
 
 hash[:srpms] = @srpms.map do |srpm|
   {

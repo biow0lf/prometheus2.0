@@ -1,7 +1,7 @@
 hash = Hash.new
 
-hash[:branch]  = @branch.name
-hash[:name]    = @srpm.name
+hash[:branch] = @branch.name
+hash[:name]   = @srpm.name
 
 hash[:allbugs] = @allbugs.map do |bug|
   {
