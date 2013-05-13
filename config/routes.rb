@@ -56,6 +56,7 @@ Prometheus20::Application.routes.draw do
 
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users
+    get 'project' => 'pages#project'
     resource :maintainer_profile, :only => [:edit, :update]
     resource :search, :only => :show, :id => /[^\/]+/
     root :to => 'home#index'
@@ -66,7 +67,6 @@ Prometheus20::Application.routes.draw do
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
-    get 'project' => 'pages#project'
     resources :rsync, :controller => :rsync, :only => [:new]
     resources :rebuild, :controller => :rebuild, :only => [:index]
 
@@ -119,10 +119,21 @@ Prometheus20::Application.routes.draw do
   get '(/:locale)/:branch/security' => 'security#index', :as => 'security', :locale => SUPPORTED_LOCALES
 # END
 
+# TODO: drop this for API
 #  get '/repocop' => 'repocop#index'
 #  get '/repocop/by-test/:testname' => 'repocop#bytest'
-
-  get '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
+  get '/repocop/by-test/no_url_tag' => 'repocop#no_url_tag'
+  get '/repocop/by-test/invalid_url' => 'repocop#invalid_url'
+  get '/repocop/by-test/invalid_vendor' => 'repocop#invalid_vendor'
+  get '/repocop/by-test/invalid_distribution' => 'repocop#invalid_distribution'
+  get '/repocop/by-test/srpms_summary_too_long' => 'repocop#srpms_summary_too_long'
+  get '/repocop/by-test/packages_summary_too_long' => 'repocop#packages_summary_too_long'
+  get '/repocop/by-test/srpms_summary_ended_with_dot' => 'repocop#srpms_summary_ended_with_dot'
+  get '/repocop/by-test/packages_summary_ended_with_dot' => 'repocop#packages_summary_ended_with_dot'
+  get '/repocop/by-test/srpms_filename_too_long_for_joliet' => 'repocop#srpms_filename_too_long_for_joliet'
+  get '/repocop/by-test/packages_filename_too_long_for_joliet' => 'repocop#packages_filename_too_long_for_joliet'
+  get '/repocop/by-test/srpms_install_s' => 'repocop#srpms_install_s'
+# END
 
   get '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
   get '/:name' => 'redirector#index', :name => /[^\/]+/
