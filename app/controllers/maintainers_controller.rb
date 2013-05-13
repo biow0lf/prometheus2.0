@@ -29,7 +29,8 @@ class MaintainersController < ApplicationController
     order += " " + sort_order
 
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
-                           includes(:repocop_patch).order(order)
+                           includes(:repocop_patch).
+                           order(order)
   end
 
 #  def acls
@@ -46,7 +47,9 @@ class MaintainersController < ApplicationController
 
   def gear
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
-    @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
+    @gears = Gear.where(maintainer_id: @maintainer).
+                  includes(:maintainer).
+                  order('LOWER(repo)')
   end
 
   def bugs
@@ -54,7 +57,8 @@ class MaintainersController < ApplicationController
     # @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branch = Branch.find_by_name_and_vendor!('Sisyphus', 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
+                           includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
@@ -71,7 +75,8 @@ class MaintainersController < ApplicationController
     # @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branch = Branch.find_by_name_and_vendor!('Sisyphus', 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
+                           includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
@@ -92,6 +97,8 @@ class MaintainersController < ApplicationController
   def repocop
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @maintainer = Maintainer.find_by_login!(params[:id].downcase)
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
+                           includes(:repocops).
+                           order('LOWER(srpms.name)')
   end
 end
