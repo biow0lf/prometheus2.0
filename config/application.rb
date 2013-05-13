@@ -39,7 +39,7 @@ module Prometheus20
     # fallback for empty translations
     config.i18n.fallbacks = true
 
-    if Rails.env.to_sym == :production
+    if Rails.env.production?
       config.middleware.use ExceptionNotifier,
         :email_prefix => "[ERROR] ",
         :sender_address => %{"Sisyphus 2.0 Error" <prometheus-noreply@altlinux.org>},
