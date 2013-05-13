@@ -16,7 +16,6 @@ gem 'mysql2', '0.3.12b6', group: :mysql
 gem 'sqlite3', group: :sqlite
 
 gem 'devise', '3.0.0.rc'
-# TODO: gem 'squeel'
 gem 'kaminari'
 gem 'everywhere' # TODO: check this later, maybe remove it
 gem 'nested_set'
