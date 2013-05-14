@@ -250,7 +250,7 @@ GEM
       activesupport (>= 3.0.0)
     sitemap_generator (4.0.1)
       builder
-    slop (3.4.4)
+    slop (3.4.5)
     sprockets (2.9.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
