@@ -165,7 +165,7 @@ GEM
     nested_set (1.7.1)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
-    net-scp (1.1.0)
+    net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
