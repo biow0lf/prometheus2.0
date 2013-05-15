@@ -235,7 +235,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redis (3.0.4)
-    riddle (1.5.5)
+    riddle (1.5.6)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
