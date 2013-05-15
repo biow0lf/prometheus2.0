@@ -46,6 +46,7 @@ GEM
     builder (3.0.4)
     bullet (4.6.0)
       uniform_notifier
+    callsite (0.0.11)
     capistrano (2.15.4)
       highline
       net-scp (>= 1.0.0)
@@ -161,7 +162,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.3)
+    meta_request (0.2.5)
+      callsite
       rack-contrib
       railties
     method_source (0.8.1)
