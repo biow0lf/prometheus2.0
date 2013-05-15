@@ -21,6 +21,7 @@ h3. Install:
 * git
 * memcached
 * redis
+* graphviz
 
 h3. And then:
 
