@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddIndexesTopackages < ActiveRecord::Migration
   def change
     add_index :packages, :branch

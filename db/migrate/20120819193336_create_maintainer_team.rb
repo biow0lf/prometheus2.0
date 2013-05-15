@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateMaintainerTeam < ActiveRecord::Migration
   def change
     create_table :maintainer_teams do |t|

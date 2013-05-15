@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 Prometheus20::Application.routes.draw do
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users

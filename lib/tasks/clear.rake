@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 namespace :clear do
   desc 'Clear all cache'
   task :cache => :environment do

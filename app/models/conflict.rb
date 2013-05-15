@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Conflict < ActiveRecord::Base
   belongs_to :package
 

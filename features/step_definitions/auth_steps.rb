@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 Given(/^I am signed up and confirmed as "(.*)"$/) do |email|
   password = 'password'
   @user = User.create!(email: email,

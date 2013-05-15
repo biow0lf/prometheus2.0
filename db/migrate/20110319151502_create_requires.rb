@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateRequires < ActiveRecord::Migration
   def change
     create_table :requires do |t|

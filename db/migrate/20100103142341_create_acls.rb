@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateAcls < ActiveRecord::Migration
   def change
     create_table :acls do |t|

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CreateSrpms < ActiveRecord::Migration
   def change
     create_table :srpms do |t|

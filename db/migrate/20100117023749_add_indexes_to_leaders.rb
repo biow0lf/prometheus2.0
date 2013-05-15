@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class AddIndexesToLeaders < ActiveRecord::Migration
   def change
     add_index :leaders, :branch

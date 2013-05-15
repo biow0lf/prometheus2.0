@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class CleanAclModel < ActiveRecord::Migration
   def change
     remove_column :acls, :vendor

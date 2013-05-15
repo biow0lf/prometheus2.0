@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 namespace :migrate do
   desc 'Import all patches and sources to database'
   task :import_patches_and_sources => :environment do

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Patch < ActiveRecord::Base
   belongs_to :branch
   belongs_to :srpm

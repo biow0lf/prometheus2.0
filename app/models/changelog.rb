@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class Changelog < ActiveRecord::Base
   belongs_to :srpm
 

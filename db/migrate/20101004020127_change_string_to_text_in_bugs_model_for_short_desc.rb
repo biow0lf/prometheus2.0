@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class ChangeStringToTextInBugsModelForShortDesc < ActiveRecord::Migration
   def change
     remove_column :bugs, :short_desc

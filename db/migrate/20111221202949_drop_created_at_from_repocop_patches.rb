@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 class DropCreatedAtFromRepocopPatches < ActiveRecord::Migration
   def change
     remove_column :repocop_patches, :created_at

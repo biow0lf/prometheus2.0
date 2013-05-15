@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 namespace :redis do
   desc 'Cache all *.src.rpm and all binary *.rpm in redis'
   task :cache => :environment do
