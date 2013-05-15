@@ -15,16 +15,5 @@ describe PagesController do
                                                 :action => 'project',
                                                 :locale => 'en')
     end
-
-    it "should route /security to pages#security" do
-      { :get => "/security" }.should route_to(:controller => 'pages',
-                                             :action => 'security')
-    end
-
-    it "should route /en/security to pages#security" do
-      { :get => "/en/security" }.should route_to(:controller => 'pages',
-                                                 :action => 'security',
-                                                 :locale => 'en')
-    end
   end
 end

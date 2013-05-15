@@ -10,6 +10,7 @@ describe Branch do
 
   describe 'Associations' do
     it { should have_many :srpms }
+    it { should have_many(:changelogs).through(:srpms) }
     it { should have_many :packages }
     it { should have_many :groups }
     it { should have_many :teams }

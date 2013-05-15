@@ -62,7 +62,9 @@ Prometheus20::Application.routes.draw do
 
   get '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
 
-  get '(/:locale)/security' => 'pages#security', :as => 'security', :locale => SUPPORTED_LOCALES
+# TODO: spec this
+  get '(/:locale)/:branch/security' => 'security#index', :as => 'security', :locale => SUPPORTED_LOCALES
+# END
 
 #  get '/repocop' => 'repocop#index'
 #  get '/repocop/by-test/:testname' => 'repocop#bytest'
