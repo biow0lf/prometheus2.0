@@ -262,7 +262,7 @@ GEM
     sextant (0.2.3)
       activesupport (>= 3.2)
       rails (>= 3.2)
-    shoulda-matchers (2.0.0)
+    shoulda-matchers (2.1.0)
       activesupport (>= 3.0.0)
     sitemap_generator (3.4)
       builder
