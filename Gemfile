@@ -23,7 +23,6 @@ end
 
 gem 'devise'
 gem 'pry', group: [:development, :test]
-#gem 'recaptcha', require: 'recaptcha/rails'
 gem 'kaminari'
 gem 'everywhere'
 gem 'fast_gettext'
