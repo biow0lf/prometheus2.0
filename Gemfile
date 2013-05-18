@@ -7,7 +7,7 @@ gem 'strong_parameters'
 gem 'jbuilder'
 gem 'turbolinks'
 
-gem 'rake', :require => false
+gem 'rake', require: false
 
 group :postgresql do
   gem 'pg'
@@ -22,20 +22,20 @@ group :sqlite do
 end
 
 gem 'devise'
-gem 'pry', :group => [:development, :test]
-#gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'pry', group: [:development, :test]
+#gem 'recaptcha', require: 'recaptcha/rails'
 gem 'kaminari'
 gem 'everywhere'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
-gem 'gettext', :require => false
-gem 'whenever', :require => false
+gem 'gettext', require: false
+gem 'whenever', require: false
 gem 'nested_set'
 gem 'mysql2', '0.3.12b6' # for thinking-sphinx
 gem 'thinking-sphinx'
-gem 'brewdler', :require => false
+gem 'brewdler', require: false
 gem 'sitemap_generator'
-gem 'backup', :require => false
+gem 'backup', require: false
 gem 'coderay'
 
 group :production, :development, :staging do
@@ -75,13 +75,13 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'capistrano', :require => false
-  gem 'capistrano_colors', :require => false
+  gem 'capistrano', require: false
+  gem 'capistrano_colors', require: false
   gem 'guard'
-  gem 'rb-fsevent', :require => false
-  gem 'growl', :require => false
-  gem 'rb-inotify', '~> 0.9', :require => false
-  gem 'libnotify', :require => false
+  gem 'rb-fsevent', require: false
+  gem 'growl', require: false
+  gem 'rb-inotify', '~> 0.9', require: false
+  gem 'libnotify', require: false
   gem 'guard-rspec'
   gem 'guard-cucumber'
 end
@@ -102,7 +102,7 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
   gem 'cucumber'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'fakeweb'
   gem 'fakeredis'
