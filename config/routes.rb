@@ -53,11 +53,6 @@ Prometheus20::Application.routes.draw do
       get 'maintainers/:id/ftbfs' => 'maintainers#ftbfs', :as => 'ftbfs_maintainer'
       get 'maintainers/:id/repocop' => 'maintainers#repocop', :as => 'repocop_maintainer'
     end
-
-# TODO: drop this later?
-#    get 'm/' => 'iphone#index', :as => 'iphone_home'
-#    get 'm/maintainer/:login' => 'iphone#maintainer_info', :as => 'iphone_maintainer'
-#    get 'm/packages/:group(/:group2(/:group3))' => 'iphone#bygroup', :as => 'iphone_group'
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
