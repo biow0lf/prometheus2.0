@@ -30,5 +30,8 @@ class Patch < ActiveRecord::Base
       patch.save!
     end
   end
-end
 
+  def to_param
+    filename
+  end
+end

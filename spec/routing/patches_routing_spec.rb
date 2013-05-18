@@ -16,5 +16,22 @@ describe PatchesController do
                                                                      :srpm_id => 'glibc',
                                                                      :locale => 'en')
     end
+
+    it "should route /Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch/download" do
+      { :get => "/Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch/download" }.should route_to(:controller => 'patches',
+                                                                                                            :action => 'download',
+                                                                                                            :branch => 'Sisyphus',
+                                                                                                            :srpm_id => 'pmount',
+                                                                                                            :id => 'pmount-0.9.23-alt-natspec.patch')
+    end
+
+    it "should route /en/Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch/download" do
+      { :get => "/en/Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch/download" }.should route_to(:controller => 'patches',
+                                                                                                               :action => 'download',
+                                                                                                               :branch => 'Sisyphus',
+                                                                                                               :srpm_id => 'pmount',
+                                                                                                               :id => 'pmount-0.9.23-alt-natspec.patch',
+                                                                                                               :locale => 'en')
+    end
   end
 end

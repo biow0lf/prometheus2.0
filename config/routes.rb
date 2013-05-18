@@ -14,7 +14,9 @@ Prometheus20::Application.routes.draw do
           get 'get'
           get 'gear'
         end
-        resources :patches, :only => :index
+        resources :patches, :only => :index do # TODO: add action 'show'
+          get 'download', :on => :member
+        end
 #        resources :patches, :only => [:index, :show] do # TODO: test 'show' action
 #          get 'download', :on => :member # TODO: test this
 #        end
