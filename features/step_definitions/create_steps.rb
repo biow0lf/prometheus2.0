@@ -23,9 +23,9 @@ Given(/^we have srpm "(.*?)" in branch "(.*?)"$/) do |srpm_name, branch_name|
                       version: '3.4.11.1', release: 'alt1.1.1',
                       summary: 'short description',
                       description: 'long description',
-                      group_id: group.id, license: 'GPLv2+',
-                      url: 'http://openbox.org/', size: '831617',
-                      filename: 'openbox-3.4.11.1-alt1.1.1.src.rpm',
+                      group_id: group.id, groupname: 'Graphical desktop/Other',
+                      license: 'GPLv2+', url: 'http://openbox.org/',
+                      size: '831617', filename: 'openbox-3.4.11.1-alt1.1.1.src.rpm',
                       md5: 'f87ff0eaa4e16b202539738483cd54d1',
                       buildtime: '2010-11-24 23:58:02 UTC',
                       vendor: 'ALT Linux Team', distribution: 'ALT Linux')
