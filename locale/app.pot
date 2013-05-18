@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-14 23:46+0300\n"
+"POT-Creation-Date: 2013-05-18 17:37+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -618,6 +618,9 @@ msgstr ""
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
 msgstr ""
 
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Patches"
+msgstr ""
+
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
 msgstr ""
 
@@ -711,6 +714,9 @@ msgid "Search..."
 msgstr ""
 
 msgid "Security"
+msgstr ""
+
+msgid "Security fixes"
 msgstr ""
 
 msgid "Security/Antivirus"
@@ -909,6 +915,9 @@ msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
+msgstr ""
+
+msgid "You can confirm your account through the link below:"
 msgstr ""
 
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."

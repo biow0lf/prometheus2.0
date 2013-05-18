@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-14 23:46+0300\n"
+"POT-Creation-Date: 2013-05-18 17:37+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -618,6 +618,9 @@ msgstr ""
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
 msgstr ""
 
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Patches"
+msgstr ""
+
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
 msgstr ""
 
@@ -713,6 +716,9 @@ msgstr "Пошук..."
 
 msgid "Security"
 msgstr "Безпека"
+
+msgid "Security fixes"
+msgstr ""
 
 msgid "Security/Antivirus"
 msgstr "Безпека/Антивірус"
@@ -910,6 +916,9 @@ msgid "Website/Blog:"
 msgstr ""
 
 msgid "Wiki"
+msgstr ""
+
+msgid "You can confirm your account through the link below:"
 msgstr ""
 
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-14 23:46+0300\n"
+"POT-Creation-Date: 2013-05-18 17:37+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -648,11 +648,14 @@ msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Загрузить"
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Gear"
 msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Gear"
 
+msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Patches"
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Патчи"
+
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop"
 msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Repocop"
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Sources"
-msgstr ""
+msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Исходники"
 
 msgid "Prometheus 2.0 - Package &laquo;%s&raquo; - Spec"
 msgstr "Prometheus 2.0 - Пакет &laquo;%s&raquo; - Спек"
@@ -743,6 +746,9 @@ msgstr "Поиск..."
 
 msgid "Security"
 msgstr "Безопасность"
+
+msgid "Security fixes"
+msgstr ""
 
 msgid "Security/Antivirus"
 msgstr "Безопасность/Антивирус"
@@ -947,6 +953,9 @@ msgstr "Сайт/Блог:"
 
 msgid "Wiki"
 msgstr "Вики"
+
+msgid "You can confirm your account through the link below:"
+msgstr ""
 
 msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
 msgstr ""
