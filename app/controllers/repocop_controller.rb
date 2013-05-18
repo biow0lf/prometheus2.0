@@ -8,7 +8,6 @@ class RepocopController < ApplicationController
 
   def invalid_url
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    #                                    url != '' AND url NOT LIKE 'http://%' AND ....
     @srpms = @branch.srpms.where("url != ''").
                            where("url NOT LIKE 'http://%'").
                            where("url NOT LIKE 'https://%'").
