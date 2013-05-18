@@ -43,7 +43,7 @@
   <% @srpm.patches.each do |patch| %>
   <tr>
     <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-      <%= link_to patch.filename, download_srpm_patch_path(@branch, @srpm, patch), class: 'news' %>
+      <%= link_to patch.filename, srpm_patch_path(@branch, @srpm, patch), class: 'news' %>
     </td>
     <td> <b><%= number_to_human_size(patch.size) %></b> </td>
     <td>

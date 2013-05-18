@@ -16,8 +16,10 @@ class PatchesController < ApplicationController
     end
   end
 
-#  def show
-#    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-#    @patch = File.read("pmount-0.9.17-alt-floppy.patch")
-#  end
+  def show
+    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @srpm = @branch.srpms.where(name: params[:srpm_id]).first!
+    @patch = @srpm.patches.where(filename: params[:id]).first
+    @html_data = CodeRay.scan(@patch.patch, :diff).div(:line_numbers => :table)
+  end
 end
