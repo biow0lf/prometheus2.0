@@ -70,6 +70,20 @@ Prometheus20::Application.routes.draw do
 #
 #  get '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
 
+  # TODO: drop this and make API
+  get '/repocop/no_url_tag' => 'repocop#no_url_tag'
+  get '/repocop/invalid_url' => 'repocop#invalid_url'
+  get '/repocop/invalid_vendor' => 'repocop#invalid_vendor'
+  get '/repocop/invalid_distribution' => 'repocop#invalid_distribution'
+  get '/repocop/srpms_summary_too_long' => 'repocop#srpms_summary_too_long'
+  get '/repocop/packages_summary_too_long' => 'repocop#packages_summary_too_long'
+  get '/repocop/srpms_summary_ended_with_dot' => 'repocop#srpms_summary_ended_with_dot'
+  get '/repocop/packages_summary_ended_with_dot' => 'repocop#packages_summary_ended_with_dot'
+  get '/repocop/srpms_filename_too_long_for_joliet' => 'repocop#srpms_filename_too_long_for_joliet'
+  get '/repocop/packages_filename_too_long_for_joliet' => 'repocop#packages_filename_too_long_for_joliet'
+  get '/repocop/srpms_install_s' => 'repocop#srpms_install_s'
+  # END
+
   get '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), :name => /[^\/]+/
   get '/:name' => 'redirector#index', :name => /[^\/]+/
 end
