@@ -49,7 +49,7 @@
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.group.full_name) %></b><br>
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.groupname) %></b><br>
     <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
   </div>
 </div>
@@ -79,7 +79,7 @@
 
 <b><%= _('License:') %></b> <span class="news-text"><%= @srpm.license %></span><br>
 <!-- TODO:
-<b><%= _('Group:') %></b> <span class="news-text"><%= @srpm.group.full_name %></span><br>
+<b><%= _('Group:') %></b> <span class="news-text"><%= @srpm.groupname %></span><br>
 -->
 
 <b><%= _('Summary:') %></b> <span class="news-text"><%= @srpm.summary %></span><br>

@@ -5,7 +5,7 @@ json.release      @srpm.release
 json.epoch        @srpm.epoch
 json.summary      @srpm.summary
 json.description  @srpm.description
-json.group        @srpm.group.full_name
+json.group        @srpm.groupname
 json.license      @srpm.license
 json.url          @srpm.url
 json.size         @srpm.size
