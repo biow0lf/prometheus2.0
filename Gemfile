@@ -37,8 +37,6 @@ gem 'brewdler', :require => false
 gem 'sitemap_generator'
 gem 'backup', :require => false
 gem 'coderay'
-# rb-readline 0.5.0 breaks rails console
-gem 'rb-readline', '0.4.2'
 
 group :production, :development, :staging do
   gem 'redis'
