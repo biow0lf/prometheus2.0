@@ -1,17 +1,9 @@
 namespace :migrate do
-  desc 'Import all patches and sources to database'
-  task :import_patches_and_sources => :environment do
+  desc 'Update all srpms with groupname'
+  task :update_groupname => :environment do
 
-    branch = Branch.where(name: 'Sisyphus').first
-    branch.srpms.find_each do |srpm|
-      file = "/ALT/Sisyphus/files/SRPMS/#{srpm.filename}"
-      if File.exists?(file)
-        puts "Import from #{srpm.filename}"
-        Patch.import(branch, file, srpm)
-        Source.import(branch, file, srpm)
-      else
-        puts "Skip #{srpm.filename}"
-      end
+    Srpm.where(groupname: nil).each do |srpm|
+      srpm.update_column(:groupname, srpm.group.full_name)
     end
 
   end
