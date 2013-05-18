@@ -6,6 +6,10 @@ namespace :migrate do
       srpm.update_column(:groupname, srpm.group.full_name)
     end
 
+    Package.where(groupname: nil).each do |package|
+      package.update_column(:groupname, package.group.full_name)
+    end
+
   end
 end
 
