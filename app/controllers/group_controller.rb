@@ -4,7 +4,7 @@ class GroupController < ApplicationController
   def index
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
 #    render status: 404, action: 'nosuchbranch' and return if @branch == nil
-    @groups = @branch.groups.where(parent_id: nil).order('LOWER(name)')
+    @groups = @branch.groups.where(parent_id: nil).includes(:children).includes(:children => [:children]).order('LOWER(name)')
   end
 
   def show
