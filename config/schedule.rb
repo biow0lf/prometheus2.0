@@ -13,7 +13,7 @@ end
 ##end
 
 every '5 1-23 * * *' do
-  rake 'sisyphus:update p6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update'
+  rake 'sisyphus:update p7:update p6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update'
 end
 
 #every 1.day, :at => '05:30' do
