@@ -95,6 +95,7 @@ describe Srpm do
     srpm.epoch.should be_nil
     srpm.summary.should == 'short description'
     srpm.group.full_name.should == 'Graphical desktop/Other'
+    srpm.groupname.should == 'Graphical desktop/Other'
     srpm.license.should == 'GPLv2+'
     srpm.url.should == 'http://openbox.org/'
     srpm.description.should == 'long description'
