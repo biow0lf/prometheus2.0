@@ -2,7 +2,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe HomeController do
   describe "routing" do
-=begin
     it "should route / to home#index" do
       { :get => "/" }.should route_to(:controller => 'home',
                                       :action => 'index')
@@ -20,7 +19,6 @@ describe HomeController do
                                                       :branch => 'Sisyphus',
                                                       :locale => 'en')
     end
-=end
 
     it "should route /Sisyphus/people to home#maintainers_list" do
       { :get => "/Sisyphus/people" }.should route_to(:controller => 'home',
