@@ -4,6 +4,7 @@ class Srpm < ActiveRecord::Base
 
   validates :branch, presence: true
   validates :group, presence: true
+  validates :groupname, presence: true
   validates :md5, presence: true
 
   has_many :packages, dependent: :destroy

@@ -19,6 +19,7 @@ describe Srpm do
   describe 'Validation' do
     it { should validate_presence_of :branch }
     it { should validate_presence_of :group }
+    it { should validate_presence_of :groupname }
     it { should validate_presence_of :md5 }
   end
 
@@ -39,6 +40,7 @@ describe Srpm do
                  summary: 'short description',
                  description: 'long description',
                  group_id: group.id,
+                 groupname: 'Graphical desktop/Other',
                  license: 'GPLv2+',
                  url: 'http://openbox.org/',
                  size: 831617,

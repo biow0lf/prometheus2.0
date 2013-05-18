@@ -25,19 +25,20 @@ describe Gear do
                        email: 'icesik@altlinux.org',
                        login: 'icesik')
 
-    Srpm.create(branch_id: branch.id,
-                name: 'pulseaudio',
-                version: '1.1',
-                release: 'alt1.1',
-                summary: 'PulseAudio is a networked sound server',
-                description: 'long description',
-                group_id: group.id,
-                license: 'LGPL',
-                url: 'http://pulseaudio.org/',
-                size: 10482200,
-                filename: 'pulseaudio-1.1-alt1.1.src.rpm',
-                md5: '602df8c1227b9b5ddf2ba87efb081007',
-                buildtime: '2011-11-17 13:48:29 UTC')
+    Srpm.create!(branch_id: branch.id,
+                 name: 'pulseaudio',
+                 version: '1.1',
+                 release: 'alt1.1',
+                 summary: 'PulseAudio is a networked sound server',
+                 description: 'long description',
+                 group_id: group.id,
+                 groupname: 'System/Servers',
+                 license: 'LGPL',
+                 url: 'http://pulseaudio.org/',
+                 size: 10482200,
+                 filename: 'pulseaudio-1.1-alt1.1.src.rpm',
+                 md5: '602df8c1227b9b5ddf2ba87efb081007',
+                 buildtime: '2011-11-17 13:48:29 UTC')
 
     page = `cat spec/data/people-packages-list`
     FakeWeb.register_uri(:get,
