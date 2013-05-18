@@ -61,6 +61,7 @@ describe Package do
     package.epoch.should be_nil
     package.summary.should == 'short description'
     package.group.full_name.should == 'Graphical desktop/Other'
+    package.groupname.should == 'Graphical desktop/Other'
     package.license.should == 'GPLv2+'
     package.url.should == 'http://openbox.org/'
     package.description.should == 'long description'

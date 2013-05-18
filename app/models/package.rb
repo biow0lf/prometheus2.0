@@ -34,6 +34,7 @@ class Package < ActiveRecord::Base
       group = Group.in_branch(branch, group_name)
 
       package.group_id = group.id
+      package.groupname = group_name
       package.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
       package.summary = 'Broken' if package.name == 'openmoko_dfu-util'
       package.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`

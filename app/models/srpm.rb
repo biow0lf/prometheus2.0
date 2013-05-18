@@ -56,7 +56,7 @@ class Srpm < ActiveRecord::Base
     Maintainer.import(`export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{file}`)
 
     srpm.group_id = group.id
-    srpm.groupname = `export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}`
+    srpm.groupname = group_name
     srpm.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
     # TODO: test for this
     # hack for very long summary in openmoko_dfu-util src.rpm
