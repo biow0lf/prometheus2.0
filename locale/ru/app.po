@@ -286,7 +286,7 @@ msgid "Didn't receive unlock instructions?"
 msgstr ""
 
 msgid "Dmitriy Kulik"
-msgstr "Дмирий Кулик"
+msgstr "Дмитрий Кулик"
 
 msgid "Documentation"
 msgstr "Документация"
