@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-18 17:37+0300\n"
+"POT-Creation-Date: 2013-05-20 18:16+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -741,6 +741,9 @@ msgstr "Науки/Физика"
 msgid "Search"
 msgstr "Поиск по сайту"
 
+msgid "Search is not available."
+msgstr "Поиск не доступен."
+
 msgid "Search..."
 msgstr "Поиск..."
 
@@ -818,6 +821,9 @@ msgstr ""
 
 msgid "Specfile is not UTF-8 valid."
 msgstr ""
+
+msgid "Sphinx rebuild indexes. Please try again later."
+msgstr "Сфинкс перестраивает индексы. Пожалуйста, попробуйте позже."
 
 msgid "Summary"
 msgstr "О пакете"

@@ -13,5 +13,7 @@ class SearchesController < ApplicationController
                            :include => :branch)
       redirect_to(srpm_path(@branch, @srpms.first), status: 302) if @srpms.count == 1
     end
+  rescue Mysql2::Error
+    render 'search_is_not_available'
   end
 end

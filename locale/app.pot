@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-18 17:37+0300\n"
+"POT-Creation-Date: 2013-05-20 18:16+0300\n"
 "PO-Revision-Date: 2009-10-29 19:38+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -710,6 +710,9 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+msgid "Search is not available."
+msgstr ""
+
 msgid "Search..."
 msgstr ""
 
@@ -780,6 +783,9 @@ msgid "Spec file not yet imported."
 msgstr ""
 
 msgid "Specfile is not UTF-8 valid."
+msgstr ""
+
+msgid "Sphinx rebuild indexes. Please try again later."
 msgstr ""
 
 msgid "Summary"
