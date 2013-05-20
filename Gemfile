@@ -83,6 +83,7 @@ group :development do
   gem 'libnotify', require: false
   gem 'guard-rspec'
   gem 'guard-cucumber'
+  gem 'xray-rails'
 end
 
 group :development, :test do
