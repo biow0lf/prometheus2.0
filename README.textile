@@ -23,12 +23,9 @@ h3. Install:
 * redis
 * graphviz
 
-h3. And then:
+h3. Then:
 
-* run @bundle install@ in project folder
-
-h3. Prepare:
-
+* @bundle install@
 * @bundle exec rake gettext:pack@
 
 h3. Init database:
