@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title><%= yield(:title) %></title>
   <meta content='text/html;charset=UTF-8' http-equiv='content-type' />
@@ -9,49 +9,7 @@
   <link href='/opensearch.xml' rel='search' title='Prometheus2.0 search' type='application/opensearchdescription+xml'>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application' %>
-  <%#= stylesheet_link_tag 'github' %>
-  <%= javascript_include_tag 'application', "#{I18n.locale}/local" %>
-  <script>
-    //<![CDATA[
-    function chText(txt1, txt2, did) {
-      di = document.getElementById(did);
-      if (di.innerHTML == txt1) {
-        di.innerHTML = txt2;
-        di.style.backgroundColor = '#baccdd';
-      } else {
-        di.innerHTML = txt1;
-        di.style.backgroundColor = '#fafaff';
-      };
-    };
-    function m_on(lid) {
-      li = document.getElementById(lid);
-      li.style.backgroundColor = '#aabccd';
-      if (dli = document.getElementById('d' + lid)) {
-        dli.style.backgroundColor = '#aabccd';
-      };
-    };
-    function m_off(lid) {
-      li = document.getElementById(lid);
-      li.style.backgroundColor = '#fafaff';
-      if (dli = document.getElementById('d' + lid)) {
-        dli.style.backgroundColor = '#fafaff';
-      };
-    };
-    function show(divnum) {
-      for (i=1; i <= 3; i++ ) {
-        layersrc = document.getElementById('vk' + i);
-        layerdst = document.getElementById('div' + i);
-        if (i == divnum && layerdst.style.display == "none") {
-          layerdst.style.display = "block";
-          layersrc.style.backgroundColor = "#baccdd";
-        } else {
-          layerdst.style.display = "none";
-          layersrc.style.backgroundColor = "#fafaff";
-        };
-      };
-    };
-    //]]>
-  </script>
+  <%#= javascript_include_tag 'application', "#{I18n.locale}/local" %>
 </head>
 <body>
   <div style='display: none;'>
@@ -59,6 +17,76 @@
     <p class='alert'><%= alert %></p>
   </div>
 
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <ul class="nav nav-list">
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-home'></i> ".html_safe + _('Home'),
+                        home_path(branch: params[:branch]),
+                        title: _('site home page') %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-folder-open'></i> ".html_safe + _('Packages'),
+                        packages_path(branch: params[:branch]),
+                        title: _('packages information') %></li>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-group'></i> ".html_safe + _('Maintainers'),
+                        maintainers_path(branch: params[:branch]),
+                        title: _('maintainers information') %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-shield'></i> ".html_safe + _('Security'),
+                        security_path(branch: params[:branch]),
+                        title: _('security fixes') %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-info'></i> ".html_safe + _('About'),
+                        project_path,
+                        title: _('about Prometheus project') %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-rss'></i> ".html_safe + _('RSS'),
+                        rss_path(branch: params[:branch]),
+                        title: _('RSS') %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-book'></i> ".html_safe + _('Wiki'),
+                        _('http://en.altlinux.org/Sisyphus'),
+                        title: _('sisyphus public site') %>
+          </li>
+          <% if I18n.locale == :ru %>
+            <li>
+              <%= link_to "<i class='icon-fixed-width icon-external-link-sign'></i> ".html_safe + _('Blog'),
+                          _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'),
+                          title: _('blog') %>
+            </li>
+            <li>
+              <%= link_to "<i class='icon-fixed-width icon-globe'></i> ".html_safe + _('Planet'),
+                          _('http://planet.altlinux.org/'),
+                          title: _('ALT Linux Planet') %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to "<i class='icon-fixed-width icon-envelope'></i> ".html_safe + _('Mailing list'),
+                        _('http://lists.altlinux.org/mailman/listinfo/community-en/'),
+                        title: _('community-en@') %>
+          </li>
+        </ul>
+      </div>
+
+      <%= yield %>
+
+    </div>
+
+    <div class='row-fluid'>
+      <div class='span12 text-center'>
+        &copy;&nbsp;2009&ndash;2013&nbsp;<a href='mailto:icesik@altlinux.org'><%= _('Igor Zubkov') %></a>
+      </div>
+    </div>
+  </div>
+
+<!--
   <div id='top'>
     <div id='top-logo'>
       <a href='http://www.altlinux.org/'>
@@ -110,70 +138,7 @@
     </div>
   </div>
 
-  <div id='menu' style='text-align: center'>
-    <ul>
-      <li id='li1' onmouseout="m_off('li1')" onmouseover="m_on('li1')">
-        <div id='dli1'>
-          <%= link_to_unless_current _('Home'), home_path(branch: params[:branch]), title: _('site home page') %>
-        </div>
-      </li>
-      <li id='li3' onmouseout="m_off('li3')" onmouseover="m_on('li3')">
-        <div id='dli3'>
-          <%= link_to_unless_current _('Packages'), packages_path(branch: params[:branch]), title: _('packages information') %>
-        </div>
-      </li>
-      <li id='li4' onmouseout="m_off('li4')" onmouseover="m_on('li4')">
-        <div id='dli4'>
-          <%= link_to_unless_current _('Maintainers'), maintainers_path(branch: params[:branch]), title: _('maintainers information') %>
-        </div>
-      </li>
-      <li id='li5' onmouseout="m_off('li5')" onmouseover="m_on('li5')">
-        <div id='dli5'>
-          <%= link_to_unless_current _('Security'), security_path(branch: params[:branch]), title: _('security fixes') %>
-        </div>
-      </li>
-      <li id='li6' onmouseout="m_off('li6')" onmouseover="m_on('li6')">
-        <div id='dli6'>
-          <%= link_to_unless_current _('About'), project_path, title: _('about Prometheus project') %>
-        </div>
-      </li>
-      <li id='li7' onmouseout="m_off('li7')" onmouseover="m_on('li7')">
-        <div id='dli7'>
-          <%= link_to_unless_current _('RSS'), rss_path(branch: params[:branch]), title: _('RSS') %>
-        </div>
-      </li>
-      <li id='li8' onmouseout="m_off('li8')" onmouseover="m_on('li8')">
-        <div id='dli8'>
-          <%= link_to _('Wiki'), _('http://en.altlinux.org/Sisyphus'), title: _('sisyphus public site') %>
-        </div>
-      </li>
-      <% if I18n.locale == :ru %>
-        <li id='li9' onmouseout="m_off('li9')" onmouseover="m_on('li9')">
-          <div id='dli9'>
-            <%= link_to _('Blog'), _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'), title: _('blog') %>
-          </div>
-        </li>
-        <li id='li10' onmouseout="m_off('li10')" onmouseover="m_on('li10')">
-          <div id='dli10'>
-            <%= link_to _('Planet'), _('http://planet.altlinux.org/'), title: _('ALT Linux Planet') %>
-          </div>
-        </li>
-      <% end %>
-      <li id='li11' onmouseout="m_off('li11')" onmouseover="m_on('li11')">
-        <div id='dli11'>
-          <%= link_to _('Mailing list'), _('http://lists.altlinux.org/mailman/listinfo/community-en/'), title: _('community-en@') %>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div id='main-offset'>
-    <%= yield %>
-  </div>
-
-  <div id='bottom'>
-    &copy;&nbsp;2009&ndash;2013&nbsp;<a class='news' href='mailto:icesik@altlinux.org'><%= _('Igor Zubkov') %></a>
-  </div>
+-->
 
   <%= render :partial => 'shared/gauges' %>
   <%= render :partial => 'shared/ga' %>
