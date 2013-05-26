@@ -7,7 +7,10 @@ class TeamsController < ApplicationController
     render(status: 404, action: 'nosuchteam') and return if @team == nil
 
     @srpms_counter = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).count
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).includes(:repocop_patch).order('LOWER(srpms.name)')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).
+                           includes(:repocop_patch).
+                           order('LOWER(srpms.name)').
+                           decorate
     @leader = Team.find_by_sql(["SELECT maintainers.login, maintainers.name
                              FROM teams, maintainers, branches
                              WHERE maintainers.id = teams.maintainer_id

@@ -29,7 +29,7 @@ class MaintainersController < ApplicationController
     order += " " + sort_order
 
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
-                           includes(:repocop_patch).order(order)
+                           includes(:repocop_patch).order(order).decorate
   end
 
 #  def acls

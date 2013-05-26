@@ -22,6 +22,7 @@ group :sqlite do
 end
 
 gem 'devise'
+gem 'draper'
 gem 'pry', group: [:development, :test]
 gem 'kaminari'
 gem 'everywhere'

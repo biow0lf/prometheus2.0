@@ -63,17 +63,7 @@
     <td><%= "#{srpm.version}-#{srpm.release}" %></td>
     <td><%= srpm.buildtime %></td>
     <td><%= time_ago_in_words(srpm.buildtime) %> <%= _('ago') %></td>
-    <td>
-      <% if srpm.url %>
-        <% if srpm.url.length > 27 %>
-          <%= link_to "#{srpm.url[0..27]}...", srpm.url, class: 'news', rel: 'nofollow' %>
-        <% else %>
-          <%= link_to srpm.url, srpm.url, class: 'news', rel: 'nofollow' %>
-        <% end %>
-      <% else %>
-        &ndash;
-      <% end %>
-    </td>
+    <td><%= srpm.short_url %></td>
     <td style="text-align:left;"><%= srpm.summary %></td>
   </tr>
   <% end %>
