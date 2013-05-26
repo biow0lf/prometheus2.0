@@ -2,7 +2,7 @@ class MaintainersController < ApplicationController
   def show
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @branches = Branch.order('order_id').all
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    @maintainer = Maintainer.find_by_login!(params[:id].downcase).decorate
     @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 

@@ -17,11 +17,6 @@ module ApplicationHelper
     content_for(:description) { string }
   end
 
-  def avatar_url(maintainer)
-    gravatar_id = Digest::MD5.hexdigest(maintainer.email.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=420&r=g"
-  end
-
   def current_page(url, lang)
     return "/#{lang}" if url == '/'
     url[1, 2] = lang
