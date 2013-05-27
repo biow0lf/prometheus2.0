@@ -11,7 +11,7 @@ class SourcesController < ApplicationController
     @source = @srpm.sources.where(filename: params[:id]).first
     if @source && @source.source?
       send_data @source.source, disposition: 'attachment', filename: @source.filename
-    else @source && !@source.source?
+    elsif @source && !@source.source?
       render layout: false
     end
   end
