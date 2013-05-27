@@ -9,12 +9,11 @@ describe SecurityController do
                                                           :locale => 'en')
     end
 
-# TODO?
-#    it "should route /Sisyphus/security to security#index" do
-#      { :get => "/Sisyphus/security" }.should route_to(:controller => 'security',
-#                                                       :action => 'index',
-#                                                       :branch => 'Sisyphus')
-#    end
+    it "should route /Sisyphus/security to security#index" do
+      { :get => "/Sisyphus/security" }.should route_to(:controller => 'security',
+                                                       :action => 'index',
+                                                       :branch => 'Sisyphus')
+    end
 
     it "should route /en/Sisyphus/security?page=2 to security#index" do
       { :get => "/en/Sisyphus/security?page=2" }.should route_to(:controller => 'security',
@@ -23,11 +22,10 @@ describe SecurityController do
                                                                  :locale => 'en')
     end
 
-# TODO?
-#    it "should route /Sisyphus/security?page=2 to security#index" do
-#      { :get => "/Sisyphus/security?page=2" }.should route_to(:controller => 'security',
-#                                                              :action => 'index',
-#                                                              :branch => 'Sisyphus')
-#    end
+    it "should route /Sisyphus/security?page=2 to security#index" do
+      { :get => "/Sisyphus/security?page=2" }.should route_to(:controller => 'security',
+                                                              :action => 'index',
+                                                              :branch => 'Sisyphus')
+    end
   end
 end

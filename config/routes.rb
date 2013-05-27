@@ -5,7 +5,7 @@ Prometheus20::Application.routes.draw do
 
     get 'project' => 'pages#project'
 
-    scope '(:branch)', :branch => /[^\/]+/ do
+    scope '(:branch)', :branch => SUPPORTED_BRANCHES do
       resources :srpms, :id => /[^\/]+/, :only => :show do
         member do
           get 'changelog'
@@ -39,7 +39,7 @@ Prometheus20::Application.routes.draw do
     resources :rebuild, :controller => :rebuild, :only => [:index]
     resources :rsync, :controller => :rsync, :only => [:new]
 
-    scope ':branch', :branch => /[^\/]+/ do
+    scope ':branch', :branch => SUPPORTED_BRANCHES do
       resources :maintainers, :only => :show do
         get 'srpms', :on => :member
       end
@@ -55,16 +55,16 @@ Prometheus20::Application.routes.draw do
   end
 
   scope ':locale', :locale => SUPPORTED_LOCALES do
-    scope ':branch', :branch => /[^\/]+/ do
+    scope ':branch', :branch => SUPPORTED_BRANCHES do
       get 'home' => 'home#index'
     end
   end
 
   get '(/:locale)/misc/bugs' => 'misc#bugs', :locale => SUPPORTED_LOCALES
 
-  get '/:locale/:branch/security' => 'security#index', :as => 'security',
-                                                       :locale => SUPPORTED_LOCALES,
-                                                       :branch => /[^\/]+/
+  get '(/:locale)/:branch/security' => 'security#index', :as => 'security',
+                                                         :locale => SUPPORTED_LOCALES,
+                                                         :branch => SUPPORTED_BRANCHES
 
 # TODO: drop this later
 ##  get '/repocop' => 'repocop#index'
