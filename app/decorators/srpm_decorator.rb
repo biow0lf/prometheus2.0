@@ -1,7 +1,6 @@
 class SrpmDecorator < Draper::Decorator
   delegate_all
 
-  # TODO: rspec this
   def short_url
     if object.url
       if object.url.length > 27
