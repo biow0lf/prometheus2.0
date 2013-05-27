@@ -24,6 +24,7 @@ class PatchesController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:srpm_id]).first
     render status: 404, action: '404' and return if @srpm == nil
     @patch = @srpm.patches.where(filename: params[:id]).first
+    render status: 404, action: '404' and return if @patch == nil
     @html_data = CodeRay.scan(@patch.patch, :diff).div(:line_numbers => :table)
   end
 end
