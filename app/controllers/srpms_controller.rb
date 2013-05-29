@@ -44,7 +44,8 @@ class SrpmsController < ApplicationController
 
   def rawspec
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
+    render status: 404, action: 'nosuchpackage' and return unless @srpm
     if @srpm.specfile
       send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
     else @srpm.specfile == nil
