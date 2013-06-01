@@ -87,6 +87,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'xray-rails'
   gem 'rubocop', require: false
+  gem 'flog', require: false
 end
 
 group :development, :test do
