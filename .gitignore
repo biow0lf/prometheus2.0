@@ -16,4 +16,5 @@ dump.rdb
 db/sphinx/*
 config/development.sphinx.conf
 config/database.yml
+config/initializers/airbrake.rb
 
