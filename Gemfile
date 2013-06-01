@@ -86,6 +86,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'xray-rails'
+  gem 'rubocop', require: false
 end
 
 group :development, :test do
