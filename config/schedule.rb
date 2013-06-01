@@ -1,8 +1,8 @@
 job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle exec rake :task :output"
 
-every 1.hour do
-  command 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
-end
+#every 1.hour do
+#  command 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
+#end
 
 every 1.day, :at => '00:10' do
   rake 'ts:rebuild'
