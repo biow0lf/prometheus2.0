@@ -4,12 +4,18 @@ class SrpmDecorator < Draper::Decorator
   def short_url
     if object.url
       if object.url.length > 27
-        h.link_to "#{object.url[0..26]}...", object.url, class: 'news', rel: 'nofollow'
+        local_link_to("#{object.url[0..26]}...", object.url)
       else
-        h.link_to object.url, object.url, class: 'news', rel: 'nofollow'
+        local_link_to(object.url, object.url)
       end
     else
-      "&ndash;".html_safe
+      '&ndash;'.html_safe
     end
+  end
+
+  private
+
+  def local_link_to(text, url)
+    h.link_to(text, url, class: 'news', rel: 'nofollow')
   end
 end
