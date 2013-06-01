@@ -1,15 +1,18 @@
 class MaintainersController < ApplicationController
   def show
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id').all
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase).decorate
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
+    @maintainer = @maintainer.decorate
     @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id').all
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
 
     order  = ""
     order += "LOWER(srpms.name)" if sort_column == 'name'
@@ -29,7 +32,9 @@ class MaintainersController < ApplicationController
     order += " " + sort_order
 
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
-                           includes(:repocop_patch).order(order).decorate
+                           includes(:repocop_patch).
+                           order(order).
+                           decorate
   end
 
 #  def acls
@@ -45,15 +50,17 @@ class MaintainersController < ApplicationController
 #  end
 
   def gear
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
   end
 
   def bugs
     # TODO: add Branch support
-    # @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @branch = Branch.find_by_name_and_vendor!('Sisyphus', 'ALT Linux')
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
@@ -68,9 +75,10 @@ class MaintainersController < ApplicationController
 
   def allbugs
     # TODO: add Branch support
-    # @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @branch = Branch.find_by_name_and_vendor!('Sisyphus', 'ALT Linux')
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
@@ -84,14 +92,18 @@ class MaintainersController < ApplicationController
   end
 
   def ftbfs
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
+
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
   end
 
   def repocop
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @maintainer = Maintainer.find_by_login!(params[:id].downcase)
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @maintainer = Maintainer.where(login: params[:id].downcase).first
+    render status: 404, action: '404' and return if @maintainer == nil
+
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
 end
