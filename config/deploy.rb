@@ -95,6 +95,7 @@ namespace :deploy do
       ln -sf #{shared_path}/config/redis.yml #{latest_release}/config/redis.yml &&
       ln -sf #{shared_path}/config/initializers/devise.rb #{latest_release}/config/initializers/devise.rb &&
       ln -sf #{shared_path}/config/initializers/secret_token.rb #{latest_release}/config/initializers/secret_token.rb &&
+      ln -sf #{shared_path}/config/initializers/airbrake.rb #{latest_release}/config/initializers/airbrake.rb &&
       cd #{release_path} && bundle exec rake assets:precompile
     CMD
 
