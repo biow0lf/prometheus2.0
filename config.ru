@@ -3,9 +3,9 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 run Prometheus20::Application
 
-#require 'unicorn/oob_gc'
-#
-#use Unicorn::OobGC, 10
+require 'unicorn/oob_gc'
+GC.disable # Don't run GC during requests
+use Unicorn::OobGC, 10
 
 # Unicorn self-process killer
 require 'unicorn/worker_killer'
