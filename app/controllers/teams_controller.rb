@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
     @srpms_counter = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).count
     @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).
                            includes(:repocop_patch).
+                           select('repocop, name, version, release, buildtime, url, summary').
                            order('LOWER(srpms.name)').
                            decorate
     @leader = Team.find_by_sql(["SELECT maintainers.login, maintainers.name
