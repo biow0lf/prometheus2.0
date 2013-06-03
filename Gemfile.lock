@@ -65,6 +65,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    childprocess (0.3.9)
+      ffi (~> 1.0, >= 1.0.11)
     choice (0.1.6)
     chronic (0.9.1)
     coderay (1.0.9)
@@ -144,6 +146,10 @@ GEM
     guard-rspec (3.0.1)
       guard (>= 1.8)
       rspec (~> 2.13)
+    guard-rubocop (0.0.3)
+      childprocess (~> 0.3)
+      guard (~> 1.8)
+      rubocop (>= 0.6.1, < 1.0.0)
     highline (1.6.19)
     hike (1.2.2)
     hirb (0.7.1)
@@ -371,6 +377,7 @@ DEPENDENCIES
   guard
   guard-cucumber
   guard-rspec
+  guard-rubocop
   hirb
   jbuilder
   jquery-rails
