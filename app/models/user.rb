@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
     if email.split('@')[1] == 'altlinux.org' ||
        email.split('@')[1] == 'altlinux.ru'
       true
-    else
-      false
     end
   end
 
