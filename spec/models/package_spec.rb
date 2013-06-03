@@ -79,7 +79,7 @@ describe Package do
     $redis.get("#{branch.name}:gcc-1.0-alt1.i586.rpm").should be_nil
     Dir.should_receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
     File.should_receive(:exist?).with('gcc-1.0-alt1.i586.rpm').and_return(true)
-    RPM.should_receive(:check_md5).and_return(true)
+    Rpm.should_receive(:check_md5).and_return(true)
     Package.should_receive(:import).and_return(true)
     Package.import_all(branch, pathes)
   end

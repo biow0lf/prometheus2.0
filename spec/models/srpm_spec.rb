@@ -120,7 +120,7 @@ describe Srpm do
     $redis.get("#{branch.name}:glibc-2.11.3-alt6.src.rpm").should be_nil
     Dir.should_receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
     File.should_receive(:exist?).with('glibc-2.11.3-alt6.src.rpm').and_return(true)
-    RPM.should_receive(:check_md5).and_return(true)
+    Rpm.should_receive(:check_md5).and_return(true)
     Srpm.should_receive(:import).and_return(true)
 
     Srpm.import_all(branch, path)
