@@ -53,28 +53,38 @@ describe Srpm do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
-    maintainer = Maintainer.create!(:login => 'icesik', :email => 'icesik@altlinux.org', :name => 'Igor Zubkov')
+    maintainer = Maintainer.create!(login: 'icesik',
+                                    email: 'icesik@altlinux.org',
+                                    name: 'Igor Zubkov')
 
-    Srpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}").and_return('openbox')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}").and_return('3.4.11.1')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{file}").and_return('alt1.1.1')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}").and_return('(none)')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}").and_return('short description')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
+    Srpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5) # `
 
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{file}").and_return('Igor Zubkov <icesik@altlinux.org>')
+#    rpm = mock("rpm")
+    rpm = mock
+    Rpm.stub!(:new).and_return(rpm)
+    rpm.should_receive(:name).and_return('openbox')
+    rpm.should_receive(:version).and_return('3.4.11.1')
+    rpm.should_receive(:release).and_return('alt1.1.1')
+    rpm.should_receive(:epoch).and_return('(none)')
+    rpm.should_receive(:summary).and_return('short description')
+    rpm.should_receive(:group).and_return('Graphical desktop/Other')
+    rpm.should_receive(:packager).and_return('Igor Zubkov <icesik@altlinux.org>')
 
     Maintainer.should_receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
 
     MaintainerTeam.should_not_receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
 
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}").and_return('GPLv2+')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{file}").and_return('http://openbox.org/')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}").and_return('long description')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VENDOR}' #{file}").and_return('ALT Linux Team')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DISTRIBUTION}' #{file}").and_return('ALT Linux')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}").and_return('1315301838')
+    rpm.should_receive(:license).and_return('GPLv2+')
+    rpm.should_receive(:url).and_return('http://openbox.org/')
+    rpm.should_receive(:description).and_return('long description')
+    rpm.should_receive(:vendor).and_return('ALT Linux Team')
+    rpm.should_receive(:distribution).and_return('ALT Linux')
+    rpm.should_receive(:buildtime).and_return('1315301838')
+
+#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}").and_return('long description')
+#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VENDOR}' #{file}").and_return('ALT Linux Team')
+#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DISTRIBUTION}' #{file}").and_return('ALT Linux')
+#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}").and_return('1315301838')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}").and_return('1312545600')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}").and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}").and_return('- 3.4.11.1')

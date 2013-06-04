@@ -42,34 +42,35 @@ class Srpm < ActiveRecord::Base
 
   def self.import(branch, file)
     srpm = Srpm.new
-    srpm.name = `export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}`
-    srpm.version = `export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}`
-    srpm.release = `export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{file}`
-    srpm.epoch = `export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}`
-    # TODO: make test for this
+    rpm = Rpm.new(file)
+    srpm.name = rpm.name
+    srpm.version = rpm.version
+    srpm.release = rpm.release
+    srpm.epoch = rpm.epoch
+    # TODO: move this to Rpm class and make test this
     srpm.epoch = nil if srpm.epoch == '(none)'
     srpm.filename = "#{srpm.name}-#{srpm.version}-#{srpm.release}.src.rpm"
 
-    group_name = `export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}`
+    group_name = rpm.group
     Group.import(branch, group_name)
     group = Group.in_branch(branch, group_name)
 
-    Maintainer.import(`export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{file}`)
+    Maintainer.import(rpm.packager)
 
     srpm.group_id = group.id
     srpm.groupname = group_name
-    srpm.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
-    # TODO: test for this
+    srpm.summary = rpm.summary
+    # TODO: move this to Rpm class and test this
     # hack for very long summary in openmoko_dfu-util src.rpm
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
-    srpm.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`
-    srpm.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{file}`
+    srpm.license = rpm.license
+    srpm.url = rpm.url
     # TODO: make test for this
     srpm.url = nil if srpm.url == '(none)'
-    srpm.description = `export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
-    srpm.vendor = `export LANG=C && rpm -qp --queryformat='%{VENDOR}' #{file}`
-    srpm.distribution = `export LANG=C && rpm -qp --queryformat='%{DISTRIBUTION}' #{file}`
-    srpm.buildtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
+    srpm.description = rpm.description
+    srpm.vendor = rpm.vendor
+    srpm.distribution = rpm.distribution
+    srpm.buildtime = Time.at(rpm.buildtime.to_i)  # Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
     srpm.size = File.size(file)
     srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
     srpm.branch_id = branch.id
