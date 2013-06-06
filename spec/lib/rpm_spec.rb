@@ -153,6 +153,14 @@ describe Rpm do
     rpm.changelogtext.should == '- 3.4.11.1'
   end
 
+  it 'should return md5 sum of package' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
+    rpm.md5.should == 'f87ff0eaa4e16b202539738483cd54d1'
+  end
+
   it 'should verify md5 sum of rpm and return true if rpm is OK' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")

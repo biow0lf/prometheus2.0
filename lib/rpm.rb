@@ -75,6 +75,10 @@ class Rpm
     @changelogtext ||= extract_tag('CHANGELOGTEXT')
   end
 
+  def md5
+    @md5 ||= `/usr/bin/md5sum #{ @file }`.split.first
+  end
+
   def extract_tag(tag)
     none_is_nil(`export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ @file }`)
   end

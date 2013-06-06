@@ -52,12 +52,10 @@ describe Srpm do
   it 'should import srpm file' do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
+    md5 = 'f87ff0eaa4e16b202539738483cd54d1'
     maintainer = Maintainer.create!(login: 'icesik',
                                     email: 'icesik@altlinux.org',
                                     name: 'Igor Zubkov')
-
-    Srpm.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5) # `
 
 #    rpm = mock("rpm")
     rpm = mock
@@ -84,6 +82,7 @@ describe Srpm do
     rpm.should_receive(:changelogtime).and_return('1312545600')
     rpm.should_receive(:changelogname).and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     rpm.should_receive(:changelogtext).and_return('- 3.4.11.1')
+    rpm.should_receive(:md5).and_return(md5)
 
     File.should_receive(:size).with(file).and_return(831617)
 
@@ -115,6 +114,7 @@ describe Srpm do
     srpm.changelogname.should == 'Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1'
     srpm.changelogtext.should == '- 3.4.11.1'
     srpm.filename.should == 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    srpm.md5.should == 'f87ff0eaa4e16b202539738483cd54d1'
 
     $redis.get("#{branch.name}:#{srpm.filename}").should == "1"
     $redis.get("#{branch.name}:srpms:counter").should == "1"
