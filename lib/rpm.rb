@@ -66,17 +66,17 @@ class Rpm
   end
 
   def extract_tag(tag)
-    `export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ @file }`
+    none_is_nil(`export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ @file }`)
   end
 
-#  def none_is_nil(value)
-#    nil if value == '(none)'
-#  end
+  def none_is_nil(value)
+    return nil if value == '(none)'
+    value
+  end
 
   def self.check_md5(file)
     output = `export LANG=C && rpm -K --nogpg #{file}`
-    if !output.empty? && output.chop.split(': ').last == 'md5 OK'
-      true
-    end
+    return true if !output.empty? && output.chop.split(': ').last == 'md5 OK'
+    false
   end
 end

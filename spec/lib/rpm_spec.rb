@@ -7,7 +7,7 @@ describe Rpm do
     rpm = Rpm.new(file)
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ file }").and_return('openbox')
 
-    rpm.extract_tag('NAME').should == 'openbox'
+    rpm.extract_tag(tag).should == 'openbox'
   end
 
   it 'should return package name' do
@@ -35,7 +35,7 @@ describe Rpm do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     rpm = Rpm.new(file)
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{ file }").and_return('(none)')
-    rpm.epoch.should == '(none)'
+    rpm.epoch.should be_nil
   end
 
   it 'should return package summary' do
@@ -117,16 +117,31 @@ describe Rpm do
 
 #    File.should_receive(:size).with(file).and_return(831617)
 
+  it 'should fix "(none)" to nil' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    tag = 'URL'
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ file }").and_return('(none)')
+    rpm.extract_tag(tag).should be_nil
+  end
 
-#  it 'should verify md5 sum of rpm and return true if rpm is OK' do
-#    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-#    Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")
-#    Rpm.check_md5(file).should be_true
-#  end
-#
-#  it 'should verify md5 sum of rpm and return nil if rpm is broken' do
-#    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-#    Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("")
-#    Rpm.check_md5(file).should be_nil
-#  end
+  it 'should fix "(none)" to nil (second case)' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{ file }").and_return('(none)')
+    rpm.url.should be_nil
+  end
+
+
+  it 'should verify md5 sum of rpm and return true if rpm is OK' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")
+    Rpm.check_md5(file).should be_true
+  end
+
+  it 'should verify md5 sum of rpm and return false if rpm is broken' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("")
+    Rpm.check_md5(file).should be_false
+  end
 end
