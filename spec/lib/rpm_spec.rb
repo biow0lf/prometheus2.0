@@ -168,15 +168,12 @@ describe Rpm do
     rpm.size.should == 831_617
   end
 
-#  it 'should return sourcerpm' do
-#    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-#    rpm = Rpm.new(file)
-#    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{ file }").and_return('- 3.4.11.1')
-#    rpm.changelogtext.should == '- 3.4.11.1'
-#
-#      sourcerpm = `export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}`
-#
-#  end
+  it 'should return sourcerpm' do
+    file = 'mplayer-1.1.1-alt1.i586.rpm'
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{ file }").and_return('mplayer-1.1.1-alt1.src.rpm')
+    rpm.sourcerpm.should == 'mplayer-1.1.1-alt1.src.rpm'
+  end
 
   it 'should verify md5 sum of rpm and return true if rpm is OK' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'

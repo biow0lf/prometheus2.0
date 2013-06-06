@@ -17,17 +17,16 @@ class Package < ActiveRecord::Base
   after_save :set_srpms_delta_flag
 
   def self.import(branch, file)
-    sourcerpm = `export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}`
+    rpm = Rpm.new(file)
+    sourcerpm = rpm.sourcerpm
     if branch.srpms.where(filename: sourcerpm).count == 1
       package = Package.new
       package.filename = file.split('/')[-1]
       package.sourcepackage = sourcerpm
-      package.name = `export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}`
-      package.version = `export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}`
-      package.release = `export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{file}`
-      package.epoch = `export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}`
-      # TODO: make test for this
-      package.epoch = nil if package.epoch == '(none)'
+      package.name = rpm.name
+      package.version = rpm.version
+      package.release = rpm.release
+      package.epoch = rpm.epoch
       package.arch = `export LANG=C && rpm -qp --queryformat='%{ARCH}' #{file}`
 
       group_name = `export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}`

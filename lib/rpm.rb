@@ -75,6 +75,10 @@ class Rpm
     @changelogtext ||= extract_tag('CHANGELOGTEXT')
   end
 
+  def sourcerpm
+    @sourcerpm ||= extract_tag('SOURCERPM')
+  end
+
   def md5
     @md5 ||= `/usr/bin/md5sum #{ @file }`.split.first
   end

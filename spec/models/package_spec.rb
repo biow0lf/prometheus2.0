@@ -36,11 +36,14 @@ describe Package do
     md5 = "fd0100efb65fa82af3028e356a6f6304  /ALT/Sisyphus/files/i586/RPMS/#{file}"
     Package.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
 
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}").and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}").and_return('openbox')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}").and_return('3.4.11.1')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{file}").and_return('alt1.1.1')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}").and_return('(none)')
+    rpm = mock
+    Rpm.stub!(:new).and_return(rpm)
+    rpm.should_receive(:sourcerpm).and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    rpm.should_receive(:name).and_return('openbox')
+    rpm.should_receive(:version).and_return('3.4.11.1')
+    rpm.should_receive(:release).and_return('alt1.1.1')
+    rpm.should_receive(:epoch).and_return(nil)
+
     Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{ARCH}' #{file}").and_return('i586')
     Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
     Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}").and_return('short description')
