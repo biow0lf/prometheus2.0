@@ -66,6 +66,7 @@ describe Srpm do
     rpm.should_receive(:version).and_return('3.4.11.1')
     rpm.should_receive(:release).and_return('alt1.1.1')
     rpm.should_receive(:epoch).and_return(nil)
+    rpm.should_receive(:filename).and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
     rpm.should_receive(:summary).and_return('short description')
     rpm.should_receive(:group).and_return('Graphical desktop/Other')
     rpm.should_receive(:packager).and_return('Igor Zubkov <icesik@altlinux.org>')

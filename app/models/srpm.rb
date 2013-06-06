@@ -47,7 +47,7 @@ class Srpm < ActiveRecord::Base
     srpm.version = rpm.version
     srpm.release = rpm.release
     srpm.epoch = rpm.epoch
-    srpm.filename = "#{srpm.name}-#{srpm.version}-#{srpm.release}.src.rpm"
+    srpm.filename = rpm.filename
 
     group_name = rpm.group
     Group.import(branch, group_name)
