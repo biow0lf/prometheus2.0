@@ -79,6 +79,10 @@ class Rpm
     @sourcerpm ||= extract_tag('SOURCERPM')
   end
 
+  def arch
+    @arch ||= extract_tag('ARCH')
+  end
+
   def md5
     @md5 ||= `/usr/bin/md5sum #{ @file }`.split.first
   end
