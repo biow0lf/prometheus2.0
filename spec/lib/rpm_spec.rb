@@ -161,6 +161,23 @@ describe Rpm do
     rpm.md5.should == 'f87ff0eaa4e16b202539738483cd54d1'
   end
 
+  it 'should return size of package' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    rpm = Rpm.new(file)
+    File.should_receive(:size).and_return(831_617)
+    rpm.size.should == 831_617
+  end
+
+#  it 'should return sourcerpm' do
+#    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+#    rpm = Rpm.new(file)
+#    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{ file }").and_return('- 3.4.11.1')
+#    rpm.changelogtext.should == '- 3.4.11.1'
+#
+#      sourcerpm = `export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{file}`
+#
+#  end
+
   it 'should verify md5 sum of rpm and return true if rpm is OK' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")

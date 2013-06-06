@@ -67,7 +67,7 @@ class Srpm < ActiveRecord::Base
     srpm.vendor = rpm.vendor
     srpm.distribution = rpm.distribution
     srpm.buildtime = Time.at(rpm.buildtime.to_i)
-    srpm.size = File.size(file)
+    srpm.size = rpm.size
     srpm.md5 = rpm.md5
     srpm.branch_id = branch.id
     srpm.changelogtime = Time.at(rpm.changelogtime.to_i)

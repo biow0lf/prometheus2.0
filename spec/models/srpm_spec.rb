@@ -83,8 +83,7 @@ describe Srpm do
     rpm.should_receive(:changelogname).and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     rpm.should_receive(:changelogtext).and_return('- 3.4.11.1')
     rpm.should_receive(:md5).and_return(md5)
-
-    File.should_receive(:size).with(file).and_return(831617)
+    rpm.should_receive(:size).and_return('831617')
 
     Specfile.should_receive(:import).and_return(true)
     Changelog.should_receive(:import).and_return(true)
@@ -115,6 +114,7 @@ describe Srpm do
     srpm.changelogtext.should == '- 3.4.11.1'
     srpm.filename.should == 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     srpm.md5.should == 'f87ff0eaa4e16b202539738483cd54d1'
+    srpm.size.should == '831617'
 
     $redis.get("#{branch.name}:#{srpm.filename}").should == "1"
     $redis.get("#{branch.name}:srpms:counter").should == "1"

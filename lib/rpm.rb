@@ -79,6 +79,10 @@ class Rpm
     @md5 ||= `/usr/bin/md5sum #{ @file }`.split.first
   end
 
+  def size
+    File.size(@file)
+  end
+
   def extract_tag(tag)
     none_is_nil(`export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ @file }`)
   end
