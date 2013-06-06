@@ -43,11 +43,10 @@ class Srpm < ActiveRecord::Base
   def self.import(branch, file)
     srpm = Srpm.new
     rpm = Rpm.new(file)
-    srpm.name = rpm.name
-    srpm.version = rpm.version
-    srpm.release = rpm.release
-    srpm.epoch = rpm.epoch
-    srpm.filename = rpm.filename
+    [:name, :version, :release, :epoch, :filename, :summary, :license, :url,
+     :description, :vendor, :distribution, :size, :md5].each do |field|
+      srpm.send("#{field}=", rpm.send(field))
+    end
 
     group_name = rpm.group
     Group.import(branch, group_name)
@@ -57,18 +56,10 @@ class Srpm < ActiveRecord::Base
 
     srpm.group_id = group.id
     srpm.groupname = group_name
-    srpm.summary = rpm.summary
     # TODO: move this to Rpm class and test this
     # hack for very long summary in openmoko_dfu-util src.rpm
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
-    srpm.license = rpm.license
-    srpm.url = rpm.url
-    srpm.description = rpm.description
-    srpm.vendor = rpm.vendor
-    srpm.distribution = rpm.distribution
     srpm.buildtime = Time.at(rpm.buildtime.to_i)
-    srpm.size = rpm.size
-    srpm.md5 = rpm.md5
     srpm.branch_id = branch.id
     srpm.changelogtime = Time.at(rpm.changelogtime.to_i)
 
