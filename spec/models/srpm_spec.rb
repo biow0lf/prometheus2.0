@@ -81,10 +81,9 @@ describe Srpm do
     rpm.should_receive(:vendor).and_return('ALT Linux Team')
     rpm.should_receive(:distribution).and_return('ALT Linux')
     rpm.should_receive(:buildtime).and_return('1315301838')
-
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}").and_return('1312545600')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}").and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
-    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}").and_return('- 3.4.11.1')
+    rpm.should_receive(:changelogtime).and_return('1312545600')
+    rpm.should_receive(:changelogname).and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    rpm.should_receive(:changelogtext).and_return('- 3.4.11.1')
 
     File.should_receive(:size).with(file).and_return(831617)
 

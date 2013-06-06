@@ -117,7 +117,7 @@ describe Rpm do
 
 #    File.should_receive(:size).with(file).and_return(831617)
 
-  it 'should fix "(none)" to nil' do
+  it 'should replace "(none)" with nil in all fields' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     tag = 'URL'
     rpm = Rpm.new(file)
@@ -125,13 +125,33 @@ describe Rpm do
     rpm.extract_tag(tag).should be_nil
   end
 
-  it 'should fix "(none)" to nil (second case)' do
+  it 'should replace "(none)" with nil in all fields (second case)' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     rpm = Rpm.new(file)
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{ file }").and_return('(none)')
     rpm.url.should be_nil
   end
 
+  it 'should return changelogtime' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{ file }").and_return('1312545600')
+    rpm.changelogtime.should == '1312545600'
+  end
+
+  it 'should return changelogname' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{ file }").and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    rpm.changelogname.should == 'Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1'
+  end
+
+  it 'should return changelogtext' do
+    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
+    rpm = Rpm.new(file)
+    rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{ file }").and_return('- 3.4.11.1')
+    rpm.changelogtext.should == '- 3.4.11.1'
+  end
 
   it 'should verify md5 sum of rpm and return true if rpm is OK' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'

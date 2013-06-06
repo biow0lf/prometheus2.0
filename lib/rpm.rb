@@ -24,8 +24,6 @@ class Rpm
   end
 
   def epoch
-    # TODO: make test for this
-    # TODO: srpm.epoch = nil if srpm.epoch == '(none)'
     @epoch ||= extract_tag('EPOCH')
   end
 
@@ -63,6 +61,18 @@ class Rpm
 
   def buildtime
     @buildtime ||= extract_tag('BUILDTIME')
+  end
+
+  def changelogtime
+    @changelogtime ||= extract_tag('CHANGELOGTIME')
+  end
+
+  def changelogname
+    @changelogname ||= extract_tag('CHANGELOGNAME')
+  end
+
+  def changelogtext
+    @changelogtext ||= extract_tag('CHANGELOGTEXT')
   end
 
   def extract_tag(tag)

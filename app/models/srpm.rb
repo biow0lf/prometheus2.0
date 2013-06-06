@@ -66,16 +66,16 @@ class Srpm < ActiveRecord::Base
     srpm.description = rpm.description
     srpm.vendor = rpm.vendor
     srpm.distribution = rpm.distribution
-    srpm.buildtime = Time.at(rpm.buildtime.to_i)  # Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
+    srpm.buildtime = Time.at(rpm.buildtime.to_i)
     srpm.size = File.size(file)
     srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
     srpm.branch_id = branch.id
-    srpm.changelogtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}`.to_i)
+    srpm.changelogtime = Time.at(rpm.changelogtime.to_i)
 
-    changelogname = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}`
+    changelogname = rpm.changelogname
     srpm.changelogname = changelogname
 
-    srpm.changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
+    srpm.changelogtext = rpm.changelogtext
 
     email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
 
