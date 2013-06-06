@@ -47,8 +47,6 @@ class Srpm < ActiveRecord::Base
     srpm.version = rpm.version
     srpm.release = rpm.release
     srpm.epoch = rpm.epoch
-    # TODO: move this to Rpm class and make test this
-    srpm.epoch = nil if srpm.epoch == '(none)'
     srpm.filename = "#{srpm.name}-#{srpm.version}-#{srpm.release}.src.rpm"
 
     group_name = rpm.group
@@ -65,8 +63,6 @@ class Srpm < ActiveRecord::Base
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
     srpm.license = rpm.license
     srpm.url = rpm.url
-    # TODO: make test for this
-    srpm.url = nil if srpm.url == '(none)'
     srpm.description = rpm.description
     srpm.vendor = rpm.vendor
     srpm.distribution = rpm.distribution
