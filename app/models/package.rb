@@ -27,24 +27,22 @@ class Package < ActiveRecord::Base
       package.version = rpm.version
       package.release = rpm.release
       package.epoch = rpm.epoch
-      package.arch = `export LANG=C && rpm -qp --queryformat='%{ARCH}' #{file}`
+      package.arch = rpm.arch
 
-      group_name = `export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}`
+      group_name = rpm.group
       Group.import(branch, group_name)
       group = Group.in_branch(branch, group_name)
 
       package.group_id = group.id
       package.groupname = group_name
-      package.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
+      package.summary = rpm.summary
       package.summary = 'Broken' if package.name == 'openmoko_dfu-util'
-      package.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`
-      package.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{file}`
-      # TODO: make test for this
-      package.url = nil if package.url == '(none)'
-      package.description = `export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
-      package.buildtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
-      package.size = File.size(file)
-      package.md5 = `/usr/bin/md5sum #{file}`.split[0]
+      package.license = rpm.license
+      package.url = rpm.url
+      package.description = rpm.description
+      package.buildtime = Time.at(rpm.buildtime.to_i)
+      package.size = rpm.size
+      package.md5 = rpm.md5
       package.branch_id = branch.id
       srpm = branch.srpms.where(filename: sourcerpm).first
       package.srpm_id = srpm.id

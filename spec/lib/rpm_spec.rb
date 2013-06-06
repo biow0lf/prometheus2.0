@@ -182,8 +182,6 @@ describe Rpm do
     rpm.arch.should == 'i586'
   end
 
-
-
   it 'should verify md5 sum of rpm and return true if rpm is OK' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     Rpm.should_receive(:`).with("export LANG=C && rpm -K --nogpg #{file}").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")

@@ -32,9 +32,7 @@ describe Package do
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
 
     file = 'openbox-3.5.0-alt1.i586.rpm'
-
-    md5 = "fd0100efb65fa82af3028e356a6f6304  /ALT/Sisyphus/files/i586/RPMS/#{file}"
-    Package.should_receive(:`).with("/usr/bin/md5sum #{file}").and_return(md5)
+    md5 = 'fd0100efb65fa82af3028e356a6f6304'
 
     rpm = mock
     Rpm.stub!(:new).and_return(rpm)
@@ -43,16 +41,15 @@ describe Package do
     rpm.should_receive(:version).and_return('3.4.11.1')
     rpm.should_receive(:release).and_return('alt1.1.1')
     rpm.should_receive(:epoch).and_return(nil)
-
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{ARCH}' #{file}").and_return('i586')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}").and_return('short description')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}").and_return('GPLv2+')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{file}").and_return('http://openbox.org/')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}").and_return('long description')
-    Package.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}").and_return('1315301838')
-
-    File.should_receive(:size).with(file).and_return(236554)
+    rpm.should_receive(:arch).and_return('i586')
+    rpm.should_receive(:group).and_return('Graphical desktop/Other')
+    rpm.should_receive(:summary).and_return('short description')
+    rpm.should_receive(:license).and_return('GPLv2+')
+    rpm.should_receive(:url).and_return('http://openbox.org/')
+    rpm.should_receive(:description).and_return('long description')
+    rpm.should_receive(:buildtime).and_return('1315301838')
+    rpm.should_receive(:size).and_return(236554)
+    rpm.should_receive(:md5).and_return(md5)
 
     expect{
       Package.import(branch, file)
@@ -72,6 +69,8 @@ describe Package do
     # FIXME:
     # package.buildtime.should == Time.at(1315301838)
     package.filename.should == 'openbox-3.5.0-alt1.i586.rpm'
+    package.size.should == '236554'
+    package.md5.should == 'fd0100efb65fa82af3028e356a6f6304'
 
     $redis.get("#{branch.name}:#{package.filename}").should == "1"
   end
