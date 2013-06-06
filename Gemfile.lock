@@ -273,7 +273,7 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    rubocop (0.8.1)
+    rubocop (0.8.2)
       parser (>= 2.0.0.beta1, <= 2.0.0)
       rainbow (>= 1.1.4)
     ruby-graphviz (1.0.9)
