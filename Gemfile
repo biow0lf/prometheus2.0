@@ -25,6 +25,7 @@ gem 'devise'
 gem 'draper'
 gem 'airbrake'
 gem 'pry', group: [:development, :test]
+gem 'redis-objects'
 gem 'kaminari'
 gem 'everywhere'
 gem 'fast_gettext'

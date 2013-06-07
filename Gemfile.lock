@@ -256,6 +256,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redis (3.0.4)
+    redis-objects (0.7.0)
+      redis (>= 3.0.2)
     request_store (1.0.5)
     riddle (1.5.6)
     rspec (2.13.0)
@@ -398,6 +400,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify (~> 0.9)
   redis
+  redis-objects
   rspec
   rspec-rails
   rubocop
