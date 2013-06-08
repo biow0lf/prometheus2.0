@@ -2,8 +2,8 @@ require 'open-uri'
 
 # TODO: refactor
 class Acl
-  def self.update_redis_cache(vendor_name, branch_name, url)
-    branch = Branch.where(vendor: vendor_name, name: branch_name).first
+  def self.update_redis_cache(vendor, branch, url)
+    branch = Branch.where(vendor: vendor, name: branch).first
     file = open(URI.escape(url)).read
 
     Redis.current.multi
@@ -11,6 +11,7 @@ class Acl
     Maintainer.select('login').all.each do |maintainer|
       $redis.del("#{branch.name}:maintainers:#{maintainer.login}")
     end
+
     file.each_line do |line|
       package = line.split[0]
       $redis.del("#{branch.name}:#{package}:acls")

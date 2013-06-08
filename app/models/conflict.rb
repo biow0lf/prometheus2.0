@@ -1,3 +1,4 @@
+# TODO: refactor
 class Conflict < ActiveRecord::Base
   belongs_to :package
 

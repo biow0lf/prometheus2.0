@@ -6,8 +6,8 @@ class Team < ActiveRecord::Base
   validates :branch, presence: true
   validates :maintainer, presence: true
 
-  def self.import_teams(vendor_name, branch_name, url)
-    branch = Branch.where(name: branch_name, vendor: vendor_name).first
+  def self.import_teams(vendor, branch, url)
+    branch = Branch.where(name: branch, vendor: vendor).first
     if branch.teams.count(:all) == 0
       file = open(URI.escape(url)).read
       file.each_line do |line|

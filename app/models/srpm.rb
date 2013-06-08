@@ -91,7 +91,7 @@ class Srpm < ActiveRecord::Base
       Patch.import(branch, file, srpm)
       Source.import(branch, file, srpm)
     else
-      puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
+      Rails.logger.info("#{Time.now.to_s}: failed to update '#{srpm.filename}'")
     end
   end
 
@@ -100,7 +100,7 @@ class Srpm < ActiveRecord::Base
       unless $redis.exists("#{branch.name}:#{File.basename(file)}")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
-        puts "#{Time.now.to_s}: import '#{File.basename(file)}'"
+        Rails.logger.info("#{Time.now.to_s}: import '#{File.basename(file)}'")
         Srpm.import(branch, file)
       end
     end
@@ -110,10 +110,10 @@ class Srpm < ActiveRecord::Base
     branch.srpms.each do |srpm|
       unless File.exists?("#{path}#{srpm.filename}")
         srpm.packages.each do |package|
-          puts "#{Time.now.to_s}: delete '#{package.filename}' from redis cache"
+          Rails.logger.info("#{Time.now.to_s}: delete '#{package.filename}' from redis cache")
           $redis.del("#{branch.name}:#{package.filename}")
         end
-        puts "#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache"
+        Rails.logger.info("#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache")
         $redis.del("#{branch.name}:#{srpm.filename}")
         srpm.destroy
       end

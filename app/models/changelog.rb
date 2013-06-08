@@ -1,3 +1,4 @@
+# TODO: refactor
 class Changelog < ActiveRecord::Base
   belongs_to :srpm
 
@@ -7,7 +8,7 @@ class Changelog < ActiveRecord::Base
   validates :changelogtext, presence: true
 
   def self.import(branch, file, srpm)
-    changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
+    changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{ file }`
     changelogs.force_encoding('binary')
     changelogs = changelogs.split("\n**********\n")
     while !changelogs.empty?

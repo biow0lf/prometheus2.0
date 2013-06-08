@@ -29,8 +29,8 @@ class Ftbfs < ActiveRecord::Base
       acls.split(',').each do |acl|
         # FIXME: add support for teams
         login = acl
-        login = 'php-coder' if login == 'php_coder'
-        login = 'p_solntsev' if login == 'psolntsev'
+        login = 'php-coder'    if login == 'php_coder'
+        login = 'p_solntsev'   if login == 'psolntsev'
         login = '@vim-plugins' if login == '@vim_plugins'
 
         if login[0] != '@'

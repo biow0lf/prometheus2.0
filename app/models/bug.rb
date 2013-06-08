@@ -1,5 +1,6 @@
 require 'csv'
 
+# TODO: refactor
 class Bug < ActiveRecord::Base
   def self.import(url)
     ActiveRecord::Base.transaction do

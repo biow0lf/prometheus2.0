@@ -13,8 +13,8 @@ class Leader
       package = line.split[0]
       $redis.del("#{branch.name}:#{package}:leader")
       login = line.split[1]
-      login = 'php-coder' if login == 'php_coder'
-      login = 'p_solntsev' if login == 'psolntsev'
+      login = 'php-coder'    if login == 'php_coder'
+      login = 'p_solntsev'   if login == 'psolntsev'
       login = '@vim-plugins' if login == '@vim_plugins'
       $redis.set("#{branch.name}:#{package}:leader", login)
     end

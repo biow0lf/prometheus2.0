@@ -54,10 +54,10 @@ class Package < ActiveRecord::Base
         # Conflict.import_conflicts(rpm, package)
         # Obsolete.import_obsoletes(rpm, package)
       else
-        puts "#{Time.now.to_s}: failed to import '#{package.filename}'"
+        Rails.logger.info("#{Time.now.to_s}: failed to import '#{package.filename}'")
       end
     else
-      puts "#{Time.now.to_s}: srpm '#{sourcerpm}' not found in db"
+      Rails.logger.info("#{Time.now.to_s}: srpm '#{sourcerpm}' not found in db")
     end
   end
 
@@ -67,7 +67,7 @@ class Package < ActiveRecord::Base
         unless $redis.exists("#{branch.name}:#{file.split('/')[-1]}")
           next unless File.exist?(file)
           next unless Rpm.check_md5(file)
-          puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
+          Rails.logger.info("#{Time.now.to_s}: import '#{file.split('/')[-1]}'")
           Package.import(branch, file)
         end
       end
