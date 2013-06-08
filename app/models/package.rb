@@ -48,7 +48,7 @@ class Package < ActiveRecord::Base
       package.srpm_id = srpm.id
       if package.save
         $redis.set("#{branch.name}:#{package.filename}", 1)
-        # #puts "#{Time.now.to_s}: updated '#{package.filename}'"
+        # #Rails.logger.info("#{Time.now.to_s}: updated '#{package.filename}'")
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
         # Conflict.import_conflicts(rpm, package)
