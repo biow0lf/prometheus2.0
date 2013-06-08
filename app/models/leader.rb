@@ -2,7 +2,8 @@ class Leader
   def self.update_redis_cache(vendor_name, branch_name, url)
     branch = Branch.where(name: branch_name, vendor: vendor_name).first
     file = open(URI.escape(url)).read
-    $redis.multi
+
+    Redis.current.multi
 
     branch.srpms.select('name').all.each do |srpm|
       $redis.del("#{branch.name}:#{srpm.name}:leader")
@@ -18,6 +19,6 @@ class Leader
       $redis.set("#{branch.name}:#{package}:leader", login)
     end
 
-    $redis.exec
+    Redis.current.exec
   end
 end

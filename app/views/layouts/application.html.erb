@@ -90,7 +90,7 @@
 
   <div id='top-line'>
     <div id='vinfo'>
-      <b><%= _('Last update:') %> </b> <%= $redis.get("#{@branch.name}:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= Srpm.count_srpms(@branch) %> | 
+      <b><%= _('Last update:') %> </b> <%= $redis.get("#{@branch.name}:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter.value %> | 
       <% if user_signed_in? %>
         <b><%= "Welcome, #{current_user.email}! | " %></b>
         <%= link_to _('Sign out'), destroy_user_session_path, method: :delete %>

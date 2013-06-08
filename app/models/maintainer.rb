@@ -1,4 +1,6 @@
 class Maintainer < ActiveRecord::Base
+  include Redis::Objects
+
   include MaintainerHelper
 
   validates :name, presence: true
@@ -15,6 +17,8 @@ class Maintainer < ActiveRecord::Base
 
   attr_accessible :name, :email, :login, :time_zone, :jabber, :info, :location,
                   :website
+
+  hash_key :acls
 
   def to_param
     login

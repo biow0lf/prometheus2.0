@@ -30,7 +30,3 @@ Given(/^we have srpm "(.*?)" in branch "(.*?)"$/) do |srpm_name, branch_name|
                       buildtime: '2010-11-24 23:58:02 UTC',
                       vendor: 'ALT Linux Team', distribution: 'ALT Linux')
 end
-
-Given(/^we have in "(.*?)" in acls for package "(.*?)" in branch "(.*?)"$/) do |acl, package, branch|
-  $redis.sadd("#{branch}:#{package}:acls", acl)
-end

@@ -1,4 +1,6 @@
 class Branch < ActiveRecord::Base
+  include Redis::Objects
+
   validates :name, presence: true
   validates :vendor, presence: true
 
@@ -13,7 +15,13 @@ class Branch < ActiveRecord::Base
   has_many :repocops
   has_many :repocop_patches
 
+  counter :counter
+
   def to_param
     name
+  end
+
+  def recount!
+    Redis.current.set("branch:#{id}:counter", srpms.count)
   end
 end

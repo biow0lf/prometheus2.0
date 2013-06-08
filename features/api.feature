@@ -29,7 +29,7 @@ Feature: User API
         "vendor": "ALT Linux Team",
         "distribution": "ALT Linux",
         "repocop": "skip",
-        "acls": "icesik"
+        "acls": ["icesik"]
       }
       """
 

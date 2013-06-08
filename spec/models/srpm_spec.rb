@@ -57,7 +57,6 @@ describe Srpm do
                                     email: 'icesik@altlinux.org',
                                     name: 'Igor Zubkov')
 
-#    rpm = mock("rpm")
     rpm = mock
     Rpm.stub!(:new).and_return(rpm)
     rpm.should_receive(:name).and_return('openbox')
@@ -90,9 +89,7 @@ describe Srpm do
     Patch.should_receive(:import).and_return(true)
     Source.should_receive(:import).and_return(true)
 
-    expect{
-      Srpm.import(branch, file)
-      }.to change{ Srpm.count }.from(0).to(1)
+    expect{ Srpm.import(branch, file) }.to change{ Srpm.count }.from(0).to(1)
 
     srpm = Srpm.first
     srpm.name.should == 'openbox'
@@ -117,7 +114,6 @@ describe Srpm do
     srpm.size.should == '831617'
 
     $redis.get("#{branch.name}:#{srpm.filename}").should == "1"
-    $redis.get("#{branch.name}:srpms:counter").should == "1"
   end
 
   it 'should import all srpms from path' do
@@ -134,14 +130,11 @@ describe Srpm do
 
   it 'should remove old srpms from database' do
     branch = FactoryGirl.create(:branch)
-    $redis.set("#{branch.name}:srpms:counter", 0)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     $redis.set("#{branch.name}:#{srpm1.filename}", 1)
-    $redis.incr("#{branch.name}:srpms:counter")
     srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
     $redis.set("#{branch.name}:#{srpm2.filename}", 1)
-    $redis.incr("#{branch.name}:srpms:counter")
     $redis.sadd("#{branch.name}:#{srpm2.name}:acls", "icesik")
     $redis.set("#{branch.name}:#{srpm2.name}:leader", "icesik")
 
@@ -156,20 +149,81 @@ describe Srpm do
 
     $redis.get("#{branch.name}:openbox-3.4.11.1-alt1.1.1.src.rpm").should == '1'
     $redis.get("#{branch.name}:blackbox-1.0-alt1.src.rpm").should be_nil
-    $redis.get("#{branch.name}:srpms:counter").should == '1'
     $redis.get("#{branch.name}:#{srpm2.name}:acls").should be_nil
     $redis.get("#{branch.name}:#{srpm2.name}:leader").should be_nil
 
     # TODO: add checks for sub packages, set-get-delete
   end
 
-  it 'should cache srpms counter in redis' do
+  it 'should increment counter after srpm import' do
     branch = FactoryGirl.create(:branch)
-    $redis.del("#{branch.name}:srpms:counter")
-    $redis.get("#{branch.name}:srpms:counter").should be_nil
+    branch.counter.value.should == 0
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
-    Srpm.count_srpms(branch)
-    $redis.get("#{branch.name}:srpms:counter").should == '1'
+    branch.counter.value.should == 1
+  end
+
+  it 'should decrement counter after srpm delete' do
+    branch = FactoryGirl.create(:branch)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch.counter.value.should == 1
+    srpm.destroy
+    branch.counter.value.should == 0
+  end
+
+  it 'should recount srpms in branch' do
+    branch = FactoryGirl.create(:branch)
+    branch.counter.value.should == 0
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch.counter.value.should == 1
+    Redis.current.set("branch:#{Branch.first.id}:counter", 0)
+    branch.counter.value.should == 0
+    branch.recount!
+    branch.counter.value.should == 1
+  end
+
+  it 'should return acls array' do
+    branch = FactoryGirl.create(:branch)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    srpm.acls << 'icesik' << '@everybody'
+    srpm.maintainers.should == ['icesik']
+    srpm.teams.should == ['@everybody']
+  end
+
+  it 'should return leader login' do
+    branch = FactoryGirl.create(:branch)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    srpm.leader.should be_nil
+    srpm.leader = 'icesik'
+    srpm.reload
+    srpm.leader.should == 'icesik'
+  end
+
+  it 'should return nil if leader is empty' do
+    branch = FactoryGirl.create(:branch)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    srpm.leader = nil
+    srpm.leader_is_team?.should be_nil
+  end
+
+  it 'should return true if leader is team' do
+    branch = FactoryGirl.create(:branch)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    srpm.leader = '@everybody'
+    srpm.leader_is_team?.should be_true
+  end
+
+  it 'should return false if leader is maintainer' do
+    branch = FactoryGirl.create(:branch)
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    srpm.leader = 'icesik'
+    srpm.leader_is_team?.should be_false
   end
 end

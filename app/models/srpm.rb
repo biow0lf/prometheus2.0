@@ -1,4 +1,6 @@
 class Srpm < ActiveRecord::Base
+  include Redis::Objects
+
   belongs_to :branch
   belongs_to :group
 
@@ -19,25 +21,29 @@ class Srpm < ActiveRecord::Base
   has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
                     primary_key: 'builder_id'
 
+  set :acls
+  value :leader
+
+  after_save :increment_counter
+  after_destroy :decrement_counter
+
   def to_param
     name
   end
 
-  def acls
-    if $redis.exists("#{self.branch.name}:#{self.name}:acls")
-      Maintainer.where(login: $redis.smembers("#{self.branch.name}:#{self.name}:acls")).order(:name).select('login').map(&:login).join(',')
-    else
-      nil
-    end
+  def maintainers
+    acls.reject { |acl| acl[0] == '@' }
   end
 
-  def self.count_srpms(branch)
-    counter = $redis.get("#{branch.name}:srpms:counter")
-    unless counter
-      $redis.set("#{branch.name}:srpms:counter", branch.srpms.count)
-      counter = $redis.get("#{branch.name}:srpms:counter")
+  def teams
+    acls.reject { |acl| acl[0] != '@' }
+  end
+
+  def leader_is_team?
+    if leader.value
+      return true if leader.value[0] == '@'
+      false
     end
-    counter
   end
 
   def self.import(branch, file)
@@ -84,7 +90,6 @@ class Srpm < ActiveRecord::Base
       Specfile.import(branch, file, srpm)
       Patch.import(branch, file, srpm)
       Source.import(branch, file, srpm)
-      $redis.incr("#{branch.name}:srpms:counter")
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
     end
@@ -110,11 +115,7 @@ class Srpm < ActiveRecord::Base
         end
         puts "#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache"
         $redis.del("#{branch.name}:#{srpm.filename}")
-        puts "#{Time.now.to_s}: delete acls for '#{srpm.filename}' from redis cache"
-        $redis.del("#{branch.name}:#{srpm.name}:acls")
-        $redis.del("#{branch.name}:#{srpm.name}:leader")
         srpm.destroy
-        $redis.decr("#{branch.name}:srpms:counter")
       end
     end
   end
@@ -132,5 +133,15 @@ class Srpm < ActiveRecord::Base
       logins << login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
+  end
+
+  private
+
+  def increment_counter
+    branch.counter.increment
+  end
+
+  def decrement_counter
+    branch.counter.decrement
   end
 end
