@@ -22,6 +22,8 @@ h3. Install:
 * memcached
 * redis
 * graphviz
+* rpm
+* rpm2cpio
 
 h3. Then:
 
