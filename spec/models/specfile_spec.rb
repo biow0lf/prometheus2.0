@@ -18,8 +18,8 @@ describe Specfile do
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
 
-    Specfile.should_receive(:`).with("rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" \"#{file}\" | grep \"32 \" | sed -e 's/32 //'").and_return('openbox.spec')
-    Specfile.should_receive(:`).with("rpm2cpio \"#{file}\" | cpio -i --quiet --to-stdout \"openbox.spec\"").and_return("qwerty")
+    Specfile.should_receive(:`).with("rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" \"#{ file }\" | grep \"32 \" | sed -e 's/32 //'").and_return('openbox.spec')
+    Specfile.should_receive(:`).with("rpm2cpio \"#{ file }\" | cpio -i --quiet --to-stdout \"openbox.spec\"").and_return("qwerty")
 
     expect{
       Specfile.import(branch, file, srpm)

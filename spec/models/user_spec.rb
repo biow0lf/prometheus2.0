@@ -2,12 +2,7 @@ require 'spec_helper'
 
 describe User do
   it 'should return login on User.login' do
-    user = User.create!(email: 'icesik@altlinux.org',
-                        password: 'password',
-                        password_confirmation: 'password')
-    user.confirmed_at = Time.zone.now
-    user.save!
-    user.login.should == 'icesik'
+    User.new(email: 'icesik@altlinux.org').login.should == 'icesik'
   end
 
   it 'should return true for @altlinux.org emails' do
