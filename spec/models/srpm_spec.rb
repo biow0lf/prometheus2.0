@@ -110,7 +110,7 @@ describe Srpm do
     Srpm.import_all(branch, path)
   end
 
-  it 'should remove old srpms from database' do
+  pending 'should remove old srpms from database' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
