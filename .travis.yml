@@ -10,3 +10,4 @@ before_script:
   - cp config/database.travis.yml config/database.yml
   - cp config/redis.yml.sample config/redis.yml
   - psql -c 'create database prometheus_test;' -U postgres
+  - bundle exec rake db:migrate
