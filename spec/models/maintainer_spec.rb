@@ -21,9 +21,7 @@ describe Maintainer do
   end
 
   it 'should return Maintainer.login on .to_param' do
-    Maintainer.create!(name: 'Igor Zubkov',
-                       email: 'icesik@altlinux.org',
-                       login: 'icesik').to_param.should == 'icesik'
+    Maintainer.new(login: 'icesik').to_param.should == 'icesik'
   end
 
   it 'should deny change email' do
