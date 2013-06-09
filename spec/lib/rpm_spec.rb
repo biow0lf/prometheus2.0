@@ -7,7 +7,7 @@ describe Rpm do
     rpm = Rpm.new(file)
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ file }").and_return('openbox')
 
-    rpm.extract_tag(tag).should == 'openbox'
+    rpm.extract(tag).should == 'openbox'
   end
 
   it 'should return package name' do
@@ -122,7 +122,7 @@ describe Rpm do
     tag = 'URL'
     rpm = Rpm.new(file)
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ file }").and_return('(none)')
-    rpm.extract_tag(tag).should be_nil
+    rpm.extract(tag).should be_nil
   end
 
   it 'should replace "(none)" with nil in all fields (second case)' do

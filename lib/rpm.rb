@@ -3,20 +3,16 @@ class Rpm
     @file = file
   end
 
-#  def file
-#    @file
-#  end
-
   def name
-    @name ||= extract_tag('NAME')
+    @name ||= extract('NAME')
   end
 
   def version
-    @version ||= extract_tag('VERSION')
+    @version ||= extract('VERSION')
   end
 
   def release
-    @release ||= extract_tag('RELEASE')
+    @release ||= extract('RELEASE')
   end
 
   def filename
@@ -24,63 +20,63 @@ class Rpm
   end
 
   def epoch
-    @epoch ||= extract_tag('EPOCH')
+    @epoch ||= extract('EPOCH')
   end
 
   def summary
-    @summary ||= extract_tag('SUMMARY')
+    @summary ||= extract('SUMMARY')
   end
 
   def group
-    @group ||= extract_tag('GROUP')
+    @group ||= extract('GROUP')
   end
 
   def packager
-    @packager ||= extract_tag('PACKAGER')
+    @packager ||= extract('PACKAGER')
   end
 
   def url
-    @url ||= extract_tag('URL')
+    @url ||= extract('URL')
   end
 
   def license
-    @license ||= extract_tag('LICENSE')
+    @license ||= extract('LICENSE')
   end
 
   def vendor
-    @vendor ||= extract_tag('VENDOR')
+    @vendor ||= extract('VENDOR')
   end
 
   def distribution
-    @distribution ||= extract_tag('DISTRIBUTION')
+    @distribution ||= extract('DISTRIBUTION')
   end
 
   def description
-    @description ||= extract_tag('DESCRIPTION')
+    @description ||= extract('DESCRIPTION')
   end
 
   def buildtime
-    @buildtime ||= extract_tag('BUILDTIME')
+    @buildtime ||= extract('BUILDTIME')
   end
 
   def changelogtime
-    @changelogtime ||= extract_tag('CHANGELOGTIME')
+    @changelogtime ||= extract('CHANGELOGTIME')
   end
 
   def changelogname
-    @changelogname ||= extract_tag('CHANGELOGNAME')
+    @changelogname ||= extract('CHANGELOGNAME')
   end
 
   def changelogtext
-    @changelogtext ||= extract_tag('CHANGELOGTEXT')
+    @changelogtext ||= extract('CHANGELOGTEXT')
   end
 
   def sourcerpm
-    @sourcerpm ||= extract_tag('SOURCERPM')
+    @sourcerpm ||= extract('SOURCERPM')
   end
 
   def arch
-    @arch ||= extract_tag('ARCH')
+    @arch ||= extract('ARCH')
   end
 
   def md5
@@ -91,7 +87,7 @@ class Rpm
     File.size(@file)
   end
 
-  def extract_tag(tag)
+  def extract(tag)
     none_is_nil(`export LANG=C && rpm -qp --queryformat='%{#{ tag }}' #{ @file }`)
   end
 
