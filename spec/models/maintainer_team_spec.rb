@@ -21,9 +21,7 @@ describe MaintainerTeam do
   end
 
   it 'should return Maintainer.login on .to_param' do
-    MaintainerTeam.create!(name: 'Ruby Team',
-                           email: 'ruby@packages.altlinux.org',
-                           login: 'ruby').to_param.should == 'ruby'
+    MaintainerTeam.new(login: 'ruby').to_param.should == 'ruby'
   end
 
   it 'should deny change email' do
