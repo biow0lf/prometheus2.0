@@ -292,6 +292,10 @@ GEM
       rails (>= 3.2)
     shoulda-matchers (2.1.0)
       activesupport (>= 3.0.0)
+    simplecov (0.7.1)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.7.1)
+    simplecov-html (0.7.1)
     sitemap_generator (4.1.0)
       builder
     slop (3.4.5)
@@ -407,6 +411,7 @@ DEPENDENCIES
   sass-rails
   sextant
   shoulda-matchers
+  simplecov
   sitemap_generator
   sqlite3
   strong_parameters
