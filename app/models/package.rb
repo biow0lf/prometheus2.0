@@ -40,7 +40,7 @@ class Package < ActiveRecord::Base
       package.license = rpm.license
       package.url = rpm.url
       package.description = rpm.description
-      package.buildtime = Time.at(rpm.buildtime.to_i)
+      package.buildtime = rpm.buildtime
       package.size = rpm.size
       package.md5 = rpm.md5
       package.branch_id = branch.id

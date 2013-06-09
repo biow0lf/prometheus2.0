@@ -56,7 +56,7 @@ class Rpm
   end
 
   def buildtime
-    @buildtime ||= extract('BUILDTIME')
+    @buildtime ||= Time.at(extract('BUILDTIME').to_i)
   end
 
   def changelogtime

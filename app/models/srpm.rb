@@ -50,7 +50,7 @@ class Srpm < ActiveRecord::Base
     srpm = Srpm.new
     rpm = Rpm.new(file)
     [:name, :version, :release, :epoch, :filename, :summary, :license, :url,
-     :description, :vendor, :distribution, :size, :md5].each do |field|
+     :description, :vendor, :distribution, :size, :md5, :buildtime].each do |field|
       srpm.send("#{field}=", rpm.send(field))
     end
 
@@ -65,7 +65,6 @@ class Srpm < ActiveRecord::Base
     # TODO: move this to Rpm class and test this
     # hack for very long summary in openmoko_dfu-util src.rpm
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
-    srpm.buildtime = Time.at(rpm.buildtime.to_i)
     srpm.branch_id = branch.id
     srpm.changelogtime = Time.at(rpm.changelogtime.to_i)
 

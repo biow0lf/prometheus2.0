@@ -47,7 +47,7 @@ describe Package do
     rpm.should_receive(:license).and_return('GPLv2+')
     rpm.should_receive(:url).and_return('http://openbox.org/')
     rpm.should_receive(:description).and_return('long description')
-    rpm.should_receive(:buildtime).and_return('1315301838')
+    rpm.should_receive(:buildtime).and_return(Time.at(1315301838))
     rpm.should_receive(:size).and_return(236554)
     rpm.should_receive(:md5).and_return(md5)
 
@@ -66,8 +66,7 @@ describe Package do
     package.license.should == 'GPLv2+'
     package.url.should == 'http://openbox.org/'
     package.description.should == 'long description'
-    # FIXME:
-    # package.buildtime.should == Time.at(1315301838)
+    package.buildtime.should == Time.at(1315301838)
     package.filename.should == 'openbox-3.5.0-alt1.i586.rpm'
     package.size.should == '236554'
     package.md5.should == 'fd0100efb65fa82af3028e356a6f6304'

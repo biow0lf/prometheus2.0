@@ -77,7 +77,7 @@ describe Srpm do
     rpm.should_receive(:description).and_return('long description')
     rpm.should_receive(:vendor).and_return('ALT Linux Team')
     rpm.should_receive(:distribution).and_return('ALT Linux')
-    rpm.should_receive(:buildtime).and_return('1315301838')
+    rpm.should_receive(:buildtime).and_return(Time.at(1315301838))
     rpm.should_receive(:changelogtime).and_return('1312545600')
     rpm.should_receive(:changelogname).and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     rpm.should_receive(:changelogtext).and_return('- 3.4.11.1')
@@ -104,8 +104,8 @@ describe Srpm do
     srpm.description.should == 'long description'
     srpm.vendor.should == 'ALT Linux Team'
     srpm.distribution.should == 'ALT Linux'
-    # FIXME:
-    # srpm.buildtime.should == Time.at(1315301838)
+    srpm.buildtime.should == Time.at(1315301838)
+    # TODO: change changelogtime from string to datetime
     # srpm.changelogtime.should == Time.at(1312545600)
     srpm.changelogname.should == 'Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1'
     srpm.changelogtext.should == '- 3.4.11.1'

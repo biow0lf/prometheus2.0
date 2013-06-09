@@ -98,7 +98,7 @@ describe Rpm do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     rpm = Rpm.new(file)
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{ file }").and_return('1315301838')
-    rpm.buildtime.should == '1315301838'
+    rpm.buildtime.should == Time.at(1315301838)
   end
 
   # TODO: check for real rpm tag for this
@@ -110,12 +110,6 @@ describe Rpm do
     rpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{ file }").and_return('alt1.1.1')
     rpm.filename.should == 'openbox-3.4.11.1-alt1.1.1.src.rpm'
   end
-
-#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}").and_return('1312545600')
-#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}").and_return('Igor Zubkov <icesik@altlinux.org> 3.
-#    Srpm.should_receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}").and_return('- 3.4.11.1')
-
-#    File.should_receive(:size).with(file).and_return(831617)
 
   it 'should replace "(none)" with nil in all fields' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
