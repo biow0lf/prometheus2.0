@@ -39,6 +39,7 @@ gem 'brewdler', require: false
 gem 'sitemap_generator'
 gem 'backup', require: false
 gem 'coderay'
+gem 'coveralls', require: false
 
 group :production, :development, :staging do
   gem 'redis'

@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.0.0
 env:
-  - DB=postgresql
+  - DB=postgresql TRAVIS=true ISOLATED=true
 
 before_script:
   - gem update --system
