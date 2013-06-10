@@ -2,7 +2,9 @@ language: ruby
 rvm:
   - 2.0.0
 env:
-  - DB=postgresql TRAVIS=true ISOLATED=true
+  - DB=postgresql TRAVIS=true
+
+before_install: bundle install --local
 
 before_script:
   - gem update --system
