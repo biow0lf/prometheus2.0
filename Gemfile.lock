@@ -46,7 +46,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
-    brewdler (0.3.1)
+    brewdler (0.4.0)
       commander
     builder (3.0.4)
     bullet (4.6.0)
