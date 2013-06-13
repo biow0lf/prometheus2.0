@@ -1,5 +1,5 @@
 namespace :redis do
-  desc 'Cache all *.src.rpm and all binary *.rpm in redis'
+  desc 'Cache everything'
   task :cache => :environment do
     require 'open-uri'
 
@@ -23,6 +23,9 @@ namespace :redis do
     $redis.set('__SYNC__', Process.pid)
 
     branches = Branch.where(vendor: 'ALT Linux')
+
+    branches.each { |branch| branch.recount! }
+
     branches.each do |branch|
       srpms = Srpm.where(branch_id: branch).select('filename')
       srpms.each { |srpm| $redis.set("#{branch.name}:#{srpm.filename}", 1) }
