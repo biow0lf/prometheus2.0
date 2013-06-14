@@ -40,6 +40,7 @@ gem 'sitemap_generator'
 gem 'backup', require: false
 gem 'coderay'
 gem 'coveralls', require: false
+# gem 'delorean'
 
 group :production, :development, :staging do
   gem 'redis'
