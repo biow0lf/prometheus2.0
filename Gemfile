@@ -2,10 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '~> 3.2'
+gem 'rails', '4.0.0.rc2'
+
+gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+
 gem 'strong_parameters'
 gem 'jbuilder'
-gem 'turbolinks'
 
 gem 'rake', require: false
 
@@ -42,19 +48,14 @@ gem 'coderay'
 gem 'coveralls', require: false
 # gem 'delorean'
 
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
 group :production, :development, :staging do
   gem 'redis'
 end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
-
-gem 'jquery-rails'
 
 group :production do
   gem 'dalli'
