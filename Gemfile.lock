@@ -44,6 +44,17 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    brakeman (2.0.0)
+      erubis (~> 2.6)
+      fastercsv (~> 1.5)
+      haml (>= 3.0, < 5.0)
+      highline (~> 1.6.19)
+      multi_json (~> 1.2)
+      ruby2ruby (~> 2.0.5)
+      ruby_parser (~> 3.1.1)
+      sass (~> 3.0)
+      slim (~> 1.3.6)
+      terminal-table (~> 1.4)
     brewdler (0.4.0)
       commander
     builder (3.1.4)
@@ -125,6 +136,7 @@ GEM
       redis (~> 3.0.0)
     fakeweb (1.3.0)
     fast_gettext (0.7.0)
+    fastercsv (1.5.5)
     ffi (1.9.0)
     flog (4.1.0)
       ruby_parser (~> 3.1, > 3.1.0)
@@ -155,6 +167,8 @@ GEM
       guard (~> 1.8)
       rubocop (>= 0.8.2, < 0.9.0)
       term-ansicolor (~> 1.1)
+    haml (4.0.3)
+      tilt
     highline (1.6.19)
     hike (1.2.3)
     hirb (0.7.1)
@@ -282,6 +296,9 @@ GEM
       parser (>= 2.0.0.beta1, <= 2.0.0)
       rainbow (>= 1.1.4)
     ruby-graphviz (1.0.9)
+    ruby2ruby (2.0.5)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
     ruby_parser (3.1.3)
       sexp_processor (~> 4.1)
     sass (3.2.9)
@@ -303,6 +320,9 @@ GEM
     simplecov-html (0.7.1)
     sitemap_generator (4.1.0)
       builder
+    slim (1.3.9)
+      temple (~> 0.6.3)
+      tilt (~> 1.3, >= 1.3.3)
     slop (3.4.5)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -318,8 +338,10 @@ GEM
       actionpack (>= 3.2.0)
       activemodel (>= 3.2.0)
       railties (>= 3.2.0)
+    temple (0.6.5)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
+    terminal-table (1.4.5)
     text (1.2.1)
     thinking-sphinx (3.0.3)
       activerecord (>= 3.1.0)
@@ -370,6 +392,7 @@ DEPENDENCIES
   backup
   better_errors
   binding_of_caller
+  brakeman
   brewdler
   bullet
   capistrano
