@@ -15,9 +15,6 @@ class Maintainer < ActiveRecord::Base
   has_many :gears
   has_many :ftbfs, class_name: 'Ftbfs'
 
-  attr_accessible :name, :email, :login, :time_zone, :jabber, :info, :location,
-                  :website
-
   hash_key :acls
 
   def to_param
