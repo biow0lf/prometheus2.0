@@ -19,13 +19,15 @@ describe SecurityController do
       { :get => "/en/Sisyphus/security?page=2" }.should route_to(:controller => 'security',
                                                                  :action => 'index',
                                                                  :branch => 'Sisyphus',
-                                                                 :locale => 'en')
+                                                                 :locale => 'en',
+                                                                 :page   => '2')
     end
 
     it "should route /Sisyphus/security?page=2 to security#index" do
       { :get => "/Sisyphus/security?page=2" }.should route_to(:controller => 'security',
                                                               :action => 'index',
-                                                              :branch => 'Sisyphus')
+                                                              :branch => 'Sisyphus',
+                                                              :page   => '2')
     end
   end
 end
