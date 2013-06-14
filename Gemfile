@@ -10,7 +10,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-gem 'strong_parameters'
 gem 'jbuilder'
 
 gem 'rake', require: false

@@ -337,10 +337,6 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.7)
-    strong_parameters (0.1.4)
-      actionpack (>= 3.2.0)
-      activemodel (>= 3.2.0)
-      railties (>= 3.2.0)
     temple (0.6.5)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
@@ -457,7 +453,6 @@ DEPENDENCIES
   simplecov
   sitemap_generator
   sqlite3
-  strong_parameters
   thinking-sphinx
   turbolinks
   uglifier (>= 1.3.0)
