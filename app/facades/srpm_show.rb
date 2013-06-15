@@ -15,7 +15,9 @@ class SrpmShow
   end
 
   def allsrpms
-    @allsrpms ||= Srpm.where(name: @srpm_name).includes(:branch).order('branches.order_id')
+    @allsrpms ||= Srpm.where(name: @srpm_name).
+                       includes(:branch).
+                       order('branches.order_id')
   end
 
   def ftbfs
