@@ -1,25 +1,11 @@
 class SrpmsController < ApplicationController
   def show
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
-    @ftbfs = @branch.ftbfs.where(name: @srpm.name,
-                                 version: @srpm.version,
-                                 release: @srpm.release,
-                                 epoch: @srpm.epoch).select('DISTINCT id, arch, weeks')
-    @contributors = Srpm.contributors(@branch, @srpm)
-    if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
-      @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
-    end
-    @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
-    @maintainers = Maintainer.where(login: @srpm.maintainers).order(:name)
-    @teams = MaintainerTeam.where(login: @srpm.teams).order(:name)
-    if @srpm.leader_is_team?
-      @leader = MaintainerTeam.where(login: @srpm.leader.value).first
-    else
-      @leader = Maintainer.where(login: @srpm.leader.value).first
-    end
+    @srpm_show = SrpmShow.new(params[:branch], params[:id])
+    render status: 404, action: 'nosuchpackage' and return unless @srpm_show.srpm
+#    @contributors = Srpm.contributors(@branch, @srpm)
+#    if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
+#      @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
+#    end
   end
 
   def changelog
