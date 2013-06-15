@@ -5,7 +5,7 @@ class Leader
 
     Redis.current.multi
 
-    branch.srpms.select('name').all.each do |srpm|
+    branch.srpms.select('name').each do |srpm|
       $redis.del("#{branch.name}:#{srpm.name}:leader")
     end
 
