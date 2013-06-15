@@ -25,9 +25,6 @@ class ApplicationController < ActionController::Base
 
   def load_branch
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-#    if @branch == nil
-#      render status: 404 and return
-#    end
   end
 
   def sort_column
