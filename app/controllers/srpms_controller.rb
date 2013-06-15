@@ -35,16 +35,8 @@ class SrpmsController < ApplicationController
   end
 
   def get
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @mirrors = Mirror.where(branch_id: @branch).where("protocol != 'rsync'").order('mirrors.order_id ASC')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
-    @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
-    @i586 = @srpm.packages.where(arch: 'i586').order('packages.name ASC')
-    @noarch = @srpm.packages.where(arch: 'noarch').order('packages.name ASC')
-    @x86_64 = @srpm.packages.where(arch: 'x86_64').order('packages.name ASC')
-    @arm = @srpm.packages.where(arch: 'arm').order('packages.name ASC')
+    @srpm_get = SrpmGet.new(params[:branch], params[:id])
+    render status: 404, action: 'nosuchpackage' and return unless @srpm_get.srpm
   end
 
   def gear
