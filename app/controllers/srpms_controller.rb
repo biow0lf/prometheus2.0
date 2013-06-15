@@ -49,25 +49,13 @@ class SrpmsController < ApplicationController
   end
 
   def bugs
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
-    names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
-
-    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(component: names).order('bug_id DESC')
+    @srpm_bug = SrpmBug.new(params[:branch], params[:id])
+    render status: 404, action: 'nosuchpackage' and return unless @srpm_bug.srpm
   end
 
   def allbugs
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
-    names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
-
-    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(component: names).order('bug_id DESC')
+    @srpm_bug = SrpmBug.new(params[:branch], params[:id])
+    render status: 404, action: 'nosuchpackage' and return unless @srpm_bug.srpm
   end
 
   def repocop
