@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @branches = Branch.order('order_id').all
+    @branches = Branch.order('order_id')
     @team = MaintainerTeam.where(login: "@#{params[:id]}").first
 
     render(status: 404, action: 'nosuchteam') and return if @team == nil
