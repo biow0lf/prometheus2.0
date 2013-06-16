@@ -27,12 +27,7 @@
 </div><br>
 </div>
 
-<div style="height:3em;">
-  <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.groupname) %></b><br>
-    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
-  </div>
-</div>
+<%= render 'group', srpm: @srpm %>
 
 <div>
 <p class="break" />
@@ -55,4 +50,10 @@ No imported yet.
 <% end %>
 </div>
 
-</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+</div>
+
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">
+    &nbsp;
+  </div>
+</div>
