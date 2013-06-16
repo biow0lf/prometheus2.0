@@ -1,0 +1,10 @@
+<% if packages %>
+  <b><%= _('List of rpms provided by this srpm:') %></b>
+  <div class="para" style="margin-left: 0em;">
+    <ul>
+      <% packages.map { |p| p.name }.sort.uniq.each do |name| %>
+        <li><%= name %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

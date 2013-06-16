@@ -13,6 +13,7 @@ class SrpmShow
 
   def srpm
     @srpm ||= branch.srpms.where(name: @srpm_name).first
+    @srpm.decorate if @srpm
   end
 
   def allsrpms

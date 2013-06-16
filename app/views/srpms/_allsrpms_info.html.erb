@@ -14,9 +14,7 @@
           <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm),
               class: 'news' %>
         </td>
-        <td style="text-align: right;">
-          <%= "#{rpm.version}-#{rpm.release}" %>
-        </td>
+        <td style="text-align: right;"><%= rpm.evr %></td>
       </tr>
     <% end %>
   </table>
