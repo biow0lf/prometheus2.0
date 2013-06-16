@@ -18,7 +18,7 @@ class SrpmShow
   def allsrpms
     @allsrpms ||= Srpm.where(name: @srpm_name).
                        includes(:branch).
-                       order('branches.order_id')
+                       order('branches.order_id').decorate
   end
 
   def ftbfs
