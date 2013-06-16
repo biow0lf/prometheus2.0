@@ -1,0 +1,18 @@
+<% if maintainers || teams %>
+  <b><%= _('ACL:') %></b>
+  <div class="para" style="margin-left: 0em;">
+    <ul>
+      <% maintainers.each do |maintainer| %>
+        <li>
+          <%= link_to _(maintainer.name), maintainer_path(branch, maintainer), class: 'news',
+              title: _('information about maintainer') %>
+        </li>
+      <% end %>
+      <% teams.each do |team| %>
+        <li>
+          <%= link_to team.name, team_path(branch, team.login[1..-1]), class: 'news' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

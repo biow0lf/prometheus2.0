@@ -45,27 +45,10 @@
 <p class="news" />
 
 <%= render 'leader', leader: @srpm_show.leader, branch: @srpm_show.branch %>
-
 <%= render 'contributors', contributors: @srpm_show.srpm.contributors %>
-
-<% if @srpm_show.maintainers || @srpm_show.teams %>
-<b><%= _('ACL:') %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-  <% @srpm_show.maintainers.each do |maintainer| %>
-    <li>
-      <%= link_to _(maintainer.name), maintainer_path(@srpm_show.branch, maintainer), class: 'news',
-          title: _('information about maintainer') %>
-    </li>
-  <% end %>
-  <% @srpm_show.teams.each do |team| %>
-    <li>
-      <%= link_to team.name, team_path(@srpm_show.branch, team.login[1..-1]), class: 'news' %>
-    </li>
-  <% end %>
-  </ul>
-</div>
-<% end %>
+<%= render 'acls', branch: @srpm_show.branch,
+                   maintainers: @srpm_show.maintainers,
+                   teams: @srpm_show.teams %>
 
 <% if @srpm_show.srpm.packages %>
 <b><%= _('List of rpms provided by this srpm:') %></b>

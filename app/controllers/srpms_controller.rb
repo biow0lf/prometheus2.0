@@ -2,7 +2,6 @@ class SrpmsController < ApplicationController
   def show
     @srpm_show = SrpmShow.new(params[:branch], params[:id])
     render status: 404, action: 'nosuchpackage' and return unless @srpm_show.srpm
-#    @contributors = Srpm.contributors(@branch, @srpm)
   end
 
   def changelog
