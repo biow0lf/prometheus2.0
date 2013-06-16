@@ -1,0 +1,21 @@
+<div class="headleft">
+  <div class="headright" title="<%= _('ALT Linux repositories') %>">
+    <%= _('ALT Linux repositories') %>
+  </div>
+  <%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
+</div>
+
+<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
+  <table style="font-size: 8pt;" width="100%">
+    <% allsrpms.each do |rpm| %>
+      <tr>
+        <td style="text-align: left;">
+          <%= link_to "#{rpm.branch.name}:", get_srpm_path(rpm.branch, rpm), class: 'news' %>
+        </td>
+        <td style="text-align: right;"><%= rpm.evr %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<br>

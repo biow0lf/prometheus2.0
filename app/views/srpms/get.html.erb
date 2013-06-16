@@ -3,36 +3,11 @@
 <% keywords @srpm_get.srpm.summary %>
 
 <div id='main-content'>
-
-<div id="rightbar">
-<div class="headleft">
-<div class="headright" title="<%= _('ALT Linux repositories') %>">
-  <%= _('ALT Linux repositories') %>
-</div>
-<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
-</div>
-<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
-<table style="font-size: 8pt;" width="100%">
-
-<% @srpm_get.allsrpms.each do |rpm| %>
-<tr>
-  <td style="text-align: left;">
-    <%= link_to "#{rpm.branch.name}:", get_srpm_path(rpm.branch, rpm), class: 'news' %>
-  </td>
-  <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
-</tr>
-<% end %>
-
-</table>
-</div><br>
-</div>
-
-<div style="height:3em;">
-  <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm_get.srpm.groupname) %></b><br>
-    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm_get.srpm.name %></div>
+  <div id='rightbar'>
+    <%= render 'allsrpms_get', allsrpms: @srpm_get.allsrpms %>
   </div>
-</div>
+
+  <%= render 'group', srpm: @srpm_get.srpm %>
 
 <div>
 <p class="break" />
@@ -177,4 +152,10 @@ function changeHref (val){
 </table>
 </div>
 
-</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+</div>
+
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">
+    &nbsp;
+  </div>
+</div>
