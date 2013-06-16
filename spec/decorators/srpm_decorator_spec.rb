@@ -18,4 +18,14 @@ describe SrpmDecorator do
     Nokogiri::HTML(html).css('a').attribute('href').value.should == 'http://123456789012345678901234567890'
     Nokogiri::HTML(html).css('a').children.first.text.should == 'http://12345678901234567890...'
   end
+
+  it 'should return 1.0-alt1' do
+    srpm = Srpm.new(version: '1.0', release: 'alt1', epoch: nil).decorate
+    srpm.evr.should == '1.0-alt1'
+  end
+
+  it 'should return 1:1.0-alt1' do
+    srpm = Srpm.new(version: '1.0', release: 'alt1', epoch: '1').decorate
+    srpm.evr.should == '1:1.0-alt1'
+  end
 end

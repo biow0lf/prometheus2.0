@@ -9,6 +9,14 @@ class SrpmDecorator < Draper::Decorator
     end
   end
 
+  def evr
+    if object.epoch
+      "#{object.epoch}:#{object.version}-#{object.release}"
+    else
+      "#{object.version}-#{object.release}"
+    end
+  end
+
   private
 
   def create_link(url)
