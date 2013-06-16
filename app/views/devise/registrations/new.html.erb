@@ -5,7 +5,7 @@
     <%= devise_error_messages! %>
 
     <p><%= f.label :email %><br>
-    <%= f.email_field :email %></p>
+    <%= f.email_field :email, :autofocus => true %></p>
 
     <p><%= f.label :password %><br>
     <%= f.password_field :password %></p>
@@ -16,7 +16,7 @@
     <p><%= f.submit _('Sign up') %></p>
   <% end %>
 
-  <%= render :partial => "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 </div>
 
 <div id='bottom-offset-l'>
