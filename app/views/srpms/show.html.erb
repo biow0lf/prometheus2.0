@@ -8,14 +8,10 @@
     <%= render 'perl_watch', perl_watch: @srpm_show.perl_watch %>
   </div>
 
-  <div style="height:3em;">
-    <div id="rpmtop">
-      <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm_show.srpm.groupname) %></b><br>
-      <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm_show.srpm.name %></div>
-    </div>
-  </div>
+  <%= render 'group', srpm: @srpm_show.srpm %>
 
   <p class="break" />
+
   <span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm_show.srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm_show.srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span>
   <p class="news" />
   <b><%= _('Current version:') %></b> <%= @srpm_show.srpm.evr %><br>
