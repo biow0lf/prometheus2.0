@@ -1,5 +1,6 @@
 class SrpmShow
-  attr_reader :branch, :srpm, :allsrpms, :ftbfs, :leader, :maintainers, :teams
+  attr_reader :branch, :srpm, :allsrpms, :ftbfs, :leader, :maintainers, :teams,
+              :contributors, :perl_watch
 
   def initialize(branch_name, srpm_name)
     @srpm_name   = srpm_name
@@ -42,5 +43,15 @@ class SrpmShow
 
   def teams
     @teams ||= MaintainerTeam.where(login: srpm.teams).order(:name)
+  end
+
+  def contributors
+#    @contributors = Srpm.contributors(@branch, @srpm)
+  end
+
+  def perl_watch
+    if srpm.name[0..4] == 'perl-' && srpm.name != 'perl'
+      @perl_watch ||= PerlWatch.where(name: srpm.name[5..-1].gsub('-', '::')).first
+    end
   end
 end

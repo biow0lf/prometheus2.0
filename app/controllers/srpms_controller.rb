@@ -3,9 +3,6 @@ class SrpmsController < ApplicationController
     @srpm_show = SrpmShow.new(params[:branch], params[:id])
     render status: 404, action: 'nosuchpackage' and return unless @srpm_show.srpm
 #    @contributors = Srpm.contributors(@branch, @srpm)
-#    if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
-#      @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
-#    end
   end
 
   def changelog
