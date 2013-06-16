@@ -29,6 +29,7 @@ h3. Install:
 h3. Then:
 
 * @bundle install@
+* @bundle exec rake secret@
 * @bundle exec rake gettext:pack@
 
 h3. Init database:
