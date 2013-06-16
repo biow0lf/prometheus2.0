@@ -21,18 +21,7 @@
 <span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm_show.branch, @srpm_show.srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm_show.srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm_show.srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" />
 <b><%= _('Current version:') %></b> <%= @srpm_show.srpm.evr %><br>
 <b><%= _('Built:') %></b> <abbr title="<%= @srpm_show.srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm_show.srpm.buildtime) %> <%= _('ago') %></abbr><br>
-<% unless @srpm_show.ftbfs.empty? %>
-  <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
-  <% if @srpm_show.ftbfs.count == 2 %>
-    <% if @srpm_show.ftbfs.first.weeks == @srpm_show.ftbfs.last.weeks %>
-      <%= @srpm_show.ftbfs.first.weeks %> weeks on <%= @srpm_show.ftbfs.first.arch %>, <%= @srpm_show.ftbfs.last.arch %><br>
-    <% else %>
-      <%= @srpm_show.ftbfs.first.weeks %> weeks on <%= @srpm_show.ftbfs.first.arch %> and <%= @srpm_show.ftbfs.last.weeks %> weeks on <%= @srpm_show.ftbfs.last.arch %><br>
-    <% end %>
-  <% else %>
-    <%= @srpm_show.ftbfs.last.weeks %> weeks on <%= @srpm_show.ftbfs.last.arch %><br>
-  <% end %>
-<% end %>
+<%= render 'ftbfs', ftbfs: @srpm_show.ftbfs %>
 <b><%= _('Size:') %></b> <%= number_to_human_size(@srpm_show.srpm.size) %><br><br>
 
 <% if @srpm_show.srpm.url %>
