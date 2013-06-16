@@ -11,9 +11,9 @@ class SrpmDecorator < Draper::Decorator
 
   def evr
     if object.epoch
-      "#{object.epoch}:#{object.version}-#{object.release}"
+      "#{ object.epoch }:#{ object.version }-#{ object.release }"
     else
-      "#{object.version}-#{object.release}"
+      "#{ object.version }-#{ object.release }"
     end
   end
 
