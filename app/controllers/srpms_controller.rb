@@ -16,7 +16,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
-    @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
+    @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
   end
 
   def rawspec
@@ -60,6 +60,6 @@ class SrpmsController < ApplicationController
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @repocops = Repocop.where(srcname: @srpm.name,
                               srcversion: @srpm.version,
-                              srcrel: @srpm.release)
+                              srcrel: @srpm.release).decorate
   end
 end
