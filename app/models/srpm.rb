@@ -119,9 +119,9 @@ class Srpm < ActiveRecord::Base
     end
   end
 
-  def self.contributors(branch, srpm)
+  def contributors
     logins = []
-    branch.srpms.where(name: srpm.name).first.changelogs.each do |changelog|
+    changelogs.each do |changelog|
       name = changelog.changelogname.split('<')[0].chomp
       name.strip!
       email = changelog.changelogname.chop.split('<')[1]

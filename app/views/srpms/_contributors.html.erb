@@ -1,0 +1,13 @@
+<% if contributors %>
+  <b><%= _('List of contributors:').html_safe %></b>
+  <div class="para" style="margin-left: 0em;">
+    <ul>
+      <% contributors.each do |contributor| %>
+        <li>
+          <%= link_to _(contributor.name), maintainer_path(@branch, contributor), class: 'news',
+              title: _('information about maintainer') %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

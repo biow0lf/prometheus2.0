@@ -1,6 +1,6 @@
 class SrpmShow
   attr_reader :branch, :srpm, :allsrpms, :ftbfs, :leader, :maintainers, :teams,
-              :contributors, :perl_watch
+              :perl_watch
 
   def initialize(branch_name, srpm_name)
     @srpm_name   = srpm_name
@@ -43,10 +43,6 @@ class SrpmShow
 
   def teams
     @teams ||= MaintainerTeam.where(login: srpm.teams).order(:name)
-  end
-
-  def contributors
-#    @contributors = Srpm.contributors(@branch, @srpm)
   end
 
   def perl_watch

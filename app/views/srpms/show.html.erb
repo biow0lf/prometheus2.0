@@ -46,19 +46,7 @@
 
 <%= render 'leader', leader: @srpm_show.leader, branch: @srpm_show.branch %>
 
-<% if @contributors %>
-<b><%= _('List of contributors:').html_safe %></b>
-<div class="para" style="margin-left: 0em;">
-  <ul>
-    <% @contributors.each do |contributor| %>
-      <li>
-        <%= link_to _(contributor.name), maintainer_path(@branch, contributor), class: 'news',
-            title: _('information about maintainer') %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<%= render 'contributors', contributors: @srpm_show.srpm.contributors %>
 
 <% if @srpm_show.maintainers || @srpm_show.teams %>
 <b><%= _('ACL:') %></b>
