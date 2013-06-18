@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 18:16+0300\n"
+"POT-Creation-Date: 2013-06-18 10:01+0300\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "&quot; in branch <b>%s</b> were found"
 msgstr ""
 
-msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
+msgid "<abbr title=\"Fails To Build From Source\" style=\"border-bottom: 1px dotted gray;\">FTBFS:</abbr>"
 msgstr ""
 
 msgid "<b>A:</b> Create filter for rsync with the help of this"
@@ -117,6 +117,9 @@ msgstr "Документація/Література"
 msgid "Books/Other"
 msgstr "Документація/Інше"
 
+msgid "Broken changelog entry."
+msgstr ""
+
 msgid "Bugs and FR"
 msgstr ""
 
@@ -167,6 +170,9 @@ msgstr "Поточний майнтейнер:"
 
 msgid "Current version:"
 msgstr "Поточна версія:"
+
+msgid "Currently waiting confirmation for:"
+msgstr ""
 
 msgid "Databases"
 msgstr "Бази даних"
@@ -546,6 +552,12 @@ msgstr "Усього пакетів, зібраних майнтейнером:"
 msgid "Packages to rebuild:"
 msgstr ""
 
+msgid "Page not found"
+msgstr ""
+
+msgid "Patch is too large."
+msgstr ""
+
 msgid "Patches"
 msgstr ""
 
@@ -762,7 +774,7 @@ msgstr "Синхронізація Sisyphus"
 msgid "Size:"
 msgstr "Розмір архіва:"
 
-msgid "Someone has requested a link to change your password, and you can do this through the link below."
+msgid "Someone has requested a link to change your password. You can do this through the link below."
 msgstr ""
 
 msgid "Sound"
@@ -918,6 +930,9 @@ msgstr "Відео"
 msgid "Vitaly Lipatov"
 msgstr ""
 
+msgid "Vladimir Didenko"
+msgstr ""
+
 msgid "Website/Blog:"
 msgstr ""
 
@@ -927,7 +942,7 @@ msgstr ""
 msgid "You can confirm your account through the link below:"
 msgstr ""
 
-msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+msgid "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."

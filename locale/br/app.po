@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 18:16+0300\n"
+"POT-Creation-Date: 2013-06-18 10:01+0300\n"
 "PO-Revision-Date: 2010-09-23 04:01+0300\n"
 "Last-Translator: Igor Zubkov <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "&quot; in branch <b>%s</b> were found"
 msgstr ""
 
-msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
+msgid "<abbr title=\"Fails To Build From Source\" style=\"border-bottom: 1px dotted gray;\">FTBFS:</abbr>"
 msgstr ""
 
 msgid "<b>A:</b> Create filter for rsync with the help of this"
@@ -114,6 +114,9 @@ msgstr ""
 msgid "Books/Other"
 msgstr ""
 
+msgid "Broken changelog entry."
+msgstr ""
+
 msgid "Bugs and FR"
 msgstr "Bugs e FR"
 
@@ -164,6 +167,9 @@ msgstr "Mantenedor currente:"
 
 msgid "Current version:"
 msgstr "Versão atual:"
+
+msgid "Currently waiting confirmation for:"
+msgstr ""
 
 msgid "Databases"
 msgstr ""
@@ -543,6 +549,12 @@ msgstr ""
 msgid "Packages to rebuild:"
 msgstr ""
 
+msgid "Page not found"
+msgstr ""
+
+msgid "Patch is too large."
+msgstr ""
+
 msgid "Patches"
 msgstr ""
 
@@ -759,7 +771,7 @@ msgstr ""
 msgid "Size:"
 msgstr "Tamanho:"
 
-msgid "Someone has requested a link to change your password, and you can do this through the link below."
+msgid "Someone has requested a link to change your password. You can do this through the link below."
 msgstr ""
 
 msgid "Sound"
@@ -915,6 +927,9 @@ msgstr ""
 msgid "Vitaly Lipatov"
 msgstr ""
 
+msgid "Vladimir Didenko"
+msgstr ""
+
 msgid "Website/Blog:"
 msgstr ""
 
@@ -924,7 +939,7 @@ msgstr ""
 msgid "You can confirm your account through the link below:"
 msgstr ""
 
-msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+msgid "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."

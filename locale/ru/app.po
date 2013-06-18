@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 18:16+0300\n"
+"POT-Creation-Date: 2013-06-18 10:01+0300\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -22,7 +22,7 @@ msgstr " или "
 msgid "&quot; in branch <b>%s</b> were found"
 msgstr "&quot; в бранче <b>%s</b> было найдено"
 
-msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
+msgid "<abbr title=\"Fails To Build From Source\" style=\"border-bottom: 1px dotted gray;\">FTBFS:</abbr>"
 msgstr ""
 
 msgid "<b>A:</b> Create filter for rsync with the help of this"
@@ -147,6 +147,9 @@ msgstr "Документация/Литература"
 msgid "Books/Other"
 msgstr "Документация/Прочее"
 
+msgid "Broken changelog entry."
+msgstr ""
+
 msgid "Bugs and FR"
 msgstr ""
 
@@ -197,6 +200,9 @@ msgstr "Текущий майнтейнер:"
 
 msgid "Current version:"
 msgstr "Текущая версия:"
+
+msgid "Currently waiting confirmation for:"
+msgstr ""
 
 msgid "Databases"
 msgstr "Базы данных"
@@ -576,6 +582,12 @@ msgstr "Всего пакетов собранных майнтейнером:"
 msgid "Packages to rebuild:"
 msgstr "Список пакетов на пересборку:"
 
+msgid "Page not found"
+msgstr ""
+
+msgid "Patch is too large."
+msgstr ""
+
 msgid "Patches"
 msgstr "Патчи"
 
@@ -798,7 +810,7 @@ msgstr "Синхронизация Sisyphus"
 msgid "Size:"
 msgstr "Размер архива:"
 
-msgid "Someone has requested a link to change your password, and you can do this through the link below."
+msgid "Someone has requested a link to change your password. You can do this through the link below."
 msgstr ""
 
 msgid "Sound"
@@ -954,6 +966,9 @@ msgstr "Видео"
 msgid "Vitaly Lipatov"
 msgstr "Виталий Липатов"
 
+msgid "Vladimir Didenko"
+msgstr "Владимир Диденко"
+
 msgid "Website/Blog:"
 msgstr "Сайт/Блог:"
 
@@ -963,7 +978,7 @@ msgstr "Вики"
 msgid "You can confirm your account through the link below:"
 msgstr ""
 
-msgid "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+msgid "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
 msgstr ""
 
 msgid "Your password won't change until you access the link above and create a new one."
