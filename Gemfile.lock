@@ -131,8 +131,9 @@ GEM
     erubis (2.7.0)
     everywhere (2.0.0)
       activerecord
-    exception_notification (3.0.1)
+    exception_notification (4.0.0.rc1)
       actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -412,7 +413,7 @@ DEPENDENCIES
   draper
   email_spec
   everywhere
-  exception_notification
+  exception_notification (= 4.0.0.rc1)
   factory_girl_rails
   fakeredis
   fakeweb
