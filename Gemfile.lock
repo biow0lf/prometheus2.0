@@ -199,7 +199,7 @@ GEM
     kgio (2.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
-    libnotify (0.8.0)
+    libnotify (0.8.1)
       ffi (>= 1.0.11)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
