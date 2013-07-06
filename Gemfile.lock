@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/collectiveidea/awesome_nested_set.git
-  revision: f1cdd2266ad9a6e993d854b2577598aa5108efb7
+  revision: dc95e0d64600d32f36568360ccb83951b2a9034f
   branch: rails4
   specs:
     awesome_nested_set (2.1.6)
-      activerecord (>= 4.0.0.beta)
+      activerecord (~> 4.0.0)
 
 GEM
   remote: https://rubygems.org/
