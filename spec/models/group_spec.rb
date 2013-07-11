@@ -33,28 +33,39 @@ describe Group do
   it 'should import group "Archiving/Backup"' do
     branch = FactoryGirl.create(:branch)
     Group.import(branch, 'Archiving/Backup')
-    Group.all.count.should == 2
-    Group.all.first.branch_id.should == branch.id
-    Group.all.first.name.should == 'Archiving'
-    Group.all.first.parent_id.should be_nil
-    Group.all.second.branch_id.should == branch.id
-    Group.all.second.name.should == 'Backup'
-    Group.all.second.parent_id.should == Group.all.first.id
+
+    groups = Group.all.order('name ASC')
+
+    groups.count.should == 2
+
+    groups.first.branch_id.should == branch.id
+    groups.first.name.should == 'Archiving'
+    groups.first.parent_id.should be_nil
+
+    groups.second.branch_id.should == branch.id
+    groups.second.name.should == 'Backup'
+    groups.second.parent_id.should == Group.all.first.id
   end
 
   it 'should import group "System/Configuration/Boot and Init"' do
     branch = FactoryGirl.create(:branch)
     Group.import(branch, 'System/Configuration/Boot and Init')
-    Group.all.count.should == 3
-    Group.all.first.branch_id.should == branch.id
-    Group.all.first.name.should == 'System'
-    Group.all.first.parent_id.should be_nil
-    Group.all.second.branch_id.should == branch.id
-    Group.all.second.name.should == 'Configuration'
-    Group.all.second.parent_id.should == Group.all.first.id
-    Group.all.third.branch_id.should == branch.id
-    Group.all.third.name.should == 'Boot and Init'
-    Group.all.third.parent_id.should == Group.all.second.id
+
+    groups = Group.all.order('name ASC')
+
+    groups.count.should == 3
+
+    groups.first.branch_id.should == branch.id
+    groups.first.name.should == 'Boot and Init'
+    groups.first.parent_id.should == groups.second.id
+
+    groups.second.branch_id.should == branch.id
+    groups.second.name.should == 'Configuration'
+    groups.second.parent_id.should == groups.third.id
+
+    groups.third.branch_id.should == branch.id
+    groups.third.name.should == 'System'
+    groups.third.parent_id.should be_nil
   end
 
   it 'should return group instance with id for "Boot and Init"' do
