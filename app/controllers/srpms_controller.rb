@@ -25,7 +25,7 @@ class SrpmsController < ApplicationController
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     if @srpm.specfile
       send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
-    else @srpm.specfile == nil
+    else @srpm.specfile.nil?
       render layout: false
     end
   end
