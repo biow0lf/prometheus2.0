@@ -128,8 +128,6 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
-    everywhere (2.0.0)
-      activerecord
     exception_notification (4.0.0)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
@@ -407,7 +405,6 @@ DEPENDENCIES
   devise (= 3.0.0.rc)
   draper
   email_spec
-  everywhere
   exception_notification
   factory_girl_rails
   fakeredis

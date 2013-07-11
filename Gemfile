@@ -32,7 +32,6 @@ gem 'airbrake'
 gem 'pry', group: [:development, :test]
 gem 'redis-objects'
 gem 'kaminari'
-gem 'everywhere'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
