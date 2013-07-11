@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brandon Keepers", "Daniel Morrison", "Philip Arndt"]
-  s.date = "2013-07-06"
+  s.date = "2013-07-10"
   s.description = "An awesome nested set implementation for Active Record"
   s.email = "info@collectiveidea.com"
   s.extra_rdoc_files = ["README.rdoc"]
