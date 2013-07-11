@@ -13,7 +13,7 @@ class Ftbfs < ActiveRecord::Base
 
   def self.update_ftbfs(vendor_name, branch_name, url, arch)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
-    file = open(URI.escape(url)).read
+    file = open(URI::Parser.new.escape(url)).read
     file.each_line do |line|
       name = line.split[0]
       evr = line.split[1]

@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
   def self.import_teams(vendor, branch, url)
     branch = Branch.where(name: branch, vendor: vendor).first
     if branch.teams.count(:all) == 0
-      file = open(URI.escape(url)).read
+      file = open(URI::Parser.new.escape(url)).read
       file.each_line do |line|
         team_name = line.split[0]
         for i in 1..line.split.count-1

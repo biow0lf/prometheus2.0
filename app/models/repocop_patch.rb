@@ -19,7 +19,7 @@ class RepocopPatch < ActiveRecord::Base
       file     = 'prometheus2-patches.sql'
 
       url = "#{protocol}://#{host}#{path}#{file}"
-      file = open(URI.escape(url)).read
+      file = open(URI::Parser.new.escape(url)).read
 
       file.each_line do |line|
         ActiveRecord::Base.connection.execute(line)

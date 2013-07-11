@@ -14,11 +14,11 @@ class Gear < ActiveRecord::Base
 
   def self.import_gitrepos(url)
     branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    file = open(URI.escape(url)).read
+    file = open(URI::Parser.new.escape(url)).read
     file.each_line do |line|
       gitrepo = line.split[0]
       login = gitrepo.split('/')[2]
-      login = 'php-coder' if login == 'php_coder'
+      login = 'php-coder'  if login == 'php_coder'
       login = 'p_solntsev' if login == 'psolntsev'
       package = gitrepo.split('/')[4]
       time = Time.at(line.split[1].to_i)
