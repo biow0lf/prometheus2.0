@@ -109,7 +109,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
-  gem 'cucumber'
+  gem 'cucumber', '1.3.2'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'fakeweb'
