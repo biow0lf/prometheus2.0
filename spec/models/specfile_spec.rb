@@ -26,7 +26,7 @@ describe Specfile do
       }.to change{ Specfile.count }.from(0).to(1)
 
     srpm.specfile.should_not be_nil
-    srpm.specfile.spec.should == 'qwerty'
+    srpm.specfile.spec.should eq('qwerty')
 
     specfile = Specfile.first
     specfile.srpm.should_not be_nil

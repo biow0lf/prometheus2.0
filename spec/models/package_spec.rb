@@ -29,13 +29,13 @@ describe Package do
   it 'should import package to database' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
-    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
 
     file = 'openbox-3.5.0-alt1.i586.rpm'
     md5 = 'fd0100efb65fa82af3028e356a6f6304'
 
-    rpm = mock
-    Rpm.stub!(:new).and_return(rpm)
+    rpm = double
+    Rpm.stub(:new).and_return(rpm)
     rpm.should_receive(:sourcerpm).and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
     rpm.should_receive(:name).and_return('openbox')
     rpm.should_receive(:version).and_return('3.4.11.1')
@@ -56,22 +56,22 @@ describe Package do
       }.to change{ Package.count }.from(0).to(1)
 
     package = Package.first
-    package.name.should == 'openbox'
-    package.version.should == '3.4.11.1'
-    package.release.should == 'alt1.1.1'
+    package.name.should eq('openbox')
+    package.version.should eq('3.4.11.1')
+    package.release.should eq('alt1.1.1')
     package.epoch.should be_nil
-    package.summary.should == 'short description'
-    package.group.full_name.should == 'Graphical desktop/Other'
-    package.groupname.should == 'Graphical desktop/Other'
-    package.license.should == 'GPLv2+'
-    package.url.should == 'http://openbox.org/'
-    package.description.should == 'long description'
-    package.buildtime.should == Time.at(1315301838)
-    package.filename.should == 'openbox-3.5.0-alt1.i586.rpm'
-    package.size.should == '236554'
-    package.md5.should == 'fd0100efb65fa82af3028e356a6f6304'
+    package.summary.should eq('short description')
+    package.group.full_name.should eq('Graphical desktop/Other')
+    package.groupname.should eq('Graphical desktop/Other')
+    package.license.should eq('GPLv2+')
+    package.url.should eq('http://openbox.org/')
+    package.description.should eq('long description')
+    package.buildtime.should eq(Time.at(1315301838))
+    package.filename.should eq('openbox-3.5.0-alt1.i586.rpm')
+    package.size.should eq('236554')
+    package.md5.should eq('fd0100efb65fa82af3028e356a6f6304')
 
-    $redis.get("#{branch.name}:#{package.filename}").should == "1"
+    $redis.get("#{branch.name}:#{package.filename}").should eq("1")
   end
 
   it 'should import all packages from path' do

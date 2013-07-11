@@ -20,6 +20,6 @@ describe Branch do
   end
 
   it 'should return Branch.name on .to_param' do
-    Branch.new(name: 'Sisyphus').to_param.should == 'Sisyphus'
+    Branch.new(name: 'Sisyphus').to_param.should eq('Sisyphus')
   end
 end

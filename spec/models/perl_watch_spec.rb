@@ -13,10 +13,10 @@ describe PerlWatch do
     expect{
       PerlWatch.import_data('http://www.cpan.org/modules/02packages.details.txt')
       }.to change{ PerlWatch.count }.from(0).to(1)
-    PerlWatch.count.should == 1
+    PerlWatch.count.should eq(1)
     perlwatch = PerlWatch.first
-    perlwatch.name.should == 'AnyEvent::ZeroMQ'
-    perlwatch.version.should == '0.01'
-    perlwatch.path.should == 'J/JR/JROCKWAY/AnyEvent-ZeroMQ-0.01.tar.gz'
+    perlwatch.name.should eq('AnyEvent::ZeroMQ')
+    perlwatch.version.should eq('0.01')
+    perlwatch.path.should eq('J/JR/JROCKWAY/AnyEvent-ZeroMQ-0.01.tar.gz')
   end
 end

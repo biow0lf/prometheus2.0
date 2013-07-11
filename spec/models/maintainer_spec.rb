@@ -21,7 +21,7 @@ describe Maintainer do
   end
 
   it 'should return Maintainer.login on .to_param' do
-    Maintainer.new(login: 'icesik').to_param.should == 'icesik'
+    Maintainer.new(login: 'icesik').to_param.should eq('icesik')
   end
 
   it 'should deny change email' do

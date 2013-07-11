@@ -28,19 +28,19 @@ describe Srpm do
   it { should have_db_index :name }
 
   it 'should return Srpm.name on .to_param' do
-    Srpm.new(name: 'openbox').to_param.should == 'openbox'
+    Srpm.new(name: 'openbox').to_param.should eq('openbox')
   end
 
   it 'should import srpm file' do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'f87ff0eaa4e16b202539738483cd54d1'
-    maintainer = Maintainer.create!(login: 'icesik',
-                                    email: 'icesik@altlinux.org',
-                                    name: 'Igor Zubkov')
+    Maintainer.create!(login: 'icesik',
+                       email: 'icesik@altlinux.org',
+                       name: 'Igor Zubkov')
 
-    rpm = mock
-    Rpm.stub!(:new).and_return(rpm)
+    rpm = double
+    Rpm.stub(:new).and_return(rpm)
     rpm.should_receive(:name).and_return('openbox')
     rpm.should_receive(:version).and_return('3.4.11.1')
     rpm.should_receive(:release).and_return('alt1.1.1')
@@ -74,28 +74,28 @@ describe Srpm do
     expect{ Srpm.import(branch, file) }.to change{ Srpm.count }.from(0).to(1)
 
     srpm = Srpm.first
-    srpm.name.should == 'openbox'
-    srpm.version.should == '3.4.11.1'
-    srpm.release.should == 'alt1.1.1'
+    srpm.name.should eq('openbox')
+    srpm.version.should eq('3.4.11.1')
+    srpm.release.should eq('alt1.1.1')
     srpm.epoch.should be_nil
-    srpm.summary.should == 'short description'
-    srpm.group.full_name.should == 'Graphical desktop/Other'
-    srpm.groupname.should == 'Graphical desktop/Other'
-    srpm.license.should == 'GPLv2+'
-    srpm.url.should == 'http://openbox.org/'
-    srpm.description.should == 'long description'
-    srpm.vendor.should == 'ALT Linux Team'
-    srpm.distribution.should == 'ALT Linux'
-    srpm.buildtime.should == Time.at(1315301838)
+    srpm.summary.should eq('short description')
+    srpm.group.full_name.should eq('Graphical desktop/Other')
+    srpm.groupname.should eq('Graphical desktop/Other')
+    srpm.license.should eq('GPLv2+')
+    srpm.url.should eq('http://openbox.org/')
+    srpm.description.should eq('long description')
+    srpm.vendor.should eq('ALT Linux Team')
+    srpm.distribution.should eq('ALT Linux')
+    srpm.buildtime.should eq(Time.at(1315301838))
     # TODO: change changelogtime from string to datetime
-    # srpm.changelogtime.should == Time.at(1312545600)
-    srpm.changelogname.should == 'Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1'
-    srpm.changelogtext.should == '- 3.4.11.1'
-    srpm.filename.should == 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    srpm.md5.should == 'f87ff0eaa4e16b202539738483cd54d1'
-    srpm.size.should == '831617'
+    # srpm.changelogtime.should eq(Time.at(1312545600))
+    srpm.changelogname.should eq('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    srpm.changelogtext.should eq('- 3.4.11.1')
+    srpm.filename.should eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    srpm.md5.should eq('f87ff0eaa4e16b202539738483cd54d1')
+    srpm.size.should eq('831617')
 
-    $redis.get("#{branch.name}:#{srpm.filename}").should == "1"
+    $redis.get("#{branch.name}:#{srpm.filename}").should eq("1")
   end
 
   it 'should import all srpms from path' do
@@ -129,7 +129,7 @@ describe Srpm do
       Srpm.remove_old(branch, path)
     }.to change{ Srpm.count }.from(2).to(1)
 
-    $redis.get("#{branch.name}:openbox-3.4.11.1-alt1.1.1.src.rpm").should == '1'
+    $redis.get("#{branch.name}:openbox-3.4.11.1-alt1.1.1.src.rpm").should eq('1')
     $redis.get("#{branch.name}:blackbox-1.0-alt1.src.rpm").should be_nil
     $redis.get("#{branch.name}:#{srpm2.name}:acls").should be_nil
     $redis.get("#{branch.name}:#{srpm2.name}:leader").should be_nil
@@ -139,31 +139,31 @@ describe Srpm do
 
   it 'should increment counter after srpm import' do
     branch = FactoryGirl.create(:branch)
-    branch.counter.value.should == 0
+    branch.counter.value.should eq(0)
     group = FactoryGirl.create(:group, branch_id: branch.id)
-    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
-    branch.counter.value.should == 1
+    FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch.counter.value.should eq(1)
   end
 
   it 'should decrement counter after srpm delete' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
-    branch.counter.value.should == 1
+    branch.counter.value.should eq(1)
     srpm.destroy
-    branch.counter.value.should == 0
+    branch.counter.value.should eq(0)
   end
 
   it 'should recount srpms in branch' do
     branch = FactoryGirl.create(:branch)
-    branch.counter.value.should == 0
+    branch.counter.value.should eq(0)
     group = FactoryGirl.create(:group, branch_id: branch.id)
-    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
-    branch.counter.value.should == 1
+    FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch.counter.value.should eq(1)
     Redis.current.set("branch:#{Branch.first.id}:counter", 0)
-    branch.counter.value.should == 0
+    branch.counter.value.should eq(0)
     branch.recount!
-    branch.counter.value.should == 1
+    branch.counter.value.should eq(1)
   end
 
   it 'should return acls array' do
@@ -171,8 +171,8 @@ describe Srpm do
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     srpm.acls << 'icesik' << '@everybody'
-    srpm.maintainers.should == ['icesik']
-    srpm.teams.should == ['@everybody']
+    srpm.maintainers.should eq(['icesik'])
+    srpm.teams.should eq(['@everybody'])
   end
 
   it 'should return leader login' do
@@ -182,7 +182,7 @@ describe Srpm do
     srpm.leader.should be_nil
     srpm.leader = 'icesik'
     srpm.reload
-    srpm.leader.should == 'icesik'
+    srpm.leader.should eq('icesik')
   end
 
   it 'should return nil if leader is empty' do

@@ -15,20 +15,20 @@ describe Acl do
   end
 
   it "should import and update acls" do
-    $redis.smembers('Sisyphus:rpm:acls').sort.should == ['ldv', 'at'].sort
-    $redis.smembers('Sisyphus:maintainers:ldv').should == ['rpm']
-    $redis.smembers('Sisyphus:maintainers:at').should == ['rpm']
+    $redis.smembers('Sisyphus:rpm:acls').sort.should eq(['ldv', 'at'].sort)
+    $redis.smembers('Sisyphus:maintainers:ldv').should eq(['rpm'])
+    $redis.smembers('Sisyphus:maintainers:at').should eq(['rpm'])
   end
 
   it "should change 'php_coder' to 'php-coder'" do
-    $redis.smembers('Sisyphus:chkrootkit:acls').sort.should == ['php-coder', '@everybody'].sort
+    $redis.smembers('Sisyphus:chkrootkit:acls').sort.should eq(['php-coder', '@everybody'].sort)
   end
 
   it "should change 'psolntsev' to 'p_solntsev'" do
-    $redis.smembers('Sisyphus:docs-cppreference:acls').sort.should == ['p_solntsev', '@qa'].sort
+    $redis.smembers('Sisyphus:docs-cppreference:acls').sort.should eq(['p_solntsev', '@qa'].sort)
   end
 
   it "should change '@vim_plugins' to '@vim-plugins'" do
-    $redis.smembers('Sisyphus:vim-plugin-CRefVIM:acls').should == ['@vim-plugins']
+    $redis.smembers('Sisyphus:vim-plugin-CRefVIM:acls').should eq(['@vim-plugins'])
   end
 end
