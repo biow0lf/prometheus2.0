@@ -113,11 +113,11 @@ GEM
     dalli (2.6.4)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
-    devise (3.0.0.rc)
+    devise (3.0.0)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
-      warden (~> 1.2.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     draper (1.2.1)
       actionpack (>= 3.0)
@@ -400,7 +400,7 @@ DEPENDENCIES
   cucumber-rails
   dalli
   database_cleaner
-  devise (= 3.0.0.rc)
+  devise
   draper
   email_spec
   exception_notification
