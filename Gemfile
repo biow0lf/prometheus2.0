@@ -19,7 +19,7 @@ group :postgresql do
 end
 
 group :mysql do
-  gem 'mysql2', '0.3.12b6'
+  gem 'mysql2'
 end
 
 group :sqlite do
@@ -37,7 +37,7 @@ gem 'gettext_i18n_rails'
 gem 'gettext', require: false
 gem 'whenever', require: false
 gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set', branch: 'rails4'
-gem 'mysql2', '0.3.12b6' # for thinking-sphinx
+gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'brewdler', require: false
 gem 'sitemap_generator'
