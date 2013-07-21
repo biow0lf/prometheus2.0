@@ -1,0 +1,8 @@
+<%= _('ALT Linux repositories') %><br>
+<ul class="unstyled">
+  <% allsrpms.each do |rpm| %>
+    <li>
+      <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm) %> <%= rpm.evr %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,9 @@
+<% if perl_watch %>
+  <%= _('Other repositories') %><br>
+  <ul class="unstyled">
+    <li>
+      <a href="http://search.cpan.org/CPAN/authors/id/<%= perl_watch.path %>" rel='nofollow'><%= _('CPAN:') %></a>
+      <%= perl_watch.version %>
+    </li>
+  </ul>
+<% end %>

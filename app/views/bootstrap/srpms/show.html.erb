@@ -51,46 +51,16 @@
   </ul>
 <% end %>
 
-<% if @maintainers || @teams %>
-  <b><%= _('ACL:') %></b>
-  <ul class="unstyled">
-  <% @maintainers.each do |maintainer| %>
-    <li class="unstyled">
-      <%= link_to "<i class='icon-fixed-width icon-user'></i> ".html_safe + _(maintainer.name),
-                  maintainer_path(@branch, maintainer),
-                  title: _('information about maintainer') %>
-    </li>
-  <% end %>
-  <% @teams.each do |team| %>
-    <li class="unstyled">
-      <%= link_to "<i class='icon-fixed-width icon-group'></i> ".html_safe + team.name,
-                  team_path(@branch, team.login[1..-1]) %>
-    </li>
-  <% end %>
-  </ul>
-<% end %>
-
+  <%= render 'acls', branch: @srpm_show.branch,
+                     maintainers: @srpm_show.maintainers,
+                     teams: @srpm_show.teams %>
   <%= render 'packages', packages: @srpm_show.srpm.packages %>
 </div>
 
 <div class="span2">
-  <%= _('ALT Linux repositories') %><br>
-  <ul class="unstyled">
-    <% @srpm_show.allsrpms.each do |rpm| %>
-      <li>
-        <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm) %> <%= "#{rpm.version}-#{rpm.release}" %>
-      </li>
-    <% end %>
-  </ul>
+  <%= render 'allsrpms_info', allsrpms: @srpm_show.allsrpms %>
 
-  <% if @srpm_show.perl_watch %>
-    <br>
-    <%= _('Other repositories') %><br>
-    <ul class="unstyled">
-      <li>
-        <a class="news" href="http://search.cpan.org/CPAN/authors/id/<%= @perl_watch.path %>" rel='nofollow'><%= _('CPAN:') %></a>
-        <%= @srpm_show.perl_watch.version %>
-      </li>
-    </ul>
-  <% end %>
+  <br>
+
+  <%= render 'perl_watch', perl_watch: @srpm_show.perl_watch %>
 </div>

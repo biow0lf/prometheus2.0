@@ -1,0 +1,18 @@
+<% if maintainers || teams %>
+  <b><%= _('ACL:') %></b>
+  <ul class="unstyled">
+  <% maintainers.each do |maintainer| %>
+    <li class="unstyled">
+      <%= link_to_with_icon "<i class='icon-fixed-width icon-user'></i> ".html_safe + _(maintainer.name),
+                  maintainer_path(@branch, maintainer),
+                  title: _('information about maintainer') %>
+    </li>
+  <% end %>
+  <% teams.each do |team| %>
+    <li class="unstyled">
+      <%= link_to "<i class='icon-fixed-width icon-group'></i> ".html_safe + team.name,
+                  team_path(@branch, team.login[1..-1]) %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
