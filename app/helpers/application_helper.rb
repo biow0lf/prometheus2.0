@@ -22,4 +22,8 @@ module ApplicationHelper
     url[1, 2] = lang
     url
   end
+
+  def link_to_with_icon(icon, text, path, title)
+    link_to "<i class='icon-fixed-width icon-#{icon}'></i> ".html_safe + text, path, title: title
+  end
 end

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <title><%= yield(:title) %></title>
+  <meta content='text/html;charset=UTF-8' http-equiv='content-type' />
+  <meta content='<%= yield(:description) %>' name='description'>
+  <meta content='<%= yield(:keywords) %>' name='keywords'>
+  <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+  <link href='/opensearch.xml' rel='search' title='Prometheus2.0 search' type='application/opensearchdescription+xml'>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'newdesign' %>
+  <%#= javascript_include_tag 'application', "#{I18n.locale}/local" %>
+  <%= javascript_include_tag 'newdesign' %>
+</head>
+<body>
+  <div style='display: none;'>
+    <p class='notice'><%= notice %></p>
+    <p class='alert'><%= alert %></p>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <ul class="nav nav-list">
+          <li>
+            <%= link_to_with_icon 'home', _('Home'),
+                        home_path(branch: params[:branch]),
+                        _('site home page') %>
+          </li>
+          <li>
+            <%= link_to_with_icon 'folder-open', _('Packages'),
+                        packages_path(branch: params[:branch]),
+                        _('packages information') %>
+          </li>
+          <li>
+            <%= link_to_with_icon 'group', _('Maintainers'),
+                        maintainers_path(branch: params[:branch]),
+                        _('maintainers information') %>
+          </li>
+          <li>
+            <%= link_to_with_icon 'shield', _('Security'),
+                        security_path(branch: params[:branch]),
+                        _('security fixes') %>
+          </li>
+          <li>
+            <%= link_to_with_icon 'wrench', _('About'),
+                        project_path,
+                        _('about Prometheus project') %>
+          </li>
+          <li>
+            <%= link_to_with_icon 'rss', _('RSS'),
+                        rss_path(branch: params[:branch]),
+                        _('RSS') %>
+          </li>
+          <li>
+            <%= link_to_with_icon 'book', _('Wiki'),
+                        _('http://en.altlinux.org/Sisyphus'),
+                        _('sisyphus public site') %>
+          </li>
+          <% if I18n.locale == :ru %>
+            <li>
+              <%= link_to_with_icon 'external-link-sign', _('Blog'),
+                          _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'),
+                          _('blog') %>
+            </li>
+            <li>
+              <%= link_to_with_icon 'globe', _('Planet'),
+                          _('http://planet.altlinux.org/'),
+                          _('ALT Linux Planet') %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to_with_icon 'envelope', _('Mailing list'),
+                        _('http://lists.altlinux.org/mailman/listinfo/community-en/'),
+                        _('community-en@') %>
+          </li>
+        </ul>
+      </div>
+
+      <%= yield %>
+
+    </div>
+
+    <div class='row-fluid'>
+      <div class='span12 text-center'>
+        &copy;&nbsp;2009&ndash;2013&nbsp;<a href='mailto:icesik@altlinux.org'><%= _('Igor Zubkov') %></a>
+      </div>
+    </div>
+  </div>
+
+<!--
+  <div id='top'>
+    <div id='top-logo'>
+      <a href='http://www.altlinux.org/'>
+        <%= image_tag('altlinux.gif', style: 'border: 0px', alt: _('ALT Linux Team - wiki'), title: _('ALT Linux Team - wiki')) %>
+      </a>
+    </div>
+    <div id='top-menu'>
+      <%= _('Sisyphus repository') %>
+    </div>
+    <div id='top-auth'>
+      <div id='div1' style='display: block; margin-top: 20px'>
+        <%= form_tag search_path(branch: @branch.name), method: :get do %>
+          <%= hidden_field_tag('branch', @branch.name) %>
+          <table>
+            <tr>
+              <td>
+                <%= text_field_tag :query, params[:query] ? params[:query] : "", placeholder: _('Search...'), class: 'top-name', size: '18', 'x-webkit-speech' => '' %>
+              </td>
+              <td valign='middle'>
+                <input type='submit' class='top-go' id='sub1' value="<%= _('find') %>"
+                       onmouseover="m_on('sub1')" onmouseout="m_off('sub1')" />
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id='top-line'>
+    <div id='vinfo'>
+      <b><%= _('Last update:') %> </b> <%= $redis.get("#{@branch.name}:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter.value %> | 
+      <% if user_signed_in? %>
+        <b><%= "Welcome, #{current_user.email}! | " %></b>
+        <%= link_to _('Sign out'), destroy_user_session_path, method: :delete %>
+        <% if current_user.is_alt_team? %>
+         | <b><%= link_to _('Edit my maintainer profile'), edit_maintainer_profile_path %></b>
+        <% end %>
+      <% else %>
+        <%= link_to _('Sign in'), new_user_session_path %><%= _(' or ') %>
+        <%= link_to _('Sign up'), new_user_registration_path %>
+      <% end %>
+    </div>
+    <div style='text-align: right'>
+      <%= link_to_unless_current 'en', current_page(request.fullpath, 'en'), :title => 'English' %> 
+      <%= link_to_unless_current 'ru', current_page(request.fullpath, 'ru'), :title => 'Russian' %> 
+      <%= link_to_unless_current 'uk', current_page(request.fullpath, 'uk'), :title => 'Ukrainian' %> 
+      <%= link_to_unless_current 'br', current_page(request.fullpath, 'br'), :title => 'Portuguese (Brasilian)' %>
+    </div>
+  </div>
+
+-->
+
+  <%= render :partial => 'shared/gauges' %>
+  <%= render :partial => 'shared/ga' %>
+  <%= render :partial => 'shared/ym' %>
+
+</body>
+</html>

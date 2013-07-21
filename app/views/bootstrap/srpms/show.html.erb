@@ -1,0 +1,149 @@
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo;') % @srpm.name %>
+<% description "#{@srpm.name} - #{@srpm.summary}" %>
+<% keywords @srpm.summary %>
+
+<div class="span8">
+
+<h2><%= _('Source RPM:') %> <%= @srpm.name %></h2>
+
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <a class="btn btn-mini" href="#"><i class="icon-info"></i> <b><%= _('Main') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-comment"></i> <b><%= _('Changelog') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-code"></i> <b><%= _('Spec') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-file"></i> <b><%= _('Patches') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-file"></i> <b><%= _('Sources') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-download-alt"></i> <b><%= _('Download') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-code-fork"></i> <b><%= _('Gear') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-ticket"></i> <b><%= _('Bugs and FR') %></b></a>
+    <a class="btn btn-mini" href="#"><i class="icon-check"></i> <b><%= _('Repocop') %></b></a>
+  </div>
+</div>
+
+<!--
+<div>
+<p class="break" />
+<span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), title: _('full changelog') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), title: _('spec') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), title: _('patches') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), title: _('sources') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), title: _('download latest version') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), title: _('this package in gear repositories') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), title: _('list of bugs and feature requests') %>&nbsp;</span>
+<span class="underl">&nbsp;</span>
+<span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), title: _('repocop bugreports') %>&nbsp;</span>
+<p class="news" />
+
+-->
+<b><%= _('Current version:') %></b> <%= "#{@srpm.version}-#{@srpm.release}" %><br>
+<b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br>
+<% unless @ftbfs.empty? %>
+  <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
+  <% if @ftbfs.count == 2 %>
+    <% if @ftbfs.first.weeks == @ftbfs.last.weeks %>
+      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %>, <%= @ftbfs.last.arch %><br>
+    <% else %>
+      <%= @ftbfs.first.weeks %> weeks on <%= @ftbfs.first.arch %> and <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
+    <% end %>
+  <% else %>
+    <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
+  <% end %>
+<% end %>
+<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br><br>
+
+<b><%= _('Summary:') %></b> <%= @srpm.summary %><br>
+<b><%= _('License:') %></b> <%= @srpm.license %><br>
+<b><%= _('Group:') %></b> <%= @srpm.groupname %><br>
+
+<% if @srpm.url %>
+<b><%= _('Home page:') %></b> <%= link_to @srpm.url, @srpm.url, rel: 'nofollow' %><br>
+<% end %>
+
+<b><%= _('Description:') %></b> <%= simple_format h(@srpm.description) %>
+
+<% if @leader %>
+  <b><%= _('Current maintainer:') %></b>
+  <% if @leader.class.to_s == 'MaintainerTeam' %>
+    <%= link_to "<i class='icon-group'></i> ".html_safe + @leader.name,
+                team_path(@branch, @leader.login[1..-1]),
+                title: _('information about maintainer') %>
+  <% else %>
+    <%= link_to "<i class='icon-user'></i> ".html_safe + _(@leader.name),
+                maintainer_path(@branch, @leader),
+                title: _('information about maintainer') %>
+  <% end %>
+  <br>
+<% end %>
+
+<% if @contributors %>
+  <b><%= _('List of contributors:').html_safe %></b>
+  <ul class="unstyled">
+    <% @contributors.each do |contributor| %>
+      <li>
+        <%= link_to "<i class='icon-fixed-width icon-user'></i> ".html_safe + _(contributor.name),
+                    maintainer_path(@branch, contributor),
+                    title: _('information about maintainer') %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @maintainers || @teams %>
+  <b><%= _('ACL:') %></b>
+  <ul class="unstyled">
+  <% @maintainers.each do |maintainer| %>
+    <li class="unstyled">
+      <%= link_to "<i class='icon-fixed-width icon-user'></i> ".html_safe + _(maintainer.name),
+                  maintainer_path(@branch, maintainer),
+                  title: _('information about maintainer') %>
+    </li>
+  <% end %>
+  <% @teams.each do |team| %>
+    <li class="unstyled">
+      <%= link_to "<i class='icon-fixed-width icon-group'></i> ".html_safe + team.name,
+                  team_path(@branch, team.login[1..-1]) %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if @srpm.packages %>
+  <b><%= _('List of rpms provided by this srpm:') %></b>
+  <ul>
+    <% @srpm.packages.map { |p| p.name }.sort.uniq.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+</div>
+
+<div class="span2">
+  <%= _('ALT Linux repositories') %><br>
+  <ul class="unstyled">
+    <% @allsrpms.each do |rpm| %>
+      <li>
+        <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm) %> <%= "#{rpm.version}-#{rpm.release}" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <% if @perl_watch %>
+    <br>
+    <%= _('Other repositories') %><br>
+    <ul class="unstyled">
+      <li>
+        <a class="news" href="http://search.cpan.org/CPAN/authors/id/<%= @perl_watch.path %>" rel='nofollow'><%= _('CPAN:') %></a>
+        <%= @perl_watch.version %>
+      </li>
+    </ul>
+  <% end %>
+</div>
