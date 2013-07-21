@@ -1,0 +1,12 @@
+<% unless ftbfs.empty? %>
+  <b><%= _('<abbr title="Fails To Build From Source" style="border-bottom: 1px dotted gray;">FTBFS:</abbr>').html_safe %></b>
+  <% if ftbfs.count == 2 %>
+    <% if ftbfs.first.weeks == ftbfs.last.weeks %>
+      <%= ftbfs.first.weeks %> weeks on <%= ftbfs.first.arch %>, <%= ftbfs.last.arch %><br>
+    <% else %>
+      <%= ftbfs.first.weeks %> weeks on <%= ftbfs.first.arch %> and <%= ftbfs.last.weeks %> weeks on <%= ftbfs.last.arch %><br>
+    <% end %>
+  <% else %>
+    <%= ftbfs.first.weeks %> weeks on <%= ftbfs.first.arch %><br>
+  <% end %>
+<% end %>

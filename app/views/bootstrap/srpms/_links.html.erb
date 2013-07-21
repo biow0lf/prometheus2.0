@@ -1,0 +1,13 @@
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <%= link_to_with_icon '<b>'.html_safe + _('Main') + '</b>'.html_safe, srpm_path(branch, srpm), 'info', nil, 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Changelog') + '</b>'.html_safe, changelog_srpm_path(branch, srpm), 'comment', _('full changelog'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Spec') + '</b>'.html_safe, spec_srpm_path(branch, srpm), 'code', _('spec'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Patches') + '</b>'.html_safe, srpm_patches_path(branch, srpm), 'file', _('patches'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Sources') + '</b>'.html_safe, srpm_sources_path(branch, srpm), 'file', _('sources'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Download') + '</b>'.html_safe, get_srpm_path(branch, srpm), 'download-alt', _('download latest version'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Gear') + '</b>'.html_safe, gear_srpm_path(branch, srpm), 'code-fork', _('this package in gear repositories'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Bugs and FR') + '</b>'.html_safe, bugs_srpm_path(srpm), 'ticket', _('list of bugs and feature requests'), 'btn btn-mini' %>
+    <%= link_to_with_icon '<b>'.html_safe + _('Repocop') + '</b>'.html_safe, repocop_srpm_path(srpm), 'check', _('repocop bugreports'), 'btn btn-mini' %>
+  </div>
+</div>
