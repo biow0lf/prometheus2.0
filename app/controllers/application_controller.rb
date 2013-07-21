@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_default_locale
   before_filter :set_default_branch
+  before_filter :add_view_path_for_redesign
 
   helper_method :sort_column, :sort_order, :sort_order_next
 
@@ -39,5 +40,13 @@ class ApplicationController < ActionController::Base
     return 'desc' if params[:order] == 'asc' && params[:sort] == column
     return 'asc' if params[:order] == 'desc' && params[:sort] == column
     'asc'
+  end
+
+  private
+
+  def add_view_path_for_redesign
+    if current_user && current_user.newdesign?
+      prepend_view_path Rails.root.join('app/views/bootstrap')
+    end
   end
 end
