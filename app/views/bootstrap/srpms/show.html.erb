@@ -8,23 +8,21 @@
   <%= render 'links', branch: @srpm_show.branch, srpm: @srpm_show.srpm %>
 
   <b><%= _('Current version:') %></b> <%= @srpm_show.srpm.evr %><br>
-  <b><%= _('Built:') %></b> <abbr title="<%= @srpm_show.srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm_show.srpm.buildtime) %> <%= _('ago') %></abbr><br>
+  <b><%= _('Built:') %></b> <abbr title="<%= @srpm_show.srpm.buildtime %>"><%= time_ago_in_words(@srpm_show.srpm.buildtime) %> <%= _('ago') %></abbr><br>
 
   <%= render 'ftbfs', ftbfs: @srpm_show.ftbfs %>
 
-<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm_show.srpm.size) %><br><br>
+  <b><%= _('Size:') %></b> <%= number_to_human_size(@srpm_show.srpm.size) %><br><br>
 
   <% if @srpm_show.srpm.url %>
-    <b><%= _('Home page:') %></b> <%= link_to @srpm_show.srpm.url, @srpm_show.srpm.url, rel: 'nofollow' %><br>
+    <b><%= _('Home page:') %></b> <%= link_to @srpm_show.srpm.url, @srpm_show.srpm.url, rel: 'nofollow' %><br><br>
   <% end %>
 
+  <b><%= _('Summary:') %></b> <%= @srpm_show.srpm.summary %><br>
+  <b><%= _('License:') %></b> <%= @srpm_show.srpm.license %><br>
+  <b><%= _('Group:') %></b> <%= @srpm_show.srpm.groupname %><br>
 
-
-<b><%= _('Summary:') %></b> <%= @srpm_show.srpm.summary %><br>
-<b><%= _('License:') %></b> <%= @srpm_show.srpm.license %><br>
-<b><%= _('Group:') %></b> <%= @srpm_show.srpm.groupname %><br>
-
-<b><%= _('Description:') %></b> <%= simple_format h(@srpm_show.srpm.description) %>
+  <b><%= _('Description:') %></b> <%= simple_format h(@srpm_show.srpm.description) %>
 
 <% if @leader %>
   <b><%= _('Current maintainer:') %></b>
@@ -72,15 +70,7 @@
   </ul>
 <% end %>
 
-<% if @srpm_show.srpm.packages %>
-  <b><%= _('List of rpms provided by this srpm:') %></b>
-  <ul>
-    <% @srpm_show.srpm.packages.map { |p| p.name }.sort.uniq.each do |name| %>
-      <li><%= name %></li>
-    <% end %>
-  </ul>
-<% end %>
-
+  <%= render 'packages', packages: @srpm_show.srpm.packages %>
 </div>
 
 <div class="span2">

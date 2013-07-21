@@ -1,0 +1,8 @@
+<% if packages %>
+  <b><%= _('List of rpms provided by this srpm:') %></b>
+  <ul>
+    <% packages.map { |p| p.name }.sort.uniq.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
+  </ul>
+<% end %>

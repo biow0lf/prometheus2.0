@@ -23,56 +23,57 @@
       <div class="span2">
         <ul class="nav nav-list">
           <li>
-            <%= link_to_with_icon 'home', _('Home'),
+            <%= link_to_with_fixed_icon _('Home'),
                         home_path(branch: params[:branch]),
-                        _('site home page') %>
+                         'home', _('site home page') %>
           </li>
           <li>
-            <%= link_to_with_icon 'folder-open', _('Packages'),
+            <%= link_to_with_fixed_icon _('Packages'),
                         packages_path(branch: params[:branch]),
-                        _('packages information') %>
+                        'folder-open', _('packages information') %>
           </li>
           <li>
-            <%= link_to_with_icon 'group', _('Maintainers'),
+            <%= link_to_with_fixed_icon _('Maintainers'),
                         maintainers_path(branch: params[:branch]),
-                        _('maintainers information') %>
+                        'group', _('maintainers information') %>
           </li>
           <li>
-            <%= link_to_with_icon 'shield', _('Security'),
+            <%= link_to_with_fixed_icon _('Security'),
                         security_path(branch: params[:branch]),
-                        _('security fixes') %>
+                        'shield', _('security fixes') %>
           </li>
           <li>
-            <%= link_to_with_icon 'wrench', _('About'),
-                        project_path,
+            <%= link_to_with_fixed_icon _('About'),
+                        project_path, 'wrench',
                         _('about Prometheus project') %>
           </li>
           <li>
-            <%= link_to_with_icon 'rss', _('RSS'),
+            <%= link_to_with_fixed_icon _('RSS'),
                         rss_path(branch: params[:branch]),
-                        _('RSS') %>
+                        'rss', _('RSS') %>
           </li>
           <li>
-            <%= link_to_with_icon 'book', _('Wiki'),
+            <%= link_to_with_fixed_icon _('Wiki'),
                         _('http://en.altlinux.org/Sisyphus'),
-                        _('sisyphus public site') %>
+                        'book', _('sisyphus public site') %>
           </li>
           <% if I18n.locale == :ru %>
             <li>
-              <%= link_to_with_icon 'external-link-sign', _('Blog'),
+              <%= link_to_with_fixed_icon _('Blog'),
                           _('http://www.livejournal.com/userinfo.bml?user=ru_sisyphus'),
+                          'external-link-sign',
                           _('blog') %>
             </li>
             <li>
-              <%= link_to_with_icon 'globe', _('Planet'),
+              <%= link_to_with_fixed_icon _('Planet'),
                           _('http://planet.altlinux.org/'),
-                          _('ALT Linux Planet') %>
+                          'globe', _('ALT Linux Planet') %>
             </li>
           <% end %>
           <li>
-            <%= link_to_with_icon 'envelope', _('Mailing list'),
+            <%= link_to_with_fixed_icon _('Mailing list'),
                         _('http://lists.altlinux.org/mailman/listinfo/community-en/'),
-                        _('community-en@') %>
+                        'envelope', _('community-en@') %>
           </li>
         </ul>
       </div>

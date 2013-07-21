@@ -23,7 +23,13 @@ module ApplicationHelper
     url
   end
 
-  def link_to_with_icon(icon, text, path, title)
-    link_to "<i class='icon-fixed-width icon-#{icon}'></i> ".html_safe + text, path, title: title
+  def link_to_with_fixed_icon(text, path, icon, title = nil, cssclasses = nil)
+    link_to("<i class='icon-fixed-width icon-#{h icon}'></i> ".html_safe + text,
+            path, title: title, class: cssclasses)
+  end
+
+  def link_to_with_icon(text, path, icon, title = nil, cssclasses = nil)
+    link_to("<i class='icon-#{icon}'></i> ".html_safe + text,
+            path, title: title, class: cssclasses)
   end
 end
