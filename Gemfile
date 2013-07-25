@@ -51,7 +51,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :production, :development, :staging do
+group :production, :development, :staging, :update do
   gem 'redis'
 end
 
@@ -63,6 +63,11 @@ group :production do
   gem 'exception_notification'
   gem 'unicorn'
   gem 'unicorn-worker-killer'
+end
+
+group :update do
+  gem 'dalli'
+  gem 'exception_notification'
 end
 
 group :staging do
