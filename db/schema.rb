@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20130721203001) do
   create_table "freshmeats", force: true do |t|
     t.string   "name"
     t.string   "version"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ftbfs", force: true do |t|
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20130721203001) do
     t.integer  "srpm_id"
   end
 
-  add_index "gears", ["maintainer_id"], name: "index_gitrepos_on_maintainer_id", using: :btree
-  add_index "gears", ["srpm_id"], name: "index_gitrepos_on_srpm_id", using: :btree
+  add_index "gears", ["maintainer_id"], name: "index_gears_on_maintainer_id", using: :btree
+  add_index "gears", ["srpm_id"], name: "index_gears_on_srpm_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 20130721203001) do
     t.string   "name",       null: false
     t.string   "email",      null: false
     t.string   "login",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "maintainers", force: true do |t|
@@ -271,8 +271,8 @@ ActiveRecord::Schema.define(version: 20130721203001) do
     t.binary   "source"
     t.string   "filename"
     t.integer  "size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sources", ["branch_id"], name: "index_sources_on_branch_id", using: :btree
@@ -334,12 +334,12 @@ ActiveRecord::Schema.define(version: 20130721203001) do
   add_index "teams", ["maintainer_id"], name: "index_teams_on_maintainer_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                              default: "",    null: false
-    t.string   "encrypted_password",     limit: 128, default: "",    null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -350,7 +350,7 @@ ActiveRecord::Schema.define(version: 20130721203001) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "unconfirmed_email"
-    t.boolean  "newdesign",                          default: false
+    t.boolean  "newdesign",              default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
