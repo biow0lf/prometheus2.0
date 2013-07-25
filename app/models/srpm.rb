@@ -24,7 +24,7 @@ class Srpm < ActiveRecord::Base
   set :acls
   value :leader
 
-  after_save :increment_counter
+  after_create :increment_counter
   after_destroy :decrement_counter
 
   def to_param
