@@ -6,16 +6,16 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brandon Keepers", "Daniel Morrison", "Philip Arndt"]
-  s.date = "2013-07-13"
+  s.date = "2013-07-29"
   s.description = "An awesome nested set implementation for Active Record"
   s.email = "info@collectiveidea.com"
-  s.extra_rdoc_files = ["README.rdoc"]
-  s.files = ["lib/awesome_nested_set", "lib/awesome_nested_set/version.rb", "lib/awesome_nested_set/helper.rb", "lib/awesome_nested_set/iterator.rb", "lib/awesome_nested_set/model.rb", "lib/awesome_nested_set/set_validator.rb", "lib/awesome_nested_set/move.rb", "lib/awesome_nested_set/tree.rb", "lib/awesome_nested_set/awesome_nested_set.rb", "lib/awesome_nested_set/model", "lib/awesome_nested_set/model/validatable.rb", "lib/awesome_nested_set/model/prunable.rb", "lib/awesome_nested_set/model/movable.rb", "lib/awesome_nested_set/model/transactable.rb", "lib/awesome_nested_set/model/relatable.rb", "lib/awesome_nested_set/model/rebuildable.rb", "lib/awesome_nested_set/columns.rb", "lib/awesome_nested_set.rb", "MIT-LICENSE", "README.rdoc", "CHANGELOG"]
+  s.extra_rdoc_files = ["README.md"]
+  s.files = ["lib/awesome_nested_set", "lib/awesome_nested_set/version.rb", "lib/awesome_nested_set/helper.rb", "lib/awesome_nested_set/iterator.rb", "lib/awesome_nested_set/model.rb", "lib/awesome_nested_set/set_validator.rb", "lib/awesome_nested_set/move.rb", "lib/awesome_nested_set/tree.rb", "lib/awesome_nested_set/awesome_nested_set.rb", "lib/awesome_nested_set/model", "lib/awesome_nested_set/model/validatable.rb", "lib/awesome_nested_set/model/prunable.rb", "lib/awesome_nested_set/model/movable.rb", "lib/awesome_nested_set/model/transactable.rb", "lib/awesome_nested_set/model/relatable.rb", "lib/awesome_nested_set/model/rebuildable.rb", "lib/awesome_nested_set/columns.rb", "lib/awesome_nested_set.rb", "MIT-LICENSE", "README.md", "CHANGELOG"]
   s.homepage = "http://github.com/collectiveidea/awesome_nested_set"
   s.licenses = ["MIT"]
-  s.rdoc_options = ["--main", "README.rdoc", "--inline-source", "--line-numbers"]
+  s.rdoc_options = ["--main", "README.md", "--inline-source", "--line-numbers"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.3"
+  s.rubygems_version = "2.0.6"
   s.summary = "An awesome nested set implementation for Active Record"
 
   if s.respond_to? :specification_version then
