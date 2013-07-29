@@ -2,7 +2,7 @@ namespace :p6 do
   desc 'Update p6 stuff'
   task :update => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: Update p6 stuff"
+    Rails.logger.info("#{Time.now.to_s}: Update p6 stuff")
     if $redis.get('__SYNC__')
       exist = begin
                 Process::kill(0, $redis.get('__SYNC__').to_i)
@@ -11,27 +11,27 @@ namespace :p6 do
                 false
               end
       if exist
-        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Rails.logger.info("#{Time.now.to_s}: update is locked by another cron script")
         Process.exit!(true)
       else
-        puts "#{Time.now.to_s}: dead lock found and deleted"
+        Rails.logger.info("#{Time.now.to_s}: dead lock found and deleted")
         $redis.del('__SYNC__')
       end
     end
     $redis.set('__SYNC__', Process.pid)
-    puts "#{Time.now.to_s}: update *.src.rpm from p6 to database"
+    Rails.logger.info("#{Time.now.to_s}: update *.src.rpm from p6 to database")
     branch = Branch.where(name: 'Platform6', vendor: 'ALT Linux').first
     Srpm.import_all(branch, '/ALT/p6/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/p6/files/SRPMS/')
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p6 to database"
+    Rails.logger.info("#{Time.now.to_s}: end")
+    Rails.logger.info("#{Time.now.to_s}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p6 to database")
     pathes = ['/ALT/p6/files/i586/RPMS/*.i586.rpm',
               '/ALT/p6/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/p6/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
     # TODO: review and cleanup this code
-    puts "#{Time.now.to_s}: expire cache"
+    Rails.logger.info("#{Time.now.to_s}: expire cache")
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_top15_#{branch.name}")
       ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_")
@@ -40,16 +40,16 @@ namespace :p6 do
         ActionController::Base.new.expire_fragment("#{locale}_srpms_#{branch.name}_#{page}")
       end
     end
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update acls in redis cache"
+    Rails.logger.info("#{Time.now.to_s}: end")
+    Rails.logger.info("#{Time.now.to_s}: update acls in redis cache")
     Acl.update_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update leaders in redis cache"
+    Rails.logger.info("#{Time.now.to_s}: end")
+    Rails.logger.info("#{Time.now.to_s}: update leaders in redis cache")
     Leader.update_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
-    puts "#{Time.now.to_s}: end"
-    puts "#{Time.now.to_s}: update time"
+    Rails.logger.info("#{Time.now.to_s}: end")
+    Rails.logger.info("#{Time.now.to_s}: update time")
     $redis.set("#{branch.name}:updated_at", Time.now.to_s)
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
     $redis.del('__SYNC__')
   end
 end

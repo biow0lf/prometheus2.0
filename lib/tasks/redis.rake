@@ -3,7 +3,7 @@ namespace :redis do
   task :cache => :environment do
     require 'open-uri'
 
-    puts "#{Time.now.to_s}: cache all *.src.rpm info in redis"
+    Rails.logger.info("#{Time.now.to_s}: cache all *.src.rpm info in redis")
 
     if $redis.get('__SYNC__')
       exist = begin
@@ -13,10 +13,10 @@ namespace :redis do
                 false
               end
       if exist
-        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Rails.logger.info("#{Time.now.to_s}: update is locked by another cron script")
         Process.exit!(true)
       else
-        puts "#{Time.now.to_s}: dead lock found and deleted"
+        Rails.logger.info("#{Time.now.to_s}: dead lock found and deleted")
         $redis.del('__SYNC__')
       end
     end
@@ -30,16 +30,16 @@ namespace :redis do
       srpms = Srpm.where(branch_id: branch).select('filename')
       srpms.each { |srpm| $redis.set("#{branch.name}:#{srpm.filename}", 1) }
     end
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
 
-    puts "#{Time.now.to_s}: cache all binary files info in redis"
+    Rails.logger.info("#{Time.now.to_s}: cache all binary files info in redis")
     branches.each do |branch|
       packages = Package.where(branch_id: branch).select('filename')
       packages.each { |package| $redis.set("#{branch.name}:#{package.filename}", 1) }
     end
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
 
-    puts "#{Time.now.to_s}: cache all acls in redis"
+    Rails.logger.info("#{Time.now.to_s}: cache all acls in redis")
     Acl.update_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
     Acl.update_redis_cache('ALT Linux', 'p7', 'http://git.altlinux.org/acl/list.packages.p7')
     Acl.update_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
@@ -49,9 +49,9 @@ namespace :redis do
     Acl.update_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
     Acl.update_redis_cache('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
     Acl.update_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
 
-    puts "#{Time.now.to_s}: cache all leaders in redis"
+    Rails.logger.info("#{Time.now.to_s}: cache all leaders in redis")
     Leader.update_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
     Leader.update_redis_cache('ALT Linux', 'p7', 'http://git.altlinux.org/acl/list.packages.p7')
     Leader.update_redis_cache('ALT Linux', 'Platform6', 'http://git.altlinux.org/acl/list.packages.p6')
@@ -61,7 +61,7 @@ namespace :redis do
     Leader.update_redis_cache('ALT Linux', '5.0', 'http://git.altlinux.org/acl/list.packages.5.0')
     Leader.update_redis_cache('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
     Leader.update_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
 
     $redis.del('__SYNC__')
   end

@@ -3,7 +3,7 @@ namespace :ftbfs do
   task :update => :environment do
     require 'open-uri'
 
-    puts "#{Time.now.to_s}: import ftbfs list for i586 and x86_64"
+    Rails.logger.info("#{Time.now.to_s}: import ftbfs list for i586 and x86_64")
     if $redis.get('__SYNC__')
       exist = begin
                 Process::kill(0, $redis.get('__SYNC__').to_i)
@@ -12,10 +12,10 @@ namespace :ftbfs do
                 false
               end
       if exist
-        puts "#{Time.now.to_s}: update is locked by another cron script"
+        Rails.logger.info("#{Time.now.to_s}: update is locked by another cron script")
         Process.exit!(true)
       else
-        puts "#{Time.now.to_s}: dead lock found and deleted"
+        Rails.logger.info("#{Time.now.to_s}: dead lock found and deleted")
         $redis.del('__SYNC__')
       end
     end
@@ -32,7 +32,7 @@ namespace :ftbfs do
       Ftbfs.update_ftbfs('ALT Linux', 't6', 'http://git.altlinux.org/beehive/stats/t6-i586/ftbfs-joined', 'i586')
       Ftbfs.update_ftbfs('ALT Linux', 't6', 'http://git.altlinux.org/beehive/stats/t6-x86_64/ftbfs-joined', 'x86_64')
     end
-    puts "#{Time.now.to_s}: end"
+    Rails.logger.info("#{Time.now.to_s}: end")
     $redis.del('__SYNC__')
   end
 end
