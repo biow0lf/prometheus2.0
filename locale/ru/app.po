@@ -1178,3 +1178,6 @@ msgstr ""
 
 msgid "weeks"
 msgstr ""
+
+msgid "Denis Nazarov"
+msgstr "Денис Назаров"
