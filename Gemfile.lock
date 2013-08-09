@@ -145,7 +145,7 @@ GEM
     gettext (2.3.9)
       locale
       text
-    gettext_i18n_rails (0.10.0)
+    gettext_i18n_rails (0.10.1)
       fast_gettext (>= 0.4.8)
     gherkin (2.12.0)
       multi_json (~> 1.3)
