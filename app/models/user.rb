@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   validates :email, immutable: true
+  validates :email, presence: true
 
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable and :timeoutable
+  # :token_authenticatable, :lockable and :timeoutable
   devise :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe User do
+  it { should have_db_index(:confirmation_token).unique(true) }
+  it { should have_db_index(:email).unique(true) }
+  it { should have_db_index(:reset_password_token).unique(true) }
+
+  it { should validate_presence_of :email }
+
   it 'should return login on User.login' do
     User.new(email: 'icesik@altlinux.org').login.should eq('icesik')
   end
