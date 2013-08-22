@@ -28,7 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
-    airbrake (3.1.13)
+    airbrake (3.1.14)
       builder
       json
     arel (4.0.0)
