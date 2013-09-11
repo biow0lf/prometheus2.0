@@ -33,7 +33,7 @@ GEM
       json
     arel (4.0.0)
     ast (1.1.0)
-    atomic (1.1.13)
+    atomic (1.1.14)
     awesome_nested_set (3.0.0.rc.1)
       activerecord (~> 4.0.0)
     backports (3.3.3)
