@@ -223,7 +223,7 @@ GEM
     parser (2.0.0.pre8)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
-    pg (0.16.0)
+    pg (0.17.0)
     polyglot (0.3.3)
     powerpack (0.0.8)
     pry (0.9.12.2)
