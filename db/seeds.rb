@@ -22,11 +22,19 @@ branch.order_id = 2
 branch.path = '/p7/branch'
 branch.save!
 
+# add t7 branch
+branch = Branch.new
+branch.vendor = 'ALT Linux'
+branch.name = 't7'
+branch.order_id = 3
+branch.path = '/t7/branch'
+branch.save!
+
 # add Platform6 branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform6'
-branch.order_id = 3
+branch.order_id = 4
 branch.path = '/p6/branch'
 branch.save!
 
@@ -34,7 +42,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 't6'
-branch.order_id = 4
+branch.order_id = 5
 branch.path = '/t6/branch'
 branch.save!
 
@@ -42,7 +50,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
-branch.order_id = 5
+branch.order_id = 6
 branch.path = '/p5/branch'
 branch.save!
 
@@ -50,7 +58,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.1'
-branch.order_id = 6
+branch.order_id = 7
 branch.path = '/5.1/branch'
 branch.save!
 
@@ -58,7 +66,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '5.0'
-branch.order_id = 7
+branch.order_id = 8
 branch.path = '/5.0/branch'
 branch.save!
 
@@ -66,7 +74,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.1'
-branch.order_id = 8
+branch.order_id = 9
 branch.path = '/4.1/branch'
 branch.save!
 
@@ -74,7 +82,7 @@ branch.save!
 branch = Branch.new
 branch.vendor = 'ALT Linux'
 branch.name = '4.0'
-branch.order_id = 9
+branch.order_id = 10
 branch.path = '/4.0/branch'
 branch.save!
 
@@ -251,12 +259,12 @@ Mirror.create(:branch_id => branch.id,
 # Mirror.create(:branch_id => branch.id, :order_id => 1, :country => 'ru',
 #               :ftp => 'ftp://ftp.chg.ru/pub/Linux/ALTLinux',
 #               :rsync => 'rsync://ftp.chg.ru/ALTLinux')
-# 
+#
 # Mirror.create(:branch_id => branch.id, :order_id => 2, :country => 'us',
 #               :ftp => 'ftp://ibiblio.org/pub/linux/distributions/altlinux',
 #               :http => 'http://distro.ibiblio.org/pub/linux/distributions/altlinux',
 #               :rsync => 'rsync://distro.ibiblio.org/distros/altlinux')
-# 
+#
 # Mirror.create(:branch_id => branch.id, :order_id => 4, :country => 'ru',
 #               :ftp => 'ftp://mirror.yandex.ru/altlinux',
 #               :http => 'http://mirror.yandex.ru/altlinux',
