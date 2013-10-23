@@ -31,7 +31,7 @@ GEM
     airbrake (3.1.14)
       builder
       json
-    arel (4.0.0)
+    arel (4.0.1)
     ast (1.1.0)
     atomic (1.1.14)
     awesome_nested_set (3.0.0.rc.2)
