@@ -2,7 +2,7 @@ namespace :t7 do
   desc 'Update t7 stuff'
   task :update => :environment do
     require 'open-uri'
-    Rails.logger.info("#{Time.now.to_s}: Update t6 stuff")
+    Rails.logger.info("#{Time.now.to_s}: Update t7 stuff")
     if $redis.get('__SYNC__')
       exist = begin
                 Process::kill(0, $redis.get('__SYNC__').to_i)
