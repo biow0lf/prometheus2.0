@@ -21,6 +21,7 @@ namespace :sisyphus do
     $redis.set('__SYNC__', Process.pid)
     Rails.logger.info("#{Time.now.to_s}: update *.src.rpm from Sisyphus to database")
     branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/Sisyphus/files/SRPMS/')
     Rails.logger.info("#{Time.now.to_s}: end")
@@ -29,6 +30,7 @@ namespace :sisyphus do
               '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
+    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Rails.logger.info("#{Time.now.to_s}: end")
     # TODO: review and cleanup this code
     Rails.logger.info("#{Time.now.to_s}: expire cache")
