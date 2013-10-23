@@ -21,12 +21,14 @@ namespace :sisyphusarm do
     $redis.set('__SYNC__', Process.pid)
     puts "#{Time.now.to_s}: update *.src.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
+    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/Sisyphus/arm/SRPMS.all/')
     puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
     Package.import_all(branch, pathes)
+    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{Time.now.to_s}: end"
     # TODO: review and cleanup this code
     puts "#{Time.now.to_s}: expire cache"

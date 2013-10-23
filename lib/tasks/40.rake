@@ -21,6 +21,7 @@ namespace :"40" do
     $redis.set('__SYNC__', Process.pid)
     puts "#{Time.now.to_s}: update *.src.rpm from 4.0 to database"
     branch = Branch.where(name: '4.0', vendor: 'ALT Linux').first
+    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/4.0/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/4.0/files/SRPMS/')
     puts "#{Time.now.to_s}: end"
@@ -29,6 +30,7 @@ namespace :"40" do
               '/ALT/4.0/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/4.0/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
+    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{Time.now.to_s}: end"
     # TODO: review and cleanup this code
     puts "#{Time.now.to_s}: expire cache"
