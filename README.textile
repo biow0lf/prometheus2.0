@@ -57,6 +57,10 @@ h3. Import data:
 * @bundle exec rake sisyphusarm:srpms@
 * @bundle exec rake sisyphusarm:binary@
 
+* @bundle exec rake p7:update@
+
+* @bundle exec rake t7:update@
+
 * @bundle exec rake p6:update@
 
 * @bundle exec rake t6:update@
