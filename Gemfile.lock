@@ -114,7 +114,7 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    diff-lcs (1.2.4)
+    diff-lcs (1.2.5)
     draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
