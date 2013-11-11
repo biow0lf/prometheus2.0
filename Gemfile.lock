@@ -192,7 +192,7 @@ GEM
       addressable (~> 2.3)
     libnotify (0.8.2)
       ffi (>= 1.0.11)
-    listen (2.1.1)
+    listen (2.2.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
