@@ -326,7 +326,7 @@ GEM
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
-    wirb (1.0.1)
+    wirb (1.0.2)
       paint
     xpath (2.0.0)
       nokogiri (~> 1.3)
