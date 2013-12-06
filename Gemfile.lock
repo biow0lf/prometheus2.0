@@ -94,7 +94,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
-    diff-lcs (1.2.4)
+    diff-lcs (1.2.5)
     draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
