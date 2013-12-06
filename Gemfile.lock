@@ -199,7 +199,7 @@ GEM
     parser (2.0.0.beta3)
       ast (~> 1.0)
       slop (~> 3.4)
-    pg (0.15.1)
+    pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
