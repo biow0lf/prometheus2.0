@@ -69,6 +69,7 @@ group :staging do
 end
 
 group :development do
+  gem 'sandi_meter', require: false
   gem 'rails-erd'
   gem 'sextant'
   gem 'quiet_assets'
