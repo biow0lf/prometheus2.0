@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     if params[:query].nil? || params[:query].empty?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.search(params[:query],
+      @srpms = Srpm.search(Riddle::Query.escape(params[:query]),
                            :order => :name,
                            :max_matches => 10_000,
                            :per_page => 10_000,
