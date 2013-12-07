@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 18:16+0300\n"
+"POT-Creation-Date: 2013-12-07 14:34+0200\n"
 "PO-Revision-Date: 2010-01-11 17:25+0300\n"
 "Last-Translator: Igor Zubkov <igor.zubkov@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -147,6 +147,9 @@ msgstr "Документация/Литература"
 msgid "Books/Other"
 msgstr "Документация/Прочее"
 
+msgid "Broken changelog entry."
+msgstr ""
+
 msgid "Bugs and FR"
 msgstr ""
 
@@ -200,6 +203,9 @@ msgstr "Текущая версия:"
 
 msgid "Databases"
 msgstr "Базы данных"
+
+msgid "Denis Nazarov"
+msgstr "Денис Назаров"
 
 msgid "Denis Smirnov"
 msgstr "Денис Смирнов"
@@ -575,6 +581,12 @@ msgstr "Всего пакетов собранных майнтейнером:"
 
 msgid "Packages to rebuild:"
 msgstr "Список пакетов на пересборку:"
+
+msgid "Page not found"
+msgstr ""
+
+msgid "Patch is too large."
+msgstr ""
 
 msgid "Patches"
 msgstr "Патчи"
@@ -953,6 +965,9 @@ msgstr "Видео"
 
 msgid "Vitaly Lipatov"
 msgstr "Виталий Липатов"
+
+msgid "Vladimir Didenko"
+msgstr "Владимир Диденко"
 
 msgid "Website/Blog:"
 msgstr "Сайт/Блог:"

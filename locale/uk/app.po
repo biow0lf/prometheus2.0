@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 18:16+0300\n"
+"POT-Creation-Date: 2013-12-07 14:34+0200\n"
 "PO-Revision-Date: 2010-09-24 23:46+0300\n"
 "Last-Translator: Motsyo Gennadi <drool@altlinux.ru>\n"
 "Language-Team: Ukrainian\n"
@@ -117,6 +117,9 @@ msgstr "Документація/Література"
 msgid "Books/Other"
 msgstr "Документація/Інше"
 
+msgid "Broken changelog entry."
+msgstr ""
+
 msgid "Bugs and FR"
 msgstr ""
 
@@ -170,6 +173,9 @@ msgstr "Поточна версія:"
 
 msgid "Databases"
 msgstr "Бази даних"
+
+msgid "Denis Nazarov"
+msgstr ""
 
 msgid "Denis Smirnov"
 msgstr ""
@@ -546,6 +552,12 @@ msgstr "Усього пакетів, зібраних майнтейнером:"
 msgid "Packages to rebuild:"
 msgstr ""
 
+msgid "Page not found"
+msgstr ""
+
+msgid "Patch is too large."
+msgstr ""
+
 msgid "Patches"
 msgstr ""
 
@@ -916,6 +928,9 @@ msgid "Video"
 msgstr "Відео"
 
 msgid "Vitaly Lipatov"
+msgstr ""
+
+msgid "Vladimir Didenko"
 msgstr ""
 
 msgid "Website/Blog:"
