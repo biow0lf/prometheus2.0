@@ -5,7 +5,7 @@ job_type :rake, "cd /home/prometheusapp/current && RAILS_ENV=:environment bundle
 #end
 
 every 1.day, :at => '00:10' do
-  rake 'ts:rebuild'
+  rake 'ts:index'
 end
 
 ##every 1.day, :at => '00:10' do
