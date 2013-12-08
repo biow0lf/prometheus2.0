@@ -158,7 +158,7 @@ GEM
     kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.8.0)
+    kgio (2.8.1)
     launchy (2.3.0)
       addressable (~> 2.3)
     libnotify (0.8.2)
