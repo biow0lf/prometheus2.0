@@ -316,9 +316,9 @@ GEM
     turbolinks (1.1.1)
       coffee-rails
     tzinfo (0.3.38)
-    uglifier (2.1.1)
+    uglifier (2.3.2)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+      json (>= 1.8.0)
     unicorn (4.7.0)
       kgio (~> 2.6)
       rack
