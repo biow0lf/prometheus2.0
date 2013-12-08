@@ -52,7 +52,7 @@ GEM
       activesupport
       uniform_notifier (>= 1.4.0)
     callsite (0.0.11)
-    capistrano (2.15.4)
+    capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
