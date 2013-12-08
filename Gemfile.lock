@@ -286,7 +286,7 @@ GEM
     sexp_processor (4.4.0)
     sextant (0.2.4)
       rails (>= 3.2)
-    shoulda-matchers (2.1.0)
+    shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
     sitemap_generator (4.0.1)
       builder
