@@ -320,7 +320,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    unicorn-worker-killer (0.4.1)
+    unicorn-worker-killer (0.4.2)
       unicorn (~> 4)
     uniform_notifier (1.4.0)
     warden (1.2.3)
