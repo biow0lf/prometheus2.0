@@ -321,7 +321,7 @@ GEM
       raindrops (~> 0.7)
     unicorn-worker-killer (0.4.1)
       unicorn (~> 4)
-    uniform_notifier (1.2.0)
+    uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     whenever (0.8.4)
