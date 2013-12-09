@@ -15,7 +15,7 @@
 <% @branches.each do |branch| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to branch.name, maintainer_path(branch, @maintainer), class: 'news' %>
+    <%= link_to branch.name, srpms_maintainer_path(branch, @maintainer), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= $redis.smembers("#{branch.name}:maintainers:#{@maintainer.login}").count %></td>
 </tr>
