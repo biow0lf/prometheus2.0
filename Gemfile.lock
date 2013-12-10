@@ -120,8 +120,9 @@ GEM
     erubis (2.7.0)
     everywhere (2.0.0)
       activerecord
-    exception_notification (3.0.1)
+    exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
