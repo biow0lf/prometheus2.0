@@ -1,5 +1,6 @@
 Prometheus20::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+  # Settings specified here will take precedence over those in
+  # config/application.rb
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -19,9 +20,10 @@ Prometheus20::Application.configure do
 
   # Specifies the header that your server uses for sending files
   # (comment out if your front-end server doesn't support this)
-  config.action_dispatch.x_sendfile_header = "X-Sendfile" # Use 'X-Accel-Redirect' for nginx
+  config.action_dispatch.x_sendfile_header = 'X-Sendfile' # Use 'X-Accel-Redirect' for nginx
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # Force all access to the app over SSL, use Strict-Transport-Security, and
+  # use secure cookies.
   # config.force_ssl = true
 
   # See everything in the log (default is :info)
@@ -31,15 +33,17 @@ Prometheus20::Application.configure do
   # config.logger = SyslogLogger.new
 
   # Use a different cache store in production
-  #config.cache_store = :mem_cache_store
+  # config.cache_store = :mem_cache_store
   config.cache_store = :dalli_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # Precompile additional assets (application.js, application.css, and all
+  # non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
-  config.assets.precompile += %w( en/local.js ru/local.js uk/local.js br/local.js )
+  config.assets.precompile += %w( en/local.js ru/local.js uk/local.js
+                                  br/local.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -58,5 +62,5 @@ Prometheus20::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { :host => "packages.altlinux.org" }
+  config.action_mailer.default_url_options = { host: 'packages.altlinux.org' }
 end

@@ -7,18 +7,19 @@ describe Bug do
 
   it 'should import bugs from url' do
     bugs = `cat spec/data/bugs.csv`
-    Bug.should_receive(:`).with('curl --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"').and_return(bugs)
+    cmd = 'curl --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"'
+    Bug.should_receive(:`).with(cmd).and_return(bugs)
     Bug.import('https://bugzilla.altlinux.org/buglist.cgi?ctype=csv')
-    Bug.count.should == 1
+    Bug.count.should eq(1)
     bug = Bug.first
-    bug.bug_id.should == 22555
-    bug.bug_status.should == 'CLOSED'
-    bug.resolution.should == 'FIXED'
-    bug.bug_severity.should == 'blocker'
-    bug.product.should == 'Sisyphus'
-    bug.component.should == 'openbox'
-    bug.assigned_to.should == 'icesik@altlinux.org'
-    bug.reporter.should == 'user@email.com'
-    bug.short_desc.should == 'segfault'
+    bug.bug_id.should eq(22_555)
+    bug.bug_status.should eq('CLOSED')
+    bug.resolution.should eq('FIXED')
+    bug.bug_severity.should eq('blocker')
+    bug.product.should eq('Sisyphus')
+    bug.component.should eq('openbox')
+    bug.assigned_to.should eq('icesik@altlinux.org')
+    bug.reporter.should eq('user@email.com')
+    bug.short_desc.should eq('segfault')
   end
 end
