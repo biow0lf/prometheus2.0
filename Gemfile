@@ -115,4 +115,5 @@ group :test do
   gem 'fakeweb'
   gem 'fakeredis'
   gem 'factory_girl_rails'
+  gem 'simplecov', require: false
 end
