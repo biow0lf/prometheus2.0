@@ -1,11 +1,15 @@
 language: ruby
 rvm:
-  - 1.9.3
-  - rbx-19mode
+  - 2.0.0
 env:
-  - ISOLATED=true
-  - DB=postgresql
+  - DB=postgresql TRAVIS=true
+
+before_install: bundle install --local
 
 before_script:
-  - "cp config/database.travis.yml config/database.yml"
-  - "psql -c 'create database prometheus_test;' -U postgres >/dev/null"
+  - gem update --system
+  - gem --version
+  - cp config/database.travis.yml config/database.yml
+  - cp config/redis.yml.sample config/redis.yml
+  - psql -c 'create database prometheus_test;' -U postgres
+  - bundle exec rake db:migrate

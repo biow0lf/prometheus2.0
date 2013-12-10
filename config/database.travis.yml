@@ -1,4 +1,4 @@
-postgres:
+test:
   adapter: postgresql
   database: prometheus_test
   username: postgres
