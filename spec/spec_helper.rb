@@ -16,7 +16,11 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-FakeWeb.allow_net_connect = false
+if ENV['TRAVIS']
+  FakeWeb.allow_net_connect = true
+else
+  FakeWeb.allow_net_connect = false
+end
 
 RSpec.configure do |config|
   # ## Mock Framework
