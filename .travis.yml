@@ -10,6 +10,7 @@ before_script:
   - gem update --system
   - gem --version
   - cp config/database.travis.yml config/database.yml
+  - cp config/initializers/secret_token.rb.example config/initializers/secret_token.rb
   - cp config/redis.yml.sample config/redis.yml
   - psql -c 'create database prometheus_test;' -U postgres
   - bundle exec rake db:migrate
