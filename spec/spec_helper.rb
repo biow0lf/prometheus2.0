@@ -16,11 +16,8 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-if ENV['TRAVIS']
-  FakeWeb.allow_net_connect = true
-else
-  FakeWeb.allow_net_connect = false
-end
+FakeWeb.allow_net_connect = false
+FakeWeb.allow_net_connect = 'https://coveralls.io/api/v1/jobs'
 
 RSpec.configure do |config|
   # ## Mock Framework
