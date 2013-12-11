@@ -17,11 +17,10 @@ describe RepocopPatch do
 
   it 'should import repocops patches list from url' do
     page = `cat spec/data/prometheus2-patches.sql`
-    FakeWeb.register_uri(:get,
-                         'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql',
-                         response: page)
-    expect{
+    url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql'
+    FakeWeb.register_uri(:get, url, response: page)
+    expect {
       RepocopPatch.update_repocop_patches
-      }.to change{ RepocopPatch.count }.from(0).to(1)
+    }.to change { RepocopPatch.count }.from(0).to(1)
   end
 end

@@ -49,9 +49,9 @@ describe Maintainer do
   end
 
   it 'should return true if Maintainer exists' do
-    maintainer = Maintainer.create!(name: 'Igor Zubkov',
-                                    email: 'icesik@altlinux.org',
-                                    login: 'icesik')
+    Maintainer.create!(name: 'Igor Zubkov',
+                       email: 'icesik@altlinux.org',
+                       login: 'icesik')
     Maintainer.login_exists?('icesik').should be_true
   end
 
@@ -60,35 +60,35 @@ describe Maintainer do
   end
 
   it 'should downcase login before checking for exists' do
-    maintainer = Maintainer.create!(name: 'Igor Zubkov',
-                                    email: 'icesik@altlinux.org',
-                                    login: 'icesik')
+    Maintainer.create!(name: 'Igor Zubkov',
+                       email: 'icesik@altlinux.org',
+                       login: 'icesik')
     Maintainer.login_exists?('ICESIK').should be_true
   end
 
   it 'should create one Maintainer' do
-    expect{
+    expect {
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-      }.to change{ Maintainer.count }.from(0).to(1)
+    }.to change { Maintainer.count }.from(0).to(1)
   end
 
   it 'should not create Maintainer if Maintainer already exists' do
     Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-    expect{
+    expect {
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-      }.to_not change{ Maintainer.count }.from(1).to(2)
+    }.to_not change { Maintainer.count }.from(1).to(2)
   end
 
   it 'should create new Maintainer team' do
-    expect{
+    expect {
       Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-      }.to change{ MaintainerTeam.count }.from(0).to(1)
+    }.to change { MaintainerTeam.count }.from(0).to(1)
   end
 
   it 'should not create new Maintainer team' do
     Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    expect{
+    expect {
       Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-      }.to_not change{ MaintainerTeam.count }.from(1).to(2)
+    }.to_not change { MaintainerTeam.count }.from(1).to(2)
   end
 end

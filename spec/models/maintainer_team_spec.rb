@@ -21,7 +21,7 @@ describe MaintainerTeam do
   end
 
   it 'should return Maintainer.login on .to_param' do
-    MaintainerTeam.new(login: 'ruby').to_param.should == 'ruby'
+    MaintainerTeam.new(login: 'ruby').to_param.should eq('ruby')
   end
 
   it 'should deny change email' do

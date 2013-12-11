@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   it 'should return login on User.login' do
-    User.new(email: 'icesik@altlinux.org').login.should == 'icesik'
+    User.new(email: 'icesik@altlinux.org').login.should eq('icesik')
   end
 
   it 'should return true for @altlinux.org emails' do

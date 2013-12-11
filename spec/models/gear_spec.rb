@@ -35,7 +35,7 @@ describe Gear do
                  groupname: 'System/Servers',
                  license: 'LGPL',
                  url: 'http://pulseaudio.org/',
-                 size: 10482200,
+                 size: 10_482_200,
                  filename: 'pulseaudio-1.1-alt1.1.src.rpm',
                  md5: '602df8c1227b9b5ddf2ba87efb081007',
                  buildtime: '2011-11-17 13:48:29 UTC')
@@ -45,8 +45,8 @@ describe Gear do
                          'http://git.altlinux.org/people-packages-list',
                          response: page)
 
-    expect{
+    expect {
       Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
-      }.to change{ Gear.count }.from(0).to(1)
+    }.to change { Gear.count }.from(0).to(1)
   end
 end
