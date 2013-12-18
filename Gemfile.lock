@@ -379,7 +379,7 @@ GEM
     uniform_notifier (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
-    whenever (0.8.4)
+    whenever (0.9.0)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
     wirb (1.0.2)
