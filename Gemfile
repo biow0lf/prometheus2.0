@@ -21,7 +21,7 @@ group :sqlite do
   gem 'sqlite3'
 end
 
-gem 'devise', '~> 2.2'
+gem 'devise'
 gem 'draper'
 gem 'airbrake'
 gem 'pry', group: [:development, :test]
