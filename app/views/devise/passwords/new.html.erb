@@ -5,12 +5,12 @@
     <%= devise_error_messages! %>
 
     <p><%= f.label :email %><br>
-    <%= f.email_field :email %></p>
+    <%= f.email_field :email, :autofocus => true %></p>
 
     <p><%= f.submit _('Send me reset password instructions') %></p>
   <% end %>
 
-  <%= render :partial => "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 </div>
 
 <div id='bottom-offset-l'>
