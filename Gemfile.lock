@@ -317,7 +317,7 @@ GEM
       sexp_processor (~> 4.1)
     sandi_meter (1.0.5)
       mixlib-cli
-    sass (3.2.12)
+    sass (3.2.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
