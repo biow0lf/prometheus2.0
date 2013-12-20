@@ -17,5 +17,4 @@ Feature: Sign up
     When I open the email
     Then I should see "Confirm my account" in the email body
     When I follow "Confirm my account" in the email
-    And I should see "Your account was successfully confirmed. You are now signed in."
-    And I should see "Welcome, email@example.com!"
+    And I should see "Your account was successfully confirmed."
