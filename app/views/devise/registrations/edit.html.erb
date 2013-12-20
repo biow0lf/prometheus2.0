@@ -8,7 +8,7 @@
     <%= f.email_field :email, :autofocus => true %></p>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <p><%= _('Currently waiting confirmation for:') %> <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <p><%= f.label :password %> <i>(<%= _("leave blank if you don't want to change it") %>)</i><br>
