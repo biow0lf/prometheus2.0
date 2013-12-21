@@ -5,7 +5,7 @@ class Acl
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read
     $redis.multi
-    Maintainer.select('login').all.each do |maintainer|
+    Maintainer.select('login').each do |maintainer|
       $redis.del("#{branch.name}:maintainers:#{maintainer.login}")
     end
     file.each_line do |line|
