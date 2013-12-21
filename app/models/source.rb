@@ -1,6 +1,4 @@
 class Source < ActiveRecord::Base
-  attr_accessible :branch_id, :filename, :size, :source, :srpm_id
-
   belongs_to :branch
   belongs_to :srpm
 

@@ -1,8 +1,6 @@
 class MaintainerTeam < ActiveRecord::Base
   include MaintainerHelper
 
-  attr_accessible :name, :email, :login
-
   validates :name, presence: true
   validates :email, presence: true
   validates :login, presence: true, uniqueness: true
