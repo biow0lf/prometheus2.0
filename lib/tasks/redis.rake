@@ -24,7 +24,7 @@ namespace :redis do
 
     branches = Branch.where(vendor: 'ALT Linux')
 
-    branches.all.each do |branch|
+    branches.each do |branch|
       branch.recount!
     end
 
