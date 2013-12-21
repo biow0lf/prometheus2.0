@@ -25,7 +25,7 @@ Feature: User API
         "size": "831617",
         "filename": "openbox-3.4.11.1-alt1.1.1.src.rpm",
         "md5": "f87ff0eaa4e16b202539738483cd54d1",
-        "buildtime": "2010-11-24T23:58:02Z",
+        "buildtime": "2010-11-24T23:58:02.000Z",
         "vendor": "ALT Linux Team",
         "distribution": "ALT Linux",
         "repocop": "skip",
