@@ -23,6 +23,11 @@ namespace :redis do
     $redis.set('__SYNC__', Process.pid)
 
     branches = Branch.where(vendor: 'ALT Linux')
+
+    branches.all.each do |branch|
+      branch.recount!
+    end
+
     branches.each do |branch|
       srpms = Srpm.where(branch_id: branch).select('filename')
       srpms.each { |srpm| $redis.set("#{branch.name}:#{srpm.filename}", 1) }
