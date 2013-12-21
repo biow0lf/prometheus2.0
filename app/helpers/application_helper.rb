@@ -3,10 +3,6 @@ module ApplicationHelper
     content_for(:title) { page_title.html_safe }
   end
 
-  def srpm_count(srpm_count)
-    content_for(:srpms_counter) { srpm_count }
-  end
-
   def keywords(string)
     # http://en.wikipedia.org/wiki/Most_common_words_in_English
     skiplist = %w(the be to of and a in i it for not on he as you do at this but his by from or an)

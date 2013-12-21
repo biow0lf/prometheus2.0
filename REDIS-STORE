@@ -1,8 +1,8 @@
 Internal structure of redis cache used in prometheus2.0:
 
-"#{branch.name}:srpms:counter" integer. Srpms counter for branch.
+"branch:#{ branch.id }:counter" integer. Srpms counter for branch.
 
-e.g. "Sisyphus:srpms:counter" => 12837
+e.g. "branch:#{ branch.id }:counter" => 12837
 
 "#{branch.name}:#{srpm.filename}" 1 or nil. 1 if srpm imported.
 

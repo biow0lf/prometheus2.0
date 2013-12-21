@@ -1,13 +1,13 @@
 namespace :migrate do
-  desc 'Update all srpms with groupname'
-  task :update_groupname => :environment do
+  desc 'Call Branch.recount! on each branch'
+  task :recount => :environment do
 
-    Srpm.where(groupname: nil).each do |srpm|
-      srpm.update_column(:groupname, srpm.group.full_name)
+    Branch.all.each do |branch|
+      branch.recount!
     end
 
-    Package.where(groupname: nil).each do |package|
-      package.update_column(:groupname, package.group.full_name)
+    Branch.all.each do |branch|
+      Redis.current.del("#{branch.name}:srpms:counter")
     end
 
   end

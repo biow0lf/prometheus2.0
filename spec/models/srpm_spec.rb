@@ -33,7 +33,6 @@ describe Srpm do
 
   it 'should import srpm file' do
     branch = FactoryGirl.create(:branch)
-    $redis.set("#{ branch.name }:srpms:counter", 0)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
     maintainer = Maintainer.create!(login: 'icesik', email: 'icesik@altlinux.org', name: 'Igor Zubkov')
@@ -94,7 +93,6 @@ describe Srpm do
     srpm.filename.should eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
 
     $redis.get("#{ branch.name }:#{ srpm.filename }").should eq('1')
-    $redis.get("#{ branch.name }:srpms:counter").should eq('1')
   end
 
   it 'should import all srpms from path' do
@@ -111,14 +109,11 @@ describe Srpm do
 
   it 'should remove old srpms from database' do
     branch = FactoryGirl.create(:branch)
-    $redis.set("#{ branch.name }:srpms:counter", 0)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     $redis.set("#{ branch.name }:#{ srpm1.filename }", 1)
-    $redis.incr("#{ branch.name }:srpms:counter")
     srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
     $redis.set("#{ branch.name }:#{ srpm2.filename }", 1)
-    $redis.incr("#{ branch.name }:srpms:counter")
     $redis.sadd("#{ branch.name }:#{ srpm2.name }:acls", "icesik")
     $redis.set("#{ branch.name }:#{ srpm2.name }:leader", "icesik")
 
@@ -133,20 +128,24 @@ describe Srpm do
 
     $redis.get("#{ branch.name }:openbox-3.4.11.1-alt1.1.1.src.rpm").should eq('1')
     $redis.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm").should be_nil
-    $redis.get("#{ branch.name }:srpms:counter").should eq('1')
     $redis.get("#{ branch.name }:#{ srpm2.name }:acls").should be_nil
     $redis.get("#{ branch.name }:#{ srpm2.name }:leader").should be_nil
 
     # TODO: add checks for sub packages, set-get-delete
   end
 
-  it 'should cache srpms counter in redis' do
+  it 'should increment branch.counter on srpm.save' do
     branch = FactoryGirl.create(:branch)
-    $redis.del("#{ branch.name }:srpms:counter")
-    $redis.get("#{ branch.name }:srpms:counter").should be_nil
+    group = FactoryGirl.create(:group, branch_id: branch.id)
+    FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch.counter.value.should eq(1)
+  end
+
+  it 'should decrement branch.counter on srpm.destroy' do
+    branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
-    Srpm.count_srpms(branch)
-    $redis.get("#{ branch.name }:srpms:counter").should eq('1')
+    srpm.destroy
+    branch.counter.value.should eq(0)
   end
 end

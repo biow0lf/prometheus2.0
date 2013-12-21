@@ -22,4 +22,22 @@ describe Branch do
   it 'should return Branch.name on .to_param' do
     Branch.new(name: 'Sisyphus').to_param.should == 'Sisyphus'
   end
+
+  it 'should set default value in redis for counter after create' do
+    branch = FactoryGirl.create(:branch)
+    branch.counter.value.should eq(0)
+  end
+
+  it 'should remove counter in redis after destroy' do
+    branch = FactoryGirl.create(:branch)
+    branch.destroy
+    Redis.current.get("branch:#{ branch.id }:counter").should be_nil
+  end
+
+  it 'should recount Branch.srpms on recount!' do
+    branch = FactoryGirl.create(:branch)
+    Redis.current.set("branch:#{ branch.id }:counter", 42)
+    branch.counter.value.should eq(42)
+    branch.recount!.counter.value.should eq(0)
+  end
 end

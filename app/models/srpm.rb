@@ -19,6 +19,9 @@ class Srpm < ActiveRecord::Base
   has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
                     primary_key: 'builder_id'
 
+  after_create :increment_branch_counter
+  after_destroy :decrement_branch_counter
+
   def to_param
     name
   end
@@ -29,15 +32,6 @@ class Srpm < ActiveRecord::Base
     else
       nil
     end
-  end
-
-  def self.count_srpms(branch)
-    counter = $redis.get("#{branch.name}:srpms:counter")
-    unless counter
-      $redis.set("#{branch.name}:srpms:counter", branch.srpms.count)
-      counter = $redis.get("#{branch.name}:srpms:counter")
-    end
-    counter
   end
 
   def self.import(branch, file)
@@ -96,7 +90,6 @@ class Srpm < ActiveRecord::Base
       Specfile.import(branch, file, srpm)
       Patch.import(branch, file, srpm)
       Source.import(branch, file, srpm)
-      $redis.incr("#{branch.name}:srpms:counter")
     else
       puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
     end
@@ -126,7 +119,6 @@ class Srpm < ActiveRecord::Base
         $redis.del("#{branch.name}:#{srpm.name}:acls")
         $redis.del("#{branch.name}:#{srpm.name}:leader")
         srpm.destroy
-        $redis.decr("#{branch.name}:srpms:counter")
       end
     end
   end
@@ -144,5 +136,15 @@ class Srpm < ActiveRecord::Base
       logins << login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
+  end
+
+  private
+
+  def increment_branch_counter
+    branch.counter.increment
+  end
+
+  def decrement_branch_counter
+    branch.counter.decrement
   end
 end

@@ -17,7 +17,7 @@
   <td style="text-align: left;">
     <%= link_to branch.name, maintainers_path(branch), class: 'news' %>
   </td>
-  <td style="text-align: right;"><%= Srpm.count_srpms(branch) %></td>
+  <td style="text-align: right;"><%= branch.counter.value %></td>
 </tr>
 <% end %>
 
