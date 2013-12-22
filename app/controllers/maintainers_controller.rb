@@ -1,7 +1,7 @@
 class MaintainersController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @branches = Branch.order('order_id').all
+    @branches = Branch.order('order_id')
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
     @maintainer = @maintainer.decorate
@@ -10,7 +10,7 @@ class MaintainersController < ApplicationController
 
   def srpms
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @branches = Branch.order('order_id').all
+    @branches = Branch.order('order_id')
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
 
