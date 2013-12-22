@@ -3,15 +3,17 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 run Rails.application
 
-#require 'unicorn/oob_gc'
-#GC.disable
-#use Unicorn::OobGC, 10
+if ENV['RAILS_ENV'] == 'production'
+  #require 'unicorn/oob_gc'
+  #GC.disable
+  #use Unicorn::OobGC, 10
 
-# Unicorn self-process killer
-require 'unicorn/worker_killer'
+  # Unicorn self-process killer
+  require 'unicorn/worker_killer'
 
-# Max requests per worker
-use Unicorn::WorkerKiller::MaxRequests, 3072, 4096
+  # Max requests per worker
+  use Unicorn::WorkerKiller::MaxRequests, 3072, 4096
 
-# Max memory size (RSS) per worker
-use Unicorn::WorkerKiller::Oom, (128*(1024**2)), (196*(1024**2))
+  # Max memory size (RSS) per worker
+  use Unicorn::WorkerKiller::Oom, (128*(1024**2)), (196*(1024**2))
+end
