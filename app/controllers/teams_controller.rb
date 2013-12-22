@@ -1,15 +1,15 @@
 class TeamsController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
-    @branches = Branch.order('order_id').all
-    @team = MaintainerTeam.where(login: "@#{params[:id]}").first
+    @branches = Branch.order('order_id')
+    @team = MaintainerTeam.where(login: "@#{ params[:id] }").first
 
     render(status: 404, action: 'nosuchteam') and return if @team == nil
 
-    @srpms_counter = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).count
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:@#{params[:id]}")).
+    @srpms_counter = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).count
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).
                            includes(:repocop_patch).
-                           select('repocop, name, version, release, buildtime, url, summary').
+                           select('repocop, srpms.name, srpms.version, srpms.release, buildtime, srpms.url, summary').
                            order('LOWER(srpms.name)').
                            decorate
     @leader = Team.find_by_sql(["SELECT maintainers.login, maintainers.name
