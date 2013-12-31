@@ -49,8 +49,11 @@ group :production, :development, :staging do
   gem 'redis'
 end
 
-group :production do
+group :production, :staging do
   gem 'dalli'
+end
+
+group :production do
   gem 'newrelic_rpm'
 #  gem 'newrelic-redis'
   gem 'rack-force_domain'
@@ -60,7 +63,6 @@ group :production do
 end
 
 group :staging do
-  gem 'dalli'
   gem 'active_sanity'
 end
 
