@@ -21,10 +21,6 @@ group :postgresql do
   gem 'pg'
 end
 
-group :mysql do
-  gem 'mysql2'
-end
-
 group :sqlite do
   gem 'sqlite3'
 end
