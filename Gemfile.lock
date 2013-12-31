@@ -163,7 +163,7 @@ GEM
     guard-brakeman (0.8.1)
       brakeman (>= 2.1.1)
       guard (>= 1.1.0)
-    guard-cucumber (1.4.0)
+    guard-cucumber (1.4.1)
       cucumber (>= 1.2.0)
       guard (>= 1.1.0)
     guard-rspec (4.2.0)
