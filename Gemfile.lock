@@ -214,7 +214,7 @@ GEM
     minitest (4.7.5)
     mixlib-cli (1.4.0)
     multi_json (1.8.2)
-    multi_test (0.0.2)
+    multi_test (0.0.3)
     mysql2 (0.3.14)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
