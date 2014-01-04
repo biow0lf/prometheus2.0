@@ -5,17 +5,17 @@ class Leader
     $redis.multi
 
     branch.srpms.select('name').all.each do |srpm|
-      $redis.del("#{branch.name}:#{srpm.name}:leader")
+      $redis.del("#{ branch.name }:#{ srpm.name }:leader")
     end
 
     file.each_line do |line|
       package = line.split[0]
-      $redis.del("#{branch.name}:#{package}:leader")
+      $redis.del("#{ branch.name }:#{ package }:leader")
       login = line.split[1]
       login = 'php-coder' if login == 'php_coder'
       login = 'p_solntsev' if login == 'psolntsev'
       login = '@vim-plugins' if login == '@vim_plugins'
-      $redis.set("#{branch.name}:#{package}:leader", login)
+      $redis.set("#{ branch.name }:#{ package }:leader", login)
     end
 
     $redis.exec
