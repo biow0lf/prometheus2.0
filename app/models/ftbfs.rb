@@ -35,9 +35,11 @@ class Ftbfs < ActiveRecord::Base
 
         if login[0] != '@'
           maintainer = Maintainer.where(login: login).first
-          Ftbfs.create!(name: name, epoch: epoch, version: version,
-                        release: release, weeks: weeks, branch: branch,
-                        arch: arch, maintainer: maintainer) if maintainer
+          if maintainer
+            Ftbfs.create!(name: name, epoch: epoch, version: version,
+                          release: release, weeks: weeks, branch: branch,
+                          arch: arch, maintainer: maintainer)
+          end
         end
         # team = if acl[0] == '@'
         #   true
