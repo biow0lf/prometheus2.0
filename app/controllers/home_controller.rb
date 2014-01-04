@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id')
     if !fragment_exist?("#{I18n.locale}_top15_#{@branch.name}")
       @top15 = Maintainer.top15(@branch)
@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def maintainers_list
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
     @branches = Branch.order('order_id')
     @maintainers = Maintainer.order(:name)
     @teams = MaintainerTeam.order(:name)
