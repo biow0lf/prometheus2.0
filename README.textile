@@ -4,6 +4,7 @@ h1. Welcome to Prometheus 2.0
 !https://secure.travis-ci.org/biow0lf/prometheus2.0.png(Build Status)!:http://travis-ci.org/biow0lf/prometheus2.0
 !https://codeclimate.com/github/biow0lf/prometheus2.0.png!:https://codeclimate.com/github/biow0lf/prometheus2.0
 !https://coveralls.io/repos/biow0lf/prometheus2.0/badge.png?branch=master(Coverage Status)!:https://coveralls.io/r/biow0lf/prometheus2.0?branch=master
+!https://badge.waffle.io/biow0lf/prometheus2.0.png?label=ready(Stories in Ready)!:(http://waffle.io/biow0lf/prometheus2.0
 
 h2. Setup and run
 
