@@ -235,7 +235,7 @@ GEM
     pg (0.17.1)
     polyglot (0.3.3)
     powerpack (0.0.9)
-    pry (0.9.12.4)
+    pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
