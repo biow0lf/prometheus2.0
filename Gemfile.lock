@@ -179,7 +179,7 @@ GEM
       rubocop (~> 0.10)
     haml (4.0.5)
       tilt
-    highline (1.6.20)
+    highline (1.6.21)
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
