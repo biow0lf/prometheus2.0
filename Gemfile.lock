@@ -171,7 +171,7 @@ GEM
     guard-cucumber (1.4.1)
       cucumber (>= 1.2.0)
       guard (>= 1.1.0)
-    guard-rspec (4.2.7)
+    guard-rspec (4.2.8)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
     guard-rubocop (1.0.2)
