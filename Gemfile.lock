@@ -321,7 +321,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    sexp_processor (4.4.1)
+    sexp_processor (4.4.3)
     sextant (0.2.4)
       rails (>= 3.2)
     shoulda-matchers (2.6.1)
