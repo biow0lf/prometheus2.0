@@ -124,7 +124,7 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
-    email_spec (1.5.0)
+    email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
