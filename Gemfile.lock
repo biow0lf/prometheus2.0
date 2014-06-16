@@ -277,7 +277,7 @@ GEM
     redis (3.0.7)
     redis-objects (0.9.1)
       redis (>= 3.0.2)
-    request_store (1.0.5)
+    request_store (1.0.6)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     riddle (1.5.11)
