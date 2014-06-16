@@ -168,9 +168,9 @@ GEM
     guard-rspec (4.2.8)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    guard-rubocop (1.0.2)
+    guard-rubocop (1.1.0)
       guard (~> 2.0)
-      rubocop (~> 0.10)
+      rubocop (~> 0.20)
     haml (4.0.5)
       tilt
     highline (1.6.21)
