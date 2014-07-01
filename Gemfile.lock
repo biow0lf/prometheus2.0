@@ -274,7 +274,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
-    redis (3.0.7)
+    redis (3.1.0)
     redis-objects (0.9.1)
       redis (>= 3.0.2)
     request_store (1.0.6)
