@@ -86,7 +86,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.0)
+    coffee-script-source (1.7.1)
     commander (4.2.0)
       highline (~> 1.6.11)
     coveralls (0.7.0)
