@@ -2,4 +2,4 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the Rails application.
-Prometheus20::Application.initialize!
+Rails.Application.initialize!
