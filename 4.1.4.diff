@@ -1,2 +1,0 @@
-diff -urN demo408/config/initializers/secret_token.rb demo414/config/initializers/secret_token.rb
-diff -urN demo408/config/secrets.yml demo414/config/secrets.yml
