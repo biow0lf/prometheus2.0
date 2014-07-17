@@ -1,4 +1,4 @@
-Prometheus20::Application.routes.draw do
+Rails.application.routes.draw do
   scope '(:locale)', :locale => SUPPORTED_LOCALES do
     devise_for :users
     root :to => 'home#index'
