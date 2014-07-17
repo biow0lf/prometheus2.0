@@ -131,12 +131,6 @@ diff -urN demo408/config/initializers/assets.rb demo414/config/initializers/asse
 +# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 +# Rails.application.config.assets.precompile += %w( search.js )
 diff -urN demo408/config/initializers/cookies_serializer.rb demo414/config/initializers/cookies_serializer.rb
---- demo408/config/initializers/cookies_serializer.rb	1970-01-01 03:00:00.000000000 +0300
-+++ demo414/config/initializers/cookies_serializer.rb	2014-07-17 23:53:30.654825836 +0300
-@@ -0,0 +1,3 @@
-+# Be sure to restart your server when you modify this file.
-+
-+Rails.application.config.action_dispatch.cookies_serializer = :json
 \ В конце файла нет новой строки
 diff -urN demo408/config/initializers/mime_types.rb demo414/config/initializers/mime_types.rb
 diff -urN demo408/config/initializers/secret_token.rb demo414/config/initializers/secret_token.rb
