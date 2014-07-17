@@ -32,45 +32,6 @@ diff -urN demo408/app/views/layouts/application.html.erb demo414/app/views/layou
    <%= csrf_meta_tags %>
  </head>
  <body>
-diff -urN demo408/bin/rails demo414/bin/rails
-diff -urN demo408/bin/rake demo414/bin/rake
-diff -urN demo408/bin/spring demo414/bin/spring
-diff -urN demo408/config/application.rb demo414/config/application.rb
-diff -urN demo408/config/database.yml demo414/config/database.yml
---- demo408/config/database.yml	2014-07-17 23:34:24.102553106 +0300
-+++ demo414/config/database.yml	2014-07-17 23:53:30.669825277 +0300
-@@ -3,23 +3,23 @@
- #
- #   Ensure the SQLite 3 gem is defined in your Gemfile
- #   gem 'sqlite3'
--development:
-+#
-+default: &default
-   adapter: sqlite3
--  database: db/development.sqlite3
-   pool: 5
-   timeout: 5000
- 
-+development:
-+  <<: *default
-+  database: db/development.sqlite3
-+
- # Warning: The database defined as "test" will be erased and
- # re-generated from your development database when you run "rake".
- # Do not set this db to the same as development or production.
- test:
--  adapter: sqlite3
-+  <<: *default
-   database: db/test.sqlite3
--  pool: 5
--  timeout: 5000
- 
- production:
--  adapter: sqlite3
-+  <<: *default
-   database: db/production.sqlite3
--  pool: 5
--  timeout: 5000
 diff -urN demo408/config/environments/production.rb demo414/config/environments/production.rb
 --- demo408/config/environments/production.rb	2014-07-17 23:34:24.018556236 +0300
 +++ demo414/config/environments/production.rb	2014-07-17 23:53:30.644826209 +0300
@@ -169,8 +130,3 @@ diff -urN demo408/config/secrets.yml demo414/config/secrets.yml
 +# instead read values from the environment.
 +production:
 +  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
-diff -urN demo408/public/404.html demo414/public/404.html
-diff -urN demo408/public/422.html demo414/public/422.html
-diff -urN demo408/public/500.html demo414/public/500.html
-diff -urN demo408/Rakefile demo414/Rakefile
-diff -urN demo408/test/test_helper.rb demo414/test/test_helper.rb
