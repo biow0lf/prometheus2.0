@@ -18,7 +18,6 @@ db/sphinx/*
 config/development.sphinx.conf
 config/database.yml
 config/initializers/airbrake.rb
-config/initializers/secret_token.rb
 config/initializers/devise.rb
 coverage/
 
