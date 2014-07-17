@@ -8,8 +8,8 @@
   <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
   <link href='/opensearch.xml' rel='search' title='Prometheus2.0 search' type='application/opensearchdescription+xml'>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'application', "#{I18n.locale}/local" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', "#{I18n.locale}/local", 'data-turbolinks-track' => true %>
   <script>
     //<![CDATA[
     function chText(txt1, txt2, did) {
