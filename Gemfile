@@ -77,6 +77,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'capistrano', '2.15.5', require: false
+  # gem 'capistrano-rails'
   gem 'capistrano_colors', require: false
   gem 'guard'
   gem 'rb-fsevent', require: false
