@@ -442,7 +442,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   hirb
-  jbuilder
+  jbuilder (~> 2.0)
   jquery-rails
   kaminari
   launchy
