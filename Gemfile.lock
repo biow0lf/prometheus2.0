@@ -466,7 +466,7 @@ DEPENDENCIES
   rubocop
   sandi_meter
   sass-rails (~> 4.0.3)
-  sdoc
+  sdoc (~> 0.4.0)
   sextant
   shoulda-matchers
   simplecov
