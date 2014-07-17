@@ -278,7 +278,7 @@ GEM
     redis (3.1.0)
     redis-objects (0.9.1)
       redis (>= 3.0.2)
-    request_store (1.0.6)
+    request_store (1.0.7)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
