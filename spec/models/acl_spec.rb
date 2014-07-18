@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Acl do
+describe Acl, :type => :model do
   before(:each) do
     FactoryGirl.create(:branch)
 
@@ -12,23 +12,23 @@ describe Acl do
   end
 
   it 'should import and update acls' do
-    $redis.smembers('Sisyphus:rpm:acls').sort.should eq(%w(ldv at).sort)
-    $redis.smembers('Sisyphus:maintainers:ldv').should eq(%w(rpm))
-    $redis.smembers('Sisyphus:maintainers:at').should eq(%w(rpm))
+    expect($redis.smembers('Sisyphus:rpm:acls').sort).to eq(%w(ldv at).sort)
+    expect($redis.smembers('Sisyphus:maintainers:ldv')).to eq(%w(rpm))
+    expect($redis.smembers('Sisyphus:maintainers:at')).to eq(%w(rpm))
   end
 
   it 'should change "php_coder" to "php-coder"' do
-    $redis.smembers('Sisyphus:chkrootkit:acls')
-      .sort.should eq(['php-coder', '@everybody'].sort)
+    expect($redis.smembers('Sisyphus:chkrootkit:acls')
+      .sort).to eq(['php-coder', '@everybody'].sort)
   end
 
   it "should change 'psolntsev' to 'p_solntsev'" do
-    $redis.smembers('Sisyphus:docs-cppreference:acls').sort
-      .should eq(['p_solntsev', '@qa'].sort)
+    expect($redis.smembers('Sisyphus:docs-cppreference:acls').sort)
+      .to eq(['p_solntsev', '@qa'].sort)
   end
 
   it 'should change "@vim_plugins" to "@vim-plugins"' do
-    $redis.smembers('Sisyphus:vim-plugin-CRefVIM:acls')
-      .should eq(['@vim-plugins'])
+    expect($redis.smembers('Sisyphus:vim-plugin-CRefVIM:acls'))
+      .to eq(['@vim-plugins'])
   end
 end

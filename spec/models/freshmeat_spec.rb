@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Freshmeat do
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :version }
+describe Freshmeat, :type => :model do
+  it { is_expected.to validate_presence_of :name }
+  it { is_expected.to validate_presence_of :version }
 end

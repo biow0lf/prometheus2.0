@@ -1,16 +1,16 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe SourcesController do
+describe SourcesController, :type => :routing do
   describe "routing" do
     it "should route /Sisyphus/srpms/glibc/sources to sources#index" do
-      { :get => "/Sisyphus/srpms/glibc/sources" }.should route_to(:controller => 'sources',
+      expect({ :get => "/Sisyphus/srpms/glibc/sources" }).to route_to(:controller => 'sources',
                                                                   :action => 'index',
                                                                   :branch => 'Sisyphus',
                                                                   :srpm_id => 'glibc')
     end
 
     it "should route /en/Sisyphus/srpms/glibc/sources to sources#index" do
-      { :get => "/en/Sisyphus/srpms/glibc/sources" }.should route_to(:controller => 'sources',
+      expect({ :get => "/en/Sisyphus/srpms/glibc/sources" }).to route_to(:controller => 'sources',
                                                                      :action => 'index',
                                                                      :branch => 'Sisyphus',
                                                                      :srpm_id => 'glibc',
@@ -18,7 +18,7 @@ describe SourcesController do
     end
 
     it "should route /Sisyphus/srpms/glibc/sources/glibc-2.16-alt4.tar/download to sources#download" do
-      { :get => "/Sisyphus/srpms/glibc/sources/glibc-2.16-alt4.tar/download" }.should route_to(:controller => 'sources',
+      expect({ :get => "/Sisyphus/srpms/glibc/sources/glibc-2.16-alt4.tar/download" }).to route_to(:controller => 'sources',
                                                                                                :action => 'download',
                                                                                                :branch => 'Sisyphus',
                                                                                                :srpm_id => 'glibc',
@@ -26,7 +26,7 @@ describe SourcesController do
     end
 
     it "should route /en/Sisyphus/srpms/glibc/sources/glibc-2.16-alt4.tar/download to sources#download" do
-      { :get => "/en/Sisyphus/srpms/glibc/sources/glibc-2.16-alt4.tar/download" }.should route_to(:controller => 'sources',
+      expect({ :get => "/en/Sisyphus/srpms/glibc/sources/glibc-2.16-alt4.tar/download" }).to route_to(:controller => 'sources',
                                                                                                   :action => 'download',
                                                                                                   :branch => 'Sisyphus',
                                                                                                   :srpm_id => 'glibc',

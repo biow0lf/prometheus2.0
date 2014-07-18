@@ -1,14 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe PagesController do
+describe PagesController, :type => :routing do
   describe "routing" do
     it "should route /project to pages#project" do
-      { :get => "/project" }.should route_to(:controller => 'pages',
+      expect({ :get => "/project" }).to route_to(:controller => 'pages',
                                              :action => 'project')
     end
 
     it "should route /en/project to pages#project" do
-      { :get => "/en/project" }.should route_to(:controller => 'pages',
+      expect({ :get => "/en/project" }).to route_to(:controller => 'pages',
                                                 :action => 'project',
                                                 :locale => 'en')
     end

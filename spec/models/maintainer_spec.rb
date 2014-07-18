@@ -1,27 +1,27 @@
 require 'spec_helper'
 
-describe Maintainer do
+describe Maintainer, :type => :model do
   describe 'Associations' do
-    it { should have_many :teams }
-    it { should have_many :gears }
-    it { should have_many :ftbfs }
+    it { is_expected.to have_many :teams }
+    it { is_expected.to have_many :gears }
+    it { is_expected.to have_many :ftbfs }
   end
 
   describe 'Validation' do
-    it { should validate_presence_of :name }
-    it { should validate_presence_of :email }
-    it { should validate_presence_of :login }
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :email }
+    it { is_expected.to validate_presence_of :login }
   end
 
   it 'should validate_uniqueness_of :login' do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
                        login: 'icesik')
-    should validate_uniqueness_of :login
+    is_expected.to validate_uniqueness_of :login
   end
 
   it 'should return Maintainer.login on .to_param' do
-    Maintainer.new(login: 'icesik').to_param.should == 'icesik'
+    expect(Maintainer.new(login: 'icesik').to_param).to eq('icesik')
   end
 
   it 'should deny change email' do
@@ -29,7 +29,7 @@ describe Maintainer do
                                     email: 'icesik@altlinux.org',
                                     login: 'icesik')
     maintainer.email = 'ldv@altlinux.org'
-    maintainer.save.should be_false
+    expect(maintainer.save).to be_falsey
   end
 
   it 'should deny change login' do
@@ -37,7 +37,7 @@ describe Maintainer do
                                     email: 'icesik@altlinux.org',
                                     login: 'icesik')
     maintainer.login = 'ldv'
-    maintainer.save.should be_false
+    expect(maintainer.save).to be_falsey
   end
 
   it 'should deny change name' do
@@ -45,25 +45,25 @@ describe Maintainer do
                                     email: 'icesik@altlinux.org',
                                     login: 'icesik')
     maintainer.name = 'Dmitry V. Levin'
-    maintainer.save.should be_false
+    expect(maintainer.save).to be_falsey
   end
 
   it 'should return true if Maintainer exists' do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
                        login: 'icesik')
-    Maintainer.login_exists?('icesik').should be_true
+    expect(Maintainer.login_exists?('icesik')).to be_truthy
   end
 
   it 'should return false if Maintainer not exists' do
-    Maintainer.login_exists?('ice').should be_false
+    expect(Maintainer.login_exists?('ice')).to be_falsey
   end
 
   it 'should downcase login before checking for exists' do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
                        login: 'icesik')
-    Maintainer.login_exists?('ICESIK').should be_true
+    expect(Maintainer.login_exists?('ICESIK')).to be_truthy
   end
 
   it 'should create one Maintainer' do

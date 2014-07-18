@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe SearchesController do
+describe SearchesController, :type => :routing do
   describe "routing" do
     it "should route /search?utf8=yes&branch=Sisyphus&query=openbox to searches#show" do
-      { :get => "/search?utf8=yes&branch=Sisyphus&query=openbox" }.should route_to(controller: 'searches',
+      expect({ :get => "/search?utf8=yes&branch=Sisyphus&query=openbox" }).to route_to(controller: 'searches',
                                                                                    action: 'show',
                                                                                    utf8: 'yes',
                                                                                    branch: 'Sisyphus',
@@ -11,7 +11,7 @@ describe SearchesController do
     end
 
     it "should route /en/search?utf8=yes&branch=Sisyphus&query=openbox to searches#show" do
-      { :get => "/en/search?utf8=yes&branch=Sisyphus&query=openbox" }.should route_to(controller: 'searches',
+      expect({ :get => "/en/search?utf8=yes&branch=Sisyphus&query=openbox" }).to route_to(controller: 'searches',
                                                                                       action: 'show',
                                                                                       utf8: 'yes',
                                                                                       branch: 'Sisyphus',

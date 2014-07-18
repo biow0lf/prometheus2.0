@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe Gear do
+describe Gear, :type => :model do
   describe 'Associations' do
-    it { should belong_to :maintainer }
-    it { should belong_to :srpm }
+    it { is_expected.to belong_to :maintainer }
+    it { is_expected.to belong_to :srpm }
   end
 
   describe 'Validation' do
-    it { should validate_presence_of :repo }
-    it { should validate_presence_of :lastchange }
+    it { is_expected.to validate_presence_of :repo }
+    it { is_expected.to validate_presence_of :lastchange }
   end
 
-  it { should have_db_index :maintainer_id }
-  it { should have_db_index :srpm_id }
+  it { is_expected.to have_db_index :maintainer_id }
+  it { is_expected.to have_db_index :srpm_id }
 
   it 'should import gear repos' do
     branch = FactoryGirl.create(:branch)

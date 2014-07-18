@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Leader do
+describe Leader, :type => :model do
 end

@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe Team do
+describe Team, :type => :model do
   describe 'Associations' do
-    it { should belong_to :branch }
-    it { should belong_to :maintainer }
+    it { is_expected.to belong_to :branch }
+    it { is_expected.to belong_to :maintainer }
   end
 
   describe 'Validation' do
-    it { should validate_presence_of :name }
-    it { should validate_presence_of :branch }
-    it { should validate_presence_of :maintainer }
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :branch }
+    it { is_expected.to validate_presence_of :maintainer }
   end
 
-  it { should have_db_index :branch_id }
-  it { should have_db_index :maintainer_id }
+  it { is_expected.to have_db_index :branch_id }
+  it { is_expected.to have_db_index :maintainer_id }
 end
