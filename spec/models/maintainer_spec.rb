@@ -73,10 +73,8 @@ describe Maintainer, :type => :model do
   end
 
   it 'should not create Maintainer if Maintainer already exists' do
-    Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-    expect {
-      Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-    }.to_not change { Maintainer.count }.from(1).to(2)
+    2.times { Maintainer.import('Igor Zubkov <icesik@altlinux.org>') }
+    expect(Maintainer.count).to eq(1)
   end
 
   it 'should create new Maintainer team' do
@@ -86,9 +84,7 @@ describe Maintainer, :type => :model do
   end
 
   it 'should not create new Maintainer team' do
-    Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    expect {
-      Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    }.to_not change { MaintainerTeam.count }.from(1).to(2)
+    2.times { Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>') }
+    expect(MaintainerTeam.count).to eq(1)
   end
 end
