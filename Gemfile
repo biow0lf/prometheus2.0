@@ -70,7 +70,6 @@ end
 group :development do
   gem 'sandi_meter', require: false
   gem 'rails-erd'
-  gem 'sextant'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'better_errors'
