@@ -96,8 +96,8 @@ end
 group :development, :test do
   gem 'hirb'
   gem 'wirb'
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec', '~> 2.99'
+  gem 'rspec-rails', '~> 2.99'
 #  gem 'debugger'
 end
 
