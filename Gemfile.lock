@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/biow0lf/rpmfile.git
+  revision: 904e97e839044c34d6aa1d59ce5af671df3b3597
+  branch: master
+  specs:
+    rpmfile (0.0.1)
+      childprocess
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -79,6 +87,8 @@ GEM
       xpath (~> 2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    childprocess (0.5.3)
+      ffi (~> 1.0, >= 1.0.11)
     choice (0.1.6)
     chronic (0.10.2)
     coderay (1.1.0)
@@ -465,6 +475,7 @@ DEPENDENCIES
   rb-inotify (~> 0.9)
   redis
   redis-objects
+  rpmfile!
   rspec
   rspec-rails
   rubocop
