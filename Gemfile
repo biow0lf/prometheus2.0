@@ -43,6 +43,7 @@ gem 'brewdler', require: false
 gem 'sitemap_generator'
 gem 'backup', require: false
 gem 'coderay'
+# gem 'childprocess'
 # gem 'rack-rewrite'
 # gem 'delorean'
 
