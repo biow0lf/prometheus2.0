@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/rpmfile.git
-  revision: 904e97e839044c34d6aa1d59ce5af671df3b3597
+  revision: 44e59d48d2e37678c34c1dcce6f92de14f293271
   branch: master
   specs:
     rpmfile (0.0.1)
