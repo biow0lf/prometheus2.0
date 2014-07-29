@@ -43,7 +43,7 @@ gem 'brewdler', require: false
 gem 'sitemap_generator'
 gem 'backup', require: false
 gem 'coderay'
-gem 'rpmfile', git: 'https://github.com/biow0lf/rpmfile.git', branch: 'master'
+# gem 'rpmfile', git: 'https://github.com/biow0lf/rpmfile.git', branch: 'master'
 # gem 'rpmfile', path: '~/altlinux/rpmfile'
 # gem 'rack-rewrite'
 # gem 'delorean'
