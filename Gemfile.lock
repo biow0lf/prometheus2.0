@@ -341,7 +341,7 @@ GEM
       multi_json
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
-    sitemap_generator (5.0.4)
+    sitemap_generator (5.0.5)
       builder
     slim (2.0.3)
       temple (~> 0.6.6)
