@@ -411,7 +411,7 @@ PLATFORMS
 DEPENDENCIES
   active_sanity
   airbrake
-  awesome_nested_set (~> 3.0.0.rc.1)
+  awesome_nested_set
   backup
   better_errors
   binding_of_caller
