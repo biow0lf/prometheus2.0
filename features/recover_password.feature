@@ -20,5 +20,5 @@ Feature: Recover password
     Then I fill in "New password" with "mynewpassword"
     And I fill in "Confirm new password" with "mynewpassword"
     And I press "Change my password"
-    Then I should see "Your password was changed successfully. You are now signed in."
+    Then I should see "Your password has been changed successfully. You are now signed in."
     And I should see "Welcome, email@example.com!"
