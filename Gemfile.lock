@@ -333,7 +333,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    sexp_processor (4.4.3)
+    sexp_processor (4.4.4)
     shoulda-matchers (2.6.2)
       activesupport (>= 3.0.0)
     simplecov (0.9.0)
