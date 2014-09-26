@@ -17,6 +17,7 @@ class Repocop < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       Repocop.delete_all
 
+      # TODO: move repocop file url to Branch class
       url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2.sql'
       file = open(URI.escape(url)).read
 

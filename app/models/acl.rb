@@ -1,6 +1,9 @@
 require 'open-uri'
 
+#  Class for handing Acls.
 class Acl
+  # TODO: send Branch instance instead vendor_name and branch_name
+  # TODO: add acls file url to Branch and send only Branch instance
   def self.update_redis_cache(vendor_name, branch_name, url)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read

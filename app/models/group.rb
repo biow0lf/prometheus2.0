@@ -13,7 +13,7 @@ class Group < ActiveRecord::Base
     full = self.name
     parent = self.parent
     while parent
-      full = "#{parent.name}/#{full}"
+      full = "#{ parent.name }/#{ full }"
       parent = parent.parent
     end
     full

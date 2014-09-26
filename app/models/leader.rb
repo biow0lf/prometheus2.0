@@ -1,4 +1,6 @@
 class Leader
+  # TODO: send Branch instance instead vendor_name and branch_name
+  # TODO: move leader url to Branch class
   def self.update_redis_cache(vendor_name, branch_name, url)
     branch = Branch.where(name: branch_name, vendor: vendor_name).first
     file = open(URI.escape(url)).read

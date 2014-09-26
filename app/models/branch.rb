@@ -1,5 +1,4 @@
 # Class for handing Branches.
-
 class Branch < ActiveRecord::Base
   include Redis::Objects
 

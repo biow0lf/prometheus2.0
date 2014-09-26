@@ -4,9 +4,10 @@ class Bug < ActiveRecord::Base
   def self.import(url)
     ActiveRecord::Base.transaction do
       Bug.delete_all
-      data = `curl --silent "#{url}"`
+      data = `curl --silent "#{ url }"`
       csv = CSV.parse(data)
 
+      # parse csv with headers
       index = 0
       csv.each do |row|
         index += 1
@@ -17,6 +18,7 @@ class Bug < ActiveRecord::Base
         if row[2]
           bug.resolution = row[2]
         else
+          # TODO: change '' to nil and make for this migration
           bug.resolution = ''
         end
         bug.bug_severity = row[3]

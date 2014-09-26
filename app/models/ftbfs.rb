@@ -11,11 +11,15 @@ class Ftbfs < ActiveRecord::Base
   validates :weeks, presence: true
   validates :arch, presence: true
 
+  # TODO: send Branch instance instead vendor_name, branch_name
+  # TODO: add ftbfs url and arch to Branch class
+  # TODO: don't send url and arch, take it from Branch instance
   def self.update_ftbfs(vendor_name, branch_name, url, arch)
     branch = Branch.where(vendor: vendor_name, name: branch_name).first
     file = open(URI.escape(url)).read
     file.each_line do |line|
       name = line.split[0]
+      # 'evr' is 'epoch:version-release'
       evr = line.split[1]
       weeks = line.split[2]
       if evr[/:/]

@@ -6,6 +6,8 @@ class Team < ActiveRecord::Base
   validates :branch, presence: true
   validates :maintainer, presence: true
 
+  # TODO: send Branch instance instead vendor_name, branch_name
+  # TODO: add team url to Branch class
   def self.import_teams(vendor_name, branch_name, url)
     branch = Branch.where(name: branch_name, vendor: vendor_name).first
     if branch.teams.count(:all) == 0
@@ -15,7 +17,7 @@ class Team < ActiveRecord::Base
         for i in 1..line.split.count-1
           maintainer = Maintainer.where(login: line.split[i]).first
           if maintainer.nil?
-            puts "#{Time.now.to_s}: maintainer not found '#{line.split[i]}'"
+            puts "#{ Time.now }: maintainer not found '#{ line.split[i] }'"
           else
             if i == 1
               Team.create(name: team_name,
@@ -32,7 +34,7 @@ class Team < ActiveRecord::Base
         end
       end
     else
-      puts "#{Time.now.to_s}: teams already imported"
+      puts "#{ Time.now }: teams already imported"
     end
   end
 end
