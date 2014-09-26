@@ -7,7 +7,7 @@ namespace :migrate do
     end
 
     Branch.all.each do |branch|
-      Redis.current.del("#{branch.name}:srpms:counter")
+      Redis.current.del("#{ branch.name }:srpms:counter")
     end
 
   end
