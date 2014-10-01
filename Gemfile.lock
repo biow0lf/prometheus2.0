@@ -92,7 +92,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    commander (4.2.0)
+    commander (4.2.1)
       highline (~> 1.6.11)
     coveralls (0.7.1)
       multi_json (~> 1.3)
