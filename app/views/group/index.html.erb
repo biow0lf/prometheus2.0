@@ -34,7 +34,7 @@
       <% else %>
         <% index += 1 %>
         <div onclick="showGrp('<%= index %>')" class='grplist'>
-          <%= image_tag('plus.gif', name: "img#{index}", style: 'text-align: left; margin: 4px 4px 4px 0px; float: left;', size: '10x10', title: '', alt: '') %>
+          <%= image_tag('plus.gif', name: "img#{ index }", style: 'text-align: left; margin: 4px 4px 4px 0px; float: left;', size: '10x10', title: '', alt: '') %>
           <%= _(group.name) %>
         </div>
         <div id="dir<%= index %>" class='grphid' style='display: none'>
@@ -46,7 +46,7 @@
             <% else %>
               <% index += 1 %>
               <div onclick="showGrp('<%= index %>')" class='grplist'>
-                <%= image_tag('plus.gif', name: "img#{index}", style: 'text-align: left; margin: 4px 4px 4px 0px; float: left;', size: '10x10', title: '', alt: '') %>
+                <%= image_tag('plus.gif', name: "img#{ index }", style: 'text-align: left; margin: 4px 4px 4px 0px; float: left;', size: '10x10', title: '', alt: '') %>
                 <%= _(child.name) %>
               </div>
               <div id="dir<%= index %>" class='grphid' style='display: none'>

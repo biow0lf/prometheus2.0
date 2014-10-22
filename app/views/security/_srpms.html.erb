@@ -1,7 +1,7 @@
-<%# cache("#{I18n.locale}_srpms_#{@branch.name}_#{params[:page]}") do %>
+<%# cache("#{ I18n.locale }_srpms_#{ @branch.name }_#{ params[:page] }") do %>
 <% @changelogs.each do |changelog| %>
   <span class="news-date-new">
-    <%= link_to "#{changelog.srpm.name}-#{changelog.changelogname.split('>')[1].strip rescue nil}",
+    <%= link_to "#{ changelog.srpm.name }-#{ changelog.changelogname.split('>')[1].strip rescue nil }",
                 srpm_path(changelog.srpm.branch, changelog.srpm),
                 class: 'news',
                 title: _('detailed information about the package') %>

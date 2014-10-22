@@ -33,27 +33,27 @@
     <tr>
       <td valign='top'>
         <% @maintainers.each do |maintainer| %>
-          <% if $redis.smembers("#{@branch.name}:maintainers:#{maintainer.login}").count > 0 %>
+          <% if $redis.smembers("#{ @branch.name }:maintainers:#{ maintainer.login }").count > 0 %>
           <div style='margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;'>
             <div style='float: left;'>
               <%= link_to _(maintainer.name), maintainer_path(@branch, maintainer),
                           class: 'news', title: _('information about maintainer') %>
-              <%= link_to " (#{maintainer.login})", maintainer_path(@branch, maintainer), style: 'text-decoration: none; color: black;' %>
+              <%= link_to " (#{ maintainer.login })", maintainer_path(@branch, maintainer), style: 'text-decoration: none; color: black;' %>
             </div>
-            <div style='float: right;'><%= $redis.smembers("#{@branch.name}:maintainers:#{maintainer.login}").count %></div>
+            <div style='float: right;'><%= $redis.smembers("#{ @branch.name }:maintainers:#{ maintainer.login }").count %></div>
           </div>
           <% end %>
         <% end %>
       </td>
       <td valign='top'>
         <% @teams.each do |team| %>
-          <% if $redis.smembers("#{@branch.name}:maintainers:#{team.login}").count > 0 %>
+          <% if $redis.smembers("#{ @branch.name }:maintainers:#{ team.login }").count > 0 %>
           <div style='margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;'>
             <div style='float: left;'>
               <%= link_to team.name, team_path(id: team.login[1..-1], branch: @branch.name), class: 'news' %>
-              <%= link_to " (#{team.login[1..-1]})", team_path(id: team.login[1..-1], branch: @branch.name), style: 'text-decoration: none; color: black;' %>
+              <%= link_to " (#{ team.login[1..-1] })", team_path(id: team.login[1..-1], branch: @branch.name), style: 'text-decoration: none; color: black;' %>
             </div>
-            <div style='float: right;'><%= $redis.smembers("#{@branch.name}:maintainers:#{team.login}").count %></div>
+            <div style='float: right;'><%= $redis.smembers("#{ @branch.name }:maintainers:#{ team.login }").count %></div>
           </div>
           <% end %>
         <% end %>
