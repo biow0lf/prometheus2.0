@@ -44,15 +44,15 @@ gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'
 
-group :production, :development, :staging do
+group :production, :development, :staging, :updates do
   gem 'redis'
 end
 
-group :production, :staging do
+group :production, :staging, :updates do
   gem 'dalli'
 end
 
-group :production do
+group :production, :updates do
   gem 'newrelic_rpm'
 #  gem 'newrelic-redis'
   gem 'rack-force_domain'
