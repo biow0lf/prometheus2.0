@@ -1,7 +1,7 @@
 namespace :perlwatch do
   desc 'Import CPAN info to database'
   task :update => :environment do
-    puts "#{ Time.now }: import CPAN info to database"
+    Rails.logger.info "#{ Time.now }: import CPAN info to database"
     if $redis.get('__SYNC__')
       exist = begin
                 Process::kill(0, $redis.get('__SYNC__').to_i)
@@ -10,16 +10,16 @@ namespace :perlwatch do
                 false
               end
       if exist
-        puts "#{ Time.now }: update is locked by another cron script"
+        Rails.logger.info "#{ Time.now }: update is locked by another cron script"
         Process.exit!(true)
       else
-        puts "#{ Time.now }: dead lock found and deleted"
+        Rails.logger.info "#{ Time.now }: dead lock found and deleted"
         $redis.del('__SYNC__')
       end
     end
     $redis.set('__SYNC__', Process.pid)
     PerlWatch.import_data('http://www.cpan.org/modules/02packages.details.txt.gz')
-    puts "#{ Time.now }: end"
+    Rails.logger.info "#{ Time.now }: end"
     $redis.del('__SYNC__')
   end
 end
