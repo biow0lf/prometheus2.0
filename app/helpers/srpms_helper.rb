@@ -28,7 +28,7 @@ module SrpmsHelper
 
     # ${$text}=~ s/\n(\s*\#.*)/\n<b class='comment'>$1<\/b>/g;
 
-    text = text.gsub(/(\s*\#.*)/) { |s| s = "<b class='comment'>#{s}</b>" }
+    text = text.gsub(/(\s*\#.*)/) { |s| s = "<b class='comment'>#{ s }</b>" }
 
     # ${$text}=~ s/\n\%(description|prep|build|install|preun|pre|postun|post|triggerpostun|trigger|files|changelog|package)([\n|\s])/\n<b class='reserved'>\%$1<\/b>$2/g;
     text = text.gsub(/^%(description|prep|build|check|install|preun|pre|postun|post|triggerpostun|trigger|files|changelog|package)/) { |s| s = "<b class='reserved'>#{ s }</b>" }

@@ -19,11 +19,15 @@
     <tr>
       <td><%= f.branch.name %></td>
       <td><%= link_to f.name, srpm_path(f.branch, f.name), class: 'news' %></td>
-      <td><%= "#{f.version}-#{f.release}" %></td>
+      <td><%= "#{ f.version }-#{ f.release }" %></td>
       <td><%= f.arch %></td>
       <td><%= f.weeks %></td>
     </tr>
   <% end %>
 </table>
 
-</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+</div>
+
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">&nbsp;</div>
+</div>

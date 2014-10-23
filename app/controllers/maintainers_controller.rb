@@ -5,7 +5,7 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
     @maintainer = @maintainer.decorate
-    @acls = $redis.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
+    @acls = $redis.smembers("#{ @branch.name }:maintainers:#{ params[:id].downcase }").count
   end
 
   def srpms
@@ -31,7 +31,7 @@ class MaintainersController < ApplicationController
 
     order += " " + sort_order
 
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).
                            includes(:repocop_patch).
                            order(order).
                            decorate
@@ -61,7 +61,7 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
@@ -79,7 +79,7 @@ class MaintainersController < ApplicationController
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
@@ -104,6 +104,6 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
 
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
+    @srpms = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:repocops).order('LOWER(srpms.name)')
   end
 end

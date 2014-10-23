@@ -18,7 +18,7 @@
         <% login = gear.maintainer.login %>
         <% login = 'php_coder' if gear.maintainer.login == 'php-coder' %>
         <% login = 'psolntsev' if gear.maintainer.login == 'p_solntsev' %>
-        <%= link_to gear.repo, "http://git.altlinux.org/people/#{login}/packages/?p=#{gear.repo}.git", class: 'news' %>
+        <%= link_to gear.repo, "http://git.altlinux.org/people/#{ login }/packages/?p=#{ gear.repo }.git", class: 'news' %>
       </td>
       <td><%= gear.lastchange %></td>
     </tr>

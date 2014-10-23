@@ -26,7 +26,7 @@
   <% @allbugs.each do |bug| %>
     <tr>
       <td>
-        <%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{bug.bug_id.to_s}", class: 'news' %>
+        <%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{ bug.bug_id.to_s }", class: 'news' %>
       </td>
       <td><%= bug.component %></td>
       <td><%= bug.bug_severity %></td>
@@ -40,4 +40,8 @@
   <% end %>
 </table>
 
-</div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+</div>
+
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">&nbsp;</div>
+</div>

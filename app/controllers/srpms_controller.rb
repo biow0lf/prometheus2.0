@@ -13,12 +13,12 @@ class SrpmsController < ApplicationController
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
     end
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
-    if $redis.exists("#{@branch.name}:#{@srpm.name}:acls")
-      @maintainers = Maintainer.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] == '@'}).order(:name)
-      @teams = MaintainerTeam.where(login: $redis.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] != '@'}).order(:name)
+    if $redis.exists("#{ @branch.name }:#{ @srpm.name }:acls")
+      @maintainers = Maintainer.where(login: $redis.smembers("#{ @branch.name }:#{ @srpm.name }:acls").reject{|acl| acl[0] == '@'}).order(:name)
+      @teams = MaintainerTeam.where(login: $redis.smembers("#{ @branch.name }:#{ @srpm.name }:acls").reject{|acl| acl[0] != '@'}).order(:name)
     end
-    if $redis.exists("#{@branch.name}:#{@srpm.name}:leader")
-      login = $redis.get("#{@branch.name}:#{@srpm.name}:leader")
+    if $redis.exists("#{ @branch.name }:#{ @srpm.name }:leader")
+      login = $redis.get("#{ @branch.name }:#{ @srpm.name }:leader")
       if login[0] == '@'
         @leader = MaintainerTeam.where(login: login).first
       else
@@ -47,7 +47,7 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     if @srpm.specfile
-      send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
+      send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{ @srpm.name }.spec"
     else @srpm.specfile.nil?
       render layout: false
     end
