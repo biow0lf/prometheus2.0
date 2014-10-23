@@ -17,7 +17,7 @@ class Team < ActiveRecord::Base
         for i in 1..line.split.count-1
           maintainer = Maintainer.where(login: line.split[i]).first
           if maintainer.nil?
-            puts "#{ Time.now }: maintainer not found '#{ line.split[i] }'"
+            Rails.logger.info "#{ Time.now }: maintainer not found '#{ line.split[i] }'"
           else
             if i == 1
               Team.create(name: team_name,
@@ -34,7 +34,7 @@ class Team < ActiveRecord::Base
         end
       end
     else
-      puts "#{ Time.now }: teams already imported"
+      Rails.logger.info "#{ Time.now }: teams already imported"
     end
   end
 end

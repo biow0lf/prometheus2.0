@@ -28,9 +28,9 @@ class Gear < ActiveRecord::Base
                         branch_id: branch).first
 
       if maintainer.nil?
-        puts "#{ Time.now }: maintainer not found '#{ login }'"
+        Rails.logger.info "#{ Time.now }: maintainer not found '#{ login }'"
       elsif srpm.nil?
-        # puts "#{ Time.now }: srpm not found '#{ package.gsub(/\.git/, '') }'"
+        # Rails.logger.info "#{ Time.now }: srpm not found '#{ package.gsub(/\.git/, '') }'"
       else
         Gear.create!(repo: package.gsub(/\.git/, ''), maintainer: maintainer,
                      lastchange: time, srpm: srpm)
