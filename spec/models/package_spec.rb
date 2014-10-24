@@ -42,7 +42,7 @@ describe Package, :type => :model do
     expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{ file }").and_return('alt1.1.1')
     expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{ file }").and_return('(none)')
     expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{ARCH}' #{ file }").and_return('i586')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
+    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{ file }").and_return('Graphical desktop/Other')
     expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{ file }").and_return('short description')
     expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{ file }").and_return('GPLv2+')
     expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{ file }").and_return('http://openbox.org/')
@@ -70,13 +70,13 @@ describe Package, :type => :model do
     # package.buildtime.should == Time.at(1315301838)
     expect(package.filename).to eq('openbox-3.5.0-alt1.i586.rpm')
 
-    expect($redis.get("#{branch.name}:#{package.filename}")).to eq('1')
+    expect($redis.get("#{ branch.name }:#{ package.filename }")).to eq('1')
   end
 
   it 'should import all packages from path' do
     branch = FactoryGirl.create(:branch)
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
-    expect($redis.get("#{branch.name}:gcc-1.0-alt1.i586.rpm")).to be_nil
+    expect($redis.get("#{ branch.name }:gcc-1.0-alt1.i586.rpm")).to be_nil
     expect(Dir).to receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
     expect(File).to receive(:exist?).with('gcc-1.0-alt1.i586.rpm').and_return(true)
     expect(RPM).to receive(:check_md5).and_return(true)

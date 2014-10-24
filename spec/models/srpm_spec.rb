@@ -34,7 +34,7 @@ describe Srpm, :type => :model do
   it 'should import srpm file' do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
+    md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{ file }"
     maintainer = Maintainer.create!(login: 'icesik', email: 'icesik@altlinux.org', name: 'Igor Zubkov')
 
     expect(Srpm).to receive(:`).with("/usr/bin/md5sum #{ file }").and_return(md5)
