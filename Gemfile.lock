@@ -394,7 +394,7 @@ GEM
     uniform_notifier (1.6.2)
     warden (1.2.3)
       rack (>= 1.0)
-    whenever (0.9.3)
+    whenever (0.9.4)
       chronic (>= 0.6.3)
     wirb (1.0.3)
       paint (~> 0.8)
