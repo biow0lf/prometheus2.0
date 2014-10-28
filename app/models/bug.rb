@@ -4,7 +4,8 @@ class Bug < ActiveRecord::Base
   def self.import(url)
     ActiveRecord::Base.transaction do
       Bug.delete_all
-      data = `curl --silent "#{ url }"`
+      # altlinux uses their own ca and self sign
+      data = `curl --cacert altlinux.ca --silent "#{ url }"`
       csv = CSV.parse(data)
 
       # parse csv with headers
