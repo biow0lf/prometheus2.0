@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe GroupController, :type => :routing do
+describe GroupController, type: :routing do
   describe 'routing' do
     it 'should route /Sisyphus/packages to group#index' do
       expect({ get: '/Sisyphus/packages' }).to route_to(controller: 'group',

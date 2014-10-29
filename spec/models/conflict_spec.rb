@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Conflict, :type => :model do
+describe Conflict, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :package }
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MaintainerTeam, :type => :model do
+describe MaintainerTeam, type: :model do
   # describe 'Associations' do
   #   it { should have_many :teams }
   #   it { should have_many :gears }

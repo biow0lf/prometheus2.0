@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApplicationHelper, :type => :helper do
+describe ApplicationHelper, type: :helper do
   it 'should return "/en" for url "/" and lang "en"' do
     expect(current_page('/', 'en')).to eq('/en')
   end

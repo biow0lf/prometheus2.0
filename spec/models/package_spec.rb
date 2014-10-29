@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Package, :type => :model do
+describe Package, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :branch }
     it { is_expected.to belong_to :srpm }

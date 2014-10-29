@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PerlWatch, :type => :model do
+describe PerlWatch, type: :model do
   describe 'Validation' do
     it { is_expected.to validate_presence_of :name }
   end
@@ -8,9 +8,7 @@ describe PerlWatch, :type => :model do
   it 'should import data from CPAN' do
     page = `cat spec/data/02packages.details.txt`
     url = 'http://www.cpan.org/modules/02packages.details.txt'
-    FakeWeb.register_uri(:get,
-                         url,
-                         response: page)
+    FakeWeb.register_uri(:get, url, response: page)
     expect {
       PerlWatch.import_data(url)
     }.to change { PerlWatch.count }.from(0).to(1)

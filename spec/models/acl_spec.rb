@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Acl, :type => :model do
+describe Acl, type: :model do
   before(:each) do
     FactoryGirl.create(:branch)
 
@@ -22,7 +22,7 @@ describe Acl, :type => :model do
       .sort).to eq(['php-coder', '@everybody'].sort)
   end
 
-  it "should change 'psolntsev' to 'p_solntsev'" do
+  it 'should change "psolntsev" to "p_solntsev"' do
     expect($redis.smembers('Sisyphus:docs-cppreference:acls').sort)
       .to eq(['p_solntsev', '@qa'].sort)
   end

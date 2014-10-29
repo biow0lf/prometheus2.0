@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Gear, :type => :model do
+describe Gear, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :maintainer }
     it { is_expected.to belong_to :srpm }

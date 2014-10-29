@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bug, :type => :model do
+describe Bug, type: :model do
   it { is_expected.to have_db_index :assigned_to }
   it { is_expected.to have_db_index :bug_status }
   it { is_expected.to have_db_index :product }

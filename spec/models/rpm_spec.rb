@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RPM, :type => :model do
+describe RPM, type: :model do
   it 'should verify md5 sum of srpm before import and return true for good srpm' do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     expect(RPM).to receive(:`).with("export LANG=C && rpm -K --nogpg #{ file }").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")

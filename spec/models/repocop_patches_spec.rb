@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RepocopPatch, :type => :model do
+describe RepocopPatch, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :branch }
   end

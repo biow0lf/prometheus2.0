@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Patch, :type => :model do
+describe Patch, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :branch }
     it { is_expected.to belong_to :srpm }

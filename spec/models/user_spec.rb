@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User, :type => :model do
+describe User, type: :model do
   it 'should return login on User.login' do
     expect(User.new(email: 'icesik@altlinux.org').login).to eq('icesik')
   end

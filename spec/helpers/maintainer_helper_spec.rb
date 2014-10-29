@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MaintainerHelper, :type => :helper do
+describe MaintainerHelper, type: :helper do
   it 'should fix maintainer login' do
     expect(fix_maintainer_email('icesik at altlinux.ru')).to eq('icesik@altlinux.org')
     expect(fix_maintainer_email('icesik at altlinux.ru')).to eq('icesik@altlinux.org')
