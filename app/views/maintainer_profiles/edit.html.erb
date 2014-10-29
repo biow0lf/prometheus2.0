@@ -1,7 +1,7 @@
 <div id='main-content'>
   <div class='header'><%= _('Update personal maintainer info') %></div>
 
-  <%= form_tag maintainer_profile_path, :method => :put do %>
+  <%= form_tag maintainer_profile_path, method: :put do %>
     <%= label_tag :website, _('Website/Blog:') %>
     <%= text_field_tag :website, @maintainer.website %>
     <br>
