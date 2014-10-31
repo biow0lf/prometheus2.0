@@ -109,7 +109,7 @@ class Srpm < ActiveRecord::Base
   def self.remove_old(branch, path)
     branch.srpms.each do |srpm|
       # FIXME: use ruby for path building
-      unless File.exists?("#{ path }#{ srpm.filename }")
+      unless File.exist?("#{ path }#{ srpm.filename }")
         srpm.packages.each do |package|
           Rails.logger.info "#{ Time.now }: delete '#{ package.filename }' from redis cache"
           $redis.del("#{ branch.name }:#{ package.filename }")
