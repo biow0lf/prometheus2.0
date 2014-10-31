@@ -54,7 +54,7 @@ end
 
 group :production, :updates do
   gem 'newrelic_rpm'
-#  gem 'newrelic-redis'
+  # gem 'newrelic-redis'
   gem 'rack-force_domain'
   gem 'exception_notification'
   gem 'unicorn'
@@ -96,7 +96,7 @@ group :development, :test do
   gem 'wirb'
   gem 'rspec'
   gem 'rspec-rails'
-#  gem 'debugger'
+  # gem 'debugger'
 end
 
 group :test do
