@@ -10,6 +10,6 @@ end
 
 Given(/^we have acls "(.*?)" for source rpm "(.*?)" in branch "(.*?)"$/) do |logins, package, branch|
   logins.split(',').each do |login|
-    $redis.sadd("#{branch}:#{package}:acls", login)
+    $redis.sadd("#{ branch }:#{ package }:acls", login)
   end
 end
