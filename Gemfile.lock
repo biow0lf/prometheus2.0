@@ -206,7 +206,7 @@ GEM
       rb-inotify (>= 0.9)
     locale (2.1.0)
     lumberjack (1.0.9)
-    mail (2.6.1)
+    mail (2.6.3)
       mime-types (>= 1.16, < 3)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
