@@ -5,7 +5,7 @@ namespace :p5 do
     Rails.logger.info "#{ Time.now }: Update p5 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false

@@ -5,7 +5,7 @@ namespace :'50' do
     Rails.logger.info "#{ Time.now }: Update 5.0 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -15,7 +15,7 @@ namespace :'50' do
         Process.exit!(true)
       else
         Rails.logger.info "#{ Time.now }: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
     Redis.current.set('__SYNC__', Process.pid)

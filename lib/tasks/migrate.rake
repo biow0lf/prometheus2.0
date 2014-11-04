@@ -12,4 +12,3 @@ namespace :migrate do
 
   end
 end
-
