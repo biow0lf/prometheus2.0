@@ -119,8 +119,8 @@ describe Srpm, type: :model do
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 
-    expect(File).to receive(:exists?).with("#{ path }openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
-    expect(File).to receive(:exists?).with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
+    expect(File).to receive(:exist?).with("#{ path }openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
+    expect(File).to receive(:exist?).with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
 
     expect {
       Srpm.remove_old(branch, path)
