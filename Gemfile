@@ -76,7 +76,7 @@ group :development do
   gem 'capistrano', '2.15.5', require: false
   # gem 'capistrano-rails'
   gem 'capistrano_colors', require: false
-  gem 'guard'
+  gem 'guard', '2.7.3'
   gem 'rb-fsevent', require: false
   gem 'growl', require: false
   gem 'rb-inotify', '~> 0.9', require: false
