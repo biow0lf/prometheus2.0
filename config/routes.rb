@@ -62,15 +62,16 @@ Rails.application.routes.draw do
 
   get '(/:locale)/misc/bugs' => 'misc#bugs', locale: SUPPORTED_LOCALES
 
-  get '(/:locale)/:branch/security' => 'security#index', as: 'security',
-                                                         locale: SUPPORTED_LOCALES,
-                                                         branch: SUPPORTED_BRANCHES
+  get '(/:locale)/:branch/security' => 'security#index',
+      as: 'security',
+      locale: SUPPORTED_LOCALES,
+      branch: SUPPORTED_BRANCHES
 
-# TODO: drop this later
-##  get '/repocop' => 'repocop#index'
-##  get '/repocop/by-test/:testname' => 'repocop#bytest'
-#
-#  get '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
+  # TODO: drop this later
+  # get '/repocop' => 'repocop#index'
+  # get '/repocop/by-test/:testname' => 'repocop#bytest'
+  #
+  # get '/repocop/by-test/install_s' => 'repocop#srpms_install_s'
 
   # TODO: drop this and make API
   get '/repocop/no_url_tag' => 'repocop#no_url_tag'
@@ -86,6 +87,6 @@ Rails.application.routes.draw do
   get '/repocop/srpms_install_s' => 'repocop#srpms_install_s'
   # END
 
-  get '/src\::name' => redirect("/en/Sisyphus/srpms/%{name}"), name: /[^\/]+/
+  get '/src\::name' => redirect('/en/Sisyphus/srpms/%{name}'), name: /[^\/]+/
   get '/:name' => 'redirector#index', name: /[^\/]+/
 end
