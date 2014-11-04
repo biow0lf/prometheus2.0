@@ -96,170 +96,164 @@ branch.save!
 
 # Mirrors for Sisyphus
 branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
-Mirror.create(branch_id: branch.id,
-              order_id: 3,
-              name: 'ftp://ftp.linux.kiev.ua',
-              country: 'ua',
-              uri: 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 4,
-              name: 'http://ftp.linux.kiev.ua',
-              country: 'ua',
-              uri: 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 5,
-              name: 'rsync://ftp.linux.kiev.ua',
-              country: 'ua',
-              uri: 'rsync://ftp.linux.kiev.ua/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(branch_id: branch.id,
+               order_id: 3,
+               name: 'ftp://ftp.linux.kiev.ua',
+               country: 'ua',
+               uri: 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 4,
+               name: 'http://ftp.linux.kiev.ua',
+               country: 'ua',
+               uri: 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 5,
+               name: 'rsync://ftp.linux.kiev.ua',
+               country: 'ua',
+               uri: 'rsync://ftp.linux.kiev.ua/ALTLinux',
+               protocol: 'rsync')
 
 # Mirrors for SisyphusARM
 branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
 branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
 branch = Branch.where(name: '5.1', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
 branch = Branch.where(name: '5.0', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
 branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
 branch = Branch.where(name: '4.0', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(branch_id: branch.id,
+               order_id: 0,
+               name: 'ftp://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'ftp')
+Mirror.create!(branch_id: branch.id,
+               order_id: 1,
+               name: 'http://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+               protocol: 'http')
+Mirror.create!(branch_id: branch.id,
+               order_id: 2,
+               name: 'rsync://ftp.altlinux.org',
+               country: 'ru',
+               uri: 'rsync://ftp.altlinux.org/ALTLinux',
+               protocol: 'rsync')
 
 # Mirror.create(:branch_id => branch.id, :order_id => 1, :country => 'ru',
 #               :ftp => 'ftp://ftp.chg.ru/pub/Linux/ALTLinux',
