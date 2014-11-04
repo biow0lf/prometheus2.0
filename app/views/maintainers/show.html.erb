@@ -17,7 +17,7 @@
   <td style="text-align: left;">
     <%= link_to branch.name, maintainer_path(branch, @maintainer), class: 'news' %>
   </td>
-  <td style="text-align: right;"><%= $redis.smembers("#{ branch.name }:maintainers:#{ @maintainer.login }").count %></td>
+  <td style="text-align: right;"><%= Redis.current.smembers("#{ branch.name }:maintainers:#{ @maintainer.login }").count %></td>
 </tr>
 <% end %>
 

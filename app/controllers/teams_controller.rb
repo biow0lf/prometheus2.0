@@ -6,8 +6,8 @@ class TeamsController < ApplicationController
 
     render(status: 404, action: 'nosuchteam') and return if @team == nil
 
-    @srpms_counter = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).count
-    @srpms = @branch.srpms.where(name: $redis.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).
+    @srpms_counter = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).count
+    @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).
                            includes(:repocop_patch).
                            select('repocop, srpms.name, srpms.version, srpms.release, buildtime, srpms.url, summary').
                            order('LOWER(srpms.name)').

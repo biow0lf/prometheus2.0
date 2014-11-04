@@ -92,13 +92,13 @@ describe Srpm, type: :model do
     expect(srpm.changelogtext).to eq('- 3.4.11.1')
     expect(srpm.filename).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
 
-    expect($redis.get("#{ branch.name }:#{ srpm.filename }")).to eq('1')
+    expect(Redis.current.get("#{ branch.name }:#{ srpm.filename }")).to eq('1')
   end
 
   it 'should import all srpms from path' do
     branch = FactoryGirl.create(:branch)
     path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
-    expect($redis.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
+    expect(Redis.current.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
     expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
     expect(File).to receive(:exist?).with('glibc-2.11.3-alt6.src.rpm').and_return(true)
     expect(RPM).to receive(:check_md5).and_return(true)
@@ -111,11 +111,11 @@ describe Srpm, type: :model do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
-    $redis.set("#{ branch.name }:#{ srpm1.filename }", 1)
+    Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
     srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
-    $redis.set("#{ branch.name }:#{ srpm2.filename }", 1)
-    $redis.sadd("#{ branch.name }:#{ srpm2.name }:acls", "icesik")
-    $redis.set("#{ branch.name }:#{ srpm2.name }:leader", "icesik")
+    Redis.current.set("#{ branch.name }:#{ srpm2.filename }", 1)
+    Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", "icesik")
+    Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", "icesik")
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 
@@ -126,10 +126,10 @@ describe Srpm, type: :model do
       Srpm.remove_old(branch, path)
     }.to change { Srpm.count }.from(2).to(1)
 
-    expect($redis.get("#{ branch.name }:openbox-3.4.11.1-alt1.1.1.src.rpm")).to eq('1')
-    expect($redis.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm")).to be_nil
-    expect($redis.get("#{ branch.name }:#{ srpm2.name }:acls")).to be_nil
-    expect($redis.get("#{ branch.name }:#{ srpm2.name }:leader")).to be_nil
+    expect(Redis.current.get("#{ branch.name }:openbox-3.4.11.1-alt1.1.1.src.rpm")).to eq('1')
+    expect(Redis.current.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm")).to be_nil
+    expect(Redis.current.get("#{ branch.name }:#{ srpm2.name }:acls")).to be_nil
+    expect(Redis.current.get("#{ branch.name }:#{ srpm2.name }:leader")).to be_nil
 
     # TODO: add checks for sub packages, set-get-delete
   end

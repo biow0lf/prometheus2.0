@@ -50,7 +50,7 @@ class Package < ActiveRecord::Base
       srpm = branch.srpms.where(filename: sourcerpm).first
       package.srpm_id = srpm.id
       if package.save
-        $redis.set("#{ branch.name }:#{ package.filename }", 1)
+        Redis.current.set("#{ branch.name }:#{ package.filename }", 1)
         # # Rails.logger.info "#{ Time.now }: updated '#{ package.filename }'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
@@ -67,7 +67,7 @@ class Package < ActiveRecord::Base
   def self.import_all(branch, pathes)
     pathes.each do |path|
       Dir.glob(path).each do |file|
-        unless $redis.exists("#{ branch.name }:#{ file.split('/')[-1] }")
+        unless Redis.current.exists("#{ branch.name }:#{ file.split('/')[-1] }")
           next unless File.exist?(file)
           next unless Rpm.check_md5(file)
           Rails.logger.info "#{ Time.now }: import '#{ file.split('/')[-1] }'"
