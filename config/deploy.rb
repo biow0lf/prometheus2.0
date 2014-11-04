@@ -10,7 +10,7 @@ set :scm,             :git
 set :repository,      'git://github.com/biow0lf/prometheus2.0.git'
 set :branch,          'origin/master'
 set :migrate_target,  :current
-set :ssh_options,     { forward_agent: true }
+set :ssh_options,     forward_agent: true
 set :rails_env,       'production'
 set :deploy_to,       '/home/prometheusapp/www'
 set :normalize_asset_timestamps, false
@@ -35,7 +35,7 @@ default_environment['RAILS_ENV'] = 'production'
 
 default_run_options[:shell] = 'bash'
 
-set :ssh_options, { forward_agent: false, port: 222 }
+set :ssh_options, forward_agent: false, port: 222
 
 namespace :deploy do
   desc 'Deploy your application'
@@ -145,7 +145,6 @@ def run_rake(cmd)
 end
 
 before 'deploy:finalize_update', 'bundle:install'
-
 
 # after 'deploy:update_code', 'deploy:symlink_all'
 #
