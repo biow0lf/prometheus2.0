@@ -20,21 +20,21 @@ config = YAML.load_file(database_yml)
 
 Backup::Model.new(:db_backup, 'Database Backup') do
   database PostgreSQL do |db|
-    db.name               = config[RAILS_ENV]["database"]
-    db.username           = config[RAILS_ENV]["username"]
-    db.password           = config[RAILS_ENV]["password"]
-    db.host               = config[RAILS_ENV]["host"]
-    db.port               = config[RAILS_ENV]["port"]
+    db.name               = config[RAILS_ENV]['database']
+    db.username           = config[RAILS_ENV]['username']
+    db.password           = config[RAILS_ENV]['password']
+    db.host               = config[RAILS_ENV]['host']
+    db.port               = config[RAILS_ENV]['port']
     db.skip_tables        = []
   end
 
 #  database Redis do |db|
-#    db.name               = "my_database_name"
-#    db.path               = "/usr/local/var/db/redis"
-#    db.password           = "my_password"
-#    db.host               = "localhost"
+#    db.name               = 'my_database_name'
+#    db.path               = '/usr/local/var/db/redis'
+#    db.password           = 'my_password'
+#    db.host               = 'localhost'
 #    db.port               = 5432
-#    db.socket             = "/tmp/redis.sock"
+#    db.socket             = '/tmp/redis.sock'
 #    db.additional_options = []
 #    db.invoke_save        = true
 #    # Optional: Use to set the location of this utility
