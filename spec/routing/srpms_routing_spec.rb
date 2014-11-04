@@ -18,10 +18,10 @@ describe SrpmsController, type: :routing do
     end
 
     it 'should route /Sisyphus/srpms/glibc/changelog to srpms#show' do
-      expect({ get: '/Sisyphus/srpms/glibc/changelog' }).to route_to(:controller => 'srpms',
-                                                                     :action => 'changelog',
-                                                                     :branch => 'Sisyphus',
-                                                                     :id => 'glibc')
+      expect({ get: '/Sisyphus/srpms/glibc/changelog' }).to route_to(controller: 'srpms',
+                                                                     action: 'changelog',
+                                                                     branch: 'Sisyphus',
+                                                                     id: 'glibc')
     end
 
     it 'should route /en/Sisyphus/srpms/glibc/changelog to srpms#changelog' do
