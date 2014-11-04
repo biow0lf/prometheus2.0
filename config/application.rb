@@ -1,6 +1,16 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require 'rails'
+
+%w(
+  active_record
+  action_controller
+  action_view
+  action_mailer
+  sprockets
+).each do |framework|
+  require "#{ framework }/railtie"
+end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -23,7 +33,7 @@ module Prometheus20
     config.i18n.default_locale = :en
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -32,7 +42,7 @@ module Prometheus20
     config.assets.enabled = true
 
     config.generators do |g|
-      g.test_framework      :rspec, :fixture => true
+      g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl
     end
 
@@ -41,11 +51,11 @@ module Prometheus20
 
     if Rails.env.production?
       config.middleware.use ExceptionNotification::Rack,
-        :email => {
-          :email_prefix => "[ERROR] ",
-          :sender_address => %{"Sisyphus 2.0 Error" <prometheus-noreply@altlinux.org>},
-          :exception_recipients => %w{igor.zubkov@gmail.com}
-        }
+                            email: {
+                              email_prefix: '[ERROR] ',
+                              sender_address: '"Sisyphus 2.0 Error" <prometheus-noreply@altlinux.org>',
+                              exception_recipients: 'igor.zubkov@gmail.com'
+                            }
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
     end
   end
