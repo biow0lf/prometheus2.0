@@ -51,7 +51,7 @@ class Package < ActiveRecord::Base
       package.srpm_id = srpm.id
       if package.save
         Redis.current.set("#{ branch.name }:#{ package.filename }", 1)
-        # # Rails.logger.info "#{ Time.now }: updated '#{ package.filename }'"
+        # Rails.logger.info "#{ Time.now }: updated '#{ package.filename }'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
         # Conflict.import_conflicts(rpm, package)

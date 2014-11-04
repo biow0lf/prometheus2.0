@@ -33,7 +33,7 @@ class Repocop < ActiveRecord::Base
     srpms.each do |srpm|
       repocops = Repocop.where(srcname: srpm.name,
                                srcversion: srpm.version,
-                               srcrel: srpm.release).all
+                               srcrel: srpm.release)
 
       repocop_status = 'skip'
       repocops.each do |repocop|
