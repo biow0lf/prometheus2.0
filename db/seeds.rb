@@ -86,13 +86,13 @@ branch.order_id = 10
 branch.path = '/4.0/branch'
 branch.save!
 
-## add Redora Rawhide
-#branch = Branch.new
-#branch.fullname = 'Rawhide'
-#branch.urlname = 'Rawhide'
-#branch.srpms_path = "/path/*.src.rpm"
-#branch.altlinux = false
-#branch.save!
+# Add Fedora Rawhide
+# branch = Branch.new
+# branch.fullname = 'Rawhide'
+# branch.urlname = 'Rawhide'
+# branch.srpms_path = "/path/*.src.rpm"
+# branch.altlinux = false
+# branch.save!
 
 # Mirrors for Sisyphus
 branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
