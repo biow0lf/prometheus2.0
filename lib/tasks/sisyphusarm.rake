@@ -1,11 +1,11 @@
 namespace :sisyphusarm do
   desc 'Update SisyphusARM stuff'
-  task :update => :environment do
+  task update: :environment do
     require 'open-uri'
     Rails.logger.info "#{ Time.now }: Update SisyphusARM stuff"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -15,10 +15,10 @@ namespace :sisyphusarm do
         Process.exit!(true)
       else
         Rails.logger.info "#{ Time.now }: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Rails.logger.info "#{ Time.now }: update *.src.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
@@ -30,25 +30,25 @@ namespace :sisyphusarm do
     Package.import_all(branch, pathes)
     ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Rails.logger.info "#{ Time.now }: end"
-#    # TODO: review and cleanup this code
-#    Rails.logger.info "#{ Time.now }: expire cache"
-#    ['en', 'ru', 'uk', 'br'].each do |locale|
-#      ActionController::Base.new.expire_fragment("#{ locale }_srpms_#{ branch.name }_")
-#      pages_counter = (branch.srpms.where("srpms.created_at > '2010-11-09 09:00:00'").count / 50) + 1
-#      for page in 1..pages_counter do
-#        ActionController::Base.new.expire_fragment("#{ locale }_srpms_#{ branch.name }_#{ page }")
-#      end
-#    end
-#    Rails.logger.info "#{ Time.now }: end"
+    # TODO: review and cleanup this code
+    # Rails.logger.info "#{ Time.now }: expire cache"
+    # ['en', 'ru', 'uk', 'br'].each do |locale|
+    #   ActionController::Base.new.expire_fragment("#{ locale }_srpms_#{ branch.name }_")
+    #   pages_counter = (branch.srpms.where("srpms.created_at > '2010-11-09 09:00:00'").count / 50) + 1
+    #   for page in 1..pages_counter do
+    #     ActionController::Base.new.expire_fragment("#{ locale }_srpms_#{ branch.name }_#{ page }")
+    #   end
+    # end
+    # Rails.logger.info "#{ Time.now }: end"
     Rails.logger.info "#{ Time.now }: update time"
     # TODO: write to updated_at int
-    $redis.set("#{ branch.name }:updated_at", Time.now.to_s)
+    Redis.current.set("#{ branch.name }:updated_at", Time.now.to_s)
     Rails.logger.info "#{ Time.now }: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 
   desc 'Import *.src.rpm from SisyphusARM to database'
-  task :srpms => :environment do
+  task srpms: :environment do
     require 'open-uri'
     Rails.logger.info "#{ Time.now }: import *.src.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
@@ -57,7 +57,7 @@ namespace :sisyphusarm do
   end
 
   desc 'Import *.arm.rpm/*.noarch.rpm from SisyphusARM to database'
-  task :binary => :environment do
+  task binary: :environment do
     require 'open-uri'
     Rails.logger.info "#{ Time.now }: import *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first

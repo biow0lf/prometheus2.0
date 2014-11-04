@@ -1,12 +1,12 @@
 namespace :gear do
   desc 'Import all git repos to database'
-  task :import => :environment do
+  task import: :environment do
     require 'open-uri'
 
     Rails.logger.info "#{ Time.now }: import gitrepos"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -16,23 +16,23 @@ namespace :gear do
         Process.exit!(true)
       else
         Rails.logger.info "#{ Time.now }: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Gear.import_gitrepos('http://git.altlinux.org/people-packages-list')
     Rails.logger.info "#{ Time.now }: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 
   desc 'Update all git repos to database'
-  task :update => :environment do
+  task update: :environment do
     require 'open-uri'
 
     Rails.logger.info "#{ Time.now }: update gitrepos"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__'))
+                Process::kill(0, Redis.current.get('__SYNC__'))
                 true
               rescue
                 false
@@ -42,12 +42,12 @@ namespace :gear do
         Process.exit!(true)
       else
         Rails.logger.info "#{ Time.now }: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
     Rails.logger.info "#{ Time.now }: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 end

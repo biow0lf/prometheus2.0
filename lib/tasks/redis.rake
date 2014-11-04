@@ -1,13 +1,13 @@
 namespace :redis do
   desc 'Cache all *.src.rpm and all binary *.rpm in redis'
-  task :cache => :environment do
+  task cache: :environment do
     require 'open-uri'
 
     Rails.logger.info "#{ Time.now }: cache all *.src.rpm info in redis"
 
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -17,10 +17,10 @@ namespace :redis do
         Process.exit!(true)
       else
         Rails.logger.info "#{ Time.now }: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
 
     branches = Branch.where(vendor: 'ALT Linux')
 
@@ -30,14 +30,14 @@ namespace :redis do
 
     branches.each do |branch|
       srpms = Srpm.where(branch_id: branch).select('filename')
-      srpms.each { |srpm| $redis.set("#{ branch.name }:#{ srpm.filename }", 1) }
+      srpms.each { |srpm| Redis.current.set("#{ branch.name }:#{ srpm.filename }", 1) }
     end
     Rails.logger.info "#{ Time.now }: end"
 
     Rails.logger.info "#{ Time.now }: cache all binary files info in redis"
     branches.each do |branch|
       packages = Package.where(branch_id: branch).select('filename')
-      packages.each { |package| $redis.set("#{ branch.name }:#{ package.filename }", 1) }
+      packages.each { |package| Redis.current.set("#{ branch.name }:#{ package.filename }", 1) }
     end
     Rails.logger.info "#{ Time.now }: end"
 
@@ -67,6 +67,6 @@ namespace :redis do
     Leader.update_redis_cache('ALT Linux', '4.0', 'http://git.altlinux.org/acl/list.packages.4.0')
     Rails.logger.info "#{ Time.now }: end"
 
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 end

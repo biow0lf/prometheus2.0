@@ -1,6 +1,6 @@
 namespace :migrate do
   desc 'Call Branch.recount! on each branch'
-  task :recount => :environment do
+  task recount: :environment do
 
     Branch.all.each do |branch|
       branch.recount!
