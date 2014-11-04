@@ -19,7 +19,7 @@ describe Specfile, type: :model do
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
 
     expect(Specfile).to receive(:`).with("rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" \"#{ file }\" | grep \"32 \" | sed -e 's/32 //'").and_return('openbox.spec')
-    expect(Specfile).to receive(:`).with("rpm2cpio \"#{ file }\" | cpio -i --quiet --to-stdout \"openbox.spec\"").and_return("qwerty")
+    expect(Specfile).to receive(:`).with("rpm2cpio \"#{ file }\" | cpio -i --quiet --to-stdout \"openbox.spec\"").and_return('qwerty')
 
     expect {
       Specfile.import(branch, file, srpm)

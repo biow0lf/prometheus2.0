@@ -19,12 +19,12 @@ describe Acl, type: :model do
 
   it 'should change "php_coder" to "php-coder"' do
     expect(Redis.current.smembers('Sisyphus:chkrootkit:acls')
-      .sort).to eq(['php-coder', '@everybody'].sort)
+      .sort).to eq(%w(php-coder @everybody).sort)
   end
 
   it 'should change "psolntsev" to "p_solntsev"' do
     expect(Redis.current.smembers('Sisyphus:docs-cppreference:acls').sort)
-      .to eq(['p_solntsev', '@qa'].sort)
+      .to eq(%w(p_solntsev @qa).sort)
   end
 
   it 'should change "@vim_plugins" to "@vim-plugins"' do

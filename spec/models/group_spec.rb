@@ -34,7 +34,7 @@ describe Group, type: :model do
     branch = FactoryGirl.create(:branch)
     Group.import(branch, 'Archiving/Backup')
 
-    groups = Group.all.order('name ASC')
+    groups = Group.order('name ASC')
 
     expect(groups.count).to eq(2)
 

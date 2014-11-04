@@ -35,7 +35,7 @@ describe Srpm, type: :model do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{ file }"
-    maintainer = Maintainer.create!(login: 'icesik', email: 'icesik@altlinux.org', name: 'Igor Zubkov')
+    Maintainer.create!(login: 'icesik', email: 'icesik@altlinux.org', name: 'Igor Zubkov')
 
     expect(Srpm).to receive(:`).with("/usr/bin/md5sum #{ file }").and_return(md5)
     expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{NAME}' #{ file }").and_return('openbox')
@@ -114,8 +114,8 @@ describe Srpm, type: :model do
     Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
     srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
     Redis.current.set("#{ branch.name }:#{ srpm2.filename }", 1)
-    Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", "icesik")
-    Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", "icesik")
+    Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", 'icesik')
+    Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", 'icesik')
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 
