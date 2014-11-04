@@ -48,8 +48,8 @@ namespace :deploy do
   task :setup, except: { no_release: true } do
     dirs = [deploy_to, shared_path]
     dirs += shared_children.map { |d| File.join(shared_path, d) }
-    run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
-    run "git clone #{repository} #{current_path}"
+    run "#{ try_sudo } mkdir -p #{dirs.join(' ')} && #{ try_sudo } chmod g+w #{dirs.join(' ')}"
+    run "git clone #{ repository } #{ current_path }"
   end
 
   task :cold do
@@ -65,7 +65,7 @@ namespace :deploy do
 
   desc 'Update the deployed code.'
   task :update_code, except: { no_release: true } do
-    run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
+    run "cd #{ current_path }; git fetch origin; git reset --hard #{ branch }"
     finalize_update
   end
 
@@ -79,29 +79,29 @@ namespace :deploy do
   end
 
   task :finalize_update, except: { no_release: true } do
-    run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
+    run "chmod -R g+w #{ latest_release }" if fetch(:group_writable, true)
 
     # mkdir -p is making sure that the directories are there for some SCM's that don't
     # save empty folders
     run <<-CMD
-      rm -rf #{latest_release}/log #{latest_release}/public/system #{latest_release}/tmp/pids &&
-      mkdir -p #{latest_release}/public &&
-      mkdir -p #{latest_release}/tmp &&
-      ln -s #{shared_path}/log #{latest_release}/log &&
-      ln -s #{shared_path}/system #{latest_release}/public/system &&
-      ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
-      ln -sf #{shared_path}/config/database.yml #{latest_release}/config/database.yml &&
-      ln -sf #{shared_path}/config/newrelic.yml #{latest_release}/config/newrelic.yml &&
-      ln -sf #{shared_path}/config/redis.yml #{latest_release}/config/redis.yml &&
-      ln -sf #{shared_path}/config/initializers/devise.rb #{latest_release}/config/initializers/devise.rb &&
-      ln -sf #{shared_path}/config/initializers/secret_token.rb #{latest_release}/config/initializers/secret_token.rb &&
-      cd #{release_path} && bundle exec rake assets:precompile
+      rm -rf #{ latest_release }/log #{ latest_release }/public/system #{ latest_release }/tmp/pids &&
+      mkdir -p #{ latest_release }/public &&
+      mkdir -p #{ latest_release }/tmp &&
+      ln -s #{ shared_path }/log #{ latest_release}/log &&
+      ln -s #{ shared_path }/system #{ latest_release }/public/system &&
+      ln -s #{ shared_path }/pids #{ latest_release }/tmp/pids &&
+      ln -sf #{ shared_path }/config/database.yml #{ latest_release }/config/database.yml &&
+      ln -sf #{ shared_path }/config/newrelic.yml #{ latest_release }/config/newrelic.yml &&
+      ln -sf #{ shared_path }/config/redis.yml #{ latest_release }/config/redis.yml &&
+      ln -sf #{ shared_path }/config/initializers/devise.rb #{ latest_release }/config/initializers/devise.rb &&
+      ln -sf #{ shared_path }/config/initializers/secret_token.rb #{ latest_release }/config/initializers/secret_token.rb &&
+      cd #{ release_path } && bundle exec rake assets:precompile
     CMD
 
     if fetch(:normalize_asset_timestamps, true)
       stamp = Time.now.utc.strftime('%Y%m%d%H%M.%S')
-      asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(' ')
-      run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", env:  { 'TZ' => 'UTC' }
+      asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{ latest_release }/public/#{ p }" }.join(' ')
+      run "find #{ asset_paths } -exec touch -t #{ stamp } {} ';'; true", env:  { 'TZ' => 'UTC' }
     end
   end
 
@@ -112,7 +112,7 @@ namespace :deploy do
 
   desc 'Start unicorn'
   task :start, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec unicorn_rails -c config/unicorn.rb -D"
+    run "cd #{ current_path } && bundle exec unicorn_rails -c config/unicorn.rb -D"
   end
 
   desc 'Stop unicorn'
@@ -129,7 +129,7 @@ namespace :deploy do
 
     desc 'Rewrite reflog so HEAD@{1} will continue to point to at the next previous release.'
     task :cleanup, except: { no_release: true } do
-      run "cd #{current_path}; git reflog delete --rewrite HEAD@{1}; git reflog delete --rewrite HEAD@{1}"
+      run "cd #{ current_path }; git reflog delete --rewrite HEAD@{1}; git reflog delete --rewrite HEAD@{1}"
     end
 
     desc 'Rolls back to the previously deployed version.'
@@ -141,7 +141,7 @@ namespace :deploy do
 end
 
 def run_rake(cmd)
-  run "cd #{current_path}; #{rake} #{cmd}"
+  run "cd #{ current_path }; #{ rake } #{cmd}"
 end
 
 before 'deploy:finalize_update', 'bundle:install'
@@ -150,10 +150,10 @@ before 'deploy:finalize_update', 'bundle:install'
 # after 'deploy:update_code', 'deploy:symlink_all'
 #
 # namespace :deploy do
-#   desc "Symlinks all needed files"
+#   desc 'Symlinks all needed files'
 #   task :symlink_all, roles: :app do
 #     # precompile the assets
-#     run "cd #{release_path} && bundle exec rake assets:precompile"
+#     run "cd #{ release_path } && bundle exec rake assets:precompile"
 #   end
 # end
 
