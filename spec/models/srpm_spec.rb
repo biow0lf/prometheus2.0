@@ -68,9 +68,7 @@ describe Srpm, type: :model do
     expect(Patch).to receive(:import).and_return(true)
     expect(Source).to receive(:import).and_return(true)
 
-    expect {
-      Srpm.import(branch, file)
-    }.to change { Srpm.count }.from(0).to(1)
+    expect { Srpm.import(branch, file) }.to change { Srpm.count }.from(0).to(1)
 
     srpm = Srpm.first
     expect(srpm.name).to eq('openbox')
@@ -85,9 +83,8 @@ describe Srpm, type: :model do
     expect(srpm.description).to eq('long description')
     expect(srpm.vendor).to eq('ALT Linux Team')
     expect(srpm.distribution).to eq('ALT Linux')
-    # FIXME:
-    # srpm.buildtime.should eq(Time.at(1_315_301_838))
-    # srpm.changelogtime.should eq(Time.at(1_312_545_600))
+    # FIXME: srpm.buildtime.should eq(Time.at(1_315_301_838))
+    # FIXME: srpm.changelogtime.should eq(Time.at(1_312_545_600))
     expect(srpm.changelogname).to eq('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     expect(srpm.changelogtext).to eq('- 3.4.11.1')
     expect(srpm.filename).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
@@ -122,9 +119,8 @@ describe Srpm, type: :model do
     expect(File).to receive(:exist?).with("#{ path }openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
     expect(File).to receive(:exist?).with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
 
-    expect {
-      Srpm.remove_old(branch, path)
-    }.to change { Srpm.count }.from(2).to(1)
+    expect { Srpm.remove_old(branch, path) }
+      .to change { Srpm.count }.from(2).to(1)
 
     expect(Redis.current.get("#{ branch.name }:openbox-3.4.11.1-alt1.1.1.src.rpm")).to eq('1')
     expect(Redis.current.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm")).to be_nil

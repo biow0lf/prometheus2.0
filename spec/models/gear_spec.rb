@@ -45,8 +45,7 @@ describe Gear, type: :model do
                          'http://git.altlinux.org/people-packages-list',
                          response: page)
 
-    expect {
-      Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
-    }.to change { Gear.count }.from(0).to(1)
+    expect { Gear.update_gitrepos('http://git.altlinux.org/people-packages-list') }
+      .to change { Gear.count }.from(0).to(1)
   end
 end

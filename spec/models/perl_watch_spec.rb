@@ -9,9 +9,8 @@ describe PerlWatch, type: :model do
     page = `cat spec/data/02packages.details.txt`
     url = 'http://www.cpan.org/modules/02packages.details.txt'
     FakeWeb.register_uri(:get, url, response: page)
-    expect {
-      PerlWatch.import_data(url)
-    }.to change { PerlWatch.count }.from(0).to(1)
+    expect { PerlWatch.import_data(url) }
+      .to change { PerlWatch.count }.from(0).to(1)
     expect(PerlWatch.count).to eq(1)
     perlwatch = PerlWatch.first
     expect(perlwatch.name).to eq('AnyEvent::ZeroMQ')

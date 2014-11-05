@@ -51,9 +51,8 @@ describe Package, type: :model do
 
     expect(File).to receive(:size).with(file).and_return(236_554)
 
-    expect {
-      Package.import(branch, file)
-    }.to change { Package.count }.from(0).to(1)
+    expect { Package.import(branch, file) }
+      .to change { Package.count }.from(0).to(1)
 
     package = Package.first
     expect(package.name).to eq('openbox')
@@ -66,8 +65,7 @@ describe Package, type: :model do
     expect(package.license).to eq('GPLv2+')
     expect(package.url).to eq('http://openbox.org/')
     expect(package.description).to eq('long description')
-    # FIXME:
-    # package.buildtime.should == Time.at(1315301838)
+    # FIXME: package.buildtime.should == Time.at(1315301838)
     expect(package.filename).to eq('openbox-3.5.0-alt1.i586.rpm')
 
     expect(Redis.current.get("#{ branch.name }:#{ package.filename }")).to eq('1')
