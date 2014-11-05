@@ -445,7 +445,7 @@ MaintainerTeam.create!(name: 'QA Team',
 MaintainerTeam.create!(name: 'CPAN Team',
                        email: 'cpan@packages.altlinux.org',
                        login: '@cpan')
-MaintainerTeam.create!(name: 'XFCE Team',
+MaintainerTeam.create!(name: 'Xfce Team',
                        email: 'xfce@packages.altlinux.org',
                        login: '@xfce')
 MaintainerTeam.create!(name: 'VIm Plugins Development Team',
