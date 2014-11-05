@@ -1,0 +1,19 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'bin/*'
+    - 'lib/tasks/cucumber.rake'
+    - 'Rakefile'
+    - 'Guardfile'
+    - 'features/step_definitions/email_steps.rb'
+    - 'features/step_definitions/web_steps.rb'
+    - 'spec/spec_helper.rb'
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
