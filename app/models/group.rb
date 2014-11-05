@@ -10,7 +10,7 @@ class Group < ActiveRecord::Base
   has_many :packages
 
   def full_name
-    full = self.name
+    full = name
     parent = self.parent
     while parent
       full = "#{ parent.name }/#{ full }"

@@ -27,8 +27,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def acls
-    if Redis.current.exists("#{ self.branch.name }:#{ self.name }:acls")
-      Maintainer.where(login: Redis.current.smembers("#{ self.branch.name }:#{ self.name }:acls")).order(:name).select('login').map(&:login).join(',')
+    if Redis.current.exists("#{ branch.name }:#{ name }:acls")
+      Maintainer.where(login: Redis.current.smembers("#{ branch.name }:#{ name }:acls")).order(:name).select('login').map(&:login).join(',')
     else
       nil
     end
@@ -54,7 +54,7 @@ class Srpm < ActiveRecord::Base
     srpm.groupname = group_name
     srpm.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{ file }`
     # TODO: test for this
-    # hack for very long summary in openmoko_dfu-util src.rpm
+    # HACK: for very long summary in openmoko_dfu-util src.rpm
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
     srpm.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{ file }`
     srpm.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{ file }`
