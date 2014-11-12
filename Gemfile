@@ -63,6 +63,10 @@ group :production, :updates do
   gem 'unicorn-worker-killer'
 end
 
+group :production do
+  gem 'lograge'
+end
+
 group :staging do
   gem 'active_sanity'
 end

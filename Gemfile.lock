@@ -207,6 +207,10 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     locale (2.1.0)
+    lograge (0.3.0)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -459,6 +463,7 @@ DEPENDENCIES
   kaminari
   launchy
   libnotify
+  lograge
   meta_request
   mysql2
   newrelic_rpm
