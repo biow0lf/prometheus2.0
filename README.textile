@@ -12,7 +12,7 @@ h2. Setup and run
 
 h3. Install:
 
-* Ruby 2.1.4
+* Ruby 2.1.5
 * RubyGems 2.4.3
 * bundler 1.7.4
 * PostgreSQL 9.1 (some features will not work in other db)
