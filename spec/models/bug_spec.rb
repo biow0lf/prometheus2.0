@@ -4,6 +4,7 @@ describe Bug, type: :model do
   it { is_expected.to have_db_index :assigned_to }
   it { is_expected.to have_db_index :bug_status }
   it { is_expected.to have_db_index :product }
+  it { is_expected.to have_db_index :component }
 
   it 'should import bugs from url' do
     bugs = `cat spec/data/bugs.csv`
