@@ -10,11 +10,11 @@ describe Branch, type: :model do
     it { is_expected.to have_many :srpms }
     it { is_expected.to have_many :packages }
     it { is_expected.to have_many(:changelogs).through(:srpms) }
+    it { is_expected.to have_many(:patches).through(:srpms) }
     it { is_expected.to have_one(:specfile).through(:srpms) }
     it { is_expected.to have_many :groups }
     it { is_expected.to have_many :teams }
     it { is_expected.to have_many :mirrors }
-    it { is_expected.to have_many :patches }
     it { is_expected.to have_many :ftbfs }
     it { is_expected.to have_many :repocops }
     it { is_expected.to have_many :repocop_patches }

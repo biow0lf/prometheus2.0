@@ -1,13 +1,11 @@
 class Patch < ActiveRecord::Base
-  belongs_to :branch
   belongs_to :srpm
 
   validates :srpm, presence: true
-  validates :branch, presence: true
   validates :filename, presence: true
   validates :size, presence: true
 
-  def self.import(branch, file, srpm)
+  def self.import(file, srpm)
     files = `rpmquery --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{ file }`
     hsh = {}
     files.split("\n").each do |line|
@@ -25,7 +23,6 @@ class Patch < ActiveRecord::Base
 
       patch.size = hsh[filename].to_i
       patch.filename = filename
-      patch.branch_id = branch.id
       patch.srpm_id = srpm.id
       patch.save!
     end
