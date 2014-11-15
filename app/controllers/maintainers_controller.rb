@@ -66,7 +66,7 @@ class MaintainersController < ApplicationController
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
                 order('bug_id DESC')
 
     @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
@@ -84,7 +84,7 @@ class MaintainersController < ApplicationController
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
                 order('bug_id DESC')
 
     @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).

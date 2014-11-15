@@ -15,7 +15,7 @@ class Patch < ActiveRecord::Base
     patches.split("\n").each do |filename|
       patch = Patch.new
 
-      # DON'T import patch if size is more than 512k
+      # Do not import patch if size is more than 512k
       if hsh[filename].to_i <= 1024 * 512
         content = `rpm2cpio "#{ file }" | cpio -i --quiet --to-stdout "#{ filename }"`
         patch.patch = content.force_encoding('BINARY')
