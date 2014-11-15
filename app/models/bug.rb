@@ -19,8 +19,7 @@ class Bug < ActiveRecord::Base
         if row[2]
           bug.resolution = row[2]
         else
-          # TODO: change '' to nil and make for this migration
-          bug.resolution = ''
+          bug.resolution = nil
         end
         bug.bug_severity = row[3]
         bug.product = row[4]

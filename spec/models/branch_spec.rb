@@ -15,7 +15,7 @@ describe Branch, type: :model do
     it { is_expected.to have_many :groups }
     it { is_expected.to have_many :teams }
     it { is_expected.to have_many :mirrors }
-    it { is_expected.to have_many :ftbfs }
+    it { is_expected.to have_many(:ftbfs).class_name('Ftbfs') }
     it { is_expected.to have_many :repocops }
     it { is_expected.to have_many :repocop_patches }
   end
