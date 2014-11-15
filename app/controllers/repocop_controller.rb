@@ -8,12 +8,12 @@ class RepocopController < ApplicationController
 
   def invalid_url
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    @srpms = @branch.srpms.where('url != ""').
-                           where('url NOT LIKE "http://%"').
-                           where('url NOT LIKE "https://%"').
-                           where('url NOT LIKE "ftp://%"').
-                           where('url NOT LIKE "rsync://%"').
-                           order('name ASC')
+    @srpms = @branch.srpms.where('url != ""')
+                          .where('url NOT LIKE "http://%"')
+                          .where('url NOT LIKE "https://%"')
+                          .where('url NOT LIKE "ftp://%"')
+                          .where('url NOT LIKE "rsync://%"')
+                          .order('name ASC')
   end
 
   def invalid_vendor
@@ -56,7 +56,7 @@ class RepocopController < ApplicationController
     @packages = @branch.packages.where('length(filename) > 64').order('name ASC')
   end
 
-  # TODO:
+  # TODO: add this
   def manpage_not_compressed
   end
 
@@ -66,8 +66,10 @@ class RepocopController < ApplicationController
   def buildreq_ccache
   end
 
+  # TODO: test it later
   def srpms_install_s
-    @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    @specfiles = Specfile.where(branch_id: @branch.id).where('spec LIKE ?', '%install -s%').includes(:srpm)
+    # @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    # @specfiles = Specfile.where(branch_id: @branch.id).where('spec LIKE ?', '%install -s%').includes(:srpm)
+    @specfiles = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first.specfile.where('spec LIKE ?', '%install -s%').includes(:srpm)
   end
 end

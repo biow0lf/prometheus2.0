@@ -5,8 +5,9 @@ class Branch < ActiveRecord::Base
   validates :vendor, presence: true
 
   has_many :srpms
-  has_many :changelogs, through: :srpms
   has_many :packages
+  has_many :changelogs, through: :srpms
+  has_one :specfile, through: :srpms
   has_many :groups
   has_many :teams
   has_many :mirrors

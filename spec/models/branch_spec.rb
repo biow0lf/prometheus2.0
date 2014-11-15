@@ -8,8 +8,9 @@ describe Branch, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_many :srpms }
-    it { is_expected.to have_many(:changelogs).through(:srpms) }
     it { is_expected.to have_many :packages }
+    it { is_expected.to have_many(:changelogs).through(:srpms) }
+    it { is_expected.to have_one(:specfile).through(:srpms) }
     it { is_expected.to have_many :groups }
     it { is_expected.to have_many :teams }
     it { is_expected.to have_many :mirrors }

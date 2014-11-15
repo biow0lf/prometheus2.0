@@ -87,7 +87,7 @@ class Srpm < ActiveRecord::Base
     if srpm.save
       Redis.current.set("#{ branch.name }:#{ srpm.filename }", 1)
       Changelog.import(file, srpm)
-      Specfile.import(branch, file, srpm)
+      Specfile.import(file, srpm)
       Patch.import(branch, file, srpm)
       Source.import(branch, file, srpm)
     else
