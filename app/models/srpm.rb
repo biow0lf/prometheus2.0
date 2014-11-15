@@ -28,9 +28,8 @@ class Srpm < ActiveRecord::Base
 
   def acls
     if Redis.current.exists("#{ branch.name }:#{ name }:acls")
-      Maintainer.where(login: Redis.current.smembers("#{ branch.name }:#{ name }:acls")).order(:name).select('login').map(&:login).join(',')
-    else
-      nil
+      Maintainer.where(login: Redis.current.smembers("#{ branch.name }:#{ name }:acls"))
+                .order(:name).select('login').map(&:login).join(',')
     end
   end
 
@@ -91,7 +90,7 @@ class Srpm < ActiveRecord::Base
       Patch.import(branch, file, srpm)
       Source.import(branch, file, srpm)
     else
-      Rails.logger.info "#{ Time.now }: failed to update '#{ srpm.filename }'"
+      Rails.logger.info("#{ Time.now }: failed to update '#{ srpm.filename }'")
     end
   end
 
@@ -100,7 +99,7 @@ class Srpm < ActiveRecord::Base
       unless Redis.current.exists("#{ branch.name }:#{ File.basename(file) }")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
-        Rails.logger.info "#{ Time.now }: import '#{ File.basename(file) }'"
+        Rails.logger.info("#{ Time.now }: import '#{ File.basename(file) }'")
         Srpm.import(branch, file)
       end
     end
@@ -111,12 +110,12 @@ class Srpm < ActiveRecord::Base
       # FIXME: use ruby for path building
       unless File.exist?("#{ path }#{ srpm.filename }")
         srpm.packages.each do |package|
-          Rails.logger.info "#{ Time.now }: delete '#{ package.filename }' from redis cache"
+          Rails.logger.info("#{ Time.now }: delete '#{ package.filename }' from redis cache")
           Redis.current.del("#{ branch.name }:#{ package.filename }")
         end
-        Rails.logger.info "#{ Time.now }: delete '#{ srpm.filename }' from redis cache"
+        Rails.logger.info("#{ Time.now }: delete '#{ srpm.filename }' from redis cache")
         Redis.current.del("#{ branch.name }:#{ srpm.filename }")
-        Rails.logger.info "#{ Time.now }: delete acls for '#{ srpm.filename }' from redis cache"
+        Rails.logger.info("#{ Time.now }: delete acls for '#{ srpm.filename }' from redis cache")
         Redis.current.del("#{ branch.name }:#{ srpm.name }:acls")
         Redis.current.del("#{ branch.name }:#{ srpm.name }:leader")
         srpm.destroy
