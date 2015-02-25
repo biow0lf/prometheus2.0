@@ -101,6 +101,9 @@ group :development, :test do
 end
 
 group :test do
+  # https://github.com/rails/rails/issues/18572
+  gem 'test-unit'
+
   gem 'capybara'
   # gem 'ffaker'
   gem 'shoulda-matchers'
