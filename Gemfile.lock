@@ -254,7 +254,7 @@ GEM
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-force_domain (0.2.0)
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.0.3)
       actionmailer (= 4.0.3)
