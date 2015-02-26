@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Bug do
   it { should have_db_index :assigned_to }

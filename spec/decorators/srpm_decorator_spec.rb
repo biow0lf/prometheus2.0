@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SrpmDecorator do
   it 'should return "&ndash;" on Srpm.short_url with empty url' do

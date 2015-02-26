@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe MaintainerDecorator do
   it 'should return gravatar url for maintainer email' do

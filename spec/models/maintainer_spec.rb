@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Maintainer do
   describe 'Associations' do
@@ -21,7 +21,7 @@ describe Maintainer do
   end
 
   it 'should return Maintainer.login on .to_param' do
-    Maintainer.new(login: 'icesik').to_param.should == 'icesik'
+    expect(Maintainer.new(login: 'icesik').to_param).to eq('icesik')
   end
 
   it 'should deny change email' do
@@ -29,7 +29,7 @@ describe Maintainer do
                                     email: 'icesik@altlinux.org',
                                     login: 'icesik')
     maintainer.email = 'ldv@altlinux.org'
-    maintainer.save.should be_false
+    expect(maintainer.save).to eq(false)
   end
 
   it 'should deny change login' do
@@ -37,7 +37,7 @@ describe Maintainer do
                                     email: 'icesik@altlinux.org',
                                     login: 'icesik')
     maintainer.login = 'ldv'
-    maintainer.save.should be_false
+    expect(maintainer.save).to eq(false)
   end
 
   it 'should deny change name' do
@@ -45,25 +45,25 @@ describe Maintainer do
                                     email: 'icesik@altlinux.org',
                                     login: 'icesik')
     maintainer.name = 'Dmitry V. Levin'
-    maintainer.save.should be_false
+    expect(maintainer.save).to eq(false)
   end
 
   it 'should return true if Maintainer exists' do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
                        login: 'icesik')
-    Maintainer.login_exists?('icesik').should be_true
+    expect(Maintainer.login_exists?('icesik')).to eq(true)
   end
 
   it 'should return false if Maintainer not exists' do
-    Maintainer.login_exists?('ice').should be_false
+    expect(Maintainer.login_exists?('ice')).to eq(false)
   end
 
   it 'should downcase login before checking for exists' do
     Maintainer.create!(name: 'Igor Zubkov',
                        email: 'icesik@altlinux.org',
                        login: 'icesik')
-    Maintainer.login_exists?('ICESIK').should be_true
+    expect(Maintainer.login_exists?('ICESIK')).to eq(true)
   end
 
   it 'should create one Maintainer' do
