@@ -332,7 +332,7 @@ MaintainerTeam.create!(:name => 'Connexion Development Team', :email => 'connexi
 MaintainerTeam.create!(:name => 'EVMS Development Team', :email => 'evms@packages.altlinux.org', :login => '@evms')
 MaintainerTeam.create!(:name => 'QA Team', :email => 'qa@packages.altlinux.org', :login => '@qa')
 MaintainerTeam.create!(:name => 'CPAN Team', :email => 'cpan@packages.altlinux.org', :login => '@cpan')
-MaintainerTeam.create!(:name => 'XFCE Team', :email => 'xfce@packages.altlinux.org', :login => '@xfce')
+MaintainerTeam.create!(:name => 'Xfce Team', :email => 'xfce@packages.altlinux.org', :login => '@xfce')
 MaintainerTeam.create!(:name => 'VIm Plugins Development Team', :email => 'vim-plugins@packages.altlinux.org', :login => '@vim-plugins')
 MaintainerTeam.create!(:name => 'FreeRadius Development Team', :email => 'freeradius@packages.altlinux.org', :login => '@freeradius')
 MaintainerTeam.create!(:name => 'FTN Development Team', :email => 'ftn@packages.altlinux.org', :login => '@ftn')
