@@ -76,7 +76,7 @@ describe Maintainer do
     Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
     expect {
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-    }.to_not change { Maintainer.count }.from(1).to(2)
+    }.to_not change { Maintainer.count }
   end
 
   it 'should create new Maintainer team' do
@@ -89,6 +89,6 @@ describe Maintainer do
     Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
     expect {
       Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    }.to_not change { MaintainerTeam.count }.from(1).to(2)
+    }.to_not change { MaintainerTeam.count }
   end
 end

@@ -1,18 +1,20 @@
-require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
 
-describe RssController do
-  describe "routing" do
-    it "should route /Sisyphus/rss to rss#index" do
-      { :get => "/Sisyphus/rss" }.should route_to(:controller => 'rss',
-                                                  :action => 'index',
-                                                  :branch => 'Sisyphus')
-    end
+describe 'RSS routing' do
+  it 'should route /:branch/rss to rss#index' do
+    expect(get: '/Sisyphus/rss').to route_to(
+      controller: 'rss',
+      action: 'index',
+      branch: 'Sisyphus'
+    )
+  end
 
-    it "should route /en/Sisyphus/rss to rss#index" do
-      { :get => "/en/Sisyphus/rss" }.should route_to(:controller => 'rss',
-                                                     :action => 'index',
-                                                     :branch => 'Sisyphus',
-                                                     :locale => 'en')
-    end
+  it 'should route /:locale/:branch/rss to rss#index' do
+    expect(get: '/en/Sisyphus/rss').to route_to(
+      controller: 'rss',
+      action: 'index',
+      branch: 'Sisyphus',
+      locale: 'en'
+    )
   end
 end

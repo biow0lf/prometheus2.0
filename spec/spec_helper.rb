@@ -30,6 +30,7 @@ FakeWeb.allow_net_connect = 'https://coveralls.io/api/v1/jobs'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.deprecation_stream = File.open('log/deprecations.txt', 'w')
+  config.raise_errors_for_deprecations!
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

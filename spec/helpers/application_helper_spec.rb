@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ApplicationHelper do
   it 'should return "/en" for url "/" and lang "en"' do
-    current_page('/', 'en').should eq('/en')
+    expect(current_page('/', 'en')).to eq('/en')
   end
 
   it 'should change "/en/project" to "/ru/project"' do
-    current_page('/en/project', 'ru').should eq('/ru/project')
+    expect(current_page('/en/project', 'ru')).to eq('/ru/project')
   end
 end
