@@ -51,16 +51,16 @@ class Package < ActiveRecord::Base
       package.srpm_id = srpm.id
       if package.save
         Redis.current.set("#{branch.name}:#{package.filename}", 1)
-        # #puts "#{Time.now.to_s}: updated '#{package.filename}'"
+        # #puts "#{Time.now}: updated '#{package.filename}'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
         # Conflict.import_conflicts(rpm, package)
         # Obsolete.import_obsoletes(rpm, package)
       else
-        puts "#{Time.now.to_s}: failed to import '#{package.filename}'"
+        puts "#{Time.now}: failed to import '#{package.filename}'"
       end
     else
-      puts "#{Time.now.to_s}: srpm '#{sourcerpm}' not found in db"
+      puts "#{Time.now}: srpm '#{sourcerpm}' not found in db"
     end
   end
 
@@ -70,7 +70,7 @@ class Package < ActiveRecord::Base
         unless Redis.current.exists("#{branch.name}:#{file.split('/')[-1]}")
           next unless File.exist?(file)
           next unless Rpm.check_md5(file)
-          puts "#{Time.now.to_s}: import '#{file.split('/')[-1]}'"
+          puts "#{Time.now}: import '#{file.split('/')[-1]}'"
           Package.import(branch, file)
         end
       end

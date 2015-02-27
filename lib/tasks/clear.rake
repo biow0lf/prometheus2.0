@@ -2,7 +2,7 @@ namespace :clear do
   desc 'Clear all cache'
   task :cache => :environment do
     require 'open-uri'
-    puts "#{Time.now.to_s}: Clear cache"
+    puts "#{Time.now}: Clear cache"
     ['en', 'ru', 'uk', 'br'].each do |locale|
       ActionController::Base.new.expire_fragment("#{locale}_top15")
     end
@@ -16,6 +16,6 @@ namespace :clear do
         end
       end
     end
-    puts "#{Time.now.to_s}: end"
+    puts "#{Time.now}: end"
   end
 end

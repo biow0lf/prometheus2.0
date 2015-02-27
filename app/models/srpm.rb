@@ -91,7 +91,7 @@ class Srpm < ActiveRecord::Base
       Patch.import(branch, file, srpm)
       Source.import(branch, file, srpm)
     else
-      puts "#{Time.now.to_s}: failed to update '#{srpm.filename}'"
+      puts "#{Time.now}: failed to update '#{srpm.filename}'"
     end
   end
 
@@ -100,7 +100,7 @@ class Srpm < ActiveRecord::Base
       unless Redis.current.exists("#{branch.name}:#{File.basename(file)}")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
-        puts "#{Time.now.to_s}: import '#{File.basename(file)}'"
+        puts "#{Time.now}: import '#{File.basename(file)}'"
         Srpm.import(branch, file)
       end
     end
@@ -110,12 +110,12 @@ class Srpm < ActiveRecord::Base
     branch.srpms.each do |srpm|
       unless File.exists?("#{path}#{srpm.filename}")
         srpm.packages.each do |package|
-          puts "#{Time.now.to_s}: delete '#{package.filename}' from redis cache"
+          puts "#{Time.now}: delete '#{package.filename}' from redis cache"
           Redis.current.del("#{branch.name}:#{package.filename}")
         end
-        puts "#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache"
+        puts "#{Time.now}: delete '#{srpm.filename}' from redis cache"
         Redis.current.del("#{branch.name}:#{srpm.filename}")
-        puts "#{Time.now.to_s}: delete acls for '#{srpm.filename}' from redis cache"
+        puts "#{Time.now}: delete acls for '#{srpm.filename}' from redis cache"
         Redis.current.del("#{branch.name}:#{srpm.name}:acls")
         Redis.current.del("#{branch.name}:#{srpm.name}:leader")
         srpm.destroy
