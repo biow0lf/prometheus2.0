@@ -36,7 +36,7 @@ describe Branch do
 
   it 'should recount Branch.srpms on #recount! and save' do
     branch = FactoryGirl.create(:branch)
-    Redis.current.set("branch:#{ branch.id }:counter", 42)
+    branch.counter.value = 42
     expect(branch.counter.value).to eq(42)
     branch.recount!
     expect(branch.counter.value).to eq(0)

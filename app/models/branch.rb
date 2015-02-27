@@ -1,5 +1,3 @@
-# Class for handing Branches.
-
 class Branch < ActiveRecord::Base
   include Redis::Objects
 
@@ -27,7 +25,7 @@ class Branch < ActiveRecord::Base
   end
 
   def set_default_counter_value
-    Redis.current.set("branch:#{ id }:counter", 0)
+    counter.value = 0
   end
 
   def destroy_counter
@@ -35,6 +33,6 @@ class Branch < ActiveRecord::Base
   end
 
   def recount!
-    Redis.current.set("branch:#{ id }:counter", srpms.count)
+    counter.value = srpms.count
   end
 end
