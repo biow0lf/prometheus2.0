@@ -115,5 +115,5 @@ group :test do
   gem 'fakeredis'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
-  gem 'coveralls', require: false
+  gem 'codeclimate-test-reporter', require: false
 end

@@ -1,6 +1,6 @@
 if ENV['TRAVIS']
-  require 'coveralls'
-  Coveralls.wear!
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
 else
   require 'simplecov'
   SimpleCov.start 'rails'
