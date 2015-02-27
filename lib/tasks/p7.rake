@@ -44,7 +44,7 @@ namespace :p7 do
 #    end
 #    puts "#{Time.now}: end"
     puts "#{Time.now}: update acls in redis cache"
-    Acl.update_redis_cache('ALT Linux', 'p7', 'http://git.altlinux.org/acl/list.packages.p7')
+    Acl.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.p7')
     puts "#{Time.now}: end"
     puts "#{Time.now}: update leaders in redis cache"
     Leader.update_redis_cache('ALT Linux', 'p7', 'http://git.altlinux.org/acl/list.packages.p7')

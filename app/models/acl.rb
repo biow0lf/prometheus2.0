@@ -1,8 +1,7 @@
 require 'open-uri'
 
 class Acl
-  def self.update_redis_cache(vendor_name, branch_name, url)
-    branch = Branch.where(vendor: vendor_name, name: branch_name).first
+  def self.update_redis_cache(branch, url)
     file = open(URI.escape(url)).read
     Redis.current.multi
     Maintainer.select('login').each do |maintainer|

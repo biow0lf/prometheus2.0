@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe Acl do
   before(:each) do
-    FactoryGirl.create(:branch)
+    branch = FactoryGirl.create(:branch)
 
     page = `cat spec/data/list.packages.sisyphus`
     url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
     FakeWeb.register_uri(:get, url, response: page)
 
-    Acl.update_redis_cache('ALT Linux', 'Sisyphus', url)
+    Acl.update_redis_cache(branch, url)
   end
 
   it 'should import and update acls' do
@@ -21,7 +21,7 @@ describe Acl do
     expect(Redis.current.smembers('Sisyphus:chkrootkit:acls').sort).to eq(['php-coder', '@everybody'].sort)
   end
 
-  it "should change 'psolntsev' to 'p_solntsev'" do
+  it 'should change "psolntsev" to "p_solntsev"' do
     expect(Redis.current.smembers('Sisyphus:docs-cppreference:acls').sort).to eq(['p_solntsev', '@qa'].sort)
   end
 
