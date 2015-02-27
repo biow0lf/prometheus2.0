@@ -214,10 +214,10 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    meta_request (0.2.8)
-      callsite
-      rack-contrib
-      railties
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     middleware (0.1.0)
     mime-types (2.4.3)
