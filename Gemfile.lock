@@ -330,7 +330,9 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.5.0)
       sexp_processor (~> 4.1)
-    sandi_meter (1.1.5)
+    sandi_meter (1.1.8)
+      json
+      launchy
       mixlib-cli
     sass (3.4.13)
     sass-rails (4.0.1)
