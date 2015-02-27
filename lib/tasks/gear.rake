@@ -4,9 +4,9 @@ namespace :gear do
     require 'open-uri'
 
     puts "#{Time.now.to_s}: import gitrepos"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -16,13 +16,13 @@ namespace :gear do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Gear.import_gitrepos('http://git.altlinux.org/people-packages-list')
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 
   desc 'Update all git repos to database'
@@ -30,9 +30,9 @@ namespace :gear do
     require 'open-uri'
 
     puts "#{Time.now.to_s}: update gitrepos"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__'))
+                Process::kill(0, Redis.current.get('__SYNC__'))
                 true
               rescue
                 false
@@ -42,12 +42,12 @@ namespace :gear do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 end

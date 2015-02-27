@@ -27,8 +27,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def acls
-    if $redis.exists("#{self.branch.name}:#{self.name}:acls")
-      Maintainer.where(login: $redis.smembers("#{self.branch.name}:#{self.name}:acls")).order(:name).select('login').map(&:login).join(',')
+    if Redis.current.exists("#{self.branch.name}:#{self.name}:acls")
+      Maintainer.where(login: Redis.current.smembers("#{self.branch.name}:#{self.name}:acls")).order(:name).select('login').map(&:login).join(',')
     else
       nil
     end
@@ -85,7 +85,7 @@ class Srpm < ActiveRecord::Base
     end
 
     if srpm.save
-      $redis.set("#{branch.name}:#{srpm.filename}", 1)
+      Redis.current.set("#{branch.name}:#{srpm.filename}", 1)
       Changelog.import(branch, file, srpm)
       Specfile.import(branch, file, srpm)
       Patch.import(branch, file, srpm)
@@ -97,7 +97,7 @@ class Srpm < ActiveRecord::Base
 
   def self.import_all(branch, path)
     Dir.glob(path).each do |file|
-      unless $redis.exists("#{branch.name}:#{File.basename(file)}")
+      unless Redis.current.exists("#{branch.name}:#{File.basename(file)}")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
         puts "#{Time.now.to_s}: import '#{File.basename(file)}'"
@@ -111,13 +111,13 @@ class Srpm < ActiveRecord::Base
       unless File.exists?("#{path}#{srpm.filename}")
         srpm.packages.each do |package|
           puts "#{Time.now.to_s}: delete '#{package.filename}' from redis cache"
-          $redis.del("#{branch.name}:#{package.filename}")
+          Redis.current.del("#{branch.name}:#{package.filename}")
         end
         puts "#{Time.now.to_s}: delete '#{srpm.filename}' from redis cache"
-        $redis.del("#{branch.name}:#{srpm.filename}")
+        Redis.current.del("#{branch.name}:#{srpm.filename}")
         puts "#{Time.now.to_s}: delete acls for '#{srpm.filename}' from redis cache"
-        $redis.del("#{branch.name}:#{srpm.name}:acls")
-        $redis.del("#{branch.name}:#{srpm.name}:leader")
+        Redis.current.del("#{branch.name}:#{srpm.name}:acls")
+        Redis.current.del("#{branch.name}:#{srpm.name}:leader")
         srpm.destroy
       end
     end

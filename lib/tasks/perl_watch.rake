@@ -2,9 +2,9 @@ namespace :perlwatch do
   desc 'Import CPAN info to database'
   task :update => :environment do
     puts "#{Time.now.to_s}: import CPAN info to database"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -14,12 +14,12 @@ namespace :perlwatch do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     PerlWatch.import_data('http://www.cpan.org/modules/02packages.details.txt.gz')
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 end

@@ -3,9 +3,9 @@ namespace :sisyphusarm do
   task :update => :environment do
     require 'open-uri'
     puts "#{Time.now.to_s}: Update SisyphusARM stuff"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -15,10 +15,10 @@ namespace :sisyphusarm do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     puts "#{Time.now.to_s}: update *.src.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
@@ -41,9 +41,9 @@ namespace :sisyphusarm do
 #    end
 #    puts "#{Time.now.to_s}: end"
     puts "#{Time.now.to_s}: update time"
-    $redis.set("#{branch.name}:updated_at", Time.now.to_s)
+    Redis.current.set("#{branch.name}:updated_at", Time.now.to_s)
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 
   desc 'Import *.src.rpm from SisyphusARM to database'

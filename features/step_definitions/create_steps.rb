@@ -32,5 +32,5 @@ Given(/^we have srpm "(.*?)" in branch "(.*?)"$/) do |srpm_name, branch_name|
 end
 
 Given(/^we have in "(.*?)" in acls for package "(.*?)" in branch "(.*?)"$/) do |acl, package, branch|
-  $redis.sadd("#{branch}:#{package}:acls", acl)
+  Redis.current.sadd("#{branch}:#{package}:acls", acl)
 end

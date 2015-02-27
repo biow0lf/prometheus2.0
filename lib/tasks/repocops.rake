@@ -2,9 +2,9 @@ namespace :sisyphus do
   desc 'Import repocop reports to database'
   task :repocops => :environment do
     puts "#{Time.now.to_s}: import repocop reports"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -14,22 +14,22 @@ namespace :sisyphus do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Repocop.update_repocop
     Repocop.update_repocop_cache
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 
   desc 'Update repocop status cache'
   task :update_repocop_cache => :environment do
     puts "#{Time.now.to_s}: update repocop cache"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -39,21 +39,21 @@ namespace :sisyphus do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Repocop.update_repocop_cache
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 
   desc 'Import repocop patches list to database'
   task :repocop_patches => :environment do
     puts "#{Time.now.to_s}: import repocop patches"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -63,12 +63,12 @@ namespace :sisyphus do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     RepocopPatch.update_repocop_patches
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 end

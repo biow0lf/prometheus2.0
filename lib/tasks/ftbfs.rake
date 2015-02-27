@@ -4,9 +4,9 @@ namespace :ftbfs do
     require 'open-uri'
 
     puts "#{Time.now.to_s}: import ftbfs list for i586 and x86_64"
-    if $redis.get('__SYNC__')
+    if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, $redis.get('__SYNC__').to_i)
+                Process::kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -16,10 +16,10 @@ namespace :ftbfs do
         Process.exit!(true)
       else
         puts "#{Time.now.to_s}: dead lock found and deleted"
-        $redis.del('__SYNC__')
+        Redis.current.del('__SYNC__')
       end
     end
-    $redis.set('__SYNC__', Process.pid)
+    Redis.current.set('__SYNC__', Process.pid)
     Ftbfs.transaction do
       Ftbfs.delete_all
 
@@ -36,6 +36,6 @@ namespace :ftbfs do
       Ftbfs.update_ftbfs('ALT Linux', 't6', 'http://git.altlinux.org/beehive/stats/t6-x86_64/ftbfs-joined', 'x86_64')
     end
     puts "#{Time.now.to_s}: end"
-    $redis.del('__SYNC__')
+    Redis.current.del('__SYNC__')
   end
 end

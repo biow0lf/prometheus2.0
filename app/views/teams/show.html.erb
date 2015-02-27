@@ -17,7 +17,7 @@
   <td style="text-align: left;">
     <%= link_to branch.name, team_path(branch, @team.login[1..-1]), class: 'news' %>
   </td>
-  <td style="text-align: right;"><%= $redis.smembers("#{branch.name}:maintainers:#{@team.login}").count  %></td>
+  <td style="text-align: right;"><%= Redis.current.smembers("#{branch.name}:maintainers:#{@team.login}").count  %></td>
 </tr>
 <% end %>
 

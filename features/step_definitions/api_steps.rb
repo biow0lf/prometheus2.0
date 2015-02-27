@@ -4,12 +4,12 @@ end
 
 #Given /^the following acls exists:$/ do |table|
 #  table.hashes.each do |hash|
-#    $redis.sadd("#{hash[:branch]}:#{hash[:package]}:acls", hash[:login])
+#    Redis.current.sadd("#{hash[:branch]}:#{hash[:package]}:acls", hash[:login])
 #  end
 #end
 
 Given(/^we have acls "(.*?)" for source rpm "(.*?)" in branch "(.*?)"$/) do |logins, package, branch|
   logins.split(',').each do |login|
-    $redis.sadd("#{branch}:#{package}:acls", login)
+    Redis.current.sadd("#{branch}:#{package}:acls", login)
   end
 end
