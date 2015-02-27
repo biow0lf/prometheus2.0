@@ -59,6 +59,7 @@ group :production do
   gem 'exception_notification'
   gem 'unicorn'
   gem 'unicorn-worker-killer'
+  gem 'lograge'
 end
 
 group :staging do
