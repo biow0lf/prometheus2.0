@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  it 'should return login on User.login' do
+  it 'should return login on #login' do
     expect(User.new(email: 'icesik@altlinux.org').login).to eq('icesik')
   end
 
