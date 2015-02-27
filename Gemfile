@@ -34,7 +34,7 @@ gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
 gem 'whenever', require: false
-gem 'awesome_nested_set', '~> 3.0.0.rc.1'
+gem 'awesome_nested_set'
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'brewdler', require: false
@@ -54,7 +54,7 @@ end
 
 group :production do
   gem 'newrelic_rpm'
-#  gem 'newrelic-redis'
+  # gem 'newrelic-redis'
   gem 'rack-force_domain'
   gem 'exception_notification'
   gem 'unicorn'
@@ -97,7 +97,7 @@ group :development, :test do
   gem 'wirb'
   gem 'rspec'
   gem 'rspec-rails'
-#  gem 'debugger'
+  # gem 'debugger'
 end
 
 group :test do
