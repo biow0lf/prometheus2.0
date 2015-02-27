@@ -1,7 +1,6 @@
 namespace :t6 do
   desc 'Update t6 stuff'
   task :update => :environment do
-    require 'open-uri'
     puts "#{Time.now}: Update t6 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin

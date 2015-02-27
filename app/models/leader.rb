@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Leader
   def self.update_redis_cache(branch, url)
     file = open(URI.escape(url)).read

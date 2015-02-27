@@ -1,7 +1,6 @@
 namespace :p5 do
   desc 'Update p5 stuff'
   task :update => :environment do
-    require 'open-uri'
     puts "#{Time.now}: Update p5 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
