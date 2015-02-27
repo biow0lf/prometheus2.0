@@ -1,6 +1,5 @@
 class Leader
-  def self.update_redis_cache(vendor_name, branch_name, url)
-    branch = Branch.where(name: branch_name, vendor: vendor_name).first
+  def self.update_redis_cache(branch, url)
     file = open(URI.escape(url)).read
     Redis.current.multi
 

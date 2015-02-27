@@ -47,7 +47,7 @@ namespace :sisyphus do
     Acl.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.sisyphus')
     puts "#{Time.now}: end"
     puts "#{Time.now}: update leaders in redis cache"
-    Leader.update_redis_cache('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
+    Leader.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.sisyphus')
     puts "#{Time.now}: end"
     puts "#{Time.now}: update time"
     Redis.current.set("#{branch.name}:updated_at", Time.now.to_s)
