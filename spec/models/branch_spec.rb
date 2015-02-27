@@ -14,7 +14,7 @@ describe Branch do
     it { should have_many :teams }
     it { should have_many :mirrors }
     it { should have_many :patches }
-    it { should have_many :ftbfs }
+    it { should have_many(:ftbfs).class_name('Ftbfs') }
     it { should have_many :repocops }
     it { should have_many :repocop_patches }
   end
