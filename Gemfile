@@ -43,6 +43,7 @@ gem 'backup', require: false
 gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'
+gem 'childprocess'
 
 group :production, :development, :staging do
   gem 'redis'
