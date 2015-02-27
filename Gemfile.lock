@@ -328,7 +328,7 @@ GEM
       ruby-progressbar (~> 1.4)
     ruby-graphviz (1.0.9)
     ruby-progressbar (1.7.1)
-    ruby2ruby (2.0.7)
+    ruby2ruby (2.0.8)
       ruby_parser (~> 3.1)
       sexp_processor (~> 4.0)
     ruby_parser (3.4.1)
