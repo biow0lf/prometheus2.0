@@ -19,7 +19,7 @@ describe Branch do
     it { should have_many :repocop_patches }
   end
 
-  it 'should return Branch.name on .to_param' do
+  it 'should return branch name on #to_param' do
     expect(Branch.new(name: 'Sisyphus').to_param).to eq('Sisyphus')
   end
 
@@ -34,10 +34,11 @@ describe Branch do
     expect(Redis.current.get("branch:#{ branch.id }:counter")).to be_nil
   end
 
-  it 'should recount Branch.srpms on recount!' do
+  it 'should recount Branch.srpms on #recount! and save' do
     branch = FactoryGirl.create(:branch)
     Redis.current.set("branch:#{ branch.id }:counter", 42)
     expect(branch.counter.value).to eq(42)
-    expect(branch.recount!.counter.value).to eq(0)
+    branch.recount!
+    expect(branch.counter.value).to eq(0)
   end
 end

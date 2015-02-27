@@ -36,6 +36,5 @@ class Branch < ActiveRecord::Base
 
   def recount!
     Redis.current.set("branch:#{ id }:counter", srpms.count)
-    self
   end
 end
