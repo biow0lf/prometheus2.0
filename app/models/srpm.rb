@@ -88,7 +88,7 @@ class Srpm < ActiveRecord::Base
       Redis.current.set("#{branch.name}:#{srpm.filename}", 1)
       Changelog.import(file, srpm)
       Specfile.import(file, srpm)
-      Patch.import(branch, file, srpm)
+      Patch.import(file, srpm)
       Source.import(branch, file, srpm)
     else
       puts "#{Time.now}: failed to update '#{srpm.filename}'"
