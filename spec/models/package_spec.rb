@@ -20,11 +20,14 @@ describe Package do
     it { should validate_presence_of :md5 }
   end
 
-  it { should have_db_index :arch }
-  it { should have_db_index :branch_id }
-  it { should have_db_index :group_id }
-  it { should have_db_index :sourcepackage }
-  it { should have_db_index :srpm_id }
+  describe 'DB Indexes' do
+    it { should have_db_index :arch }
+    it { should have_db_index :branch_id }
+    it { should have_db_index :group_id }
+    it { should have_db_index :name }
+    it { should have_db_index :sourcepackage }
+    it { should have_db_index :srpm_id }
+  end
 
   it 'should import package to database' do
     branch = FactoryGirl.create(:branch)

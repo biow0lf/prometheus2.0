@@ -11,8 +11,10 @@ describe Gear do
     it { should validate_presence_of :lastchange }
   end
 
-  it { should have_db_index :maintainer_id }
-  it { should have_db_index :srpm_id }
+  describe 'DB Indexes' do
+    it { should have_db_index :maintainer_id }
+    it { should have_db_index :srpm_id }
+  end
 
   it 'should import gear repos' do
     branch = FactoryGirl.create(:branch)

@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe Bug do
-  it { should have_db_index :assigned_to }
-  it { should have_db_index :bug_status }
-  it { should have_db_index :product }
+  describe 'DB Indexes' do
+    it { should have_db_index :assigned_to }
+    it { should have_db_index :bug_status }
+    it { should have_db_index :product }
+  end
 
   it 'should import bugs from url' do
     bugs = `cat spec/data/bugs.csv`

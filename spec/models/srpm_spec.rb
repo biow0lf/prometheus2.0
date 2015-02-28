@@ -23,9 +23,11 @@ describe Srpm do
     it { should validate_presence_of :md5 }
   end
 
-  it { should have_db_index :branch_id }
-  it { should have_db_index :group_id }
-  it { should have_db_index :name }
+  describe 'DB Indexes' do
+    it { should have_db_index :branch_id }
+    it { should have_db_index :group_id }
+    it { should have_db_index :name }
+  end
 
   it 'should return Srpm#name on #to_param' do
     expect(Srpm.new(name: 'openbox').to_param).to eq('openbox')

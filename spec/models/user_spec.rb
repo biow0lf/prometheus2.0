@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe User do
+  describe 'DB Indexes' do
+    it { should have_db_index :confirmation_token }
+    it { should have_db_index :email }
+    it { should have_db_index :reset_password_token }
+  end
+
   it 'should return login on #login' do
     expect(User.new(email: 'icesik@altlinux.org').login).to eq('icesik')
   end

@@ -17,6 +17,8 @@ describe Ftbfs do
     it { should validate_presence_of :arch }
   end
 
-  it { should have_db_index :branch_id }
-  it { should have_db_index :maintainer_id }
+  describe 'DB Indexes' do
+    it { should have_db_index :branch_id }
+    it { should have_db_index :maintainer_id }
+  end
 end
