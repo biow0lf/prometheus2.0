@@ -10,6 +10,8 @@ describe Specfile do
     it { should validate_presence_of :spec }
   end
 
+  it { should have_db_index :srpm_id }
+
   it 'should import spec file' do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
