@@ -16,7 +16,7 @@ describe Patch do
   it { should have_db_index :branch_id }
   it { should have_db_index :srpm_id }
 
-  it 'should return Patch.filename on #to_param' do
+  it 'should return Patch#filename on #to_param' do
     filename = 'openbox-3.4.9-alt-desktop-file.patch'
     expect(Patch.new(filename: filename).to_param).to eq(filename)
   end

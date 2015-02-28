@@ -27,7 +27,7 @@ describe Srpm do
   it { should have_db_index :group_id }
   it { should have_db_index :name }
 
-  it 'should return Srpm.name on #to_param' do
+  it 'should return Srpm#name on #to_param' do
     expect(Srpm.new(name: 'openbox').to_param).to eq('openbox')
   end
 
