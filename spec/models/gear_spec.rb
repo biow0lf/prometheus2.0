@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 describe Gear do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :maintainer }
     it { should belong_to :srpm }
   end
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :repo }
     it { should validate_presence_of :lastchange }
   end
 
-  describe 'DB Indexes' do
+  context 'DB Indexes' do
     it { should have_db_index :maintainer_id }
     it { should have_db_index :srpm_id }
   end

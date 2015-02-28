@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe Ftbfs do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :branch }
     it { should belong_to :maintainer }
   end
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :branch }
     it { should validate_presence_of :maintainer }
 
@@ -17,7 +17,7 @@ describe Ftbfs do
     it { should validate_presence_of :arch }
   end
 
-  describe 'DB Indexes' do
+  context 'DB Indexes' do
     it { should have_db_index :branch_id }
     it { should have_db_index :maintainer_id }
   end

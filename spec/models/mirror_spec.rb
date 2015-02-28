@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe Mirror do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :branch }
   end
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :branch }
     it { should validate_presence_of :order_id }
     it { should validate_presence_of :name }

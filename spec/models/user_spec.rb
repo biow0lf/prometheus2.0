@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User do
-  describe 'DB Indexes' do
+  context 'DB Indexes' do
     it { should have_db_index(:confirmation_token).unique(true) }
     it { should have_db_index(:email).unique(true) }
     it { should have_db_index(:reset_password_token).unique(true) }

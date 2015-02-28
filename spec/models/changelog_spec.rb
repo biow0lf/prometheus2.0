@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe Changelog do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :srpm }
   end
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :srpm }
     it { should validate_presence_of :changelogtime }
     it { should validate_presence_of :changelogname }

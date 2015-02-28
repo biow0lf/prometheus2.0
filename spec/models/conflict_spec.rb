@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Conflict do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :package }
   end
 

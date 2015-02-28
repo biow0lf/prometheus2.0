@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe Branch do
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :name }
     it { should validate_presence_of :vendor }
   end
 
-  describe 'Associations' do
+  context 'Associations' do
     it { should have_many :srpms }
     it { should have_many(:changelogs).through(:srpms) }
     it { should have_many :packages }

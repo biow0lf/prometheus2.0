@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Package do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :branch }
     it { should belong_to :srpm }
     it { should belong_to :group }
@@ -12,7 +12,7 @@ describe Package do
     it { should have_many :conflicts }
   end
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :srpm }
     it { should validate_presence_of :branch }
     it { should validate_presence_of :group }
@@ -20,7 +20,7 @@ describe Package do
     it { should validate_presence_of :md5 }
   end
 
-  describe 'DB Indexes' do
+  context 'DB Indexes' do
     it { should have_db_index :arch }
     it { should have_db_index :branch_id }
     it { should have_db_index :group_id }

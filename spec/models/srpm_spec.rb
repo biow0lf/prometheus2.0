@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Srpm do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :branch }
     it { should belong_to :group }
     it { should have_many :packages }
@@ -16,14 +16,14 @@ describe Srpm do
   # pending "test :dependent => :destroy for :packages, :changelogs, :acls"
   # pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :branch }
     it { should validate_presence_of :group }
     it { should validate_presence_of :groupname }
     it { should validate_presence_of :md5 }
   end
 
-  describe 'DB Indexes' do
+  context 'DB Indexes' do
     it { should have_db_index :branch_id }
     it { should have_db_index :group_id }
     it { should have_db_index :name }

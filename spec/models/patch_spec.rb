@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe Patch do
-  describe 'Associations' do
+  context 'Associations' do
     it { should belong_to :srpm }
   end
 
-  describe 'Validation' do
+  context 'Validation' do
     it { should validate_presence_of :srpm }
     it { should validate_presence_of :filename }
     it { should validate_presence_of :size }
