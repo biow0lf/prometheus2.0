@@ -44,6 +44,7 @@ gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'
 gem 'childprocess'
+gem 'rollbar', '~> 1.4.4'
 
 group :production, :development, :staging do
   gem 'redis'
