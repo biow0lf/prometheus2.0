@@ -103,7 +103,9 @@ module RPMFile # TODO: rename to RPM
     end
 
     def md5
-      @md5 ||= Digest::MD5.file(file).hexdigest
+      # TODO: @md5 ||= Digest::MD5.file(file).hexdigest
+      # make it more ruby and testable
+      @md5 ||= `md5sum #{ file }`.split.first
     end
 
     # TODO: size should be integer, not string

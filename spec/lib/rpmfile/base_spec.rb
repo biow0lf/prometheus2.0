@@ -157,15 +157,14 @@ describe RPMFile::Base do
   it 'should return #md5' do
     file = 'spec/data/catpkt-1.0-alt5.src.rpm'
     rpm = RPMFile::Base.new(file)
-    # TODO: mock
+    expect(rpm).to receive(:`).with("md5sum #{ file }").and_return("35f0f45bfbcdaf8754713fc1c97f8068  spec/data/catpkt-1.0-alt5.src.rpm\n")
     expect(rpm.md5).to eq('35f0f45bfbcdaf8754713fc1c97f8068')
   end
 
   it 'should return #size' do
     file = 'spec/data/catpkt-1.0-alt5.src.rpm'
     rpm = RPMFile::Base.new(file)
-    # TODO: mock it
-    #expect(rpm).to receive(:size).and_return('14216')
+    expect(File).to receive(:size).and_return(14_216)
     expect(rpm.size).to eq('14216')
   end
 end
