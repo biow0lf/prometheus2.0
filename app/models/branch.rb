@@ -14,6 +14,7 @@ class Branch < ActiveRecord::Base
   has_many :ftbfs, class_name: 'Ftbfs'
   has_many :repocops
   has_many :repocop_patches
+  has_one :specfile, through: :srpms
 
   counter :counter
 

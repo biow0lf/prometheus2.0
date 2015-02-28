@@ -17,6 +17,7 @@ describe Branch do
     it { should have_many(:ftbfs).class_name('Ftbfs') }
     it { should have_many :repocops }
     it { should have_many :repocop_patches }
+    it { should have_one(:specfile).through(:srpms) }
   end
 
   it 'should return branch name on #to_param' do
