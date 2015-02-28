@@ -50,7 +50,7 @@ before_fork do |server, worker|
   # Before forking, kill the master process that belongs to the .oldbin PID.
   # This enables 0 downtime deploys.
   old_pid = "/tmp/unicorn.my_site.pid.oldbin"
-  if File.exists?(old_pid) && server.pid != old_pid
+  if File.exist?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH
