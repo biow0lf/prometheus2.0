@@ -4,7 +4,7 @@ namespace :sisyphus do
     puts "#{Time.now}: import repocop reports"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -29,7 +29,7 @@ namespace :sisyphus do
     puts "#{Time.now}: update repocop cache"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -53,7 +53,7 @@ namespace :sisyphus do
     puts "#{Time.now}: import repocop patches"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false

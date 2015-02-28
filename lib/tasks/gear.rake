@@ -6,7 +6,7 @@ namespace :gear do
     puts "#{Time.now}: import gitrepos"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
@@ -32,7 +32,7 @@ namespace :gear do
     puts "#{Time.now}: update gitrepos"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__'))
+                Process.kill(0, Redis.current.get('__SYNC__'))
                 true
               rescue
                 false

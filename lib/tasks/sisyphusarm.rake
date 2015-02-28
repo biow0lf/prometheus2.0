@@ -4,7 +4,7 @@ namespace :sisyphusarm do
     puts "#{Time.now}: Update SisyphusARM stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
-                Process::kill(0, Redis.current.get('__SYNC__').to_i)
+                Process.kill(0, Redis.current.get('__SYNC__').to_i)
                 true
               rescue
                 false
