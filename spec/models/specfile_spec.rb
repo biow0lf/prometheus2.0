@@ -2,12 +2,10 @@ require 'rails_helper'
 
 describe Specfile do
   describe 'Associations' do
-    it { should belong_to :branch }
     it { should belong_to :srpm }
   end
 
   describe 'Validation' do
-    it { should validate_presence_of :branch }
     it { should validate_presence_of :srpm }
     it { should validate_presence_of :spec }
   end
@@ -21,9 +19,8 @@ describe Specfile do
     expect(Specfile).to receive(:`).with("rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" \"#{ file }\" | grep \"32 \" | sed -e 's/32 //'").and_return('openbox.spec')
     expect(Specfile).to receive(:`).with("rpm2cpio \"#{ file }\" | cpio -i --quiet --to-stdout \"openbox.spec\"").and_return('qwerty')
 
-    expect {
-      Specfile.import(branch, file, srpm)
-    }.to change { Specfile.count }.from(0).to(1)
+    expect { Specfile.import(file, srpm) }
+      .to change { Specfile.count }.from(0).to(1)
 
     expect(srpm.specfile).not_to be_nil
     expect(srpm.specfile.spec).to eq('qwerty')
