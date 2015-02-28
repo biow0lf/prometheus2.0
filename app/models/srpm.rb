@@ -89,7 +89,7 @@ class Srpm < ActiveRecord::Base
       Changelog.import(file, srpm)
       Specfile.import(file, srpm)
       Patch.import(file, srpm)
-      Source.import(branch, file, srpm)
+      Source.import(file, srpm)
     else
       puts "#{Time.now}: failed to update '#{srpm.filename}'"
     end
