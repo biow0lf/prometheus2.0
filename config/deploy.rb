@@ -99,15 +99,15 @@ namespace :deploy do
     CMD
 
     if fetch(:normalize_asset_timestamps, true)
-      stamp = Time.now.utc.strftime("%Y%m%d%H%M.%S")
-      asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(" ")
-      run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { "TZ" => "UTC" }
+      stamp = Time.now.utc.strftime('%Y%m%d%H%M.%S')
+      asset_paths = fetch(:public_children, %w(images stylesheets javascripts)).map { |p| "#{latest_release}/public/#{p}" }.join(' ')
+      run "find #{asset_paths} -exec touch -t #{stamp} {} ';'; true", :env => { 'TZ' => 'UTC' }
     end
   end
 
   desc 'Zero-downtime restart of Unicorn'
   task :restart, :except => { :no_release => true } do
-    run "kill -s USR2 `cat /tmp/unicorn.my_site.pid`"
+    run 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
   end
 
   desc 'Start unicorn'
@@ -117,13 +117,13 @@ namespace :deploy do
 
   desc 'Stop unicorn'
   task :stop, :except => { :no_release => true } do
-    run "kill -s QUIT `cat /tmp/unicorn.my_site.pid`"
+    run 'kill -s QUIT `cat /tmp/unicorn.my_site.pid`'
   end
 
   namespace :rollback do
     desc 'Moves the repo back to the previous version of HEAD'
     task :repo, :except => { :no_release => true } do
-      set :branch, "HEAD@{1}"
+      set :branch, 'HEAD@{1}'
       deploy.default
     end
 
@@ -144,7 +144,7 @@ def run_rake(cmd)
   run "cd #{current_path}; #{rake} #{cmd}"
 end
 
-before "deploy:finalize_update", "bundle:install"
+before 'deploy:finalize_update', 'bundle:install'
 
 
 # after 'deploy:update_code', 'deploy:symlink_all'

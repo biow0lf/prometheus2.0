@@ -115,8 +115,8 @@ describe Srpm do
     Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
     srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
     Redis.current.set("#{ branch.name }:#{ srpm2.filename }", 1)
-    Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", "icesik")
-    Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", "icesik")
+    Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", 'icesik')
+    Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", 'icesik')
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 

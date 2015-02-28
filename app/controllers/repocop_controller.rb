@@ -3,7 +3,7 @@ class RepocopController < ApplicationController
 
   def no_url_tag
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    @srpms = @branch.srpms.where(url: nil).order("name ASC")
+    @srpms = @branch.srpms.where(url: nil).order('name ASC')
   end
 
   def invalid_url
@@ -18,12 +18,12 @@ class RepocopController < ApplicationController
 
   def invalid_vendor
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    @srpms = @branch.srpms.where("vendor != 'ALT Linux Team'").order("name ASC")
+    @srpms = @branch.srpms.where("vendor != 'ALT Linux Team'").order('name ASC')
   end
 
   def invalid_distribution
     @branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-    @srpms = @branch.srpms.where("distribution != 'ALT Linux'").order("name ASC")
+    @srpms = @branch.srpms.where("distribution != 'ALT Linux'").order('name ASC')
   end
 
   def srpms_summary_too_long
@@ -68,6 +68,6 @@ class RepocopController < ApplicationController
 
   def srpms_install_s
     @branch = Branch.where(name: 'Sisyphus', :vendor => 'ALT Linux').first
-    @specfiles = Specfile.where(branch_id: @branch.id).where("spec LIKE ?", '%install -s%').includes(:srpm)
+    @specfiles = Specfile.where(branch_id: @branch.id).where('spec LIKE ?', '%install -s%').includes(:srpm)
   end
 end

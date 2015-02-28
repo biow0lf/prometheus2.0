@@ -14,22 +14,22 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
 
-    order  = ""
-    order += "LOWER(srpms.name)" if sort_column == 'name'
-    order += "buildtime" if sort_column == 'age'
+    order  = ''
+    order += 'LOWER(srpms.name)' if sort_column == 'name'
+    order += 'buildtime' if sort_column == 'age'
 
     if sort_column == 'status'
-      order += "CASE repocop
-                WHEN 'skip'         THEN 1
-                WHEN 'ok'           THEN 2
-                WHEN 'experimental' THEN 3
-                WHEN 'info'         THEN 4
-                WHEN 'warn'         THEN 5
-                WHEN 'fail'         THEN 6
-                END"
+      order += 'CASE repocop
+                WHEN "skip"         THEN 1
+                WHEN "ok"           THEN 2
+                WHEN "experimental" THEN 3
+                WHEN "info"         THEN 4
+                WHEN "warn"         THEN 5
+                WHEN "fail"         THEN 6
+                END'
     end
 
-    order += " " + sort_order
+    order += ' ' + sort_order
 
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
                            includes(:repocop_patch).
