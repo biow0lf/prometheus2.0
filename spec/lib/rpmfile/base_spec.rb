@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'rpmfile'
 
-describe RPMFile::Base do
+describe 'RPMFile::Base' do
   pending 'read_raw'
 
   it 'should read any tag via #read_tag' do
@@ -164,7 +164,7 @@ describe RPMFile::Base do
   it 'should return #size' do
     file = 'spec/data/catpkt-1.0-alt5.src.rpm'
     rpm = RPMFile::Base.new(file)
-    expect(File).to receive(:size).and_return(14_216)
+    expect(File).to receive(:size).with(file).and_return(14_216)
     expect(rpm.size).to eq('14216')
   end
 end
