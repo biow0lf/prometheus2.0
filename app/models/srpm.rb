@@ -27,8 +27,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def acls
-    if Redis.current.exists("#{self.branch.name}:#{self.name}:acls")
-      Maintainer.where(login: Redis.current.smembers("#{self.branch.name}:#{self.name}:acls")).order(:name).select('login').map(&:login).join(',')
+    if Redis.current.exists("#{branch.name}:#{name}:acls")
+      Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
     else
       nil
     end
