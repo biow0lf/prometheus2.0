@@ -21,7 +21,7 @@ describe Branch do
     it { should have_one(:specfile).through(:srpms) }
   end
 
-  it 'should return branch name on #to_param' do
+  it 'should return Branch#name on #to_param' do
     expect(Branch.new(name: 'Sisyphus').to_param).to eq('Sisyphus')
   end
 
