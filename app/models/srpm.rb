@@ -1,3 +1,5 @@
+require 'rpmfile'
+
 class Srpm < ActiveRecord::Base
   belongs_to :branch
   belongs_to :group
@@ -34,45 +36,41 @@ class Srpm < ActiveRecord::Base
     end
   end
 
-  def self.import(branch, file)
+  def self.import(branch, rpm, file)
     srpm = Srpm.new
-    srpm.name = `export LANG=C && rpm -qp --queryformat='%{NAME}' #{file}`
-    srpm.version = `export LANG=C && rpm -qp --queryformat='%{VERSION}' #{file}`
-    srpm.release = `export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{file}`
-    srpm.epoch = `export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{file}`
-    # TODO: make test for this
-    srpm.epoch = nil if srpm.epoch == '(none)'
-    srpm.filename = "#{srpm.name}-#{srpm.version}-#{srpm.release}.src.rpm"
+    srpm.name = rpm.name
+    srpm.version = rpm.version
+    srpm.release = rpm.release
+    srpm.epoch = rpm.epoch
+    srpm.filename = rpm.filename
 
-    group_name = `export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}`
+    group_name = rpm.group
     Group.import(branch, group_name)
     group = Group.in_branch(branch, group_name)
 
-    Maintainer.import(`export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{file}`)
+    Maintainer.import(rpm.packager)
 
     srpm.group_id = group.id
     srpm.groupname = group_name
-    srpm.summary = `export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{file}`
+    srpm.summary = rpm.summary
     # TODO: test for this
     # hack for very long summary in openmoko_dfu-util src.rpm
     srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
-    srpm.license = `export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{file}`
-    srpm.url = `export LANG=C && rpm -qp --queryformat='%{URL}' #{file}`
-    # TODO: make test for this
-    srpm.url = nil if srpm.url == '(none)'
-    srpm.description = `export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{file}`
-    srpm.vendor = `export LANG=C && rpm -qp --queryformat='%{VENDOR}' #{file}`
-    srpm.distribution = `export LANG=C && rpm -qp --queryformat='%{DISTRIBUTION}' #{file}`
-    srpm.buildtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{file}`.to_i)
-    srpm.size = File.size(file)
-    srpm.md5 = `/usr/bin/md5sum #{file}`.split[0]
+    srpm.license = rpm.license
+    srpm.url = rpm.url
+    srpm.description = rpm.description
+    srpm.vendor = rpm.vendor
+    srpm.distribution = rpm.distribution
+    srpm.buildtime = Time.at(rpm.buildtime.to_i)
+    srpm.size = rpm.size
+    srpm.md5 = rpm.md5
     srpm.branch_id = branch.id
-    srpm.changelogtime = Time.at(`export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{file}`.to_i)
+    srpm.changelogtime = Time.at(rpm.changelogtime.to_i)
 
-    changelogname = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{file}`
+    changelogname = rpm.changelogname
     srpm.changelogname = changelogname
 
-    srpm.changelogtext = `export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{file}`
+    srpm.changelogtext = rpm.changelogtext
 
     email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
 
@@ -101,7 +99,7 @@ class Srpm < ActiveRecord::Base
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
         puts "#{Time.now}: import '#{File.basename(file)}'"
-        Srpm.import(branch, file)
+        Srpm.import(branch, RPMFile::Source.new(file), file)
       end
     end
   end

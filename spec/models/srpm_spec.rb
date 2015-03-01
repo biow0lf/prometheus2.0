@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'rpmfile'
 
 describe Srpm do
   context 'Associations' do
@@ -36,44 +37,43 @@ describe Srpm do
   it 'should import srpm file' do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    md5 = "f87ff0eaa4e16b202539738483cd54d1  /Sisyphus/files/SRPMS/#{file}"
+    md5 = 'f87ff0eaa4e16b202539738483cd54d1'
     maintainer = Maintainer.create!(login: 'icesik', email: 'icesik@altlinux.org', name: 'Igor Zubkov')
+    rpm = RPMFile::Source.new(file)
 
-    expect(Srpm).to receive(:`).with("/usr/bin/md5sum #{ file }").and_return(md5)
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{NAME}' #{ file }").and_return('openbox')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VERSION}' #{ file }").and_return('3.4.11.1')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{ file }").and_return('alt1.1.1')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{ file }").and_return('(none)')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{ file }").and_return('short description')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{ file }").and_return('Graphical desktop/Other')
-
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{PACKAGER}' #{ file }").and_return('Igor Zubkov <icesik@altlinux.org>')
+    expect(rpm).to receive(:name).and_return('openbox')
+    expect(rpm).to receive(:version).and_return('3.4.11.1')
+    expect(rpm).to receive(:release).and_return('alt1.1.1')
+    expect(rpm).to receive(:epoch).and_return(nil)
+    expect(rpm).to receive(:summary).and_return('short description')
+    expect(rpm).to receive(:group).and_return('Graphical desktop/Other')
+    expect(rpm).to receive(:license).and_return('GPLv2+')
+    expect(rpm).to receive(:url).and_return('http://openbox.org/')
+    expect(rpm).to receive(:packager).and_return('Igor Zubkov <icesik@altlinux.org>')
+    expect(rpm).to receive(:vendor).and_return('ALT Linux Team')
+    expect(rpm).to receive(:distribution).and_return('ALT Linux')
+    expect(rpm).to receive(:description).and_return('long description')
+    # TODO: add buildhost
+    expect(rpm).to receive(:buildtime).and_return('1315301838')
+    expect(rpm).to receive(:changelogname).and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    expect(rpm).to receive(:changelogtext).and_return('- 3.4.11.1')
+    expect(rpm).to receive(:changelogtime).and_return('1312545600')
+    expect(rpm).to receive(:md5).and_return(md5)
+    expect(rpm).to receive(:size).and_return(831_617)
+    expect(rpm).to receive(:filename).and_return(file)
 
     expect(Maintainer).to receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
 
     # TODO: recheck this later
     # expect(MaintainerTeam).to_not receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
 
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{ file }").and_return('GPLv2+')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{ file }").and_return('http://openbox.org/')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{ file }").and_return('long description')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VENDOR}' #{ file }").and_return('ALT Linux Team')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DISTRIBUTION}' #{ file }").and_return('ALT Linux')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{ file }").and_return('1315301838')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTIME}' #{ file }").and_return('1312545600')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGNAME}' #{ file }").and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
-    expect(Srpm).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{CHANGELOGTEXT}' #{ file }").and_return('- 3.4.11.1')
-
-    expect(File).to receive(:size).with(file).and_return(831_617)
-
     expect(Specfile).to receive(:import).and_return(true)
     expect(Changelog).to receive(:import).and_return(true)
     expect(Patch).to receive(:import).and_return(true)
     expect(Source).to receive(:import).and_return(true)
 
-    expect {
-      Srpm.import(branch, file)
-    }.to change { Srpm.count }.from(0).to(1)
+    expect { Srpm.import(branch, rpm, file) }
+      .to change { Srpm.count }.from(0).to(1)
 
     srpm = Srpm.first
     expect(srpm.name).to eq('openbox')
