@@ -7,12 +7,25 @@ describe Srpm do
     it { should belong_to :group }
     it { should have_many(:packages).dependent(:destroy) }
     it { should have_many(:changelogs).dependent(:destroy) }
-    it { should have_many(:repocops).with_foreign_key('srcname').with_primary_key('name') }
+    it do
+      should have_many(:repocops)
+        .with_foreign_key('srcname')
+        .with_primary_key('name')
+    end
     it { should have_one(:specfile).dependent(:destroy) }
-    it { should have_one(:repocop_patch).with_foreign_key('name').with_primary_key('name') }
+    it do
+      should have_one(:repocop_patch)
+        .with_foreign_key('name')
+        .with_primary_key('name')
+    end
     it { should have_many(:patches).dependent(:destroy) }
     it { should have_many(:sources).dependent(:destroy) }
-    it { should have_one(:builder).class_name('Maintainer').with_foreign_key('id').with_primary_key('builder_id') }
+    it do
+      should have_one(:builder)
+        .class_name('Maintainer')
+        .with_foreign_key('id')
+        .with_primary_key('builder_id')
+    end
   end
 
   context 'Validation' do
@@ -36,7 +49,11 @@ describe Srpm do
     branch = FactoryGirl.create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'f87ff0eaa4e16b202539738483cd54d1'
-    maintainer = Maintainer.create!(login: 'icesik', email: 'icesik@altlinux.org', name: 'Igor Zubkov')
+    maintainer = Maintainer.create!(
+      login: 'icesik',
+      email: 'icesik@altlinux.org',
+      name: 'Igor Zubkov'
+    )
     rpm = RPMFile::Source.new(file)
 
     expect(rpm).to receive(:name).and_return('openbox')
@@ -47,23 +64,27 @@ describe Srpm do
     expect(rpm).to receive(:group).and_return('Graphical desktop/Other')
     expect(rpm).to receive(:license).and_return('GPLv2+')
     expect(rpm).to receive(:url).and_return('http://openbox.org/')
-    expect(rpm).to receive(:packager).and_return('Igor Zubkov <icesik@altlinux.org>')
+    expect(rpm).to receive(:packager)
+      .and_return('Igor Zubkov <icesik@altlinux.org>')
     expect(rpm).to receive(:vendor).and_return('ALT Linux Team')
     expect(rpm).to receive(:distribution).and_return('ALT Linux')
     expect(rpm).to receive(:description).and_return('long description')
     # TODO: add buildhost
     expect(rpm).to receive(:buildtime).and_return('1315301838')
-    expect(rpm).to receive(:changelogname).and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    expect(rpm).to receive(:changelogname)
+      .and_return('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     expect(rpm).to receive(:changelogtext).and_return('- 3.4.11.1')
     expect(rpm).to receive(:changelogtime).and_return('1312545600')
     expect(rpm).to receive(:md5).and_return(md5)
     expect(rpm).to receive(:size).and_return(831_617)
     expect(rpm).to receive(:filename).and_return(file)
 
-    expect(Maintainer).to receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
+    expect(Maintainer).to receive(:import)
+      .with('Igor Zubkov <icesik@altlinux.org>')
 
     # TODO: recheck this later
-    # expect(MaintainerTeam).to_not receive(:import).with('Igor Zubkov <icesik@altlinux.org>')
+    # expect(MaintainerTeam).to_not receive(:import)
+    #   .with('Igor Zubkov <icesik@altlinux.org>')
 
     expect(Specfile).to receive(:import).and_return(true)
     expect(Changelog).to receive(:import).and_return(true)
@@ -89,7 +110,8 @@ describe Srpm do
     # FIXME:
     # srpm.buildtime.should eq(Time.at(1_315_301_838))
     # srpm.changelogtime.should eq(Time.at(1_312_545_600))
-    expect(srpm.changelogname).to eq('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
+    expect(srpm.changelogname)
+      .to eq('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     expect(srpm.changelogtext).to eq('- 3.4.11.1')
     expect(srpm.filename).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
 
@@ -113,19 +135,26 @@ describe Srpm do
     group = FactoryGirl.create(:group, branch_id: branch.id)
     srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
     Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
-    srpm2 = FactoryGirl.create(:srpm, name: 'blackbox', filename: 'blackbox-1.0-alt1.src.rpm', branch_id: branch.id, group_id: group.id)
+    srpm2 = FactoryGirl.create(
+      :srpm,
+      name: 'blackbox',
+      filename: 'blackbox-1.0-alt1.src.rpm',
+      branch_id: branch.id,
+      group_id: group.id
+    )
     Redis.current.set("#{ branch.name }:#{ srpm2.filename }", 1)
     Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", 'icesik')
     Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", 'icesik')
 
     path = '/ALT/Sisyphus/files/SRPMS/'
 
-    expect(File).to receive(:exist?).with("#{ path }openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
-    expect(File).to receive(:exist?).with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
+    expect(File).to receive(:exist?)
+      .with("#{ path }openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
+    expect(File).to receive(:exist?)
+      .with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
 
-    expect {
-      Srpm.remove_old(branch, path)
-    }.to change { Srpm.count }.from(2).to(1)
+    expect { Srpm.remove_old(branch, path) }
+      .to change { Srpm.count }.from(2).to(1)
 
     expect(Redis.current.get("#{ branch.name }:openbox-3.4.11.1-alt1.1.1.src.rpm")).to eq('1')
     expect(Redis.current.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm")).to be_nil
