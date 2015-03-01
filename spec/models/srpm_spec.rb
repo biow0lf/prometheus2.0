@@ -5,17 +5,15 @@ describe Srpm do
   context 'Associations' do
     it { should belong_to :branch }
     it { should belong_to :group }
-    it { should have_many :packages }
-    it { should have_many :changelogs }
-    it { should have_many :repocops }
-    it { should have_one :specfile }
-    it { should have_one :repocop_patch }
-    it { should have_many :patches }
-    it { should have_many :sources }
+    it { should have_many(:packages).dependent(:destroy) }
+    it { should have_many(:changelogs).dependent(:destroy) }
+    it { should have_many(:repocops).with_foreign_key('srcname').with_primary_key('name') }
+    it { should have_one(:specfile).dependent(:destroy) }
+    it { should have_one(:repocop_patch).with_foreign_key('name').with_primary_key('name') }
+    it { should have_many(:patches).dependent(:destroy) }
+    it { should have_many(:sources).dependent(:destroy) }
+    it { should have_one(:builder).class_name('Maintainer').with_foreign_key('id').with_primary_key('builder_id') }
   end
-
-  # pending "test :dependent => :destroy for :packages, :changelogs, :acls"
-  # pending "test :foreign_key => 'srcname', :primary_key => 'name' for :repocops"
 
   context 'Validation' do
     it { should validate_presence_of :branch }
