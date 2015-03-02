@@ -69,26 +69,26 @@ describe Maintainer do
   it 'should create one Maintainer' do
     expect {
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-    }.to change { Maintainer.count }.from(0).to(1)
+    }.to change(Maintainer, :count).by(1)
   end
 
   it 'should not create Maintainer if Maintainer already exists' do
     Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
     expect {
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')
-    }.to_not change { Maintainer.count }
+    }.to_not change(Maintainer, :count)
   end
 
   it 'should create new Maintainer team' do
     expect {
       Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    }.to change { MaintainerTeam.count }.from(0).to(1)
+    }.to change(MaintainerTeam, :count).by(1)
   end
 
   it 'should not create new Maintainer team' do
     Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
     expect {
       Maintainer.import('Ruby Maintainers Team <ruby@packages.altlinux.org>')
-    }.to_not change { MaintainerTeam.count }
+    }.to_not change(MaintainerTeam, :count)
   end
 end

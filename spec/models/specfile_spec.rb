@@ -22,7 +22,7 @@ describe Specfile do
     expect(Specfile).to receive(:`).with("rpm2cpio \"#{ file }\" | cpio -i --quiet --to-stdout \"openbox.spec\"").and_return('qwerty')
 
     expect { Specfile.import(file, srpm) }
-      .to change { Specfile.count }.from(0).to(1)
+      .to change(Specfile, :count).by(1)
 
     expect(srpm.specfile).not_to be_nil
     expect(srpm.specfile.spec).to eq('qwerty')

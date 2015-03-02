@@ -49,6 +49,6 @@ describe Gear do
 
     expect {
       Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
-    }.to change { Gear.count }.from(0).to(1)
+    }.to change(Gear, :count).by(1)
   end
 end

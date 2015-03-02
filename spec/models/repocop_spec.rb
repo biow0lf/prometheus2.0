@@ -29,8 +29,6 @@ describe Repocop do
     page = `cat spec/data/prometheus2.sql`
     url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2.sql'
     FakeWeb.register_uri(:get, url, response: page)
-    expect {
-      Repocop.update_repocop
-    }.to change { Repocop.count }.from(0).to(1)
+    expect { Repocop.update_repocop }.to change(Repocop, :count).by(1)
   end
 end

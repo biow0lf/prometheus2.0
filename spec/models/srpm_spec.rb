@@ -92,7 +92,7 @@ describe Srpm do
     expect(Source).to receive(:import).and_return(true)
 
     expect { Srpm.import(branch, rpm, file) }
-      .to change { Srpm.count }.from(0).to(1)
+      .to change(Srpm, :count).by(1)
 
     srpm = Srpm.first
     expect(srpm.name).to eq('openbox')
@@ -154,7 +154,7 @@ describe Srpm do
       .with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
 
     expect { Srpm.remove_old(branch, path) }
-      .to change { Srpm.count }.from(2).to(1)
+      .to change(Srpm, :count).by(-1)
 
     expect(Redis.current.get("#{ branch.name }:openbox-3.4.11.1-alt1.1.1.src.rpm")).to eq('1')
     expect(Redis.current.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm")).to be_nil

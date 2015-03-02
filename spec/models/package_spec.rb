@@ -56,7 +56,7 @@ describe Package do
 
     expect {
       Package.import(branch, file)
-    }.to change { Package.count }.from(0).to(1)
+    }.to change(Package, :count).by(1)
 
     package = Package.first
     expect(package.name).to eq('openbox')
