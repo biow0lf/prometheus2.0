@@ -6,6 +6,9 @@
     remote:        data-remote
     paginator:     the paginator that renders the pagination tags inside
 -%>
+
+<p class="break">
+
 <%= paginator.render do -%>
   <span class="vkladka">
     <%= first_page_tag unless current_page.first? %>
