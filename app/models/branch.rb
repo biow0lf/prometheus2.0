@@ -26,15 +26,17 @@ class Branch < ActiveRecord::Base
     name
   end
 
+  def recount!
+    counter.value = srpms.count
+  end
+
+  private
+
   def set_default_counter_value
     counter.value = 0
   end
 
   def destroy_counter
     Redis.current.del("branch:#{ id }:counter")
-  end
-
-  def recount!
-    counter.value = srpms.count
   end
 end
