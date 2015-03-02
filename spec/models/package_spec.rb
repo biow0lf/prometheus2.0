@@ -33,30 +33,27 @@ describe Package do
     branch = FactoryGirl.create(:branch)
     group = FactoryGirl.create(:group, branch_id: branch.id)
     FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    file = 'openbox-3.4.11.1-alt1.1.1.i586.rpm'
+    md5 = 'fd0100efb65fa82af3028e356a6f6304'
+    rpm = RPMFile::Binary.new(file)
 
-    file = 'openbox-3.5.0-alt1.i586.rpm'
+    expect(rpm).to receive(:md5).and_return(md5)
+    expect(rpm).to receive(:sourcerpm).and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    expect(rpm).to receive(:name).and_return('openbox')
+    expect(rpm).to receive(:version).and_return('3.4.11.1')
+    expect(rpm).to receive(:release).and_return('alt1.1.1')
+    expect(rpm).to receive(:epoch).and_return(nil)
+    expect(rpm).to receive(:arch).and_return('i586')
+    expect(rpm).to receive(:group).and_return('Graphical desktop/Other')
+    expect(rpm).to receive(:summary).and_return('short description')
+    expect(rpm).to receive(:license).and_return('GPLv2+')
+    expect(rpm).to receive(:url).and_return('http://openbox.org/')
+    expect(rpm).to receive(:description).and_return('long description')
+    expect(rpm).to receive(:buildtime).and_return(Time.at('1315301838'.to_i))
+    expect(rpm).to receive(:size).and_return('236554')
+    expect(rpm).to receive(:filename).and_return(file)
 
-    md5 = "fd0100efb65fa82af3028e356a6f6304  /ALT/Sisyphus/files/i586/RPMS/#{ file }"
-    expect(Package).to receive(:`).with("/usr/bin/md5sum #{ file }").and_return(md5)
-
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SOURCERPM}' #{ file }").and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{NAME}' #{ file }").and_return('openbox')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{VERSION}' #{ file }").and_return('3.4.11.1')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{RELEASE}' #{ file }").and_return('alt1.1.1')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{EPOCH}' #{ file }").and_return('(none)')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{ARCH}' #{ file }").and_return('i586')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{GROUP}' #{file}").and_return('Graphical desktop/Other')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{SUMMARY}' #{ file }").and_return('short description')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{LICENSE}' #{ file }").and_return('GPLv2+')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{URL}' #{ file }").and_return('http://openbox.org/')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{DESCRIPTION}' #{ file }").and_return('long description')
-    expect(Package).to receive(:`).with("export LANG=C && rpm -qp --queryformat='%{BUILDTIME}' #{ file }").and_return('1315301838')
-
-    expect(File).to receive(:size).with(file).and_return(236_554)
-
-    expect {
-      Package.import(branch, file)
-    }.to change(Package, :count).by(1)
+    expect { Package.import(branch, rpm) }.to change(Package, :count).by(1)
 
     package = Package.first
     expect(package.name).to eq('openbox')
@@ -71,7 +68,7 @@ describe Package do
     expect(package.description).to eq('long description')
     # FIXME:
     # package.buildtime.should == Time.at(1315301838)
-    expect(package.filename).to eq('openbox-3.5.0-alt1.i586.rpm')
+    expect(package.filename).to eq(file)
 
     expect(Redis.current.get("#{branch.name}:#{package.filename}")).to eq('1')
   end
