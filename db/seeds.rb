@@ -96,165 +96,211 @@ branch.save!
 
 # Mirrors for Sisyphus
 branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
-Mirror.create(branch_id: branch.id,
-              order_id: 3,
-              name: 'ftp://ftp.linux.kiev.ua',
-              country: 'ua',
-              uri: 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 4,
-              name: 'http://ftp.linux.kiev.ua',
-              country: 'ua',
-              uri: 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 5,
-              name: 'rsync://ftp.linux.kiev.ua',
-              country: 'ua',
-              uri: 'rsync://ftp.linux.kiev.ua/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'ftp://ftp.linux.kiev.ua',
+  country: 'ua',
+  uri: 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'http://ftp.linux.kiev.ua',
+  country: 'ua',
+  uri: 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 5,
+  name: 'rsync://ftp.linux.kiev.ua',
+  country: 'ua',
+  uri: 'rsync://ftp.linux.kiev.ua/ALTLinux',
+  protocol: 'rsync'
+)
 
 # Mirrors for SisyphusARM
 branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
 branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
 branch = Branch.where(name: '5.1', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
 branch = Branch.where(name: '5.0', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
 branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
-
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
 branch = Branch.where(name: '4.0', vendor: 'ALT Linux').first
-Mirror.create(branch_id: branch.id,
-              order_id: 0,
-              name: 'ftp://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'ftp')
-Mirror.create(branch_id: branch.id,
-              order_id: 1,
-              name: 'http://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-              protocol: 'http')
-Mirror.create(branch_id: branch.id,
-              order_id: 2,
-              name: 'rsync://ftp.altlinux.org',
-              country: 'ru',
-              uri: 'rsync://ftp.altlinux.org/ALTLinux',
-              protocol: 'rsync')
+Mirror.create(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
 
 # Mirror.create(:branch_id => branch.id, :order_id => 1, :country => 'ru',
 #               :ftp => 'ftp://ftp.chg.ru/pub/Linux/ALTLinux',
@@ -327,18 +373,74 @@ Maintainer.create!(name: 'Mike Radyuk', email: 'torabora@altlinux.org', login: '
 
 # TODO: add @xen and @ha-cluster'
 
-MaintainerTeam.create!(name: 'TeX Development Team', email: 'tex@packages.altlinux.org', login: '@tex')
-MaintainerTeam.create!(name: 'Connexion Development Team', email: 'connexion@packages.altlinux.org', login: '@connexion')
-MaintainerTeam.create!(name: 'EVMS Development Team', email: 'evms@packages.altlinux.org', login: '@evms')
-MaintainerTeam.create!(name: 'QA Team', email: 'qa@packages.altlinux.org', login: '@qa')
-MaintainerTeam.create!(name: 'CPAN Team', email: 'cpan@packages.altlinux.org', login: '@cpan')
-MaintainerTeam.create!(name: 'Xfce Team', email: 'xfce@packages.altlinux.org', login: '@xfce')
-MaintainerTeam.create!(name: 'VIm Plugins Development Team', email: 'vim-plugins@packages.altlinux.org', login: '@vim-plugins')
-MaintainerTeam.create!(name: 'FreeRadius Development Team', email: 'freeradius@packages.altlinux.org', login: '@freeradius')
-MaintainerTeam.create!(name: 'FTN Development Team', email: 'ftn@packages.altlinux.org', login: '@ftn')
-MaintainerTeam.create!(name: 'Java Team', email: 'java@packages.altlinux.org', login: '@java')
-MaintainerTeam.create!(name: 'Kernel Team', email: 'kernel@packages.altlinux.org', login: '@kernel')
-MaintainerTeam.create!(name: 'Ruby Team', email: 'ruby@packages.altlinux.org', login: '@ruby')
-MaintainerTeam.create!(name: 'Python Team', email: 'python@packages.altlinux.org', login: '@python')
-MaintainerTeam.create!(name: 'QA p6', email: 'qa_p6@packages.altlinux.org', login: '@qa_p6')
-MaintainerTeam.create!(name: 'QA p5', email: 'qa_p5@packages.altlinux.org', login: '@qa_p5')
+MaintainerTeam.create!(
+  name: 'TeX Development Team',
+  email: 'tex@packages.altlinux.org',
+  login: '@tex'
+)
+MaintainerTeam.create!(
+  name: 'Connexion Development Team',
+  email: 'connexion@packages.altlinux.org',
+  login: '@connexion'
+)
+MaintainerTeam.create!(
+  name: 'EVMS Development Team', email: 'evms@packages.altlinux.org', login: '@evms')
+MaintainerTeam.create!(
+  name: 'QA Team',
+  email: 'qa@packages.altlinux.org',
+  login: '@qa')
+MaintainerTeam.create!(
+  name: 'CPAN Team',
+  email: 'cpan@packages.altlinux.org',
+  login: '@cpan'
+)
+MaintainerTeam.create!(
+  name: 'Xfce Team',
+  email: 'xfce@packages.altlinux.org',
+  login: '@xfce'
+)
+MaintainerTeam.create!(
+  name: 'VIm Plugins Development Team',
+  email: 'vim-plugins@packages.altlinux.org',
+  login: '@vim-plugins'
+)
+MaintainerTeam.create!(
+  name: 'FreeRadius Development Team',
+  email: 'freeradius@packages.altlinux.org',
+  login: '@freeradius'
+)
+MaintainerTeam.create!(
+  name: 'FTN Development Team',
+  email: 'ftn@packages.altlinux.org',
+  login: '@ftn'
+)
+MaintainerTeam.create!(
+  name: 'Java Team',
+  email: 'java@packages.altlinux.org',
+  login: '@java'
+)
+MaintainerTeam.create!(
+  name: 'Kernel Team',
+  email: 'kernel@packages.altlinux.org',
+  login: '@kernel'
+)
+MaintainerTeam.create!(
+  name: 'Ruby Team',
+  email: 'ruby@packages.altlinux.org',
+  login: '@ruby'
+)
+MaintainerTeam.create!(
+  name: 'Python Team',
+  email: 'python@packages.altlinux.org',
+  login: '@python'
+)
+MaintainerTeam.create!(
+  name: 'QA p6',
+  email: 'qa_p6@packages.altlinux.org',
+  login: '@qa_p6'
+)
+MaintainerTeam.create!(
+  name: 'QA p5',
+  email: 'qa_p5@packages.altlinux.org',
+  login: '@qa_p5'
+)
