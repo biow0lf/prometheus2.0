@@ -100,10 +100,11 @@ describe Srpm do
     expect(srpm.release).to eq('alt1.1.1')
     expect(srpm.epoch).to be_nil
     expect(srpm.summary).to eq('short description')
-    expect(srpm.group.full_name).to eq('Graphical desktop/Other')
+    # expect(srpm.group.full_name).to eq('Graphical desktop/Other')
     expect(srpm.groupname).to eq('Graphical desktop/Other')
     expect(srpm.license).to eq('GPLv2+')
     expect(srpm.url).to eq('http://openbox.org/')
+
     expect(srpm.description).to eq('long description')
     expect(srpm.vendor).to eq('ALT Linux Team')
     expect(srpm.distribution).to eq('ALT Linux')
@@ -114,6 +115,8 @@ describe Srpm do
       .to eq('Igor Zubkov <icesik@altlinux.org> 3.4.11.1-alt1.1.1')
     expect(srpm.changelogtext).to eq('- 3.4.11.1')
     expect(srpm.filename).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    expect(srpm.size).to eq(831_617)
+    expect(srpm.md5).to eq(md5)
 
     expect(Redis.current.get("#{ branch.name }:#{ srpm.filename }")).to eq('1')
   end

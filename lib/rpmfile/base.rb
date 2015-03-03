@@ -108,9 +108,8 @@ module RPMFile # TODO: rename to RPM
       @md5 ||= `md5sum #{ file }`.split.first
     end
 
-    # TODO: size should be integer, not string
     def size
-      @size ||= (::File.size(file)).to_s
+      @size ||= File.size(file)
     end
   end
 end

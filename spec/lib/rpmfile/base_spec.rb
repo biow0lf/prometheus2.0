@@ -163,8 +163,9 @@ describe 'RPMFile::Base' do
 
   it 'should return #size' do
     file = 'spec/data/catpkt-1.0-alt5.src.rpm'
+    size = 14_216
     rpm = RPMFile::Base.new(file)
-    expect(File).to receive(:size).with(file).and_return(14_216)
-    expect(rpm.size).to eq('14216')
+    expect(File).to receive(:size).with(file).and_return(size)
+    expect(rpm.size).to eq(size)
   end
 end
