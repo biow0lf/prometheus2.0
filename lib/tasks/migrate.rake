@@ -28,4 +28,17 @@ namespace :migrate do
 
     ThinkingSphinx::Deltas.resume!
   end
+
+  desc 'Migrate :changelogtime string to datetime'
+  task :changelogtime => :environment do
+    ThinkingSphinx::Deltas.suspend!
+
+    Srpm.find_each do |srpm|
+      srpm.changelogtime_datetime = Time.at(srpm.changelogtime.to_i)
+      srpm.save(validate: false)
+    end
+
+    ThinkingSphinx::Deltas.resume!
+  end
+
 end
