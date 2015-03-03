@@ -18,5 +18,10 @@ namespace :migrate do
       srpm.size_integer = srpm.size.to_i
       srpm.save!
     end
+
+    Package.find_each do |package|
+      package.size_integer = package.size.to_i
+      package.save!
+    end
   end
 end
