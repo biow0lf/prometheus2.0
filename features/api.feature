@@ -22,7 +22,7 @@ Feature: User API
         "group": "Graphical desktop/Other",
         "license": "GPLv2+",
         "url": "http://openbox.org/",
-        "size": "831617",
+        "size": 831617,
         "filename": "openbox-3.4.11.1-alt1.1.1.src.rpm",
         "md5": "f87ff0eaa4e16b202539738483cd54d1",
         "buildtime": "2010-11-24T23:58:02.000Z",
