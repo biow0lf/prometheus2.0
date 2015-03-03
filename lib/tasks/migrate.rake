@@ -11,5 +11,12 @@ namespace :migrate do
     end
 
   end
-end
 
+  desc 'Migrate :size string to :size integer'
+  task :size => :environment do
+    Srpm.find_each do |srpm|
+      srpm.size_integer = srpm.size.to_i
+      srpm.save!
+    end
+  end
+end
