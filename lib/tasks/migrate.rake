@@ -14,6 +14,8 @@ namespace :migrate do
 
   desc 'Migrate :size string to :size integer'
   task :size => :environment do
+    ThinkingSphinx::Deltas.suspend!
+
     Srpm.find_each do |srpm|
       srpm.size_integer = srpm.size.to_i
       srpm.save(validate: false)
@@ -23,5 +25,7 @@ namespace :migrate do
       package.size_integer = package.size.to_i
       package.save(validate: false)
     end
+
+    ThinkingSphinx::Deltas.resume!
   end
 end
