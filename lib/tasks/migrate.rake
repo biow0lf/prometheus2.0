@@ -16,12 +16,12 @@ namespace :migrate do
   task :size => :environment do
     Srpm.find_each do |srpm|
       srpm.size_integer = srpm.size.to_i
-      srpm.save!
+      srpm.save(validate: false)
     end
 
     Package.find_each do |package|
       package.size_integer = package.size.to_i
-      package.save!
+      package.save(validate: false)
     end
   end
 end
