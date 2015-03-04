@@ -1,6 +1,6 @@
 namespace :p7 do
   desc 'Update p7 stuff'
-  task :update => :environment do
+  task update: :environment do
     puts "#{Time.now}: Update p7 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin

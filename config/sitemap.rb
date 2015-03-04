@@ -10,28 +10,28 @@ SitemapGenerator::Sitemap.create do
   # Usage: add(path, options={})
   #        (default options are used if you don't specify)
   #
-  # Defaults: :priority => 0.5, :changefreq => 'weekly',
-  #           :lastmod => Time.now, :host => default_host
+  # Defaults: priority: 0.5, changefreq: 'weekly',
+  #           lastmod: Time.now, host: default_host
   #
   # Examples:
   #
   # Add '/articles'
   #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
+  #   add articles_path, priority: 0.7, changefreq: 'daily'
   #
   # Add all articles:
   #
   #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
+  #     add article_path(article), lastmod: article.updated_at
   #   end
 
-  add '/', :changefreq => 'hourly'
-  add '/en', :changefreq => 'hourly'
-  add '/ru', :changefreq => 'hourly'
-  add '/uk', :changefreq => 'hourly'
-  add '/br', :changefreq => 'hourly'
+  add '/', changefreq: 'hourly'
+  add '/en', changefreq: 'hourly'
+  add '/ru', changefreq: 'hourly'
+  add '/uk', changefreq: 'hourly'
+  add '/br', changefreq: 'hourly'
 
-  ['en', 'ru', 'uk', 'br'].each do |locale|
+  %w(en ru uk br).each do |locale|
     Branch.find_each do |branch|
       branch.srpms.find_each do |srpm|
         add srpm_path(locale, branch, srpm)

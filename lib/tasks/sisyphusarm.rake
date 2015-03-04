@@ -1,6 +1,6 @@
 namespace :sisyphusarm do
   desc 'Update SisyphusARM stuff'
-  task :update => :environment do
+  task update: :environment do
     puts "#{Time.now}: Update SisyphusARM stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -36,7 +36,7 @@ namespace :sisyphusarm do
   end
 
   desc 'Import *.src.rpm from SisyphusARM to database'
-  task :srpms => :environment do
+  task srpms: :environment do
     require 'open-uri'
     puts "#{Time.now}: import *.src.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
@@ -45,7 +45,7 @@ namespace :sisyphusarm do
   end
 
   desc 'Import *.arm.rpm/*.noarch.rpm from SisyphusARM to database'
-  task :binary => :environment do
+  task binary: :environment do
     require 'open-uri'
     puts "#{Time.now}: import *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first

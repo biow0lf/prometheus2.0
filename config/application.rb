@@ -32,7 +32,7 @@ module Prometheus20
     config.assets.enabled = true
 
     config.generators do |g|
-      g.test_framework :rspec, :fixture => true
+      g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl
     end
 
@@ -41,10 +41,10 @@ module Prometheus20
 
     if Rails.env.production?
       config.middleware.use ExceptionNotification::Rack,
-        :email => {
-          :email_prefix => '[ERROR] ',
-          :sender_address => %{'Sisyphus 2.0 Error' <prometheus-noreply@altlinux.org>},
-          :exception_recipients => %w{igor.zubkov@gmail.com}
+        email: {
+          email_prefix: '[ERROR] ',
+          sender_address: %{'Sisyphus 2.0 Error' <prometheus-noreply@altlinux.org>},
+          exception_recipients: %w{igor.zubkov@gmail.com}
         }
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
     end

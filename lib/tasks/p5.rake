@@ -1,6 +1,6 @@
 namespace :p5 do
   desc 'Update p5 stuff'
-  task :update => :environment do
+  task update: :environment do
     puts "#{Time.now}: Update p5 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -43,12 +43,12 @@ namespace :p5 do
     Redis.current.del('__SYNC__')
   end
 
-# # TODO: remove this
-# #  desc "Import all teams from Platform5 to database"
-# #  task :teams => :environment do
-# #    require 'open-uri'
-# #    puts Time.now + ": import teams"
-# #    Team.import_teams 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
-# #    puts Time.now + ": end"
-# #  end
+  # TODO: remove this
+  # desc "Import all teams from Platform5 to database"
+  # task teams: :environment do
+  #   require 'open-uri'
+  #   puts Time.now + ": import teams"
+  #   Team.import_teams 'ALT Linux', 'Platform5', 'http://git.altlinux.org/acl/list.groups.p5'
+  #   puts Time.now + ": end"
+  # end
 end

@@ -1,6 +1,6 @@
 namespace :sisyphus do
   desc 'Update Sisyphus stuff'
-  task :update => :environment do
+  task update: :environment do
     puts "#{Time.now}: Update Sisyphus stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -44,7 +44,7 @@ namespace :sisyphus do
   end
 
   # desc 'Import all leaders for packages from Sisyphus to database'
-  # task :leaders => :environment do
+  # task leaders: :environment do
   #   require 'open-uri'
   #   puts "#{Time.now}: import all leaders for packages from Sisyphus to database"
   #   Leader.import_leaders('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus')
@@ -52,7 +52,7 @@ namespace :sisyphus do
   # end
   #
   # desc 'Import all teams from Sisyphus to database'
-  # task :teams => :environment do
+  # task teams: :environment do
   #   require 'open-uri'
   #   puts "#{Time.now}: import all teams from Sisyphus to database"
   #   Team.import_teams('ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus')

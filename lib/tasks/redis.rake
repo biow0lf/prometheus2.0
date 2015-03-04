@@ -1,6 +1,6 @@
 namespace :redis do
   desc 'Cache all *.src.rpm and all binary *.rpm in redis'
-  task :cache => :environment do
+  task cache: :environment do
     puts "#{Time.now}: cache all *.src.rpm info in redis"
 
     if Redis.current.get('__SYNC__')

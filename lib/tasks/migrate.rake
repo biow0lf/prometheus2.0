@@ -1,6 +1,6 @@
 namespace :migrate do
   desc 'Call Branch.recount! on each branch'
-  task :recount => :environment do
+  task recount: :environment do
 
     Branch.all.each do |branch|
       branch.recount!
@@ -13,7 +13,7 @@ namespace :migrate do
   end
 
   desc 'Migrate :size string to :size integer'
-  task :size => :environment do
+  task size: :environment do
     ThinkingSphinx::Deltas.suspend!
 
     Srpm.find_each do |srpm|
@@ -30,7 +30,7 @@ namespace :migrate do
   end
 
   desc 'Migrate :changelogtime string to datetime'
-  task :changelogtime => :environment do
+  task changelogtime: :environment do
     ThinkingSphinx::Deltas.suspend!
 
     Srpm.find_each do |srpm|

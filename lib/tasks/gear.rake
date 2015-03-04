@@ -1,6 +1,6 @@
 namespace :gear do
   desc 'Import all git repos to database'
-  task :import => :environment do
+  task import: :environment do
     require 'open-uri'
 
     puts "#{Time.now}: import gitrepos"
@@ -26,7 +26,7 @@ namespace :gear do
   end
 
   desc 'Update all git repos to database'
-  task :update => :environment do
+  task update: :environment do
     require 'open-uri'
 
     puts "#{Time.now}: update gitrepos"

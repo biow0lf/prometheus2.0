@@ -1,6 +1,6 @@
 namespace :perlwatch do
   desc 'Import CPAN info to database'
-  task :update => :environment do
+  task update: :environment do
     puts "#{Time.now}: import CPAN info to database"
     if Redis.current.get('__SYNC__')
       exist = begin

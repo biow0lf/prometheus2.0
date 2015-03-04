@@ -1,6 +1,6 @@
 namespace :sisyphus do
   desc 'Import repocop reports to database'
-  task :repocops => :environment do
+  task repocops: :environment do
     puts "#{Time.now}: import repocop reports"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -25,7 +25,7 @@ namespace :sisyphus do
   end
 
   desc 'Update repocop status cache'
-  task :update_repocop_cache => :environment do
+  task update_repocop_cache: :environment do
     puts "#{Time.now}: update repocop cache"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -49,7 +49,7 @@ namespace :sisyphus do
   end
 
   desc 'Import repocop patches list to database'
-  task :repocop_patches => :environment do
+  task repocop_patches: :environment do
     puts "#{Time.now}: import repocop patches"
     if Redis.current.get('__SYNC__')
       exist = begin

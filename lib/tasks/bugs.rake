@@ -1,6 +1,6 @@
 namespace :sisyphus do
   desc 'Import all bugs to database'
-  task :bugs => :environment do
+  task bugs: :environment do
     puts "#{Time.now}: import bugs"
     if Redis.current.get('__SYNC__')
       exist = begin

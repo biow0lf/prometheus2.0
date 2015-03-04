@@ -1,6 +1,6 @@
 namespace :"41" do
   desc 'Update 4.1 stuff'
-  task :update => :environment do
+  task update: :environment do
     puts "#{Time.now}: Update 4.1 stuff"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -44,7 +44,7 @@ namespace :"41" do
   end
 
 #   desc "Import all ACL for packages from 4.1 to database (leaders)"
-#   task :leaders => :environment do
+#   task leaders: :environment do
 #     require 'open-uri'
 #     puts "#{Time.now}: import leaders"
 #     Leader.import_leaders('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
@@ -52,7 +52,7 @@ namespace :"41" do
 #   end
 # 
 #   desc "Import all teams from 4.1 to database"
-#   task :teams => :environment do
+#   task teams: :environment do
 #     require 'open-uri'
 #     puts "#{Time.now}: import teams"
 #     Team.import_teams('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.groups.4.1')
