@@ -18,7 +18,6 @@ describe Branch do
     it { should have_many(:ftbfs).class_name('Ftbfs') }
     it { should have_many :repocops }
     it { should have_many :repocop_patches }
-    it { should have_one(:specfile).through(:srpms) }
   end
 
   it 'should return Branch#name on #to_param' do
@@ -36,7 +35,7 @@ describe Branch do
     expect(Redis.current.get("branch:#{ branch.id }:counter")).to be_nil
   end
 
-  it 'should recount Branch.srpms on #recount! and save' do
+  it 'should recount Branch#srpms on #recount! and save' do
     branch = FactoryGirl.create(:branch)
     branch.counter.value = 42
     expect(branch.counter.value).to eq(42)
