@@ -28,6 +28,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.7)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (4.0.2)
     ast (2.0.0)
     astrolabe (1.3.0)
@@ -410,6 +413,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_sanity
+  annotate
   awesome_nested_set
   backup
   better_errors

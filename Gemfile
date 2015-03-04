@@ -91,6 +91,7 @@ group :development do
   gem 'guard-rubocop'
   gem 'flog', require: false
   gem 'brakeman', require: false
+  gem 'annotate', require: false
 end
 
 group :development, :test do
