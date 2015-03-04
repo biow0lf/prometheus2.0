@@ -421,6 +421,7 @@ DEPENDENCIES
   brakeman
   brewdler
   bullet
+  bundler (>= 1.7.0)
   capistrano (= 2.15.5)
   capistrano_colors
   capybara
