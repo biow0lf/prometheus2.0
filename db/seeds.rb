@@ -4,6 +4,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'Sisyphus'
 branch.order_id = 0
 branch.path = '/Sisyphus'
+# branch.srpm_path = ['/ALT/Sisyphus/files/SRPMS']
 branch.save!
 
 # add SisyphusARM branch
@@ -12,6 +13,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'SisyphusARM'
 branch.order_id = 1
 branch.path = '/Sisyphus'
+# branch.srpm_path = []
 branch.save!
 
 # add Platform7 branch
@@ -188,7 +190,8 @@ Mirror.create!(
   name: 'http://ftp.altlinux.org',
   country: 'ru',
   uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'http')
+  protocol: 'http'
+)
 Mirror.create!(
   branch_id: branch.id,
   order_id: 2,
@@ -317,59 +320,267 @@ Mirror.create!(
 #               :rsync => 'rsync://mirror.yandex.ru/altlinux')
 
 # packager list
-MaintainerTeam.create!(name: 'Nobody', email: 'noboby@altlinux.org', login: '@nobody')
-MaintainerTeam.create!(name: 'Eve R. Ybody', email: 'everybody@altlinux.org', login: '@everybody')
+MaintainerTeam.create!(
+  name: 'Nobody',
+  email: 'noboby@altlinux.org',
+  login: '@nobody'
+)
+MaintainerTeam.create!(
+  name: 'Eve R. Ybody',
+  email: 'everybody@altlinux.org',
+  login: '@everybody'
+)
 
-Maintainer.create!(name: 'Igor Zubkov', email: 'icesik@altlinux.org', login: 'icesik')
-Maintainer.create!(name: 'Alexey Tourbin', email: 'at@altlinux.org', login: 'at')
-Maintainer.create!(name: 'Alexey I. Froloff', email: 'raorn@altlinux.org', login: 'raorn')
-Maintainer.create!(name: 'Eugeny A. Rostovtsev', email: 'real@altlinux.org', login: 'real')
-Maintainer.create!(name: 'Alexey Rusakov', email: 'ktirf@altlinux.org', login: 'ktirf')
-Maintainer.create!(name: 'Alex Gorbachenko', email: 'algor@altlinux.org', login: 'algor')
-Maintainer.create!(name: 'Andriy Stepanov', email: 'stanv@altlinux.org', login: 'stanv')
-Maintainer.create!(name: 'Anton Farygin', email: 'rider@altlinux.org', login: 'rider')
-Maintainer.create!(name: 'Igor Muratov', email: 'migor@altlinux.org', login: 'migor')
-Maintainer.create!(name: 'Mihail A. Pluzhnikov', email: 'amike@altlinux.org', login: 'amike')
-Maintainer.create!(name: 'Pavel V. Solntsev', email: 'p_solntsev@altlinux.org', login: 'p_solntsev')
-Maintainer.create!(name: 'Serge Ryabchun', email: 'sr@altlinux.org', login: 'sr')
-Maintainer.create!(name: 'Yurkovsky Andrey', email: 'anyr@altlinux.org', login: 'anyr')
-Maintainer.create!(name: 'Mikerin Sergey', email: 'mikcor@altlinux.org', login: 'mikcor')
-Maintainer.create!(name: 'Alexey Lokhin', email: 'warframe@altlinux.org', login: 'warframe')
-Maintainer.create!(name: 'Alexey Shabalin', email: 'shaba@altlinux.org', login: 'shaba')
-Maintainer.create!(name: 'Valery Pipin', email: 'vvpi@altlinux.org', login: 'vvpi')
-Maintainer.create!(name: 'Pavel Boldin', email: 'bp@altlinux.org', login: 'bp')
-Maintainer.create!(name: 'Ruslan Hihin', email: 'ruslandh@altlinux.org', login: 'ruslandh')
-Maintainer.create!(name: 'Sergey Lebedev', email: 'barabashka@altlinux.org', login: 'barabashka')
-Maintainer.create!(name: 'Konstantin Pavlov', email: 'thresh@altlinux.org', login: 'thresh')
-Maintainer.create!(name: 'Alexey Morozov', email: 'morozov@altlinux.org', login: 'morozov')
-Maintainer.create!(name: 'Dmitry V. Levin', email: 'ldv@altlinux.org', login: 'ldv')
-Maintainer.create!(name: 'Igor Androsov', email: 'blake@altlinux.org', login: 'blake')
-Maintainer.create!(name: 'Aleksandr Blokhin', email: 'sass@altlinux.org', login: 'sass')
-Maintainer.create!(name: 'Alexander Plikus', email: 'plik@altlinux.org', login: 'plik')
-Maintainer.create!(name: 'Vladimir Zhukov', email: 'bertis@altlinux.org', login: 'bertis')
-Maintainer.create!(name: 'Yura Zotov', email: 'yz@altlinux.org', login: 'yz')
-Maintainer.create!(name: 'Ilya Kuznetsov', email: 'worklez@altlinux.org', login: 'worklez')
-Maintainer.create!(name: 'Alex Yustasov', email: 'yust@altlinux.org', login: 'yust')
-Maintainer.create!(name: 'Konstantin Volckov', email: 'goldhead@altlinux.org', login: 'goldhead')
-Maintainer.create!(name: 'Andrey Orlov', email: 'cray@altlinux.org', login: 'cray')
-Maintainer.create!(name: 'Alexander V. Denisov', email: 'rupor@altlinux.org', login: 'rupor')
-Maintainer.create!(name: 'Peter Novodvorsky', email: 'nidd@altlinux.org', login: 'nidd')
-Maintainer.create!(name: 'George Kirik', email: 'kga@altlinux.org', login: 'kga')
-Maintainer.create!(name: 'Eugine V. Kosenko', email: 'maverik@altlinux.org', login: 'maverik')
-Maintainer.create!(name: 'Konstantin A. Lepikhov', email: 'lakostis@altlinux.org', login: 'lakostis')
-Maintainer.create!(name: 'George V. Kouryachy', email: 'george@altlinux.org', login: 'george')
-Maintainer.create!(name: 'Aitov Timur', email: 'timonbl4@altlinux.org', login: 'timonbl4')
-Maintainer.create!(name: 'Anton Chernyshov', email: 'ach@altlinux.org', login: 'ach')
-Maintainer.create!(name: 'Denis Baranov', email: 'baraka@altlinux.org', login: 'baraka')
-Maintainer.create!(name: 'Andrey Lykov', email: 'droid@altlinux.org', login: 'droid')
-Maintainer.create!(name: 'Grigory Fateyev', email: 'greg@altlinux.org', login: 'greg')
-Maintainer.create!(name: 'Anton Yanchenko', email: 'lizzard@altlinux.org', login: 'lizzard')
-Maintainer.create!(name: 'Konstantin Uvarin', email: 'lodin@altlinux.org', login: 'lodin')
-Maintainer.create!(name: 'Alex Radetsky', email: 'rad@altlinux.org', login: 'rad')
-Maintainer.create!(name: 'Wartan Hachaturow', email: 'wart@altlinux.org', login: 'wart')
-Maintainer.create!(name: 'Anton Pischulin', email: 'letanton@altlinux.org', login: 'letanton')
-Maintainer.create!(name: 'Pavel Isopenko', email: 'pauli@altlinux.org', login: 'pauli')
-Maintainer.create!(name: 'Mike Radyuk', email: 'torabora@altlinux.org', login: 'torabora')
+Maintainer.create!(
+  name: 'Igor Zubkov',
+  email: 'icesik@altlinux.org',
+  login: 'icesik'
+)
+Maintainer.create!(
+  name: 'Alexey Tourbin',
+  email: 'at@altlinux.org',
+  login: 'at'
+)
+Maintainer.create!(
+  name: 'Alexey I. Froloff',
+  email: 'raorn@altlinux.org',
+  login: 'raorn'
+)
+Maintainer.create!(
+  name: 'Eugeny A. Rostovtsev',
+  email: 'real@altlinux.org',
+  login: 'real'
+)
+Maintainer.create!(
+  name: 'Alexey Rusakov',
+  email: 'ktirf@altlinux.org',
+  login: 'ktirf'
+)
+Maintainer.create!(
+  name: 'Alex Gorbachenko',
+  email: 'algor@altlinux.org',
+  login: 'algor'
+)
+Maintainer.create!(
+  name: 'Andriy Stepanov',
+  email: 'stanv@altlinux.org',
+  login: 'stanv'
+)
+Maintainer.create!(
+  name: 'Anton Farygin',
+  email: 'rider@altlinux.org',
+  login: 'rider'
+)
+Maintainer.create!(
+  name: 'Igor Muratov',
+  email: 'migor@altlinux.org',
+  login: 'migor'
+)
+Maintainer.create!(
+  name: 'Mihail A. Pluzhnikov',
+  email: 'amike@altlinux.org',
+  login: 'amike'
+)
+Maintainer.create!(
+  name: 'Pavel V. Solntsev',
+  email: 'p_solntsev@altlinux.org',
+  login: 'p_solntsev'
+)
+Maintainer.create!(
+  name: 'Serge Ryabchun',
+  email: 'sr@altlinux.org',
+  login: 'sr'
+)
+Maintainer.create!(
+  name: 'Yurkovsky Andrey',
+  email: 'anyr@altlinux.org',
+  login: 'anyr'
+)
+Maintainer.create!(
+  name: 'Mikerin Sergey',
+  email: 'mikcor@altlinux.org',
+  login: 'mikcor'
+)
+Maintainer.create!(
+  name: 'Alexey Lokhin',
+  email: 'warframe@altlinux.org',
+  login: 'warframe'
+)
+Maintainer.create!(
+  name: 'Alexey Shabalin',
+  email: 'shaba@altlinux.org',
+  login: 'shaba'
+)
+Maintainer.create!(
+  name: 'Valery Pipin',
+  email: 'vvpi@altlinux.org',
+  login: 'vvpi'
+)
+Maintainer.create!(
+  name: 'Pavel Boldin',
+  email: 'bp@altlinux.org',
+  login: 'bp'
+)
+Maintainer.create!(
+  name: 'Ruslan Hihin',
+  email: 'ruslandh@altlinux.org',
+  login: 'ruslandh'
+)
+Maintainer.create!(
+  name: 'Sergey Lebedev',
+  email: 'barabashka@altlinux.org',
+  login: 'barabashka'
+)
+Maintainer.create!(
+  name: 'Konstantin Pavlov',
+  email: 'thresh@altlinux.org',
+  login: 'thresh'
+)
+Maintainer.create!(
+  name: 'Alexey Morozov',
+  email: 'morozov@altlinux.org',
+  login: 'morozov'
+)
+Maintainer.create!(
+  name: 'Dmitry V. Levin',
+  email: 'ldv@altlinux.org',
+  login: 'ldv'
+)
+Maintainer.create!(
+  name: 'Igor Androsov',
+  email: 'blake@altlinux.org',
+  login: 'blake'
+)
+Maintainer.create!(
+  name: 'Aleksandr Blokhin',
+  email: 'sass@altlinux.org',
+  login: 'sass'
+)
+Maintainer.create!(
+  name: 'Alexander Plikus',
+  email: 'plik@altlinux.org',
+  login: 'plik'
+)
+Maintainer.create!(
+  name: 'Vladimir Zhukov',
+  email: 'bertis@altlinux.org',
+  login: 'bertis'
+)
+Maintainer.create!(
+  name: 'Yura Zotov',
+  email: 'yz@altlinux.org',
+  login: 'yz'
+)
+Maintainer.create!(
+  name: 'Ilya Kuznetsov',
+  email: 'worklez@altlinux.org',
+  login: 'worklez'
+)
+Maintainer.create!(
+  name: 'Alex Yustasov',
+  email: 'yust@altlinux.org',
+  login: 'yust'
+)
+Maintainer.create!(
+  name: 'Konstantin Volckov',
+  email: 'goldhead@altlinux.org',
+  login: 'goldhead'
+)
+Maintainer.create!(
+  name: 'Andrey Orlov',
+  email: 'cray@altlinux.org',
+  login: 'cray'
+)
+Maintainer.create!(
+  name: 'Alexander V. Denisov',
+  email: 'rupor@altlinux.org',
+  login: 'rupor'
+)
+Maintainer.create!(
+  name: 'Peter Novodvorsky',
+  email: 'nidd@altlinux.org',
+  login: 'nidd'
+)
+Maintainer.create!(
+  name: 'George Kirik',
+  email: 'kga@altlinux.org',
+  login: 'kga'
+)
+Maintainer.create!(
+  name: 'Eugine V. Kosenko',
+  email: 'maverik@altlinux.org',
+  login: 'maverik'
+)
+Maintainer.create!(
+  name: 'Konstantin A. Lepikhov',
+  email: 'lakostis@altlinux.org',
+  login: 'lakostis'
+)
+Maintainer.create!(
+  name: 'George V. Kouryachy',
+  email: 'george@altlinux.org',
+  login: 'george'
+)
+Maintainer.create!(
+  name: 'Aitov Timur',
+  email: 'timonbl4@altlinux.org',
+  login: 'timonbl4'
+)
+Maintainer.create!(
+  name: 'Anton Chernyshov',
+  email: 'ach@altlinux.org',
+  login: 'ach'
+)
+Maintainer.create!(
+  name: 'Denis Baranov',
+  email: 'baraka@altlinux.org',
+  login: 'baraka'
+)
+Maintainer.create!(
+  name: 'Andrey Lykov',
+  email: 'droid@altlinux.org',
+  login: 'droid'
+)
+Maintainer.create!(
+  name: 'Grigory Fateyev',
+  email: 'greg@altlinux.org',
+  login: 'greg'
+)
+Maintainer.create!(
+  name: 'Anton Yanchenko',
+  email: 'lizzard@altlinux.org',
+  login: 'lizzard'
+)
+Maintainer.create!(
+  name: 'Konstantin Uvarin',
+  email: 'lodin@altlinux.org',
+  login: 'lodin'
+)
+Maintainer.create!(
+  name: 'Alex Radetsky',
+  email: 'rad@altlinux.org',
+  login: 'rad'
+)
+Maintainer.create!(
+  name: 'Wartan Hachaturow',
+  email: 'wart@altlinux.org',
+  login: 'wart'
+)
+Maintainer.create!(
+  name: 'Anton Pischulin',
+  email: 'letanton@altlinux.org',
+  login: 'letanton'
+)
+Maintainer.create!(
+  name: 'Pavel Isopenko',
+  email: 'pauli@altlinux.org',
+  login: 'pauli'
+)
+Maintainer.create!(
+  name: 'Mike Radyuk',
+  email: 'torabora@altlinux.org',
+  login: 'torabora'
+)
 
 # TODO: add @xen and @ha-cluster'
 
@@ -384,11 +595,15 @@ MaintainerTeam.create!(
   login: '@connexion'
 )
 MaintainerTeam.create!(
-  name: 'EVMS Development Team', email: 'evms@packages.altlinux.org', login: '@evms')
+  name: 'EVMS Development Team',
+  email: 'evms@packages.altlinux.org',
+  login: '@evms'
+)
 MaintainerTeam.create!(
   name: 'QA Team',
   email: 'qa@packages.altlinux.org',
-  login: '@qa')
+  login: '@qa'
+)
 MaintainerTeam.create!(
   name: 'CPAN Team',
   email: 'cpan@packages.altlinux.org',
