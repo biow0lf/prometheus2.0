@@ -94,8 +94,7 @@ module RPMFile # TODO: rename to RPM
     end
 
     def changelogtime
-      # TODO: @changelogtime ||= Time.at(read_tag('CHANGELOGTIME').to_i)
-      @changelogtime ||= read_tag('CHANGELOGTIME')
+      @changelogtime ||= Time.at(read_tag('CHANGELOGTIME').to_i)
     end
 
     def filename

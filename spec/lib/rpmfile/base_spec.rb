@@ -145,7 +145,7 @@ describe 'RPMFile::Base' do
     changelogtime = '1349438400'
     rpm = RPMFile::Base.new(file)
     expect(rpm).to receive(:read_tag).with('CHANGELOGTIME').and_return(changelogtime)
-    expect(rpm.changelogtime).to eq(changelogtime)
+    expect(rpm.changelogtime).to eq(Time.at(changelogtime.to_i))
   end
 
   it 'should raise exception on #filename' do
