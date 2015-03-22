@@ -104,6 +104,7 @@ group :development, :test do
   # gem 'debugger'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
+  gem 'faker'
 end
 
 group :test do
@@ -111,7 +112,6 @@ group :test do
   gem 'test-unit'
 
   gem 'capybara'
-  gem 'faker'
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
