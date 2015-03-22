@@ -4,7 +4,7 @@ describe Acl do
   before(:all) do
     @branch = FactoryGirl.create(:branch)
 
-    page = `cat spec/data/list.packages.sisyphus`
+    page = File.read('spec/data/list.packages.sisyphus')
     url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
     FakeWeb.register_uri(:get, url, response: page)
 
