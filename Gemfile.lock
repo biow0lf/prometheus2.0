@@ -344,7 +344,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sexp_processor (4.4.5)
+    sexp_processor (4.5.0)
     sextant (0.2.4)
       rails (>= 3.2)
     shellany (0.0.1)
