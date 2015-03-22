@@ -97,14 +97,12 @@ group :development do
 end
 
 group :development, :test do
-  # gem 'hirb'
-  # gem 'wirb'
   gem 'rspec'
   gem 'rspec-rails'
-  # gem 'debugger'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
+  gem 'factory_girl_rails'
 end
 
 group :test do
@@ -120,7 +118,6 @@ group :test do
   gem 'database_cleaner'
   gem 'fakeweb'
   gem 'fakeredis'
-  gem 'factory_girl_rails'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
 end
