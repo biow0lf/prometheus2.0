@@ -102,6 +102,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   # gem 'debugger'
+  gem 'pry-rails'
 end
 
 group :test do
