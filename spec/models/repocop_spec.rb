@@ -26,7 +26,7 @@ describe Repocop do
   end
 
   it 'should import repocops from url' do
-    page = `cat spec/data/prometheus2.sql`
+    page = File.read('spec/data/prometheus2.sql')
     url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2.sql'
     FakeWeb.register_uri(:get, url, response: page)
     expect { Repocop.update_repocop }.to change(Repocop, :count).by(1)

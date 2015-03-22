@@ -6,11 +6,10 @@ describe PerlWatch do
   end
 
   it 'should import data from CPAN' do
-    page = `cat spec/data/02packages.details.txt`
+    page = File.read('spec/data/02packages.details.txt')
     url = 'http://www.cpan.org/modules/02packages.details.txt'
-    FakeWeb.register_uri(:get,
-                         url,
-                         response: page)
+    FakeWeb.register_uri(:get, url, response: page)
+
     expect { PerlWatch.import_data(url) }.to change(PerlWatch, :count).by(1)
     expect(PerlWatch.count).to eq(1)
     perlwatch = PerlWatch.first
