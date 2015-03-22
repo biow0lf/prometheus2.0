@@ -98,7 +98,7 @@ end
 
 group :development, :test do
   # gem 'hirb'
-  gem 'wirb'
+  # gem 'wirb'
   gem 'rspec'
   gem 'rspec-rails'
   # gem 'debugger'
