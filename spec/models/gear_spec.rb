@@ -2,21 +2,22 @@ require 'rails_helper'
 
 describe Gear do
   context 'Associations' do
-    it { should belong_to :maintainer }
-    it { should belong_to :srpm }
+    it { is_expected.to belong_to :maintainer }
+    it { is_expected.to belong_to :srpm }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :repo }
-    it { should validate_presence_of :lastchange }
+    it { is_expected.to validate_presence_of :repo }
+    it { is_expected.to validate_presence_of :lastchange }
   end
 
   context 'DB Indexes' do
-    it { should have_db_index :maintainer_id }
-    it { should have_db_index :srpm_id }
+    it { is_expected.to have_db_index :maintainer_id }
+    it { is_expected.to have_db_index :srpm_id }
   end
 
   it 'should import gear repos' do
+    Branch.delete_all
     branch = FactoryGirl.create(:branch)
 
     group0 = Group.create!(name: 'System', branch_id: branch.id)
@@ -42,13 +43,10 @@ describe Gear do
                  md5: '602df8c1227b9b5ddf2ba87efb081007',
                  buildtime: '2011-11-17 13:48:29 UTC')
 
-    page = `cat spec/data/people-packages-list`
-    FakeWeb.register_uri(:get,
-                         'http://git.altlinux.org/people-packages-list',
-                         response: page)
+    page = File.read('spec/data/people-packages-list')
+    url = 'http://git.altlinux.org/people-packages-list'
+    FakeWeb.register_uri(:get, url, response: page)
 
-    expect {
-      Gear.update_gitrepos('http://git.altlinux.org/people-packages-list')
-    }.to change(Gear, :count).by(1)
+    expect { Gear.update_gitrepos(url) }.to change(Gear, :count).by(1)
   end
 end
