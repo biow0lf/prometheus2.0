@@ -1,8 +1,6 @@
 namespace :gear do
   desc 'Import all git repos to database'
   task import: :environment do
-    require 'open-uri'
-
     puts "#{Time.now}: import gitrepos"
     if Redis.current.get('__SYNC__')
       exist = begin
@@ -27,8 +25,6 @@ namespace :gear do
 
   desc 'Update all git repos to database'
   task update: :environment do
-    require 'open-uri'
-
     puts "#{Time.now}: update gitrepos"
     if Redis.current.get('__SYNC__')
       exist = begin
