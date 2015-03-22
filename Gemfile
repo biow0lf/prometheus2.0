@@ -111,7 +111,7 @@ group :test do
   gem 'test-unit'
 
   gem 'capybara'
-  # gem 'ffaker'
+  gem 'faker'
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
