@@ -109,7 +109,7 @@ GEM
       mime-types (>= 1.16, < 3)
       nokogiri (~> 1.5)
       rails (>= 3, < 5)
-    dalli (2.7.2)
+    dalli (2.7.4)
     database_cleaner (1.4.0)
     debug_inspector (0.0.2)
     devise (3.2.3)
