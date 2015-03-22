@@ -103,6 +103,7 @@ group :development, :test do
   gem 'rspec-rails'
   # gem 'debugger'
   gem 'pry-rails'
+  gem 'awesome_print', require: 'ap'
 end
 
 group :test do
