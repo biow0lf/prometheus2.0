@@ -2,31 +2,31 @@ require 'rails_helper'
 
 describe Package do
   context 'Associations' do
-    it { should belong_to :branch }
-    it { should belong_to :srpm }
-    it { should belong_to :group }
+    it { is_expected.to belong_to :branch }
+    it { is_expected.to belong_to :srpm }
+    it { is_expected.to belong_to :group }
 
-    it { should have_many :provides }
-    it { should have_many :requires }
-    it { should have_many :obsoletes }
-    it { should have_many :conflicts }
+    it { is_expected.to have_many :provides }
+    it { is_expected.to have_many :requires }
+    it { is_expected.to have_many :obsoletes }
+    it { is_expected.to have_many :conflicts }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :srpm }
-    it { should validate_presence_of :branch }
-    it { should validate_presence_of :group }
-    it { should validate_presence_of :groupname }
-    it { should validate_presence_of :md5 }
+    it { is_expected.to validate_presence_of :srpm }
+    it { is_expected.to validate_presence_of :branch }
+    it { is_expected.to validate_presence_of :group }
+    it { is_expected.to validate_presence_of :groupname }
+    it { is_expected.to validate_presence_of :md5 }
   end
 
   context 'DB Indexes' do
-    it { should have_db_index :arch }
-    it { should have_db_index :branch_id }
-    it { should have_db_index :group_id }
-    it { should have_db_index :name }
-    it { should have_db_index :sourcepackage }
-    it { should have_db_index :srpm_id }
+    it { is_expected.to have_db_index :arch }
+    it { is_expected.to have_db_index :branch_id }
+    it { is_expected.to have_db_index :group_id }
+    it { is_expected.to have_db_index :name }
+    it { is_expected.to have_db_index :sourcepackage }
+    it { is_expected.to have_db_index :srpm_id }
   end
 
   it 'should import package to database' do

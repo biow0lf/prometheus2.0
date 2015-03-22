@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe Maintainer do
   context 'Associations' do
-    it { should have_many :teams }
-    it { should have_many :gears }
-    it { should have_many :ftbfs }
+    it { is_expected.to have_many :teams }
+    it { is_expected.to have_many :gears }
+    it { is_expected.to have_many :ftbfs }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :name }
-    it { should validate_presence_of :email }
-    it { should validate_presence_of :login }
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :email }
+    it { is_expected.to validate_presence_of :login }
   end
 
   it 'should validate_uniqueness_of :login' do

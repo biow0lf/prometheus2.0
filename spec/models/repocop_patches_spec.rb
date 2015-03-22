@@ -2,18 +2,18 @@ require 'rails_helper'
 
 describe RepocopPatch do
   context 'Associations' do
-    it { should belong_to :branch }
+    it { is_expected.to belong_to :branch }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :branch }
-    it { should validate_presence_of :name }
-    it { should validate_presence_of :version }
-    it { should validate_presence_of :release }
-    it { should validate_presence_of :url }
+    it { is_expected.to validate_presence_of :branch }
+    it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :version }
+    it { is_expected.to validate_presence_of :release }
+    it { is_expected.to validate_presence_of :url }
   end
 
-  it { should have_db_index :name }
+  it { is_expected.to have_db_index :name }
 
   it 'should import repocops patches list from url' do
     page = `cat spec/data/prometheus2-patches.sql`

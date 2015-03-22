@@ -3,25 +3,25 @@ require 'rpmfile'
 
 describe Srpm do
   context 'Associations' do
-    it { should belong_to :branch }
-    it { should belong_to :group }
-    it { should have_many(:packages).dependent(:destroy) }
-    it { should have_many(:changelogs).dependent(:destroy) }
+    it { is_expected.to belong_to :branch }
+    it { is_expected.to belong_to :group }
+    it { is_expected.to have_many(:packages).dependent(:destroy) }
+    it { is_expected.to have_many(:changelogs).dependent(:destroy) }
     it do
-      should have_many(:repocops)
+      is_expected.to have_many(:repocops)
         .with_foreign_key('srcname')
         .with_primary_key('name')
     end
-    it { should have_one(:specfile).dependent(:destroy) }
+    it { is_expected.to have_one(:specfile).dependent(:destroy) }
     it do
-      should have_one(:repocop_patch)
+      is_expected.to have_one(:repocop_patch)
         .with_foreign_key('name')
         .with_primary_key('name')
     end
-    it { should have_many(:patches).dependent(:destroy) }
-    it { should have_many(:sources).dependent(:destroy) }
+    it { is_expected.to have_many(:patches).dependent(:destroy) }
+    it { is_expected.to have_many(:sources).dependent(:destroy) }
     it do
-      should have_one(:builder)
+      is_expected.to have_one(:builder)
         .class_name('Maintainer')
         .with_foreign_key('id')
         .with_primary_key('builder_id')
@@ -29,16 +29,16 @@ describe Srpm do
   end
 
   context 'Validation' do
-    it { should validate_presence_of :branch }
-    it { should validate_presence_of :group }
-    it { should validate_presence_of :groupname }
-    it { should validate_presence_of :md5 }
+    it { is_expected.to validate_presence_of :branch }
+    it { is_expected.to validate_presence_of :group }
+    it { is_expected.to validate_presence_of :groupname }
+    it { is_expected.to validate_presence_of :md5 }
   end
 
   context 'DB Indexes' do
-    it { should have_db_index :branch_id }
-    it { should have_db_index :group_id }
-    it { should have_db_index :name }
+    it { is_expected.to have_db_index :branch_id }
+    it { is_expected.to have_db_index :group_id }
+    it { is_expected.to have_db_index :name }
   end
 
   it 'should return Srpm#name on #to_param' do

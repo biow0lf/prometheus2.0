@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe Provide do
   context 'Associations' do
-    it { should belong_to :package }
+    it { is_expected.to belong_to :package }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :package }
-    it { should validate_presence_of :name }
+    it { is_expected.to validate_presence_of :package }
+    it { is_expected.to validate_presence_of :name }
   end
 
-  it { should have_db_index :package_id }
+  it { is_expected.to have_db_index :package_id }
 end
