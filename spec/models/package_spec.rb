@@ -30,7 +30,7 @@ describe Package do
   end
 
   it 'should import package to database' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    branch = create(:branch)
     group = create(:group, branch_id: branch.id)
     create(:srpm, branch_id: branch.id, group_id: group.id)
     file = 'openbox-3.4.11.1-alt1.1.1.i586.rpm'
@@ -91,6 +91,7 @@ describe Package do
   end
 
   it 'should import all packages from path' do
+    # TODO: add path to branch and branch factory
     branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
     expect(Redis.current.get("#{branch.name}:gcc-1.0-alt1.i586.rpm")).to be_nil

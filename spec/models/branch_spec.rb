@@ -25,18 +25,18 @@ describe Branch do
   end
 
   it 'should set default value in redis for counter after create' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    branch = create(:branch)
     expect(branch.counter.value).to eq(0)
   end
 
   it 'should remove counter in redis after destroy' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    branch = create(:branch)
     branch.destroy
     expect(Redis.current.get("branch:#{ branch.id }:counter")).to be_nil
   end
 
   it 'should recount Branch#srpms on #recount! and save' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    branch = create(:branch)
     branch.counter.value = 42
     expect(branch.counter.value).to eq(42)
     branch.recount!

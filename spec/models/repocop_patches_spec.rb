@@ -16,7 +16,7 @@ describe RepocopPatch do
   it { is_expected.to have_db_index :name }
 
   it 'should import repocops patches list from url' do
-    page = `cat spec/data/prometheus2-patches.sql`
+    page = File.read('spec/data/prometheus2-patches.sql')
     url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql'
     FakeWeb.register_uri(:get, url, response: page)
     expect { RepocopPatch.update_repocop_patches }

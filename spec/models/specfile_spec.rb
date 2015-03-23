@@ -13,7 +13,7 @@ describe Specfile do
   it { is_expected.to have_db_index :srpm_id }
 
   it 'should import spec file' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    branch = create(:branch)
     group = create(:group, branch_id: branch.id)
     srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
