@@ -12,15 +12,15 @@ describe User do
   end
 
   it 'should return true for @altlinux.org emails' do
-    expect(User.new(email: 'icesik@altlinux.org').is_alt_team?).to eq(true)
+    expect(User.new(email: 'icesik@altlinux.org').member?).to eq(true)
   end
 
   it 'should return true for @altlinux.ru emails' do
-    expect(User.new(email: 'icesik@altlinux.ru').is_alt_team?).to eq(true)
+    expect(User.new(email: 'icesik@altlinux.ru').member?).to eq(true)
   end
 
   it 'should return false for non altlinux team member' do
-    expect(User.new(email: 'user@email.com').is_alt_team?).to eq(false)
+    expect(User.new(email: 'user@email.com').member?).to eq(false)
   end
 
   it 'should deny change email' do

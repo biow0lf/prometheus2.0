@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
   devise :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  def is_alt_team?
-    if email.split('@')[1] == 'altlinux.org' ||
-       email.split('@')[1] == 'altlinux.ru'
+  def member?
+    host = email.split('@').last
+    if host == 'altlinux.org' || host == 'altlinux.ru'
       true
     else
       false
