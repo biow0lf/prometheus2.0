@@ -30,9 +30,9 @@ describe Package do
   end
 
   it 'should import package to database' do
-    branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, branch_id: branch.id)
-    FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch = create(:branch)
+    group = create(:group, branch_id: branch.id)
+    create(:srpm, branch_id: branch.id, group_id: group.id)
     file = 'openbox-3.4.11.1-alt1.1.1.i586.rpm'
     md5 = 'fd0100efb65fa82af3028e356a6f6304'
     rpm = RPMFile::Binary.new(file)
@@ -91,7 +91,7 @@ describe Package do
   end
 
   it 'should import all packages from path' do
-    branch = FactoryGirl.create(:branch)
+    branch = create(:branch)
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
     expect(Redis.current.get("#{branch.name}:gcc-1.0-alt1.i586.rpm")).to be_nil
     expect(Dir).to receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])

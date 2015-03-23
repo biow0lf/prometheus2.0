@@ -18,7 +18,7 @@ describe Gear do
 
   it 'should import gear repos' do
     Branch.delete_all
-    branch = FactoryGirl.create(:branch)
+    branch = create(:branch)
 
     group0 = Group.create!(name: 'System', branch_id: branch.id)
     group = Group.create!(name: 'Servers', branch_id: branch.id)

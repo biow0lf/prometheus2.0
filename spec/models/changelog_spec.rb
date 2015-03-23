@@ -15,9 +15,9 @@ describe Changelog do
   it { is_expected.to have_db_index :srpm_id }
 
   it 'should import changelogs' do
-    branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, branch_id: branch.id)
-    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch = create(:branch)
+    group = create(:group, branch_id: branch.id)
+    srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
 
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     expect(Changelog).to receive(:`).with("export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}").and_return("1312545600\n**********\nMykola Grechukh <gns@altlinux.ru> 3.5.0-alt1\n**********\n3.4.11.1 -> 3.5.0\n**********\n1312545600\n**********\nMykola Grechukh <gns@altlinux.ru> 3.5.0-alt1\n**********\n3.4.11.1 -> 3.5.0\n**********\n")

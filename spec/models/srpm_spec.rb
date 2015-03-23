@@ -46,7 +46,7 @@ describe Srpm do
   end
 
   it 'should import srpm file' do
-    branch = FactoryGirl.create(:branch)
+    branch = create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'f87ff0eaa4e16b202539738483cd54d1'
     maintainer = Maintainer.create!(
@@ -120,7 +120,7 @@ describe Srpm do
   end
 
   it 'should import all srpms from path' do
-    branch = FactoryGirl.create(:branch)
+    branch = create(:branch)
     path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
     expect(Redis.current.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
     expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
@@ -132,11 +132,11 @@ describe Srpm do
   end
 
   it 'should remove old srpms from database' do
-    branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, branch_id: branch.id)
-    srpm1 = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch = create(:branch)
+    group = create(:group, branch_id: branch.id)
+    srpm1 = create(:srpm, branch_id: branch.id, group_id: group.id)
     Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
-    srpm2 = FactoryGirl.create(
+    srpm2 = create(
       :srpm,
       name: 'blackbox',
       filename: 'blackbox-1.0-alt1.src.rpm',
@@ -166,16 +166,16 @@ describe Srpm do
   end
 
   it 'should increment branch.counter on srpm.save' do
-    branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, branch_id: branch.id)
-    FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch = create(:branch)
+    group = create(:group, branch_id: branch.id)
+    create(:srpm, branch_id: branch.id, group_id: group.id)
     expect(branch.counter.value).to eq(1)
   end
 
   it 'should decrement branch.counter on srpm.destroy' do
-    branch = FactoryGirl.create(:branch)
-    group = FactoryGirl.create(:group, branch_id: branch.id)
-    srpm = FactoryGirl.create(:srpm, branch_id: branch.id, group_id: group.id)
+    branch = create(:branch)
+    group = create(:group, branch_id: branch.id)
+    srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
     srpm.destroy
     expect(branch.counter.value).to eq(0)
   end

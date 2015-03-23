@@ -24,7 +24,7 @@ describe User do
   end
 
   it 'should deny change email' do
-    user = FactoryGirl.create(:user_confirmed)
+    user = create(:user_confirmed)
     user.email = 'icesik@altlinux.org'
     expect(user.save).to eq(false)
   end

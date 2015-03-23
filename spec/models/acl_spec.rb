@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Acl do
   before(:all) do
-    @branch = FactoryGirl.create(:branch)
+    @branch = create(:branch)
 
     page = File.read('spec/data/list.packages.sisyphus')
     url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
