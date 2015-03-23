@@ -18,13 +18,13 @@ describe Group do
   end
 
   it 'should return full group name on #full_name' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     Group.import(branch, 'System/Configuration/Boot and Init')
     expect(Group.all.last.full_name).to eq('System/Configuration/Boot and Init')
   end
 
   it 'should import group "Shells"' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     Group.import(branch, 'Shells')
     expect(Group.all.count).to eq(1)
     expect(Group.all.first.branch_id).to eq(branch.id)
@@ -33,7 +33,7 @@ describe Group do
   end
 
   it 'should import group "Archiving/Backup"' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     Group.import(branch, 'Archiving/Backup')
 
     groups = Group.all.order('name ASC')
@@ -50,7 +50,7 @@ describe Group do
   end
 
   it 'should import group "System/Configuration/Boot and Init"' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     Group.import(branch, 'System/Configuration/Boot and Init')
 
     groups = Group.all.order('name ASC')
@@ -71,7 +71,7 @@ describe Group do
   end
 
   it 'should return group instance with id for "Boot and Init"' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     Group.import(branch, 'System/Configuration/Boot and Init')
     expect(Group.in_branch(branch, 'System/Configuration/Boot and Init').name).to eq('Boot and Init')
   end

@@ -15,7 +15,7 @@ describe Changelog do
   it { is_expected.to have_db_index :srpm_id }
 
   it 'should import changelogs' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     group = create(:group, branch_id: branch.id)
     srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
 

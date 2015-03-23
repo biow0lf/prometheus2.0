@@ -1,10 +1,4 @@
 FactoryGirl.define do
-  factory :branch do
-    name 'Sisyphus'
-    vendor 'ALT Linux'
-    order_id 0
-  end
-
   factory :group do
     name 'Graphical desktop'
     parent_id nil

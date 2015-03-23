@@ -46,7 +46,7 @@ describe Srpm do
   end
 
   it 'should import srpm file' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'f87ff0eaa4e16b202539738483cd54d1'
     maintainer = Maintainer.create!(
@@ -120,7 +120,7 @@ describe Srpm do
   end
 
   it 'should import all srpms from path' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
     expect(Redis.current.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
     expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
@@ -132,7 +132,7 @@ describe Srpm do
   end
 
   it 'should remove old srpms from database' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     group = create(:group, branch_id: branch.id)
     srpm1 = create(:srpm, branch_id: branch.id, group_id: group.id)
     Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
@@ -166,14 +166,14 @@ describe Srpm do
   end
 
   it 'should increment branch.counter on srpm.save' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     group = create(:group, branch_id: branch.id)
     create(:srpm, branch_id: branch.id, group_id: group.id)
     expect(branch.counter.value).to eq(1)
   end
 
   it 'should decrement branch.counter on srpm.destroy' do
-    branch = create(:branch)
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     group = create(:group, branch_id: branch.id)
     srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
     srpm.destroy

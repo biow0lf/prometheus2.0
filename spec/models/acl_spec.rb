@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Acl do
   before(:all) do
-    @branch = create(:branch)
+    @branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
 
     page = File.read('spec/data/list.packages.sisyphus')
     url = 'http://git.altlinux.org/acl/list.packages.sisyphus'

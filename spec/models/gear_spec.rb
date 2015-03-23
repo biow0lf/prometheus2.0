@@ -17,8 +17,8 @@ describe Gear do
   end
 
   it 'should import gear repos' do
-    Branch.delete_all
-    branch = create(:branch)
+    Branch.delete_all # TODO: check why this needed?
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
 
     group0 = Group.create!(name: 'System', branch_id: branch.id)
     group = Group.create!(name: 'Servers', branch_id: branch.id)
