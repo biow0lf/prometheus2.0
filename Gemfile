@@ -87,7 +87,6 @@ group :development do
   gem 'rb-inotify', '~> 0.9', require: false
   gem 'libnotify', require: false
   gem 'guard-rspec'
-  gem 'guard-cucumber'
   gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'guard-rubocop'
@@ -113,9 +112,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'email_spec'
   gem 'launchy'
-  gem 'cucumber'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
+  # gem 'database_cleaner'
   gem 'fakeweb'
   gem 'fakeredis'
   gem 'simplecov', require: false
