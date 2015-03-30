@@ -10,7 +10,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -87,7 +86,6 @@ group :development do
   gem 'rb-inotify', '~> 0.9', require: false
   gem 'libnotify', require: false
   gem 'guard-rspec'
-  gem 'guard-cucumber'
   gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'guard-rubocop'
@@ -111,11 +109,9 @@ group :test do
 
   gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'email_spec'
+  gem 'airborne'
+  gem 'capybara-email'
   gem 'launchy'
-  gem 'cucumber'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
   gem 'fakeweb'
   gem 'fakeredis'
   gem 'simplecov', require: false

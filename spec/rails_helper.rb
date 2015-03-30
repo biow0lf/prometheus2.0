@@ -20,6 +20,9 @@ require 'rspec/rails'
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+# capybara-email
+require 'capybara/email/rspec'
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending!
@@ -32,6 +35,8 @@ RSpec.configure do |config|
 
   # Enable short FactoryGirl syntax
   config.include FactoryGirl::Syntax::Methods
+  # devise
+  config.include Devise::TestHelpers, type: :controller
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
