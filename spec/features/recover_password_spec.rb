@@ -14,7 +14,8 @@ describe 'Recover password' do
     fill_in('Email', with: user.email)
     click_button('Send me reset password instructions')
 
-    expect(page).to have_content('You will receive an email with instructions on how to reset your password in a few minutes.')
+    text = I18n.t('devise.passwords.send_instructions')
+    expect(page).to have_content(text)
 
     open_email('me@example.com')
 
@@ -26,7 +27,8 @@ describe 'Recover password' do
     fill_in('Confirm new password', with: 'mynewpassword')
     click_button 'Change my password'
 
-    expect(page).to have_content('Your password was changed successfully. You are now signed in.')
+    text = I18n.t('devise.passwords.updated')
+    expect(page).to have_content(text)
     expect(page).to have_content('Welcome, me@example.com!')
   end
 end

@@ -13,10 +13,12 @@ describe 'Sign up' do
 
     click_button 'Sign up'
 
-    expect(page).to have_content('A message with a confirmation link has been sent to your email address. Please open the link to activate your account.')
+    text = I18n.t('devise.registrations.signed_up_but_unconfirmed')
+    expect(page).to have_content(text)
 
     open_email('me@example.com')
 
+    # TODO: always use I18n.t for strings
     expect(current_email).to have_content('Confirm my account')
     current_email.click_link 'Confirm my account'
     expect(page).to have_content('Your account was successfully confirmed.')
