@@ -28,7 +28,7 @@ describe 'Maintainer profile' do
     it 'should able update maintainer profile' do
       create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
       user = create(:user_confirmed, email: 'icesik@altlinux.org')
-      maintainer = create(:maintainer, login: 'icesik', email: 'icesik@altlinux.org')
+      create(:maintainer, login: 'icesik', email: 'icesik@altlinux.org')
       login_as user
 
       visit '/'

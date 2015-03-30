@@ -7,12 +7,15 @@ describe 'Source RPM info API' do
     @group = Group.create!(name: 'Other', branch_id: @branch.id)
     @group.move_to_child_of(@group0)
 
-    @maintainer = create(:maintainer,
-                         name: 'Igor Zubkov',
-                         email: 'icesik@altlinux.org',
-                         login: 'icesik')
+    @maintainer = create(
+      :maintainer,
+      name: 'Igor Zubkov',
+      email: 'icesik@altlinux.org',
+      login: 'icesik'
+    )
 
-    @srpm = create(:srpm,
+    @srpm = create(
+      :srpm,
       branch_id: @branch.id,
       group_id: @group.id,
       name: 'openbox',
@@ -23,20 +26,21 @@ describe 'Source RPM info API' do
       description: 'long description',
       license: 'GPLv2+',
       url: 'http://openbox.org/',
-      size: 831617,
+      size: 831_617,
       filename: 'openbox-3.4.11.1-alt1.1.1.src.rpm',
       md5: 'f87ff0eaa4e16b202539738483cd54d1',
       buildtime: '2010-11-24T23:58:02.000Z',
       vendor: 'ALT Linux Team',
       distribution: 'ALT Linux'
     )
-    Redis.current.sadd("#{ @branch.name }:#{ @srpm.name }:acls", @maintainer.login)
+    key = "#{ @branch.name }:#{ @srpm.name }:acls"
+    Redis.current.sadd(key, @maintainer.login)
   end
 
   it 'should validate values' do
     get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
-    expect_json({
+    expect_json(
       branch: @branch.name,
       name: 'openbox',
       version: '3.4.11.1',
@@ -47,7 +51,7 @@ describe 'Source RPM info API' do
       group: 'Graphical desktop/Other',
       license: 'GPLv2+',
       url: 'http://openbox.org/',
-      size: 831617,
+      size: 831_617,
       filename: 'openbox-3.4.11.1-alt1.1.1.src.rpm',
       md5: 'f87ff0eaa4e16b202539738483cd54d1',
       buildtime: '2010-11-24T23:58:02.000Z',
@@ -55,13 +59,13 @@ describe 'Source RPM info API' do
       distribution: 'ALT Linux',
       repocop: 'skip',
       acls: 'icesik'
-    })
+    )
   end
 
   it 'should validate types' do
     get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
-    expect_json_types({
+    expect_json_types(
       branch: :string,
       name: :string,
       version: :string,
@@ -80,6 +84,6 @@ describe 'Source RPM info API' do
       distribution: :string,
       repocop: :string,
       acls: :string
-    })
+    )
   end
 end

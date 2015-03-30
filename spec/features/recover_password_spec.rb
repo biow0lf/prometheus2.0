@@ -3,13 +3,15 @@ require 'rails_helper'
 describe 'Recover password' do
   it 'should recover password' do
     create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    user = create(:user_confirmed, email: 'me@example.com', password: 'password')
+    user = create(:user_confirmed,
+                  email: 'me@example.com',
+                  password: 'password')
 
     visit '/'
 
     click_link 'Sign in'
     click_link 'Forgot your password?'
-    fill_in('Email', with: 'me@example.com')
+    fill_in('Email', with: user.email)
     click_button('Send me reset password instructions')
 
     expect(page).to have_content('You will receive an email with instructions on how to reset your password in a few minutes.')
