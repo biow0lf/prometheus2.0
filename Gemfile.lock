@@ -120,9 +120,6 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0)
-    email_spec (1.6.0)
-      launchy (~> 2.1)
-      mail (~> 2.2)
     erubis (2.7.0)
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
@@ -428,7 +425,6 @@ DEPENDENCIES
   dalli
   devise
   draper
-  email_spec
   exception_notification
   factory_girl_rails
   faker

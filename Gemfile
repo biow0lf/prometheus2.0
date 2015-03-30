@@ -109,7 +109,6 @@ group :test do
 
   gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'email_spec'
   gem 'airborne'
   gem 'launchy'
   gem 'fakeweb'
