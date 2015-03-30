@@ -110,6 +110,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'airborne'
+  gem 'capybara-email'
   gem 'launchy'
   gem 'fakeweb'
   gem 'fakeredis'
