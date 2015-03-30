@@ -1,20 +1,20 @@
 require 'rails_helper'
 
 describe 'Source RPM info API' do
-  it 'should validate values' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    group0 = Group.create!(name: 'Graphical desktop', branch_id: branch.id)
-    group = Group.create!(name: 'Other', branch_id: branch.id)
-    group.move_to_child_of(group0)
+  before(:each) do
+    @branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    @group0 = Group.create!(name: 'Graphical desktop', branch_id: @branch.id)
+    @group = Group.create!(name: 'Other', branch_id: @branch.id)
+    @group.move_to_child_of(@group0)
 
-    maintainer = create(:maintainer,
-                        name: 'Igor Zubkov',
-                        email: 'icesik@altlinux.org',
-                        login: 'icesik')
+    @maintainer = create(:maintainer,
+                         name: 'Igor Zubkov',
+                         email: 'icesik@altlinux.org',
+                         login: 'icesik')
 
-    srpm = create(:srpm,
-      branch_id: branch.id,
-      group_id: group.id,
+    @srpm = create(:srpm,
+      branch_id: @branch.id,
+      group_id: @group.id,
       name: 'openbox',
       version: '3.4.11.1',
       release: 'alt1.1.1',
@@ -30,13 +30,14 @@ describe 'Source RPM info API' do
       vendor: 'ALT Linux Team',
       distribution: 'ALT Linux'
     )
+    Redis.current.sadd("#{ @branch.name }:#{ @srpm.name }:acls", @maintainer.login)
+  end
 
-    Redis.current.sadd("#{ branch.name }:#{ srpm.name }:acls", maintainer.login)
-
-    get '/en/Sisyphus/srpms/openbox', format: :json
+  it 'should validate values' do
+    get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
     expect_json({
-      branch: branch.name,
+      branch: @branch.name,
       name: 'openbox',
       version: '3.4.11.1',
       release: 'alt1.1.1',
@@ -54,6 +55,31 @@ describe 'Source RPM info API' do
       distribution: 'ALT Linux',
       repocop: 'skip',
       acls: 'icesik'
+    })
+  end
+
+  it 'should validate types' do
+    get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
+
+    expect_json_types({
+      branch: :string,
+      name: :string,
+      version: :string,
+      release: :string,
+      epoch: :int_or_null,
+      summary: :string,
+      description: :string,
+      group: :string,
+      license: :string,
+      url: :string,
+      size: :int,
+      filename: :string,
+      md5: :string,
+      buildtime: :date,
+      vendor: :string,
+      distribution: :string,
+      repocop: :string,
+      acls: :string
     })
   end
 end
