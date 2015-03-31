@@ -5,3 +5,8 @@
  * Default ftp mirror for altlinux.org don't work.
  * Drop group class.
  * HTTPS
+ * Update sitemap
+
+
+Добавить в srpm поле repocop_status_prev в котором хранить предыдущий статус
+репокопа до обновления srpm.
