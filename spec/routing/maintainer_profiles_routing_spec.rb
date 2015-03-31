@@ -31,5 +31,20 @@ describe MaintainerProfilesController do
         locale: 'en'
       )
     end
+
+    it 'should route PATCH /maintainer_profile to maintainer_profiles#update' do
+      expect(patch: '/maintainer_profile').to route_to(
+        controller: 'maintainer_profiles',
+        action: 'update'
+      )
+    end
+
+    it 'should route PATCH /:locale/maintainer_profile to maintainer_profiles#update' do
+      expect(patch: '/en/maintainer_profile').to route_to(
+        controller: 'maintainer_profiles',
+        action: 'update',
+        locale: 'en'
+      )
+    end
   end
 end
