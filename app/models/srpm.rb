@@ -1,6 +1,8 @@
 require 'rpmfile'
 
 class Srpm < ActiveRecord::Base
+  # include Redis::Objects
+
   belongs_to :branch
   belongs_to :group
 
@@ -20,6 +22,9 @@ class Srpm < ActiveRecord::Base
 
   has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
                     primary_key: 'builder_id'
+
+  # set :acls
+  # value :leader
 
   after_create :increment_branch_counter
   after_destroy :decrement_branch_counter
