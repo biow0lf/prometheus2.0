@@ -88,7 +88,6 @@ group :development do
   gem 'guard-rspec'
   gem 'xray-rails'
   gem 'rubocop', require: false
-  gem 'guard-rubocop'
   gem 'flog', require: false
   gem 'brakeman', require: false
   gem 'annotate', require: false

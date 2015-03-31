@@ -166,9 +166,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    guard-rubocop (1.2.0)
-      guard (~> 2.0)
-      rubocop (~> 0.20)
     haml (4.0.6)
       tilt
     highline (1.6.21)
@@ -441,7 +438,6 @@ DEPENDENCIES
   growl
   guard
   guard-rspec
-  guard-rubocop
   jquery-rails
   kaminari
   launchy
