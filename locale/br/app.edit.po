@@ -1,22 +1,19 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the app package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (C) 2010 THE prometheus'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the prometheus package.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: app 1.0.0\n"
+"Project-Id-Version: version 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 01:01+0300\n"
-"PO-Revision-Date: 2015-03-31 01:01+0300\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2010-09-23 04:01+0300\n"
+"Last-Translator: Igor Zubkov <>\n"
+"Language-Team: Brazilian Portuguese\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid " or "
 msgstr ""
@@ -28,7 +25,7 @@ msgid "<abbr title=\"Fails To Build From Source\">FTBFS:</abbr>"
 msgstr ""
 
 msgid "<b>A:</b> Create filter for rsync with the help of this"
-msgstr ""
+msgstr "<b>R:</b> Criar filtro para rsync com a ajuda deste"
 
 msgid "<b>Limit<br>by size:</b><br>"
 msgstr ""
@@ -55,10 +52,10 @@ msgid ""
 msgstr ""
 
 msgid "<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?"
-msgstr ""
+msgstr "<b>Q:</b> Como posso saltar Escombreira de pacotes se eu ainda não sei porque eu preciso deles?"
 
 msgid "<b>Sisyphus</b> is daily updated free software repository by <abbr title=\"Independent ALT Linux development team\" style=\"border-bottom: 1px dotted gray;\">ALT&nbsp;Linux&nbsp;Team</abbr>. Participation in Sisyphus project is open for anyone. This project is based upon software packaging and dependency tracking technologies as well as robust developer collaboration processes. Any ALT&nbsp;Linux distribution and <b>APT</b> package manager is sufficient to use Sisyphus. Sisyphus is a solution set constantly being under development which can be used to create universal or specialized <b>Linux distributions</b> or just <b>single systems</b>."
-msgstr ""
+msgstr "<b>Sisyphus</b> &mdash; é um repositório de software livre diariamente atualizado pela <abbr title=\"ALT Linux\">Equipe ALT&nbsp;Linux&nbsp;</abbr>.A participação no projeto Sisyphus é aberto. Na base deste projeto, existem tecnologias de embedded e dependências o software de rastreamento e também conhecidos processos de interação desenvolvedores. ALT Qualquer distribuição Linux e pacote gestor <b>APT</b>. Sisyphus &mdash; está permanentemente desenvolvido um conjunto de soluções. Você pode usá-las para criar e se especializar em <b>Distribuições Linux</b> e <b>integrações de projetos</b>."
 
 msgid "ACL's"
 msgstr ""
@@ -79,7 +76,7 @@ msgid "ALT Linux repositories"
 msgstr ""
 
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 msgid "Accessibility"
 msgstr ""
@@ -139,13 +136,13 @@ msgid "Broken changelog entry."
 msgstr ""
 
 msgid "Bugs and FR"
-msgstr ""
+msgstr "Bugs e FR"
 
 msgid "Bugs/FR statistics assigned to this maintainer"
 msgstr ""
 
 msgid "Build time:"
-msgstr ""
+msgstr "Construido em:"
 
 msgid "Built:"
 msgstr ""
@@ -166,7 +163,7 @@ msgid "Changelog"
 msgstr ""
 
 msgid "Changes:"
-msgstr ""
+msgstr "Mudanças:"
 
 msgid "Choose a mirror:"
 msgstr ""
@@ -184,10 +181,10 @@ msgid "Confirm new password"
 msgstr ""
 
 msgid "Current maintainer:"
-msgstr ""
+msgstr "Mantenedor currente:"
 
 msgid "Current version:"
-msgstr ""
+msgstr "Versão atual:"
 
 msgid "Currently waiting confirmation for:"
 msgstr ""
@@ -202,7 +199,7 @@ msgid "Denis Smirnov"
 msgstr ""
 
 msgid "Description:"
-msgstr ""
+msgstr "Descrição:"
 
 msgid "Development/C"
 msgstr ""
@@ -406,7 +403,7 @@ msgid "Graphics"
 msgstr ""
 
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 msgid "Group:"
 msgstr ""
@@ -415,7 +412,7 @@ msgid "Groups:"
 msgstr ""
 
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 msgid "Home page:"
 msgstr ""
@@ -445,16 +442,16 @@ msgid "Jabber ID:"
 msgstr ""
 
 msgid "Last update:"
-msgstr ""
+msgstr "Última atualização:"
 
 msgid "Lenar Shakirov"
 msgstr ""
 
 msgid "License:"
-msgstr ""
+msgstr "Licença:"
 
 msgid "List of contributors:"
-msgstr ""
+msgstr "Lista dos contribuidores:"
 
 msgid "List of packages needing rebuild without \"%undefine _configure_target\" hack:"
 msgstr ""
@@ -466,7 +463,7 @@ msgid "List of packages:"
 msgstr ""
 
 msgid "List of rpms provided by this srpm:"
-msgstr ""
+msgstr "Lista dos rpms provida por esta srpm:"
 
 msgid "Location:"
 msgstr ""
@@ -475,13 +472,13 @@ msgid "Mailing list"
 msgstr ""
 
 msgid "Main"
-msgstr ""
+msgstr "Principal"
 
 msgid "Maintainer:"
 msgstr ""
 
 msgid "Maintainers"
-msgstr ""
+msgstr "Mantenedores"
 
 msgid "Michael Shigorin"
 msgstr ""
@@ -562,10 +559,10 @@ msgid "Other repositories"
 msgstr ""
 
 msgid "Package groups"
-msgstr ""
+msgstr "Grupos de pacotes"
 
 msgid "Packages"
-msgstr ""
+msgstr "Pacotes"
 
 msgid "Packages built by this maintainer:"
 msgstr ""
@@ -750,7 +747,7 @@ msgid "Search..."
 msgstr ""
 
 msgid "Security"
-msgstr ""
+msgstr "Segurança"
 
 msgid "Security fixes"
 msgstr ""
@@ -780,7 +777,7 @@ msgid "Sign up"
 msgstr ""
 
 msgid "Sisyphus is not intended for end users and its usage may result in unpredictable behaviour. You might want to use ALT Linux distributions and their usual updates if you want to run a reliable system."
-msgstr ""
+msgstr "Sisyphus não é destino para usuários finais,e sua utilização pode resultar em danos imprevisíveis.  Você deve usar distribuições ALT Linux disponíveis em nosso website se você quiser ter sistema confiável."
 
 msgid ""
 "Sisyphus is permanently changed repository. New packages appears, old packages update. It is necessary to sync with Sisyphus\n"
@@ -795,13 +792,13 @@ msgid ""
 msgstr ""
 
 msgid "Sisyphus repository"
-msgstr ""
+msgstr "Sisyphus repositório"
 
 msgid "Sisyphus sync"
 msgstr ""
 
 msgid "Size:"
-msgstr ""
+msgstr "Tamanho:"
 
 msgid "Someone has requested a link to change your password. You can do this through the link below."
 msgstr ""
@@ -834,7 +831,7 @@ msgid "Summary"
 msgstr ""
 
 msgid "Summary:"
-msgstr ""
+msgstr "Sumário:"
 
 msgid "System/Base"
 msgstr ""
@@ -897,7 +894,7 @@ msgid "TOP RPMs"
 msgstr ""
 
 msgid "TOP maintainers"
-msgstr ""
+msgstr "TOP mantenedores"
 
 msgid "Team leader:"
 msgstr ""
@@ -909,7 +906,7 @@ msgid "Team:"
 msgstr ""
 
 msgid "Teams"
-msgstr ""
+msgstr "Equipe"
 
 msgid "Terminals"
 msgstr ""
@@ -978,7 +975,7 @@ msgid "Your password won't change until you access the link above and create a n
 msgstr ""
 
 msgid "about Prometheus project"
-msgstr ""
+msgstr "sobre projeto Prometheus"
 
 msgid "age"
 msgstr ""
@@ -1005,7 +1002,7 @@ msgid "build time"
 msgstr ""
 
 msgid "community-en@"
-msgstr ""
+msgstr "community-en@"
 
 msgid "current<br>version"
 msgstr ""
@@ -1023,7 +1020,7 @@ msgid "find"
 msgstr ""
 
 msgid "form"
-msgstr ""
+msgstr "formulário"
 
 msgid "full changelog"
 msgstr ""
@@ -1038,10 +1035,10 @@ msgid "hide window"
 msgstr ""
 
 msgid "http://en.altlinux.org/Sisyphus"
-msgstr ""
+msgstr "http://www.altlinux.com.br/wiki/Sisyphus"
 
 msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
-msgstr ""
+msgstr "http://lists.altlinux.org/mailman/listinfo/community-en/"
 
 msgid "http://planet.altlinux.org/"
 msgstr ""
@@ -1053,7 +1050,7 @@ msgid "id"
 msgstr ""
 
 msgid "information about SRPM"
-msgstr ""
+msgstr "informação sobre SRPM"
 
 msgid "information about maintainer"
 msgstr ""
@@ -1068,7 +1065,7 @@ msgid "list of bugs and feature requests"
 msgstr ""
 
 msgid "maintainers information"
-msgstr ""
+msgstr "informações dos mantenedores"
 
 msgid "message"
 msgstr ""
@@ -1086,7 +1083,7 @@ msgid "package leader"
 msgstr ""
 
 msgid "packages information"
-msgstr ""
+msgstr "informações do pacote"
 
 msgid "packages which was built by this maintainer"
 msgstr ""
@@ -1116,7 +1113,7 @@ msgid "resolution"
 msgstr ""
 
 msgid "security fixes"
-msgstr ""
+msgstr "as correções de segurança"
 
 msgid "select branch"
 msgstr ""
@@ -1125,16 +1122,16 @@ msgid "severity"
 msgstr ""
 
 msgid "sisyphus public site"
-msgstr ""
+msgstr "sisyphus wiki"
 
 msgid "site home page"
-msgstr ""
+msgstr "página inicial"
 
 msgid "sort maintainers by amount of packages"
-msgstr ""
+msgstr "ordenar por valor dos mantenedores de pacotes"
 
 msgid "sort packages by amount of releases in the last half of year"
-msgstr ""
+msgstr "ordenar por pacotes montante das emissões na última metade do ano"
 
 msgid "sources"
 msgstr ""
@@ -1161,7 +1158,7 @@ msgid "tips &amp; tricks"
 msgstr ""
 
 msgid "tips and tricks"
-msgstr ""
+msgstr "dicas e truques"
 
 msgid "total"
 msgstr ""
