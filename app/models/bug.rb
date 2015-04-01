@@ -4,7 +4,7 @@ class Bug < ActiveRecord::Base
   def self.import(url)
     ActiveRecord::Base.transaction do
       Bug.delete_all
-      data = `curl --silent "#{url}"`
+      data = `curl --cacert altlinux.ca --silent "#{ url }"`
       csv = CSV.parse(data)
 
       index = 0
