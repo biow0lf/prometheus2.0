@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe BugsImport do
   it 'should import bugs from given url' do
-    bugs_import = BugsImport.new('https://bugzilla.altlinux.org/buglist.cgi?ctype=csv')
+    url = 'https://bugzilla.altlinux.org/buglist.cgi?ctype=csv'
+    bugs_import = BugsImport.new(url)
     bugs = File.read('spec/data/bugs.csv')
-    cmd = 'curl --cacert altlinux.ca --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"'
+    cmd = "curl --cacert altlinux.ca --silent '#{ url }'"
     expect(bugs_import).to receive(:`).with(cmd).and_return(bugs)
     expect { bugs_import.execute }.to change(Bug, :count).by(1)
 
