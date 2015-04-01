@@ -5,26 +5,18 @@ class Bug < ActiveRecord::Base
     ActiveRecord::Base.transaction do
       Bug.delete_all
       data = `curl --cacert altlinux.ca --silent "#{ url }"`
-      csv = CSV.parse(data)
 
-      index = 0
-      csv.each do |row|
-        index += 1
-        next if index == 1
+      CSV.parse(data, headers: true) do |row|
         bug = Bug.new
-        bug.bug_id = row[0]
-        bug.bug_status = row[1]
-        if row[2]
-          bug.resolution = row[2]
-        else
-          bug.resolution = ''
-        end
-        bug.bug_severity = row[3]
-        bug.product = row[4]
-        bug.component = row[5]
-        bug.assigned_to = row[6]
-        bug.reporter = row[7]
-        bug.short_desc = row[8]
+        bug.bug_id = row['bug_id']
+        bug.bug_status = row['bug_status']
+        bug.resolution = row['resolution']
+        bug.bug_severity = row['bug_severity']
+        bug.product = row['product']
+        bug.component = row['component']
+        bug.assigned_to = row['assigned_to']
+        bug.reporter = row['reporter']
+        bug.short_desc = row['short_desc']
         bug.save!
       end
     end
