@@ -9,7 +9,7 @@ describe Bug do
 
   it 'should import bugs from url' do
     bugs = File.read('spec/data/bugs.csv')
-    cmd = 'curl --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"'
+    cmd = 'curl --cacert altlinux.ca --silent "https://bugzilla.altlinux.org/buglist.cgi?ctype=csv"'
     expect(Bug).to receive(:`).with(cmd).and_return(bugs)
     Bug.import('https://bugzilla.altlinux.org/buglist.cgi?ctype=csv')
     expect(Bug.count).to eq(1)
