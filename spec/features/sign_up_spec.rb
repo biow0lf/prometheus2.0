@@ -21,6 +21,8 @@ describe 'Sign up' do
     # TODO: always use I18n.t for strings
     expect(current_email).to have_content('Confirm my account')
     current_email.click_link 'Confirm my account'
-    expect(page).to have_content('Your account was successfully confirmed.')
+
+    text = I18n.t('devise.confirmations.confirmed')
+    expect(page).to have_content(text)
   end
 end
