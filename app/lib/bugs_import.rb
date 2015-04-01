@@ -11,8 +11,8 @@ class BugsImport
     ActiveRecord::Base.transaction do
       Bug.delete_all
 
-        CSV.parse(data, headers: true) do |row|
-          Bug.create!(row.to_hash)
+      CSV.parse(data, headers: true) do |row|
+        Bug.create!(row.to_hash)
       end
     end
   end
