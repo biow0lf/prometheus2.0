@@ -14,7 +14,7 @@ describe FixMaintainerEmail do
 
     it 'should fix "altlinux.ru" to "altlinux.org"' do
       expect(FixMaintainerEmail.new('icesik@altlinux.ru').execute)
-          .to eq('icesik@altlinux.org')
+        .to eq('icesik@altlinux.org')
     end
 
     it 'should fix "altlinux.net" to "altlinux.org"' do
