@@ -16,15 +16,16 @@ class ApplicationController < ActionController::Base
 
   def set_default_branch
     params[:branch] ||= 'Sisyphus'
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: params[:branch]).first
   end
 
   def default_url_options(options = {})
     { locale: I18n.locale }
   end
 
+  # TODO: check where this is used
   def load_branch
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: params[:branch]).first
   end
 
   def sort_column

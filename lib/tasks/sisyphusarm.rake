@@ -19,7 +19,7 @@ namespace :sisyphusarm do
     end
     Redis.current.set('__SYNC__', Process.pid)
     puts "#{Time.now}: update *.src.rpm from SisyphusARM to database"
-    branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
+    branch = Branch.where(name: 'SisyphusARM').first
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/Sisyphus/arm/SRPMS.all/')
@@ -39,7 +39,7 @@ namespace :sisyphusarm do
   task srpms: :environment do
     require 'open-uri'
     puts "#{Time.now}: import *.src.rpm from SisyphusARM to database"
-    branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
+    branch = Branch.where(name: 'SisyphusARM').first
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')
     puts "#{Time.now}: end"
   end
@@ -48,7 +48,7 @@ namespace :sisyphusarm do
   task binary: :environment do
     require 'open-uri'
     puts "#{Time.now}: import *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
-    branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
+    branch = Branch.where(name: 'SisyphusARM').first
     pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
     Package.import_all(branch, pathes)
     puts "#{Time.now}: end"
