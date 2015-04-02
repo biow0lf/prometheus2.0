@@ -74,4 +74,8 @@ describe FixMaintainerEmail do
         .to eq('ruby@packages.altlinux.org')
     end
   end
+
+  it 'should return nil on nil email' do
+    expect(FixMaintainerEmail.new(nil).execute).to eq(nil)
+  end
 end

@@ -6,6 +6,7 @@ class FixMaintainerEmail
   end
 
   def execute
+    return unless email
     email.downcase!
     email.gsub!(' at ', '@')
     email.gsub!(' dot ', '.')
