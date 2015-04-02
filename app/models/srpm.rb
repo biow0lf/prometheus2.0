@@ -81,7 +81,7 @@ class Srpm < ActiveRecord::Base
 
     if email
       email.downcase!
-      email = Maintainer.new.fix_maintainer_email(email)
+      email = FixMaintainerEmail.new(email).execute
       Maintainer.import_from_changelogname(changelogname)
       maintainer = Maintainer.where(email: email).first
       srpm.builder_id = maintainer.id
@@ -132,7 +132,7 @@ class Srpm < ActiveRecord::Base
       email = changelog.changelogname.split('<').last.split('>').first
       next unless email
       email.downcase!
-      email = Maintainer.new.fix_maintainer_email(email)
+      email = FixMaintainerEmail.new(email).execute
       login = email.split('@').first
       logins << login
     end
