@@ -13,9 +13,8 @@ class Changelog < ActiveRecord::Base
   end
 
   def login
-    if email
-      email.split('@').first
-    end
+    return unless email
+    email.split('@').first
   end
 
   def self.import(file, srpm)
