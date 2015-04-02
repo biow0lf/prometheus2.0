@@ -129,8 +129,8 @@ class Srpm < ActiveRecord::Base
   def contributors
     logins = []
     changelogs.each do |changelog|
-      email = changelog.changelogname.split('<').last.split('>').first
-      next unless email
+      next unless changelog.email
+      email = changelog.email
       email.downcase!
       email = FixMaintainerEmail.new(email).execute
       login = email.split('@').first
