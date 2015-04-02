@@ -34,11 +34,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def acls
-    if Redis.current.exists("#{branch.name}:#{name}:acls")
-      Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
-    else
-      nil
-    end
+    return unless Redis.current.exists("#{branch.name}:#{name}:acls")
+    Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
   end
 
   def self.import(branch, rpm, file)
