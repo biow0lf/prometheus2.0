@@ -18,8 +18,8 @@ namespace :sisyphus do
       end
     end
     Redis.current.set('__SYNC__', Process.pid)
-    bi = BugsImport.new('https://bugzilla.altlinux.org/buglist.cgi?ctype=csv')
-    bi.execute
+    url = 'https://bugzilla.altlinux.org/buglist.cgi?ctype=csv'
+    BugsImport.new(url).execute
     puts "#{Time.now}: end"
     Redis.current.del('__SYNC__')
   end
