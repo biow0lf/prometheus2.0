@@ -6,6 +6,7 @@ class FixMaintainerEmail
   end
 
   def execute
+    email.downcase!
     email.gsub!(' at ', '@')
     email.gsub!(' dot ', '.')
     email.gsub!('altlinux.ru', 'altlinux.org')
