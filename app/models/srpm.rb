@@ -129,13 +129,11 @@ class Srpm < ActiveRecord::Base
   def contributors
     logins = []
     changelogs.each do |changelog|
-      name = changelog.changelogname.split('<')[0].chomp
-      name.strip!
-      email = changelog.changelogname.chop.split('<')[1]
-      next if email.nil?
+      email = changelog.changelogname.split('<').last.split('>').first
+      next unless email
       email.downcase!
       email = Maintainer.new.fix_maintainer_email(email)
-      login = email.split('@')[0]
+      login = email.split('@').first
       logins << login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
