@@ -34,11 +34,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def acls
-    if Redis.current.exists("#{branch.name}:#{name}:acls")
-      Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
-    else
-      nil
-    end
+    return unless Redis.current.exists("#{branch.name}:#{name}:acls")
+    Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
   end
 
   def self.import(branch, rpm, file)
@@ -81,7 +78,7 @@ class Srpm < ActiveRecord::Base
 
     if email
       email.downcase!
-      email = Maintainer.new.fix_maintainer_email(email)
+      email = FixMaintainerEmail.new(email).execute
       Maintainer.import_from_changelogname(changelogname)
       maintainer = Maintainer.where(email: email).first
       srpm.builder_id = maintainer.id
@@ -129,14 +126,8 @@ class Srpm < ActiveRecord::Base
   def contributors
     logins = []
     changelogs.each do |changelog|
-      name = changelog.changelogname.split('<')[0].chomp
-      name.strip!
-      email = changelog.changelogname.chop.split('<')[1]
-      next if email.nil?
-      email.downcase!
-      email = Maintainer.new.fix_maintainer_email(email)
-      login = email.split('@')[0]
-      logins << login
+      next unless changelog.email
+      logins << changelog.login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
   end

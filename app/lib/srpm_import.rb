@@ -47,7 +47,7 @@ class SrpmImport
 
     if email
       email.downcase!
-      email = Maintainer.new.fix_maintainer_email(email)
+      email = FixMaintainerEmail.new(email).execute
       Maintainer.import_from_changelogname(changelogname)
       maintainer = Maintainer.where(email: email).first
       srpm.builder_id = maintainer.id

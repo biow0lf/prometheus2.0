@@ -26,7 +26,7 @@ class Maintainer < ActiveRecord::Base
     name.strip!
     email = maintainer.chop.split('<')[1].split('>')[0]
     email.downcase!
-    email = Maintainer.new.fix_maintainer_email(email)
+    email = FixMaintainerEmail.new(email).execute
     login = email.split('@')[0]
     domain = email.split('@')[1]
     if domain == 'altlinux.org'
@@ -47,7 +47,7 @@ class Maintainer < ActiveRecord::Base
     name.strip!
     email = changelogname.chop.split('<')[1].split('>')[0]
     email.downcase!
-    email = Maintainer.new.fix_maintainer_email(email)
+    email = FixMaintainerEmail.new(email).execute
     login = email.split('@')[0]
     domain = email.split('@')[1]
     if domain == 'altlinux.org'
