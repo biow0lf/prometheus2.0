@@ -3,8 +3,8 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 describe 'Maintainer profile' do
-  context 'user not maintainer' do
-    it 'should not see edit my maintainer profile link' do
+  context 'user' do
+    it 'should not see "edit my maintainer profile link"' do
       create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
       user = create(:user_confirmed)
 
@@ -15,8 +15,8 @@ describe 'Maintainer profile' do
     end
   end
 
-  context 'user is maintainer' do
-    it 'should see edit my maintainer profile link' do
+  context 'maintainer' do
+    it 'should see "edit my maintainer profile link"' do
       create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
       user = create(:user_confirmed, email: 'icesik@altlinux.org')
       login_as user
