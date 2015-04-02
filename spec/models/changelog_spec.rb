@@ -14,6 +14,35 @@ describe Changelog do
 
   it { is_expected.to have_db_index :srpm_id }
 
+  context '#email' do
+    it 'should return email' do
+      text = 'Igor Zubkov <icesik@altlinux.org> 1.0-alt5'
+      expect(Changelog.new(changelogname: text).email)
+        .to eq('icesik@altlinux.org')
+    end
+
+    it 'should return nil if changelogname in wrong format' do
+      text = 'Igor Zubkov'
+      expect(Changelog.new(changelogname: text).email).to eq(nil)
+    end
+  end
+
+  context '#login' do
+    it 'should return login extracted from email' do
+      text = 'Igor Zubkov <icesik@altlinux.org> 1.0-alt5'
+      changelog = Changelog.new(changelogname: text)
+      expect(changelog).to receive(:email).twice.and_return('icesik@altlinux.org')
+      expect(changelog.login).to eq('icesik')
+    end
+
+    it 'should return nil if email is nil' do
+      text = 'Igor Zubkov'
+      changelog = Changelog.new(changelogname: text)
+      expect(changelog).to receive(:email).and_return(nil)
+      expect(changelog.login).to eq(nil)
+    end
+  end
+
   it 'should import changelogs' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)

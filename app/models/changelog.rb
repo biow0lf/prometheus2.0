@@ -6,6 +6,18 @@ class Changelog < ActiveRecord::Base
   validates :changelogname, presence: true
   validates :changelogtext, presence: true
 
+  def email
+    changelogname.slice(/<.*>/)[1..-2]
+  rescue
+    nil
+  end
+
+  def login
+    if email
+      email.split('@').first
+    end
+  end
+
   def self.import(file, srpm)
     changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
     changelogs.force_encoding('binary')
