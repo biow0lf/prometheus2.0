@@ -23,11 +23,6 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  # TODO: check where this is used
-  def load_branch
-    @branch = Branch.where(name: params[:branch]).first
-  end
-
   def sort_column
     %w[status name age].include?(params[:sort]) ? params[:sort] : 'name'
   end

@@ -1,6 +1,4 @@
 class GroupController < ApplicationController
-#  before_filter :load_branch
-
   def index
     @branch = Branch.where(name: params[:branch]).first
 #    render status: 404, action: 'nosuchbranch' and return if @branch == nil
