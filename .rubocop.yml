@@ -1,0 +1,31 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'db/schema.rb'
+    - 'Rakefile'
+    - 'Capfile'
+    - 'lib/tasks/cucumber.rake'
+    - 'features/support/paths.rb'
+    - 'features/support/selectors.rb'
+    - 'features/support/env.rb'
+    - 'features/step_definitions/web_steps.rb'
+    - 'features/step_definitions/email_steps.rb'
+    - 'db/migrate/20100106164701_create_packages.rb'
+    - 'db/migrate/20100103161223_create_repocops.rb'
+    - 'db/migrate/20100103141537_create_bugs.rb'
+    - 'db/migrate/20101206144602_devise_create_users.rb'
+    - 'db/migrate/20100103140837_create_branches.rb'
+    - 'db/migrate/20100103154323_create_srpms.rb'
+    - 'lib/tasks/backup.rake'
+    - 'config/backup.rb'
+    - 'Guardfile'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
