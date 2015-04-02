@@ -19,7 +19,7 @@ namespace :'50' do
     end
     Redis.current.set('__SYNC__', Process.pid)
     puts "#{Time.now}: update *.src.rpm from 5.0 to database"
-    branch = Branch.where(name: '5.0', vendor: 'ALT Linux').first
+    branch = Branch.where(name: '5.0').first
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/5.0/files/SRPMS/*.src.rpm')
     Srpm.remove_old(branch, '/ALT/5.0/files/SRPMS/')

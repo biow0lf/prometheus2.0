@@ -27,7 +27,7 @@ class Repocop < ActiveRecord::Base
   end
 
   def self.update_repocop_cache
-    branch = Branch.where(vendor: 'ALT Linux', name: 'Sisyphus').first
+    branch = Branch.where(vendor: 'ALT Linux').first
     srpms = branch.srpms.all
     srpms.each do |srpm|
       repocops = Repocop.where(srcname: srpm.name,

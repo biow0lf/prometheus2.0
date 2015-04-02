@@ -15,7 +15,7 @@ class Gear < ActiveRecord::Base
   end
 
   def self.import_gitrepos(url)
-    branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+    branch = Branch.where(name: 'Sisyphus').first
     file = open(URI.escape(url)).read
     file.each_line do |line|
       gitrepo = line.split[0]

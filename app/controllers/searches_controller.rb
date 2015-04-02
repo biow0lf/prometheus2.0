@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def show
-    @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    @branch = Branch.where(name: params[:branch]).first
     @branches = Branch.order('order_id').all
     if params[:query].nil? || params[:query].empty?
       redirect_to controller: 'home', action: 'index'

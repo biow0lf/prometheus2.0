@@ -1,6 +1,6 @@
 class SrpmsController < ApplicationController
   def show
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -8,7 +8,6 @@ class SrpmsController < ApplicationController
                                  version: @srpm.version,
                                  release: @srpm.release,
                                  epoch: @srpm.epoch).select('DISTINCT id, arch, weeks')
-    @contributors = Srpm.contributors(@branch, @srpm)
     if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
     end
@@ -28,7 +27,7 @@ class SrpmsController < ApplicationController
   end
 
   def changelog
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
@@ -36,14 +35,14 @@ class SrpmsController < ApplicationController
   end
 
   def spec
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
   def rawspec
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     if @srpm.specfile
@@ -54,7 +53,7 @@ class SrpmsController < ApplicationController
   end
 
   def get
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @mirrors = Mirror.where(branch_id: @branch).where("protocol != 'rsync'").order('mirrors.order_id ASC')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
@@ -67,7 +66,7 @@ class SrpmsController < ApplicationController
   end
 
   def gear
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -76,7 +75,7 @@ class SrpmsController < ApplicationController
   end
 
   def bugs
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -87,7 +86,7 @@ class SrpmsController < ApplicationController
   end
 
   def allbugs
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -98,7 +97,7 @@ class SrpmsController < ApplicationController
   end
 
   def repocop
-    @branch = Branch.find_by_name_and_vendor!(params[:branch], 'ALT Linux')
+    @branch = Branch.where(name: params[:branch]).first
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @repocops = Repocop.where(srcname: @srpm.name,
