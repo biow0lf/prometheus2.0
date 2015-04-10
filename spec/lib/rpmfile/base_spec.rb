@@ -1,8 +1,21 @@
 require 'spec_helper'
 require 'rpmfile'
 
-describe 'RPMFile::Base' do
-  pending 'read_raw'
+describe RPMFile::Base do
+  context '#read_raw' do
+    it 'does read raw value' do
+      queryformat = '%{NAME}'
+      command = 'rpm'
+      file = 'spec/data/catpkt-1.0-alt5.src.rpm'
+      opts = ['-qp', "--queryformat=#{ queryformat }", file]
+      name = 'catpkt'
+
+      reader = double('reader')
+      rpm = RPMFile::Base.new(file, reader)
+      expect(reader).to receive(:run).with(command, opts).and_return({stdout: name, exitstatus: 0})
+      expect(rpm.read_raw(queryformat)).to eq(name)
+    end
+  end
 
   it 'should read any tag via #read_tag' do
     file = 'spec/data/catpkt-1.0-alt5.src.rpm'
