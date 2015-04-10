@@ -452,7 +452,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rack-force_domain
-  rails (~> 4.0)
+  rails (= 4.0.13)
   rails-erd
   rake
   rb-fsevent
