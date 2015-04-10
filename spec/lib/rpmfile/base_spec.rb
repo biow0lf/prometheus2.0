@@ -26,7 +26,7 @@ describe RPMFile::Base do
     end
   end
 
-  context 'magic via method missing' do
+  context 'define_method' do
     # let(:file) { 'spec/data/catpkt-1.0-alt5.src.rpm' }
     # let(:rpm) { RPMFile::Base.new(file) }
 

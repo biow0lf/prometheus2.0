@@ -30,19 +30,20 @@ module RPMFile
       read_raw("%{#{ tag }}")
     end
 
-    def method_missing(method, *_args, &_block)
-      tag = nil
-      if RPM_STRING_TAGS.include?(method)
-        tag = read_tag(method.to_s.upcase)
-      elsif RPM_INT_TAGS.include?(method)
+    RPM_STRING_TAGS.each do |method|
+      define_method(method) { read_tag(method.to_s.upcase) }
+    end
+
+    RPM_INT_TAGS.each do |method|
+      define_method(method) do
         tag = read_tag(method.to_s.upcase)
         tag = tag.to_i if tag
-      elsif RPM_TIME_TAGS.include?(method)
-        tag = Time.at(read_tag(method.to_s.upcase).to_i)
-      else
-        super
+        tag
       end
-      tag
+    end
+
+    RPM_TIME_TAGS.each do |method|
+      define_method(method) { Time.at(read_tag(method.to_s.upcase).to_i) }
     end
 
     def filename
