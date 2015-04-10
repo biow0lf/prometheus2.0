@@ -4,7 +4,7 @@ ruby '2.2.1'
 
 gem 'bundler', '>= 1.7.0'
 
-gem 'rails', '~> 4.0'
+gem 'rails', '4.0.13'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -44,7 +44,6 @@ gem 'backup', require: false
 gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'
-gem 'childprocess'
 gem 'rollbar', '~> 1.5'
 
 group :production, :development, :staging do

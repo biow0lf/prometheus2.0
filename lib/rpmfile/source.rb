@@ -1,4 +1,4 @@
-module RPMFile # TODO: rename to RPM
+module RPMFile
   class Source < Base
     def filename
       @filename ||= "#{ name }-#{ version }-#{ release }.src.rpm"

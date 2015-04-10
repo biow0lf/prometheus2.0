@@ -1,26 +1,22 @@
-require 'childprocess'
-require 'tempfile'
+require 'console_reader'
 
-module RPMFile # TODO: rename to RPM
+module RPMFile
   class Base
     attr_reader :file
+    attr_reader :reader
 
-    def initialize(file)
+    def initialize(file, reader = ConsoleReader.new )
       @file = file
+      @reader = reader
     end
 
     def read_raw(queryformat)
-      process = ChildProcess.build('rpm', '-qp', "--queryformat=#{ queryformat }", file)
-      process.environment['LANG'] = 'C'
-      process.io.stdout = Tempfile.new('child-output')
-      process.start
-      process.wait
-      process.io.stdout.rewind
-      content = process.io.stdout.read
-      process.io.stdout.close
-      process.io.stdout.unlink
-      content = nil if content == '(none)'
-      content = nil if content == ''
+      command = 'rpm'
+      opts = ['-qp', "--queryformat=#{ queryformat }", file]
+      output = reader.run(command, opts)
+      fail 'RPMFileNotFound' if output[:exitstatus] != 0
+      content = output[:stdout]
+      return nil if content == '(none)' || content == ''
       content
     end
 
