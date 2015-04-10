@@ -44,7 +44,6 @@ gem 'backup', require: false
 gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'
-gem 'childprocess'
 gem 'rollbar', '~> 1.5'
 
 group :production, :development, :staging do
