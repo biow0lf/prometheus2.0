@@ -51,13 +51,13 @@ module RPMFile
     end
 
     def md5
-      # TODO: @md5 ||= Digest::MD5.file(file).hexdigest
+      # TODO: Digest::MD5.file(file).hexdigest
       # make it more ruby and testable
-      @md5 ||= `md5sum #{ file }`.split.first
+      `md5sum #{ file }`.split.first
     end
 
     def size
-      @size ||= File.size(file)
+      File.size(file)
     end
   end
 end

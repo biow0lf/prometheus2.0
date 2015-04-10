@@ -17,7 +17,7 @@ describe RPMFile::Base do
   end
 
   context '#read_tag' do
-    it 'should read any tag via #read_tag' do
+    it 'does read any tag' do
       file = 'spec/data/catpkt-1.0-alt5.src.rpm'
       name = 'catpkt'
       rpm = RPMFile::Base.new(file)
@@ -53,12 +53,6 @@ describe RPMFile::Base do
       expect { rpm.send(tag) }.not_to raise_exception
       expect(rpm.send(tag)).to be_instance_of(Time)
     end
-
-    it 'does raise exception' do
-      file = 'spec/data/catpkt-1.0-alt5.src.rpm'
-      rpm = RPMFile::Base.new(file)
-      expect { rpm.send(:aaa) }.to raise_exception
-    end
   end
 
   context '#filename' do
@@ -79,7 +73,7 @@ describe RPMFile::Base do
   end
 
   context '#size' do
-    it 'should return #size' do
+    it 'does return size' do
       file = 'spec/data/catpkt-1.0-alt5.src.rpm'
       size = 14_216
       rpm = RPMFile::Base.new(file)
