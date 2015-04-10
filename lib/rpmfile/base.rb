@@ -5,6 +5,12 @@ module RPMFile
     attr_reader :file
     attr_reader :reader
 
+    RPM_STRING_TAGS = [:name, :version, :release, :summary, :group, :license,
+                       :url, :packager, :vendor, :distribution, :description,
+                       :buildhost, :changelogname, :changelogtext]
+    RPM_INT_TAGS = [:epoch]
+    RPM_TIME_TAGS = [:buildtime, :changelogtime]
+
     def initialize(file, reader = ConsoleReader.new )
       @file = file
       @reader = reader
@@ -24,73 +30,20 @@ module RPMFile
       read_raw("%{#{ tag }}")
     end
 
-    def name
-      @name ||= read_tag('NAME')
+    RPM_STRING_TAGS.each do |method|
+      define_method(method) { read_tag(method.to_s.upcase) }
     end
 
-    def version
-      @version ||= read_tag('VERSION')
+    RPM_INT_TAGS.each do |method|
+      define_method(method) do
+        tag = read_tag(method.to_s.upcase)
+        tag = tag.to_i if tag
+        tag
+      end
     end
 
-    def release
-      @release ||= read_tag('RELEASE')
-    end
-
-    # TODO: epoch should be integer
-    def epoch
-      @epoch ||= read_tag('EPOCH')
-    end
-
-    def summary
-      @summary ||= read_tag('SUMMARY')
-    end
-
-    def group
-      @group ||= read_tag('GROUP')
-    end
-
-    def license
-      @license ||= read_tag('LICENSE')
-    end
-
-    def url
-      @url ||= read_tag('URL')
-    end
-
-    def packager
-      @packager ||= read_tag('PACKAGER')
-    end
-
-    def vendor
-      @vendor ||= read_tag('VENDOR')
-    end
-
-    def distribution
-      @distribution ||= read_tag('DISTRIBUTION')
-    end
-
-    def description
-      @description ||= read_tag('DESCRIPTION')
-    end
-
-    def buildhost
-      @buildhost ||= read_tag('BUILDHOST')
-    end
-
-    def buildtime
-      @buildtime ||= Time.at(read_tag('BUILDTIME').to_i)
-    end
-
-    def changelogname
-      @changelogname ||= read_tag('CHANGELOGNAME')
-    end
-
-    def changelogtext
-      @changelogtext ||= read_tag('CHANGELOGTEXT')
-    end
-
-    def changelogtime
-      @changelogtime ||= Time.at(read_tag('CHANGELOGTIME').to_i)
+    RPM_TIME_TAGS.each do |method|
+      define_method(method) { Time.at(read_tag(method.to_s.upcase).to_i) }
     end
 
     def filename
@@ -98,13 +51,13 @@ module RPMFile
     end
 
     def md5
-      # TODO: @md5 ||= Digest::MD5.file(file).hexdigest
+      # TODO: Digest::MD5.file(file).hexdigest
       # make it more ruby and testable
-      @md5 ||= `md5sum #{ file }`.split.first
+      `md5sum #{ file }`.split.first
     end
 
     def size
-      @size ||= File.size(file)
+      File.size(file)
     end
   end
 end

@@ -23,9 +23,11 @@ describe RPMFile::Binary do
     end
   end
 
-  it 'should return #sourcerpm' do
-    sourcerpm = 'catpkt-1.0-alt5.src.rpm'
-    expect(rpm).to receive(:read_tag).with('SOURCERPM').and_return(sourcerpm)
-    expect(rpm.sourcerpm).to eq(sourcerpm)
+  context '#sourcerpm' do
+    it 'does return source rpm' do
+      sourcerpm = 'catpkt-1.0-alt5.src.rpm'
+      expect(rpm).to receive(:read_tag).with('SOURCERPM').and_return(sourcerpm)
+      expect(rpm.sourcerpm).to eq(sourcerpm)
+    end
   end
 end

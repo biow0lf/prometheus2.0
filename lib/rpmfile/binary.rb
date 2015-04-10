@@ -1,15 +1,11 @@
-module RPMFile # TODO: rename to RPM
+module RPMFile
   class Binary < Base
-    def arch
-      @arch ||= read_tag('ARCH')
-    end
-
     def filename
-      @filename ||= "#{ name }-#{ version }-#{ release }.#{ arch }.rpm"
+      "#{ name }-#{ version }-#{ release }.#{ arch }.rpm"
     end
 
-    def sourcerpm
-      @sourcerpm ||= read_tag('SOURCERPM')
+    [:arch, :sourcerpm].each do |method|
+      define_method(method) { read_tag(method.to_s.upcase) }
     end
   end
 end

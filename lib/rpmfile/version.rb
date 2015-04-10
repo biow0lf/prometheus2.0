@@ -1,3 +1,3 @@
-module RPMFile # TODO: rename to RPM
+module RPMFile
   VERSION = '0.0.1'.freeze
 end
