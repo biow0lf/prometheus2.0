@@ -5,6 +5,12 @@ module RPMFile
     attr_reader :file
     attr_reader :reader
 
+    RPM_STRING_TAGS = [:name, :version, :release, :summary, :group, :license,
+                       :url, :packager, :vendor, :distribution, :description,
+                       :buildhost, :changelogname, :changelogtext]
+    RPM_INT_TAGS = [:epoch]
+    RPM_TIME_TAGS = [:buildtime, :changelogtime]
+
     def initialize(file, reader = ConsoleReader.new )
       @file = file
       @reader = reader
@@ -24,73 +30,19 @@ module RPMFile
       read_raw("%{#{ tag }}")
     end
 
-    def name
-      @name ||= read_tag('NAME')
-    end
-
-    def version
-      @version ||= read_tag('VERSION')
-    end
-
-    def release
-      @release ||= read_tag('RELEASE')
-    end
-
-    # TODO: epoch should be integer
-    def epoch
-      @epoch ||= read_tag('EPOCH')
-    end
-
-    def summary
-      @summary ||= read_tag('SUMMARY')
-    end
-
-    def group
-      @group ||= read_tag('GROUP')
-    end
-
-    def license
-      @license ||= read_tag('LICENSE')
-    end
-
-    def url
-      @url ||= read_tag('URL')
-    end
-
-    def packager
-      @packager ||= read_tag('PACKAGER')
-    end
-
-    def vendor
-      @vendor ||= read_tag('VENDOR')
-    end
-
-    def distribution
-      @distribution ||= read_tag('DISTRIBUTION')
-    end
-
-    def description
-      @description ||= read_tag('DESCRIPTION')
-    end
-
-    def buildhost
-      @buildhost ||= read_tag('BUILDHOST')
-    end
-
-    def buildtime
-      @buildtime ||= Time.at(read_tag('BUILDTIME').to_i)
-    end
-
-    def changelogname
-      @changelogname ||= read_tag('CHANGELOGNAME')
-    end
-
-    def changelogtext
-      @changelogtext ||= read_tag('CHANGELOGTEXT')
-    end
-
-    def changelogtime
-      @changelogtime ||= Time.at(read_tag('CHANGELOGTIME').to_i)
+    def method_missing(method, *_args, &_block)
+      tag = nil
+      if RPM_STRING_TAGS.include?(method)
+        tag = read_tag(method.to_s.upcase)
+      elsif RPM_INT_TAGS.include?(method)
+        tag = read_tag(method.to_s.upcase)
+        tag = tag.to_i if tag
+      elsif RPM_TIME_TAGS.include?(method)
+        tag = Time.at(read_tag(method.to_s.upcase).to_i)
+      else
+        super
+      end
+      tag
     end
 
     def filename
