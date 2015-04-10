@@ -56,7 +56,6 @@ end
 
 group :production do
   gem 'newrelic_rpm'
-  # gem 'newrelic-redis'
   gem 'rack-force_domain'
   gem 'exception_notification'
   gem 'unicorn'
