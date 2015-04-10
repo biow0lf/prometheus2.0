@@ -1,6 +1,6 @@
 require 'open3'
 
-opts = ['-qp', '--queryformat="%{NAME}"', 'catpkt-1.0-alt5.src.rpm']
+opts = ['-qp', '--queryformat="%{NAME}"', 'spec/data/catpkt-1.0-alt5.src.rpm']
 
 stdout = stderr = status = nil
 
