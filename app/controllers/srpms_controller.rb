@@ -1,7 +1,7 @@
 class SrpmsController < ApplicationController
   def show
     @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first.decorate
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
     @ftbfs = @branch.ftbfs.where(name: @srpm.name,
