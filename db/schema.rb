@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411124800) do
+ActiveRecord::Schema.define(version: 20150411160412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,7 +169,6 @@ ActiveRecord::Schema.define(version: 20150411124800) do
     t.string   "name"
     t.string   "version"
     t.string   "release"
-    t.string   "epoch"
     t.string   "arch"
     t.string   "summary"
     t.string   "license"
@@ -184,7 +183,7 @@ ActiveRecord::Schema.define(version: 20150411124800) do
     t.string   "md5"
     t.string   "groupname"
     t.integer  "size"
-    t.integer  "epoch_int"
+    t.integer  "epoch"
   end
 
   add_index "packages", ["arch"], name: "index_packages_on_arch", using: :btree
@@ -292,7 +291,6 @@ ActiveRecord::Schema.define(version: 20150411124800) do
     t.string   "name"
     t.string   "version"
     t.string   "release"
-    t.string   "epoch"
     t.string   "summary"
     t.string   "license"
     t.string   "url"
@@ -313,7 +311,7 @@ ActiveRecord::Schema.define(version: 20150411124800) do
     t.string   "groupname"
     t.integer  "size"
     t.datetime "changelogtime"
-    t.integer  "epoch_int"
+    t.integer  "epoch"
   end
 
   add_index "srpms", ["branch_id"], name: "index_srpms_on_branch_id", using: :btree
