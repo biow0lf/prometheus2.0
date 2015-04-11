@@ -4,21 +4,6 @@ FactoryGirl.define do
     parent_id nil
   end
 
-  factory :srpm do
-    name 'openbox'
-    version '3.4.11.1'
-    release 'alt1.1.1'
-    groupname 'Graphical desktop/Other'
-    filename 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    md5 'f87ff0eaa4e16b202539738483cd54d1'
-  end
-
-  factory :maintainer do
-    name 'Igor Zubkov'
-    email 'icesik@altlinux.org'
-    login 'icesik'
-  end
-
   factory :maintainer_team do
     name 'Ruby Maintainers Team'
     email 'ruby@packages.altlinux.org'
