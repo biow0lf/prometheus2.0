@@ -40,6 +40,7 @@ class Srpm < ActiveRecord::Base
 
   def self.import(branch, rpm, file)
     srpm = Srpm.new
+    # TODO: add srpm.buildhost
     srpm.name = rpm.name
     srpm.version = rpm.version
     srpm.release = rpm.release
