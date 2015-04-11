@@ -106,6 +106,7 @@ group :test do
 
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'active_decorator-rspec'
   gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'

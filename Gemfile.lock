@@ -11,6 +11,11 @@ GEM
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
     active_decorator (0.5.1)
+    active_decorator-rspec (0.0.5)
+      actionpack
+      active_decorator
+      activesupport
+      rspec (>= 3.0)
     active_sanity (0.3.0)
       rails (>= 4.0)
     activemodel (4.0.13)
@@ -398,6 +403,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_decorator
+  active_decorator-rspec
   active_sanity
   airborne
   annotate

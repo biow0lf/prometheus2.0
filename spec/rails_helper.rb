@@ -23,6 +23,9 @@ require 'rspec/rails'
 # capybara-email
 require 'capybara/email/rspec'
 
+# active_decorator-rspec
+require 'active_decorator/rspec'
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending!
