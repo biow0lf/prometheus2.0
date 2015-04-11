@@ -11,7 +11,7 @@ module RPMFile
     RPM_INT_TAGS = [:epoch]
     RPM_TIME_TAGS = [:buildtime, :changelogtime]
 
-    def initialize(file, reader = ConsoleReader.new )
+    def initialize(file, reader = ConsoleReader.new)
       @file = file
       @reader = reader
     end
@@ -37,8 +37,7 @@ module RPMFile
     RPM_INT_TAGS.each do |method|
       define_method(method) do
         tag = read_tag(method.to_s.upcase)
-        tag = tag.to_i if tag
-        tag
+        tag ? tag.to_i : tag
       end
     end
 
