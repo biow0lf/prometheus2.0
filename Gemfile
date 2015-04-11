@@ -27,10 +27,10 @@ group :sqlite do
 end
 
 gem 'devise'
-gem 'draper'
 gem 'pry', group: [:development, :test]
 gem 'redis-objects'
 gem 'kaminari'
+gem 'active_decorator'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
@@ -106,6 +106,7 @@ group :test do
 
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'active_decorator-rspec'
   gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'

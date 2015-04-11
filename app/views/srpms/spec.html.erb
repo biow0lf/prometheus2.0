@@ -14,12 +14,12 @@
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size: 8pt;" width="100%">
 
-<% @allsrpms.each do |rpm| %>
+<% @allsrpms.each do |srpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{rpm.branch.name}:", spec_srpm_path(rpm.branch, rpm), class: 'news' %>
+    <%= link_to "#{srpm.branch.name}:", spec_srpm_path(srpm.branch, srpm), class: 'news' %>
   </td>
-  <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
+  <td style="text-align: right;"><%= srpm.evr %></td>
 </tr>
 <% end %>
 

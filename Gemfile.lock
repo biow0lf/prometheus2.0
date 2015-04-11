@@ -10,6 +10,12 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_decorator (0.5.1)
+    active_decorator-rspec (0.0.5)
+      actionpack
+      active_decorator
+      activesupport
+      rspec (>= 3.0)
     active_sanity (0.3.0)
       rails (>= 4.0)
     activemodel (4.0.13)
@@ -115,11 +121,6 @@ GEM
     docile (1.1.5)
     domain_name (0.5.23)
       unf (>= 0.0.5, < 1.0.0)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
     erubis (2.7.0)
     exception_notification (4.1.0)
       actionmailer (>= 3.0.4)
@@ -274,7 +275,6 @@ GEM
     redis (3.2.1)
     redis-objects (1.1.0)
       redis (>= 3.0.2)
-    request_store (1.1.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rest-client (1.8.0)
@@ -402,6 +402,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_decorator
+  active_decorator-rspec
   active_sanity
   airborne
   annotate
@@ -423,7 +425,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   devise
-  draper
   exception_notification
   factory_girl_rails
   faker

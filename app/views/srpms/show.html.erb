@@ -14,12 +14,12 @@
 <div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
 
-<% @allsrpms.each do |rpm| %>
+<% @allsrpms.each do |srpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{rpm.branch.name}:", srpm_path(rpm.branch, rpm), class: 'news' %>
+    <%= link_to "#{srpm.branch.name}:", srpm_path(srpm.branch, srpm), class: 'news' %>
   </td>
-  <td style="text-align: right;"><%= "#{rpm.version}-#{rpm.release}" %></td>
+  <td style="text-align: right;"><%= srpm.evr %></td>
 </tr>
 <% end %>
 
@@ -57,7 +57,7 @@
 <div>
 <p class="break" />
 <span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" />
-<b><%= _('Current version:') %></b> <%= "#{@srpm.version}-#{@srpm.release}" %><br>
+<b><%= _('Current version:') %></b> <%= @srpm.evr %><br>
 <b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br>
 <% unless @ftbfs.empty? %>
   <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
