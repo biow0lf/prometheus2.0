@@ -32,8 +32,7 @@
       <th><%= _('summary') %></th>
     </tr>
 
-    <% @srpms.each do |item| %>
-      <% srpm = item.decorate %>
+    <% @srpms.each do |srpm| %>
       <% if srpm %>
         <tr>
           <% if @branch.name == 'Sisyphus' %>
