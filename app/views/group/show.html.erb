@@ -15,7 +15,7 @@
       <br>
       <br>
       <b><%= _('Current version:') %></b>
-      <span class='news-text'><%= "#{srpm.version}-#{srpm.release}" %></span>
+      <span class='news-text'><%= srpm.evr %></span>
       <br>
       <b><%= _('Build time:') %></b>
       <span class='news-text'><%= "#{srpm.buildtime} (#{time_ago_in_words(srpm.buildtime)} #{_('ago')})" %></span>
