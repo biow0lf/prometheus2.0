@@ -32,7 +32,8 @@
       <th><%= _('summary') %></th>
     </tr>
 
-    <% @srpms.each do |srpm| %>
+    <% @srpms.each do |item| %>
+      <% srpm = item.decorate %>
       <% if srpm %>
         <tr>
           <% if @branch.name == 'Sisyphus' %>
@@ -43,10 +44,10 @@
           <td class="strange">
             <%= link_to srpm.name, srpm_path(srpm.branch, srpm), class: 'news' %>
           </td>
-          <td><%= "#{srpm.version}-#{srpm.release}" %></td>
+          <td><%= srpm.evr %></td>
           <td><%= srpm.buildtime %></td>
           <td><%= "#{time_ago_in_words(srpm.buildtime)} #{_('ago')}" %></td>
-          <td><%= srpm.decorate.short_url %></td>
+          <td><%= srpm.short_url %></td>
           <td><%= srpm.summary %></td>
         </tr>
       <% end %>
