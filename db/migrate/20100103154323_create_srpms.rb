@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/MethodLength
 class CreateSrpms < ActiveRecord::Migration
   def change
     create_table :srpms do |t|

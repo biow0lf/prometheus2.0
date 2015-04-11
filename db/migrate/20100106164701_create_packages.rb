@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/AbcSize, Metrics/MethodLength
 class CreatePackages < ActiveRecord::Migration
   def change
     create_table :packages do |t|

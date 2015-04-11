@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/MethodLength
 class CreateRepocops < ActiveRecord::Migration
   def change
     create_table :repocops do |t|

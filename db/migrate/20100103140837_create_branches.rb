@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/MethodLength
 class CreateBranches < ActiveRecord::Migration
   def change
     create_table :branches do |t|
