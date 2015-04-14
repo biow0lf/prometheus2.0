@@ -27,7 +27,6 @@ group :sqlite do
 end
 
 gem 'devise'
-gem 'pry', group: [:development, :test]
 gem 'redis-objects'
 gem 'kaminari'
 gem 'active_decorator'
@@ -94,6 +93,7 @@ end
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
