@@ -4,6 +4,8 @@ Prometheus20::Application.routes.draw do
     root to: 'home#index'
 
     get 'project' => 'pages#project'
+    get 'maintainers' => 'maintainers#index'
+    get 'teams' => 'teams#index'
 
     scope '(:branch)', branch: SUPPORTED_BRANCHES do
       resources :srpms, id: /[^\/]+/, only: :show do
@@ -23,7 +25,6 @@ Prometheus20::Application.routes.draw do
       end
       get 'rss' => 'rss#index', as: 'rss'
       resources :teams, only: :show
-      get 'people' => 'home#maintainers_list', as: 'maintainers'
       get 'packages/:group(/:group2(/:group3))' => 'group#show', as: 'group'
       get 'packages' => 'group#index', as: 'packages'
     end
@@ -62,9 +63,8 @@ Prometheus20::Application.routes.draw do
 
   get '(/:locale)/misc/bugs' => 'misc#bugs', locale: SUPPORTED_LOCALES
 
-  get '(/:locale)/:branch/security' => 'security#index', as: 'security',
-                                                         locale: SUPPORTED_LOCALES,
-                                                         branch: SUPPORTED_BRANCHES
+  get '(/:locale)/:branch/security' => 'security#index',
+      as: 'security', locale: SUPPORTED_LOCALES, branch: SUPPORTED_BRANCHES
 
   # TODO: drop this later
   # get '/repocop' => 'repocop#index'

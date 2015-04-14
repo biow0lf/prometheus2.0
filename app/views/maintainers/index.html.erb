@@ -1,0 +1,30 @@
+<% title _('Prometheus 2.0 - Maintainers') %>
+
+<div id='main-content'>
+  <table style='font-size: 10pt;' width='100%'>
+    <tr>
+      <th><%= _('Maintainers') %></th>
+    </tr>
+    <tr>
+      <td valign='top'>
+        <% @maintainers.each do |maintainer| %>
+            <% if Redis.current.smembers("#{@branch.name}:maintainers:#{maintainer.login}").count > 0 %>
+                <div style='margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;'>
+                  <div style='float: left;'>
+                    <%= link_to _(maintainer.name), maintainer_path(@branch, maintainer),
+                                class: 'news', title: _('information about maintainer') %>
+                    <%= link_to " (#{maintainer.login})", maintainer_path(@branch, maintainer), style: 'text-decoration: none; color: black;' %>
+                  </div>
+                </div>
+            <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id='bottom-offset-l'>
+  <div id='bottom-offset-r'>
+    &nbsp;
+  </div>
+</div>

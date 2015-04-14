@@ -1,4 +1,10 @@
 class TeamsController < ApplicationController
+  def index
+    @branch = Branch.where(name: params[:branch]).first
+    @branches = Branch.order('order_id')
+    @teams = MaintainerTeam.order(:name)
+  end
+
   def show
     @branch = Branch.where(name: params[:branch]).first
     @branches = Branch.order('order_id')

@@ -10,3 +10,6 @@
 
 Добавить в srpm поле repocop_status_prev в котором хранить предыдущий статус
 репокопа до обновления srpm.
+
+На странице http://packages.altlinux.org/ru/search?utf8=%E2%9C%93&branch=Sisyphus&query=glibc
+показывать бранчи и количество пакетов если искать в них.
