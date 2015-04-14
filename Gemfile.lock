@@ -105,7 +105,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1)
+    coffee-script-source (1.9.1.1)
     commander (4.3.0)
       highline (~> 1.6.11)
     dalli (2.7.4)
