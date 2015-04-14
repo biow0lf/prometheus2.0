@@ -7,7 +7,8 @@ class Changelog < ActiveRecord::Base
   validates :changelogtext, presence: true
 
   def email
-    FixMaintainerEmail.new(changelogname.slice(/<.*>/)[1..-2]).execute
+    # TODO: add test for this
+    FixMaintainerEmail.new(changelogname.slice(/<.+>/)[1..-2]).execute
   rescue
     nil
   end
