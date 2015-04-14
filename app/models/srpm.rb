@@ -128,7 +128,7 @@ class Srpm < ActiveRecord::Base
     logins = []
     changelogs.each do |changelog|
       # TODO: add test for this bug.
-      next unless changelog.email.empty?
+      next if changelog.email.empty?
       logins << changelog.login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
