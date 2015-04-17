@@ -110,6 +110,7 @@ group :test do
   gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'
+  gem 'database_cleaner'
   gem 'fakeweb'
   gem 'fakeredis'
   gem 'simplecov', require: false
