@@ -39,7 +39,6 @@ gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'brewdler', require: false
 gem 'sitemap_generator'
-gem 'backup', require: false
 gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'

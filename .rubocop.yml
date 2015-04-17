@@ -4,9 +4,6 @@ AllCops:
     - 'db/schema.rb'
     - 'Rakefile'
     - 'Capfile'
-    - 'lib/tasks/cucumber.rake'
-    - 'lib/tasks/backup.rake'
-    - 'config/backup.rb'
     - 'Guardfile'
 
 Style/Documentation:
