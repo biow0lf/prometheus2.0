@@ -44,7 +44,7 @@ class Srpm < ActiveRecord::Base
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
         puts "#{Time.now}: import '#{File.basename(file)}'"
-        Srpm.import(branch, RPMFile::Source.new(file), file)
+        SrpmImport.new(branch, Srpm.new, RPMFile::Source.new(file), file).execute
       end
     end
   end

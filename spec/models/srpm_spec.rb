@@ -51,7 +51,7 @@ describe Srpm do
     expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
     expect(File).to receive(:exist?).with('glibc-2.11.3-alt6.src.rpm').and_return(true)
     expect(RPM).to receive(:check_md5).and_return(true)
-    expect(Srpm).to receive(:import).and_return(true)
+    allow_any_instance_of(SrpmImport).to receive(:execute)
 
     Srpm.import_all(branch, path)
   end
