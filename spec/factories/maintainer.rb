@@ -1,11 +1,9 @@
 FactoryGirl.define do
   factory :maintainer do
-    name { Faker::Name.name }
-    sequence :login do |n|
-      "#{ Faker::Internet.user_name }#{ n }"
-    end
+    name { "#{ Faker::Name.first_name } #{ Faker::Name.last_name }" }
+    sequence(:login) { |n| "#{ Faker::Internet.user_name }#{ n }" }
     email { "#{ login }@altlinux.org" }
-    time_zone 'UTC'
+    time_zone { Faker::Address.time_zone }
     jabber { "#{ login }@altlinux.org" }
     info { Faker::Lorem.paragraph }
     website { Faker::Internet.url }
