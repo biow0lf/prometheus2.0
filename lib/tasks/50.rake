@@ -25,10 +25,10 @@ namespace :'50' do
     Srpm.remove_old(branch, '/ALT/5.0/files/SRPMS/')
     puts "#{Time.now}: end"
     puts "#{Time.now}: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from 5.0 to database"
-    pathes = ['/ALT/5.0/files/i586/RPMS/*.i586.rpm',
-              '/ALT/5.0/files/noarch/RPMS/*.noarch.rpm',
-              '/ALT/5.0/files/x86_64/RPMS/*.x86_64.rpm']
-    Package.import_all(branch, pathes)
+    paths = ['/ALT/5.0/files/i586/RPMS/*.i586.rpm',
+             '/ALT/5.0/files/noarch/RPMS/*.noarch.rpm',
+             '/ALT/5.0/files/x86_64/RPMS/*.x86_64.rpm']
+    Package.import_all(branch, paths)
     ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{Time.now}: end"
     puts "#{Time.now}: update acls in redis cache"

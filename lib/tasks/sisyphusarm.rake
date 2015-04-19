@@ -25,8 +25,8 @@ namespace :sisyphusarm do
     Srpm.remove_old(branch, '/ALT/Sisyphus/arm/SRPMS.all/')
     puts "#{Time.now}: end"
     puts "#{Time.now}: update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
-    pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
-    Package.import_all(branch, pathes)
+    paths = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
+    Package.import_all(branch, paths)
     ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{Time.now}: end"
     puts "#{Time.now}: update time"
@@ -49,8 +49,8 @@ namespace :sisyphusarm do
     require 'open-uri'
     puts "#{Time.now}: import *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     branch = Branch.where(name: 'SisyphusARM').first
-    pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
-    Package.import_all(branch, pathes)
+    paths = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
+    Package.import_all(branch, paths)
     puts "#{Time.now}: end"
   end
 end

@@ -96,12 +96,12 @@ describe Package do
   it 'should import all packages from path' do
     # TODO: add path to branch and branch factory
     branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
+    paths = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
     expect(Redis.current.get("#{branch.name}:gcc-1.0-alt1.i586.rpm")).to be_nil
     expect(Dir).to receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
     expect(File).to receive(:exist?).with('gcc-1.0-alt1.i586.rpm').and_return(true)
     expect(RPM).to receive(:check_md5).and_return(true)
     expect(Package).to receive(:import).and_return(true)
-    Package.import_all(branch, pathes)
+    Package.import_all(branch, paths)
   end
 end

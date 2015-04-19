@@ -59,8 +59,8 @@ class Package < ActiveRecord::Base
     end
   end
 
-  def self.import_all(branch, pathes)
-    pathes.each do |path|
+  def self.import_all(branch, paths)
+    paths.each do |path|
       Dir.glob(path).each do |file|
         unless Redis.current.exists("#{branch.name}:#{file.split('/')[-1]}")
           next unless File.exist?(file)
