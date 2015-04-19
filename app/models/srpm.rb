@@ -38,64 +38,6 @@ class Srpm < ActiveRecord::Base
     Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
   end
 
-  def self.import(branch, rpm, file)
-    srpm = Srpm.new
-    # TODO: add srpm.buildhost
-    srpm.name = rpm.name
-    srpm.version = rpm.version
-    srpm.release = rpm.release
-    srpm.epoch = rpm.epoch
-    srpm.filename = rpm.filename
-
-    group_name = rpm.group
-    Group.import(branch, group_name)
-    group = Group.in_branch(branch, group_name)
-
-    Maintainer.import(rpm.packager)
-
-    srpm.group_id = group.id
-    srpm.groupname = group_name
-    srpm.summary = rpm.summary
-    # TODO: test for this
-    # hack for very long summary in openmoko_dfu-util src.rpm
-    srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
-    srpm.license = rpm.license
-    srpm.url = rpm.url
-    srpm.description = rpm.description
-    srpm.vendor = rpm.vendor
-    srpm.distribution = rpm.distribution
-    srpm.buildtime = rpm.buildtime
-    srpm.size = rpm.size
-    srpm.md5 = rpm.md5
-    srpm.branch_id = branch.id
-    srpm.changelogtime = rpm.changelogtime
-
-    changelogname = rpm.changelogname
-    srpm.changelogname = changelogname
-
-    srpm.changelogtext = rpm.changelogtext
-
-    email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
-
-    if email
-      email.downcase!
-      email = FixMaintainerEmail.new(email).execute
-      Maintainer.import_from_changelogname(changelogname)
-      maintainer = Maintainer.where(email: email).first
-      srpm.builder_id = maintainer.id
-    end
-
-    if srpm.save
-      Redis.current.set("#{branch.name}:#{srpm.filename}", 1)
-      Changelog.import(file, srpm)
-      Specfile.import(file, srpm)
-      Patch.import(file, srpm)
-      Source.import(file, srpm)
-    else
-      puts "#{Time.now}: failed to update '#{srpm.filename}'"
-    end
-  end
-
   def self.import_all(branch, path)
     Dir.glob(path).each do |file|
       unless Redis.current.exists("#{branch.name}:#{File.basename(file)}")
