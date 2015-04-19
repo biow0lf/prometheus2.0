@@ -2,22 +2,15 @@ require 'rails_helper'
 
 describe 'Source RPM info API' do
   before(:each) do
-    @branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    @group0 = Group.create!(name: 'Graphical desktop', branch_id: @branch.id)
-    @group = Group.create!(name: 'Other', branch_id: @branch.id)
-    @group.move_to_child_of(@group0)
-
-    @maintainer = create(
-      :maintainer,
-      name: 'Igor Zubkov',
-      email: 'icesik@altlinux.org',
-      login: 'icesik'
-    )
+    @branch = create(:branch, name: 'Sisyphus')
+    @group = create(:group, name: 'Graphical desktop/Other')
+    @maintainer = create(:maintainer, login: 'icesik')
 
     @srpm = create(
       :srpm,
-      branch_id: @branch.id,
-      group_id: @group.id,
+      branch: @branch,
+      group: @group,
+      groupname: @group.name,
       name: 'openbox',
       version: '3.4.11.1',
       release: 'alt1.1.1',
@@ -37,7 +30,7 @@ describe 'Source RPM info API' do
     Redis.current.sadd(key, @maintainer.login)
   end
 
-  it 'should validate values' do
+  it 'does validate values' do
     get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
     expect_json(
@@ -62,7 +55,7 @@ describe 'Source RPM info API' do
     )
   end
 
-  it 'should validate types' do
+  it 'does validate types' do
     get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
     expect_json_types(
