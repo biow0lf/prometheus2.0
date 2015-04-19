@@ -40,12 +40,12 @@ describe Srpm do
     it { is_expected.to have_db_index :name }
   end
 
-  it 'should return Srpm#name on #to_param' do
+  it 'does return Srpm#name on #to_param' do
     expect(Srpm.new(name: 'openbox').to_param).to eq('openbox')
   end
 
-  it 'should import all srpms from path' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+  it 'does import all srpms from path' do
+    branch = create(:branch, name: 'Sisyphus')
     path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
     expect(Redis.current.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
     expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
@@ -56,17 +56,23 @@ describe Srpm do
     Srpm.import_all(branch, path)
   end
 
-  it 'should remove old srpms from database' do
+  it 'does remove old srpms from database' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)
-    srpm1 = create(:srpm, branch_id: branch.id, group_id: group.id)
-    Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
-    srpm2 = create(
-      :srpm,
-      name: 'blackbox',
-      filename: 'blackbox-1.0-alt1.src.rpm',
+    srpm1 = create(:srpm,
       branch_id: branch.id,
-      group_id: group.id
+      group_id: group.id,
+      name: 'openbox',
+      version: '3.4.11.1',
+      release: 'alt1.1.1'
+    )
+    Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
+    srpm2 = create(:srpm,
+      branch_id: branch.id,
+      group_id: group.id,
+      name: 'blackbox',
+      version: '1.0',
+      release: 'alt1'
     )
     Redis.current.set("#{ branch.name }:#{ srpm2.filename }", 1)
     Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", 'icesik')
@@ -90,14 +96,14 @@ describe Srpm do
     # TODO: add checks for sub packages, set-get-delete
   end
 
-  it 'should increment branch.counter on srpm.save' do
+  it 'does increment branch.counter on srpm.save' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)
     create(:srpm, branch_id: branch.id, group_id: group.id)
     expect(branch.counter.value).to eq(1)
   end
 
-  it 'should decrement branch.counter on srpm.destroy' do
+  it 'does decrement branch.counter on srpm.destroy' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)
     srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
