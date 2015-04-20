@@ -44,7 +44,7 @@ gem 'coderay'
 # gem 'rack-rewrite'
 # gem 'delorean'
 gem 'rollbar', '~> 1.5'
-gem 'rack-mini-profiler'
+gem 'rack-mini-profiler', require: false
 
 group :production, :development, :staging do
   gem 'redis'
