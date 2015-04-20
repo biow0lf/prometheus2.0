@@ -42,7 +42,6 @@ gem 'brewdler', require: false
 gem 'sitemap_generator'
 gem 'coderay'
 # gem 'rack-rewrite'
-# gem 'delorean'
 gem 'rollbar', '~> 1.5'
 gem 'rack-mini-profiler', require: false
 
