@@ -26,6 +26,7 @@ group :sqlite do
   gem 'sqlite3'
 end
 
+gem 'rack-health'
 gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'
