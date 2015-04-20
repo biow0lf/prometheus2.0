@@ -24,7 +24,8 @@ describe 'Source RPM info API' do
       md5: 'f87ff0eaa4e16b202539738483cd54d1',
       buildtime: '2010-11-24T23:58:02.000Z',
       vendor: 'ALT Linux Team',
-      distribution: 'ALT Linux'
+      distribution: 'ALT Linux',
+      repocop: 'skip'
     )
     key = "#{ @branch.name }:#{ @srpm.name }:acls"
     Redis.current.sadd(key, @maintainer.login)
