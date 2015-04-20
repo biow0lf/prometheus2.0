@@ -242,6 +242,8 @@ GEM
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
     rack-force_domain (0.3.0)
+    rack-health (0.1.2)
+      rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.0.13)
@@ -447,6 +449,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rack-force_domain
+  rack-health
   rails (= 4.0.13)
   rails-erd
   rake
