@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_default_locale
   before_filter :set_default_branch
+  before_filter :authorizer_for_profiler
 
   helper_method :sort_column, :sort_order, :sort_order_next
 
@@ -35,5 +36,11 @@ class ApplicationController < ActionController::Base
     return 'desc' if params[:order] == 'asc' && params[:sort] == column
     return 'asc' if params[:order] == 'desc' && params[:sort] == column
     'asc'
+  end
+
+  def authorizer_for_profiler
+    if current_user && current_user.admin?
+      Rack::MiniProfiler.authorize_request
+    end
   end
 end
