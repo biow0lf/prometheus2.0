@@ -1,12 +1,10 @@
 require 'rpmfile'
 
 class Package < ActiveRecord::Base
-  belongs_to :branch
   belongs_to :srpm
   belongs_to :group
 
   validates :srpm, presence: true
-  validates :branch, presence: true
   validates :group, presence: true
   validates :groupname, presence: true
   validates :md5, presence: true
@@ -44,7 +42,6 @@ class Package < ActiveRecord::Base
       package.buildtime = rpm.buildtime
       package.size = rpm.size
       package.md5 = rpm.md5
-      package.branch_id = branch.id
       srpm = branch.srpms.where(filename: sourcerpm).first
       package.srpm_id = srpm.id
       if package.save
