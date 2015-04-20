@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Package do
   context 'Associations' do
-    it { is_expected.to belong_to :branch }
     it { is_expected.to belong_to :srpm }
     it { is_expected.to belong_to :group }
 
@@ -14,7 +13,6 @@ describe Package do
 
   context 'Validation' do
     it { is_expected.to validate_presence_of :srpm }
-    it { is_expected.to validate_presence_of :branch }
     it { is_expected.to validate_presence_of :group }
     it { is_expected.to validate_presence_of :groupname }
     it { is_expected.to validate_presence_of :md5 }
@@ -22,7 +20,6 @@ describe Package do
 
   context 'DB Indexes' do
     it { is_expected.to have_db_index :arch }
-    it { is_expected.to have_db_index :branch_id }
     it { is_expected.to have_db_index :group_id }
     it { is_expected.to have_db_index :name }
     it { is_expected.to have_db_index :sourcepackage }

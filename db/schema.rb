@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411160412) do
+ActiveRecord::Schema.define(version: 20150420162150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,7 +178,6 @@ ActiveRecord::Schema.define(version: 20150411160412) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "srpm_id"
-    t.integer  "branch_id"
     t.integer  "group_id"
     t.string   "md5"
     t.string   "groupname"
@@ -187,7 +186,6 @@ ActiveRecord::Schema.define(version: 20150411160412) do
   end
 
   add_index "packages", ["arch"], name: "index_packages_on_arch", using: :btree
-  add_index "packages", ["branch_id"], name: "index_packages_on_branch_id", using: :btree
   add_index "packages", ["group_id"], name: "index_packages_on_group_id", using: :btree
   add_index "packages", ["name"], name: "index_packages_on_name", using: :btree
   add_index "packages", ["sourcepackage"], name: "index_packages_on_sourcepackage", using: :btree
@@ -331,8 +329,8 @@ ActiveRecord::Schema.define(version: 20150411160412) do
   add_index "teams", ["maintainer_id"], name: "index_teams_on_maintainer_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -347,6 +345,7 @@ ActiveRecord::Schema.define(version: 20150411160412) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "unconfirmed_email"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
