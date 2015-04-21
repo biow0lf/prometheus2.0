@@ -388,7 +388,7 @@ GEM
     unicorn-worker-killer (0.4.3)
       get_process_mem (~> 0)
       unicorn (~> 4)
-    uniform_notifier (1.8.0)
+    uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
     whenever (0.9.4)
