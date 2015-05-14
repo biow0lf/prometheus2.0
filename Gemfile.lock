@@ -317,7 +317,7 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.6.6)
       sexp_processor (~> 4.1)
-    sandi_meter (1.1.8)
+    sandi_meter (1.2.0)
       json
       launchy
       mixlib-cli
