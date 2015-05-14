@@ -190,7 +190,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     locale (2.1.0)
-    lograge (0.3.1)
+    lograge (0.3.2)
       actionpack (>= 3)
       activesupport (>= 3)
       railties (>= 3)
