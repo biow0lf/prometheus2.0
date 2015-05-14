@@ -372,7 +372,7 @@ GEM
       hitimes
     turbolinks (2.5.3)
       coffee-rails
-    tzinfo (0.3.43)
+    tzinfo (0.3.44)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
