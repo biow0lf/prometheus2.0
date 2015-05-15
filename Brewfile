@@ -1,10 +1,10 @@
-bzip2
-coreutils
-gettext
-git
-memcached
-nginx
-node
-postgresql
-redis
-sphinx
+brew 'bzip2'
+brew 'coreutils'
+brew 'gettext'
+brew 'git'
+brew 'memcached'
+brew 'nginx'
+brew 'node'
+brew 'postgresql'
+brew 'redis'
+brew 'sphinx'
