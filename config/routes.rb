@@ -1,4 +1,8 @@
 Prometheus20::Application.routes.draw do
+  # API+API Documentation
+  mount API::Base => '/api'
+  mount GrapeSwaggerRails::Engine => '/api_doc'
+
   scope '(:locale)', locale: SUPPORTED_LOCALES do
     devise_for :users
     root to: 'home#index'
