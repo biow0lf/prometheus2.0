@@ -10,6 +10,7 @@ module API
       expose :summary
       expose :license
       expose :groupname, as: :group
+      expose :group_id
       expose :url
       expose :description
       expose :buildtime
@@ -23,7 +24,6 @@ module API
       expose :builder_id
       expose :size
       expose :repocop
-      # TODO: myabe in future add: t.integer  "group_id"
       expose :created_at
       expose :updated_at
     end

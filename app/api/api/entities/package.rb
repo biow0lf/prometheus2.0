@@ -12,11 +12,11 @@ module API
       expose :arch
       expose :summary
       expose :groupname, as: :group
+      expose :group_id
       expose :license
       expose :url
       expose :description
       expose :buildtime
-      # TODO: maybe later: t.integer  "group_id"
       expose :md5
       expose :size
       expose :created_at
