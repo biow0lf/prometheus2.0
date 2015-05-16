@@ -5,7 +5,7 @@ module API
     desc 'Get all branches'
 
     get 'all' do
-      present Branch.order('id ASC').all, with: API::Entities::Branch
+      present Branch.order('id ASC'), with: API::Entities::Branch
     end
 
   end
