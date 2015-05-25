@@ -43,4 +43,8 @@ class ApplicationController < ActionController::Base
       Rack::MiniProfiler.authorize_request
     end
   end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    # TODO
+  end
 end

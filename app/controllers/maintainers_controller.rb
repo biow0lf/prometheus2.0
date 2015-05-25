@@ -1,6 +1,6 @@
 class MaintainersController < ApplicationController
   def show
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
@@ -8,7 +8,7 @@ class MaintainersController < ApplicationController
   end
 
   def srpms
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
@@ -55,7 +55,7 @@ class MaintainersController < ApplicationController
 
   def bugs
     # TODO: add Branch support
-    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    # @branch = Branch.find_by!(name: params[:branch])
     @branch = Branch.where(name: 'Sisyphus').first
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
@@ -73,7 +73,7 @@ class MaintainersController < ApplicationController
 
   def allbugs
     # TODO: add Branch support
-    # @branch = Branch.where(name: params[:branch], vendor: 'ALT Linux').first
+    # @branch = Branch.find_by!(name: params[:branch])
     @branch = Branch.where(name: 'Sisyphus').first
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
@@ -90,7 +90,7 @@ class MaintainersController < ApplicationController
   end
 
   def ftbfs
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
 
@@ -98,7 +98,7 @@ class MaintainersController < ApplicationController
   end
 
   def repocop
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.where(login: params[:id].downcase).first
     render status: 404, action: '404' and return if @maintainer == nil
 

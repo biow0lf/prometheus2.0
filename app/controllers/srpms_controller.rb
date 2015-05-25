@@ -1,6 +1,6 @@
 class SrpmsController < ApplicationController
   def show
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -27,7 +27,7 @@ class SrpmsController < ApplicationController
   end
 
   def changelog
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
@@ -35,14 +35,14 @@ class SrpmsController < ApplicationController
   end
 
   def spec
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
   def rawspec
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     if @srpm.specfile
@@ -53,7 +53,7 @@ class SrpmsController < ApplicationController
   end
 
   def get
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @mirrors = Mirror.where(branch_id: @branch).where("protocol != 'rsync'").order('mirrors.order_id ASC')
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
@@ -66,7 +66,7 @@ class SrpmsController < ApplicationController
   end
 
   def gear
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -75,7 +75,7 @@ class SrpmsController < ApplicationController
   end
 
   def bugs
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -86,7 +86,7 @@ class SrpmsController < ApplicationController
   end
 
   def allbugs
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
 
@@ -97,7 +97,7 @@ class SrpmsController < ApplicationController
   end
 
   def repocop
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
     render status: 404, action: 'nosuchpackage' and return unless @srpm
     @repocops = Repocop.where(srcname: @srpm.name,

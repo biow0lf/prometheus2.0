@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def show
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @team = MaintainerTeam.where(login: "@#{ params[:id] }").first
 
