@@ -13,7 +13,6 @@ class GroupController < ApplicationController
         @group = @branch.groups.where(name: params[:group3], parent_id: @group.id).first
       end
     end
-    render status: 404, action: 'nosuchgroup' and return if @group == nil
     @srpms = @group.srpms.order('LOWER(name)')
   end
 end

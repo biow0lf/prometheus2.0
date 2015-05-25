@@ -2,16 +2,14 @@ class MaintainersController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @acls = Redis.current.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
     @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
 
     order  = ''
     order += 'LOWER(srpms.name)' if sort_column == 'name'
@@ -48,8 +46,7 @@ class MaintainersController < ApplicationController
 #  end
 
   def gear
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
   end
 
@@ -57,8 +54,7 @@ class MaintainersController < ApplicationController
     # TODO: add Branch support
     # @branch = Branch.find_by!(name: params[:branch])
     @branch = Branch.where(name: 'Sisyphus').first
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
@@ -74,9 +70,8 @@ class MaintainersController < ApplicationController
   def allbugs
     # TODO: add Branch support
     # @branch = Branch.find_by!(name: params[:branch])
-    @branch = Branch.where(name: 'Sisyphus').first
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
+    @branch = Branch.find_by!(name: 'Sisyphus')
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
@@ -91,17 +86,13 @@ class MaintainersController < ApplicationController
 
   def ftbfs
     @branch = Branch.find_by!(name: params[:branch])
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
-
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
   end
 
   def repocop
     @branch = Branch.find_by!(name: params[:branch])
-    @maintainer = Maintainer.where(login: params[:id].downcase).first
-    render status: 404, action: '404' and return if @maintainer == nil
-
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:repocops).order('LOWER(srpms.name)')
   end
 end
