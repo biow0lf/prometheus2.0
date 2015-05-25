@@ -2,11 +2,11 @@ class MaintainerProfilesController < ApplicationController
   before_filter :authenticate_user!
 
   def edit
-    @maintainer = Maintainer.where(login: current_user.login).first
+    @maintainer = Maintainer.find_by!(login: current_user.login)
   end
 
   def update
-    @maintainer = Maintainer.where(login: current_user.login).first
+    @maintainer = Maintainer.find_by!(login: current_user.login)
     if @maintainer.update_attributes(maintainer_params)
       redirect_to maintainer_path(id: current_user.login, branch: 'Sisyphus', locale: I18n.locale)
     else
