@@ -17,10 +17,10 @@ class ApplicationController < ActionController::Base
 
   def set_default_branch
     params[:branch] ||= 'Sisyphus'
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
   end
 
-  def default_url_options(options = {})
+  def default_url_options(_options = {})
     { locale: I18n.locale }
   end
 
