@@ -120,6 +120,8 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'fakeweb'
+  # TODO: replace fakeweb with webmock
+  gem 'webmock', require: false
   gem 'fakeredis'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
