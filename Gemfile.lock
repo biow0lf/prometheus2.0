@@ -231,7 +231,7 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    locale (2.1.0)
+    locale (2.1.1)
     lograge (0.3.2)
       actionpack (>= 3)
       activesupport (>= 3)
