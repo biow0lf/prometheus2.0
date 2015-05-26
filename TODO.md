@@ -7,7 +7,6 @@
  * HTTPS
  * Update sitemap
  * Fix string epoch
- * Update grape-entities-matchers from github:biow0lf/grape-entities-matchers fork.
 
 
 Добавить в srpm поле repocop_status_prev в котором хранить предыдущий статус
