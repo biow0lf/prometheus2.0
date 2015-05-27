@@ -1,15 +1,16 @@
 class MaintainersController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])
-    @branches = Branch.order('order_id')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
+    @branches = Branch.order('order_id')
+    # TODO: move @acls to maintainer or branch...
     @acls = Redis.current.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
   end
 
   def srpms
     @branch = Branch.find_by!(name: params[:branch])
-    @branches = Branch.order('order_id')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
+    @branches = Branch.order('order_id')
 
     order  = ''
     order += 'LOWER(srpms.name)' if sort_column == 'name'
@@ -53,7 +54,7 @@ class MaintainersController < ApplicationController
   def bugs
     # TODO: add Branch support
     # @branch = Branch.find_by!(name: params[:branch])
-    @branch = Branch.where(name: 'Sisyphus').first
+    @branch = Branch.find_by!(name: 'Sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).includes(:packages)
 
@@ -77,7 +78,7 @@ class MaintainersController < ApplicationController
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).
+                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
                 order('bug_id DESC')
 
     @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).

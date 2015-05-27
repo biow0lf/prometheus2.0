@@ -1,7 +1,7 @@
 class RssController < ApplicationController
   def index
     @branch = Branch.find_by!(name: params[:branch])
-    @srpms = @branch.srpms.where('srpms.created_at > ?', Time.now - 2.day).order('srpms.created_at DESC').all
+    @srpms = @branch.srpms.where('srpms.created_at > ?', Time.now - 2.day).order('srpms.created_at DESC')
     render layout: nil
     response.headers['Content-Type'] = 'application/xml; charset=utf-8'
   end
