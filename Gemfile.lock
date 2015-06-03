@@ -203,7 +203,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     haml (4.0.6)
       tilt
-    hashie (3.4.1)
+    hashie (3.4.2)
     highline (1.6.21)
     hike (1.2.3)
     hitimes (1.2.2)
