@@ -8,6 +8,9 @@ module API
       expose :path, documentation: { type: String, desc: 'Path' }
       expose :created_at, documentation: { type: 'DateTime', desc: 'Created at field' }
       expose :updated_at, documentation: { type: 'DateTime', desc: 'Updated at field' }
+      expose :count do |model|
+        model.srpms.count
+      end
     end
   end
 end
