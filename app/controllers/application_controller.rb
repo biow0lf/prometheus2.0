@@ -44,6 +44,6 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from ActiveRecord::RecordNotFound do
-    # TODO
+    render status: 404, file: "#{ Rails.root }/public/404.html", layout: false
   end
 end
