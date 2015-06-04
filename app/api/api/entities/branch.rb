@@ -8,7 +8,7 @@ module API
       expose :path, documentation: { type: String, desc: 'Path' }
       expose :created_at, documentation: { type: 'DateTime', desc: 'Created at field' }
       expose :updated_at, documentation: { type: 'DateTime', desc: 'Updated at field' }
-      expose :count do |model|
+      expose :count, documentation: { type: Integer, desc: 'Srpms total count for Branch' } do |model|
         model.srpms.count
       end
     end
