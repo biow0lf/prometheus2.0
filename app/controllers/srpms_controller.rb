@@ -33,7 +33,7 @@ class SrpmsController < ApplicationController
 
   def spec
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.find_by!(name: params[:id])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
