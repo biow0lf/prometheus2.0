@@ -90,7 +90,6 @@ group :development do
   gem 'rubocop', require: false
   gem 'flog', require: false
   gem 'brakeman', require: false
-  gem 'annotate', require: false
 end
 
 group :development, :test do
