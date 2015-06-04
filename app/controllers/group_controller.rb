@@ -1,20 +1,18 @@
 class GroupController < ApplicationController
   def index
-    @branch = Branch.where(name: params[:branch]).first
-#    render status: 404, action: 'nosuchbranch' and return if @branch == nil
+    @branch = Branch.find_by!(name: params[:branch])
     @groups = @branch.groups.where(parent_id: nil).includes(:children).includes(children: [:children]).order('LOWER(name)')
   end
 
   def show
-    @branch = Branch.where(name: params[:branch]).first
-    @group = @branch.groups.where(name: params[:group], parent_id: nil).first
+    @branch = Branch.find_by!(name: params[:branch])
+    @group = @branch.groups.find_by!(name: params[:group], parent_id: nil)
     if !params[:group2].nil?
-      @group = @branch.groups.where(name: params[:group2], parent_id: @group.id).first
+      @group = @branch.groups.find_by(name: params[:group2], parent_id: @group.id)
       if !params[:group3].nil?
-        @group = @branch.groups.where(name: params[:group3], parent_id: @group.id).first
+        @group = @branch.groups.find_by(name: params[:group3], parent_id: @group.id)
       end
     end
-    render status: 404, action: 'nosuchgroup' and return if @group == nil
     @srpms = @group.srpms.order('LOWER(name)')
   end
 end

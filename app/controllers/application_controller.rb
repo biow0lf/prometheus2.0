@@ -11,16 +11,15 @@ class ApplicationController < ActionController::Base
 
   def set_default_locale
     params[:locale] ||= 'en'
-    I18n.locale = params[:locale]
-    FastGettext.locale = params[:locale]
+    I18n.locale = FastGettext.locale = params[:locale]
   end
 
   def set_default_branch
     params[:branch] ||= 'Sisyphus'
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
   end
 
-  def default_url_options(options = {})
+  def default_url_options(_options = {})
     { locale: I18n.locale }
   end
 
@@ -42,5 +41,13 @@ class ApplicationController < ActionController::Base
     if current_user && current_user.admin?
       Rack::MiniProfiler.authorize_request
     end
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render status: 404, file: "#{ Rails.root }/public/404.html", layout: false
+  end
+
+  rescue_from ActionController::BadRequest do
+    redirect_to root_url
   end
 end

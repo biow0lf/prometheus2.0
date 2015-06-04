@@ -44,6 +44,13 @@ gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
 
+gem 'rack-contrib'
+gem 'grape', '~> 0.7.0'
+gem 'grape-entity'
+gem 'grape-swagger', '~> 0.7.2'
+gem 'grape-swagger-rails'
+gem 'grape-entity-matchers', group: :test, github: 'biow0lf/grape-entity-matchers'
+
 group :production, :development, :staging do
   gem 'redis'
 end
@@ -71,9 +78,6 @@ group :development do
   gem 'sextant'
   gem 'quiet_assets'
   gem 'bullet'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
   gem 'capistrano', '2.15.5', require: false
   gem 'capistrano_colors', require: false
   gem 'guard'
@@ -86,12 +90,13 @@ group :development do
   gem 'rubocop', require: false
   gem 'flog', require: false
   gem 'brakeman', require: false
-  gem 'annotate', require: false
 end
 
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'rspec-activemodel-mocks'
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
@@ -111,6 +116,8 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'fakeweb'
+  # TODO: replace fakeweb with webmock
+  gem 'webmock', require: false
   gem 'fakeredis'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false

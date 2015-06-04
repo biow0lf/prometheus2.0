@@ -1,9 +1,7 @@
 class SrpmsController < ApplicationController
   def show
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first!
     @ftbfs = @branch.ftbfs.where(name: @srpm.name,
                                  version: @srpm.version,
                                  release: @srpm.release,
@@ -27,24 +25,21 @@ class SrpmsController < ApplicationController
   end
 
   def changelog
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
   def spec
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
   end
 
   def rawspec
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
     if @srpm.specfile
       send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
     else @srpm.specfile.nil?
@@ -53,11 +48,9 @@ class SrpmsController < ApplicationController
   end
 
   def get
-    @branch = Branch.where(name: params[:branch]).first
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpm.where(name: params[:id]).includes(:branch).first!
     @mirrors = Mirror.where(branch_id: @branch).where("protocol != 'rsync'").order('mirrors.order_id ASC')
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id')
     @i586 = @srpm.packages.where(arch: 'i586').order('packages.name ASC')
     @noarch = @srpm.packages.where(arch: 'noarch').order('packages.name ASC')
@@ -66,40 +59,35 @@ class SrpmsController < ApplicationController
   end
 
   def gear
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
-
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     # TODO: use srpm_id !
     @gears = Gear.where(repo: params[:id]).includes(:maintainer).order('lastchange DESC')
   end
 
   def bugs
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(component: names).order('bug_id DESC')
+    @bugs = Bug.opened_bugs_for(names)
+    @allbugs = Bug.all_bugs_for(names)
   end
 
   def allbugs
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.where(component: names, bug_status: ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']).order('bug_id DESC')
-    @allbugs = Bug.where(component: names).order('bug_id DESC')
+    @bugs = Bug.opened_bugs_for(names)
+    @allbugs = Bug.all_bugs_for(names)
   end
 
   def repocop
-    @branch = Branch.where(name: params[:branch]).first
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first
-    render status: 404, action: 'nosuchpackage' and return unless @srpm
+    @branch = Branch.find_by!(name: params[:branch])
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @repocops = Repocop.where(srcname: @srpm.name,
                               srcversion: @srpm.version,
                               srcrel: @srpm.release)
