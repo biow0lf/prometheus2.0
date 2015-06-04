@@ -78,9 +78,6 @@ group :development do
   gem 'sextant'
   gem 'quiet_assets'
   gem 'bullet'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
   gem 'capistrano', '2.15.5', require: false
   gem 'capistrano_colors', require: false
   gem 'guard'
