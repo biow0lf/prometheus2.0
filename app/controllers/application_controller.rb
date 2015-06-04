@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
   helper_method :sort_column, :sort_order, :sort_order_next
 
   def set_default_locale
-    locale = params[:locale] || 'en'
-    I18n.locale = FastGettext.locale = locale
+    params[:locale] ||= 'en'
+    I18n.locale = FastGettext.locale = params[:locale]
   end
 
   def set_default_branch
-    branch = params[:branch] || 'Sisyphus'
-    @branch = Branch.find_by!(name: branch)
+    params[:branch] ||= 'Sisyphus'
+    @branch = Branch.find_by!(name: params[:branch])
   end
 
   def default_url_options(_options = {})
