@@ -3,6 +3,9 @@ module API
     class Srpm < Grape::Entity
       expose :id
       expose :branch_id
+      expose :branch do |model|
+        model.name
+      end
       expose :name
       expose :version
       expose :release
