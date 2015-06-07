@@ -2,7 +2,7 @@ module API
   class Srpms < Grape::API
     desc 'Get srpm info'
     params do
-      requires :srpm_name, type: String, desc: 'Bug id from bugzilla.altlinux.org.'
+      requires :srpm_name, type: String, desc: 'Srpm name'
       optional :branch_id, type: Integer, desc: 'Branch id. Default: Sisyphus branch id.'
     end
     get ':srpm_name' do
