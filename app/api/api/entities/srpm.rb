@@ -4,7 +4,7 @@ module API
       expose :id
       expose :branch_id
       expose :branch do |model|
-        model.name
+        model.branch.name
       end
       expose :name
       expose :version
