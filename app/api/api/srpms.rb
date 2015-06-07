@@ -2,7 +2,7 @@ module API
   class Srpms < Grape::API
     desc 'Get srpm info'
     params do
-      requires :srpm_name, type: String, desc: 'Srpm name'
+      requires :name, type: String, desc: 'Srpm name'
       optional :branch_id, type: Integer, desc: 'Branch id. Default: Sisyphus branch id.'
     end
     get ':srpm_name' do
@@ -11,7 +11,7 @@ module API
       else
         branch = Branch.find_by!(name: 'Sisyphus')
       end
-      present branch.srpms.where(name: params[:srpm_name])
+      present branch.srpms.where(name: params[:name])
          .includes(:branch).first!, with: API::Entities::Srpm
     end
   end
