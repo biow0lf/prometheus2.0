@@ -5,7 +5,7 @@ module API
       requires :name, type: String, desc: 'Srpm name'
       optional :branch_id, type: Integer, desc: 'Branch id. Default: Sisyphus branch id.'
     end
-    get ':srpm_name' do
+    get ':name' do
       if params[:branch_id]
         branch = Branch.find_by!(id: params[:branch_id])
       else
