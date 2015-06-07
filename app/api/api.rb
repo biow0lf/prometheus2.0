@@ -5,6 +5,7 @@ module API
     default_format :json
 
     mount API::Branches => '/branches'
+    mount API::Srpms => '/srpms'
 
     add_swagger_documentation(
         base_path: '/api',
