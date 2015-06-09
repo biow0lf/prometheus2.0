@@ -176,7 +176,7 @@ GEM
       grape-swagger (>= 0.7.2)
       railties (>= 3.2.12)
     growl (1.0.3)
-    guard (2.12.5)
+    guard (2.12.6)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
