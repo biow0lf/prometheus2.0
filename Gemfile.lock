@@ -507,7 +507,7 @@ DEPENDENCIES
   rake
   rb-fsevent
   rb-inotify (~> 0.9)
-  redcarpet (~> 2.1.1)
+  redcarpet
   redis
   redis-objects
   rspec

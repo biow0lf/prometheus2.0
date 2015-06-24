@@ -14,7 +14,7 @@ gem 'turbolinks'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
-  gem 'redcarpet', '~> 2.1.1'
+  gem 'redcarpet'
 end
 
 gem 'rake', require: false
