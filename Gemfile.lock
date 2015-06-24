@@ -305,7 +305,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
-    redcarpet (2.1.1)
+    redcarpet (3.3.2)
     redis (3.2.1)
     redis-objects (1.2.0)
       redis (>= 3.0.2)
