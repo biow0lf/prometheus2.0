@@ -1,4 +1,4 @@
-Prometheus20::Application.routes.draw do
+Rails.application.routes.draw do
   # API+API Documentation
   mount API::Base => '/api'
   mount GrapeSwaggerRails::Engine => '/api_doc'
