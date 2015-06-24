@@ -59,7 +59,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.10)
-    brakeman (3.0.4)
+    brakeman (3.0.5)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
       haml (>= 3.0, < 5.0)
