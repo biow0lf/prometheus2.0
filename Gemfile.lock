@@ -399,8 +399,6 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.6.0)
-    sextant (0.2.4)
-      rails (>= 3.2)
     shellany (0.0.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
@@ -543,7 +541,6 @@ DEPENDENCIES
   sandi_meter
   sass-rails (~> 5.0)
   sdoc
-  sextant
   shoulda-matchers
   simplecov
   sitemap_generator

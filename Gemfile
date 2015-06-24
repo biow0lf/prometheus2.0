@@ -76,7 +76,6 @@ end
 group :development do
   gem 'sandi_meter', require: false
   gem 'rails-erd', require: false
-  gem 'sextant'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano', '2.15.5', require: false
