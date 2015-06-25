@@ -4,10 +4,10 @@ ruby '2.2.2'
 
 gem 'bundler', '>= 1.7.0'
 
-gem 'rails', '4.0.13'
-gem 'sass-rails', '~> 4.0.0'
+gem 'rails', '4.2.2'
+gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
@@ -76,7 +76,6 @@ end
 group :development do
   gem 'sandi_meter', require: false
   gem 'rails-erd', require: false
-  gem 'sextant'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano', '2.15.5', require: false
@@ -106,9 +105,6 @@ group :development, :test do
 end
 
 group :test do
-  # https://github.com/rails/rails/issues/18572
-  gem 'test-unit'
-
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'active_decorator-rspec'
