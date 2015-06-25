@@ -40,7 +40,7 @@ module Prometheus20
     end
 
     # fallback for empty translations
-    config.i18n.fallbacks = true # TODO: check this
+    config.i18n.fallbacks = true
 
     if Rails.env.production?
       config.middleware.use ExceptionNotification::Rack,
