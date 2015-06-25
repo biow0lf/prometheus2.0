@@ -34,9 +34,6 @@ module Prometheus20
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = 'utf-8' # TODO: check this
-
     # Enable the asset pipeline
     config.assets.enabled = true # TODO: check this
 
