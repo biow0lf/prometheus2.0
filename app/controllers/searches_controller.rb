@@ -10,6 +10,12 @@ class SearchesController < ApplicationController
         order: :name,
         max_matches: 10_000,
         per_page: 10_000,
+        field_weights: {
+          name: 10,
+          summary: 9,
+          url: 9,
+          description: 8
+        },
         with: { branch_id: @branch.id },
         include: :branch
       )
