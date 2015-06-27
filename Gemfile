@@ -32,6 +32,7 @@ gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'
 gem 'active_decorator'
+gem 'draper'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
