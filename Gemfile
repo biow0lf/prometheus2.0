@@ -28,6 +28,7 @@ group :sqlite do
 end
 
 gem 'rack-health'
+gem 'rack-timeout'
 gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'

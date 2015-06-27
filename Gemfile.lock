@@ -299,6 +299,7 @@ GEM
       rack (>= 1.0.0)
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-timeout (0.2.4)
     rails (4.2.3)
       actionmailer (= 4.2.3)
       actionpack (= 4.2.3)
@@ -529,6 +530,7 @@ DEPENDENCIES
   rack-force_domain
   rack-health
   rack-mini-profiler
+  rack-timeout
   rails (= 4.2.3)
   rails-erd
   rake
