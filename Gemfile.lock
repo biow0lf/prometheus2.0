@@ -20,12 +20,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_decorator (0.5.2)
-    active_decorator-rspec (0.0.5)
-      actionpack
-      active_decorator
-      activesupport
-      rspec (>= 3.0)
     active_sanity (0.3.0)
       rails (>= 4.0)
     activejob (4.2.3)
@@ -425,8 +419,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_decorator
-  active_decorator-rspec
   active_sanity
   airborne
   awesome_nested_set
