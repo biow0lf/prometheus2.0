@@ -80,7 +80,6 @@ group :development do
   gem 'rb-inotify', '~> 0.9', require: false
   gem 'libnotify', require: false
   gem 'guard-rspec'
-  gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'flog', require: false
   gem 'brakeman', require: false

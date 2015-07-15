@@ -402,9 +402,6 @@ GEM
       chronic (>= 0.6.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    xray-rails (0.1.16)
-      coffee-rails
-      rails (>= 3.1.0)
 
 PLATFORMS
   ruby
@@ -483,7 +480,6 @@ DEPENDENCIES
   unicorn-worker-killer
   webmock
   whenever
-  xray-rails
 
 BUNDLED WITH
    1.10.5
