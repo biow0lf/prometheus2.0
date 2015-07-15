@@ -40,7 +40,6 @@ gem 'whenever', require: false
 gem 'awesome_nested_set'
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
-gem 'brewdler', require: false
 gem 'sitemap_generator'
 gem 'coderay'
 # gem 'rack-rewrite'
