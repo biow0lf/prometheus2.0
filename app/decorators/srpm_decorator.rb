@@ -52,13 +52,13 @@ class SrpmDecorator < Draper::Decorator
 
   def create_link(url)
     if url.length > 27
-      local_link_to("#{ url[0..26] }...", url)
+      link_to_with_nofollow("#{ url[0..26] }...", url)
     else
-      local_link_to(url, url)
+      link_to_with_nofollow(url, url)
     end
   end
 
-  def local_link_to(text, url)
+  def link_to_with_nofollow(text, url)
     h.link_to(text, url, class: 'news', rel: 'nofollow')
   end
 end
