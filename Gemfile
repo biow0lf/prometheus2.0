@@ -74,12 +74,6 @@ group :development do
   gem 'bullet'
   gem 'capistrano', '2.15.5', require: false
   gem 'capistrano_colors', require: false
-  gem 'guard'
-  gem 'rb-fsevent', require: false
-  gem 'growl', require: false
-  gem 'rb-inotify', '~> 0.9', require: false
-  gem 'libnotify', require: false
-  gem 'guard-rspec'
   gem 'rubocop', require: false
   gem 'flog', require: false
   gem 'brakeman', require: false
