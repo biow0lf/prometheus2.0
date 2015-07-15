@@ -26,6 +26,8 @@ h3. Install:
 * graphviz
 * rpm
 * rpm2cpio
+* bzip2
+* coreutils
 
 h3. Then:
 
