@@ -12,8 +12,8 @@ class BugDecorator < Draper::Decorator
       assigned_to: assigned_to,
       reporter: reporter,
       short_desc: short_desc,
-      created_at: created_at,
-      updated_at: updated_at
+      created_at: created_at.iso8601,
+      updated_at: updated_at.iso8601
     }
   end
 end
