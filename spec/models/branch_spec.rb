@@ -1,23 +1,34 @@
 require 'rails_helper'
 
 describe Branch do
-  context 'Validation' do
-    it { is_expected.to validate_presence_of :name }
-    it { is_expected.to validate_presence_of :vendor }
+  context 'Associations' do
+    it { should have_many :srpms }
+
+    it { should have_many(:changelogs).through(:srpms) }
+
+    it { should have_many(:packages).through(:srpms) }
+
+    it { should have_many :groups }
+
+    it { should have_many :teams }
+
+    it { should have_many :mirrors }
+
+    it { should have_many(:patches).through(:srpms) }
+
+    it { should have_many(:sources).through(:srpms) }
+
+    it { should have_many(:ftbfs).class_name('Ftbfs') }
+
+    it { should have_many :repocops }
+
+    it { should have_many :repocop_patches }
   end
 
-  context 'Associations' do
-    it { is_expected.to have_many :srpms }
-    it { is_expected.to have_many(:changelogs).through(:srpms) }
-    it { is_expected.to have_many(:packages).through(:srpms) }
-    it { is_expected.to have_many :groups }
-    it { is_expected.to have_many :teams }
-    it { is_expected.to have_many :mirrors }
-    it { is_expected.to have_many(:patches).through(:srpms) }
-    it { is_expected.to have_many(:sources).through(:srpms) }
-    it { is_expected.to have_many(:ftbfs).class_name('Ftbfs') }
-    it { is_expected.to have_many :repocops }
-    it { is_expected.to have_many :repocop_patches }
+  context 'Validation' do
+    it { should validate_presence_of :name }
+
+    it { should validate_presence_of :vendor }
   end
 
   it 'should return Branch#name on #to_param' do
