@@ -32,19 +32,19 @@ class SrpmDecorator < Draper::Decorator
       group_id: group_id,
       url: url,
       description: description,
-      buildtime: buildtime,
+      buildtime: buildtime.iso8601,
       filename: filename,
       vendor: vendor,
       distribution: distribution,
-      changelogname: changelogname,
-      changelogtext: changelogtext,
-      changelogtime: changelogtime,
+      # changelogname: changelogname,
+      # changelogtext: changelogtext,
+      # changelogtime: changelogtime,
       md5: md5,
       builder_id: builder_id,
       size: size,
       repocop: repocop,
-      created_at: created_at,
-      updated_at: updated_at
+      created_at: created_at.iso8601,
+      updated_at: updated_at.iso8601
     }
   end
 
