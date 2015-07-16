@@ -8,8 +8,8 @@ class BranchDecorator < Draper::Decorator
       order_id: order_id,
       path: path,
       created_at: created_at.iso8601,
-      updated_at: updated_at.iso8601 #,
-#      count: srpms.count
+      updated_at: updated_at.iso8601,
+      count: srpms.count
     }
   end
 end
