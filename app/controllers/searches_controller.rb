@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     if params[:query].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.search(
+      @srpms = SrpmDecorator.decorate_collection(Srpm.search(
         Riddle::Query.escape(params[:query]),
         order: :name,
         max_matches: 10_000,
@@ -18,10 +18,9 @@ class SearchesController < ApplicationController
         },
         with: { branch_id: @branch.id },
         include: :branch
-      )
+      ))
       redirect_to(srpm_path(@branch, @srpms.first), status: 302) if @srpms.count == 1
     end
-  # TODO: why Mysql2::Error?
   rescue Mysql2::Error
     render 'search_is_not_available'
   end

@@ -31,7 +31,7 @@ class MaintainersController < ApplicationController
 
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
                            includes(:repocop_patch).
-                           order(order)
+                           order(order).decorate
   end
 
 #  def acls
