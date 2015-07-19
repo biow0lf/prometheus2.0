@@ -28,11 +28,11 @@ class Branch < ActiveRecord::Base
   validates :vendor, presence: true
 
   # validates :srpm_path, presence: true
+
   # validates :rpm_path, presence: true
 
+  # Default value for counter: 0
   counter :counter
-
-  after_create :set_default_counter_value
 
   after_destroy :destroy_counter
 
@@ -45,10 +45,6 @@ class Branch < ActiveRecord::Base
   end
 
   private
-
-  def set_default_counter_value
-    counter.value = 0
-  end
 
   def destroy_counter
     Redis.current.del("branch:#{ id }:counter")

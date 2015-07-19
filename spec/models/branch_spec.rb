@@ -31,26 +31,37 @@ describe Branch do
     it { should validate_presence_of :vendor }
   end
 
-  it 'should return Branch#name on #to_param' do
-    expect(Branch.new(name: 'Sisyphus').to_param).to eq('Sisyphus')
+  describe 'after_destroy' do
+    subject { stub_model Branch }
+
+    before { expect(subject).to receive(:destroy_counter) }
+
+    specify { expect { subject.destroy! }.not_to raise_error }
   end
 
-  it 'should set default value in redis for counter after create' do
-    branch = create(:branch)
-    expect(branch.counter.value).to eq(0)
+  describe '#to_param' do
+    subject { stub_model Branch, name: 'Sisyphus' }
+
+    specify { expect(subject.to_param).to eq('Sisyphus') }
   end
 
-  it 'should remove counter in redis after destroy' do
-    branch = create(:branch)
-    branch.destroy
-    expect(Redis.current.get("branch:#{ branch.id }:counter")).to be_nil
+  describe '#recount!' do
+    subject { stub_model Branch }
+
+    before { subject.counter.value = 42 }
+
+    specify { expect { subject.recount! }.to change { subject.counter.value }.from(42).to(0) }
   end
 
-  it 'should recount Branch#srpms on #recount! and save' do
-    branch = create(:branch)
-    branch.counter.value = 42
-    expect(branch.counter.value).to eq(42)
-    branch.recount!
-    expect(branch.counter.value).to eq(0)
+  describe '#destroy_counter' do
+    subject { stub_model Branch, id: 77 }
+
+    before { subject.counter.value = 15 }
+
+    specify do
+      expect { subject.destroy! }
+        .to change { Redis.current.get("branch:#{ subject.id }:counter") }
+        .from('15').to(nil)
+    end
   end
 end
