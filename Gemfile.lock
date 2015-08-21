@@ -324,7 +324,7 @@ GEM
     sitemap_generator (5.1.0)
       builder
     slop (3.6.0)
-    sprockets (3.2.0)
+    sprockets (3.3.2)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
