@@ -1,18 +1,27 @@
 require 'rails_helper'
 
 describe MaintainerDecorator do
-  let(:maintainer) { Maintainer.new }
-  subject { decorate maintainer }
+  describe '#avatar_url' do
+    let(:maintainer) { stub_model Maintainer }
 
-  it 'does return gravatar url for maintainer email' do
-    maintainer.email = 'icesik@altlinux.org'
-    expect(subject.avatar_url)
-      .to eq('http://gravatar.com/avatar/6b747716cf92a45179b30030d8725ac3.png?s=420&r=g')
-  end
+    subject { maintainer.decorate }
 
-  it 'does return gravatar url for maintainer email (second case)' do
-    maintainer.email = 'ICESIK@ALTLINUX.ORG'
-    expect(subject.avatar_url)
-      .to eq('http://gravatar.com/avatar/6b747716cf92a45179b30030d8725ac3.png?s=420&r=g')
+    context 'simple case' do
+      before { subject.email = 'icesik@altlinux.org' }
+
+      specify do
+        expect(subject.avatar_url)
+          .to eq('http://gravatar.com/avatar/6b747716cf92a45179b30030d8725ac3.png?s=420&r=g')
+      end
+    end
+
+    context 'uppercase case' do
+      before { subject.email = 'ICESIK@ALTLINUX.ORG' }
+
+      specify do
+        expect(subject.avatar_url)
+          .to eq('http://gravatar.com/avatar/6b747716cf92a45179b30030d8725ac3.png?s=420&r=g')
+      end
+    end
   end
 end

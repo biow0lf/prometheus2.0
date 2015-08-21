@@ -1,7 +1,7 @@
 class MaintainersController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])
-    @maintainer = Maintainer.find_by!(login: params[:id].downcase)
+    @maintainer = Maintainer.find_by!(login: params[:id].downcase).decorate
     @branches = Branch.order('order_id')
     # TODO: move @acls to maintainer or branch...
     @acls = Redis.current.smembers("#{@branch.name}:maintainers:#{params[:id].downcase}").count
@@ -31,7 +31,7 @@ class MaintainersController < ApplicationController
 
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{@branch.name}:maintainers:#{@maintainer.login}")).
                            includes(:repocop_patch).
-                           order(order)
+                           order(order).decorate
   end
 
 #  def acls

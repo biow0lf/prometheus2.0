@@ -28,10 +28,10 @@ group :sqlite do
 end
 
 gem 'rack-health'
+gem 'rack-timeout'
 gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'
-gem 'active_decorator'
 gem 'draper'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
@@ -40,18 +40,11 @@ gem 'whenever', require: false
 gem 'awesome_nested_set'
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
-gem 'brewdler', require: false
 gem 'sitemap_generator'
 gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
-
-gem 'rack-contrib'
-gem 'grape', '~> 0.7.0'
-gem 'grape-entity'
-gem 'grape-swagger', '~> 0.7.2'
-gem 'grape-swagger-rails'
-gem 'grape-entity-matchers', group: :test, github: 'biow0lf/grape-entity-matchers'
+gem 'swagger-blocks'
 
 group :production, :development, :staging do
   gem 'redis'
@@ -81,13 +74,6 @@ group :development do
   gem 'bullet'
   gem 'capistrano', '2.15.5', require: false
   gem 'capistrano_colors', require: false
-  gem 'guard'
-  gem 'rb-fsevent', require: false
-  gem 'growl', require: false
-  gem 'rb-inotify', '~> 0.9', require: false
-  gem 'libnotify', require: false
-  gem 'guard-rspec'
-  gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'flog', require: false
   gem 'brakeman', require: false
@@ -108,7 +94,6 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'active_decorator-rspec'
   gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'
