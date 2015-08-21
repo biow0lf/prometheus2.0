@@ -142,7 +142,7 @@ GEM
       fast_gettext (>= 0.9.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    haml (4.0.6)
+    haml (4.0.7)
       tilt
     highline (1.6.21)
     http-cookie (1.0.2)
