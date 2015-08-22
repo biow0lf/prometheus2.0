@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe SrpmDecorator do
   let(:srpm) { Srpm.new }
-  subject { decorate srpm }
+
+  subject { srpm.decorate }
 
   it 'does return "&ndash;" on Srpm#short_url with empty url' do
     expect(subject.short_url).to eq('&ndash;')

@@ -1,4 +1,6 @@
-module SrpmDecorator
+class SrpmDecorator < Draper::Decorator
+  delegate_all
+
   def short_url
     if url
       create_link(url)
@@ -26,6 +28,6 @@ module SrpmDecorator
   end
 
   def local_link_to(text, url)
-    link_to(text, url, class: 'news', rel: 'nofollow')
+    h.link_to(text, url, class: 'news', rel: 'nofollow')
   end
 end
