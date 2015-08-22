@@ -214,6 +214,7 @@ GEM
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-force_domain (0.3.0)
     rack-health (0.1.2)
       rack (>= 1.2.0)
@@ -428,6 +429,7 @@ DEPENDENCIES
   pry
   pry-rails
   quiet_assets
+  rack-cors
   rack-force_domain
   rack-health
   rack-mini-profiler
