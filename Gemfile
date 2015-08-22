@@ -79,7 +79,7 @@ group :development do
   gem 'rails-erd', require: false
   gem 'quiet_assets'
   gem 'bullet'
-  gem 'capistrano', '2.15.5', require: false
+  gem 'capistrano', '2.15.6', require: false
   gem 'capistrano_colors', require: false
   gem 'xray-rails'
   gem 'rubocop', require: false
