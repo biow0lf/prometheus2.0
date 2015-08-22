@@ -21,11 +21,6 @@ GEM
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
     active_decorator (0.5.3)
-    active_decorator-rspec (0.0.5)
-      actionpack
-      active_decorator
-      activesupport
-      rspec (>= 3.0)
     active_sanity (0.3.0)
       rails (>= 4.0)
     activejob (4.2.4.rc1)
@@ -392,7 +387,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_decorator
-  active_decorator-rspec
   active_sanity
   activerecord-colored_log_subscriber
   airborne
