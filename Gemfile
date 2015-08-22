@@ -45,6 +45,7 @@ gem 'sitemap_generator'
 gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
+gem 'activerecord-colored_log_subscriber'
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 
