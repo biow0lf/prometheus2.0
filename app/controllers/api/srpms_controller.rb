@@ -36,7 +36,7 @@ module Api
     end
 
     def resource
-      @srpm ||= parent.srpms.find_by!(name: params[:id]).includes(:branch)
+      @srpm ||= parent.srpms.where(name: params[:id]).includes(:branch).first!
     end
   end
 end
