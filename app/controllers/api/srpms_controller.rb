@@ -17,7 +17,7 @@ module Api
         end
         parameter do
           key :name, :branch_id
-          key :in, :path
+          key :in, :query
           key :description, 'Branch id. Default: Sisyphus branch id.'
           key :type, :integer
           key :format, :int64
