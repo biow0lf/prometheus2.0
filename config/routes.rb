@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
-    resources :docs, only: [:index]
+    resources :docs, only: :index
 
     resources :branches, only: [:index, :show]
 
-    resources :bugs, only: [:show]
+    resources :bugs, only: :show
 
-    resources :srpms, only: [:show]
+    resources :srpms, only: :show
   end
 
   scope '(:locale)', locale: SUPPORTED_LOCALES do
     devise_for :users
+
     root to: 'home#index'
 
     get 'project' => 'pages#project'
@@ -46,8 +47,8 @@ Rails.application.routes.draw do
 
     resource :maintainer_profile, only: [:edit, :update]
     resource :search, only: :show, id: /[^\/]+/
-    resources :rebuild, controller: :rebuild, only: [:index]
-    resources :rsync, controller: :rsync, only: [:new]
+    resources :rebuild, controller: :rebuild, only: :index
+    resources :rsync, controller: :rsync, only: :new
 
     scope ':branch', branch: SUPPORTED_BRANCHES do
       resources :maintainers, only: :show do
