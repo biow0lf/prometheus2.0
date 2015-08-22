@@ -45,6 +45,7 @@ gem 'sitemap_generator'
 gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
+gem 'swagger-blocks'
 
 group :production, :development, :staging do
   gem 'redis'
