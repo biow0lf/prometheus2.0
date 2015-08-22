@@ -17,6 +17,37 @@ class SrpmDecorator < Draper::Decorator
     end
   end
 
+  def as_json(*args)
+    {
+      id: id,
+      branch_id: branch_id,
+      branch: branch.name,
+      name: name,
+      version: version,
+      release: release,
+      epoch: epoch,
+      summary: summary,
+      license: license,
+      group: groupname,
+      group_id: group_id,
+      url: url,
+      description: description,
+      buildtime: buildtime.iso8601,
+      filename: filename,
+      vendor: vendor,
+      distribution: distribution,
+      # changelogname: changelogname,
+      # changelogtext: changelogtext,
+      # changelogtime: changelogtime,
+      md5: md5,
+      builder_id: builder_id,
+      size: size,
+      repocop: repocop,
+      created_at: created_at.iso8601,
+      updated_at: updated_at.iso8601
+    }
+  end
+
   private
 
   def create_link(url)
