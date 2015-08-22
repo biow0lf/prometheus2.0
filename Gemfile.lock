@@ -189,7 +189,7 @@ GEM
     grape-swagger-rails (0.1.0)
       grape-swagger (>= 0.7.2)
       railties (>= 3.2.12)
-    haml (4.0.6)
+    haml (4.0.7)
       tilt
     hashie (3.4.2)
     highline (1.6.21)
