@@ -10,12 +10,12 @@ class SrpmsController < ApplicationController
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
     end
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
-    if Redis.current.exists("#{@branch.name}:#{@srpm.name}:acls")
-      @maintainers = Maintainer.where(login: Redis.current.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] == '@'}).order(:name)
-      @teams = MaintainerTeam.where(login: Redis.current.smembers("#{@branch.name}:#{@srpm.name}:acls").reject{|acl| acl[0] != '@'}).order(:name)
+    if Redis.current.exists("#{ @branch.name }:#{ @srpm.name }:acls")
+      @maintainers = Maintainer.where(login: Redis.current.smembers("#{ @branch.name }:#{ @srpm.name }:acls").reject { |acl| acl[0] == '@' }).order(:name)
+      @teams = MaintainerTeam.where(login: Redis.current.smembers("#{ @branch.name }:#{ @srpm.name }:acls").reject { |acl| acl[0] != '@' }).order(:name)
     end
-    if Redis.current.exists("#{@branch.name}:#{@srpm.name}:leader")
-      login = Redis.current.get("#{@branch.name}:#{@srpm.name}:leader")
+    if Redis.current.exists("#{ @branch.name }:#{ @srpm.name }:leader")
+      login = Redis.current.get("#{ @branch.name }:#{ @srpm.name }:leader")
       if login[0] == '@'
         @leader = MaintainerTeam.where(login: login).first
       else
