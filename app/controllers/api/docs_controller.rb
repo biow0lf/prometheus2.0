@@ -10,8 +10,8 @@ module Api
         key :description, 'Prometheus 2.0 API documentation.'
       end
       key :schemes, ['http']
-      # key :host, 'packages.altlinux.org'
-      key :host, 'localhost:3000'
+      key :host, 'packages.altlinux.org'
+      # key :host, 'localhost:3000'
       key :basePath, '/api'
       key :consumes, %w(application/json)
       key :produces, %w(application/json)
