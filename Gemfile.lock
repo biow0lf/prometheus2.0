@@ -209,7 +209,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.3)
-    kramdown (1.7.0)
+    kramdown (1.8.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     locale (2.1.1)
