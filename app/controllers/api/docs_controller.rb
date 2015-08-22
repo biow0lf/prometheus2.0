@@ -33,6 +33,7 @@ module Api
     SWAGGERED_CLASSES = [
         Api::BranchesController,
         Api::BugsController,
+        Api::SrpmsController,
         self
     ].freeze
 
