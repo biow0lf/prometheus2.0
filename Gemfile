@@ -46,13 +46,6 @@ gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
 
-gem 'rack-contrib'
-gem 'grape', '~> 0.7.0'
-gem 'grape-entity'
-gem 'grape-swagger', '~> 0.7.2'
-gem 'grape-swagger-rails'
-gem 'grape-entity-matchers', group: :test, github: 'biow0lf/grape-entity-matchers'
-
 group :production, :development, :staging do
   gem 'redis'
 end
