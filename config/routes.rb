@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  # API+API Documentation
-  mount API::Base => '/api'
-  mount GrapeSwaggerRails::Engine => '/api_doc'
+  namespace :api, defaults: { format: 'json' } do
+    resources :docs, only: [:index]
+
+    resources :branches, only: [:index, :show]
+
+    resources :bugs, only: [:show]
+
+    resources :srpms, only: [:show]
+  end
 
   scope '(:locale)', locale: SUPPORTED_LOCALES do
     devise_for :users
