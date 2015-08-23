@@ -2,7 +2,7 @@ module Api
   class BranchesController < BaseController
     include Swagger::Blocks
 
-    swagger_path '/branches.json' do
+    swagger_path '/branches' do
       operation :get do
         key :description, 'Return list of all Branches'
         key :operationId, 'indexBranches'

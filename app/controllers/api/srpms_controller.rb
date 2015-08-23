@@ -2,7 +2,7 @@ module Api
   class SrpmsController < BaseController
     include Swagger::Blocks
 
-    swagger_path '/srpms/{name}.json' do
+    swagger_path '/srpms/{name}' do
       operation :get do
         key :description, 'Returns srpm info for given name'
         key :operationId, 'findSrpmByName'
