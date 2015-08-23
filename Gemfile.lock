@@ -64,8 +64,6 @@ GEM
       ruby_parser (~> 3.7.0)
       sass (~> 3.0)
       terminal-table (~> 1.4)
-    brewdler (1.1.1)
-      commander
     builder (3.2.2)
     bullet (4.14.7)
       activesupport (>= 3.0.0)
@@ -98,8 +96,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    commander (4.3.0)
-      highline (~> 1.6.11)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     dalli (2.7.4)
@@ -391,7 +387,6 @@ DEPENDENCIES
   awesome_nested_set
   awesome_print
   brakeman
-  brewdler
   bullet
   bundler (>= 1.7.0)
   capistrano (= 2.15.6)
