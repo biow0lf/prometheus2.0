@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     resources :bugs, only: :show
 
-    resources :srpms, only: :show
+    resources :srpms, id: /[^\/]+/, only: :show
   end
 
   scope '(:locale)', locale: SUPPORTED_LOCALES do
