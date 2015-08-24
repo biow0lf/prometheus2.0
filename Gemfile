@@ -41,6 +41,7 @@ gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'sitemap_generator'
 # gem 'rouge'
+# gem 'github-linguist'
 gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
