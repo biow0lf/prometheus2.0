@@ -37,7 +37,7 @@ describe 'Source RPM info API' do
     Redis.current.sadd(key, @maintainer.login)
   end
 
-  it 'should validate values' do
+  pending 'should validate values' do
     get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
     expect_json(
@@ -62,7 +62,7 @@ describe 'Source RPM info API' do
     )
   end
 
-  it 'should validate types' do
+  pending 'should validate types' do
     get "/en/#{ @branch.name }/srpms/#{ @srpm.name }", format: :json
 
     expect_json_types(
