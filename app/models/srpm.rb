@@ -34,8 +34,8 @@ class Srpm < ActiveRecord::Base
   end
 
   def acls
-    return unless Redis.current.exists("#{branch.name}:#{name}:acls")
-    Maintainer.where(login: Redis.current.smembers("#{branch.name}:#{name}:acls")).order(:name).select('login').map(&:login).join(',')
+    return unless Redis.current.exists("#{ branch.name }:#{ name }:acls")
+    Maintainer.where(login: Redis.current.smembers("#{ branch.name }:#{ name }:acls")).order(:name).select('login').map(&:login).join(',')
   end
 
   def self.import(branch, rpm, file)
@@ -86,22 +86,22 @@ class Srpm < ActiveRecord::Base
     end
 
     if srpm.save
-      Redis.current.set("#{branch.name}:#{srpm.filename}", 1)
+      Redis.current.set("#{ branch.name }:#{ srpm.filename }", 1)
       Changelog.import(file, srpm)
       Specfile.import(file, srpm)
       Patch.import(file, srpm)
       Source.import(file, srpm)
     else
-      puts "#{Time.now}: failed to update '#{srpm.filename}'"
+      puts "#{ Time.now }: failed to update '#{ srpm.filename }'"
     end
   end
 
   def self.import_all(branch, path)
     Dir.glob(path).each do |file|
-      unless Redis.current.exists("#{branch.name}:#{File.basename(file)}")
+      unless Redis.current.exists("#{ branch.name }:#{ File.basename(file) }")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
-        puts "#{Time.now}: import '#{File.basename(file)}'"
+        puts "#{ Time.now }: import '#{ File.basename(file) }'"
         Srpm.import(branch, RPMFile::Source.new(file), file)
       end
     end
@@ -109,16 +109,16 @@ class Srpm < ActiveRecord::Base
 
   def self.remove_old(branch, path)
     branch.srpms.each do |srpm|
-      unless File.exist?("#{path}#{srpm.filename}")
+      unless File.exist?("#{ path }#{ srpm.filename }")
         srpm.packages.each do |package|
-          puts "#{Time.now}: delete '#{package.filename}' from redis cache"
-          Redis.current.del("#{branch.name}:#{package.filename}")
+          puts "#{ Time.now }: delete '#{ package.filename }' from redis cache"
+          Redis.current.del("#{ branch.name }:#{ package.filename }")
         end
-        puts "#{Time.now}: delete '#{srpm.filename}' from redis cache"
-        Redis.current.del("#{branch.name}:#{srpm.filename}")
-        puts "#{Time.now}: delete acls for '#{srpm.filename}' from redis cache"
-        Redis.current.del("#{branch.name}:#{srpm.name}:acls")
-        Redis.current.del("#{branch.name}:#{srpm.name}:leader")
+        puts "#{ Time.now }: delete '#{ srpm.filename }' from redis cache"
+        Redis.current.del("#{ branch.name }:#{ srpm.filename }")
+        puts "#{ Time.now }: delete acls for '#{ srpm.filename }' from redis cache"
+        Redis.current.del("#{ branch.name }:#{ srpm.name }:acls")
+        Redis.current.del("#{ branch.name }:#{ srpm.name }:leader")
         srpm.destroy
       end
     end

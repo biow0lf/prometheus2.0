@@ -45,27 +45,27 @@ class Package < ActiveRecord::Base
       srpm = branch.srpms.where(filename: sourcerpm).first
       package.srpm_id = srpm.id
       if package.save
-        Redis.current.set("#{branch.name}:#{package.filename}", 1)
-        # #puts "#{Time.now}: updated '#{package.filename}'"
+        Redis.current.set("#{ branch.name }:#{ package.filename }", 1)
+        # #puts "#{ Time.now }: updated '#{ package.filename }'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
         # Conflict.import_conflicts(rpm, package)
         # Obsolete.import_obsoletes(rpm, package)
       else
-        puts "#{Time.now}: failed to import '#{package.filename}'"
+        puts "#{ Time.now }: failed to import '#{ package.filename }'"
       end
     else
-      puts "#{Time.now}: srpm '#{sourcerpm}' not found in db"
+      puts "#{ Time.now }: srpm '#{ sourcerpm }' not found in db"
     end
   end
 
   def self.import_all(branch, pathes)
     pathes.each do |path|
       Dir.glob(path).each do |file|
-        unless Redis.current.exists("#{branch.name}:#{file.split('/')[-1]}")
+        unless Redis.current.exists("#{ branch.name }:#{ file.split('/')[-1] }")
           next unless File.exist?(file)
           next unless Rpm.check_md5(file)
-          puts "#{Time.now}: import '#{file.split('/')[-1]}'"
+          puts "#{ Time.now }: import '#{ file.split('/')[-1] }'"
           rpm = RPMFile::Binary.new(file)
           Package.import(branch, rpm)
         end

@@ -67,7 +67,7 @@ class Maintainer < ActiveRecord::Base
     maintainers = []
 
     Maintainer.select('login, name').each do |maintainer|
-      m = [maintainer.login, maintainer.name, Redis.current.smembers("#{branch.name}:maintainers:#{maintainer.login}").count]
+      m = [maintainer.login, maintainer.name, Redis.current.smembers("#{ branch.name }:maintainers:#{ maintainer.login }").count]
       maintainers << m
     end
 
