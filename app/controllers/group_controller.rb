@@ -8,9 +8,9 @@ class GroupController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @group = @branch.groups.find_by!(name: params[:group], parent_id: nil)
     if !params[:group2].nil?
-      @group = @branch.groups.find_by(name: params[:group2], parent_id: @group.id)
+      @group = @branch.groups.find_by!(name: params[:group2], parent_id: @group.id)
       if !params[:group3].nil?
-        @group = @branch.groups.find_by(name: params[:group3], parent_id: @group.id)
+        @group = @branch.groups.find_by!(name: params[:group3], parent_id: @group.id)
       end
     end
     @srpms = @group.srpms.order('LOWER(name)').decorate
