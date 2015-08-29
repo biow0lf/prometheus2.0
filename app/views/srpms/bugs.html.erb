@@ -1,5 +1,5 @@
 <% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Bugs') % @srpm.name %>
-<% description "#{@srpm.name} - #{@srpm.summary}" %>
+<% description "#{ @srpm.name } - #{ @srpm.summary }" %>
 <% keywords @srpm.summary %>
 
 <div id='main-content'>
@@ -40,7 +40,7 @@
   <% @bugs.each do |bug| %>
     <tr>
       <td>
-        <%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{bug.bug_id.to_s}", class: 'news' %>
+        <%= link_to bug.bug_id, "https://bugzilla.altlinux.org/#{ bug.bug_id }", class: 'news' %>
       </td>
       <td><%= bug.bug_severity %></td>
       <td><%= bug.bug_status %></td>
