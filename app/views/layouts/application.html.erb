@@ -9,7 +9,7 @@
   <link href='/opensearch.xml' rel='search' title='packages.altlinux.org' type='application/opensearchdescription+xml'>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', "#{I18n.locale}/local", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', "#{ I18n.locale }/local", 'data-turbolinks-track' => true %>
   <script>
     //<![CDATA[
     function chText(txt1, txt2, did) {
@@ -89,9 +89,9 @@
 
   <div id='top-line'>
     <div id='vinfo'>
-      <b><%= _('Last update:') %> </b> <%= Redis.current.get("#{@branch.name}:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter.value %> | 
+      <b><%= _('Last update:') %> </b> <%= Redis.current.get("#{ @branch.name }:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter.value %> | 
       <% if user_signed_in? %>
-        <b><%= "Welcome, #{current_user.email}! | " %></b>
+        <b><%= "Welcome, #{ current_user.email }! | " %></b>
         <%= link_to _('Sign out'), destroy_user_session_path, method: :delete %>
         <% if current_user.member? %>
          | <b><%= link_to _('Edit my maintainer profile'), edit_maintainer_profile_path %></b>
@@ -102,10 +102,10 @@
       <% end %>
     </div>
     <div style='text-align: right'>
-      <%= link_to_unless_current 'en', current_page(request.fullpath, 'en'), :title => 'English' %> 
-      <%= link_to_unless_current 'ru', current_page(request.fullpath, 'ru'), :title => 'Russian' %> 
-      <%= link_to_unless_current 'uk', current_page(request.fullpath, 'uk'), :title => 'Ukrainian' %> 
-      <%= link_to_unless_current 'br', current_page(request.fullpath, 'br'), :title => 'Portuguese (Brasilian)' %>
+      <%= link_to_unless_current 'en', current_page(request.fullpath, 'en'), title: 'English' %> 
+      <%= link_to_unless_current 'ru', current_page(request.fullpath, 'ru'), title: 'Russian' %> 
+      <%= link_to_unless_current 'uk', current_page(request.fullpath, 'uk'), title: 'Ukrainian' %> 
+      <%= link_to_unless_current 'br', current_page(request.fullpath, 'br'), title: 'Portuguese (Brasilian)' %>
     </div>
   </div>
 
@@ -179,9 +179,9 @@
     &copy;&nbsp;2009&ndash;2015&nbsp;<a class='news' href='mailto:icesik@altlinux.org'><%= _('Igor Zubkov') %></a>
   </div>
 
-  <%= render :partial => 'shared/gauges' %>
-  <%= render :partial => 'shared/ga' %>
-  <%= render :partial => 'shared/ym' %>
+  <%= render partial: 'shared/gauges' %>
+  <%= render partial: 'shared/ga' %>
+  <%= render partial: 'shared/ym' %>
 
 </body>
 </html>

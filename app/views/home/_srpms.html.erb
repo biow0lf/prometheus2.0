@@ -1,6 +1,6 @@
 <% @srpms.each do |srpm| %>
   <span class="news-date-new">
-    <%= link_to "#{srpm.name}-#{srpm.evr}", srpm_path(srpm.branch, srpm), class: 'news', title: _('detailed information about the package') %>
+    <%= link_to "#{ srpm.name }-#{ srpm.evr }", srpm_path(srpm.branch, srpm), class: 'news', title: _('detailed information about the package') %>
   </span>
 
   <% if srpm.builder %>
