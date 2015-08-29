@@ -1,5 +1,5 @@
 <% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Sources') % @srpm.name %>
-<% description "#{@srpm.name} - #{@srpm.summary}" %>
+<% description "#{ @srpm.name } - #{ @srpm.summary }" %>
 <% keywords @srpm.summary %>
 
 <div id='main-content'>
@@ -17,7 +17,7 @@
 <% @allsrpms.each do |srpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{srpm.branch.name}:", get_srpm_path(srpm.branch, srpm), class: 'news' %>
+    <%= link_to "#{ srpm.branch.name }:", get_srpm_path(srpm.branch, srpm), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= srpm.evr %></td>
 </tr>
