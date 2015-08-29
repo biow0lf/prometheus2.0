@@ -1,5 +1,5 @@
 <% title _("Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop") % @srpm.name %>
-<% description "#{@srpm.name} - #{@srpm.summary}" %>
+<% description "#{ @srpm.name } - #{ @srpm.summary }" %>
 <% keywords @srpm.summary %>
 
 <div id='main-content'>
@@ -27,7 +27,7 @@
 <% @repocops.each do |repocop| %>
   <% if repocop.status != 'skip' %>
   <tr>
-    <td><%= "#{repocop.name}-#{repocop.version}-#{repocop.release}.#{repocop.arch}" %></td>
+    <td><%= "#{ repocop.name }-#{ repocop.version }-#{ repocop.release }.#{ repocop.arch }" %></td>
     <td><%= image_tag("#{repocop.status}.png", size: '20x20') %><br><%= repocop.status %></td>
     <td><%= repocop.testname %></td>
     <td style="text-align:left">

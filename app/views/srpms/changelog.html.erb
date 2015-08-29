@@ -17,7 +17,7 @@
 <% @allsrpms.each do |srpm| %>
 <tr>
   <td style="text-align: left;">
-    <%= link_to "#{srpm.branch.name}:", changelog_srpm_path(id: srpm.name, branch: srpm.branch.name), class: 'news' %>
+    <%= link_to "#{ srpm.branch.name }:", changelog_srpm_path(id: srpm.name, branch: srpm.branch.name), class: 'news' %>
   </td>
   <td style="text-align: right;"><%= srpm.evr %></td>
 </tr>
