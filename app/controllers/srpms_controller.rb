@@ -71,8 +71,8 @@ class SrpmsController < ApplicationController
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.opened_bugs_for(names)
-    @allbugs = Bug.all_bugs_for(names)
+    @bugs = Bug.opened_bugs_for(names).decorate
+    @allbugs = Bug.all_bugs_for(names).decorate
   end
 
   def allbugs
@@ -81,8 +81,8 @@ class SrpmsController < ApplicationController
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.opened_bugs_for(names)
-    @allbugs = Bug.all_bugs_for(names)
+    @bugs = Bug.opened_bugs_for(names).decorate
+    @allbugs = Bug.all_bugs_for(names).decorate
   end
 
   def repocop

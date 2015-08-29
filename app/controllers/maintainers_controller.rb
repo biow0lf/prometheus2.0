@@ -79,10 +79,12 @@ class MaintainersController < ApplicationController
 
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
                 where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
-                order('bug_id DESC')
+                order('bug_id DESC').
+                decorate
 
     @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                   order('bug_id DESC')
+                   order('bug_id DESC').
+                   decorate
   end
 
   def ftbfs

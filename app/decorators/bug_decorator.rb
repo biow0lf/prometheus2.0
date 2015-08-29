@@ -16,4 +16,12 @@ class BugDecorator < Draper::Decorator
       updated_at: updated_at.iso8601
     }
   end
+
+  def bugzilla_url
+    "https://bugzilla.altlinux.org/#{ bug_id }"
+  end
+
+  def link_to_bugzilla
+    h.link_to bug_id, bugzilla_url, class: 'news'
+  end
 end
