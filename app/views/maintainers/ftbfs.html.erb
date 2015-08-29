@@ -19,7 +19,7 @@
     <tr>
       <td><%= f.branch.name %></td>
       <td><%= link_to f.name, srpm_path(f.branch, f.name), class: 'news' %></td>
-      <td><%= "#{f.version}-#{f.release}" %></td>
+      <td><%= "#{ f.version }-#{ f.release }" %></td>
       <td><%= f.arch %></td>
       <td><%= f.weeks %></td>
     </tr>
