@@ -87,7 +87,7 @@ GEM
       mail
     choice (0.2.0)
     chronic (0.10.2)
-    codeclimate-test-reporter (0.4.7)
+    codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
