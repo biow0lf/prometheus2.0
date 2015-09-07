@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :bugs, only: :show
 
     resources :srpms, id: /[^\/]+/, only: :show do
-      resources :packages, id: /[^\/]+/, only: :show
+      resources :packages, id: /[^\/]+/, only: :index
     end
   end
 
