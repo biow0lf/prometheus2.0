@@ -1,12 +1,21 @@
 require 'rails_helper'
 
 describe Api::DocsController do
+  describe 'routing' do
+    it 'should route /api/docs to api/docs#index' do
+      expect(get: '/api/docs').to route_to(
+        controller: 'api/docs',
+        action: 'index',
+        format: 'json'
+      )
+    end
+
+    it 'should route /api/docs.json to api/docs#index' do
+      expect(get: '/api/docs.json').to route_to(
+        controller: 'api/docs',
+        action: 'index',
+        format: 'json'
+      )
+    end
+  end
 end
-
-=begin
-
-                                       Prefix Verb   URI Pattern                                                        Controller#Action
-                                     api_docs GET    /api/docs(.:format)                                                api/docs#index {:format=>"json"}
-                                      api_bug GET    /api/bugs/:id(.:format)                                            api/bugs#show {:format=>"json"}
-                                     api_srpm GET    /api/srpms/:id(.:format)                                           api/srpms#show {:format=>"json", :id=>/[^\/]+/}
-=end
