@@ -1,13 +1,23 @@
 require 'rails_helper'
 
 describe Api::BugsController do
+  describe 'routing' do
+    it 'should route /api/bugs/:id to api/bugs#show' do
+      expect(get: '/api/bugs/22555').to route_to(
+        controller: 'api/bugs',
+        action: 'show',
+        format: 'json',
+        id: '22555'
+      )
+    end
+
+    it 'should route /api/bugs/:id.json to api/bugs#show' do
+      expect(get: 'api/bugs/22555').to route_to(
+        controller: 'api/bugs',
+        action: 'show',
+        format: 'json',
+        id: '22555'
+      )
+    end
+  end
 end
-
-=begin
-
-                                       Prefix Verb   URI Pattern                                                        Controller#Action
-                                     api_docs GET    /api/docs(.:format)                                                api/docs#index {:format=>"json"}
-                                      api_bug GET    /api/bugs/:id(.:format)                                            api/bugs#show {:format=>"json"}
-                                     api_srpm GET    /api/srpms/:id(.:format)                                           api/srpms#show {:format=>"json", :id=>/[^\/]+/}
-
-=end
