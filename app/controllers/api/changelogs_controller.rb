@@ -1,5 +1,5 @@
 module Api
-  class PackagesController < BaseController
+  class ChangelogsController < BaseController
     include Swagger::Blocks
 
     swagger_path '/srpms/{name}/changelogs' do
