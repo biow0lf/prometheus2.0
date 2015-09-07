@@ -36,7 +36,7 @@ module Api
     end
 
     def parent
-      @srpm ||= branch.srpm.find_by!(name: params[:srpm_id])
+      @srpm ||= branch.srpms.find_by!(name: params[:srpm_id])
     end
 
     def collection
