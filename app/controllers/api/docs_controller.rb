@@ -31,6 +31,10 @@ module Api
         key :name, 'packages'
         key :description, 'Packages operations'
       end
+      tag do
+        key :name, 'changelogs'
+        key :description, 'Changelogs operations'
+      end
     end
 
     # A list of all classes that have swagger_* declarations.
@@ -39,6 +43,7 @@ module Api
         Api::BugsController,
         Api::SrpmsController,
         Api::PackagesController,
+        Api::ChangelogsController,
         self
     ].freeze
 

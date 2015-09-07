@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
     resources :srpms, id: /[^\/]+/, only: :show do
       resources :packages, id: /[^\/]+/, only: :index
+      resources :changelogs, id: /[^\/]+/, only: :index
     end
   end
 
