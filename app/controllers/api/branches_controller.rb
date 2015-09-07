@@ -13,7 +13,7 @@ module Api
     swagger_path '/branches/{id}.json' do
       operation :get do
         key :description, 'Return branch information'
-        key :operationId, 'showBranch'
+        key :operationId, 'findBranchById'
         key :tags, ['branches']
         parameter do
           key :name, :id
