@@ -1,7 +1,7 @@
 namespace :sisyphus do
   desc 'Import all bugs to database'
   task bugs: :environment do
-    puts "#{Time.now}: import bugs"
+    puts "#{ Time.now }: import bugs"
     if Redis.current.get('__SYNC__')
       exist = begin
                 Process.kill(0, Redis.current.get('__SYNC__').to_i)
@@ -10,17 +10,17 @@ namespace :sisyphus do
                 false
               end
       if exist
-        puts "#{Time.now}: update is locked by another cron script"
+        puts "#{ Time.now }: update is locked by another cron script"
         Process.exit!(true)
       else
-        puts "#{Time.now}: dead lock found and deleted"
+        puts "#{ Time.now }: dead lock found and deleted"
         Redis.current.del('__SYNC__')
       end
     end
     Redis.current.set('__SYNC__', Process.pid)
     url = 'https://bugzilla.altlinux.org/buglist.cgi?ctype=csv'
     BugsImport.new(url).execute
-    puts "#{Time.now}: end"
+    puts "#{ Time.now }: end"
     Redis.current.del('__SYNC__')
   end
 end
