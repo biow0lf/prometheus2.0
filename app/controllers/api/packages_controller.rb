@@ -1,12 +1,12 @@
 module Api
-  class SrpmsController < BaseController
+  class PackagesController < BaseController
     include Swagger::Blocks
 
-    swagger_path '/srpms/{name}' do
+    swagger_path '/srpms/{name}/packages' do
       operation :get do
-        key :description, 'Returns srpm info for given name'
-        key :operationId, 'findSrpmByName'
-        key :tags, ['srpms']
+        key :description, 'Returns srpm packages info for given name'
+        key :operationId, 'findPackagesForSrpm'
+        key :tags, ['packages']
         parameter do
           key :name, :name
           key :in, :path
@@ -27,7 +27,7 @@ module Api
 
     private
 
-    def parent
+    def branch
       if params[:branch_id]
         @branch ||= Branch.find_by!(id: params[:branch_id])
       else
@@ -35,8 +35,12 @@ module Api
       end
     end
 
-    def resource
-      @srpm ||= parent.srpms.where(name: params[:id]).includes(:branch).first!
+    def parent
+      @srpm ||= branch.srpm.find_by!(name: params[:srpm_id])
+    end
+
+    def collection
+      @packages ||= parent.packages
     end
   end
 end
