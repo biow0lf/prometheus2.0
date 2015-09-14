@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe User do
   context 'DB Indexes' do
-    it { is_expected.to have_db_index(:confirmation_token).unique(true) }
-    it { is_expected.to have_db_index(:email).unique(true) }
-    it { is_expected.to have_db_index(:reset_password_token).unique(true) }
+    specify { should have_db_index(:confirmation_token).unique(true) }
+    specify { should have_db_index(:email).unique(true) }
+    specify { should have_db_index(:reset_password_token).unique(true) }
   end
 
   it 'should return login on #login' do
