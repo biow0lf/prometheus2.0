@@ -165,7 +165,7 @@ GEM
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    locale (2.1.1)
+    locale (2.1.2)
     lograge (0.3.4)
       actionpack (>= 3)
       activesupport (>= 3)
