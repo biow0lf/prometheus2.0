@@ -5,9 +5,6 @@ class Branch < ActiveRecord::Base
 
   validates :vendor, presence: true
 
-  # validates :srpm_path, presence: true
-  # validates :rpm_path, presence: true
-
   has_many :srpms
 
   has_many :changelogs, through: :srpms
