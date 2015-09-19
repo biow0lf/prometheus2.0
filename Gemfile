@@ -86,8 +86,6 @@ end
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'rspec-its'
-  gem 'rspec-activemodel-mocks'
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
@@ -96,9 +94,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'rspec-its'
+  gem 'rspec-activemodel-mocks'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers'
+  gem 'capybara'
   gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'
