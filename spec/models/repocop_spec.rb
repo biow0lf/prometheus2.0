@@ -2,27 +2,27 @@ require 'rails_helper'
 
 describe Repocop do
   context 'Associations' do
-    it { is_expected.to belong_to :branch }
+    it { should belong_to :branch }
 
-    pending { is_expected.to belong_to :srpm }
+    pending { should belong_to :srpm }
   end
 
   context 'Validation' do
-    it { is_expected.to validate_presence_of :branch }
-    it { is_expected.to validate_presence_of :name }
-    it { is_expected.to validate_presence_of :version }
-    it { is_expected.to validate_presence_of :release }
-    it { is_expected.to validate_presence_of :arch }
-    it { is_expected.to validate_presence_of :srcname }
-    it { is_expected.to validate_presence_of :srcversion }
-    it { is_expected.to validate_presence_of :srcrel }
-    it { is_expected.to validate_presence_of :testname }
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :version }
+    it { should validate_presence_of :release }
+    it { should validate_presence_of :arch }
+    it { should validate_presence_of :srcname }
+    it { should validate_presence_of :srcversion }
+    it { should validate_presence_of :srcrel }
+    it { should validate_presence_of :testname }
   end
 
   context 'DB Indexes' do
-    it { is_expected.to have_db_index :srcname }
-    it { is_expected.to have_db_index :srcrel }
-    it { is_expected.to have_db_index :srcversion }
+    it { should have_db_index :srcname }
+    it { should have_db_index :srcrel }
+    it { should have_db_index :srcversion }
   end
 
   it 'should import repocops from url' do

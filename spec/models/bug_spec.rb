@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe Bug do
   describe 'Validations' do
-    specify { should validate_presence_of :bug_id }
+    it { should validate_presence_of :bug_id }
   end
 
   describe 'DB Indexes' do
-    specify { should have_db_index :assigned_to }
-    specify { should have_db_index :bug_status }
-    specify { should have_db_index :product }
+    it { should have_db_index :assigned_to }
+    it { should have_db_index :bug_status }
+    it { should have_db_index :product }
   end
 
   describe '.opened_bugs_for' do

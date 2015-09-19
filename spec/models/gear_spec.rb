@@ -2,18 +2,18 @@ require 'rails_helper'
 
 describe Gear do
   context 'Associations' do
-    it { is_expected.to belong_to :maintainer }
-    it { is_expected.to belong_to :srpm }
+    it { should belong_to :maintainer }
+    it { should belong_to :srpm }
   end
 
   context 'Validation' do
-    it { is_expected.to validate_presence_of :repo }
-    it { is_expected.to validate_presence_of :lastchange }
+    it { should validate_presence_of :repo }
+    it { should validate_presence_of :lastchange }
   end
 
   context 'DB Indexes' do
-    it { is_expected.to have_db_index :maintainer_id }
-    it { is_expected.to have_db_index :srpm_id }
+    it { should have_db_index :maintainer_id }
+    it { should have_db_index :srpm_id }
   end
 
   it 'should import gear repos' do

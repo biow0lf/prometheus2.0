@@ -2,19 +2,19 @@ require 'rails_helper'
 
 describe Group do
   context 'Associations' do
-    it { is_expected.to belong_to :branch }
-    it { is_expected.to have_many :srpms }
-    it { is_expected.to have_many :packages }
+    it { should belong_to :branch }
+    it { should have_many :srpms }
+    it { should have_many :packages }
   end
 
   context 'Validation' do
-    it { is_expected.to validate_presence_of :branch }
-    it { is_expected.to validate_presence_of :name }
+    it { should validate_presence_of :branch }
+    it { should validate_presence_of :name }
   end
 
   context 'DB Indexes' do
-    it { is_expected.to have_db_index :branch_id }
-    it { is_expected.to have_db_index :parent_id }
+    it { should have_db_index :branch_id }
+    it { should have_db_index :parent_id }
   end
 
   it 'should return full group name on #full_name' do

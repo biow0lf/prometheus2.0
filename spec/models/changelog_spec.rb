@@ -2,17 +2,17 @@ require 'rails_helper'
 
 describe Changelog do
   context 'Associations' do
-    it { is_expected.to belong_to :srpm }
+    it { should belong_to :srpm }
   end
 
   context 'Validation' do
-    it { is_expected.to validate_presence_of :srpm }
-    it { is_expected.to validate_presence_of :changelogtime }
-    it { is_expected.to validate_presence_of :changelogname }
-    it { is_expected.to validate_presence_of :changelogtext }
+    it { should validate_presence_of :srpm }
+    it { should validate_presence_of :changelogtime }
+    it { should validate_presence_of :changelogname }
+    it { should validate_presence_of :changelogtext }
   end
 
-  it { is_expected.to have_db_index :srpm_id }
+  it { should have_db_index :srpm_id }
 
   context '#email' do
     it 'should return email' do
