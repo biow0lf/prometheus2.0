@@ -65,6 +65,8 @@ describe Srpm do
     it { should callback(:decrement_branch_counter).after(:destroy) }
 
     it { should callback(:add_filename_to_cache).after(:create) }
+
+    it { should callback(:remove_filename_from_cache).after(:destroy) }
   end
 
   describe '#to_param' do
@@ -183,7 +185,6 @@ describe Srpm do
     expect { Srpm.remove_old(branch, path) }
       .to change(Srpm, :count).by(-1)
 
-    expect(Redis.current.get("#{ branch.name }:blackbox-1.0-alt1.src.rpm")).to be_nil
     expect(Redis.current.get("#{ branch.name }:#{ srpm2.name }:acls")).to be_nil
     expect(Redis.current.get("#{ branch.name }:#{ srpm2.name }:leader")).to be_nil
 
@@ -260,5 +261,33 @@ describe Srpm do
     end
 
     specify { expect { subject.send(:add_filename_to_cache) }.not_to raise_error }
+  end
+
+  describe '#remove_filename_from_cache' do
+    subject { stub_model Srpm, filename: 'openbox-1.0.src.rpm' }
+
+    before do
+      #
+      # branch.name => 'Sisyphus'
+      #
+      expect(subject).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:name).and_return('Sisyphus')
+        end
+      end
+    end
+
+    before do
+      #
+      # Redis.current.del("#{ branch.name }:#{ filename }")
+      #
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:del).with('Sisyphus:openbox-1.0.src.rpm')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:remove_filename_from_cache) }.not_to raise_error }
   end
 end
