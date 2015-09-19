@@ -1,24 +1,24 @@
 require 'rails_helper'
 
 describe Branch do
-  context 'Validation' do
-    it { should validate_presence_of :name }
+  describe 'Validation' do
+    it { should validate_presence_of(:name) }
 
-    it { should validate_presence_of :vendor }
+    it { should validate_presence_of(:vendor) }
   end
 
-  context 'Associations' do
-    it { should have_many :srpms }
+  describe 'Associations' do
+    it { should have_many(:srpms) }
 
     it { should have_many(:changelogs).through(:srpms) }
 
     it { should have_many(:packages).through(:srpms) }
 
-    it { should have_many :groups }
+    it { should have_many(:groups) }
 
-    it { should have_many :teams }
+    it { should have_many(:teams) }
 
-    it { should have_many :mirrors }
+    it { should have_many(:mirrors) }
 
     it { should have_many(:patches).through(:srpms) }
 
@@ -26,13 +26,21 @@ describe Branch do
 
     it { should have_many(:ftbfs).class_name('Ftbfs') }
 
-    it { should have_many :repocops }
+    it { should have_many(:repocops) }
 
-    it { should have_many :repocop_patches }
+    it { should have_many(:repocop_patches) }
   end
 
-  it 'should return Branch#name on #to_param' do
-    expect(Branch.new(name: 'Sisyphus').to_param).to eq('Sisyphus')
+  describe 'Callbacks' do
+    it { should callback(:set_default_counter_value).after(:create) }
+
+    it { should callback(:destroy_counter).after(:destroy) }
+  end
+
+  describe '#to_param' do
+    subject { stub_model Branch, name: 'Sisyphus' }
+
+    its(:to_param) { should eq('Sisyphus') }
   end
 
   it 'should set default value in redis for counter after create' do
