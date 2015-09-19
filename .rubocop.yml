@@ -15,3 +15,6 @@ Metrics/LineLength:
 Style/DotPosition:
   Enabled: true
   EnforcedStyle: leading
+
+Style/SpaceInsideStringInterpolation:
+  Enabled: false
