@@ -54,13 +54,12 @@ class SrpmImport
     end
 
     if srpm.save
-      Redis.current.set("#{branch.name}:#{srpm.filename}", 1)
       # Changelog.import(file, srpm)
       # Specfile.import(file, srpm)
       # Patch.import(file, srpm)
       # Source.import(file, srpm)
     else
-      puts "#{Time.now}: failed to update '#{srpm.filename}'"
+      puts "#{ Time.now }: failed to update '#{ srpm.filename }'"
     end
   end
 end

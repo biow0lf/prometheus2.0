@@ -40,6 +40,8 @@ class Srpm < ActiveRecord::Base
 
   after_destroy :decrement_branch_counter
 
+  after_create :add_filename_to_cache
+
   def to_param
     name
   end
@@ -97,7 +99,6 @@ class Srpm < ActiveRecord::Base
     end
 
     if srpm.save
-      Redis.current.set("#{ branch.name }:#{ srpm.filename }", 1)
       Changelog.import(file, srpm)
       Specfile.import(file, srpm)
       Patch.import(file, srpm)
@@ -152,5 +153,9 @@ class Srpm < ActiveRecord::Base
 
   def decrement_branch_counter
     branch.counter.decrement
+  end
+
+  def add_filename_to_cache
+    Redis.current.set("#{ branch.name }:#{ filename }", 1)
   end
 end
