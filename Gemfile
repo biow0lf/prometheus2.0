@@ -98,6 +98,7 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers'
   gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'
