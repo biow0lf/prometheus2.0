@@ -23,6 +23,10 @@ class Package < ActiveRecord::Base
 
   after_save :set_srpm_delta_flag
 
+  after_create :add_filename_to_cache
+
+  after_destroy :remove_filename_from_cache
+
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
     if branch.srpms.where(filename: sourcerpm).count == 1
@@ -52,8 +56,6 @@ class Package < ActiveRecord::Base
       srpm = branch.srpms.where(filename: sourcerpm).first
       package.srpm_id = srpm.id
       if package.save
-        Redis.current.set("#{ branch.name }:#{ package.filename }", 1)
-        # #puts "#{ Time.now }: updated '#{ package.filename }'"
         # Provide.import_provides(rpm, package)
         # Require.import_requires(rpm, package)
         # Conflict.import_conflicts(rpm, package)
@@ -84,5 +86,13 @@ class Package < ActiveRecord::Base
 
   def set_srpm_delta_flag
     srpm.update_attribute(:delta, true)
+  end
+
+  def add_filename_to_cache
+    Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
+  end
+
+  def remove_filename_from_cache
+    Redis.current.del("#{ srpm.branch.name }:#{ filename }")
   end
 end

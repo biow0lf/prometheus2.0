@@ -127,13 +127,7 @@ class Srpm < ActiveRecord::Base
 
   def self.remove_old(branch, path)
     branch.srpms.each do |srpm|
-      unless File.exist?("#{ path }#{ srpm.filename }")
-        srpm.packages.each do |package|
-          puts "#{ Time.now }: delete '#{ package.filename }' from redis cache"
-          Redis.current.del("#{ branch.name }:#{ package.filename }")
-        end
-        srpm.destroy
-      end
+      srpm.destroy unless File.exist?("#{ path }#{ srpm.filename }")
     end
   end
 

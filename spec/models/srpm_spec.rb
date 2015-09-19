@@ -189,9 +189,6 @@ describe Srpm do
     expect { Srpm.remove_old(branch, path) }
       .to change(Srpm, :count).by(-1)
 
-    expect(Redis.current.get("#{ branch.name }:#{ srpm2.name }:acls")).to be_nil
-    expect(Redis.current.get("#{ branch.name }:#{ srpm2.name }:leader")).to be_nil
-
     # TODO: add checks for sub packages, set-get-delete
   end
 
