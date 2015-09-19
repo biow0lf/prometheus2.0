@@ -71,7 +71,6 @@ group :development do
   gem 'capistrano_colors', require: false
   gem 'xray-rails'
   gem 'rubocop', require: false
-  gem 'flog', require: false
   gem 'brakeman', require: false
 end
 
