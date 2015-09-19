@@ -44,6 +44,10 @@ class Srpm < ActiveRecord::Base
 
   after_destroy :remove_filename_from_cache
 
+  after_destroy :remove_acls_from_cache
+
+  after_destroy :remove_leader_from_cache
+
   def to_param
     name
   end
@@ -128,9 +132,6 @@ class Srpm < ActiveRecord::Base
           puts "#{ Time.now }: delete '#{ package.filename }' from redis cache"
           Redis.current.del("#{ branch.name }:#{ package.filename }")
         end
-        puts "#{ Time.now }: delete acls for '#{ srpm.filename }' from redis cache"
-        Redis.current.del("#{ branch.name }:#{ srpm.name }:acls")
-        Redis.current.del("#{ branch.name }:#{ srpm.name }:leader")
         srpm.destroy
       end
     end
@@ -161,5 +162,13 @@ class Srpm < ActiveRecord::Base
 
   def remove_filename_from_cache
     Redis.current.del("#{ branch.name }:#{ filename }")
+  end
+
+  def remove_acls_from_cache
+    Redis.current.del("#{ branch.name }:#{ name }:acls")
+  end
+
+  def remove_leader_from_cache
+    Redis.current.del("#{ branch.name }:#{ name }:leader")
   end
 end
