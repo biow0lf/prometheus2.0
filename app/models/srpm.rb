@@ -4,29 +4,40 @@ class Srpm < ActiveRecord::Base
   # include Redis::Objects
 
   belongs_to :branch
+
   belongs_to :group
 
-  validates :branch, presence: true
-  validates :group, presence: true
-  validates :groupname, presence: true
-  validates :md5, presence: true
-
   has_many :packages, dependent: :destroy
+
   has_many :changelogs, dependent: :destroy
+
   has_one :specfile, dependent: :destroy
+
   has_many :patches, dependent: :destroy
+
   has_many :sources, dependent: :destroy
 
   has_many :repocops, foreign_key: 'srcname', primary_key: 'name'
+
   has_one :repocop_patch, foreign_key: 'name', primary_key: 'name'
 
   has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
                     primary_key: 'builder_id'
 
+  validates :branch, presence: true
+
+  validates :group, presence: true
+
+  validates :groupname, presence: true
+
+  validates :md5, presence: true
+
   # set :acls
+
   # value :leader
 
   after_create :increment_branch_counter
+
   after_destroy :decrement_branch_counter
 
   def to_param

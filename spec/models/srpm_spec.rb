@@ -2,24 +2,33 @@ require 'rails_helper'
 require 'rpmfile'
 
 describe Srpm do
-  context 'Associations' do
-    it { should belong_to :branch }
-    it { should belong_to :group }
+  describe 'Associations' do
+    it { should belong_to(:branch) }
+
+    it { should belong_to(:group) }
+
     it { should have_many(:packages).dependent(:destroy) }
+
     it { should have_many(:changelogs).dependent(:destroy) }
+
+    it { should have_one(:specfile).dependent(:destroy) }
+
+    it { should have_many(:patches).dependent(:destroy) }
+
+    it { should have_many(:sources).dependent(:destroy) }
+
     it do
       should have_many(:repocops)
         .with_foreign_key('srcname')
         .with_primary_key('name')
     end
-    it { should have_one(:specfile).dependent(:destroy) }
+
     it do
       should have_one(:repocop_patch)
         .with_foreign_key('name')
         .with_primary_key('name')
     end
-    it { should have_many(:patches).dependent(:destroy) }
-    it { should have_many(:sources).dependent(:destroy) }
+
     it do
       should have_one(:builder)
         .class_name('Maintainer')
@@ -28,21 +37,38 @@ describe Srpm do
     end
   end
 
-  context 'Validation' do
-    it { should validate_presence_of :branch }
-    it { should validate_presence_of :group }
-    it { should validate_presence_of :groupname }
-    it { should validate_presence_of :md5 }
+  describe 'Validation' do
+    it { should validate_presence_of(:branch) }
+
+    it { should validate_presence_of(:group) }
+
+    it { should validate_presence_of(:groupname) }
+
+    it { should validate_presence_of(:md5) }
   end
 
-  context 'DB Indexes' do
-    it { should have_db_index :branch_id }
-    it { should have_db_index :group_id }
-    it { should have_db_index :name }
+  describe 'DB Indexes' do
+    it { should have_db_index(:branch_id) }
+
+    it { should have_db_index(:group_id) }
+
+    it { should have_db_index(:name) }
   end
 
-  it 'should return Srpm#name on #to_param' do
-    expect(Srpm.new(name: 'openbox').to_param).to eq('openbox')
+  # set :acls
+
+  # value :leader
+
+  describe 'Callbacks' do
+    it { should callback(:increment_branch_counter).after(:create) }
+
+    it { should callback(:decrement_branch_counter).after(:destroy) }
+  end
+
+  describe '#to_param' do
+    subject { stub_model Srpm, name: 'openbox' }
+
+    its(:to_param) { should eq('openbox') }
   end
 
   it 'should import srpm file' do
