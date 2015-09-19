@@ -191,18 +191,47 @@ describe Srpm do
     # TODO: add checks for sub packages, set-get-delete
   end
 
-  it 'should increment branch.counter on srpm.save' do
-    branch = create(:branch)
-    group = create(:group, branch_id: branch.id)
-    create(:srpm, branch_id: branch.id, group_id: group.id)
-    expect(branch.counter.value).to eq(1)
+  # private methods
+
+  describe '#increment_branch_counter' do
+    subject { stub_model Srpm }
+
+    before do
+      #
+      # branch.counter.increment
+      #
+      expect(subject).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:counter) do
+            double.tap do |b|
+              expect(b).to receive(:increment)
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.send(:increment_branch_counter) }.not_to raise_error }
   end
 
-  it 'should decrement branch.counter on srpm.destroy' do
-    branch = create(:branch)
-    group = create(:group, branch_id: branch.id)
-    srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
-    srpm.destroy
-    expect(branch.counter.value).to eq(0)
+  describe '#decrement_branch_counter' do
+    subject { stub_model Srpm }
+
+    before do
+      #
+      # branch.counter.decrement
+      #
+      expect(subject).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:counter) do
+            double.tap do |b|
+              expect(b).to receive(:decrement)
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.send(:decrement_branch_counter) }.not_to raise_error }
   end
 end
