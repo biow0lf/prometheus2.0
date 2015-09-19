@@ -11,12 +11,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-  gem 'redcarpet'
-end
-
 gem 'rake', require: false
 
 group :postgresql do
