@@ -1,29 +1,44 @@
 require 'rails_helper'
 
 describe Package do
-  context 'Associations' do
-    it { should belong_to :srpm }
-    it { should belong_to :group }
+  describe 'Associations' do
+    it { should belong_to(:srpm) }
 
-    it { should have_many :provides }
-    it { should have_many :requires }
-    it { should have_many :obsoletes }
-    it { should have_many :conflicts }
+    it { should belong_to(:group) }
+
+    it { should have_many(:provides) }
+
+    it { should have_many(:requires) }
+
+    it { should have_many(:obsoletes) }
+
+    it { should have_many(:conflicts) }
   end
 
-  context 'Validation' do
-    it { should validate_presence_of :srpm }
-    it { should validate_presence_of :group }
-    it { should validate_presence_of :groupname }
-    it { should validate_presence_of :md5 }
+  describe 'Validation' do
+    it { should validate_presence_of(:srpm) }
+
+    it { should validate_presence_of(:group) }
+
+    it { should validate_presence_of(:groupname) }
+
+    it { should validate_presence_of(:md5) }
   end
 
-  context 'DB Indexes' do
-    it { should have_db_index :arch }
-    it { should have_db_index :group_id }
-    it { should have_db_index :name }
-    it { should have_db_index :sourcepackage }
-    it { should have_db_index :srpm_id }
+  describe 'DB Indexes' do
+    it { should have_db_index(:arch) }
+
+    it { should have_db_index(:group_id) }
+
+    it { should have_db_index(:name) }
+
+    it { should have_db_index(:sourcepackage) }
+
+    it { should have_db_index(:srpm_id) }
+  end
+
+  describe 'Callbacks' do
+    it { should callback(:set_srpm_delta_flag).after(:save) }
   end
 
   it 'should import package to database' do
@@ -84,18 +99,37 @@ describe Package do
     expect(package.filename).to eq(file)
     expect(package.sourcepackage).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
 
-    expect(Redis.current.get("#{branch.name}:#{package.filename}")).to eq('1')
+    expect(Redis.current.get("#{ branch.name }:#{ package.filename }")).to eq('1')
   end
 
   it 'should import all packages from path' do
     # TODO: add path to branch and branch factory
     branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
-    expect(Redis.current.get("#{branch.name}:gcc-1.0-alt1.i586.rpm")).to be_nil
+    expect(Redis.current.get("#{ branch.name }:gcc-1.0-alt1.i586.rpm")).to be_nil
     expect(Dir).to receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
     expect(File).to receive(:exist?).with('gcc-1.0-alt1.i586.rpm').and_return(true)
     expect(RPM).to receive(:check_md5).and_return(true)
     expect(Package).to receive(:import).and_return(true)
     Package.import_all(branch, pathes)
+  end
+
+  # private methods
+
+  describe '#set_srpm_delta_flag' do
+    subject { stub_model Package }
+
+    before do
+      #
+      # srpm.update_attribute(:delta, true)
+      #
+      expect(subject).to receive(:srpm) do
+        double.tap do |a|
+          expect(a).to receive(:update_attribute).with(:delta, true)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:set_srpm_delta_flag) }.not_to raise_error }
   end
 end

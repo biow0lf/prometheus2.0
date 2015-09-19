@@ -2,19 +2,26 @@ require 'rpmfile'
 
 class Package < ActiveRecord::Base
   belongs_to :srpm
+
   belongs_to :group
 
-  validates :srpm, presence: true
-  validates :group, presence: true
-  validates :groupname, presence: true
-  validates :md5, presence: true
-
   has_many :requires
+
   has_many :provides
+
   has_many :obsoletes
+
   has_many :conflicts
 
-  after_save :set_srpms_delta_flag
+  validates :srpm, presence: true
+
+  validates :group, presence: true
+
+  validates :groupname, presence: true
+
+  validates :md5, presence: true
+
+  after_save :set_srpm_delta_flag
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
@@ -75,8 +82,7 @@ class Package < ActiveRecord::Base
 
   private
 
-  def set_srpms_delta_flag
-    srpm.delta = true
-    srpm.save
+  def set_srpm_delta_flag
+    srpm.update_attribute(:delta, true)
   end
 end
