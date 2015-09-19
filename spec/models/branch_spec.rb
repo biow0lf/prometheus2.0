@@ -43,22 +43,41 @@ describe Branch do
     its(:to_param) { should eq('Sisyphus') }
   end
 
-  it 'should set default value in redis for counter after create' do
-    branch = create(:branch)
-    expect(branch.counter.value).to eq(0)
-  end
-
-  it 'should remove counter in redis after destroy' do
-    branch = create(:branch)
-    branch.destroy
-    expect(Redis.current.get("branch:#{ branch.id }:counter")).to be_nil
-  end
-
   it 'should recount Branch#srpms on #recount! and save' do
     branch = create(:branch)
     branch.counter.value = 42
     expect(branch.counter.value).to eq(42)
     branch.recount!
     expect(branch.counter.value).to eq(0)
+  end
+
+  # private methods
+
+  describe '#set_default_counter_value' do
+    subject { stub_model Branch }
+
+    before do
+      expect(subject).to receive(:counter) do
+        double.tap do |a|
+          expect(a).to receive(:value=).with(0)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:set_default_counter_value) }.not_to raise_error }
+  end
+
+  describe '#destroy_counter' do
+    subject { stub_model Branch, id: 14 }
+
+    before do
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:del).with("branch:#{ subject.id }:counter")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:destroy_counter) }.not_to raise_error }
   end
 end
