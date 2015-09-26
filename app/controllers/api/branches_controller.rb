@@ -7,7 +7,7 @@ module Api
     end
 
     def collection
-      @branches ||= Branch.order(:id)
+      @branches ||= Branch.order(:order_id)
     end
   end
 end
