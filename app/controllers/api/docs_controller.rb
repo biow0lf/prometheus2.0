@@ -37,13 +37,117 @@ module Api
       end
     end
 
+    swagger_path '/branches.json' do
+      operation :get do
+        key :description, 'Return list of all Branches'
+        key :operationId, 'indexBranches'
+        key :tags, ['branches']
+      end
+    end
+
+    swagger_path '/branches/{id}.json' do
+      operation :get do
+        key :description, 'Return branch information'
+        key :operationId, 'findBranchById'
+        key :tags, ['branches']
+        parameter do
+          key :name, :id
+          key :in, :path
+          key :description, 'Branch ID. e.g. "1" for Sisyphus.'
+          key :required, true
+          key :type, :integer
+          key :format, :int64
+        end
+      end
+    end
+
+    swagger_path '/bugs/{bug_id}.json' do
+      operation :get do
+        key :description, 'Returns bug info for given bug_id'
+        key :operationId, 'findBugById'
+        key :tags, ['bugs']
+        parameter do
+          key :name, :bug_id
+          key :in, :path
+          key :description, 'ID of Bug'
+          key :required, true
+          key :type, :integer
+          key :format, :int64
+        end
+      end
+    end
+
+    swagger_path '/srpms/{name}' do
+      operation :get do
+        key :description, 'Returns srpm info for given name'
+        key :operationId, 'findSrpmByName'
+        key :tags, ['srpms']
+        parameter do
+          key :name, :name
+          key :in, :path
+          key :description, 'Srpm name'
+          key :required, true
+          key :type, :integer
+          key :format, :int64
+        end
+        parameter do
+          key :name, :branch_id
+          key :in, :query
+          key :description, 'Branch id. Default: Sisyphus branch id, not name. E.g. 1.'
+          key :type, :integer
+          key :format, :int64
+        end
+      end
+    end
+
+    swagger_path '/srpms/{name}/packages' do
+      operation :get do
+        key :description, 'Returns srpm packages info for given name'
+        key :operationId, 'findPackagesForSrpm'
+        key :tags, ['packages']
+        parameter do
+          key :name, :name
+          key :in, :path
+          key :description, 'Srpm name'
+          key :required, true
+          key :type, :integer
+          key :format, :int64
+        end
+        parameter do
+          key :name, :branch_id
+          key :in, :query
+          key :description, 'Branch id. Default: Sisyphus branch id, not name. E.g. 1.'
+          key :type, :integer
+          key :format, :int64
+        end
+      end
+    end
+
+    swagger_path '/srpms/{name}/changelogs' do
+      operation :get do
+        key :description, 'Returns srpm changelogs info for given name'
+        key :operationId, 'findChangelogsForSrpm'
+        key :tags, ['changelogs']
+        parameter do
+          key :name, :name
+          key :in, :path
+          key :description, 'Srpm name'
+          key :required, true
+          key :type, :integer
+          key :format, :int64
+        end
+        parameter do
+          key :name, :branch_id
+          key :in, :query
+          key :description, 'Branch id. Default: Sisyphus branch id, not name. E.g. 1.'
+          key :type, :integer
+          key :format, :int64
+        end
+      end
+    end
+
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
-        Api::BranchesController,
-        Api::BugsController,
-        Api::SrpmsController,
-        Api::PackagesController,
-        Api::ChangelogsController,
         self
     ].freeze
 

@@ -1,30 +1,5 @@
 module Api
   class ChangelogsController < BaseController
-    include Swagger::Blocks
-
-    swagger_path '/srpms/{name}/changelogs' do
-      operation :get do
-        key :description, 'Returns srpm changelogs info for given name'
-        key :operationId, 'findChangelogsForSrpm'
-        key :tags, ['changelogs']
-        parameter do
-          key :name, :name
-          key :in, :path
-          key :description, 'Srpm name'
-          key :required, true
-          key :type, :integer
-          key :format, :int64
-        end
-        parameter do
-          key :name, :branch_id
-          key :in, :query
-          key :description, 'Branch id. Default: Sisyphus branch id, not name. E.g. 1.'
-          key :type, :integer
-          key :format, :int64
-        end
-      end
-    end
-
     private
 
     def branch
