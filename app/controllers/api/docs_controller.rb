@@ -87,8 +87,7 @@ module Api
           key :in, :path
           key :description, 'Srpm name'
           key :required, true
-          key :type, :integer
-          key :format, :int64
+          key :type, :string
         end
         parameter do
           key :name, :branch_id
@@ -110,8 +109,7 @@ module Api
           key :in, :path
           key :description, 'Srpm name'
           key :required, true
-          key :type, :integer
-          key :format, :int64
+          key :type, :string
         end
         parameter do
           key :name, :branch_id
@@ -133,8 +131,7 @@ module Api
           key :in, :path
           key :description, 'Srpm name'
           key :required, true
-          key :type, :integer
-          key :format, :int64
+          key :type, :string
         end
         parameter do
           key :name, :branch_id
