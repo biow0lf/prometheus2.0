@@ -143,6 +143,21 @@ module Api
       end
     end
 
+    swagger_path '/maintainers/{login}' do
+      operation :get do
+        key :description, 'Returns maintainer info'
+        key :operationId, 'findMaintainerByLogin'
+        key :tags, ['maintainers']
+        parameter do
+          key :name, :login
+          key :in, :path
+          key :description, 'Maintainer login'
+          key :required, true
+          key :type, :string
+        end
+      end
+    end
+
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
         self
