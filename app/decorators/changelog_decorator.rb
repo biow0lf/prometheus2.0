@@ -13,4 +13,3 @@ class ChangelogDecorator < Draper::Decorator
     }
   end
 end
-
