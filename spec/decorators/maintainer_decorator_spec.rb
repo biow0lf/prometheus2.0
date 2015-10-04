@@ -52,10 +52,10 @@ describe MaintainerDecorator do
     subject { maintainer.decorate }
 
     before do
-      expect(subject).to receive(:gravatar_id).and_return('6b747716cf92a45179b30030d8725ac3')
+      expect(subject).to receive(:gravatar_id).and_return('abcd')
     end
 
-    specify { expect(subject.avatar_url).to eq('http://gravatar.com/avatar/6b747716cf92a45179b30030d8725ac3.png?s=420&r=g') }
+    specify { expect(subject.avatar_url).to eq('http://gravatar.com/avatar/abcd.png?s=420&r=g') }
   end
 
   # private methods
@@ -66,6 +66,9 @@ describe MaintainerDecorator do
     subject { maintainer.decorate }
 
     before do
+      #
+      # subject.email.downcase
+      #
       expect(subject).to receive(:email) do
         double.tap do |a|
           expect(a).to receive(:downcase).and_return('icesik@altlinux.org')
@@ -74,6 +77,9 @@ describe MaintainerDecorator do
     end
 
     before do
+      #
+      # Digest::MD5.hexdigest('icesik@altlinux.org')
+      #
       expect(Digest::MD5).to receive(:hexdigest).with('icesik@altlinux.org')
     end
 
