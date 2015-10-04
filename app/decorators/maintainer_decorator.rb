@@ -18,7 +18,12 @@ class MaintainerDecorator < Draper::Decorator
   end
 
   def avatar_url
-    gravatar_id = Digest::MD5.hexdigest(email.downcase)
     "http://gravatar.com/avatar/#{ gravatar_id }.png?s=420&r=g"
+  end
+
+  private
+
+  def gravatar_id
+    Digest::MD5.hexdigest(email.downcase)
   end
 end
