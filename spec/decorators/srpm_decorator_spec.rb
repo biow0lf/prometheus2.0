@@ -31,10 +31,12 @@ describe SrpmDecorator do
 
   describe '#evr' do
     context 'epoch is present' do
-      let(:srpm) { stub_model Srpm,
-                              epoch: 20150928,
-                              version: '1.0',
-                              release: 'alt1' }
+      let(:srpm) do
+        stub_model Srpm,
+                   epoch: 20150928,
+                   version: '1.0',
+                   release: 'alt1'
+      end
 
       subject { srpm.decorate }
 
@@ -42,9 +44,11 @@ describe SrpmDecorator do
     end
 
     context 'epoch is not present' do
-      let(:srpm) { stub_model Srpm,
-                              version: '1.0',
-                              release: 'alt1' }
+      let(:srpm) do
+        stub_model Srpm,
+                   version: '1.0',
+                   release: 'alt1'
+      end
 
       subject { srpm.decorate }
 

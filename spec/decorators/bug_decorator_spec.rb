@@ -5,19 +5,20 @@ describe BugDecorator do
 
   let(:updated_at) { '2015-09-28T16:59:34Z' }
 
-  let(:bug) { stub_model Bug,
-    bug_id: 22555,
-    bug_status: 'NEW',
-    resolution: 'IN_PROGRESS',
-    bug_severity: 'normal',
-    product: 'Sisyphus',
-    component: 'cross-component',
-    assigned_to: 'icesik@altlinux.org',
-    reporter: 'mike@altlinux.org',
-    short_desc: 'metabug for prometheus2.0 bugs',
-    created_at: created_at,
-    updated_at: updated_at
-  }
+  let(:bug) do
+    stub_model Bug,
+               bug_id: 22_555,
+               bug_status: 'NEW',
+               resolution: 'IN_PROGRESS',
+               bug_severity: 'normal',
+               product: 'Sisyphus',
+               component: 'cross-component',
+               assigned_to: 'icesik@altlinux.org',
+               reporter: 'mike@altlinux.org',
+               short_desc: 'metabug for prometheus2.0 bugs',
+               created_at: created_at,
+               updated_at: updated_at
+  end
 
   describe '#as_json' do
     subject { bug.decorate.as_json }
@@ -53,7 +54,7 @@ describe BugDecorator do
     before do
       expect(subject).to receive(:h) do
         double.tap do |a|
-          expect(a).to receive(:link_to).with(22555, 'https://bugzilla.altlinux.org/22555', class: 'news')
+          expect(a).to receive(:link_to).with(22_555, 'https://bugzilla.altlinux.org/22555', class: 'news')
         end
       end
     end

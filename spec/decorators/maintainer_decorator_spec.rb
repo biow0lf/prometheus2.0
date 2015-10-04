@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe MaintainerDecorator do
   let(:maintainer) { Maintainer.new }
+
   subject { maintainer.decorate }
 
   it 'does return gravatar url for maintainer email' do

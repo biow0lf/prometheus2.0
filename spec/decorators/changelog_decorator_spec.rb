@@ -5,15 +5,16 @@ describe ChangelogDecorator do
 
   let(:updated_at) { '2015-09-28T16:59:34Z' }
 
-  let(:changelog) { stub_model Changelog,
-    id: 321,
-    srpm_id: 43,
-    changelogtime: '1264248000',
-    changelogname: 'Igor Zubkov <icesik@altlinux.org> 3.4.10-alt2',
-    changelogtext: '- update Url:',
-    created_at: created_at,
-    updated_at: updated_at
-  }
+  let(:changelog) do
+    stub_model Changelog,
+               id: 321,
+               srpm_id: 43,
+               changelogtime: '1264248000',
+               changelogname: 'Igor Zubkov <icesik@altlinux.org> 3.4.10-alt2',
+               changelogtext: '- update Url:',
+               created_at: created_at,
+               updated_at: updated_at
+  end
 
   describe '#as_json' do
     subject { changelog.decorate.as_json }

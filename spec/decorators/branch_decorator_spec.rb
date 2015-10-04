@@ -5,14 +5,15 @@ describe BranchDecorator do
 
   let(:updated_at) { '2015-09-28T16:59:34Z' }
 
-  let(:branch) { stub_model Branch,
-    id: 123,
-    name: 'Sisyphus',
-    order_id: 7,
-    path: '/Sisyphus',
-    created_at: created_at,
-    updated_at: updated_at
-  }
+  let(:branch) do
+    stub_model Branch,
+               id: 123,
+               name: 'Sisyphus',
+               order_id: 7,
+               path: '/Sisyphus',
+               created_at: created_at,
+               updated_at: updated_at
+  end
 
   describe '#as_json' do
     subject { branch.decorate.as_json }
