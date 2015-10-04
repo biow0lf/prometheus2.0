@@ -32,14 +32,14 @@ h3. Install:
 h3. Then:
 
 * @bundle install@
-* @bundle exec rake secret@
-* @bundle exec rake gettext:pack@
+* @bin/rake secret@
+* @bin/rake gettext:pack@
 
 h3. Init database:
 
-* @bundle exec rake db:create@
-* @bundle exec rake db:migrate@
-* @bundle exec rake db:seed@
+* @bin/rake db:create@
+* @bin/rake db:migrate@
+* @bin/rake db:seed@
 
 h3. Enable bootstrap mode:
 
@@ -47,56 +47,56 @@ h3. Enable bootstrap mode:
 
 h3. Import data:
 
-* @bundle exec rake sisyphus:update@
-* @bundle exec rake sisyphus:teams@
+* @bin/rake sisyphus:update@
+* @bin/rake sisyphus:teams@
 
-* @bundle exec rake sisyphus:bugs@
-* @bundle exec rake sisyphus:repocops@
-* @bundle exec rake sisyphus:repocop_patches@
-* @bundle exec rake gear:import@
-* @bundle exec rake perlwatch:update@
-* @bundle exec rake ftbfs:update@
+* @bin/rake sisyphus:bugs@
+* @bin/rake sisyphus:repocops@
+* @bin/rake sisyphus:repocop_patches@
+* @bin/rake gear:import@
+* @bin/rake perlwatch:update@
+* @bin/rake ftbfs:update@
 
-* @bundle exec rake sisyphusarm:srpms@
-* @bundle exec rake sisyphusarm:binary@
+* @bin/rake sisyphusarm:srpms@
+* @bin/rake sisyphusarm:binary@
 
-* @bundle exec rake p7:update@
+* @bin/rake p7:update@
 
-* @bundle exec rake t7:update@
+* @bin/rake t7:update@
 
-* @bundle exec rake p6:update@
+* @bin/rake p6:update@
 
-* @bundle exec rake t6:update@
+* @bin/rake t6:update@
 
-* @bundle exec rake p5:update@
+* @bin/rake p5:update@
 
-* @bundle exec rake 51:update@
-* @bundle exec rake 51:teams@
+* @bin/rake 51:update@
+* @bin/rake 51:teams@
 
-* @bundle exec rake 50:update@
-* @bundle exec rake 50:teams@
+* @bin/rake 50:update@
+* @bin/rake 50:teams@
 
-* @bundle exec rake 41:update@
-* @bundle exec rake 41:teams@
+* @bin/rake 41:update@
+* @bin/rake 41:teams@
 
-* @bundle exec rake 40:update@
-* @bundle exec rake 40:teams@
+* @bin/rake 40:update@
+* @bin/rake 40:teams@
 
-* @bundle exec rake redis:cache@
+* @bin/rake redis:cache@
 
-* @bundle exec rake ts:index@
+* @bin/rake ts:index@
 
 h2. Run
 
-* @bundle exec rake ts:start@
-* @bundle exec rake assets:precompile@
+* @bin/rake ts:start@
+* @bin/rake assets:precompile@
 * @redis-server redis.conf@
 * @service postgresql start@
 * @memcached -d -m 128@ (as a user)
 
 h2. Deploy
 
-* @bundle exec cap deploy@
+* @bin/cap deploy@
 
 h2. License
 
