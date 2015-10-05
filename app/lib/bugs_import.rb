@@ -22,7 +22,7 @@ class BugsImport
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    http.ca_file = 'altlinux.ca'
+    # http.ca_file = 'altlinux.ca'
     http.get(uri.request_uri).body
   end
 end
