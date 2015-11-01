@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/MLSDev/unicorn-worker-killer.git
+  revision: a3976bb4eb4ef820cd9a49f2b377852a9fae3745
+  branch: unicorn-5
+  specs:
+    unicorn-worker-killer (0.4.3)
+      get_process_mem (~> 0)
+      unicorn (>= 4, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -345,13 +354,10 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
-    unicorn (4.9.0)
+    unicorn (5.0.0)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    unicorn-worker-killer (0.4.3)
-      get_process_mem (~> 0)
-      unicorn (~> 4)
     uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
@@ -431,8 +437,8 @@ DEPENDENCIES
   thinking-sphinx
   turbolinks
   uglifier (>= 1.3.0)
-  unicorn
-  unicorn-worker-killer
+  unicorn (= 5.0.0)
+  unicorn-worker-killer!
   webmock
   whenever
   xray-rails
