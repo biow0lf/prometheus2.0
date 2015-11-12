@@ -7,8 +7,7 @@ describe Api::SrpmsController do
         controller: 'api/srpms',
         action: 'show',
         format: 'json',
-        id: 'openbox'
-      )
+        id: 'openbox')
     end
 
     pending 'should route /api/srpms/:id.json to api/srpms#show' do
@@ -16,8 +15,7 @@ describe Api::SrpmsController do
         controller: 'api/srpms',
         action: 'show',
         format: 'json',
-        id: 'openbox'
-      )
+        id: 'openbox')
     end
   end
 end
