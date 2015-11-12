@@ -4,7 +4,7 @@ module Api
       # :nocov:
       include Swagger::Blocks
 
-      swagger_path '/branches.json' do
+      swagger_path '/branches' do
         operation :get do
           key :description, 'Return list of all Branches'
           key :operationId, 'indexBranches'
@@ -12,7 +12,7 @@ module Api
         end
       end
 
-      swagger_path '/branches/{id}.json' do
+      swagger_path '/branches/{id}' do
         operation :get do
           key :description, 'Return branch information'
           key :operationId, 'findBranchById'

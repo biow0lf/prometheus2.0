@@ -4,7 +4,7 @@ module Api
       # :nocov:
       include Swagger::Blocks
 
-      swagger_path '/bugs/{bug_id}.json' do
+      swagger_path '/bugs/{bug_id}' do
         operation :get do
           key :description, 'Returns bug info for given bug_id'
           key :operationId, 'findBugById'
