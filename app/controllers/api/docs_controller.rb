@@ -13,8 +13,8 @@ module Api
       key :host, 'packages.altlinux.org'
       # key :host, 'localhost:3000'
       key :basePath, '/api'
-      key :consumes, %w(application/json)
-      key :produces, %w(application/json)
+      key :consumes, ['application/json']
+      key :produces, ['application/json']
       tag do
         key :name, 'branches'
         key :description, 'Branches operations'
