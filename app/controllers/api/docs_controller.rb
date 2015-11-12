@@ -37,30 +37,6 @@ module Api
       end
     end
 
-    swagger_path '/branches.json' do
-      operation :get do
-        key :description, 'Return list of all Branches'
-        key :operationId, 'indexBranches'
-        key :tags, ['branches']
-      end
-    end
-
-    swagger_path '/branches/{id}.json' do
-      operation :get do
-        key :description, 'Return branch information'
-        key :operationId, 'findBranchById'
-        key :tags, ['branches']
-        parameter do
-          key :name, :id
-          key :in, :path
-          key :description, 'Branch ID. e.g. "1" for Sisyphus.'
-          key :required, true
-          key :type, :integer
-          key :format, :int64
-        end
-      end
-    end
-
     swagger_path '/bugs/{bug_id}.json' do
       operation :get do
         key :description, 'Returns bug info for given bug_id'
@@ -160,6 +136,7 @@ module Api
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
+        Api::Docs::Branches,
         self
     ].freeze
 
