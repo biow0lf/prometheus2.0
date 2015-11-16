@@ -3,12 +3,10 @@ require 'rails_helper'
 describe User do
   context 'DB Indexes' do
     it { should have_db_index(:confirmation_token).unique(true) }
-    it { should have_db_index(:email).unique(true) }
-    it { should have_db_index(:reset_password_token).unique(true) }
-  end
 
-  it 'should return login on #login' do
-    expect(User.new(email: 'icesik@altlinux.org').login).to eq('icesik')
+    it { should have_db_index(:email).unique(true) }
+
+    it { should have_db_index(:reset_password_token).unique(true) }
   end
 
   it 'should return true for @altlinux.org emails' do
@@ -27,5 +25,21 @@ describe User do
     user = create(:user_confirmed)
     user.email = 'icesik@altlinux.org'
     expect(user.save).to eq(false)
+  end
+
+  describe '#login' do
+    before do
+      expect(subject).to receive(:email) do
+        double.tap do |a|
+          expect(a).to receive(:split).with('@') do
+            double.tap do |b|
+              expect(b).to receive(:first)
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.login }.not_to raise_error  }
   end
 end
