@@ -56,7 +56,7 @@ group :production do
   gem 'rack-force_domain'
   gem 'exception_notification'
   gem 'unicorn', '5.0.0'
-  gem 'unicorn-worker-killer', git: 'https://github.com/MLSDev/unicorn-worker-killer.git', branch: 'unicorn-5'
+  gem 'unicorn-worker-killer'
   gem 'lograge'
 end
 
