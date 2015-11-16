@@ -1,26 +1,26 @@
 require 'rails_helper'
 
 describe BugDecorator do
-  let(:created_at) { '2015-09-27T16:49:00Z' }
-
-  let(:updated_at) { '2015-09-28T16:59:34Z' }
-
-  let(:bug) do
-    stub_model Bug,
-               bug_id: 22_555,
-               bug_status: 'NEW',
-               resolution: 'IN_PROGRESS',
-               bug_severity: 'normal',
-               product: 'Sisyphus',
-               component: 'cross-component',
-               assigned_to: 'icesik@altlinux.org',
-               reporter: 'mike@altlinux.org',
-               short_desc: 'metabug for prometheus2.0 bugs',
-               created_at: created_at,
-               updated_at: updated_at
-  end
-
   describe '#as_json' do
+    let(:created_at) { '2015-09-27T16:49:00Z' }
+
+    let(:updated_at) { '2015-09-28T16:59:34Z' }
+
+    let(:bug) do
+      stub_model Bug,
+                 bug_id: 22_555,
+                 bug_status: 'NEW',
+                 resolution: 'IN_PROGRESS',
+                 bug_severity: 'normal',
+                 product: 'Sisyphus',
+                 component: 'cross-component',
+                 assigned_to: 'icesik@altlinux.org',
+                 reporter: 'mike@altlinux.org',
+                 short_desc: 'metabug for prometheus2.0 bugs',
+                 created_at: created_at,
+                 updated_at: updated_at
+    end
+
     subject { bug.decorate.as_json }
 
     its([:bug_id]) { should eq(22_555) }
@@ -46,11 +46,19 @@ describe BugDecorator do
     its([:updated_at]) { should eq(updated_at) }
   end
 
-  subject { bug.decorate }
+  describe '#bugzilla_url' do
+    let(:bug) { stub_model Bug, bug_id: 22555 }
 
-  its(:bugzilla_url) { should eq('https://bugzilla.altlinux.org/22555') }
+    subject { bug.decorate }
+
+    its(:bugzilla_url) { should eq('https://bugzilla.altlinux.org/22555') }
+  end
 
   describe '#link_to_bugzilla' do
+    let(:bug) { stub_model Bug, bug_id: 22555 }
+
+    subject { bug.decorate }
+
     before do
       expect(subject).to receive(:h) do
         double.tap do |a|
