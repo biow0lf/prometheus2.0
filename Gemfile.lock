@@ -70,7 +70,7 @@ GEM
     bullet (4.14.10)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
-    capistrano (2.15.6)
+    capistrano (2.15.7)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -381,7 +381,7 @@ DEPENDENCIES
   brakeman
   bullet
   bundler (>= 1.7.0)
-  capistrano (= 2.15.6)
+  capistrano (~> 2)
   capistrano_colors
   capybara
   capybara-email
