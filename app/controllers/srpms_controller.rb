@@ -86,8 +86,5 @@ class SrpmsController < ApplicationController
   def repocop
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
-    # @repocops = Repocop.where(srcname: @srpm.name,
-    #                           srcversion: @srpm.version,
-    #                           srcrel: @srpm.release)
   end
 end
