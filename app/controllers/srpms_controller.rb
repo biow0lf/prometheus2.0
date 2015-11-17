@@ -60,8 +60,7 @@ class SrpmsController < ApplicationController
 
   def gear
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
-    # @gears = Gear.where(repo: params[:id]).includes(:maintainer).order('lastchange DESC')
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch, gears: :maintainer).first!
   end
 
   def bugs
