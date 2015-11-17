@@ -19,6 +19,7 @@ describe Srpm do
 
     it do
       should have_many(:repocops)
+        .order(name: :asc)
         .with_primary_key('name')
         .with_foreign_key('srcname')
     end

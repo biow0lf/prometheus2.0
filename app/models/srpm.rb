@@ -17,7 +17,8 @@ class Srpm < ActiveRecord::Base
 
   has_many :sources, dependent: :destroy
 
-  has_many :repocops, primary_key: 'name', foreign_key: 'srcname'
+  has_many :repocops, -> { order(name: :asc) },
+           primary_key: 'name', foreign_key: 'srcname'
 
   has_one :repocop_patch, primary_key: 'name', foreign_key: 'name'
 
