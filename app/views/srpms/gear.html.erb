@@ -22,7 +22,7 @@
     <th><%= _('Time') %></th>
   </tr>
 
-  <% @gears.each do |gear| %>
+  <% @srpm.gears.each do |gear| %>
     <tr>
       <td style="text-align: left">
         <% login = gear.maintainer.login %>
