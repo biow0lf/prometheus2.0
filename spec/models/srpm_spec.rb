@@ -38,6 +38,7 @@ describe Srpm do
 
     it do
       should have_many(:gears)
+        .order(lastchange: :desc)
         .with_primary_key('name')
         .with_foreign_key('repo')
     end

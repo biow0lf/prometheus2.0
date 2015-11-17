@@ -24,7 +24,8 @@ class Srpm < ActiveRecord::Base
   has_one :builder, class_name: 'Maintainer', primary_key: 'builder_id',
           foreign_key: 'id'
 
-  has_many :gears, primary_key: 'name', foreign_key: 'repo'
+  has_many :gears, -> { order(lastchange: :desc) },
+           primary_key: 'name', foreign_key: 'repo'
 
   validates :branch, presence: true
 
