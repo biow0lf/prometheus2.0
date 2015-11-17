@@ -24,6 +24,8 @@ class Srpm < ActiveRecord::Base
   has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
                     primary_key: 'builder_id'
 
+  has_many :gears, foreign_key: 'repo', primary_key: 'name'
+
   validates :branch, presence: true
 
   validates :group, presence: true

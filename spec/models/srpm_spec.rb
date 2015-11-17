@@ -35,6 +35,12 @@ describe Srpm do
         .with_foreign_key('id')
         .with_primary_key('builder_id')
     end
+
+    it do
+      should have_many(:gears)
+        .with_foreign_key('repo')
+        .with_primary_key('name')
+    end
   end
 
   describe 'Validation' do
