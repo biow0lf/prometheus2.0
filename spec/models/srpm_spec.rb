@@ -19,27 +19,27 @@ describe Srpm do
 
     it do
       should have_many(:repocops)
-        .with_foreign_key('srcname')
         .with_primary_key('name')
+        .with_foreign_key('srcname')
     end
 
     it do
       should have_one(:repocop_patch)
-        .with_foreign_key('name')
         .with_primary_key('name')
+        .with_foreign_key('name')
     end
 
     it do
       should have_one(:builder)
         .class_name('Maintainer')
-        .with_foreign_key('id')
         .with_primary_key('builder_id')
+        .with_foreign_key('id')
     end
 
     it do
       should have_many(:gears)
-        .with_foreign_key('repo')
         .with_primary_key('name')
+        .with_foreign_key('repo')
     end
   end
 

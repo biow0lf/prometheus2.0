@@ -17,14 +17,14 @@ class Srpm < ActiveRecord::Base
 
   has_many :sources, dependent: :destroy
 
-  has_many :repocops, foreign_key: 'srcname', primary_key: 'name'
+  has_many :repocops, primary_key: 'name', foreign_key: 'srcname'
 
-  has_one :repocop_patch, foreign_key: 'name', primary_key: 'name'
+  has_one :repocop_patch, primary_key: 'name', foreign_key: 'name'
 
-  has_one :builder, class_name: 'Maintainer', foreign_key: 'id',
-                    primary_key: 'builder_id'
+  has_one :builder, class_name: 'Maintainer', primary_key: 'builder_id',
+          foreign_key: 'id'
 
-  has_many :gears, foreign_key: 'repo', primary_key: 'name'
+  has_many :gears, primary_key: 'name', foreign_key: 'repo'
 
   validates :branch, presence: true
 
