@@ -41,11 +41,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    airborne (0.1.20)
-      activesupport (>= 3.0.0)
-      rack-test (~> 0.6, >= 0.6.2)
-      rest-client (~> 1.7, >= 1.7.3)
-      rspec (~> 3.1, >= 3.1.0)
     arel (6.0.3)
     ast (2.1.0)
     astrolabe (1.3.1)
@@ -110,8 +105,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.25)
-      unf (>= 0.0.5, < 1.0.0)
     draper (2.1.0)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
@@ -146,8 +139,6 @@ GEM
       tilt
     hashdiff (0.2.3)
     highline (1.7.8)
-    http-cookie (1.0.2)
-      domain_name (~> 0.5)
     i18n (0.7.0)
     innertube (1.1.0)
     joiner (0.3.4)
@@ -186,7 +177,6 @@ GEM
     net-ssh (3.0.1)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    netrc (0.11.0)
     newrelic_rpm (3.14.0.305)
     nokogiri (1.6.6.3)
       mini_portile (~> 0.6.0)
@@ -245,10 +235,6 @@ GEM
     request_store (1.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    rest-client (1.8.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 3.0)
-      netrc (~> 0.7)
     riddle (1.5.12)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
@@ -344,9 +330,6 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.1)
     unicorn (5.0.0)
       kgio (~> 2.6)
       rack
@@ -375,7 +358,6 @@ PLATFORMS
 DEPENDENCIES
   active_sanity
   activerecord-colored_log_subscriber
-  airborne
   awesome_nested_set
   awesome_print
   brakeman

@@ -90,7 +90,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers'
   gem 'capybara'
-  gem 'airborne'
   gem 'capybara-email'
   gem 'launchy'
   gem 'database_cleaner'
