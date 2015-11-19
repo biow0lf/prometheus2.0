@@ -47,13 +47,13 @@ module Api
           key :description, 'Return list of all Branches'
           key :operationId, 'indexBranches'
           key :tags, ['branches']
-        end
-        response 200 do
-          key :description, 'Response with branches.'
-          schema do
-            key :type, :array
-            items do
-              key :'$ref', :Branch
+          response 200 do
+            key :description, 'Response with branches.'
+            schema do
+              key :type, :array
+              items do
+                key :'$ref', :Branch
+              end
             end
           end
         end
@@ -72,15 +72,15 @@ module Api
             key :type, :integer
             key :format, :int64
           end
-        end
-        response 200 do
-          key :description, 'Response with branch.'
-          schema do
-            key :'$ref', :Branch
+          response 200 do
+            key :description, 'Response with branch.'
+            schema do
+              key :'$ref', :Branch
+            end
           end
-        end
-        response 404 do
-          key :description, 'Branch not found.'
+          response 404 do
+            key :description, 'Branch not found.'
+          end
         end
       end
 
