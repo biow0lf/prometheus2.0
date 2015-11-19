@@ -5,6 +5,7 @@ h1. Welcome to Prometheus 2.0
 !https://secure.travis-ci.org/biow0lf/prometheus2.0.svg(Build Status)!:http://travis-ci.org/biow0lf/prometheus2.0
 !https://codeclimate.com/github/biow0lf/prometheus2.0.svg!:https://codeclimate.com/github/biow0lf/prometheus2.0
 !https://codeclimate.com/github/biow0lf/prometheus2.0/badges/coverage.svg!:https://codeclimate.com/github/biow0lf/prometheus2.0
+!http://online.swagger.io/validator?url=http://packages.altlinux.org/api/docs!:http://online.swagger.io/validator/debug?url=http://packages.altlinux.org/api/docs
 
 h2. Setup and run
 
