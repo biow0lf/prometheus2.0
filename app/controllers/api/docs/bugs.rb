@@ -70,6 +70,15 @@ module Api
             key :type, :integer
             key :format, :int64
           end
+          response 200 do
+            key :description, 'Response with bug.'
+            schema do
+              key :'$ref', :Branch
+            end
+          end
+          response 404 do
+            key :description, 'Bug not found.'
+          end
         end
       end
 
