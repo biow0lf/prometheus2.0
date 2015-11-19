@@ -136,6 +136,15 @@ module Api
             key :type, :integer
             key :format, :int64
           end
+          response 200 do
+            key :description, 'Response with srpm.'
+            schema do
+              key :'$ref', :Srpm
+            end
+          end
+          response 404 do
+            key :description, 'Srpm and/or Branch not found.'
+          end
         end
       end
 
