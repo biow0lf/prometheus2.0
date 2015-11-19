@@ -36,6 +36,8 @@ class Srpm < ActiveRecord::Base
 
   validates :md5, presence: true
 
+  # delegate :name, to: :branch, prefix: true
+
   # set :acls
 
   # value :leader
@@ -129,11 +131,12 @@ class Srpm < ActiveRecord::Base
     end
   end
 
-  def self.remove_old(branch, path)
-    branch.srpms.each do |srpm|
-      srpm.destroy unless File.exist?("#{ path }#{ srpm.filename }")
-    end
-  end
+  # TODO: remove this later
+  # def self.remove_old(branch, path)
+  #   branch.srpms.each do |srpm|
+  #     srpm.destroy unless File.exist?("#{ path }#{ srpm.filename }")
+  #   end
+  # end
 
   def contributors
     logins = []
