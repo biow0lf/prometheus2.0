@@ -35,6 +35,10 @@ module Api
         key :name, 'changelogs'
         key :description, 'Changelogs operations'
       end
+      tag do
+        key :name, 'maintainers'
+        key :description, 'Maintainers operations'
+      end
     end
 
     # A list of all classes that have swagger_* declarations.
