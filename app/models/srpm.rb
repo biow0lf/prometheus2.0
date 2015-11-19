@@ -131,13 +131,6 @@ class Srpm < ActiveRecord::Base
     end
   end
 
-  # TODO: remove this later
-  # def self.remove_old(branch, path)
-  #   branch.srpms.each do |srpm|
-  #     srpm.destroy unless File.exist?("#{ path }#{ srpm.filename }")
-  #   end
-  # end
-
   def contributors
     logins = []
     changelogs.each do |changelog|

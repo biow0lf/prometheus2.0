@@ -175,36 +175,6 @@ describe Srpm do
     Srpm.import_all(branch, path)
   end
 
-  # TODO: remove this later
-  # it 'should remove old srpms from database' do
-  #   branch = create(:branch)
-  #   group = create(:group, branch_id: branch.id)
-  #   srpm1 = create(:srpm, branch_id: branch.id, group_id: group.id)
-  #   Redis.current.set("#{ branch.name }:#{ srpm1.filename }", 1)
-  #   srpm2 = create(
-  #     :srpm,
-  #     name: 'blackbox',
-  #     filename: 'blackbox-1.0-alt1.src.rpm',
-  #     branch_id: branch.id,
-  #     group_id: group.id
-  #   )
-  #   Redis.current.set("#{ branch.name }:#{ srpm2.filename }", 1)
-  #   Redis.current.sadd("#{ branch.name }:#{ srpm2.name }:acls", 'icesik')
-  #   Redis.current.set("#{ branch.name }:#{ srpm2.name }:leader", 'icesik')
-  #
-  #   path = '/ALT/Sisyphus/files/SRPMS/'
-  #
-  #   expect(File).to receive(:exist?)
-  #     .with("#{ path }openbox-3.4.11.1-alt1.1.1.src.rpm").and_return(true)
-  #   expect(File).to receive(:exist?)
-  #     .with("#{ path }blackbox-1.0-alt1.src.rpm").and_return(false)
-  #
-  #   expect { Srpm.remove_old(branch, path) }
-  #     .to change(Srpm, :count).by(-1)
-  #
-  #   # TODO: add checks for sub packages, set-get-delete
-  # end
-
   # private methods
 
   describe '#increment_branch_counter' do
