@@ -22,7 +22,7 @@ namespace :sisyphus do
     branch = Branch.find_by!(name: 'Sisyphus')
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
-    Srpm.remove_old(branch, '/ALT/Sisyphus/files/SRPMS/')
+    RemoveOldSrpms.new(branch, '/ALT/Sisyphus/files/SRPMS/').perform
     puts "#{ Time.now }: end"
     puts "#{ Time.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
