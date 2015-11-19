@@ -73,7 +73,7 @@ module Api
           response 200 do
             key :description, 'Response with bug.'
             schema do
-              key :'$ref', :Branch
+              key :'$ref', :Bug
             end
           end
           response 404 do
