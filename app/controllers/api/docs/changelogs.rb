@@ -62,6 +62,18 @@ module Api
             key :type, :integer
             key :format, :int64
           end
+          response 200 do
+            key :description, 'Response with changelogs.'
+            schema do
+              key :type, :array
+              items do
+                key :'$ref', :Changelog
+              end
+            end
+          end
+          response 404 do
+            key :description, 'Srpm and/or Branch not found.'
+          end
         end
       end
 
