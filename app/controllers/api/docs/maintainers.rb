@@ -68,6 +68,15 @@ module Api
             key :required, true
             key :type, :string
           end
+          response 200 do
+            key :description, 'Response with maintainer.'
+            schema do
+              key :'$ref', :Maintainer
+            end
+          end
+          response 404 do
+            key :description, 'Maintainer not found.'
+          end
         end
       end
 
