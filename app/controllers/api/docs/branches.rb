@@ -48,6 +48,15 @@ module Api
           key :operationId, 'indexBranches'
           key :tags, ['branches']
         end
+        response 200 do
+          key :description, 'Response with branches.'
+          schema do
+            key :type, :array
+            items do
+              key :'$ref', :Branch
+            end
+          end
+        end
       end
 
       swagger_path '/branches/{id}' do
@@ -63,6 +72,15 @@ module Api
             key :type, :integer
             key :format, :int64
           end
+        end
+        response 200 do
+          key :description, 'Response with branch.'
+          schema do
+            key :'$ref', :Branch
+          end
+        end
+        response 404 do
+          key :description, 'Branch not found.'
         end
       end
 
