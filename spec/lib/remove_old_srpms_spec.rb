@@ -14,22 +14,22 @@ describe RemoveOldSrpms do
   end
 
   describe '#perform' do
+    let(:branch) { stub_model Branch }
+
+    let(:srpm) do
+      stub_model Srpm,
+                 filename: 'openbox-1.0-alt1.src.rpm'
+    end
+
+    let(:path) { '/Sisyphus/' }
+
+    subject { described_class.new(branch, path) }
+
+    before do
+      expect(branch).to receive(:srpms).and_return([srpm])
+    end
+
     context 'srpm file exists' do
-      let(:branch) { stub_model Branch }
-
-      let(:srpm) do
-        stub_model Srpm,
-                   filename: 'openbox-1.0-alt1.src.rpm'
-      end
-
-      let(:path) { '/Sisyphus/' }
-
-      subject { described_class.new(branch, path) }
-
-      before do
-        expect(branch).to receive(:srpms).and_return([srpm])
-      end
-
       before do
         #
         # File.exist?("#{ path }#{ srpm.filename }")
@@ -47,21 +47,6 @@ describe RemoveOldSrpms do
     end
 
     context 'srpm file not exists' do
-      let(:branch) { stub_model Branch }
-
-      let(:srpm) do
-        stub_model Srpm,
-                   filename: 'openbox-1.0-alt1.src.rpm'
-      end
-
-      let(:path) { '/Sisyphus/' }
-
-      subject { described_class.new(branch, path) }
-
-      before do
-        expect(branch).to receive(:srpms).and_return([srpm])
-      end
-
       before do
         #
         # File.exist?("#{ path }#{ srpm.filename }")
