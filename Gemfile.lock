@@ -178,7 +178,7 @@ GEM
     net-ssh (3.0.1)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.14.0.305)
+    newrelic_rpm (3.14.1.311)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
