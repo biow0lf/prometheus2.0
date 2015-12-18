@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Branch do
+  it { should be_a(Redis::Objects) }
+
   describe 'Validation' do
     it { should validate_presence_of(:name) }
 
@@ -29,6 +31,12 @@ describe Branch do
     it { should have_many(:repocops) }
 
     it { should have_many(:repocop_patches) }
+  end
+
+  describe '#counter' do
+    subject { stub_model Branch, id: 42 }
+
+    specify { expect(subject.counter).to be_a(Redis::Counter) }
   end
 
   describe 'Callbacks' do
