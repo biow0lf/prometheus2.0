@@ -28,11 +28,6 @@ require 'capybara/email/rspec'
 ActiveRecord::Migration.check_pending!
 
 RSpec.configure do |config|
-  # Lint factories
-  # config.before(:suite) do
-  #   FactoryGirl.lint
-  # end
-
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
