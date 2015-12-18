@@ -1,5 +1,5 @@
 class MaintainerProfilesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def edit
     @maintainer = Maintainer.find_by!(login: current_user.login)
