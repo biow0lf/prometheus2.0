@@ -2,9 +2,12 @@ AllCops:
   RunRailsCops: true
   Exclude:
     - 'db/schema.rb'
-    - 'Rakefile'
-    - 'Capfile'
-    - 'Guardfile'
+    - 'bin/rspec'
+    - 'bin/rubocop'
+    - 'bin/setup'
+    - 'bin/capify'
+    - 'bin/cap'
+
 
 Style/Documentation:
   Enabled: false
