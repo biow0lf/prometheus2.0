@@ -21,7 +21,9 @@ class MaintainerTeam < ActiveRecord::Base
     login
   end
 
-  def self.team_exists?(login)
-    MaintainerTeam.where(login: login.downcase).count > 0
+  class << self
+    def team_exists?(login)
+      MaintainerTeam.where(login: login.downcase).count > 0
+    end
   end
 end
