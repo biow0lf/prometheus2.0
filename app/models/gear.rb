@@ -26,14 +26,14 @@ class Gear < ActiveRecord::Base
       time = Time.at(line.split[1].to_i)
 
       maintainer = Maintainer.where(login: login).first
-      srpm = Srpm.where(name: package.gsub(/\.git/,''), branch_id: branch).first
+      srpm = Srpm.where(name: package.gsub(/\.git/, ''), branch_id: branch).first
 
       # puts "#{ Time.now }: maintainer not found '#{ login }'" unless maintainer
-      # puts "#{ Time.now }: srpm not found '#{ package.gsub(/\.git/,'') }'" unless srpm
+      # puts "#{ Time.now }: srpm not found '#{ package.gsub(/\.git/, '') }'" unless srpm
 
       if maintainer && srpm
         Gear.create!(
-          repo: package.gsub(/\.git/,''),
+          repo: package.gsub(/\.git/, ''),
           maintainer_id: maintainer.id,
           lastchange: time,
           srpm_id: srpm.id

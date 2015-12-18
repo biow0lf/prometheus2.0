@@ -21,3 +21,6 @@ Style/SpaceInsideStringInterpolation:
 
 Rails/ActionFilter:
   Enabled: true
+
+Style/SpaceAfterComma:
+  Enabled: true
