@@ -69,7 +69,7 @@ group :development do
   gem 'bullet'
   gem 'capistrano', '~> 2', require: false
   gem 'capistrano_colors', require: false
-  gem 'xray-rails'
+  # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false
 end
