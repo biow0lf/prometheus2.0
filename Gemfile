@@ -42,6 +42,7 @@ gem 'rack-mini-profiler', require: false
 gem 'activerecord-colored_log_subscriber'
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
+gem 'public_activity'
 
 group :production, :development, :staging do
   gem 'redis'
