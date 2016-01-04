@@ -2,21 +2,29 @@ require 'rails_helper'
 
 describe Repocop do
   context 'Associations' do
-    it { should belong_to :branch }
+    it { should belong_to(:branch) }
 
-    pending { should belong_to :srpm }
+    pending { should belong_to(:srpm) }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :branch }
-    it { should validate_presence_of :name }
-    it { should validate_presence_of :version }
-    it { should validate_presence_of :release }
-    it { should validate_presence_of :arch }
-    it { should validate_presence_of :srcname }
-    it { should validate_presence_of :srcversion }
-    it { should validate_presence_of :srcrel }
-    it { should validate_presence_of :testname }
+    it { should validate_presence_of(:branch) }
+
+    it { should validate_presence_of(:name) }
+
+    it { should validate_presence_of(:version) }
+
+    it { should validate_presence_of(:release) }
+
+    it { should validate_presence_of(:arch) }
+
+    it { should validate_presence_of(:srcname) }
+
+    it { should validate_presence_of(:srcversion) }
+
+    it { should validate_presence_of(:srcrel) }
+
+    it { should validate_presence_of(:testname) }
   end
 
   context 'DB Indexes' do
