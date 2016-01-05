@@ -29,7 +29,9 @@ describe Repocop do
 
   context 'DB Indexes' do
     it { should have_db_index :srcname }
+    
     it { should have_db_index :srcrel }
+
     it { should have_db_index :srcversion }
   end
 
