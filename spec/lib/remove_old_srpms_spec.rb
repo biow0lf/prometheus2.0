@@ -25,9 +25,7 @@ describe RemoveOldSrpms do
 
     subject { described_class.new(branch, path) }
 
-    before do
-      expect(branch).to receive(:srpms).and_return([srpm])
-    end
+    before { expect(branch).to receive(:srpms).and_return([srpm]) }
 
     context 'srpm file exists' do
       before do
@@ -56,9 +54,7 @@ describe RemoveOldSrpms do
           .and_return(false)
       end
 
-      before do
-        expect(srpm).to receive(:destroy)
-      end
+      before { expect(srpm).to receive(:destroy) }
 
       specify { expect { subject.perform }.not_to raise_error }
     end

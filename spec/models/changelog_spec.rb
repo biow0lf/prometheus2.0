@@ -15,7 +15,7 @@ describe Changelog do
     it { should validate_presence_of(:changelogtext) }
   end
 
-  it { should have_db_index :srpm_id }
+  it { should have_db_index(:srpm_id) }
 
   context '#email' do
     it 'should return email' do
