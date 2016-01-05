@@ -9,15 +9,17 @@ class RepocopPatch < ActiveRecord::Base
   validates :release, presence: true
   validates :url, presence: true
 
-  def self.update_repocop_patches
-    ActiveRecord::Base.transaction do
-      RepocopPatch.delete_all
+  class << self
+    def update_repocop_patches
+      ActiveRecord::Base.transaction do
+        RepocopPatch.delete_all
 
-      url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql'
-      file = open(URI.escape(url)).read
+        url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql'
+        file = open(URI.escape(url)).read
 
-      file.each_line do |line|
-        ActiveRecord::Base.connection.execute(line)
+        file.each_line do |line|
+          ActiveRecord::Base.connection.execute(line)
+        end
       end
     end
   end
