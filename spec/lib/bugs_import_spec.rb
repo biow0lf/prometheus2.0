@@ -20,4 +20,18 @@ describe BugsImport do
     expect(bug.reporter).to eq('user@email.com')
     expect(bug.short_desc).to eq('segfault')
   end
+
+  # private methods
+
+  describe '#uri' do
+    let(:url) { double }
+
+    subject { described_class.new(url) }
+
+    before { expect(subject).to receive(:url).and_return(url) }
+
+    before { expect(URI).to receive(:parse).with(url) }
+
+    specify { expect { subject.send(:uri) }.not_to raise_error }
+  end
 end

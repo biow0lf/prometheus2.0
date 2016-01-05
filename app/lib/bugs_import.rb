@@ -19,9 +19,15 @@ class BugsImport
   end
 
   def data
-    uri = URI.parse(url)
+    # uri = URI.parse(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     http.get(uri.request_uri).body
+  end
+
+  private
+
+  def uri
+    URI.parse(url)
   end
 end
