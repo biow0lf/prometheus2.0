@@ -72,7 +72,7 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'bullet'
-  gem 'capistrano', '~> 2', require: false
+  gem 'capistrano'
   gem 'capistrano_colors', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
