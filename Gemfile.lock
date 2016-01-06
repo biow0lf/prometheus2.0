@@ -197,6 +197,7 @@ GEM
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
+    puma (2.15.3)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -396,6 +397,7 @@ DEPENDENCIES
   pry
   pry-rails
   public_activity
+  puma
   quiet_assets
   rack-cors
   rack-force_domain

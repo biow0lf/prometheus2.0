@@ -61,6 +61,10 @@ group :production do
   gem 'lograge'
 end
 
+group :puma do
+  gem 'puma'
+end
+
 group :staging do
   gem 'active_sanity'
 end
