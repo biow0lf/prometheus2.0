@@ -2,15 +2,16 @@ require 'rails_helper'
 
 describe Specfile do
   context 'Associations' do
-    it { should belong_to :srpm }
+    it { should belong_to(:srpm) }
   end
 
   context 'Validation' do
-    it { should validate_presence_of :srpm }
-    it { should validate_presence_of :spec }
+    it { should validate_presence_of(:srpm) }
+
+    it { should validate_presence_of(:spec) }
   end
 
-  it { should have_db_index :srpm_id }
+  it { should have_db_index(:srpm_id) }
 
   it 'should import spec file' do
     branch = create(:branch)

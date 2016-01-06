@@ -8,16 +8,18 @@ describe MaintainerTeam do
   # end
 
   context 'Validation' do
-    it { should validate_presence_of :name }
-    it { should validate_presence_of :email }
-    it { should validate_presence_of :login }
+    it { should validate_presence_of(:name) }
+
+    it { should validate_presence_of(:email) }
+
+    it { should validate_presence_of(:login) }
   end
 
   it 'should validate_uniqueness_of :login' do
     MaintainerTeam.create!(name: 'Ruby Team',
                            email: 'ruby@packages.altlinux.org',
                            login: 'ruby')
-    should validate_uniqueness_of :login
+    should validate_uniqueness_of(:login)
   end
 
   it 'should return Maintainer.login on .to_param' do

@@ -28,11 +28,11 @@ describe Repocop do
   end
 
   context 'DB Indexes' do
-    it { should have_db_index :srcname }
+    it { should have_db_index(:srcname) }
 
-    it { should have_db_index :srcrel }
+    it { should have_db_index(:srcrel) }
 
-    it { should have_db_index :srcversion }
+    it { should have_db_index(:srcversion) }
   end
 
   it 'should import repocops from url' do

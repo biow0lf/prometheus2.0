@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe PerlWatch do
   context 'Validation' do
-    it { should validate_presence_of :name }
+    it { should validate_presence_of(:name) }
   end
 
   it 'should import data from CPAN' do
