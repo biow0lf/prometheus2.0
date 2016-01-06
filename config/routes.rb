@@ -59,6 +59,7 @@ Rails.application.routes.draw do
     scope ':branch', branch: SUPPORTED_BRANCHES do
       resources :maintainers, only: :show do
         get 'srpms', on: :member
+        resources :activity, only: :index, controller: :maintainer_activity
       end
     end
 
