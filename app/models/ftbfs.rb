@@ -1,14 +1,20 @@
 class Ftbfs < ActiveRecord::Base
   belongs_to :branch
+
   belongs_to :maintainer
 
   validates :branch, presence: true
+
   validates :maintainer, presence: true
 
   validates :name, presence: true
+
   validates :version, presence: true
+
   validates :release, presence: true
+
   validates :weeks, presence: true
+
   validates :arch, presence: true
 
   def self.update_ftbfs(vendor_name, branch_name, url, arch)

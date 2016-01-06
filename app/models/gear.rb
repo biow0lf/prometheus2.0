@@ -2,9 +2,11 @@ require 'open-uri'
 
 class Gear < ActiveRecord::Base
   belongs_to :maintainer
+
   belongs_to :srpm
 
   validates :repo, presence: true
+
   validates :lastchange, presence: true
 
   def self.update_gitrepos(url)
