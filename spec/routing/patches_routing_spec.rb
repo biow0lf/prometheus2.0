@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe PatchesController do
   describe 'routing' do
@@ -7,8 +7,7 @@ describe PatchesController do
         controller: 'patches',
         action: 'index',
         branch: 'Sisyphus',
-        srpm_id: 'glibc'
-      )
+        srpm_id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/patches to patches#index' do
@@ -17,8 +16,7 @@ describe PatchesController do
         action: 'index',
         branch: 'Sisyphus',
         srpm_id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:srpm_id/patches/:id/download to patches#download' do
@@ -27,8 +25,7 @@ describe PatchesController do
         action: 'download',
         branch: 'Sisyphus',
         srpm_id: 'pmount',
-        id: 'pmount-0.9.23-alt-natspec.patch'
-      )
+        id: 'pmount-0.9.23-alt-natspec.patch')
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/patches/:id/download to patches#download' do
@@ -38,8 +35,7 @@ describe PatchesController do
         branch: 'Sisyphus',
         srpm_id: 'pmount',
         id: 'pmount-0.9.23-alt-natspec.patch',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:srpm_id/patches/:id to patches#show' do
@@ -48,8 +44,7 @@ describe PatchesController do
         action: 'show',
         branch: 'Sisyphus',
         srpm_id: 'pmount',
-        id: 'pmount-0.9.23-alt-natspec.patch'
-      )
+        id: 'pmount-0.9.23-alt-natspec.patch')
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/patches/:id to patches#show' do
@@ -59,8 +54,7 @@ describe PatchesController do
         branch: 'Sisyphus',
         srpm_id: 'pmount',
         id: 'pmount-0.9.23-alt-natspec.patch',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

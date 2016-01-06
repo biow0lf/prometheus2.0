@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe RsyncController do
   describe 'routing' do
@@ -10,8 +10,7 @@ describe RsyncController do
       expect(get: '/en/rsync/new').to route_to(
         controller: 'rsync',
         action: 'new',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

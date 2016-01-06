@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe RebuildController do
   describe 'routing' do
@@ -10,8 +10,7 @@ describe RebuildController do
       expect(get: '/en/rebuild').to route_to(
         controller: 'rebuild',
         action: 'index',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

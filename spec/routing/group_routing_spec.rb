@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe GroupController do
   describe 'routing' do
@@ -6,8 +6,7 @@ describe GroupController do
       expect(get: '/Sisyphus/packages').to route_to(
         controller: 'group',
         action: 'index',
-        branch: 'Sisyphus'
-      )
+        branch: 'Sisyphus')
     end
 
     it 'should route /:locale/:branch/packages to group#index' do
@@ -15,8 +14,7 @@ describe GroupController do
         controller: 'group',
         action: 'index',
         locale: 'en',
-        branch: 'Sisyphus'
-      )
+        branch: 'Sisyphus')
     end
 
     it 'should route /:branch/packages/:group to group#bygroup' do
@@ -24,8 +22,7 @@ describe GroupController do
         controller: 'group',
         action: 'show',
         branch: 'Sisyphus',
-        group: 'Accessibility'
-      )
+        group: 'Accessibility')
     end
 
     it 'should route /:locale/:branch/packages/:group to group#bygroup' do
@@ -34,8 +31,7 @@ describe GroupController do
         action: 'show',
         locale: 'en',
         branch: 'Sisyphus',
-        group: 'Accessibility'
-      )
+        group: 'Accessibility')
     end
 
     it 'should route /:branch/packages/:group/:group2 to group#bygroup' do
@@ -44,8 +40,7 @@ describe GroupController do
         action: 'show',
         branch: 'Sisyphus',
         group: 'Archiving',
-        group2: 'Compression'
-      )
+        group2: 'Compression')
     end
 
     it 'should route /:locale/:branch/packages/:group/:group2 to group#bygroup' do
@@ -55,8 +50,7 @@ describe GroupController do
         locale: 'en',
         branch: 'Sisyphus',
         group: 'Archiving',
-        group2: 'Compression'
-      )
+        group2: 'Compression')
     end
 
     it 'should route /:branch/packages/:group/:group2/:group3 to group#bygroup' do
@@ -66,8 +60,7 @@ describe GroupController do
         branch: 'Sisyphus',
         group: 'System',
         group2: 'Configuration',
-        group3: 'Hardware'
-      )
+        group3: 'Hardware')
     end
 
     it 'should route /:locale/:branch/packages/:group/:group2/:group3 to group#bygroup' do
@@ -78,8 +71,7 @@ describe GroupController do
         branch: 'Sisyphus',
         group: 'System',
         group2: 'Configuration',
-        group3: 'Hardware'
-      )
+        group3: 'Hardware')
     end
   end
 end

@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe MiscController do
   describe 'routing' do
@@ -10,8 +10,7 @@ describe MiscController do
       expect(get: '/en/misc/bugs').to route_to(
         controller: 'misc',
         action: 'bugs',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

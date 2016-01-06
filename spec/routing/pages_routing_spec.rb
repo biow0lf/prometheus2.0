@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe PagesController do
   describe 'routing' do
@@ -10,8 +10,7 @@ describe PagesController do
       expect(get: '/en/project').to route_to(
         controller: 'pages',
         action: 'project',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

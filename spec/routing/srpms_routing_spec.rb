@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe SrpmsController do
   describe 'routing' do
@@ -7,8 +7,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'show',
         branch: 'Sisyphus',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:id to srpms#show' do
@@ -17,8 +16,7 @@ describe SrpmsController do
         action: 'show',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:id/changelog to srpms#show' do
@@ -26,8 +24,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'changelog',
         branch: 'Sisyphus',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:id/changelog to srpms#changelog' do
@@ -36,8 +33,7 @@ describe SrpmsController do
         action: 'changelog',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:id/spec to srpms#spec' do
@@ -45,8 +41,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'spec',
         branch: 'Sisyphus',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:id/spec to srpms#spec' do
@@ -55,8 +50,7 @@ describe SrpmsController do
         action: 'spec',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:id/rawspec to srpms#rawspec' do
@@ -64,8 +58,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'rawspec',
         branch: 'Sisyphus',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:id/rawspec to srpms#rawspec' do
@@ -74,8 +67,7 @@ describe SrpmsController do
         action: 'rawspec',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:id/get to srpms#get' do
@@ -83,8 +75,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'get',
         branch: 'Sisyphus',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:id/get to srpms#get' do
@@ -93,8 +84,7 @@ describe SrpmsController do
         action: 'get',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:id/gear to srpms#gear' do
@@ -102,8 +92,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'gear',
         branch: 'Sisyphus',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:id/gear to srpms#gear' do
@@ -112,16 +101,14 @@ describe SrpmsController do
         action: 'gear',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/srpms/:id/bugs to srpms#bugs' do
       expect(get: '/Sisyphus/srpms/glibc/bugs').to route_to(
         controller: 'srpms',
         action: 'bugs',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/Sisyphus/srpms/:id/bugs to srpms#bugs' do
@@ -129,16 +116,14 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'bugs',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/srpms/:id/allbugs to srpms#allbugs' do
       expect(get: '/Sisyphus/srpms/glibc/allbugs').to route_to(
         controller: 'srpms',
         action: 'allbugs',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/Sisyphus/srpms/:id/allbugs to srpms#allbugs' do
@@ -146,16 +131,14 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'allbugs',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/srpms/:id/repocop to srpms#repocop' do
       expect(get: '/Sisyphus/srpms/glibc/repocop').to route_to(
         controller: 'srpms',
         action: 'repocop',
-        id: 'glibc'
-      )
+        id: 'glibc')
     end
 
     it 'should route /:locale/Sisyphus/srpms/:id/repocop to srpms#repocop' do
@@ -163,8 +146,7 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'repocop',
         id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

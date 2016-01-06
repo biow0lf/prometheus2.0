@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe HomeController do
   describe 'routing' do
@@ -10,8 +10,7 @@ describe HomeController do
       expect(get: '/en').to route_to(
         controller: 'home',
         action: 'index',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:locale/:branch/home to home#index' do
@@ -19,16 +18,14 @@ describe HomeController do
         controller: 'home',
         action: 'index',
         branch: 'Sisyphus',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/people to home#maintainers_list' do
       expect(get: '/Sisyphus/people').to route_to(
         controller: 'home',
         action: 'maintainers_list',
-        branch: 'Sisyphus'
-      )
+        branch: 'Sisyphus')
     end
 
     it 'should route /:locale/:branch/people to home#maintainers_list' do
@@ -36,8 +33,7 @@ describe HomeController do
         controller: 'home',
         action: 'maintainers_list',
         branch: 'Sisyphus',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

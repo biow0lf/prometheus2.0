@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe RssController do
   describe 'routing' do
@@ -6,8 +6,7 @@ describe RssController do
       expect(get: '/Sisyphus/rss').to route_to(
         controller: 'rss',
         action: 'index',
-        branch: 'Sisyphus'
-      )
+        branch: 'Sisyphus')
     end
 
     it 'should route /:locale/:branch/rss to rss#index' do
@@ -15,8 +14,7 @@ describe RssController do
         controller: 'rss',
         action: 'index',
         branch: 'Sisyphus',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

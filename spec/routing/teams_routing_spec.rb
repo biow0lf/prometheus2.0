@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe TeamsController do
   describe 'routing' do
@@ -7,8 +7,7 @@ describe TeamsController do
         controller: 'teams',
         action: 'show',
         branch: 'Sisyphus',
-        id: 'ruby'
-      )
+        id: 'ruby')
     end
 
     it 'should route /:locale/:branch/teams/:id to teams#show' do
@@ -17,8 +16,7 @@ describe TeamsController do
         action: 'show',
         branch: 'Sisyphus',
         id: 'ruby',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

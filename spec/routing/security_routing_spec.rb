@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe SecurityController do
   describe 'routing' do
@@ -7,16 +7,14 @@ describe SecurityController do
         controller: 'security',
         action: 'index',
         branch: 'Sisyphus',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/security to security#index' do
       expect(get: '/Sisyphus/security').to route_to(
         controller: 'security',
         action: 'index',
-        branch: 'Sisyphus'
-      )
+        branch: 'Sisyphus')
     end
 
     it 'should route /:locale/:branch/security?page=:page to security#index' do
@@ -25,8 +23,7 @@ describe SecurityController do
         action: 'index',
         locale: 'en',
         branch: 'Sisyphus',
-        page: '2'
-      )
+        page: '2')
     end
 
     it 'should route /:branch/security?page=:page to security#index' do
@@ -34,8 +31,7 @@ describe SecurityController do
         controller: 'security',
         action: 'index',
         branch: 'Sisyphus',
-        page: '2'
-      )
+        page: '2')
     end
   end
 end

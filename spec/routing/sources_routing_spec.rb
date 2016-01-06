@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe SourcesController do
   describe 'routing' do
@@ -7,8 +7,7 @@ describe SourcesController do
         controller: 'sources',
         action: 'index',
         branch: 'Sisyphus',
-        srpm_id: 'glibc'
-      )
+        srpm_id: 'glibc')
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/sources to sources#index' do
@@ -17,8 +16,7 @@ describe SourcesController do
         action: 'index',
         branch: 'Sisyphus',
         srpm_id: 'glibc',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/srpms/:srpm_id/sources/:id/download to sources#download' do
@@ -27,8 +25,7 @@ describe SourcesController do
         action: 'download',
         branch: 'Sisyphus',
         srpm_id: 'glibc',
-        id: 'glibc-2.16-alt4.tar'
-      )
+        id: 'glibc-2.16-alt4.tar')
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/sources/:id/download to sources#download' do
@@ -38,8 +35,7 @@ describe SourcesController do
         branch: 'Sisyphus',
         srpm_id: 'glibc',
         id: 'glibc-2.16-alt4.tar',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end

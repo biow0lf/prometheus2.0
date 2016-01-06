@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe RedirectorController do
   describe 'routing' do
@@ -6,16 +6,14 @@ describe RedirectorController do
       expect(get: '/glibc').to route_to(
         controller: 'redirector',
         action: 'index',
-        name: 'glibc'
-      )
+        name: 'glibc')
     end
 
     it 'should route /src:glibc to redirector#index' do
       expect(get: '/src:glibc').to route_to(
         controller: 'redirector',
         action: 'index',
-        name: 'src:glibc'
-      )
+        name: 'src:glibc')
     end
   end
 end

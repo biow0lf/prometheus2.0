@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../rails_helper')
+require 'rails_helper'
 
 describe MaintainersController do
   describe 'routing' do
@@ -7,8 +7,7 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'show',
         branch: 'Sisyphus',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/:branch/maintainers/:id to maintainers#show' do
@@ -17,8 +16,7 @@ describe MaintainersController do
         action: 'show',
         branch: 'Sisyphus',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /:branch/maintainers/:id/srpms to maintainers#srpms' do
@@ -26,8 +24,7 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'srpms',
         branch: 'Sisyphus',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/:branch/maintainers/:id/srpms to maintainers#srpms' do
@@ -36,16 +33,14 @@ describe MaintainersController do
         action: 'srpms',
         branch: 'Sisyphus',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/maintainers/:id/gear to maintainers#gear' do
       expect(get: '/Sisyphus/maintainers/icesik/gear').to route_to(
         controller: 'maintainers',
         action: 'gear',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/Sisyphus/maintainers/:id/gear to maintainers#gear' do
@@ -53,16 +48,14 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'gear',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/maintainers/:id/bugs to maintainers#bugs' do
       expect(get: '/Sisyphus/maintainers/icesik/bugs').to route_to(
         controller: 'maintainers',
         action: 'bugs',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/Sisyphus/maintainers/:id/bugs to maintainers#bugs' do
@@ -70,16 +63,14 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'bugs',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/maintainers/:id/allbugs to maintainers#allbugs' do
       expect(get: '/Sisyphus/maintainers/icesik/allbugs').to route_to(
         controller: 'maintainers',
         action: 'allbugs',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/Sisyphus/maintainers/:id/allbugs to maintainers#allbugs' do
@@ -87,16 +78,14 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'allbugs',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/maintainers/:id/ftbfs to maintainers#ftbfs' do
       expect(get: '/Sisyphus/maintainers/icesik/ftbfs').to route_to(
         controller: 'maintainers',
         action: 'ftbfs',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/Sisyphus/maintainers/:id/ftbfs to maintainers#ftbfs' do
@@ -104,16 +93,14 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'ftbfs',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
 
     it 'should route /Sisyphus/maintainers/:id/repocop to maintainers#repocop' do
       expect(get: '/Sisyphus/maintainers/icesik/repocop').to route_to(
         controller: 'maintainers',
         action: 'repocop',
-        id: 'icesik'
-      )
+        id: 'icesik')
     end
 
     it 'should route /:locale/Sisyphus/maintainers/:id/repocop to maintainers#repocop' do
@@ -121,8 +108,7 @@ describe MaintainersController do
         controller: 'maintainers',
         action: 'repocop',
         id: 'icesik',
-        locale: 'en'
-      )
+        locale: 'en')
     end
   end
 end
