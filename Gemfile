@@ -73,7 +73,6 @@ group :development do
   gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano'
-  gem 'capistrano_colors', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false

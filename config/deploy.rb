@@ -1,4 +1,3 @@
-require 'capistrano_colors'
 require 'bundler/capistrano'
 require 'thinking_sphinx/capistrano'
 
