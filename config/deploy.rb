@@ -4,6 +4,9 @@ lock '3.4.0'
 set :application, 'my_app_name'
 set :repo_url, 'git@example.com:me/my_repo.git'
 
+set :rbenv_type, :user
+set :rbenv_ruby, File.read('.ruby-version').strip
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
