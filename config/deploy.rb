@@ -14,6 +14,12 @@ set :branch, :master
 # set :deploy_to, '/var/www/my_app_name'
 set :deploy_to, '/home/prometheusapp/www'
 
+set :rails_env, 'production'
+
+# Defaults to false
+# Skip migration if files in db/migrate were not modified
+set :conditionally_migrate, true
+
 # Default value for :format is :pretty
 # set :format, :pretty
 
