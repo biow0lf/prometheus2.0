@@ -50,3 +50,5 @@ namespace :deploy do
   end
 
 end
+
+after :finishing, 'whenever:update_crontab'
