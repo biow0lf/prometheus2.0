@@ -1,4 +1,4 @@
-job_type :rake, 'cd /home/prometheusapp/www/current && RAILS_ENV=:environment bundle exec rake :task :output'
+# job_type :rake, 'cd /home/prometheusapp/www/current && RAILS_ENV=:environment bundle exec rake :task :output'
 
 # every 1.hour do
 #   command 'kill -s USR2 `cat /tmp/unicorn.my_site.pid`'
