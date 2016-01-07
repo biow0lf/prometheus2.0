@@ -41,7 +41,7 @@ if env == 'production'
 end
 
 before_fork do |server, worker|
-  # the following is highly recomended for Rails + "preload_app true"
+  # the following is highly recommended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
   if defined?(ActiveRecord::Base)
     ActiveRecord::Base.connection.disconnect!
@@ -70,7 +70,4 @@ after_fork do |server, worker|
   # and Redis.  TokyoCabinet file handles are safe to reuse
   # between any number of forked children (assuming your kernel
   # correctly implements pread()/pwrite() system calls)
-
-#  # For OobGC:
-#  GC.disable
 end
