@@ -12,6 +12,7 @@ set :branch, :master
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/home/prometheusapp/www'
 
 # Default value for :format is :pretty
 # set :format, :pretty
@@ -33,6 +34,9 @@ set :branch, :master
 
 # Default value for keep_releases is 5
 set :keep_releases, 5
+
+set :bundle_jobs, 4
+set :bundle_binstubs, -> { shared_path.join('bin') }
 
 namespace :deploy do
 

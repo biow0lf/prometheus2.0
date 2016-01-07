@@ -1,9 +1,3 @@
-require 'bundler/capistrano'
-require 'thinking_sphinx/capistrano'
-
-set :whenever_command, 'bundle exec whenever'
-require 'whenever/capistrano'
-
 set :application,     'prometheus2.0'
 set :scm,             :git
 set :repository,      'git://github.com/biow0lf/prometheus2.0.git'
