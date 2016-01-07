@@ -76,6 +76,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-install'
+  gem 'capistrano-faster-assets'
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false

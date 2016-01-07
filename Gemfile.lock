@@ -72,6 +72,8 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-faster-assets (1.0.2)
+      capistrano (>= 3.1)
     capistrano-rails (1.1.5)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -377,6 +379,7 @@ DEPENDENCIES
   bullet
   bundler (>= 1.7.0)
   capistrano
+  capistrano-faster-assets
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-install
