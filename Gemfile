@@ -74,6 +74,7 @@ group :development do
   gem 'bullet'
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false
