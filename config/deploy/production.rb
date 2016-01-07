@@ -7,7 +7,7 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
+server 'prometheus.altlinux.org', user: 'prometheusapp'
 
 # role-based syntax
 # ==================
@@ -46,6 +46,11 @@
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
+
+set :ssh_options, {
+    port: 222
+}
+
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
