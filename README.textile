@@ -97,7 +97,7 @@ h2. Run
 
 h2. Deploy
 
-* @bin/cap deploy@
+* @bin/cap production deploy@
 
 h2. License
 
