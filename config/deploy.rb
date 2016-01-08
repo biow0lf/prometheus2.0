@@ -69,6 +69,7 @@ after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
-    invoke 'thinking_sphinx:restart'
+    # invoke 'thinking_sphinx:restart'
+    invoke 'thinking_sphinx:regenerate'
   end
 end
