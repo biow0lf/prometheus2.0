@@ -10,8 +10,6 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 
 set :branch, :master
 
-# Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
 set :deploy_to, '/home/prometheusapp/www'
 
 set :rails_env, 'production'
@@ -69,6 +67,6 @@ after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
-    invoke 'thinking_sphinx:restart'
+    # invoke 'thinking_sphinx:restart'
   end
 end
