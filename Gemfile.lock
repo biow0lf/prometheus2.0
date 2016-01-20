@@ -43,7 +43,7 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     ast (2.2.0)
-    awesome_nested_set (3.0.2)
+    awesome_nested_set (3.0.3)
       activerecord (>= 4.0.0, < 5)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
