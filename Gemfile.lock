@@ -180,7 +180,7 @@ GEM
     middleware (0.1.0)
     mime-types (2.99)
     mini_portile2 (2.0.0)
-    minitest (5.8.3)
+    minitest (5.8.4)
     multi_json (1.11.2)
     mysql2 (0.4.2)
     net-scp (1.2.1)
