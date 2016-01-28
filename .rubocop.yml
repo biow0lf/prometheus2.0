@@ -1,5 +1,4 @@
 AllCops:
-  RunRailsCops: true
   Exclude:
     - 'db/schema.rb'
     - 'bin/rspec'
@@ -8,6 +7,8 @@ AllCops:
     - 'bin/capify'
     - 'bin/cap'
 
+Rails:
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
