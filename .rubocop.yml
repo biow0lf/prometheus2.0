@@ -28,3 +28,7 @@ Rails/ActionFilter:
 
 Style/SpaceAfterComma:
   Enabled: true
+
+Style/FileName:
+  Enabled: false
+
