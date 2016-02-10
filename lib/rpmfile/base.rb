@@ -7,9 +7,9 @@ module RPMFile
 
     RPM_STRING_TAGS = [:name, :version, :release, :summary, :group, :license,
                        :url, :packager, :vendor, :distribution, :description,
-                       :buildhost, :changelogname, :changelogtext]
-    RPM_INT_TAGS = [:epoch]
-    RPM_TIME_TAGS = [:buildtime, :changelogtime]
+                       :buildhost, :changelogname, :changelogtext].freeze
+    RPM_INT_TAGS = [:epoch].freeze
+    RPM_TIME_TAGS = [:buildtime, :changelogtime].freeze
 
     def initialize(file, reader = ConsoleReader.new)
       @file = file

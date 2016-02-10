@@ -40,6 +40,6 @@ describe User do
       end
     end
 
-    specify { expect { subject.login }.not_to raise_error  }
+    specify { expect { subject.login }.not_to raise_error }
   end
 end
