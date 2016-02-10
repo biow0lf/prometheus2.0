@@ -13,6 +13,8 @@ gem 'turbolinks'
 
 gem 'rake', require: false
 
+# TODO: gem 'good_migrations'
+
 group :postgresql do
   gem 'pg'
 end
