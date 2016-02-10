@@ -35,7 +35,7 @@ gem 'awesome_nested_set'
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'sitemap_generator'
-# gem 'rouge'
+gem 'rouge'
 # gem 'github-linguist'
 gem 'coderay'
 # gem 'rack-rewrite'
