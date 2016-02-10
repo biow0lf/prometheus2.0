@@ -13,8 +13,6 @@ gem 'turbolinks'
 
 gem 'rake', require: false
 
-# TODO: gem 'good_migrations'
-
 group :postgresql do
   gem 'pg'
 end
@@ -28,6 +26,7 @@ gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'
 gem 'draper'
+# gem 'good_migrations'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
