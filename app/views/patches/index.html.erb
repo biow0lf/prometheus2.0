@@ -46,7 +46,7 @@
       <% if patch.patch? %>
         <%= link_to patch.filename, srpm_patch_path(@branch, @srpm, patch), class: 'news' %>
       <% else %>
-        <%= link_to patch.filename, nil, class: 'news' %>
+        <%= patch.filename %>
       <% end %>
     </td>
     <td> <b><%= number_to_human_size(patch.size) %></b> </td>
