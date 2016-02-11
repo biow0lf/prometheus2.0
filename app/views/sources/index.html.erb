@@ -46,7 +46,7 @@
       <% if source.source? %>
         <%= link_to source.filename, download_srpm_source_path(@branch, @srpm, source), class: 'news' %>
       <% else %>
-        <% source.filename %>
+        <%= source.filename %>
       <% end %>
     </td>
     <td> <b><%= number_to_human_size(source.size) %></b> </td>
