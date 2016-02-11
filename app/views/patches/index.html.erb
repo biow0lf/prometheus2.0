@@ -48,7 +48,7 @@
     <td> <b><%= number_to_human_size(patch.size) %></b> </td>
     <td>
       <% if patch.patch? %>
-        <%= link_to _('Download'), download_srpm_patch_path(@branch, @srpm, patch), class: 'news' %>
+        <%= link_to _('Download'), srpm_patch_download_path(@branch, @srpm, patch), class: 'news' %>
       <% else %>
         &nbsp;
       <% end %>
@@ -60,4 +60,8 @@
 
 </div>
 
-<div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">
+    &nbsp;
+  </div>
+</div>
