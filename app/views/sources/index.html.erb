@@ -43,7 +43,11 @@
   <% @srpm.sources.each do |source| %>
   <tr>
     <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-      <%= link_to source.filename, download_srpm_source_path(@branch, @srpm, source), class: 'news' %>
+      <% if source.source? %>
+        <%= link_to source.filename, download_srpm_source_path(@branch, @srpm, source), class: 'news' %>
+      <% else %>
+        <% source.filename %>
+      <% end %>
     </td>
     <td> <b><%= number_to_human_size(source.size) %></b> </td>
     <td>
@@ -60,4 +64,8 @@
 
 </div>
 
-<div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
+<div id="bottom-offset-l">
+  <div id="bottom-offset-r">
+    &nbsp;
+  </div>
+</div>
