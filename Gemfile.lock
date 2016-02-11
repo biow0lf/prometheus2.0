@@ -150,7 +150,7 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
-    hashdiff (0.2.3)
+    hashdiff (0.3.0)
     highline (1.7.8)
     i18n (0.7.0)
     innertube (1.1.0)
