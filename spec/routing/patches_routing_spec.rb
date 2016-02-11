@@ -19,25 +19,6 @@ describe PatchesController do
         locale: 'en')
     end
 
-    it 'should route /:branch/srpms/:srpm_id/patches/:id/download to patches#download' do
-      expect(get: '/Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch/download').to route_to(
-        controller: 'patches',
-        action: 'download',
-        branch: 'Sisyphus',
-        srpm_id: 'pmount',
-        id: 'pmount-0.9.23-alt-natspec.patch')
-    end
-
-    it 'should route /:locale/:branch/srpms/:srpm_id/patches/:id/download to patches#download' do
-      expect(get: '/en/Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch/download').to route_to(
-        controller: 'patches',
-        action: 'download',
-        branch: 'Sisyphus',
-        srpm_id: 'pmount',
-        id: 'pmount-0.9.23-alt-natspec.patch',
-        locale: 'en')
-    end
-
     it 'should route /:branch/srpms/:srpm_id/patches/:id to patches#show' do
       expect(get: '/Sisyphus/srpms/pmount/patches/pmount-0.9.23-alt-natspec.patch').to route_to(
         controller: 'patches',

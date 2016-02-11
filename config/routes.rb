@@ -32,7 +32,7 @@ Rails.application.routes.draw do
           get 'gear'
         end
         resources :patches, only: [:index, :show] do
-          get 'download', on: :member
+          resource :download, only: [:show], controller: :patch_download
         end
         resources :sources, only: :index do
           get 'download', on: :member
