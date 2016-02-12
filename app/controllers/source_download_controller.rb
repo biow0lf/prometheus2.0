@@ -5,7 +5,7 @@ class SourceDownloadController < ApplicationController
     @source = @srpm.sources.find_by!(filename: params[:source_id])
     if @source.source?
       send_data @source.source, disposition: 'attachment', filename: @source.filename
-    elsif !@source.source?
+    else
       render layout: false
     end
   end

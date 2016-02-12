@@ -5,7 +5,7 @@ class PatchDownloadController < ApplicationController
     @patch = @srpm.patches.find_by!(filename: params[:patch_id])
     if @patch.patch?
       send_data @patch.patch, disposition: 'attachment', filename: @patch.filename
-    elsif !@patch.patch?
+    else
       render layout: false
     end
   end
