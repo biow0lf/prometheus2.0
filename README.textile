@@ -99,6 +99,10 @@ h2. Deploy
 
 * @bin/cap production deploy@
 
+h2. Tests
+
+* @bin/rspec@
+
 h2. License
 
 Prometheus 2.0 uses the MIT license. Please check the MIT-LICENSE file for more details.
