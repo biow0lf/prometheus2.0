@@ -31,11 +31,13 @@ Rails.application.routes.draw do
           get 'get'
           get 'gear'
         end
+
         resources :patches, only: [:index, :show] do
           resource :download, only: [:show], controller: :patch_download
         end
+
         resources :sources, only: :index do
-          get 'download', on: :member
+          resource :download, only: [:show], controller: :source_download
         end
       end
       get 'rss' => 'rss#index', as: 'rss'
