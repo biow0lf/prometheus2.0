@@ -33,13 +33,14 @@ Rails.application.routes.draw do
         end
 
         resources :patches, only: [:index, :show] do
-          resource :download, only: [:show], controller: :patch_download
+          resource :download, only: :show, controller: :patch_download
         end
 
         resources :sources, only: :index do
-          resource :download, only: [:show], controller: :source_download
+          resource :download, only: :show, controller: :source_download
         end
       end
+
       get 'rss' => 'rss#index', as: 'rss'
       resources :teams, only: :show
       get 'people' => 'home#maintainers_list', as: 'maintainers'
