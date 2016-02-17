@@ -6,7 +6,7 @@ class SourceDownloadController < ApplicationController
     if @source.source?
       send_data @source.source, disposition: 'attachment', filename: @source.filename
     else
-      render layout: false
+      raise ActiveRecord::RecordNotFound
     end
   end
 end
