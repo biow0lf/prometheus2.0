@@ -6,7 +6,7 @@ class PatchDownloadController < ApplicationController
     if @patch.patch?
       send_data @patch.patch, disposition: 'attachment', filename: @patch.filename
     else
-      render layout: false
+      raise ActiveRecord::RecordNotFound
     end
   end
 end
