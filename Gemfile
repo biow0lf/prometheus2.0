@@ -81,6 +81,7 @@ group :development do
   gem 'capistrano3-unicorn'
   gem 'capistrano-maintenance'
   gem 'airbrussh', require: false
+  gem 'capistrano-db-tasks', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false
