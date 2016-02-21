@@ -79,6 +79,7 @@ group :development do
   gem 'capistrano-rbenv-install'
   gem 'capistrano-faster-assets'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-maintenance'
   gem 'airbrussh', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
