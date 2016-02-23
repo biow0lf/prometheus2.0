@@ -18,7 +18,7 @@ class MaintainerDecorator < Draper::Decorator
   end
 
   def avatar_url
-    "http://gravatar.com/avatar/#{ gravatar_id }.png?s=420&r=g"
+    "https://gravatar.com/avatar/#{ gravatar_id }.png?s=420&r=g"
   end
 
   private

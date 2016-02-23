@@ -55,7 +55,7 @@ describe MaintainerDecorator do
       expect(subject).to receive(:gravatar_id).and_return('abcd')
     end
 
-    specify { expect(subject.avatar_url).to eq('http://gravatar.com/avatar/abcd.png?s=420&r=g') }
+    specify { expect(subject.avatar_url).to eq('https://gravatar.com/avatar/abcd.png?s=420&r=g') }
   end
 
   # private methods
