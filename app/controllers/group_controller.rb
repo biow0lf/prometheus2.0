@@ -13,6 +13,6 @@ class GroupController < ApplicationController
         @group = @branch.groups.find_by!(name: params[:group3], parent_id: @group.id)
       end
     end
-    @srpms = @group.srpms.order('LOWER(name)').decorate
+    @srpms = @group.srpms.order('LOWER(name)').per(1_000).page(params[:page]).decorate
   end
 end
