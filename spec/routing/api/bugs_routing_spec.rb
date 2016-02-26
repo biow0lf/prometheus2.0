@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::BugsController do
   describe 'routing' do
-    it 'should route /api/bugs/:id to api/bugs#show' do
+    it 'should route GET /api/bugs/:id to api/bugs#show' do
       expect(get: '/api/bugs/22555').to route_to(
         controller: 'api/bugs',
         action: 'show',
@@ -10,8 +10,8 @@ describe Api::BugsController do
         id: '22555')
     end
 
-    it 'should route /api/bugs/:id.json to api/bugs#show' do
-      expect(get: 'api/bugs/22555').to route_to(
+    it 'should route GET /api/bugs/:id.json to api/bugs#show' do
+      expect(get: 'api/bugs/22555.json').to route_to(
         controller: 'api/bugs',
         action: 'show',
         format: 'json',
