@@ -5,5 +5,9 @@ module Api
     def resource
       @maintainer ||= Maintainer.find_by!(login: params[:id])
     end
+
+    def collection
+      @maintainers ||= Maintainer.order(:login)
+    end
   end
 end
