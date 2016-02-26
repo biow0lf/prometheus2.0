@@ -102,6 +102,7 @@ group :test do
   gem 'rspec-activemodel-mocks'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers'
+  gem 'rspec-matchers-controller_filters'
   gem 'capybara'
   gem 'capybara-email'
   gem 'launchy'
