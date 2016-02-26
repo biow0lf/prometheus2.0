@@ -34,6 +34,7 @@ gem 'whenever', require: false
 gem 'awesome_nested_set'
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
+gem 'chewy'
 gem 'sitemap_generator'
 gem 'rouge'
 # gem 'github-linguist'
