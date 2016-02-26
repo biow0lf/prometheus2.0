@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :changelogs, id: /[^\/]+/, only: :index
     end
 
-    resources :maintainers, only: :show
+    resources :maintainers, only: [:index, :show]
   end
 
   scope '(:locale)', locale: SUPPORTED_LOCALES do
