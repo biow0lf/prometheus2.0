@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104234733) do
+ActiveRecord::Schema.define(version: 20160224213835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,6 +226,8 @@ ActiveRecord::Schema.define(version: 20160104234733) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "perl_watches", ["name"], name: "index_perl_watches_on_name", using: :btree
 
   create_table "provides", force: :cascade do |t|
     t.integer  "package_id"
