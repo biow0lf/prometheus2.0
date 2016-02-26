@@ -56,6 +56,23 @@ module Api
         end
       end
 
+      swagger_path '/maintainers' do
+        operation :get do
+          key :description, 'Returns maintainers info'
+          key :operationId, 'indexMaintainers'
+          key :tags, ['maintainers']
+          response 200 do
+            key :description, 'Response with maintainers.'
+            schema do
+              key :type, :array
+              items do
+                key :'$ref', :Maintainer
+              end
+            end
+          end
+        end
+      end
+
       swagger_path '/maintainers/{login}' do
         operation :get do
           key :description, 'Returns maintainer info'
