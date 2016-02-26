@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::MaintainersController do
+describe Api::BranchesController do
   describe '#index' do
     before { get :index, format: :json }
 
@@ -26,9 +26,9 @@ describe Api::MaintainersController do
 
     before do
       #
-      # Maintainer.find_by!(login: params[:id])
+      # Branch.find(params[:id])
       #
-      expect(Maintainer).to receive(:find_by!).with(login: params[:id])
+      expect(Branch).to receive(:find).with(params[:id])
     end
 
     specify { expect { subject.send(:resource) }.not_to raise_error }
@@ -37,9 +37,9 @@ describe Api::MaintainersController do
   describe '#collection' do
     before do
       #
-      # Maintainer.order(:login)
+      # Branch.order(:order_id)
       #
-      expect(Maintainer).to receive(:order).with(:login)
+      expect(Branch).to receive(:order).with(:order_id)
     end
 
     specify { expect { subject.send(:collection) }.not_to raise_error }
