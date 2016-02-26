@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 describe Api::MaintainersController do
+  describe '#index' do
+    before { get :index, format: :json }
+
+    it { should render_template(:index) }
+
+    it { should respond_with(:ok) }
+  end
+
+  describe '#show' do
+    before { get :show, id: 42, format: :json }
+
+    it { should render_template(:show) }
+
+    it { should respond_with(:ok) }
+  end
+
   # private methods
 
   describe '#resource' do
