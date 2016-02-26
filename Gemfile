@@ -47,6 +47,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rack-timeout'
 gem 'public_activity'
 gem 'rails-observers'
+gem 'sidekiq'
 
 group :production, :development, :staging do
   gem 'redis'

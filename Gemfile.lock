@@ -110,6 +110,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
+    connection_pool (2.2.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     dalli (2.7.6)
@@ -325,6 +326,10 @@ GEM
       activesupport (>= 3)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    sidekiq (4.1.0)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
     simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -457,6 +462,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   shoulda-callback-matchers
   shoulda-matchers
+  sidekiq
   simplecov
   sitemap_generator
   sqlite3
