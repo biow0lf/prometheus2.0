@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       resources :changelogs, id: /[^\/]+/, only: :index
     end
 
+    resources :packages, id: /[^\/]+/, only: :show, controller: :package
+
     resources :maintainers, only: [:index, :show]
   end
 
