@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 describe Api::PackageController do
+  describe '#show.json' do
+    before { get :show, id: 'openbox', format: :json }
+
+    it { should render_template(:show) }
+
+    it { should respond_with(:ok) }
+  end
+
   # private methods
 
   describe '#resource' do
@@ -10,13 +18,13 @@ describe Api::PackageController do
 
     before do
       #
-      # subject.branch.packages.find_by!(name: params[:id])
+      # subject.branch.packages.where(name: params[:id])
       #
       expect(subject).to receive(:branch) do
         double.tap do |a|
           expect(a).to receive(:packages) do
             double.tap do |b|
-              expect(b).to receive(:find_by!).with(name: params[:id])
+              expect(b).to receive(:where).with(name: params[:id])
             end
           end
         end

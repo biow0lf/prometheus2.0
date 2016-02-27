@@ -4,7 +4,7 @@ module Api
     private
 
     def resource
-      @packages ||= branch.packages.find_by!(name: params[:id])
+      @packages ||= branch.packages.where(name: params[:id])
     end
   end
 end
