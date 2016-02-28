@@ -39,6 +39,10 @@ module Api
         key :name, 'maintainers'
         key :description, 'Maintainers operations'
       end
+      tag do
+        key :name, 'package'
+        key :description, 'Package operation'
+      end
     end
 
     # A list of all classes that have swagger_* declarations.
@@ -49,6 +53,7 @@ module Api
         Api::Docs::Maintainers,
         Api::Docs::Packages,
         Api::Docs::Srpms,
+        Api::Docs::Package,
         self
     ].freeze
 
