@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe BugDecorator do
   describe '#as_json' do
-    let(:created_at) { '2015-09-27T16:49:00Z' }
+    let(:created_at) { double }
 
-    let(:updated_at) { '2015-09-28T16:59:34Z' }
+    let(:updated_at) { double }
 
     let(:bug) do
       stub_model Bug,
@@ -16,10 +16,16 @@ describe BugDecorator do
                  component: 'cross-component',
                  assigned_to: 'icesik@altlinux.org',
                  reporter: 'mike@altlinux.org',
-                 short_desc: 'metabug for prometheus2.0 bugs',
-                 created_at: created_at,
-                 updated_at: updated_at
+                 short_desc: 'metabug for prometheus2.0 bugs'
     end
+
+    before { expect(bug).to receive(:created_at).and_return(created_at) }
+
+    before { expect(bug).to receive(:updated_at).and_return(updated_at) }
+
+    before { expect(created_at).to receive(:iso8601).and_return(created_at) }
+
+    before { expect(updated_at).to receive(:iso8601).and_return(updated_at) }
 
     subject { bug.decorate.as_json }
 
