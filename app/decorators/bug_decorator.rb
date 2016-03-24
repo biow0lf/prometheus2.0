@@ -22,6 +22,6 @@ class BugDecorator < Draper::Decorator
   end
 
   def link_to_bugzilla
-    h.link_to bug_id, bugzilla_url, class: 'news'
+    h.link_to(bug_id, bugzilla_url, class: 'news')
   end
 end

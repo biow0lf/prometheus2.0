@@ -47,7 +47,7 @@ describe BugDecorator do
   end
 
   describe '#bugzilla_url' do
-    let(:bug) { stub_model Bug, bug_id: 22555 }
+    let(:bug) { stub_model Bug, bug_id: 22_555 }
 
     subject { bug.decorate }
 
@@ -55,11 +55,14 @@ describe BugDecorator do
   end
 
   describe '#link_to_bugzilla' do
-    let(:bug) { stub_model Bug, bug_id: 22555 }
+    let(:bug) { stub_model Bug, bug_id: 22_555 }
 
     subject { bug.decorate }
 
     before do
+      #
+      # subject.h.link_to(22_555, 'https://bugzilla.altlinux.org/22555', class: 'news')
+      #
       expect(subject).to receive(:h) do
         double.tap do |a|
           expect(a).to receive(:link_to).with(22_555, 'https://bugzilla.altlinux.org/22555', class: 'news')

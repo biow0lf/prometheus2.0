@@ -89,7 +89,7 @@ describe SrpmDecorator do
 
     its([:size]) { should eq(11_417_028) }
 
-    its([:repocop]) { should  eq('warn') }
+    its([:repocop]) { should eq('warn') }
 
     its([:created_at]) { should eq(created_at) }
 
@@ -124,7 +124,7 @@ describe SrpmDecorator do
     context 'epoch is present' do
       let(:srpm) do
         stub_model Srpm,
-                   epoch: 20150928,
+                   epoch: 20_150_928,
                    version: '1.0',
                    release: 'alt1'
       end
