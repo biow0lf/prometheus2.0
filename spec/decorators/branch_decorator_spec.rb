@@ -2,21 +2,25 @@ require 'rails_helper'
 
 describe BranchDecorator do
   describe '#as_json' do
-    let(:created_at) { '2015-09-27T16:49:00Z' }
+    let(:created_at) { double }
 
-    let(:updated_at) { '2015-09-28T16:59:34Z' }
+    let(:updated_at) { double }
 
     let(:branch) do
       stub_model Branch,
                  id: 123,
                  name: 'Sisyphus',
                  order_id: 7,
-                 path: '/Sisyphus',
-                 created_at: created_at,
-                 updated_at: updated_at
+                 path: '/Sisyphus'
     end
 
-    subject { branch.decorate.as_json }
+    before { expect(branch).to receive(:created_at).and_return(created_at) }
+
+    before { expect(branch).to receive(:updated_at).and_return(updated_at) }
+
+    before { expect(created_at).to receive(:iso8601).and_return(created_at) }
+
+    before { expect(updated_at).to receive(:iso8601).and_return(updated_at) }
 
     before do
       #
@@ -28,6 +32,8 @@ describe BranchDecorator do
         end
       end
     end
+
+    subject { branch.decorate.as_json }
 
     its([:id]) { should eq(123) }
 
