@@ -49,6 +49,7 @@ module Api
     SWAGGERED_CLASSES = [
         Api::Docs::Models::OutputBranch,
         Api::Docs::Models::OutputBug,
+        Api::Docs::Models::OutputPackage,
         Api::Docs::Models::OutputSrpm,
         Api::Docs::Branches,
         Api::Docs::Bugs,
