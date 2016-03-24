@@ -18,21 +18,13 @@ describe Api::SrpmsController do
 
     before do
       #
-      # subject.branch.srpms.where(name: params[:id]).includes(:branch).first!
+      # subject.branch.srpms.find_by!(name: params[:id])
       #
       expect(subject).to receive(:branch) do
         double.tap do |a|
           expect(a).to receive(:srpms) do
             double.tap do |b|
-              expect(b).to receive(:where).with(name: params[:id]) do
-                double.tap do |c|
-                  expect(c).to receive(:includes).with(:branch) do
-                    double.tap do |d|
-                      expect(d).to receive(:first!)
-                    end
-                  end
-                end
-              end
+              expect(b).to receive(:find_by!).with(name: params[:id])
             end
           end
         end

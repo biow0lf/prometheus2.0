@@ -3,7 +3,7 @@ module Api
     private
 
     def resource
-      @srpm ||= branch.srpms.where(name: params[:id]).includes(:branch).first!
+      @srpm ||= branch.srpms.find_by!(name: params[:id])
     end
   end
 end
