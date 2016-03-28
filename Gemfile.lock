@@ -289,7 +289,7 @@ GEM
     rspec-its (1.2.0)
       rspec-core (>= 3.0.0)
       rspec-expectations (>= 3.0.0)
-    rspec-matchers-controller_filters (0.0.2)
+    rspec-matchers-controller_filters (1.0.0)
       rspec-rails (~> 3, >= 3.1)
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
