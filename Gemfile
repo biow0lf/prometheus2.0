@@ -48,6 +48,7 @@ gem 'rack-timeout'
 gem 'public_activity'
 gem 'rails-observers'
 gem 'sidekiq'
+# gem 'oink'
 
 group :production, :development, :staging do
   gem 'redis'
