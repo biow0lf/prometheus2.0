@@ -1,11 +1,29 @@
 class SrpmObserver < ActiveRecord::Observer
   def after_create(srpm)
-    srpm.branch.counter.increment
+    increment_branch_counter(srpm)
   end
 
   def after_destroy(srpm)
+    decrement_branch_counter(srpm)
+  end
+
+  private
+
+  def increment_branch_counter(srpm)
+    srpm.branch.counter.increment
+  end
+
+  def decrement_branch_counter(srpm)
     srpm.branch.counter.decrement
   end
+
+  # def add_filename_to_redis_cache(srpm)
+  #   Redis.current.set("#{ srpm.branch.name }:#{ srpm.filename }", 1)
+  # end
+  #
+  # def remove_filename_from_redis_cache(srpm)
+  #   Redis.current.del("#{ srpm.branch.name }:#{ srpm.filename }")
+  # end
 
   # after_create :add_filename_to_cache
   #
