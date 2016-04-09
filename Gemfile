@@ -38,7 +38,6 @@ gem 'chewy'
 gem 'sitemap_generator'
 gem 'rouge'
 # gem 'github-linguist'
-gem 'coderay'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
 gem 'activerecord-colored_log_subscriber'

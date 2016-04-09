@@ -9,6 +9,6 @@ class PatchesController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.find_by!(name: params[:srpm_id])
     @patch = @srpm.patches.find_by!(filename: params[:id])
-    @html_data = CodeRay.scan(@patch.patch, :diff).div(line_numbers: :table)
+    @html_data = Rouge::Formatters::HTML.new(css_class: 'highlight', line_numbers: true, inline_theme: 'github').format(Rouge::Lexers::Diff.new.lex(@patch.patch))
   end
 end

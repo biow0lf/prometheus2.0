@@ -416,7 +416,6 @@ DEPENDENCIES
   capybara-email
   chewy
   codeclimate-test-reporter
-  coderay
   coffee-rails (~> 4.1.0)
   dalli
   database_cleaner
