@@ -29,22 +29,10 @@ class SrpmObserver < ActiveRecord::Observer
     Redis.current.del("#{ srpm.branch.name }:#{ srpm.filename }")
   end
 
-  # after_create :add_filename_to_cache
-  #
-  # after_destroy :remove_filename_from_cache
-  #
   # after_destroy :remove_acls_from_cache
   #
   # after_destroy :remove_leader_from_cache
 
-  # def add_filename_to_cache
-  #   Redis.current.set("#{ branch.name }:#{ filename }", 1)
-  # end
-  #
-  # def remove_filename_from_cache
-  #   Redis.current.del("#{ branch.name }:#{ filename }")
-  # end
-  #
   # def remove_acls_from_cache
   #   Redis.current.del("#{ branch.name }:#{ name }:acls")
   # end
