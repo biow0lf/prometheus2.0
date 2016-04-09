@@ -23,4 +23,25 @@ describe SrpmObserver do
 
     specify { expect { subject.send(:after_create, srpm) }.not_to raise_error }
   end
+
+  describe '#after_destroy' do
+    let(:srpm) { stub_model Srpm }
+
+    before do
+      #
+      # srpm.branch.counter.decrement
+      #
+      expect(srpm).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:counter) do
+            double.tap do |b|
+              expect(b).to receive(:decrement)
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.send(:after_destroy, srpm) }.not_to raise_error }
+  end
 end

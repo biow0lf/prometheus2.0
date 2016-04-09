@@ -42,8 +42,6 @@ class Srpm < ActiveRecord::Base
 
   # value :leader
 
-  after_destroy :decrement_branch_counter
-
   after_create :add_filename_to_cache
 
   after_destroy :remove_filename_from_cache
@@ -139,10 +137,6 @@ class Srpm < ActiveRecord::Base
   end
 
   private
-
-  def decrement_branch_counter
-    branch.counter.decrement
-  end
 
   def add_filename_to_cache
     Redis.current.set("#{ branch.name }:#{ filename }", 1)
