@@ -42,10 +42,6 @@ class Srpm < ActiveRecord::Base
 
   # value :leader
 
-  after_create :add_filename_to_cache
-
-  after_destroy :remove_filename_from_cache
-
   after_destroy :remove_acls_from_cache
 
   after_destroy :remove_leader_from_cache
@@ -137,14 +133,6 @@ class Srpm < ActiveRecord::Base
   end
 
   private
-
-  def add_filename_to_cache
-    Redis.current.set("#{ branch.name }:#{ filename }", 1)
-  end
-
-  def remove_filename_from_cache
-    Redis.current.del("#{ branch.name }:#{ filename }")
-  end
 
   def remove_acls_from_cache
     Redis.current.del("#{ branch.name }:#{ name }:acls")
