@@ -40,8 +40,6 @@ describe Branch do
   end
 
   describe 'Callbacks' do
-    it { should callback(:set_default_counter_value).after(:create) }
-
     it { should callback(:destroy_counter).after(:destroy) }
   end
 
@@ -74,20 +72,6 @@ describe Branch do
   end
 
   # private methods
-
-  describe '#set_default_counter_value' do
-    subject { stub_model Branch }
-
-    before do
-      expect(subject).to receive(:counter) do
-        double.tap do |a|
-          expect(a).to receive(:value=).with(0)
-        end
-      end
-    end
-
-    specify { expect { subject.send(:set_default_counter_value) }.not_to raise_error }
-  end
 
   describe '#destroy_counter' do
     subject { stub_model Branch, id: 14 }

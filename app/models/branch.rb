@@ -29,8 +29,6 @@ class Branch < ActiveRecord::Base
 
   counter :counter
 
-  after_create :set_default_counter_value
-
   after_destroy :destroy_counter
 
   def to_param
@@ -42,10 +40,6 @@ class Branch < ActiveRecord::Base
   end
 
   private
-
-  def set_default_counter_value
-    counter.value = 0
-  end
 
   def destroy_counter
     Redis.current.del("branch:#{ id }:counter")
