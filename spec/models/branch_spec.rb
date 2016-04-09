@@ -39,10 +39,6 @@ describe Branch do
     specify { expect(subject.counter).to be_a(Redis::Counter) }
   end
 
-  describe 'Callbacks' do
-    it { should callback(:destroy_counter).after(:destroy) }
-  end
-
   describe '#to_param' do
     subject { stub_model Branch, name: 'Sisyphus' }
 
@@ -69,21 +65,5 @@ describe Branch do
     end
 
     specify { expect { subject.recount! }.not_to raise_error }
-  end
-
-  # private methods
-
-  describe '#destroy_counter' do
-    subject { stub_model Branch, id: 14 }
-
-    before do
-      expect(Redis).to receive(:current) do
-        double.tap do |a|
-          expect(a).to receive(:del).with("branch:#{ subject.id }:counter")
-        end
-      end
-    end
-
-    specify { expect { subject.send(:destroy_counter) }.not_to raise_error }
   end
 end

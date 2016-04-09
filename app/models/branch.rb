@@ -29,19 +29,11 @@ class Branch < ActiveRecord::Base
 
   counter :counter
 
-  after_destroy :destroy_counter
-
   def to_param
     name
   end
 
   def recount!
     counter.value = srpms.count
-  end
-
-  private
-
-  def destroy_counter
-    Redis.current.del("branch:#{ id }:counter")
   end
 end
