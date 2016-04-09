@@ -42,8 +42,6 @@ class Srpm < ActiveRecord::Base
 
   # value :leader
 
-  after_create :increment_branch_counter
-
   after_destroy :decrement_branch_counter
 
   after_create :add_filename_to_cache
@@ -141,10 +139,6 @@ class Srpm < ActiveRecord::Base
   end
 
   private
-
-  def increment_branch_counter
-    branch.counter.increment
-  end
 
   def decrement_branch_counter
     branch.counter.decrement
