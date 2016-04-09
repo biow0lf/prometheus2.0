@@ -20,6 +20,10 @@ describe SrpmObserver do
 
     before { expect(subject).to receive(:remove_filename_from_cache).with(srpm) }
 
+    before { expect(subject).to receive(:remove_acls_from_cache).with(srpm) }
+
+    before { expect(subject).to receive(:remove_leader_from_cache).with(srpm) }
+
     specify { expect { subject.send(:after_destroy, srpm) }.not_to raise_error }
   end
 
@@ -88,7 +92,6 @@ describe SrpmObserver do
     specify { expect { subject.send(:add_filename_to_cache, srpm) }.not_to raise_error }
   end
 
-
   describe '#remove_filename_from_cache' do
     let(:srpm) { stub_model Srpm, filename: 'openbox-1.0.src.rpm' }
 
@@ -108,5 +111,47 @@ describe SrpmObserver do
     end
 
     specify { expect { subject.send(:remove_filename_from_cache, srpm) }.not_to raise_error }
+  end
+
+  describe '#remove_acls_from_cache' do
+    let(:srpm) { stub_model Srpm, name: 'openbox' }
+
+    let(:branch) { stub_model Branch, name: 'Sisyphus' }
+
+    before { expect(srpm).to receive(:branch).and_return(branch) }
+
+    before do
+      #
+      # Redis.current.del("#{ srpm.branch.name }:#{ srpm.name }:acls")
+      #
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:del).with('Sisyphus:openbox:acls')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:remove_acls_from_cache, srpm) }.not_to raise_error }
+  end
+
+  describe '#remove_leader_from_cache' do
+    let(:srpm) { stub_model Srpm, name: 'openbox' }
+
+    let(:branch) { stub_model Branch, name: 'Sisyphus' }
+
+    before { expect(srpm).to receive(:branch).and_return(branch) }
+
+    before do
+      #
+      # Redis.current.del("#{ srpm.branch.name }:#{ srpm.name }:leader")
+      #
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:del).with('Sisyphus:openbox:leader')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:remove_leader_from_cache, srpm) }.not_to raise_error }
   end
 end

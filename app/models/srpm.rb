@@ -42,10 +42,6 @@ class Srpm < ActiveRecord::Base
 
   # value :leader
 
-  after_destroy :remove_acls_from_cache
-
-  after_destroy :remove_leader_from_cache
-
   def to_param
     name
   end
@@ -130,15 +126,5 @@ class Srpm < ActiveRecord::Base
       logins << changelog.login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
-  end
-
-  private
-
-  def remove_acls_from_cache
-    Redis.current.del("#{ branch.name }:#{ name }:acls")
-  end
-
-  def remove_leader_from_cache
-    Redis.current.del("#{ branch.name }:#{ name }:leader")
   end
 end
