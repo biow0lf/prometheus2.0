@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :branches
+resources :srpms
+resources :users
+resources :bugs
+resources :changelogs
+resources :maintainers
+resources :packages
+resources :conflicts
+resources :freshmeats
+resources :gears
+resources :groups
+resources :maintainer_teams
+resources :mirrors
+resources :obsoletes
+resources :patches
+resources :perl_watches
+resources :provides
+resources :repocops
+resources :repocop_patches
+resources :requires
+resources :sources
+resources :specfiles
+resources :teams
+
+    root to: "branches#index"
+  end
+
   namespace :api, defaults: { format: 'json' } do
     resources :docs, only: :index
 
