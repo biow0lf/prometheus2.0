@@ -48,6 +48,7 @@ gem 'public_activity'
 gem 'rails-observers'
 gem 'sidekiq'
 # gem 'oink'
+gem 'administrate'
 
 group :production, :development, :staging do
   gem 'redis'
