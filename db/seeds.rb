@@ -16,6 +16,14 @@ branch.path = '/Sisyphus'
 # branch.srpm_path = []
 branch.save!
 
+# add Platform8 branch
+branch = Branch.new
+branch.vendor = 'ALT Linux'
+branch.name = 'p8'
+branch.order_id = 2
+branch.path = '/p8/branch'
+branch.save!
+
 # add Platform7 branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'
