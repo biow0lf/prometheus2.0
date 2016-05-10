@@ -24,6 +24,8 @@ gem 'rack-health'
 gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'
+# WORKAROUND for draper
+gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml.git', branch: 'master'
 gem 'draper'
 # gem 'good_migrations'
 gem 'fast_gettext'

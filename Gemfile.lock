@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/rails/activemodel-serializers-xml.git
+  revision: 570ee7ed33d60e44ca1f3ccbec3d1fbf61d52cbf
+  branch: master
+  specs:
+    activemodel-serializers-xml (1.0.1)
+      activemodel (> 5.x)
+      activerecord (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
+
+GIT
   remote: https://github.com/rails/rails-observers.git
   revision: 2e83e3bf13dd4d963ed70bf4766f233f993b3e44
   branch: master
@@ -426,6 +437,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_sanity
+  activemodel-serializers-xml!
   activerecord-colored_log_subscriber
   airbrussh
   awesome_nested_set
