@@ -222,6 +222,7 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     fast_gettext (1.0.0)
+    ffi (1.9.10)
     get_process_mem (0.2.0)
     gettext (3.2.2)
       locale (>= 2.0.5)
@@ -246,6 +247,9 @@ GEM
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    listen (3.0.7)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9.7)
     locale (2.1.2)
     lograge (0.3.6)
       actionpack (>= 3)
@@ -331,6 +335,9 @@ GEM
     rainbow (2.1.0)
     raindrops (0.16.0)
     rake (11.1.2)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
     redis (3.3.0)
     redis-objects (1.2.1)
       redis (>= 3.0.2)
@@ -470,6 +477,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  listen (~> 3.0.5)
   lograge
   mysql2
   newrelic_rpm

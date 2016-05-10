@@ -74,6 +74,7 @@ group :staging do
 end
 
 group :development do
+  gem 'listen', '~> 3.0.5'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano'
