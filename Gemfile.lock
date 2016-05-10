@@ -478,7 +478,7 @@ DEPENDENCIES
   pry
   pry-rails
   public_activity
-  puma
+  puma (~> 3.0)
   quiet_assets
   rack-cors
   rack-force_domain
