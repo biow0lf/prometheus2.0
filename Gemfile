@@ -109,6 +109,7 @@ group :test do
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
   gem 'shoulda-callback-matchers'
   gem 'rspec-matchers-controller_filters'
   gem 'capybara'
