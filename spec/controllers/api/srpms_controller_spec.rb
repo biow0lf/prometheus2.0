@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::SrpmsController do
   describe '#show' do
-    before { get :show, id: 'glibc', format: :json }
+    before { get :show, params: { id: 'glibc', format: :json } }
 
     it { should render_template(:show) }
 

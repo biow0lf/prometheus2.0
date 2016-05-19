@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::BranchesController do
   describe '#index' do
-    before { get :index, format: :json }
+    before { get :index, params: { format: :json } }
 
     it { should render_template(:index) }
 
@@ -10,7 +10,7 @@ describe Api::BranchesController do
   end
 
   describe '#show' do
-    before { get :show, id: '42', format: :json }
+    before { get :show, params: { id: '42', format: :json } }
 
     it { should render_template(:show) }
 

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::ChangelogsController do
   describe '#index' do
-    before { get :index, srpm_id: 'gcc', format: :json }
+    before { get :index, params: { srpm_id: 'gcc', format: :json } }
 
     it { should render_template(:index) }
 

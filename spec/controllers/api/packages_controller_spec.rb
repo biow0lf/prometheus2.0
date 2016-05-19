@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::PackagesController do
   describe '#index' do
-    before { get :index, srpm_id: 'glibc', format: :json }
+    before { get :index, params: { srpm_id: 'glibc', format: :json } }
 
     it { should render_template(:index) }
 
