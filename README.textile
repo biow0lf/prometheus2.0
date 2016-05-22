@@ -61,6 +61,8 @@ h3. Import data:
 * @bin/rake sisyphusarm:srpms@
 * @bin/rake sisyphusarm:binary@
 
+* @bin/rake p8:update@
+
 * @bin/rake p7:update@
 
 * @bin/rake t7:update@
