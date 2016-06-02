@@ -133,7 +133,7 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (7.0.0)
     ast (2.2.0)
-    awesome_nested_set (3.1.0)
+    awesome_nested_set (3.1.1)
       activerecord (>= 4.0.0, < 5.1)
     awesome_print (1.6.1)
     bcrypt (3.1.11)
