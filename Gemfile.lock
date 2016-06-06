@@ -29,53 +29,6 @@ GIT
       activemodel (>= 4.0, < 5.1)
 
 GIT
-  remote: https://github.com/rspec/rspec-core.git
-  revision: cc869c8b8c1e00991b8be0c71faa9a5a74b8fd22
-  branch: master
-  specs:
-    rspec-core (3.5.0.pre)
-      rspec-support (= 3.5.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-expectations.git
-  revision: 1500d2163f53bb706083b4ba95f0f21d2d94ea7f
-  branch: master
-  specs:
-    rspec-expectations (3.5.0.pre)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.5.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-mocks.git
-  revision: a25774f2b54ab199c355ff92afff75513e773531
-  branch: master
-  specs:
-    rspec-mocks (3.5.0.pre)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.5.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-rails.git
-  revision: 253a54d924a46e2ffd1848d40bd269f17725c0f5
-  branch: master
-  specs:
-    rspec-rails (3.5.0.pre)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (= 3.5.0.pre)
-      rspec-expectations (= 3.5.0.pre)
-      rspec-mocks (= 3.5.0.pre)
-      rspec-support (= 3.5.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-support.git
-  revision: 5c15743508a8dfcf272bbea39035ebbc6f3748e1
-  branch: master
-  specs:
-    rspec-support (3.5.0.pre)
-
-GIT
   remote: https://github.com/smartinez87/exception_notification.git
   revision: c3000b76c17dcaa7b0c70fe9fca902a9ffd381d8
   branch: rails5
@@ -356,15 +309,36 @@ GEM
       railties (>= 4.2.0, < 5.1)
     riddle (1.5.12)
     rouge (1.10.1)
+    rspec (3.5.0.beta4)
+      rspec-core (= 3.5.0.beta4)
+      rspec-expectations (= 3.5.0.beta4)
+      rspec-mocks (= 3.5.0.beta4)
     rspec-activemodel-mocks (1.0.3)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       rspec-mocks (>= 2.99, < 4.0)
+    rspec-core (3.5.0.beta4)
+      rspec-support (= 3.5.0.beta4)
+    rspec-expectations (3.5.0.beta4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.5.0.beta4)
     rspec-its (1.2.0)
       rspec-core (>= 3.0.0)
       rspec-expectations (>= 3.0.0)
     rspec-matchers-controller_filters (1.0.0)
       rspec-rails (~> 3, >= 3.1)
+    rspec-mocks (3.5.0.beta4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.5.0.beta4)
+    rspec-rails (3.5.0.beta4)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 3.5.0.beta4)
+      rspec-expectations (= 3.5.0.beta4)
+      rspec-mocks (= 3.5.0.beta4)
+      rspec-support (= 3.5.0.beta4)
+    rspec-support (3.5.0.beta4)
     rubocop (0.40.0)
       parser (>= 2.3.1.0, < 3.0)
       powerpack (~> 0.1)
@@ -509,14 +483,11 @@ DEPENDENCIES
   redis
   redis-objects
   rouge
+  rspec (~> 3.5.0.beta4)
   rspec-activemodel-mocks
-  rspec-core!
-  rspec-expectations!
   rspec-its
   rspec-matchers-controller_filters
-  rspec-mocks!
-  rspec-rails!
-  rspec-support!
+  rspec-rails (~> 3.5.0.beta4)
   rubocop
   sass-rails (~> 5.0)
   shoulda-callback-matchers

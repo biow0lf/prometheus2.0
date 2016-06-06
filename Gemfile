@@ -91,12 +91,12 @@ group :development do
 end
 
 group :development, :test do
-  # gem 'rspec'
-  # gem 'rspec-rails'
+  gem 'rspec', '~> 3.5.0.beta4'
+  gem 'rspec-rails', '~> 3.5.0.beta4'
 
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
-  end
+  # %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  #   gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+  # end
 
   gem 'pry'
   gem 'pry-rails'
