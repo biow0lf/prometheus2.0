@@ -88,6 +88,7 @@ group :development do
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false
+  gem 'lol_dba'
 end
 
 group :development, :test do

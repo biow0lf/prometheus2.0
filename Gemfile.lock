@@ -214,6 +214,10 @@ GEM
       actionpack (>= 3)
       activesupport (>= 3)
       railties (>= 3)
+    lol_dba (2.0.3)
+      actionpack (>= 3.0, < 5.0)
+      activerecord (>= 3.0, < 5.0)
+      railties (>= 3.0, < 5.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -465,6 +469,7 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   lograge
+  lol_dba
   mysql2
   newrelic_rpm
   pg
