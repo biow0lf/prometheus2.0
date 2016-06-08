@@ -28,7 +28,7 @@ gem 'redis-objects'
 gem 'kaminari'
 # WORKAROUND for draper
 gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml.git', branch: 'master'
-gem 'draper', git: 'https://github.com/audionerd/draper.git', branch: 'rails5'
+gem 'draper', git: 'https://github.com/drapergem/draper.git', branch: 'rails-5'
 # gem 'good_migrations'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'

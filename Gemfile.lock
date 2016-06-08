@@ -1,12 +1,13 @@
 GIT
-  remote: https://github.com/audionerd/draper.git
-  revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
-  branch: rails5
+  remote: https://github.com/drapergem/draper.git
+  revision: 4b4f392826c439f95f3c9c8b790418e52d0e2212
+  branch: rails-5
   specs:
     draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
+      actionpack (> 5.x)
+      activemodel (> 5.x)
+      activemodel-serializers-xml
+      activesupport (> 5.x)
       request_store (~> 1.0)
 
 GIT
