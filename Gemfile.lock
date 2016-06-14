@@ -85,7 +85,7 @@ GEM
       activerecord (>= 4.0.0, < 5.1)
     awesome_print (1.7.0)
     bcrypt (3.1.11)
-    brakeman (3.3.1)
+    brakeman (3.3.2)
     builder (3.2.2)
     bullet (5.1.0)
       activesupport (>= 3.0.0)
