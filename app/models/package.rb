@@ -25,8 +25,6 @@ class Package < ApplicationRecord
 
   after_create :add_filename_to_cache
 
-  after_destroy :remove_filename_from_cache
-
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
     if branch.srpms.where(filename: sourcerpm).count == 1
@@ -90,9 +88,5 @@ class Package < ApplicationRecord
 
   def add_filename_to_cache
     Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
-  end
-
-  def remove_filename_from_cache
-    Redis.current.del("#{ srpm.branch.name }:#{ filename }")
   end
 end
