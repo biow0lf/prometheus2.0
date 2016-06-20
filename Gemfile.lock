@@ -229,7 +229,7 @@ GEM
     mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.1.1)
+    net-ssh (3.2.0)
     newrelic_rpm (3.15.2.317)
     nio4r (1.2.1)
     nokogiri (1.6.8)
