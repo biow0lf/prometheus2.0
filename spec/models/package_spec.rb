@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Package do
+  it { should be_a(ApplicationRecord) }
+
   describe 'Associations' do
     it { should belong_to(:srpm) }
 

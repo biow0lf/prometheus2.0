@@ -1,4 +1,4 @@
-class Ftbfs < ActiveRecord::Base
+class Ftbfs < ApplicationRecord
   belongs_to :branch
 
   belongs_to :maintainer

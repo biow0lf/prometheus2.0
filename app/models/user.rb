@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :email, immutable: true
 
   # Include default devise modules. Others available are:

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Bug do
+  it { should be_a(ApplicationRecord) }
+
   describe 'Validations' do
     it { should validate_presence_of(:bug_id) }
   end

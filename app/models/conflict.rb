@@ -1,4 +1,4 @@
-class Conflict < ActiveRecord::Base
+class Conflict < ApplicationRecord
   belongs_to :package
 
   validates :package, presence: true

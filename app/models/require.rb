@@ -1,7 +1,8 @@
-class Require < ActiveRecord::Base
+class Require < ApplicationRecord
   belongs_to :package
 
   validates :package, presence: true
+
   validates :name, presence: true
 
 # FIXME: this code is broken

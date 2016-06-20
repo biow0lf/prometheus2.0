@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'zlib'
 
-class PerlWatch < ActiveRecord::Base
+class PerlWatch < ApplicationRecord
   validates :name, presence: true
 
   def self.import_data(url)

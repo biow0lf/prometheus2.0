@@ -1,4 +1,4 @@
-class Mirror < ActiveRecord::Base
+class Mirror < ApplicationRecord
   belongs_to :branch
 
   validates :branch, presence: true

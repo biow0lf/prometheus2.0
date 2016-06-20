@@ -1,4 +1,4 @@
-class Freshmeat < ActiveRecord::Base
+class Freshmeat < ApplicationRecord
   validates :name, presence: true
 
   validates :version, presence: true

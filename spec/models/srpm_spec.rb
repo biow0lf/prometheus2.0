@@ -2,6 +2,8 @@ require 'rails_helper'
 require 'rpmfile'
 
 describe Srpm do
+  it { should be_a(ApplicationRecord) }
+
   describe 'Associations' do
     it { should belong_to(:branch) }
 

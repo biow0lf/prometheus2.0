@@ -1,6 +1,6 @@
 require 'open-uri'
 
-class Gear < ActiveRecord::Base
+class Gear < ApplicationRecord
   belongs_to :maintainer
 
   belongs_to :srpm

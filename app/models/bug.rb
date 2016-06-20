@@ -1,4 +1,4 @@
-class Bug < ActiveRecord::Base
+class Bug < ApplicationRecord
   validates :bug_id, presence: true
 
   class << self

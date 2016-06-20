@@ -1,6 +1,6 @@
 require 'rpmfile'
 
-class Srpm < ActiveRecord::Base
+class Srpm < ApplicationRecord
   # include Redis::Objects
 
   belongs_to :branch

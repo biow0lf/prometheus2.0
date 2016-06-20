@@ -1,6 +1,6 @@
 require 'rpmfile'
 
-class Package < ActiveRecord::Base
+class Package < ApplicationRecord
   belongs_to :srpm
 
   belongs_to :group

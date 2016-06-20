@@ -1,7 +1,8 @@
-class Specfile < ActiveRecord::Base
+class Specfile < ApplicationRecord
   belongs_to :srpm
 
   validates :srpm, presence: true
+
   validates :spec, presence: true
 
   def self.import(file, srpm)

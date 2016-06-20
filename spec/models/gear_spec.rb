@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Gear do
+  it { should be_a(ApplicationRecord) }
+
   context 'Associations' do
     it { should belong_to(:maintainer) }
 
