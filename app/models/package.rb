@@ -5,13 +5,13 @@ class Package < ApplicationRecord
 
   belongs_to :group
 
-  has_many :requires
+  has_many :requires, dependent: :destroy
 
-  has_many :provides
+  has_many :provides, dependent: :destroy
 
-  has_many :obsoletes
+  has_many :obsoletes, dependent: :destroy
 
-  has_many :conflicts
+  has_many :conflicts, dependent: :destroy
 
   validates :srpm, presence: true
 

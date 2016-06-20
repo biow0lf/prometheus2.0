@@ -8,13 +8,13 @@ describe Package do
 
     it { should belong_to(:group) }
 
-    it { should have_many(:provides) }
+    it { should have_many(:provides).dependent(:destroy) }
 
-    it { should have_many(:requires) }
+    it { should have_many(:requires).dependent(:destroy) }
 
-    it { should have_many(:obsoletes) }
+    it { should have_many(:obsoletes).dependent(:destroy) }
 
-    it { should have_many(:conflicts) }
+    it { should have_many(:conflicts).dependent(:destroy) }
   end
 
   describe 'Validation' do
