@@ -96,8 +96,6 @@ describe Package do
     expect(package.arch).to eq('i586')
     expect(package.filename).to eq(file)
     expect(package.sourcepackage).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
-
-    expect(Redis.current.get("#{ branch.name }:#{ package.filename }")).to eq('1')
   end
 
   it 'should import all packages from path' do
