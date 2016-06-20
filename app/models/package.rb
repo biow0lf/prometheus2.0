@@ -21,10 +21,6 @@ class Package < ApplicationRecord
 
   validates :md5, presence: true
 
-  after_save :set_srpm_delta_flag
-
-  after_create :add_filename_to_cache
-
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
     if branch.srpms.where(filename: sourcerpm).count == 1
@@ -78,15 +74,5 @@ class Package < ApplicationRecord
         end
       end
     end
-  end
-
-  private
-
-  def set_srpm_delta_flag
-    srpm.update_attribute(:delta, true)
-  end
-
-  def add_filename_to_cache
-    Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
   end
 end

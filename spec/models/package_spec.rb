@@ -39,12 +39,6 @@ describe Package do
     it { should have_db_index(:srpm_id) }
   end
 
-  describe 'Callbacks' do
-    it { should callback(:set_srpm_delta_flag).after(:save) }
-
-    it { should callback(:add_filename_to_cache).after(:create) }
-  end
-
   it 'should import package to database' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)
@@ -116,56 +110,5 @@ describe Package do
     expect(RPM).to receive(:check_md5).and_return(true)
     expect(Package).to receive(:import).and_return(true)
     Package.import_all(branch, pathes)
-  end
-
-  # private methods
-
-  describe '#set_srpm_delta_flag' do
-    subject { stub_model Package }
-
-    before do
-      #
-      # srpm.update_attribute(:delta, true)
-      #
-      expect(subject).to receive(:srpm) do
-        double.tap do |a|
-          expect(a).to receive(:update_attribute).with(:delta, true)
-        end
-      end
-    end
-
-    specify { expect { subject.send(:set_srpm_delta_flag) }.not_to raise_error }
-  end
-
-  describe '#add_filename_to_cache' do
-    subject { stub_model Package, filename: 'openbox-1.0.i588.rpm' }
-
-    before do
-      #
-      # subject.srpm.branch.name => 'Sisyphus'
-      #
-      expect(subject).to receive(:srpm) do
-        double.tap do |a|
-          expect(a).to receive(:branch) do
-            double.tap do |b|
-              expect(b).to receive(:name).and_return('Sisyphus')
-            end
-          end
-        end
-      end
-    end
-
-    before do
-      #
-      # Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
-      #
-      expect(Redis).to receive(:current) do
-        double.tap do |a|
-          expect(a).to receive(:set).with('Sisyphus:openbox-1.0.i588.rpm', 1)
-        end
-      end
-    end
-
-    specify { expect { subject.send(:add_filename_to_cache) }.not_to raise_error }
   end
 end
