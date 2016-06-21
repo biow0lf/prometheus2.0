@@ -47,6 +47,7 @@ module Api
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
+        Api::Docs::Models::Changelog,
         Api::Docs::Models::OutputBranch,
         Api::Docs::Models::OutputBug,
         Api::Docs::Models::OutputPackage,

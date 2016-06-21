@@ -14,12 +14,12 @@ module Api
           property :id do
             key :type, :integer
             key :format, :int64
-            key :description, 'Srpm ID.'
+            key :description, 'Srpm ID'
           end
           property :branch_id do
             key :type, :integer
             key :format, :int64
-            key :description, 'Branch ID.'
+            key :description, 'Branch ID'
           end
           property :branch do
             key :type, :string
