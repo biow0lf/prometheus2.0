@@ -10,10 +10,6 @@ describe AllBugs do
   end
 
   describe '#query' do
-    # def query
-    #   Bug.where(component: components)
-    # end
-
     let(:components) { double }
 
     subject { described_class.new(components) }
