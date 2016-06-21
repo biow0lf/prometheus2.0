@@ -67,7 +67,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
+    names = @srpm.packages.map(&:name).flatten.sort.uniq
 
     @bugs = OpenedBugs.new(names).query.decorate
     @allbugs = AllBugs.new(names).query.decorate
@@ -77,7 +77,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
+    names = @srpm.packages.map(&:name).flatten.sort.uniq
 
     @bugs = OpenedBugs.new(names).query.decorate
     @allbugs = AllBugs.new(names).query.decorate
