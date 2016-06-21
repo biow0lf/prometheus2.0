@@ -49,6 +49,7 @@ gem 'public_activity'
 gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git', branch: 'master'
 gem 'sidekiq'
 # gem 'oink'
+gem 'rectify'
 
 group :production, :development, :staging do
   gem 'redis'
