@@ -71,7 +71,8 @@
     <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
   <% end %>
 <% end %>
-<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br><br>
+<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br>
+<b><%= _('Repocop status:') %></b> <%= image_tag(@srpm.repocop) %><br><br>
 
 <% if @srpm.url %>
 <b><%= _('Home page:') %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, class: 'news', rel: 'nofollow' %><br><br>
