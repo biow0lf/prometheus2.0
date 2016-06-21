@@ -6,6 +6,6 @@ class AllBugs < Rectify::Query
   end
 
   def query
-    Bug.where(component: components)
+    Bug.where(component: components).order(bug_id: :desc)
   end
 end
