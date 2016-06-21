@@ -1,11 +1,11 @@
 module Api
   module Docs
     module Models
-      class Changelog
+      class OutputChangelog
         # :nocov:
         include Swagger::Blocks
 
-        swagger_schema :Changelog do
+        swagger_schema :OutputChangelog do
           key :required, [:id, :srpm_id, :changelogtime, :changelogname,
                           :changelogext, :created_at, :updated_at]
           property :id do

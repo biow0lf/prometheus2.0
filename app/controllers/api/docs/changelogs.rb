@@ -27,7 +27,7 @@ module Api
             schema do
               key :type, :array
               items do
-                key :'$ref', :Changelog
+                key :'$ref', :OutputChangelog
               end
             end
           end
