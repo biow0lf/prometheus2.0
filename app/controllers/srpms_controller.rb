@@ -69,7 +69,7 @@ class SrpmsController < ApplicationController
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.opened_bugs_for(names).decorate
+    @bugs = AllBugs.new(names).query.decorate
     @allbugs = Bug.all_bugs_for(names).decorate
   end
 
@@ -79,7 +79,7 @@ class SrpmsController < ApplicationController
 
     names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
 
-    @bugs = Bug.opened_bugs_for(names).decorate
+    @bugs = AllBugs.new(names).query.decorate
     @allbugs = Bug.all_bugs_for(names).decorate
   end
 
