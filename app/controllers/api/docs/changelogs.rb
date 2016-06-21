@@ -46,7 +46,6 @@ module Api
       swagger_path '/srpms/{name}/changelogs' do
         operation :get do
           key :description, 'Returns srpm changelogs info for given name'
-          key :operationId, 'findChangelogsForSrpm'
           key :tags, ['changelogs']
           parameter do
             key :name, :name
@@ -76,7 +75,6 @@ module Api
           end
         end
       end
-
       # :nocov:
     end
   end

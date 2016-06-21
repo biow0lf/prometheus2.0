@@ -7,7 +7,6 @@ module Api
       swagger_path '/srpms/{name}/packages' do
         operation :get do
           key :description, 'Returns srpm packages info for given name'
-          key :operationId, 'findPackagesForSrpm'
           key :tags, ['packages']
           parameter do
             key :name, :name

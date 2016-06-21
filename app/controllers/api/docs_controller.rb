@@ -51,6 +51,7 @@ module Api
         Api::Docs::Models::OutputBug,
         Api::Docs::Models::OutputPackage,
         Api::Docs::Models::OutputSrpm,
+
         Api::Docs::Branches,
         Api::Docs::Bugs,
         Api::Docs::Changelogs,

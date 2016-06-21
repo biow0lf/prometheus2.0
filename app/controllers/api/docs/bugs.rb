@@ -7,7 +7,6 @@ module Api
       swagger_path '/bugs/{bug_id}' do
         operation :get do
           key :description, 'Returns bug info for given bug_id'
-          key :operationId, 'findBugById'
           key :tags, ['bugs']
           parameter do
             key :name, :bug_id

@@ -59,7 +59,6 @@ module Api
       swagger_path '/maintainers' do
         operation :get do
           key :description, 'Returns maintainers info'
-          key :operationId, 'indexMaintainers'
           key :tags, ['maintainers']
           response 200 do
             key :description, 'Response with maintainers.'
@@ -76,7 +75,6 @@ module Api
       swagger_path '/maintainers/{login}' do
         operation :get do
           key :description, 'Returns maintainer info'
-          key :operationId, 'findMaintainerByLogin'
           key :tags, ['maintainers']
           parameter do
             key :name, :login
@@ -96,7 +94,6 @@ module Api
           end
         end
       end
-
       # :nocov:
     end
   end
