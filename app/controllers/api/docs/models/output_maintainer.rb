@@ -1,11 +1,11 @@
 module Api
   module Docs
     module Models
-      class Maintainer
+      class OutputMaintainer
         # :nocov:
         include Swagger::Blocks
 
-        swagger_schema :Maintainer do
+        swagger_schema :OutputMaintainer do
           key :required, [:id, :name, :email, :login, :time_zone, :jabber,
                           :info, :website, :location, :created_at, :updated_at]
           property :id do

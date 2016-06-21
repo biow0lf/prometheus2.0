@@ -13,7 +13,7 @@ module Api
             schema do
               key :type, :array
               items do
-                key :'$ref', :Maintainer
+                key :'$ref', :OutputMaintainer
               end
             end
           end
@@ -34,7 +34,7 @@ module Api
           response 200 do
             key :description, 'Response with maintainer.'
             schema do
-              key :'$ref', :Maintainer
+              key :'$ref', :OutputMaintainer
             end
           end
           response 404 do
