@@ -11,7 +11,7 @@ test:
 production:
   max_matches: 10000
   min_infix_len: 3
-  mem_limit: 768M
+  mem_limit: 1280M
   quiet_deltas: true
   pid_file: /home/prometheusapp/www/shared/tmp/searchd.pid
   indices_location: /home/prometheusapp/www/shared/db/sphinx
