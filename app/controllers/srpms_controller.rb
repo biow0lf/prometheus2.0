@@ -41,7 +41,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
     if @srpm.specfile
-      send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
+      send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{ @srpm.name }.spec"
     else @srpm.specfile.nil?
       render layout: false
     end
@@ -67,20 +67,16 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    names = @srpm.packages.map(&:name).flatten.sort.uniq
-
     @allbugs = AllBugsForSrpm.new(@srpm).query.decorate
-    @bugs = OpenedBugs.new(names).query.decorate
+    @bugs = OpenedBugsForSrpm.new(@srpm).query.decorate
   end
 
   def allbugs
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    names = @srpm.packages.map(&:name).flatten.sort.uniq
-
     @allbugs = AllBugsForSrpm.new(@srpm).query.decorate
-    @bugs = OpenedBugs.new(names).query.decorate
+    @bugs = OpenedBugsForSrpm.new(@srpm).query.decorate
   end
 
   def repocop
