@@ -24,5 +24,7 @@ class SearchesController < ApplicationController
   # TODO: why Mysql2::Error?
   rescue Mysql2::Error
     render 'search_is_not_available'
+  rescue ThinkingSphinx::ConnectionError
+    render 'search_is_not_available'
   end
 end
