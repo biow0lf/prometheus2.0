@@ -13,15 +13,15 @@
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(branch: params[:branch], name: params[:name]), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Bugs and FR') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(id: params[:id]), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" /><br>
+<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(id: params[:id], branch: params[:branch]), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(branch: params[:branch], name: params[:name]), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Bugs and FR (%s/%s)') % [@opened_bugs.count, @all_bugs.count] %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(id: params[:id]), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" /><br>
 
-<% if @allbugs.count == 0 %>
+<% if @all_bugs.count == 0 %>
 
 <b><%= _('There are no bugreports against this package') %></b>
 
 <% else %>
 
-<b><%= _('Total:') %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
+<b><%= _('Total:') %></b> <%= @all_bugs.count %> (<span style='color:red'><%= @opened_bugs.count %></span>|<%= @all_bugs.count - @opened_bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
 <span class="tabsel">&nbsp;<%= _('open') %>&nbsp;</span>
@@ -37,7 +37,7 @@
     <th><%= _('summary') %></th>
   </tr>
 
-  <% @bugs.each do |bug| %>
+  <% @opened_bugs.each do |bug| %>
     <tr>
       <td>
         <%= bug.link_to_bugzilla %>

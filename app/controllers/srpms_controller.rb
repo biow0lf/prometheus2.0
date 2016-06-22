@@ -63,12 +63,13 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch, gears: :maintainer).first!
   end
 
+  # TODO: rename to opened_bugs
   def bugs
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    @allbugs = AllBugsForSrpm.new(@srpm)
-    @bugs = OpenedBugsForSrpm.new(@srpm).query.decorate
+    @all_bugs = AllBugsForSrpm.new(@srpm)
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm)
   end
 
   def allbugs
