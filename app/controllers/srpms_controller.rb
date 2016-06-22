@@ -56,11 +56,17 @@ class SrpmsController < ApplicationController
     @noarch = @srpm.packages.where(arch: 'noarch').order('packages.name ASC')
     @x86_64 = @srpm.packages.where(arch: 'x86_64').order('packages.name ASC')
     @arm = @srpm.packages.where(arch: 'arm').order('packages.name ASC')
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def gear
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch, gears: :maintainer).first!
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   # TODO: rename to opened_bugs
