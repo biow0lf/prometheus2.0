@@ -72,12 +72,13 @@ class SrpmsController < ApplicationController
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
+  # TODO: rename to all_bugs
   def allbugs
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    @allbugs = AllBugsForSrpm.new(@srpm).decorate
-    @bugs = OpenedBugsForSrpm.new(@srpm).decorate
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def repocop
