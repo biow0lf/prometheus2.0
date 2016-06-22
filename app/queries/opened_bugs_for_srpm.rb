@@ -10,4 +10,8 @@ class OpenedBugsForSrpm < Rectify::Query
   def query
     scope.query.where(bug_status: BUG_STATUSES).order(bug_id: :desc)
   end
+
+  def decorate
+    query.decorate
+  end
 end

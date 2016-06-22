@@ -9,6 +9,10 @@ class AllBugsForSrpm < Rectify::Query
     Bug.where(component: components).order(bug_id: :desc)
   end
 
+  def decorate
+    query.decorate
+  end
+
   private
 
   def components

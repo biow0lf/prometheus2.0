@@ -32,6 +32,25 @@ describe AllBugsForSrpm do
     specify { expect { subject.query }.not_to raise_error }
   end
 
+  describe '#decorate' do
+    let(:srpm) { double }
+
+    subject { described_class.new(srpm) }
+
+    before do
+      #
+      # subject.query.decorate
+      #
+      expect(subject).to receive(:query) do
+        double.tap do |a|
+          expect(a).to receive(:decorate)
+        end
+      end
+    end
+
+    specify { expect { subject.decorate }.not_to raise_error }
+  end
+
   # private methods
 
   describe '#components' do
