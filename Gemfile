@@ -44,7 +44,6 @@ gem 'rack-mini-profiler', require: false
 gem 'activerecord-colored_log_subscriber'
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rack-timeout'
 gem 'public_activity'
 gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git', branch: 'master'
 gem 'sidekiq'
@@ -66,6 +65,7 @@ group :production do
   gem 'unicorn'
   gem 'unicorn-worker-killer'
   gem 'lograge'
+  gem 'rack-timeout'
 end
 
 group :staging do
