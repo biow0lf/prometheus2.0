@@ -7,7 +7,6 @@ class SrpmsController < ApplicationController
                                  release: @srpm.release,
                                  epoch: @srpm.epoch.to_s).select('DISTINCT id, arch, weeks')
     @changelogs = @srpm.changelogs.limit(3)
-    @changelogs_count = @srpm.changelogs.count
     if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
     end
