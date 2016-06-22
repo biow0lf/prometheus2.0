@@ -67,7 +67,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
-    @allbugs = AllBugsForSrpm.new(@srpm).query.decorate
+    @allbugs = AllBugsForSrpm.new(@srpm)
     @bugs = OpenedBugsForSrpm.new(@srpm).query.decorate
   end
 
@@ -76,7 +76,7 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
 
     @allbugs = AllBugsForSrpm.new(@srpm).query.decorate
-    @bugs = OpenedBugsForSrpm.new(@srpm).query.decorate
+    @bugs = OpenedBugsForSrpm.new(@srpm)
   end
 
   def repocop
