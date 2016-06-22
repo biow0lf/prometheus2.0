@@ -10,7 +10,26 @@ describe AllBugsForSrpm do
   end
 
   describe '#query' do
-    # TODO: write
+    let(:srpm) { double }
+
+    let(:components) { double }
+
+    subject { described_class.new(srpm) }
+
+    before { expect(subject).to receive(:components).and_return(components) }
+
+    before do
+      #
+      # Bug.where(component: components).order(bug_id: :desc)
+      #
+      expect(Bug).to receive(:where).with(component: components) do
+        double.tap do |a|
+          expect(a).to receive(:order).with(bug_id: :desc)
+        end
+      end
+    end
+
+    specify { expect { subject.query }.not_to raise_error }
   end
 
   # private methods
