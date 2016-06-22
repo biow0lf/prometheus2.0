@@ -22,6 +22,9 @@ class SrpmsController < ApplicationController
         @leader = Maintainer.where(login: login).first
       end
     end
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def changelog
@@ -29,12 +32,18 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def spec
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def rawspec
