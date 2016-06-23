@@ -28,7 +28,8 @@ h3. Install:
 * rpm
 * rpm2cpio
 * bzip2
-* coreutils
+* GNU coreutils
+* GNU cpio
 
 h3. Then:
 
