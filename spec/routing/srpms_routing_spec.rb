@@ -133,20 +133,5 @@ describe SrpmsController do
         id: 'glibc',
         locale: 'en')
     end
-
-    it 'should route /Sisyphus/srpms/:id/repocop to srpms#repocop' do
-      expect(get: '/Sisyphus/srpms/glibc/repocop').to route_to(
-        controller: 'srpms',
-        action: 'repocop',
-        id: 'glibc')
-    end
-
-    it 'should route /:locale/Sisyphus/srpms/:id/repocop to srpms#repocop' do
-      expect(get: '/en/Sisyphus/srpms/glibc/repocop').to route_to(
-        controller: 'srpms',
-        action: 'repocop',
-        id: 'glibc',
-        locale: 'en')
-    end
   end
 end

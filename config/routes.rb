@@ -53,7 +53,7 @@ Rails.application.routes.draw do
     scope 'Sisyphus', id: /[^\/]+/ do
       get 'srpms/:id/bugs' => 'srpms#bugs', as: 'bugs_srpm'
       get 'srpms/:id/allbugs' => 'srpms#allbugs', as: 'allbugs_srpm'
-      get 'srpms/:id/repocop' => 'srpms#repocop', as: 'repocop_srpm'
+      get 'srpms/:id/repocop' => 'srpm_repocops#index', as: 'repocop_srpm'
     end
 
     resource :maintainer_profile, only: [:edit, :update]
