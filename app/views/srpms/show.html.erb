@@ -72,7 +72,11 @@
   <% end %>
 <% end %>
 <b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br>
-<b><%= _('Repocop status:') %></b> <%= image_tag(@srpm.repocop) %><br><br>
+<b><%= _('Repocop status:') %></b> <%= image_tag(@srpm.repocop) %>
+<% if @srpm.repocop_patch %>
+  <%= link_to image_tag('patch.jpg', alt: _('repocop patch')), @srpm.repocop_patch.url, class: 'repocoplink', title: _('repocop patch for the package') %>
+<% end %>
+<br><br>
 
 <% if @srpm.url %>
 <b><%= _('Home page:') %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, class: 'news', rel: 'nofollow' %><br><br>
