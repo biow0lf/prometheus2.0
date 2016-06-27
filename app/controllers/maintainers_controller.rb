@@ -60,12 +60,11 @@ class MaintainersController < ApplicationController
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
                 where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
                 order('bug_id DESC').decorate
-
-    @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                   order('bug_id DESC').decorate
   end
 
   def allbugs
@@ -77,14 +76,12 @@ class MaintainersController < ApplicationController
 
     names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
 
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+
     @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
                 where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
                 order('bug_id DESC').
                 decorate
-
-    @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                   order('bug_id DESC').
-                   decorate
   end
 
   def ftbfs
