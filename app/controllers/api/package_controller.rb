@@ -1,6 +1,5 @@
 module Api
   class PackageController < BaseController
-
     private
 
     def resource
