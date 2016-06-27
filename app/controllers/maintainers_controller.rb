@@ -58,13 +58,9 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
 
-    names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
-
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
 
-    @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
-                order('bug_id DESC').decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def allbugs
@@ -74,14 +70,9 @@ class MaintainersController < ApplicationController
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
 
-    names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
-
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
 
-    @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
-                order('bug_id DESC').
-                decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def ftbfs

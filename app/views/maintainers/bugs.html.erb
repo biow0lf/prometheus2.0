@@ -5,7 +5,7 @@
 <div class="header"><%= _('Maintainer:') %> <%= _(@maintainer.name) %></div>
 <p class="break" />
 <span class="vkladka">&nbsp;<%= link_to _('Information'), maintainer_path('Sisyphus', @maintainer), class: 'news', title: _('information about maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Packages'), srpms_maintainer_path('Sisyphus', @maintainer), class: 'news', title: _('packages which was built by this maintainer') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_maintainer_path(@maintainer), class: 'news', title: _('gear') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Bugs and FR') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('FTBFS'), ftbfs_maintainer_path(@maintainer), class: 'news', title: _('FTBFS') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_maintainer_path(@maintainer), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" /><br>
-<b><%= _('Total records:') %></b> <%= @all_bugs.count %> (<span style='color: red;'><%= @bugs.count %></span>|<%= @all_bugs.count - @bugs.count %>)
+<b><%= _('Total records:') %></b> <%= @all_bugs.count %> (<span style='color: red;'><%= @opened_bugs.count %></span>|<%= @all_bugs.count - @opened_bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
 <span class="tabsel">&nbsp;<%= _('open') %>&nbsp;</span>
@@ -22,7 +22,7 @@
     <th><%= _('summary') %></th>
   </tr>
 
-  <% @bugs.each do |bug| %>
+  <% @opened_bugs.each do |bug| %>
     <tr>
       <td>
         <%= bug.link_to_bugzilla %>

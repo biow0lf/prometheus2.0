@@ -1,3 +1,4 @@
+# TODO: remove this
 class AllBugs < Rectify::Query
   attr_reader :components
 

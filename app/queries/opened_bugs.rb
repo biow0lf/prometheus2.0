@@ -1,3 +1,4 @@
+# TODO: remove this
 class OpenedBugs < Rectify::Query
   BUG_STATUSES = %w(NEW ASSIGNED VERIFIED REOPENED).freeze
 
