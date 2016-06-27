@@ -77,12 +77,4 @@ class SrpmsController < ApplicationController
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
-
-  # TODO: rename to all_bugs
-  def allbugs
-    @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.find_by!(name: params[:id])
-    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
-    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
-  end
 end
