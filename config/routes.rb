@@ -51,6 +51,8 @@ Rails.application.routes.draw do
     end
 
     scope 'Sisyphus', id: /[^\/]+/ do
+      # get 'srpms/:id/bugs' => 'srpm_opened_bugs#index', as: 'bugs_srpm'
+
       get 'srpms/:id/bugs' => 'srpms#bugs', as: 'bugs_srpm'
       get 'srpms/:id/allbugs' => 'srpms#allbugs', as: 'allbugs_srpm'
       get 'srpms/:id/repocop' => 'srpm_repocops#index', as: 'repocop_srpm'
