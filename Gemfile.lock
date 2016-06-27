@@ -257,11 +257,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    public_activity (1.5.0)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0)
-      i18n (>= 0.5.0)
-      railties (>= 3.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (2.0.0.rc1)
@@ -487,7 +482,6 @@ DEPENDENCIES
   pg
   pry
   pry-rails
-  public_activity
   quiet_assets
   rack-cors
   rack-force_domain
