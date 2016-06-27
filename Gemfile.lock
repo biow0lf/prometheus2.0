@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails-observers.git
-  revision: e13150239061f923bf7ab7bc136be1889468cbbe
+  revision: f1e4eaa14539c92b238f3a80eb87dbbcbc9aff1e
   branch: master
   specs:
     rails-observers (0.1.3.alpha)
