@@ -20,9 +20,9 @@ module RPMFile
       command = 'rpm'
       opts = ['-qp', "--queryformat=#{ queryformat }", file]
       output = reader.run(command, opts)
-      fail 'RPMFileNotFound' if output[:exitstatus] != 0
+      raise Errno::ENOENT if output[:exitstatus] != 0
       content = output[:stdout]
-      return nil if content == '(none)' || content == ''
+      return if content == '(none)' || content == ''
       content
     end
 
