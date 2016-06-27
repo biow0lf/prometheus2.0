@@ -74,7 +74,6 @@ class SrpmsController < ApplicationController
   def gear
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.includes(gears: :maintainer).find_by!(name: params[:id])
-
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
@@ -83,7 +82,6 @@ class SrpmsController < ApplicationController
   def bugs
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.find_by!(name: params[:id])
-
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
@@ -92,7 +90,6 @@ class SrpmsController < ApplicationController
   def allbugs
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.find_by!(name: params[:id])
-
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
