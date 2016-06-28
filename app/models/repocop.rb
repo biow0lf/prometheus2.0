@@ -1,6 +1,6 @@
 require 'open-uri'
 
-class Repocop < ActiveRecord::Base
+class Repocop < ApplicationRecord
   belongs_to :branch
 
   validates :branch, presence: true

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::BugsController do
   describe '#show' do
-    before { get :show, id: '22555', format: :json }
+    before { get :show, params: { id: '22555', format: :json } }
 
     it { should render_template(:show) }
 

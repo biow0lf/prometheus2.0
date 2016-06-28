@@ -1,4 +1,4 @@
-class MaintainerTeam < ActiveRecord::Base
+class MaintainerTeam < ApplicationRecord
   validates :name, presence: true
 
   validates :email, presence: true

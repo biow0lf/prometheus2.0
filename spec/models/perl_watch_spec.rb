@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe PerlWatch do
+  it { should be_a(ApplicationRecord) }
+
   context 'Validation' do
     it { should validate_presence_of(:name) }
   end

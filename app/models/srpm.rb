@@ -1,6 +1,6 @@
 require 'rpmfile'
 
-class Srpm < ActiveRecord::Base
+class Srpm < ApplicationRecord
   # include Redis::Objects
 
   belongs_to :branch
@@ -18,11 +18,16 @@ class Srpm < ActiveRecord::Base
   has_many :sources, dependent: :destroy
 
   has_many :repocops, -> { order(name: :asc) },
-           primary_key: 'name', foreign_key: 'srcname'
+           primary_key: 'name',
+           foreign_key: 'srcname'
 
-  has_one :repocop_patch, primary_key: 'name', foreign_key: 'name'
+  has_one :repocop_patch,
+          primary_key: 'name',
+          foreign_key: 'name'
 
-  has_one :builder, class_name: 'Maintainer', primary_key: 'builder_id',
+  has_one :builder,
+          class_name: 'Maintainer',
+          primary_key: 'builder_id',
           foreign_key: 'id'
 
   has_many :gears, -> { order(lastchange: :desc) },

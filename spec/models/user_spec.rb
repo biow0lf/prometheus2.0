@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe User do
+  it { should be_a(ApplicationRecord) }
+
   context 'DB Indexes' do
     it { should have_db_index(:confirmation_token).unique(true) }
 

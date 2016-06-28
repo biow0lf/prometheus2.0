@@ -2,6 +2,7 @@ module Api
   class DocsController < ActionController::Base
     include Swagger::Blocks
 
+    # :nocov:
     swagger_root do
       key :swagger, '2.0'
       info do
@@ -49,8 +50,11 @@ module Api
     SWAGGERED_CLASSES = [
         Api::Docs::Models::OutputBranch,
         Api::Docs::Models::OutputBug,
+        Api::Docs::Models::OutputChangelog,
+        Api::Docs::Models::OutputMaintainer,
         Api::Docs::Models::OutputPackage,
         Api::Docs::Models::OutputSrpm,
+
         Api::Docs::Branches,
         Api::Docs::Bugs,
         Api::Docs::Changelogs,
@@ -60,6 +64,7 @@ module Api
         Api::Docs::Package,
         self
     ].freeze
+    # :nocov:
 
     def index
       render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)

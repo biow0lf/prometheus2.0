@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::PackageController do
   describe '#show.json' do
-    before { get :show, id: 'openbox', format: :json }
+    before { get :show, params: { id: 'openbox', format: :json } }
 
     it { should render_template(:show) }
 

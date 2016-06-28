@@ -1,4 +1,4 @@
-class Maintainer < ActiveRecord::Base
+class Maintainer < ApplicationRecord
   # include Redis::Objects
 
   validates :name, presence: true

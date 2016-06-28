@@ -1,4 +1,4 @@
-class Changelog < ActiveRecord::Base
+class Changelog < ApplicationRecord
   belongs_to :srpm
 
   validates :srpm, presence: true

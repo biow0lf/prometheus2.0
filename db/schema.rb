@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224213835) do
+ActiveRecord::Schema.define(version: 20160627113436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "activities", force: :cascade do |t|
-    t.integer  "trackable_id"
-    t.string   "trackable_type"
-    t.integer  "owner_id"
-    t.string   "owner_type"
-    t.string   "key"
-    t.text     "parameters"
-    t.integer  "recipient_id"
-    t.string   "recipient_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "branches", force: :cascade do |t|
     t.string   "vendor"
@@ -54,11 +36,10 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "short_desc"
+    t.index ["assigned_to"], name: "index_bugs_on_assigned_to", using: :btree
+    t.index ["bug_status"], name: "index_bugs_on_bug_status", using: :btree
+    t.index ["product"], name: "index_bugs_on_product", using: :btree
   end
-
-  add_index "bugs", ["assigned_to"], name: "index_bugs_on_assigned_to", using: :btree
-  add_index "bugs", ["bug_status"], name: "index_bugs_on_bug_status", using: :btree
-  add_index "bugs", ["product"], name: "index_bugs_on_product", using: :btree
 
   create_table "changelogs", force: :cascade do |t|
     t.integer  "srpm_id"
@@ -68,9 +49,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "delta",         default: true, null: false
+    t.index ["srpm_id"], name: "index_changelogs_on_srpm_id", using: :btree
   end
-
-  add_index "changelogs", ["srpm_id"], name: "index_changelogs_on_srpm_id", using: :btree
 
   create_table "conflicts", force: :cascade do |t|
     t.integer  "package_id"
@@ -81,9 +61,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "epoch"
     t.integer  "flags"
+    t.index ["package_id"], name: "index_conflicts_on_package_id", using: :btree
   end
-
-  add_index "conflicts", ["package_id"], name: "index_conflicts_on_package_id", using: :btree
 
   create_table "freshmeats", force: :cascade do |t|
     t.string   "name"
@@ -103,10 +82,9 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "arch"
     t.integer  "maintainer_id"
+    t.index ["branch_id"], name: "index_ftbfs_on_branch_id", using: :btree
+    t.index ["maintainer_id"], name: "index_ftbfs_on_maintainer_id", using: :btree
   end
-
-  add_index "ftbfs", ["branch_id"], name: "index_ftbfs_on_branch_id", using: :btree
-  add_index "ftbfs", ["maintainer_id"], name: "index_ftbfs_on_maintainer_id", using: :btree
 
   create_table "gears", force: :cascade do |t|
     t.string   "repo"
@@ -115,10 +93,9 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.integer  "maintainer_id"
     t.integer  "srpm_id"
+    t.index ["maintainer_id"], name: "index_gears_on_maintainer_id", using: :btree
+    t.index ["srpm_id"], name: "index_gears_on_srpm_id", using: :btree
   end
-
-  add_index "gears", ["maintainer_id"], name: "index_gears_on_maintainer_id", using: :btree
-  add_index "gears", ["srpm_id"], name: "index_gears_on_srpm_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -128,10 +105,9 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.index ["branch_id"], name: "index_groups_on_branch_id", using: :btree
+    t.index ["parent_id"], name: "index_groups_on_parent_id", using: :btree
   end
-
-  add_index "groups", ["branch_id"], name: "index_groups_on_branch_id", using: :btree
-  add_index "groups", ["parent_id"], name: "index_groups_on_parent_id", using: :btree
 
   create_table "maintainer_teams", force: :cascade do |t|
     t.string   "name",       null: false
@@ -163,9 +139,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.string   "protocol"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["branch_id"], name: "index_mirrors_on_branch_id", using: :btree
   end
-
-  add_index "mirrors", ["branch_id"], name: "index_mirrors_on_branch_id", using: :btree
 
   create_table "obsoletes", force: :cascade do |t|
     t.integer  "package_id"
@@ -176,9 +151,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "epoch"
     t.integer  "flags"
+    t.index ["package_id"], name: "index_obsoletes_on_package_id", using: :btree
   end
-
-  add_index "obsoletes", ["package_id"], name: "index_obsoletes_on_package_id", using: :btree
 
   create_table "packages", force: :cascade do |t|
     t.string   "filename"
@@ -200,13 +174,12 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.string   "groupname"
     t.integer  "size"
     t.integer  "epoch"
+    t.index ["arch"], name: "index_packages_on_arch", using: :btree
+    t.index ["group_id"], name: "index_packages_on_group_id", using: :btree
+    t.index ["name"], name: "index_packages_on_name", using: :btree
+    t.index ["sourcepackage"], name: "index_packages_on_sourcepackage", using: :btree
+    t.index ["srpm_id"], name: "index_packages_on_srpm_id", using: :btree
   end
-
-  add_index "packages", ["arch"], name: "index_packages_on_arch", using: :btree
-  add_index "packages", ["group_id"], name: "index_packages_on_group_id", using: :btree
-  add_index "packages", ["name"], name: "index_packages_on_name", using: :btree
-  add_index "packages", ["sourcepackage"], name: "index_packages_on_sourcepackage", using: :btree
-  add_index "packages", ["srpm_id"], name: "index_packages_on_srpm_id", using: :btree
 
   create_table "patches", force: :cascade do |t|
     t.integer  "srpm_id"
@@ -215,9 +188,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "filename"
     t.integer  "size"
+    t.index ["srpm_id"], name: "index_patches_on_srpm_id", using: :btree
   end
-
-  add_index "patches", ["srpm_id"], name: "index_patches_on_srpm_id", using: :btree
 
   create_table "perl_watches", force: :cascade do |t|
     t.string   "name"
@@ -225,9 +197,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_perl_watches_on_name", using: :btree
   end
-
-  add_index "perl_watches", ["name"], name: "index_perl_watches_on_name", using: :btree
 
   create_table "provides", force: :cascade do |t|
     t.integer  "package_id"
@@ -238,9 +209,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "epoch"
     t.integer  "flags"
+    t.index ["package_id"], name: "index_provides_on_package_id", using: :btree
   end
-
-  add_index "provides", ["package_id"], name: "index_provides_on_package_id", using: :btree
 
   create_table "repocop_patches", force: :cascade do |t|
     t.string  "name"
@@ -248,9 +218,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.string  "release"
     t.string  "url"
     t.integer "branch_id"
+    t.index ["name"], name: "index_repocop_patches_on_name", using: :btree
   end
-
-  add_index "repocop_patches", ["name"], name: "index_repocop_patches_on_name", using: :btree
 
   create_table "repocops", force: :cascade do |t|
     t.string  "name"
@@ -264,11 +233,10 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.string  "status"
     t.text    "message"
     t.integer "branch_id"
+    t.index ["srcname"], name: "index_repocops_on_srcname", using: :btree
+    t.index ["srcrel"], name: "index_repocops_on_srcrel", using: :btree
+    t.index ["srcversion"], name: "index_repocops_on_srcversion", using: :btree
   end
-
-  add_index "repocops", ["srcname"], name: "index_repocops_on_srcname", using: :btree
-  add_index "repocops", ["srcrel"], name: "index_repocops_on_srcrel", using: :btree
-  add_index "repocops", ["srcversion"], name: "index_repocops_on_srcversion", using: :btree
 
   create_table "requires", force: :cascade do |t|
     t.integer  "package_id"
@@ -279,9 +247,8 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "epoch"
     t.integer  "flags"
+    t.index ["package_id"], name: "index_requires_on_package_id", using: :btree
   end
-
-  add_index "requires", ["package_id"], name: "index_requires_on_package_id", using: :btree
 
   create_table "sources", force: :cascade do |t|
     t.integer  "srpm_id"
@@ -290,18 +257,16 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["srpm_id"], name: "index_sources_on_srpm_id", using: :btree
   end
-
-  add_index "sources", ["srpm_id"], name: "index_sources_on_srpm_id", using: :btree
 
   create_table "specfiles", force: :cascade do |t|
     t.integer  "srpm_id"
     t.binary   "spec"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["srpm_id"], name: "index_specfiles_on_srpm_id", using: :btree
   end
-
-  add_index "specfiles", ["srpm_id"], name: "index_specfiles_on_srpm_id", using: :btree
 
   create_table "srpms", force: :cascade do |t|
     t.string   "filename"
@@ -329,11 +294,10 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.integer  "size"
     t.datetime "changelogtime"
     t.integer  "epoch"
+    t.index ["branch_id"], name: "index_srpms_on_branch_id", using: :btree
+    t.index ["group_id"], name: "index_srpms_on_group_id", using: :btree
+    t.index ["name"], name: "index_srpms_on_name", using: :btree
   end
-
-  add_index "srpms", ["branch_id"], name: "index_srpms_on_branch_id", using: :btree
-  add_index "srpms", ["group_id"], name: "index_srpms_on_group_id", using: :btree
-  add_index "srpms", ["name"], name: "index_srpms_on_name", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
@@ -342,10 +306,9 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.integer  "branch_id"
     t.integer  "maintainer_id"
+    t.index ["branch_id"], name: "index_teams_on_branch_id", using: :btree
+    t.index ["maintainer_id"], name: "index_teams_on_maintainer_id", using: :btree
   end
-
-  add_index "teams", ["branch_id"], name: "index_teams_on_branch_id", using: :btree
-  add_index "teams", ["maintainer_id"], name: "index_teams_on_maintainer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -365,10 +328,9 @@ ActiveRecord::Schema.define(version: 20160224213835) do
     t.datetime "updated_at"
     t.string   "unconfirmed_email"
     t.boolean  "admin",                  default: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

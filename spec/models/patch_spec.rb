@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Patch do
+  it { should be_a(ApplicationRecord) }
+
   context 'Associations' do
     it { should belong_to(:srpm) }
   end

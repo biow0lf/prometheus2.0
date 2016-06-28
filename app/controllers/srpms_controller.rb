@@ -6,6 +6,7 @@ class SrpmsController < ApplicationController
                                  version: @srpm.version,
                                  release: @srpm.release,
                                  epoch: @srpm.epoch.to_s).select('DISTINCT id, arch, weeks')
+    @changelogs = @srpm.changelogs.limit(3)
     if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
     end
@@ -22,6 +23,9 @@ class SrpmsController < ApplicationController
         @leader = Maintainer.where(login: login).first
       end
     end
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def changelog
@@ -29,19 +33,25 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def spec
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def rawspec
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:group, :branch).first!
     if @srpm.specfile
-      send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{@srpm.name}.spec"
+      send_data @srpm.specfile.spec, disposition: 'attachment', type: 'text/plain', filename: "#{ @srpm.name }.spec"
     else @srpm.specfile.nil?
       render layout: false
     end
@@ -56,35 +66,15 @@ class SrpmsController < ApplicationController
     @noarch = @srpm.packages.where(arch: 'noarch').order('packages.name ASC')
     @x86_64 = @srpm.packages.where(arch: 'x86_64').order('packages.name ASC')
     @arm = @srpm.packages.where(arch: 'arm').order('packages.name ASC')
+
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 
   def gear
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch, gears: :maintainer).first!
-  end
-
-  def bugs
-    @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
-
-    names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
-
-    @bugs = Bug.opened_bugs_for(names).decorate
-    @allbugs = Bug.all_bugs_for(names).decorate
-  end
-
-  def allbugs
-    @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
-
-    names = @srpm.packages.map { |package| package.name }.flatten.sort.uniq
-
-    @bugs = Bug.opened_bugs_for(names).decorate
-    @allbugs = Bug.all_bugs_for(names).decorate
-  end
-
-  def repocop
-    @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
+    @srpm = @branch.srpms.includes(gears: :maintainer).find_by!(name: params[:id])
+    @all_bugs = AllBugsForSrpm.new(@srpm).decorate
+    @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
 end

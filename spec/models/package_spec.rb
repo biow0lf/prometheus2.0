@@ -1,18 +1,20 @@
 require 'rails_helper'
 
 describe Package do
+  it { should be_a(ApplicationRecord) }
+
   describe 'Associations' do
     it { should belong_to(:srpm) }
 
     it { should belong_to(:group) }
 
-    it { should have_many(:provides) }
+    it { should have_many(:provides).dependent(:destroy) }
 
-    it { should have_many(:requires) }
+    it { should have_many(:requires).dependent(:destroy) }
 
-    it { should have_many(:obsoletes) }
+    it { should have_many(:obsoletes).dependent(:destroy) }
 
-    it { should have_many(:conflicts) }
+    it { should have_many(:conflicts).dependent(:destroy) }
   end
 
   describe 'Validation' do
@@ -35,14 +37,6 @@ describe Package do
     it { should have_db_index(:sourcepackage) }
 
     it { should have_db_index(:srpm_id) }
-  end
-
-  describe 'Callbacks' do
-    it { should callback(:set_srpm_delta_flag).after(:save) }
-
-    it { should callback(:add_filename_to_cache).after(:create) }
-
-    it { should callback(:remove_filename_from_cache).after(:destroy) }
   end
 
   it 'should import package to database' do
@@ -102,8 +96,6 @@ describe Package do
     expect(package.arch).to eq('i586')
     expect(package.filename).to eq(file)
     expect(package.sourcepackage).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
-
-    expect(Redis.current.get("#{ branch.name }:#{ package.filename }")).to eq('1')
   end
 
   it 'should import all packages from path' do
@@ -116,88 +108,5 @@ describe Package do
     expect(RPM).to receive(:check_md5).and_return(true)
     expect(Package).to receive(:import).and_return(true)
     Package.import_all(branch, pathes)
-  end
-
-  # private methods
-
-  describe '#set_srpm_delta_flag' do
-    subject { stub_model Package }
-
-    before do
-      #
-      # srpm.update_attribute(:delta, true)
-      #
-      expect(subject).to receive(:srpm) do
-        double.tap do |a|
-          expect(a).to receive(:update_attribute).with(:delta, true)
-        end
-      end
-    end
-
-    specify { expect { subject.send(:set_srpm_delta_flag) }.not_to raise_error }
-  end
-
-  describe '#add_filename_to_cache' do
-    subject { stub_model Package, filename: 'openbox-1.0.i588.rpm' }
-
-    before do
-      #
-      # subject.srpm.branch.name => 'Sisyphus'
-      #
-      expect(subject).to receive(:srpm) do
-        double.tap do |a|
-          expect(a).to receive(:branch) do
-            double.tap do |b|
-              expect(b).to receive(:name).and_return('Sisyphus')
-            end
-          end
-        end
-      end
-    end
-
-    before do
-      #
-      # Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
-      #
-      expect(Redis).to receive(:current) do
-        double.tap do |a|
-          expect(a).to receive(:set).with('Sisyphus:openbox-1.0.i588.rpm', 1)
-        end
-      end
-    end
-
-    specify { expect { subject.send(:add_filename_to_cache) }.not_to raise_error }
-  end
-
-  describe '#remove_filename_from_cache' do
-    subject { stub_model Package, filename: 'openbox-1.0.i588.rpm' }
-
-    before do
-      #
-      # subject.srpm.branch.name => 'Sisyphus'
-      #
-      expect(subject).to receive(:srpm) do
-        double.tap do |a|
-          expect(a).to receive(:branch) do
-            double.tap do |b|
-              expect(b).to receive(:name).and_return('Sisyphus')
-            end
-          end
-        end
-      end
-    end
-
-    before do
-      #
-      # Redis.current.del("#{ srpm.branch.name }:#{ filename }")
-      #
-      expect(Redis).to receive(:current) do
-        double.tap do |a|
-          expect(a).to receive(:del).with('Sisyphus:openbox-1.0.i588.rpm')
-        end
-      end
-    end
-
-    specify { expect { subject.send(:remove_filename_from_cache) }.not_to raise_error }
   end
 end

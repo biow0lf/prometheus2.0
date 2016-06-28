@@ -5,6 +5,8 @@ class MaintainersController < ApplicationController
     @branches = Branch.order('order_id')
     # TODO: move @acls to maintainer or branch...
     @acls = Redis.current.smembers("#{ @branch.name }:maintainers:#{ params[:id].downcase }").count
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def srpms
@@ -32,6 +34,9 @@ class MaintainersController < ApplicationController
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).
                            includes(:repocop_patch).
                            order(order).decorate
+
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
 #  def acls
@@ -49,6 +54,8 @@ class MaintainersController < ApplicationController
   def gear
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def bugs
@@ -57,15 +64,8 @@ class MaintainersController < ApplicationController
     @branch = Branch.find_by!(name: 'Sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
-
-    names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
-
-    @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
-                order('bug_id DESC').decorate
-
-    @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                   order('bug_id DESC').decorate
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def allbugs
@@ -74,28 +74,23 @@ class MaintainersController < ApplicationController
     @branch = Branch.find_by!(name: 'Sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
-
-    names = @srpms.map { |srpm| srpm.packages.map { |package| package.name } }.flatten.sort.uniq
-
-    @bugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                where(bug_status: %w(NEW ASSIGNED VERIFIED REOPENED)).
-                order('bug_id DESC').
-                decorate
-
-    @allbugs = Bug.where('component IN (?) OR assigned_to = ?', names, @maintainer.email).
-                   order('bug_id DESC').
-                   decorate
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def ftbfs
     @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 
   def repocop
     @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:repocops).order('LOWER(srpms.name)')
+    @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
+    @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate
   end
 end

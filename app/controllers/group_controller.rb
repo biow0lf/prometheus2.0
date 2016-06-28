@@ -7,9 +7,9 @@ class GroupController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])
     @group = @branch.groups.find_by!(name: params[:group], parent_id: nil)
-    if !params[:group2].nil?
+    if params[:group2].present?
       @group = @branch.groups.find_by!(name: params[:group2], parent_id: @group.id)
-      if !params[:group3].nil?
+      if params[:group3].present?
         @group = @branch.groups.find_by!(name: params[:group3], parent_id: @group.id)
       end
     end

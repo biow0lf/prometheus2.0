@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Branch do
+  it { should be_a(ApplicationRecord) }
+
   it { should be_a(Redis::Objects) }
 
   describe 'Validation' do

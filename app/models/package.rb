@@ -1,17 +1,17 @@
 require 'rpmfile'
 
-class Package < ActiveRecord::Base
+class Package < ApplicationRecord
   belongs_to :srpm
 
   belongs_to :group
 
-  has_many :requires
+  has_many :requires, dependent: :destroy
 
-  has_many :provides
+  has_many :provides, dependent: :destroy
 
-  has_many :obsoletes
+  has_many :obsoletes, dependent: :destroy
 
-  has_many :conflicts
+  has_many :conflicts, dependent: :destroy
 
   validates :srpm, presence: true
 
@@ -20,12 +20,6 @@ class Package < ActiveRecord::Base
   validates :groupname, presence: true
 
   validates :md5, presence: true
-
-  after_save :set_srpm_delta_flag
-
-  after_create :add_filename_to_cache
-
-  after_destroy :remove_filename_from_cache
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
@@ -80,19 +74,5 @@ class Package < ActiveRecord::Base
         end
       end
     end
-  end
-
-  private
-
-  def set_srpm_delta_flag
-    srpm.update_attribute(:delta, true)
-  end
-
-  def add_filename_to_cache
-    Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
-  end
-
-  def remove_filename_from_cache
-    Redis.current.del("#{ srpm.branch.name }:#{ filename }")
   end
 end

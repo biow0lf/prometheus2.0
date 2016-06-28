@@ -1,23 +1,23 @@
 require 'rails_helper'
 
 describe ChangelogDecorator do
-  let(:created_at) { '2015-09-27T16:49:00Z' }
+   describe '#as_json' do
+     let(:created_at) { '2015-09-27T16:49:00Z' }
 
-  let(:updated_at) { '2015-09-28T16:59:34Z' }
+     let(:updated_at) { '2015-09-28T16:59:34Z' }
 
-  let(:changelog) do
-    stub_model Changelog,
-               id: 321,
-               srpm_id: 43,
-               changelogtime: '1264248000',
-               changelogname: 'Igor Zubkov <icesik@altlinux.org> 3.4.10-alt2',
-               changelogtext: '- update Url:',
-               created_at: created_at,
-               updated_at: updated_at
-  end
+     let(:changelog) do
+       stub_model Changelog,
+                  id: 321,
+                  srpm_id: 43,
+                  changelogtime: '1264248000',
+                  changelogname: 'Igor Zubkov <icesik@altlinux.org> 3.4.10-alt2',
+                  changelogtext: '- update Url:',
+                  created_at: created_at,
+                  updated_at: updated_at
+     end
 
-  describe '#as_json' do
-    subject { changelog.decorate.as_json }
+     subject { changelog.decorate.as_json }
 
     its([:id]) { should eq(321) }
 

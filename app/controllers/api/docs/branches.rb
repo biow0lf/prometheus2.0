@@ -7,7 +7,6 @@ module Api
       swagger_path '/branches' do
         operation :get do
           key :description, 'Return list of all Branches'
-          key :operationId, 'indexBranches'
           key :tags, ['branches']
           response 200 do
             key :description, 'Response with branches.'
@@ -24,7 +23,6 @@ module Api
       swagger_path '/branches/{id}' do
         operation :get do
           key :description, 'Return branch information'
-          key :operationId, 'findBranchById'
           key :tags, ['branches']
           parameter do
             key :name, :id

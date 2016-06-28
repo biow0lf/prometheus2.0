@@ -4,69 +4,16 @@ module Api
       # :nocov:
       include Swagger::Blocks
 
-      swagger_schema :Maintainer do
-        key :required, [:id, :name, :email, :login, :time_zone, :jabber,
-                        :info, :website, :location, :created_at, :updated_at]
-        property :id do
-          key :type, :integer
-          key :format, :int64
-          key :description, 'Maintainer ID.'
-        end
-        property :name do
-          key :type, :string
-          key :description, 'Maintainer name'
-        end
-        property :email do
-          key :type, :string
-          key :description, 'Maintainer email'
-        end
-        property :login do
-          key :type, :string
-          key :description, 'Maintainer login'
-        end
-        property :time_zone do
-          key :type, :string
-          key :description, 'Maintainer time zone'
-        end
-        property :jabber do
-          key :type, :string
-          key :description, 'Maintainer jabber'
-        end
-        property :info do
-          key :type, :string
-          key :description, 'Maintainer info'
-        end
-        property :website do
-          key :type, :string
-          key :description, 'Maintainer website'
-        end
-        property :location do
-          key :type, :string
-          key :description, 'Maintainer location'
-        end
-        property :created_at do
-          key :type, :string
-          key :format, :'date-time'
-          key :description, 'Created at in ISO8601 format'
-        end
-        property :updated_at do
-          key :type, :string
-          key :format, :'date-time'
-          key :description, 'Updated at in ISO8601 format'
-        end
-      end
-
       swagger_path '/maintainers' do
         operation :get do
           key :description, 'Returns maintainers info'
-          key :operationId, 'indexMaintainers'
           key :tags, ['maintainers']
           response 200 do
             key :description, 'Response with maintainers.'
             schema do
               key :type, :array
               items do
-                key :'$ref', :Maintainer
+                key :'$ref', :OutputMaintainer
               end
             end
           end
@@ -76,7 +23,6 @@ module Api
       swagger_path '/maintainers/{login}' do
         operation :get do
           key :description, 'Returns maintainer info'
-          key :operationId, 'findMaintainerByLogin'
           key :tags, ['maintainers']
           parameter do
             key :name, :login
@@ -88,7 +34,7 @@ module Api
           response 200 do
             key :description, 'Response with maintainer.'
             schema do
-              key :'$ref', :Maintainer
+              key :'$ref', :OutputMaintainer
             end
           end
           response 404 do
@@ -96,7 +42,6 @@ module Api
           end
         end
       end
-
       # :nocov:
     end
   end

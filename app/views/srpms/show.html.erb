@@ -56,7 +56,7 @@
 
 <div>
 <p class="break" />
-<span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR'), bugs_srpm_path(@srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" />
+<span class="current">&nbsp;<b><%= _('Main') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@srpm.branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@srpm.branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Gear'), gear_srpm_path(@srpm.branch, @srpm), class: 'news', title: _('this package in gear repositories') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR (%s/%s)') % [@opened_bugs.count, @all_bugs.count], bugs_srpm_path(@srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><p class="news" />
 <b><%= _('Current version:') %></b> <%= @srpm.evr %><br>
 <b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br>
 <% unless @ftbfs.empty? %>
@@ -71,7 +71,12 @@
     <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
   <% end %>
 <% end %>
-<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br><br>
+<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br>
+<b><%= _('Repocop status:') %></b> <%= image_tag(@srpm.repocop) %>
+<% if @srpm.repocop_patch %>
+  <%= link_to image_tag('patch.jpg', alt: _('repocop patch')), @srpm.repocop_patch.url, class: 'repocoplink', title: _('repocop patch for the package') %>
+<% end %>
+<br><br>
 
 <% if @srpm.url %>
 <b><%= _('Home page:') %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, class: 'news', rel: 'nofollow' %><br><br>
@@ -138,6 +143,21 @@
     <% end %>
   </ul>
 </div>
+<% end %>
+
+<b><%= _('Recent changes (last three changelog entries):') %></b>
+<% @changelogs.each do |changelog| %>
+  <% if changelog.changelogname.force_encoding("UTF-8").valid_encoding? &&
+        changelog.changelogtext.force_encoding("UTF-8").valid_encoding? %>
+  <p class="news" />
+  <b><%= Time.at(changelog.changelogtime.to_i).to_date %> <%= changelog.changelogname.gsub('@altlinux', ' at altlinux').gsub('@', ' at ') %></b> <br>
+  <ul class="change">
+    <%= simple_format(changelog.changelogtext) %>
+  </ul>
+  <% else %>
+    <p class="news" />
+    <b><%= _('Broken changelog entry.') %></b>
+  <% end%>
 <% end %>
 
 </div>

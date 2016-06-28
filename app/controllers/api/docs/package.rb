@@ -7,7 +7,6 @@ module Api
       swagger_path '/packages/{name}' do
         operation :get do
           key :description, 'Returns packages info for given name'
-          key :operationId, 'findPackages'
           key :tags, ['package']
           parameter do
             key :name, :name
@@ -37,7 +36,6 @@ module Api
           end
         end
       end
-
       # :nocov:
     end
   end

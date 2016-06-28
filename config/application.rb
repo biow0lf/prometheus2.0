@@ -1,13 +1,14 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails'
 # Pick the frameworks you want:
 require 'active_model/railtie'
-# require 'active_job/railtie'
+require 'active_job/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'action_view/railtie'
+require 'action_cable/engine'
 require 'sprockets/railtie'
 # require 'rails/test_unit/railtie'
 
@@ -31,9 +32,6 @@ module Prometheus20
     # config.i18n.default_locale = :de
     config.i18n.default_locale = :en
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl
@@ -42,7 +40,8 @@ module Prometheus20
     # fallback for empty translations
     config.i18n.fallbacks = true
 
-    config.active_record.observers = :branch_observer, :srpm_observer
+    config.active_record.observers = :branch_observer, :srpm_observer,
+                                     :package_observer
 
     if Rails.env.production?
       config.middleware.use ExceptionNotification::Rack,
@@ -52,13 +51,6 @@ module Prometheus20
           exception_recipients: %w{igor.zubkov@gmail.com}
         }
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
-    end
-
-    config.middleware.insert_before 0, 'Rack::Cors' do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options]
-      end
     end
   end
 end

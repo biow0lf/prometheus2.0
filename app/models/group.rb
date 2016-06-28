@@ -1,4 +1,4 @@
-class Group < ActiveRecord::Base
+class Group < ApplicationRecord
   acts_as_nested_set
 
   belongs_to :branch
