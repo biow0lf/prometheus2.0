@@ -8,5 +8,6 @@ ratings:
   paths:
   - "**.rb"
 exclude_paths:
-- spec/**/*
-
+- "app/controllers/api/docs/models/*.rb"
+- "app/controllers/api/docs/*.rb"
+- "spec/**/*"
