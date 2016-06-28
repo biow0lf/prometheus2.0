@@ -48,6 +48,7 @@ gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git', bran
 gem 'sidekiq'
 # gem 'oink'
 gem 'rectify'
+gem 'cocaine'
 
 group :production, :development, :staging do
   gem 'redis'
