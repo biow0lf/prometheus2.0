@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
     - 'db/schema.rb'
     - 'bin/rspec'
@@ -32,5 +33,6 @@ Style/SpaceAfterComma:
 Style/FileName:
   Enabled: false
 
+# Enable this cop later
 Style/FrozenStringLiteralComment:
   Enabled: false
