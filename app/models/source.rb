@@ -8,12 +8,12 @@ class Source < ApplicationRecord
   validates :size, presence: true
 
   def self.import(file, srpm)
-    files = `rpmquery --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{ file }`
+    files = `rpm -q --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{ file }`
     hsh = {}
     files.split("\n").each do |line|
       hsh[line.split("\t")[0]] = line.split("\t")[1]
     end
-    sources = `rpmquery --qf '[%{SOURCE}\n]' -p #{ file }`
+    sources = `rpm -q --qf '[%{SOURCE}\n]' -p #{ file }`
     sources.split("\n").each do |filename|
       source = Source.new
 
