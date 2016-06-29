@@ -17,7 +17,7 @@ class AllBugsForMaintainer < Rectify::Query
   private
 
   def components
-    branch.srpms.includes(:packages).where(name: maintainer_packages_name).pluck('packages.name').sort.uniq
+    branch.srpms.joins(:packages).where(name: maintainer_packages_name).pluck('packages.name').sort.uniq
   end
 
   def maintainer_packages_name

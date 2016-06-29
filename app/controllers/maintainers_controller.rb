@@ -52,6 +52,7 @@ class MaintainersController < ApplicationController
 #  end
 
   def gear
+    @branch = Branch.find_by!(name: 'Sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
