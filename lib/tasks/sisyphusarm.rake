@@ -22,8 +22,9 @@ namespace :sisyphusarm do
     branch = Branch.find_by!(name: 'SisyphusARM')
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')
-    RemoveOldSrpms.new(branch, '/ALT/Sisyphus/arm/SRPMS.all/').perform
-    puts "#{ Time.now }: end"
+    RemoveOldSrpms.call(branch, '/ALT/Sisyphus/arm/SRPMS.all/') do
+      on(:ok) { puts "#{ Time.now }: Old srpms removed" }
+    end
     puts "#{ Time.now }: update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
     Package.import_all(branch, pathes)

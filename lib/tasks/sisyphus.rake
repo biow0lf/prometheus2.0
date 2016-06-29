@@ -22,12 +22,20 @@ namespace :sisyphus do
     branch = Branch.find_by!(name: 'Sisyphus')
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
-    RemoveOldSrpms.new(branch, '/ALT/Sisyphus/files/SRPMS/').perform
-    puts "#{ Time.now }: end"
+    # Srpm.import_all(branch, '/Users/biow0lf/Sisyphus/files/SRPMS/*.src.rpm')
+    RemoveOldSrpms.call(branch, '/ALT/Sisyphus/files/SRPMS/') do
+      on(:ok) { puts "#{ Time.now }: Old srpms removed" }
+    end
+    # RemoveOldSrpms.call(branch, '/Users/biow0lf/Sisyphus/files/SRPMS/') do
+    #   on(:ok) { puts "#{ Time.now }: Old srpms removed" }
+    # end
     puts "#{ Time.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
               '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
+    # pathes = ['/Users/biow0lf/Sisyphus/files/i586/RPMS/*.i586.rpm',
+    #           '/Users/biow0lf/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
+    #           '/Users/biow0lf/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
     ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{ Time.now }: end"

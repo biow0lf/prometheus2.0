@@ -1,4 +1,4 @@
-namespace :"41" do
+namespace :'41' do
   desc 'Update 4.1 stuff'
   task update: :environment do
     puts "#{ Time.now }: Update 4.1 stuff"
@@ -22,8 +22,9 @@ namespace :"41" do
     branch = Branch.find_by!(name: '4.1')
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/4.1/files/SRPMS/*.src.rpm')
-    RemoveOldSrpms.new(branch, '/ALT/4.1/files/SRPMS/').perform
-    puts "#{ Time.now }: end"
+    RemoveOldSrpms.call(branch, '/ALT/4.1/files/SRPMS/') do
+      on(:ok) { puts "#{ Time.now }: Old srpms removed" }
+    end
     puts "#{ Time.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from 4.1 to database"
     pathes = ['/ALT/4.1/files/i586/RPMS/*.i586.rpm',
               '/ALT/4.1/files/noarch/RPMS/*.noarch.rpm',

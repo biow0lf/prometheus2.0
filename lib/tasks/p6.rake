@@ -22,8 +22,9 @@ namespace :p6 do
     branch = Branch.find_by!(name: 'Platform6')
     ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/p6/files/SRPMS/*.src.rpm')
-    RemoveOldSrpms.new(branch, '/ALT/p6/files/SRPMS/').perform
-    puts "#{ Time.now }: end"
+    RemoveOldSrpms.call(branch, '/ALT/p6/files/SRPMS/') do
+      on(:ok) { puts "#{ Time.now }: Old srpms removed" }
+    end
     puts "#{ Time.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p6 to database"
     pathes = ['/ALT/p6/files/i586/RPMS/*.i586.rpm',
               '/ALT/p6/files/noarch/RPMS/*.noarch.rpm',
