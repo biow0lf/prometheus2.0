@@ -22,7 +22,7 @@ class Changelog < ApplicationRecord
   end
 
   def self.import(file, srpm)
-    changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{file}`
+    changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{ file }`
     changelogs.force_encoding('binary')
     changelogs = changelogs.split("\n**********\n")
     while !changelogs.empty?
