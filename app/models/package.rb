@@ -64,7 +64,7 @@ class Package < ApplicationRecord
 
   def self.import_all(branch, pathes)
     pathes.each do |path|
-      Dir.glob(path).each do |file|
+      Dir.glob(path).sort.each do |file|
         unless Redis.current.exists("#{ branch.name }:#{ file.split('/')[-1] }")
           next unless File.exist?(file)
           next unless Rpm.check_md5(file)
