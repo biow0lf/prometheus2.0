@@ -8,12 +8,12 @@ class Patch < ApplicationRecord
   validates :size, presence: true
 
   def self.import(file, srpm)
-    files = `rpmquery --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{ file }`
+    files = `rpm -q --qf '[%{BASENAMES}\t%{FILESIZES}\n]' -p #{ file }`
     hsh = {}
     files.split("\n").each do |line|
       hsh[line.split("\t")[0]] = line.split("\t")[1]
     end
-    patches = `rpmquery --qf '[%{PATCH}\n]' -p #{ file }`
+    patches = `rpm -q --qf '[%{PATCH}\n]' -p #{ file }`
     patches.split("\n").each do |filename|
       patch = Patch.new
 
