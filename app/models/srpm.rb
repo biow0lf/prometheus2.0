@@ -114,7 +114,7 @@ class Srpm < ApplicationRecord
   end
 
   def self.import_all(branch, path)
-    Dir.glob(path).each do |file|
+    Dir.glob(path).sort.each do |file|
       unless Redis.current.exists("#{ branch.name }:#{ File.basename(file) }")
         next unless File.exist?(file)
         next unless Rpm.check_md5(file)
