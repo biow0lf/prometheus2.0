@@ -215,9 +215,9 @@ GEM
     kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    listen (3.0.8)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
+    listen (3.0.7)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9.7)
     locale (2.1.2)
     lograge (0.3.6)
       actionpack (>= 3)
@@ -307,7 +307,7 @@ GEM
     rainbow (2.1.0)
     raindrops (0.16.0)
     rake (11.2.2)
-    rb-fsevent (0.9.7)
+    rb-fsevent (0.9.3)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rectify (0.6.1)
@@ -497,15 +497,16 @@ DEPENDENCIES
   rails-controller-testing
   rails-observers!
   rake
+  rb-fsevent (= 0.9.3)
   rectify
   redis
   redis-objects
   rouge
-  rspec
+  rspec (= 3.5.0.beta4)
   rspec-activemodel-mocks
   rspec-its
   rspec-matchers-controller_filters
-  rspec-rails
+  rspec-rails (= 3.5.0.beta4)
   rubocop
   sass-rails (~> 5.0)
   shoulda-matchers

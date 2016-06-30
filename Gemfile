@@ -74,6 +74,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
+  gem 'rb-fsevent', '0.9.3'
   gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano'
@@ -90,8 +91,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec'
-  gem 'rspec-rails'
+  gem 'rspec', '3.5.0.beta4'
+  gem 'rspec-rails', '3.5.0.beta4'
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
