@@ -69,8 +69,6 @@ GEM
       activemodel (= 5.0.0.rc2)
       activesupport (= 5.0.0.rc2)
       arel (~> 7.0)
-    activerecord-colored_log_subscriber (0.1.0)
-      activerecord (>= 3.2, < 5.0)
     activesupport (5.0.0.rc2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
@@ -445,7 +443,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_sanity
-  activerecord-colored_log_subscriber
   awesome_nested_set
   awesome_print
   brakeman

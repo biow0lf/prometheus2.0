@@ -41,7 +41,6 @@ gem 'rouge'
 # gem 'github-linguist'
 # gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
-gem 'activerecord-colored_log_subscriber'
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git', branch: 'master'
