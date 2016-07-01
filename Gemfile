@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.rc2', '< 5.1'
+gem 'rails', '~> 5.0.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5.x'
+gem 'turbolinks', '~> 5'
 
 # gem 'puma', '~> 3.0'
 
@@ -72,9 +72,9 @@ group :staging do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
-  gem 'rb-fsevent', '0.9.3'
-  gem 'quiet_assets'
+  # gem 'listen', '~> 3.0.5'
+  # gem 'rb-fsevent', '0.9.3'
+  # gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano'
   gem 'capistrano-rails'
@@ -86,7 +86,7 @@ group :development do
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'brakeman', require: false
-  gem 'lol_dba'
+  # gem 'lol_dba'
 end
 
 group :development, :test do
