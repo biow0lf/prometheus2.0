@@ -90,8 +90,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec', '3.5.0.beta4'
-  gem 'rspec-rails', '3.5.0.beta4'
+  gem 'rspec'
+  gem 'rspec-rails'
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'

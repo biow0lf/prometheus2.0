@@ -494,11 +494,11 @@ DEPENDENCIES
   redis
   redis-objects
   rouge
-  rspec (= 3.5.0.beta4)
+  rspec
   rspec-activemodel-mocks
   rspec-its
   rspec-matchers-controller_filters
-  rspec-rails (= 3.5.0.beta4)
+  rspec-rails
   rubocop
   sass-rails (~> 5.0)
   shoulda-matchers
