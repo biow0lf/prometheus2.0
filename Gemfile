@@ -74,7 +74,6 @@ end
 group :development do
   # gem 'listen', '~> 3.0.5'
   # gem 'rb-fsevent', '0.9.3'
-  # gem 'quiet_assets'
   gem 'bullet'
   gem 'capistrano'
   gem 'capistrano-rails'
