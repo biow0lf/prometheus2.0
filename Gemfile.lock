@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: a5da6fa82c46436f59ae482d07c1752ab908c852
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      mustermann (~> 0.4)
+      rack (~> 2.0)
+      rack-protection (~> 1.5)
+      tilt (~> 2.0)
+
+GIT
   remote: https://github.com/drapergem/draper.git
   revision: 4b4f392826c439f95f3c9c8b790418e52d0e2212
   branch: rails-5
@@ -230,6 +240,8 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    mustermann (0.4.0)
+      tool (~> 0.2)
     mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -258,6 +270,8 @@ GEM
       rack (>= 1.2.0)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.4.2)
@@ -387,6 +401,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    tool (0.2.3)
     turbolinks (5.0.0)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -488,6 +503,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simplecov
+  sinatra!
   sitemap_generator
   sqlite3
   swagger-blocks

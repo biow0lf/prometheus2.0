@@ -44,6 +44,7 @@ gem 'rack-mini-profiler', require: false
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git', branch: 'master'
+gem 'sinatra', github: 'sinatra/sinatra' # tmp, for sidekiq
 gem 'sidekiq'
 # gem 'oink'
 gem 'rectify'
