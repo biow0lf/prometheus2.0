@@ -30,12 +30,12 @@ GIT
 
 GIT
   remote: https://github.com/smartinez87/exception_notification.git
-  revision: c3000b76c17dcaa7b0c70fe9fca902a9ffd381d8
+  revision: f2e08841c978cfe22c4a6f3618f5b82a8a6ef44d
   branch: rails5
   specs:
-    exception_notification (5.0.0)
-      actionmailer (~> 5.0.0.beta)
-      activesupport (~> 5.0.0.beta)
+    exception_notification (4.2.0)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
 
 GEM
   remote: https://rubygems.org/
