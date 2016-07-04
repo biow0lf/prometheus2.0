@@ -73,6 +73,20 @@ describe Srpm do
 
   # value :leader
 
+  describe 'Callbacks' do
+    it { should callback(:add_filename_to_cache).after(:create) }
+
+    # it { should callback(:increment_branch_counter).after(:create) }
+    #
+    # it { should callback(:decrement_branch_counter).after(:destroy) }
+    #
+    # it { should callback(:remove_filename_from_cache).after(:destroy) }
+    #
+    # it { should callback(:remove_acls_from_cache).after(:destroy) }
+    #
+    # it { should callback(:remove_leader_from_cache).after(:destroy) }
+  end
+
   describe '#to_param' do
     subject { stub_model Srpm, name: 'openbox' }
 
@@ -162,4 +176,165 @@ describe Srpm do
 
     Srpm.import_all(branch, path)
   end
+
+  # private methods
+
+  describe '#add_filename_to_cache' do
+    subject { stub_model Srpm, filename: 'openbox-1.0.src.rpm' }
+
+    before do
+      #
+      # subject.branch.name => 'Sisyphus'
+      #
+      expect(subject).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:name).and_return('Sisyphus')
+        end
+      end
+    end
+
+    before do
+      #
+      # Redis.current.set("#{ branch.name }:#{ filename }", 1)
+      #
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:set).with('Sisyphus:openbox-1.0.src.rpm', 1)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:add_filename_to_cache) }.not_to raise_error }
+  end
+
+
+#   describe '#remove_acls_from_cache' do
+#     subject { stub_model Srpm, name: 'openbox' }
+#
+#     before do
+#       #
+#       # subject.branch.name => 'Sisyphus'
+#       #
+#       expect(subject).to receive(:branch) do
+#         double.tap do |a|
+#           expect(a).to receive(:name).and_return('Sisyphus')
+#         end
+#       end
+#     end
+#
+#     before do
+#       #
+#       # Redis.current.del("#{ branch.name }:#{ name }:acls")
+#       #
+#       expect(Redis).to receive(:current) do
+#         double.tap do |a|
+#           expect(a).to receive(:del).with('Sisyphus:openbox:acls')
+#         end
+#       end
+#     end
+#
+#     specify { expect { subject.send(:remove_acls_from_cache) }.not_to raise_error }
+#   end
+#
+#   describe '#remove_leader_from_cache' do
+#     subject { stub_model Srpm, name: 'openbox' }
+#
+#     before do
+#       #
+#       # subject.branch.name => 'Sisyphus'
+#       #
+#       expect(subject).to receive(:branch) do
+#         double.tap do |a|
+#           expect(a).to receive(:name).and_return('Sisyphus')
+#         end
+#       end
+#     end
+#
+#     before do
+#       #
+#       # Redis.current.del("#{ branch.name }:#{ name }:leader")
+#       #
+#       expect(Redis).to receive(:current) do
+#         double.tap do |a|
+#           expect(a).to receive(:del).with('Sisyphus:openbox:leader')
+#         end
+#       end
+#     end
+#
+#     specify { expect { subject.send(:remove_leader_from_cache) }.not_to raise_error }
+#   end
+#
+#
+#
+# -  describe '#remove_filename_from_cache' do
+# -    subject { stub_model Srpm, filename: 'openbox-1.0.src.rpm' }
+# -
+# -    before do
+#   -      #
+#   -      # subject.branch.name => 'Sisyphus'
+#   -      #
+#   -      expect(subject).to receive(:branch) do
+#     -        double.tap do |a|
+#       -          expect(a).to receive(:name).and_return('Sisyphus')
+#       -        end
+#     -      end
+#   -    end
+# -
+# -    before do
+#   -      #
+#   -      # Redis.current.del("#{ branch.name }:#{ filename }")
+#   -      #
+#   -      expect(Redis).to receive(:current) do
+#     -        double.tap do |a|
+#       -          expect(a).to receive(:del).with('Sisyphus:openbox-1.0.src.rpm')
+#       -        end
+#     -      end
+#   -    end
+# -
+# -    specify { expect { subject.send(:remove_filename_from_cache) }.not_to raise_error }
+# -  end
+#
+#
+# -  describe '#decrement_branch_counter' do
+# -    subject { stub_model Srpm }
+# -
+# -    before do
+#   -      #
+#   -      # subject.branch.counter.decrement
+#   -      #
+#   -      expect(subject).to receive(:branch) do
+#     -        double.tap do |a|
+#       -          expect(a).to receive(:counter) do
+#         -            double.tap do |b|
+#           -              expect(b).to receive(:decrement)
+#           -            end
+#         -          end
+#       -        end
+#     -      end
+#   -    end
+# -
+# -    specify { expect { subject.send(:decrement_branch_counter) }.not_to raise_error }
+# -  end
+#
+#
+# -  describe '#increment_branch_counter' do
+# -    subject { stub_model Srpm }
+# -
+# -    before do
+#   -      #
+#   -      # subject.branch.counter.increment
+#   -      #
+#   -      expect(subject).to receive(:branch) do
+#     -        double.tap do |a|
+#       -          expect(a).to receive(:counter) do
+#         -            double.tap do |b|
+#           -              expect(b).to receive(:increment)
+#           -            end
+#         -          end
+#       -        end
+#     -      end
+#   -    end
+# -
+# -    specify { expect { subject.send(:increment_branch_counter) }.not_to raise_error }
+# -  end
 end
