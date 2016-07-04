@@ -57,7 +57,7 @@ class Srpm < ApplicationRecord
 
   after_destroy :remove_acls_from_cache
 
-  # after_destroy :remove_leader_from_cache
+  after_destroy :remove_leader_from_cache
 
   def to_param
     name
@@ -167,7 +167,7 @@ class Srpm < ApplicationRecord
     Redis.current.del("#{ branch.name }:#{ name }:acls")
   end
 
-  # def remove_leader_from_cache
-  #   Redis.current.del("#{ branch.name }:#{ name }:leader")
-  # end
+  def remove_leader_from_cache
+    Redis.current.del("#{ branch.name }:#{ name }:leader")
+  end
 end

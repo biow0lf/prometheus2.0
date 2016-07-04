@@ -84,7 +84,7 @@ describe Srpm do
 
     it { should callback(:remove_acls_from_cache).after(:destroy) }
 
-    # it { should callback(:remove_leader_from_cache).after(:destroy) }
+    it { should callback(:remove_leader_from_cache).after(:destroy) }
   end
 
   describe '#to_param' do
@@ -305,32 +305,31 @@ describe Srpm do
     specify { expect { subject.send(:remove_acls_from_cache) }.not_to raise_error }
   end
 
-#   describe '#remove_leader_from_cache' do
-#     subject { stub_model Srpm, name: 'openbox' }
-#
-#     before do
-#       #
-#       # subject.branch.name => 'Sisyphus'
-#       #
-#       expect(subject).to receive(:branch) do
-#         double.tap do |a|
-#           expect(a).to receive(:name).and_return('Sisyphus')
-#         end
-#       end
-#     end
-#
-#     before do
-#       #
-#       # Redis.current.del("#{ branch.name }:#{ name }:leader")
-#       #
-#       expect(Redis).to receive(:current) do
-#         double.tap do |a|
-#           expect(a).to receive(:del).with('Sisyphus:openbox:leader')
-#         end
-#       end
-#     end
-#
-#     specify { expect { subject.send(:remove_leader_from_cache) }.not_to raise_error }
-#   end
+  describe '#remove_leader_from_cache' do
+    subject { stub_model Srpm, name: 'openbox' }
 
+    before do
+      #
+      # subject.branch.name => 'Sisyphus'
+      #
+      expect(subject).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:name).and_return('Sisyphus')
+        end
+      end
+    end
+
+    before do
+      #
+      # Redis.current.del("#{ branch.name }:#{ name }:leader")
+      #
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:del).with('Sisyphus:openbox:leader')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:remove_leader_from_cache) }.not_to raise_error }
+  end
 end
