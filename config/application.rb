@@ -40,8 +40,7 @@ module Prometheus20
     # fallback for empty translations
     config.i18n.fallbacks = true
 
-    config.active_record.observers = :branch_observer, :srpm_observer,
-                                     :package_observer
+    config.active_record.observers = :srpm_observer, :package_observer
 
     if Rails.env.production?
       config.middleware.use ExceptionNotification::Rack,
