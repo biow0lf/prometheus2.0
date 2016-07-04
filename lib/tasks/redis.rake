@@ -23,7 +23,10 @@ namespace :redis do
     branches = Branch.where(vendor: 'ALT Linux')
 
     branches.each do |branch|
-      branch.recount!
+      RecountBranchCounter.call(branch) do
+        on(:ok) { puts "#{ Time.now }: OK" }
+        on(:failed) { puts "#{ Time.now }: Redis is not running" }
+      end
     end
 
     branches.each do |branch|
