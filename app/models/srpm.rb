@@ -47,6 +47,18 @@ class Srpm < ApplicationRecord
 
   # value :leader
 
+  after_create :add_filename_to_cache
+
+  # after_create :increment_branch_counter
+  #
+  # after_destroy :decrement_branch_counter
+  #
+  # after_destroy :remove_filename_from_cache
+  #
+  # after_destroy :remove_acls_from_cache
+  #
+  # after_destroy :remove_leader_from_cache
+
   def to_param
     name
   end
@@ -132,4 +144,30 @@ class Srpm < ApplicationRecord
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
   end
+
+  private
+
+  def add_filename_to_cache
+    Redis.current.set("#{ branch.name }:#{ filename }", 1)
+  end
+
+  # def increment_branch_counter
+  #   branch.counter.increment
+  # end
+  #
+  # def decrement_branch_counter
+  #   branch.counter.decrement
+  # end
+  #
+  # def remove_filename_from_cache
+  #   Redis.current.del("#{ branch.name }:#{ filename }")
+  # end
+  #
+  # def remove_acls_from_cache
+  #   Redis.current.del("#{ branch.name }:#{ name }:acls")
+  # end
+  #
+  # def remove_leader_from_cache
+  #   Redis.current.del("#{ branch.name }:#{ name }:leader")
+  # end
 end
