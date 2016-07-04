@@ -41,9 +41,51 @@ describe Branch do
     specify { expect(subject.counter).to be_a(Redis::Counter) }
   end
 
+  describe 'Callbacks' do
+    it { should callback(:set_default_counter_value).after(:create) }
+
+    it { should callback(:destroy_counter).after(:destroy) }
+  end
+
   describe '#to_param' do
     subject { stub_model Branch, name: 'Sisyphus' }
 
     its(:to_param) { should eq('Sisyphus') }
+  end
+
+  # private methods
+
+  describe '#set_default_counter_value' do
+    subject { stub_model Branch }
+
+    before do
+      #
+      # subject.counter.value = 0
+      #
+      expect(subject).to receive(:counter) do
+        double.tap do |a|
+          expect(a).to receive(:value=).with(0)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:set_default_counter_value) }.not_to raise_error }
+  end
+
+  describe '#destroy_counter' do
+    subject { stub_model Branch, id: 14 }
+
+    before do
+      #
+      # Redis.current.del("branch:#{ subject.id }:counter")
+      #
+      expect(Redis).to receive(:current) do
+        double.tap do |a|
+          expect(a).to receive(:del).with("branch:#{ subject.id }:counter")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:destroy_counter) }.not_to raise_error }
   end
 end

@@ -29,7 +29,21 @@ class Branch < ApplicationRecord
 
   counter :counter
 
+  after_create :set_default_counter_value
+
+  after_destroy :destroy_counter
+
   def to_param
     name
+  end
+
+  private
+
+  def set_default_counter_value
+    counter.value = 0
+  end
+
+  def destroy_counter
+    Redis.current.del("branch:#{ id }:counter")
   end
 end
