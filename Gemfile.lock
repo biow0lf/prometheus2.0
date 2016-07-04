@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/smartinez87/exception_notification.git
-  revision: f2e08841c978cfe22c4a6f3618f5b82a8a6ef44d
+  revision: 4a88cc35a383cca5c06508979fe4aca1e5c1ae0b
   branch: rails5
   specs:
     exception_notification (4.2.0)
