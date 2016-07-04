@@ -49,8 +49,8 @@ class Srpm < ApplicationRecord
 
   after_create :add_filename_to_cache
 
-  # after_create :increment_branch_counter
-  #
+  after_create :increment_branch_counter
+
   # after_destroy :decrement_branch_counter
   #
   # after_destroy :remove_filename_from_cache
@@ -151,10 +151,10 @@ class Srpm < ApplicationRecord
     Redis.current.set("#{ branch.name }:#{ filename }", 1)
   end
 
-  # def increment_branch_counter
-  #   branch.counter.increment
-  # end
-  #
+  def increment_branch_counter
+    branch.counter.increment
+  end
+
   # def decrement_branch_counter
   #   branch.counter.decrement
   # end
