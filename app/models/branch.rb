@@ -32,8 +32,4 @@ class Branch < ApplicationRecord
   def to_param
     name
   end
-
-  def recount!
-    counter.value = srpms.count
-  end
 end

@@ -46,26 +46,4 @@ describe Branch do
 
     its(:to_param) { should eq('Sisyphus') }
   end
-
-  describe '#recount!' do
-    subject { stub_model Branch }
-
-    before do
-      expect(subject).to receive(:srpms) do
-        double.tap do |a|
-          expect(a).to receive(:count).and_return(42)
-        end
-      end
-    end
-
-    before do
-      expect(subject).to receive(:counter) do
-        double.tap do |a|
-          expect(a).to receive(:value=).with(42)
-        end
-      end
-    end
-
-    specify { expect { subject.recount! }.not_to raise_error }
-  end
 end
