@@ -6,11 +6,10 @@ class RecountBranchCounter < Rectify::Command
   end
 
   def call
+    return broadcast(:failed) unless Redis.current.connected?
+
     branch.counter.value = branch.srpms.count
 
     broadcast(:ok)
-  # TODO:
-  # rescue Redis::CannotConnectError
-  #   broadcast(:failed)
   end
 end
