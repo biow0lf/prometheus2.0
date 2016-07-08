@@ -20,15 +20,6 @@ GIT
       activesupport (> 5.x)
       request_store (~> 1.0)
 
-GIT
-  remote: https://github.com/smartinez87/exception_notification.git
-  revision: 4a88cc35a383cca5c06508979fe4aca1e5c1ae0b
-  branch: rails5
-  specs:
-    exception_notification (4.2.0)
-      actionmailer (>= 4.0, < 6)
-      activesupport (>= 4.0, < 6)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -175,6 +166,9 @@ GEM
       multi_json
     equalizer (0.0.11)
     erubis (2.7.0)
+    exception_notification (4.2.0.rc1)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -458,7 +452,7 @@ DEPENDENCIES
   database_cleaner
   devise
   draper!
-  exception_notification!
+  exception_notification (= 4.2.0.rc1)
   factory_girl_rails
   faker
   fakeredis
