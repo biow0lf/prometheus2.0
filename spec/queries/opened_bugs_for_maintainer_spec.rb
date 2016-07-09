@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 describe OpenedBugsForMaintainer do
+  let(:branch) { double }
+
+  let(:maintainer) { double }
+
+  subject { described_class.new(branch, maintainer) }
+
+  it { should be_a(Rectify::Query) }
+
   specify { expect(described_class::BUG_STATUSES).to eq(%w(NEW ASSIGNED VERIFIED REOPENED)) }
 
   describe '#initialize' do
-    let(:branch) { double }
-
-    let(:maintainer) { double }
-
     let(:scope) { double }
-
-    subject { described_class.new(branch, maintainer) }
 
     before do
       #
@@ -23,13 +25,7 @@ describe OpenedBugsForMaintainer do
   end
 
   describe '#query' do
-    let(:branch) { double }
-
-    let(:maintainer) { double }
-
     let(:scope) { double }
-
-    subject { described_class.new(branch, maintainer) }
 
     before do
       #
@@ -57,13 +53,7 @@ describe OpenedBugsForMaintainer do
   end
 
   describe '#decorate' do
-    let(:branch) { double }
-
-    let(:maintainer) { double }
-
     let(:scope) { double }
-
-    subject { described_class.new(branch, maintainer) }
 
     before do
       #

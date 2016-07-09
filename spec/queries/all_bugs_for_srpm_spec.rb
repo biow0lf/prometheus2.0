@@ -1,20 +1,18 @@
 require 'rails_helper'
 
 describe AllBugsForSrpm do
+  let(:srpm) { double }
+
+  subject { described_class.new(srpm) }
+
+  it { should be_a(Rectify::Query) }
+
   describe '#initialize' do
-    let(:srpm) { double }
-
-    subject { described_class.new(srpm) }
-
     its(:srpm) { should eq(srpm) }
   end
 
   describe '#query' do
-    let(:srpm) { double }
-
     let(:components) { double }
-
-    subject { described_class.new(srpm) }
 
     before { expect(subject).to receive(:components).and_return(components) }
 
@@ -33,10 +31,6 @@ describe AllBugsForSrpm do
   end
 
   describe '#decorate' do
-    let(:srpm) { double }
-
-    subject { described_class.new(srpm) }
-
     before do
       #
       # subject.query.decorate
@@ -54,10 +48,6 @@ describe AllBugsForSrpm do
   # private methods
 
   describe '#components' do
-    let(:srpm) { double }
-
-    subject { described_class.new(srpm) }
-
     before do
       #
       # srpm.packages.pluck(:name).flatten.sort.uniq

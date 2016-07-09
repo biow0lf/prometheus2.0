@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 describe OpenedBugsForSrpm do
+  let(:srpm) { double }
+
+  subject { described_class.new(srpm) }
+
+  it { should be_a(Rectify::Query) }
+
   specify { expect(described_class::BUG_STATUSES).to eq(%w(NEW ASSIGNED VERIFIED REOPENED)) }
 
   describe '#initialize' do
-    let(:srpm) { double }
-
     let(:scope) { double }
-
-    subject { described_class.new(srpm) }
 
     before do
       #
@@ -21,11 +23,7 @@ describe OpenedBugsForSrpm do
   end
 
   describe '#query' do
-    let(:srpm) { double }
-
     let(:scope) { double }
-
-    subject { described_class.new(srpm) }
 
     before do
       #
@@ -53,11 +51,7 @@ describe OpenedBugsForSrpm do
   end
 
   describe '#decorate' do
-    let(:srpm) { double }
-
     let(:scope) { double }
-
-    subject { described_class.new(srpm) }
 
     before do
       #

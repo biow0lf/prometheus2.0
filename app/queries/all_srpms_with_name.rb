@@ -13,7 +13,3 @@ class AllSrpmsWithName < Rectify::Query
     query.decorate
   end
 end
-
-# @allsrpms = Srpm.where(name: params[:id]).includes(:branch).order('branches.order_id').decorate
-
-

@@ -1,26 +1,24 @@
 require 'rails_helper'
 
 describe AllBugsForMaintainer do
+  let(:branch) { double }
+
+  let(:maintainer) { double }
+
+  subject { described_class.new(branch, maintainer) }
+
+  it { should be_a(Rectify::Query) }
+
   describe '#initialize' do
-    let(:branch) { double }
-
-    let(:maintainer) { double }
-
-    subject { described_class.new(branch, maintainer) }
-
     its(:branch) { should eq(branch) }
 
     its(:maintainer) { should eq(maintainer) }
   end
 
   describe '#query' do
-    let(:branch) { double }
-
-    let(:maintainer) { stub_model Maintainer, email: 'icesik@altlinux.org' }
-
     let(:components) { double }
 
-    subject { described_class.new(branch, maintainer) }
+    before { expect(maintainer).to receive(:email).and_return('icesik@altlinux.org') }
 
     before { expect(subject).to receive(:components).and_return(components) }
 
@@ -28,7 +26,7 @@ describe AllBugsForMaintainer do
       #
       # Bug.where('component IN (?) OR assigned_to = ?', components, maintainer.email).order(bug_id: :desc)
       #
-      expect(Bug).to receive(:where).with('component IN (?) OR assigned_to = ?', components, maintainer.email) do
+      expect(Bug).to receive(:where).with('component IN (?) OR assigned_to = ?', components, 'icesik@altlinux.org') do
         double.tap do |a|
           expect(a).to receive(:order).with(bug_id: :desc)
         end
@@ -39,12 +37,6 @@ describe AllBugsForMaintainer do
   end
 
   describe '#decorate' do
-    let(:branch) { double }
-
-    let(:maintainer) { double }
-
-    subject { described_class.new(branch, maintainer) }
-
     before do
       #
       # subject.query.decorate
@@ -62,13 +54,7 @@ describe AllBugsForMaintainer do
   # private methods
 
   describe '#components' do
-    let(:branch) { double }
-
-    let(:maintainer) { double }
-
     let(:maintainer_packages_name) { double }
-
-    subject { described_class.new(branch, maintainer) }
 
     before { expect(subject).to receive(:maintainer_packages_name).and_return(maintainer_packages_name) }
 
@@ -103,11 +89,9 @@ describe AllBugsForMaintainer do
   end
 
   describe '#maintainer_packages_name' do
-    let(:branch) { stub_model Branch, name: 'Sisyphus' }
+    before { expect(branch).to receive(:name).and_return('Sisyphus') }
 
-    let(:maintainer) { stub_model Maintainer, login: 'icesik' }
-
-    subject { described_class.new(branch, maintainer) }
+    before { expect(maintainer).to receive(:login).and_return('icesik') }
 
     before do
       #
@@ -115,7 +99,7 @@ describe AllBugsForMaintainer do
       #
       expect(Redis).to receive(:current) do
         double.tap do |a|
-          expect(a).to receive(:smembers).with("#{ branch.name }:maintainers:#{ maintainer.login }")
+          expect(a).to receive(:smembers).with('Sisyphus:maintainers:icesik')
         end
       end
     end
