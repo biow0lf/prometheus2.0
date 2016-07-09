@@ -39,7 +39,7 @@ gem 'chewy'
 gem 'sitemap_generator'
 gem 'rouge'
 # gem 'github-linguist'
-# gem 'rack-rewrite'
+gem 'rack-rewrite'
 gem 'rack-mini-profiler', require: false
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'

@@ -258,6 +258,7 @@ GEM
       rack (>= 1.2.0)
     rack-protection (1.5.3)
       rack
+    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.4.2)
@@ -473,6 +474,7 @@ DEPENDENCIES
   rack-force_domain
   rack-health
   rack-mini-profiler
+  rack-rewrite
   rack-timeout
   rails (~> 5.0.0)
   rails-controller-testing
