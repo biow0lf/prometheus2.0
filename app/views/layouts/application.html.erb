@@ -126,8 +126,10 @@
           <%= link_to_unless_current _('Maintainers'), maintainers_path(branch: params[:branch]), title: _('maintainers information') %>
         </div>
       </li>
-      <li id='li5'>
-        TODO
+      <li id='li5' onmouseout="m_off('li5')" onmouseover="m_on('li5')">
+        <div id='dli5'>
+          <%= link_to_unless_current _('Teams'), teams_path(branch: params[:branch]), title: _('teams information') %>
+        </div>
       </li>
       <li id='li6' onmouseout="m_off('li6')" onmouseover="m_on('li6')">
         <div id='dli6'>
