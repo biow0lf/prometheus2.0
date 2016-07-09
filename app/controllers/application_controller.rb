@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_default_locale
-  before_action :set_default_branch
   before_action :authorizer_for_profiler
 
   helper_method :sort_column, :sort_order, :sort_order_next
@@ -12,11 +11,6 @@ class ApplicationController < ActionController::Base
   def set_default_locale
     params[:locale] ||= 'en'
     I18n.locale = FastGettext.locale = params[:locale]
-  end
-
-  def set_default_branch
-    params[:branch] ||= 'Sisyphus'
-    @branch = Branch.find_by!(name: params[:branch])
   end
 
   def default_url_options(_options = {})
