@@ -2,8 +2,7 @@ class PatchesController < ApplicationController
   def index
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:srpm_id]).includes(:patches).first!
-    @allsrpms = Srpm.where(name: params[:srpm_id]).includes(:branch).order('branches.order_id').decorate
-
+    @allsrpms = AllSrpmsWithName.new(params[:srpm_id]).decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
