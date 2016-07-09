@@ -10,6 +10,5 @@ class HomeController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @maintainers = Maintainer.order(:name)
-    @teams = MaintainerTeam.order(:name)
   end
 end
