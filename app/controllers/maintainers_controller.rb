@@ -1,4 +1,10 @@
 class MaintainersController < ApplicationController
+  def index
+    @branch = Branch.find_by!(name: params[:branch])
+    @branches = Branch.order('order_id')
+    @maintainers = Maintainer.order(:name)
+  end
+
   def show
     @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase).decorate

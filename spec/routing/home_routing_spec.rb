@@ -20,20 +20,5 @@ describe HomeController do
         branch: 'Sisyphus',
         locale: 'en')
     end
-
-    it 'should route /:branch/people to home#maintainers_list' do
-      expect(get: '/Sisyphus/people').to route_to(
-        controller: 'home',
-        action: 'maintainers_list',
-        branch: 'Sisyphus')
-    end
-
-    it 'should route /:locale/:branch/people to home#maintainers_list' do
-      expect(get: '/en/Sisyphus/people').to route_to(
-        controller: 'home',
-        action: 'maintainers_list',
-        branch: 'Sisyphus',
-        locale: 'en')
-    end
   end
 end
