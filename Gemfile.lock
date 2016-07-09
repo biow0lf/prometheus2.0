@@ -10,14 +10,14 @@ GIT
 
 GIT
   remote: https://github.com/drapergem/draper.git
-  revision: 4b4f392826c439f95f3c9c8b790418e52d0e2212
+  revision: 92dd5842b172bfdbd9e25140b71c8295de6acbbe
   branch: rails-5
   specs:
     draper (2.1.0)
-      actionpack (> 5.x)
-      activemodel (> 5.x)
-      activemodel-serializers-xml
-      activesupport (> 5.x)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
       request_store (~> 1.0)
 
 GEM
