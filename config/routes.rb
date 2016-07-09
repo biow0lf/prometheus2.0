@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       end
 
       get 'rss' => 'rss#index', as: 'rss'
-      resources :teams, only: :show
+      resources :teams, only: [:index, :show]
       get 'people' => 'home#maintainers_list', as: 'maintainers'
       get 'packages/:group(/:group2(/:group3))' => 'group#show', as: 'group'
       get 'packages' => 'group#index', as: 'packages'

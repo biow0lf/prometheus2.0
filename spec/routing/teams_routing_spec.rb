@@ -2,6 +2,21 @@ require 'rails_helper'
 
 describe TeamsController do
   describe 'routing' do
+    it 'should route /:branch/teams to teams#index' do
+      expect(get: '/Sisyphus/teams').to route_to(
+        controller: 'teams',
+        action: 'index',
+        branch: 'Sisyphus')
+    end
+
+    it 'should route /:locale/:branch/teams to teams#index' do
+      expect(get: '/en/Sisyphus/teams').to route_to(
+        controller: 'teams',
+        action: 'index',
+        branch: 'Sisyphus',
+        locale: 'en')
+    end
+
     it 'should route /:branch/teams/:id to teams#show' do
       expect(get: '/Sisyphus/teams/ruby').to route_to(
         controller: 'teams',

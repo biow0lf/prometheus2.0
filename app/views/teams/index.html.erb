@@ -1,0 +1,54 @@
+<% title _('Prometheus 2.0 - Teams') %>
+
+<div id='main-content'>
+
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= _('ALT Linux repositories') %>">
+  <%= _('ALT Linux repositories') %>
+</div>
+<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px; margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+<% @branches.each do |branch| %>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to branch.name, maintainers_path(branch), class: 'news' %>
+  </td>
+  <td style="text-align: right;"><%= branch.counter.value %></td>
+</tr>
+<% end %>
+
+</table>
+</div>
+</div>
+
+  <table style='font-size: 10pt;' width='100%'>
+    <tr>
+      <th><%= _('Teams') %></th>
+    </tr>
+    <tr>
+      <td valign='top'>
+        <% @teams.each do |team| %>
+          <% if Redis.current.smembers("#{ @branch.name }:maintainers:#{ team.login }").count > 0 %>
+          <div style='margin-bottom: 2px; text-align: left; border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt;'>
+            <div style='float: left;'>
+              <%= link_to team.name, team_path(id: team.login[1..-1], branch: @branch.name), class: 'news' %>
+              <%= link_to " (#{ team.login[1..-1] })", team_path(id: team.login[1..-1], branch: @branch.name), style: 'text-decoration: none; color: black;' %>
+            </div>
+            <div style='float: right;'><%= Redis.current.smembers("#{ @branch.name }:maintainers:#{ team.login }").count %></div>
+          </div>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id='bottom-offset-l'>
+  <div id='bottom-offset-r'>
+    &nbsp;
+  </div>
+</div>
