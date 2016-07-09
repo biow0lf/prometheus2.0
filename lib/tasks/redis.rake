@@ -37,7 +37,7 @@ namespace :redis do
 
     puts "#{ Time.now }: cache all binary files info in redis"
     branches.each do |branch|
-      packages = Package.where(branch_id: branch).select('filename')
+      packages = branch.packages.select('filename')
       packages.each { |package| Redis.current.set("#{ branch.name }:#{ package.filename }", 1) }
     end
     puts "#{ Time.now }: end"
