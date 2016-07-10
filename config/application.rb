@@ -49,16 +49,5 @@ module Prometheus20
         }
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
     end
-
-    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      r301 '/people', '/maintainers'
-      r301 %r{/(en|ru|uk|br)/people}, '/$1/maintainers'
-
-      # SUPPORTED_LOCALES
-      #
-      # r301      '/wiki/Yair_Flicker',   '/yair'
-      # r302      '/wiki/Greg_Jastrab',   '/greg'
-      # r301      %r{/wiki/(\w+)_\w+},    '/$1'
-    end
   end
 end

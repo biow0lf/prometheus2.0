@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe MaintainersController do
   describe 'routing' do
-    it 'should route /:branch/people to maintainers#index' do
-      expect(get: '/Sisyphus/people').to route_to(
+    it 'should route /:branch/maintainers to maintainers#index' do
+      expect(get: '/Sisyphus/maintainers').to route_to(
         controller: 'maintainers',
         action: 'index',
         branch: 'Sisyphus')
     end
 
-    it 'should route /:locale/:branch/people to maintainers#index' do
-      expect(get: '/en/Sisyphus/people').to route_to(
+    it 'should route /:locale/:branch/maintainers to maintainers#index' do
+      expect(get: '/en/Sisyphus/maintainers').to route_to(
         controller: 'maintainers',
         action: 'index',
         branch: 'Sisyphus',

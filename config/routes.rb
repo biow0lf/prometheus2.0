@@ -48,7 +48,6 @@ Rails.application.routes.draw do
 
       resources :maintainers, only: :index
 
-      # get 'people' => 'maintainers#index', as: 'maintainers'
       get 'packages/:group(/:group2(/:group3))' => 'group#show', as: 'group'
       get 'packages' => 'group#index', as: 'packages'
     end
