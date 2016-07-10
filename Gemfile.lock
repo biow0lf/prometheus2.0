@@ -8,18 +8,6 @@ GIT
       rack-protection (~> 1.5)
       tilt (~> 2.0)
 
-GIT
-  remote: https://github.com/drapergem/draper.git
-  revision: 92dd5842b172bfdbd9e25140b71c8295de6acbbe
-  branch: rails-5
-  specs:
-    draper (2.1.0)
-      actionpack (~> 5.0)
-      activemodel (~> 5.0)
-      activemodel-serializers-xml (~> 1.0)
-      activesupport (~> 5.0)
-      request_store (~> 1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -156,6 +144,12 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
     elasticsearch (1.0.18)
       elasticsearch-api (= 1.0.18)
       elasticsearch-transport (= 1.0.18)
@@ -258,7 +252,6 @@ GEM
       rack (>= 1.2.0)
     rack-protection (1.5.3)
       rack
-    rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.4.2)
@@ -452,7 +445,7 @@ DEPENDENCIES
   dalli
   database_cleaner
   devise
-  draper!
+  draper (~> 3.0.0.pre1)
   exception_notification (= 4.2.0.rc1)
   factory_girl_rails
   faker
@@ -474,7 +467,6 @@ DEPENDENCIES
   rack-force_domain
   rack-health
   rack-mini-profiler
-  rack-rewrite
   rack-timeout
   rails (~> 5.0.0)
   rails-controller-testing
