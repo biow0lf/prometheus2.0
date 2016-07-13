@@ -56,7 +56,7 @@ end
 group :production do
   gem 'newrelic_rpm'
   gem 'rack-force_domain'
-  gem 'exception_notification', '4.2.0.rc1'
+  gem 'exception_notification'
   gem 'unicorn'
   gem 'unicorn-worker-killer'
   gem 'lograge'
