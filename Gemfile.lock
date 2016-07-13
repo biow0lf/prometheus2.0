@@ -492,7 +492,6 @@ DEPENDENCIES
   swagger-blocks
   thinking-sphinx
   turbolinks (~> 5)
-  tzinfo-data
   uglifier (>= 1.3.0)
   unicorn
   unicorn-worker-killer
