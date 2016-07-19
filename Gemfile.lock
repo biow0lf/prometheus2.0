@@ -160,7 +160,7 @@ GEM
       multi_json
     equalizer (0.0.11)
     erubis (2.7.0)
-    exception_notification (4.2.0)
+    exception_notification (4.2.1)
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
     execjs (2.7.0)
