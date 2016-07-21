@@ -150,12 +150,12 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
-    elasticsearch (1.1.0)
-      elasticsearch-api (= 1.1.0)
-      elasticsearch-transport (= 1.1.0)
-    elasticsearch-api (1.1.0)
+    elasticsearch (2.0.0)
+      elasticsearch-api (= 2.0.0)
+      elasticsearch-transport (= 2.0.0)
+    elasticsearch-api (2.0.0)
       multi_json
-    elasticsearch-transport (1.1.0)
+    elasticsearch-transport (2.0.0)
       faraday
       multi_json
     equalizer (0.0.11)
