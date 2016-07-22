@@ -19,6 +19,29 @@ Style/IndentationWidth:
 Style/TrailingWhitespace:
   Enabled: true
 
+# Blank lines should not have any spaces.
+Style/TrailingBlankLines:
+  Enabled: true
+
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
+  Enabled: true
+
+# Prefer &&/|| over and/or.
+Style/AndOr:
+  Enabled: true
+
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+  Enabled: true
+
+# Do not use braces for hash literals when they are the last argument of a
+# method call.
+Style/BracesAroundHashParameters:
+  Enabled: true
+
+# TODO: recheck all this cops
+
 Style/Documentation:
   Enabled: false
 
