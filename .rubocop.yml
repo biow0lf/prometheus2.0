@@ -15,6 +15,10 @@ Rails:
 Style/IndentationWidth:
   Enabled: true
 
+# No trailing whitespace.
+Style/TrailingWhitespace:
+  Enabled: true
+
 Style/Documentation:
   Enabled: false
 
