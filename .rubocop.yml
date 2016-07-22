@@ -11,6 +11,10 @@ AllCops:
 Rails:
   Enabled: true
 
+# Two spaces, no tabs (for indentation).
+Style/IndentationWidth:
+  Enabled: true
+
 Style/Documentation:
   Enabled: false
 

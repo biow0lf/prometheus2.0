@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Api::PackageController do
   describe 'routing' do
-  it 'should route GET /api/packages/:id to api/package#show' do
+    it 'should route GET /api/packages/:id to api/package#show' do
       expect(get: 'api/packages/openbox').to route_to(
         controller: 'api/package',
         action: 'show',
