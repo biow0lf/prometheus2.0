@@ -1,11 +1,18 @@
 GIT
+  remote: git://github.com/sinatra/rack-protection.git
+  revision: cc19dafb0c6266c2927e629688464c9992efedf8
+  specs:
+    rack-protection (2.0.0)
+      rack
+
+GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: 751f2a7a8f26a01f984cecbfe1385ecc0feda9e0
+  revision: cafdc4d3a71155c34bb63ef98723b0f9a003f81e
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
       rack (~> 2.0)
-      rack-protection (~> 1.5)
+      rack-protection (~> 2.0)
       tilt (~> 2.0)
 
 GEM
@@ -250,8 +257,6 @@ GEM
       rack (>= 1.2.0)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
-    rack-protection (1.5.3)
-      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.4.2)
@@ -467,6 +472,7 @@ DEPENDENCIES
   rack-force_domain
   rack-health
   rack-mini-profiler
+  rack-protection!
   rack-timeout
   rails (~> 5.0.0)
   rails-controller-testing
