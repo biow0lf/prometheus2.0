@@ -58,7 +58,6 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rack-force_domain'
   gem 'exception_notification'
-  gem 'unicorn'
   gem 'lograge'
   gem 'rack-timeout'
 end
