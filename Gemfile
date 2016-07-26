@@ -59,7 +59,6 @@ group :production do
   gem 'rack-force_domain'
   gem 'exception_notification'
   gem 'unicorn'
-  gem 'unicorn-worker-killer'
   gem 'lograge'
   gem 'rack-timeout'
 end
