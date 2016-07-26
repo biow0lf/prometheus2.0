@@ -10,6 +10,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/faster_assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/puma'
 require 'whenever/capistrano'
 require 'thinking_sphinx/capistrano'
 
