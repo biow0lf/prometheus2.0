@@ -89,8 +89,6 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-db-tasks (0.4)
-      capistrano (>= 3.0.0)
     capistrano-faster-assets (1.0.2)
       capistrano (>= 3.1)
     capistrano-harrow (0.5.2)
@@ -425,7 +423,6 @@ DEPENDENCIES
   brakeman
   bullet
   capistrano
-  capistrano-db-tasks
   capistrano-faster-assets
   capistrano-rails
   capistrano-rbenv

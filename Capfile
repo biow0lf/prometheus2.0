@@ -11,7 +11,6 @@ require 'capistrano/rails/assets'
 require 'capistrano/faster_assets'
 require 'airbrussh/capistrano'
 require 'capistrano/rails/migrations'
-require 'capistrano-db-tasks'
 require 'whenever/capistrano'
 require 'thinking_sphinx/capistrano'
 
