@@ -7,7 +7,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
-# gem 'puma', '~> 3.0'
+gem 'puma'
 
 gem 'rake', require: false
 
