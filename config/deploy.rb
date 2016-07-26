@@ -58,12 +58,9 @@ namespace :deploy do
 
 end
 
-# after :finishing, 'whenever:update_crontab'
-
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
-    # invoke 'thinking_sphinx:restart'
   end
 end
