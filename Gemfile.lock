@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/sinatra/rack-protection.git
-  revision: 92e7c2d41d4fd6078a4467549ecf858f16be8ad1
+  revision: bce9100cf9e95776cfcccf884aaf5523a4aab1c5
   specs:
     rack-protection (2.0.0)
       rack
 
 GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: bd1a9dc8c9c0a75b50bacb18cbf9ec1923764edb
+  revision: d4b8cc5d24e00d6351ddc9f1ab405e55795211a1
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
