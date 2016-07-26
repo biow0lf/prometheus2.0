@@ -101,6 +101,9 @@ GEM
     capistrano-rbenv-install (1.2.0)
       capistrano (>= 3.0)
       capistrano-rbenv (>= 2.0)
+    capistrano3-puma (1.2.1)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -427,6 +430,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-install
+  capistrano3-puma
   capybara
   capybara-email
   chewy
