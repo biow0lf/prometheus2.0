@@ -1,3 +1,3 @@
 if defined? Rack::Timeout
-  Rack::Timeout.timeout = 5
+  Rack::Timeout.service_timeout = 15
 end
