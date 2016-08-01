@@ -9,7 +9,7 @@ class SearchesController < ApplicationController
         Riddle::Query.escape(params[:query]),
         order: :name,
         max_matches: 10_000,
-        per_page: 10_000,
+        per_page: 100,
         field_weights: {
           name: 10,
           summary: 9,
@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
         },
         with: { branch_id: @branch.id },
         include: :branch
-      )
+      ).page(params[:page]).per(100)
       redirect_to(srpm_path(@branch, @srpms.first), status: 302) if @srpms.count == 1
     end
   # TODO: why Mysql2::Error?
