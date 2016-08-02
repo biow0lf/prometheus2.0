@@ -47,6 +47,7 @@ set :bundle_binstubs, -> { shared_path.join('bin') }
 
 set :puma_preload_app, false
 set :puma_prune_bundler, true
+set :puma_workers, 2
 
 namespace :deploy do
   after :restart, :clear_cache do
