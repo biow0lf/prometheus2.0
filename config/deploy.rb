@@ -48,7 +48,6 @@ set :bundle_binstubs, -> { shared_path.join('bin') }
 set :puma_preload_app, true
 
 namespace :deploy do
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -57,11 +56,10 @@ namespace :deploy do
       # end
     end
   end
-
 end
 
-# namespace :puma do
-#   task :restart do
-#     invoke 'puma:phased-restart'
-#   end
-# end
+namespace :puma do
+  task :restart do
+    invoke 'puma:phased-restart'
+  end
+end
