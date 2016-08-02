@@ -59,9 +59,3 @@ namespace :deploy do
     end
   end
 end
-
-# namespace :puma do
-#   task :restart do
-#     invoke 'puma:phased-restart'
-#   end
-# end
