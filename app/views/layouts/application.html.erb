@@ -102,10 +102,10 @@
       <% end %>
     </div>
     <div style='text-align: right'>
-      <%= link_to_unless_current 'en', current_page(request.fullpath, 'en'), title: 'English' %> 
-      <%= link_to_unless_current 'ru', current_page(request.fullpath, 'ru'), title: 'Russian' %> 
-      <%= link_to_unless_current 'uk', current_page(request.fullpath, 'uk'), title: 'Ukrainian' %> 
-      <%= link_to_unless_current 'br', current_page(request.fullpath, 'br'), title: 'Portuguese (Brasilian)' %>
+      <%= link_to_unless_current 'en', change_current_page_lang(request.fullpath, 'en'), title: 'English' %>
+      <%= link_to_unless_current 'ru', change_current_page_lang(request.fullpath, 'ru'), title: 'Russian' %>
+      <%= link_to_unless_current 'uk', change_current_page_lang(request.fullpath, 'uk'), title: 'Ukrainian' %>
+      <%= link_to_unless_current 'br', change_current_page_lang(request.fullpath, 'br'), title: 'Portuguese (Brasilian)' %>
     </div>
   </div>
 

@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :sort_column, :sort_order, :sort_order_next
 
+  helper_method :change_current_page_lang
+
   def set_default_locale
     params[:locale] ||= 'en'
     I18n.locale = FastGettext.locale = params[:locale]
@@ -20,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     locale = http_accept_language.compatible_language_from(I18n.available_locales)
 
-    redirect_to(current_page(request.fullpath, locale)) if !params[:locale] && !params[:name] && locale
+    redirect_to(change_current_page_lang(request.fullpath, locale)) if !params[:locale] && !params[:name] && locale
   end
 
   def set_default_branch
@@ -62,7 +64,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_page(url, lang)
+  def change_current_page_lang(url, lang)
     return "/#{lang}" if url == '/'
     url[1, 2] = lang
     url
