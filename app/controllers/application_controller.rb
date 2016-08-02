@@ -49,9 +49,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorizer_for_profiler
-    if current_user.try(:admin?)
-      Rack::MiniProfiler.authorize_request
-    end
+    Rack::MiniProfiler.authorize_request if current_user.try(:admin?)
   end
 
   rescue_from ActiveRecord::RecordNotFound do
