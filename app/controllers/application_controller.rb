@@ -69,6 +69,6 @@ class ApplicationController < ActionController::Base
   def prefered_locale
     return if browser.bot?
 
-    http_accept_language.compatible_language_from(I18n.available_locales)
+    http_accept_language.compatible_language_from(I18n.available_locales) || 'en'
   end
 end
