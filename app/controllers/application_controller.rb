@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  # before_action :redirect_to_localized
+  before_action :redirect_to_localized
   before_action :set_default_locale
   before_action :set_default_branch
   before_action :authorizer_for_profiler
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     locale = http_accept_language.compatible_language_from(I18n.available_locales)
 
-    redirect_to(change_current_page_lang(request.fullpath, locale)) if !params[:locale] && !params[:name] && locale
+    redirect_to(change_current_page_lang(request.fullpath, locale)) if request.fullpath == '/' && locale
   end
 
   def set_default_branch
