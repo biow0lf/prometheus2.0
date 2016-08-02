@@ -18,9 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_localized
-    return if browser.bot?
-
-    locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    locale = prefered_locale
 
     redirect_to(change_current_page_lang(request.fullpath, locale)) if request.fullpath == '/' && locale
   end
@@ -66,5 +64,11 @@ class ApplicationController < ActionController::Base
     return "/#{lang}" if url == '/'
     url[1, 2] = lang
     url
+  end
+
+  def prefered_locale
+    return if browser.bot?
+
+    http_accept_language.compatible_language_from(I18n.available_locales)
   end
 end
