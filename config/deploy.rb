@@ -60,9 +60,8 @@ namespace :deploy do
 
 end
 
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    # invoke 'unicorn:restart'
-  end
-end
+# namespace :puma do
+#   task :restart do
+#     invoke 'puma:phased-restart'
+#   end
+# end
