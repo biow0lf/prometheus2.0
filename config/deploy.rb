@@ -45,7 +45,8 @@ set :keep_releases, 3
 set :bundle_jobs, 4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
-set :puma_preload_app, true
+set :puma_preload_app, false
+set :puma_prune_bundler, true
 
 namespace :deploy do
   after :restart, :clear_cache do
@@ -58,8 +59,8 @@ namespace :deploy do
   end
 end
 
-namespace :puma do
-  task :restart do
-    invoke 'puma:phased-restart'
-  end
-end
+# namespace :puma do
+#   task :restart do
+#     invoke 'puma:phased-restart'
+#   end
+# end
