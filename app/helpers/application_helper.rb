@@ -12,10 +12,4 @@ module ApplicationHelper
   def description(string)
     content_for(:description) { string }
   end
-
-  def current_page(url, lang)
-    return "/#{lang}" if url == '/'
-    url[1, 2] = lang
-    url
-  end
 end
