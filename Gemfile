@@ -46,6 +46,7 @@ gem 'sidekiq'
 gem 'rectify'
 gem 'cocaine'
 gem 'browser'
+gem 'http_accept_language'
 
 group :production, :development, :staging do
   gem 'redis'
