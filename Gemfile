@@ -45,6 +45,7 @@ gem 'sidekiq'
 # gem 'oink'
 gem 'rectify'
 gem 'cocaine'
+gem 'browser'
 
 group :production, :development, :staging do
   gem 'redis'

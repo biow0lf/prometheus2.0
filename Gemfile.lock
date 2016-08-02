@@ -76,6 +76,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
     brakeman (3.3.3)
+    browser (2.2.0)
     builder (3.2.2)
     bullet (5.2.0)
       activesupport (>= 3.0.0)
@@ -424,6 +425,7 @@ DEPENDENCIES
   awesome_nested_set
   awesome_print
   brakeman
+  browser
   bullet
   capistrano
   capistrano-faster-assets
