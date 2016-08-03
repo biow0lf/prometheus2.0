@@ -131,6 +131,32 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+
 # Mirrors for SisyphusARM
 # branch = Branch.find_by(name: 'SisyphusARM', vendor: 'ALT Linux')
 # Mirror.create!(
@@ -185,6 +211,32 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+
 # Mirrors for p7
 branch = Branch.find_by(name: 'p7', vendor: 'ALT Linux')
 Mirror.create!(
@@ -209,6 +261,31 @@ Mirror.create!(
   name: 'rsync://ftp.altlinux.org',
   country: 'ru',
   uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
@@ -239,6 +316,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
 # Mirrors for Platform6
 branch = Branch.find_by(name: 'Platform6', vendor: 'ALT Linux')
 Mirror.create!(
@@ -263,6 +365,31 @@ Mirror.create!(
   name: 'rsync://ftp.altlinux.org',
   country: 'ru',
   uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
@@ -293,6 +420,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
 # Mirrors for Platform5
 branch = Branch.find_by(name: 'Platform5', vendor: 'ALT Linux')
 Mirror.create!(
@@ -317,6 +469,31 @@ Mirror.create!(
   name: 'rsync://ftp.altlinux.org',
   country: 'ru',
   uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
@@ -347,6 +524,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
 # Mirrors for 5.0
 branch = Branch.find_by(name: '5.0', vendor: 'ALT Linux')
 Mirror.create!(
@@ -371,6 +573,31 @@ Mirror.create!(
   name: 'rsync://ftp.altlinux.org',
   country: 'ru',
   uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
@@ -401,6 +628,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
 # Mirrors for 4.0
 branch = Branch.find_by(name: '4.0', vendor: 'ALT Linux')
 Mirror.create!(
@@ -425,6 +677,31 @@ Mirror.create!(
   name: 'rsync://ftp.altlinux.org',
   country: 'ru',
   uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 3,
+  name: 'http://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 4,
+  name: 'ftp://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://mirror.yandex.ru/',
+  country: 'ru',
+  uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
