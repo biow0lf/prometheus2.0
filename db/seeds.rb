@@ -163,18 +163,18 @@ branch = Branch.find_by(name: 'Platform5', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
-  name: 'ftp://ftp.altlinux.org',
-  country: 'ru',
-  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'ftp'
-)
-Mirror.create!(
-  branch_id: branch.id,
-  order_id: 1,
   name: 'http://ftp.altlinux.org',
   country: 'ru',
   uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
   protocol: 'http'
+)
+Mirror.create!(
+    branch_id: branch.id,
+    order_id: 1,
+    name: 'ftp://ftp.altlinux.org',
+    country: 'ru',
+    uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+    protocol: 'ftp'
 )
 Mirror.create!(
   branch_id: branch.id,
@@ -188,20 +188,20 @@ Mirror.create!(
 # Mirrors for 5.1
 branch = Branch.find_by(name: '5.1', vendor: 'ALT Linux')
 Mirror.create!(
-  branch_id: branch.id,
-  order_id: 0,
-  name: 'ftp://ftp.altlinux.org',
-  country: 'ru',
-  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'ftp'
+    branch_id: branch.id,
+    order_id: 0,
+    name: 'http://ftp.altlinux.org',
+    country: 'ru',
+    uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+    protocol: 'http'
 )
 Mirror.create!(
   branch_id: branch.id,
   order_id: 1,
-  name: 'http://ftp.altlinux.org',
+  name: 'ftp://ftp.altlinux.org',
   country: 'ru',
-  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'http'
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
 )
 Mirror.create!(
   branch_id: branch.id,
@@ -217,18 +217,18 @@ branch = Branch.find_by(name: '5.0', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
-  name: 'ftp://ftp.altlinux.org',
-  country: 'ru',
-  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'ftp'
-)
-Mirror.create!(
-  branch_id: branch.id,
-  order_id: 1,
   name: 'http://ftp.altlinux.org',
   country: 'ru',
   uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
   protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
 )
 Mirror.create!(
   branch_id: branch.id,
@@ -244,18 +244,18 @@ branch = Branch.find_by(name: '4.1', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
-  name: 'ftp://ftp.altlinux.org',
-  country: 'ru',
-  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'ftp'
-)
-Mirror.create!(
-  branch_id: branch.id,
-  order_id: 1,
   name: 'http://ftp.altlinux.org',
   country: 'ru',
   uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
   protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
 )
 Mirror.create!(
   branch_id: branch.id,
@@ -268,21 +268,21 @@ Mirror.create!(
 
 # Mirrors for 4.0
 branch = Branch.find_by(name: '4.0', vendor: 'ALT Linux')
-Mirror.create(
-  branch_id: branch.id,
-  order_id: 0,
-  name: 'ftp://ftp.altlinux.org',
-  country: 'ru',
-  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'ftp'
-)
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 1,
+  order_id: 0,
   name: 'http://ftp.altlinux.org',
   country: 'ru',
   uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
   protocol: 'http'
+)
+Mirror.create(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
 )
 Mirror.create!(
   branch_id: branch.id,
