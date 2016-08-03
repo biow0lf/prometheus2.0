@@ -105,7 +105,7 @@ branch.save!
 # branch.save!
 
 # Mirrors for Sisyphus
-branch = Branch.where(name: 'Sisyphus', vendor: 'ALT Linux').first
+branch = Branch.find_by(name: 'Sisyphus', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
@@ -157,7 +157,7 @@ Mirror.create!(
 )
 
 # Mirrors for SisyphusARM
-branch = Branch.where(name: 'SisyphusARM', vendor: 'ALT Linux').first
+branch = Branch.find_by(name: 'SisyphusARM', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
@@ -183,7 +183,8 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
-branch = Branch.where(name: 'Platform5', vendor: 'ALT Linux').first
+# Mirrors for Platform5
+branch = Branch.find_by(name: 'Platform5', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
@@ -209,7 +210,8 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
-branch = Branch.where(name: '5.1', vendor: 'ALT Linux').first
+# Mirrors for 5.1
+branch = Branch.find_by(name: '5.1', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
@@ -235,7 +237,8 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
-branch = Branch.where(name: '5.0', vendor: 'ALT Linux').first
+# Mirrors for 5.0
+branch = Branch.find_by(name: '5.0', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
@@ -261,7 +264,8 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
-branch = Branch.where(name: '4.1', vendor: 'ALT Linux').first
+# Mirrors for 4.1
+branch = Branch.find_by(name: '4.1', vendor: 'ALT Linux')
 Mirror.create!(
   branch_id: branch.id,
   order_id: 0,
@@ -287,7 +291,8 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
-branch = Branch.where(name: '4.0', vendor: 'ALT Linux').first
+# Mirrors for 4.0
+branch = Branch.find_by(name: '4.0', vendor: 'ALT Linux')
 Mirror.create(
   branch_id: branch.id,
   order_id: 0,
