@@ -8,12 +8,5 @@ describe RedirectorController do
         action: 'index',
         name: 'glibc')
     end
-
-    it 'should route /src:glibc to redirector#index' do
-      expect(get: '/src:glibc').to route_to(
-        controller: 'redirector',
-        action: 'index',
-        name: 'src:glibc')
-    end
   end
 end

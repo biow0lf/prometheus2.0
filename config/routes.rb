@@ -111,6 +111,7 @@ Rails.application.routes.draw do
   get '/repocop/srpms_install_s' => 'repocop#srpms_install_s'
   # END
 
-  get '/src\::name' => redirect('/en/Sisyphus/srpms/%{name}'), name: /[^\/]+/
+  get '/src::name' => 'srpm_redirector#index', name: /[^\/]+/
+
   get '/:name' => 'redirector#index', name: /[^\/]+/
 end
