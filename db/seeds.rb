@@ -149,13 +149,37 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
 
 # Mirrors for SisyphusARM
 # branch = Branch.find_by(name: 'SisyphusARM', vendor: 'ALT Linux')
@@ -229,13 +253,37 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
 
 # Mirrors for p7
 branch = Branch.find_by(name: 'p7', vendor: 'ALT Linux')
@@ -282,10 +330,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -334,10 +407,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -386,10 +484,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -438,10 +561,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -490,10 +638,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -542,10 +715,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -594,10 +792,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -646,10 +869,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
@@ -698,10 +946,35 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 2,
+  order_id: 5,
   name: 'rsync://mirror.yandex.ru/',
   country: 'ru',
   uri: 'rsync://mirror.yandex.ru/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 6,
+  name: 'http://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'http://mirror.yandex.ru/altlinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 7,
+  name: 'ftp://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'ftp://mirror.yandex.ru/altlinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 8,
+  name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
+  country: 'fr',
+  uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
   protocol: 'rsync'
 )
 
