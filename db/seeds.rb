@@ -181,6 +181,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'rsync'
+)
+
 # Mirrors for SisyphusARM
 # branch = Branch.find_by(name: 'SisyphusARM', vendor: 'ALT Linux')
 # Mirror.create!(
@@ -285,6 +310,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'rsync'
+)
+
 # Mirrors for p7
 branch = Branch.find_by(name: 'p7', vendor: 'ALT Linux')
 Mirror.create!(
@@ -359,6 +409,31 @@ Mirror.create!(
   name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
   country: 'fr',
   uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
   protocol: 'rsync'
 )
 
@@ -439,6 +514,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'rsync'
+)
+
 # Mirrors for Platform6
 branch = Branch.find_by(name: 'Platform6', vendor: 'ALT Linux')
 Mirror.create!(
@@ -513,6 +613,31 @@ Mirror.create!(
   name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
   country: 'fr',
   uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
   protocol: 'rsync'
 )
 
@@ -593,6 +718,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'rsync'
+)
+
 # Mirrors for Platform5
 branch = Branch.find_by(name: 'Platform5', vendor: 'ALT Linux')
 Mirror.create!(
@@ -667,6 +817,31 @@ Mirror.create!(
   name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
   country: 'fr',
   uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
   protocol: 'rsync'
 )
 
@@ -747,6 +922,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'rsync'
+)
+
 # Mirrors for 5.0
 branch = Branch.find_by(name: '5.0', vendor: 'ALT Linux')
 Mirror.create!(
@@ -821,6 +1021,31 @@ Mirror.create!(
   name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
   country: 'fr',
   uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
   protocol: 'rsync'
 )
 
@@ -901,6 +1126,31 @@ Mirror.create!(
   protocol: 'rsync'
 )
 
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'rsync'
+)
+
 # Mirrors for 4.0
 branch = Branch.find_by(name: '4.0', vendor: 'ALT Linux')
 Mirror.create!(
@@ -975,6 +1225,31 @@ Mirror.create!(
   name: 'rsync://distrib-coffee.ipsl.jussieu.fr/',
   country: 'fr',
   uri: 'rsync://distrib-coffee.ipsl.jussieu.fr/pub/linux/altlinux',
+  protocol: 'rsync'
+)
+
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 9,
+  name: 'http://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'http://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 10,
+  name: 'ftp://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'ftp://ftp.heanet.ie/mirrors/ftp.altlinux.org',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 11,
+  name: 'rsync://ftp.heanet.ie/',
+  country: 'ie',
+  uri: 'rsync://ftp.heanet.ie/mirrors/ftp.altlinux.org',
   protocol: 'rsync'
 )
 
