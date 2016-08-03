@@ -107,8 +107,16 @@ branch.save!
 # Mirrors for Sisyphus
 branch = Branch.find_by(name: 'Sisyphus', vendor: 'ALT Linux')
 Mirror.create!(
+    branch_id: branch.id,
+    order_id: 0,
+    name: 'http://ftp.altlinux.org',
+    country: 'ru',
+    uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+    protocol: 'http'
+)
+Mirror.create!(
   branch_id: branch.id,
-  order_id: 0,
+  order_id: 1,
   name: 'ftp://ftp.altlinux.org',
   country: 'ru',
   uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
@@ -116,43 +124,10 @@ Mirror.create!(
 )
 Mirror.create!(
   branch_id: branch.id,
-  order_id: 1,
-  name: 'http://ftp.altlinux.org',
-  country: 'ru',
-  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
-  protocol: 'http'
-)
-Mirror.create!(
-  branch_id: branch.id,
   order_id: 2,
   name: 'rsync://ftp.altlinux.org',
   country: 'ru',
   uri: 'rsync://ftp.altlinux.org/ALTLinux',
-  protocol: 'rsync'
-)
-
-Mirror.create!(
-  branch_id: branch.id,
-  order_id: 3,
-  name: 'ftp://ftp.linux.kiev.ua',
-  country: 'ua',
-  uri: 'ftp://ftp.linux.kiev.ua/pub/Linux/ALT',
-  protocol: 'ftp'
-)
-Mirror.create!(
-  branch_id: branch.id,
-  order_id: 4,
-  name: 'http://ftp.linux.kiev.ua',
-  country: 'ua',
-  uri: 'http://ftp.linux.kiev.ua/pub/Linux/ALT',
-  protocol: 'http'
-)
-Mirror.create!(
-  branch_id: branch.id,
-  order_id: 5,
-  name: 'rsync://ftp.linux.kiev.ua',
-  country: 'ua',
-  uri: 'rsync://ftp.linux.kiev.ua/ALTLinux',
   protocol: 'rsync'
 )
 
