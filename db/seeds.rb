@@ -158,6 +158,33 @@ Mirror.create!(
 #   protocol: 'rsync'
 # )
 
+# Mirrors for t6
+branch = Branch.find_by(name: 't6', vendor: 'ALT Linux')
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 0,
+  name: 'http://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'http'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 1,
+  name: 'ftp://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux',
+  protocol: 'ftp'
+)
+Mirror.create!(
+  branch_id: branch.id,
+  order_id: 2,
+  name: 'rsync://ftp.altlinux.org',
+  country: 'ru',
+  uri: 'rsync://ftp.altlinux.org/ALTLinux',
+  protocol: 'rsync'
+)
+
 # Mirrors for Platform5
 branch = Branch.find_by(name: 'Platform5', vendor: 'ALT Linux')
 Mirror.create!(
