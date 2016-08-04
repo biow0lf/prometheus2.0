@@ -1,4 +1,4 @@
-<% title _("Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop") % @srpm.name %>
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Repocop') % @srpm.name %>
 <% description "#{ @srpm.name } - #{ @srpm.summary }" %>
 <% keywords @srpm.summary %>
 
@@ -24,7 +24,7 @@
     <th><%= _('message') %></th>
   </tr>
 
-<% @repocops.each do |repocop| %>
+<% @srpm.repocops.each do |repocop| %>
   <% if repocop.status != 'skip' %>
   <tr>
     <td><%= "#{ repocop.name }-#{ repocop.version }-#{ repocop.release }.#{ repocop.arch }" %></td>
@@ -42,12 +42,5 @@
 <% end %>
 
 </table>
-
-  <p class="break" />
-
-  <div style="text-align:center">
-    <%= paginate @repocops %>
-  </div>
-
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
