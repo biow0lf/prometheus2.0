@@ -25,7 +25,7 @@ class Ftbfs < ApplicationRecord
       evr = line.split[1]
       weeks = line.split[2]
       if evr[/:/]
-        epoch = evr.split(':')[0] if evr[/:/]
+        epoch = evr.split(':')[0]
         version, release = evr.split(':')[1].split('-')
       else
         epoch = nil
