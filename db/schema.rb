@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804142724) do
+ActiveRecord::Schema.define(version: 20160804143438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 20160804142724) do
 
   create_table "ftbfs", force: :cascade do |t|
     t.string   "name"
-    t.string   "epoch"
     t.string   "version"
     t.string   "release"
     t.integer  "weeks"
@@ -82,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160804142724) do
     t.datetime "updated_at"
     t.string   "arch"
     t.integer  "maintainer_id"
+    t.integer  "epoch"
     t.index ["branch_id"], name: "index_ftbfs_on_branch_id", using: :btree
     t.index ["maintainer_id"], name: "index_ftbfs_on_maintainer_id", using: :btree
   end
