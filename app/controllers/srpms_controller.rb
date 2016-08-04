@@ -5,7 +5,7 @@ class SrpmsController < ApplicationController
     @ftbfs = @branch.ftbfs.where(name: @srpm.name,
                                  version: @srpm.version,
                                  release: @srpm.release,
-                                 epoch: @srpm.epoch.to_s).select('DISTINCT id, arch, weeks')
+                                 epoch: @srpm.epoch).select('DISTINCT id, arch, weeks')
     @changelogs = @srpm.changelogs.order(created_at: :asc).limit(3)
     if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
