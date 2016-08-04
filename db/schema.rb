@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804142341) do
+ActiveRecord::Schema.define(version: 20160804142724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -245,8 +245,8 @@ ActiveRecord::Schema.define(version: 20160804142341) do
     t.string   "release"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "epoch"
     t.integer  "flags"
+    t.integer  "epoch"
     t.index ["package_id"], name: "index_requires_on_package_id", using: :btree
   end
 
