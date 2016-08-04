@@ -6,7 +6,6 @@
  * Drop group class.
  * HTTPS
  * Update sitemap
- * Fix string epoch
 
 
 Добавить в srpm поле repocop_status_prev в котором хранить предыдущий статус
@@ -67,3 +66,5 @@ end
 2015-09-24 15:48:05 +0400: import 'chromium-gnome-45.0.2454.99-alt1.x86_64.rpm'
 2015-09-24 15:48:07 +0400: import 'libv8-chromium-4.5.103.34-alt1.x86_64.rpm'
 2015-09-24 15:48:09 +0400: end
+
+_('Bugs and FR (%s/%s)') % [@opened_bugs.count, @all_bugs.count]
