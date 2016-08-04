@@ -24,7 +24,7 @@
     <th><%= _('message') %></th>
   </tr>
 
-<% @srpm.repocops.each do |repocop| %>
+<% @repocops.each do |repocop| %>
   <% if repocop.status != 'skip' %>
   <tr>
     <td><%= "#{ repocop.name }-#{ repocop.version }-#{ repocop.release }.#{ repocop.arch }" %></td>
@@ -42,5 +42,12 @@
 <% end %>
 
 </table>
+
+  <p class="break" />
+
+  <div style="text-align:center">
+    <%= paginate @repocops %>
+  </div>
+
 
 </div><div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div>
