@@ -6,6 +6,7 @@ class ChangelogDecorator < Draper::Decorator
   end
 
   private
+
   def created_at
     model.created_at.iso8601
   end

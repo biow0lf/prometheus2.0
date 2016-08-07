@@ -8,6 +8,7 @@ class PackageDecorator < Draper::Decorator
   end
 
   private
+
   def buildtime
     model.buildtime.iso8601
   end

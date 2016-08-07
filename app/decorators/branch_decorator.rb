@@ -6,6 +6,7 @@ class BranchDecorator < Draper::Decorator
   end
 
   private
+
   def count
     srpms.count
   end
