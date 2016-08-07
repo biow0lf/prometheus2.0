@@ -27,7 +27,7 @@ describe BugDecorator do
 
     before { expect(updated_at).to receive(:iso8601).and_return(updated_at) }
 
-    subject { bug.decorate.as_json }
+    subject { bug.decorate.as_json.symbolize_keys }
 
     its([:bug_id]) { should eq(22_555) }
 

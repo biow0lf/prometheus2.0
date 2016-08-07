@@ -5,6 +5,8 @@ describe Bug do
 
   describe 'Validations' do
     it { should validate_presence_of(:bug_id) }
+
+    it { should validate_numericality_of(:bug_id).only_integer }
   end
 
   describe 'DB Indexes' do

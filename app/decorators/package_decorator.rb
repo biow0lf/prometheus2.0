@@ -2,27 +2,22 @@ class PackageDecorator < Draper::Decorator
   delegate_all
 
   def as_json(*args)
-    {
-      id: id,
-      srpm_id: srpm_id,
-      name: name,
-      version: version,
-      release: release,
-      epoch: epoch,
-      arch: arch,
-      summary: summary,
-      license: license,
-      url: url,
-      description: description,
-      buildtime: buildtime.iso8601,
-      group_id: group_id,
-      md5: md5,
-      groupname: groupname,
-      size: size,
-      filename: filename,
-      sourcepackage: sourcepackage,
-      created_at: created_at.iso8601,
-      updated_at: updated_at.iso8601
-    }
+    super only: [:id, :srpm_id, :name, :version, :release, :epoch, :arch, :summary, :license, :url, :description, :group_id, :md5,
+                 :groupname, :sourcepackage, :size, :filename],
+          methods: [:buildtime, :created_at, :updated_at]
+  end
+
+  private
+
+  def buildtime
+    model.buildtime.iso8601
+  end
+
+  def updated_at
+    model.updated_at.iso8601
+  end
+
+  def created_at
+    model.created_at.iso8601
   end
 end

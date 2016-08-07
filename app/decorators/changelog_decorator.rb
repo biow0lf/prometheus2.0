@@ -2,14 +2,16 @@ class ChangelogDecorator < Draper::Decorator
   delegate_all
 
   def as_json(*args)
-    {
-      id: id,
-      srpm_id: srpm_id,
-      changelogtime: changelogtime,
-      changelogname: changelogname,
-      changelogtext: changelogtext,
-      created_at: created_at.iso8601,
-      updated_at: updated_at.iso8601
-    }
+    super only: [:id, :srpm_id, :changelogtime, :changelogname, :changelogtext], methods: [:created_at, :updated_at]
+  end
+
+  private
+
+  def created_at
+    model.created_at.iso8601
+  end
+
+  def updated_at
+    model.updated_at.iso8601
   end
 end

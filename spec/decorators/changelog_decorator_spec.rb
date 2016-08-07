@@ -17,7 +17,7 @@ describe ChangelogDecorator do
                  updated_at: updated_at
     end
 
-    subject { changelog.decorate.as_json }
+    subject { changelog.decorate.as_json.symbolize_keys }
 
     its([:id]) { should eq(321) }
 
