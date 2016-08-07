@@ -21,7 +21,7 @@ describe MaintainerDecorator do
                  updated_at: updated_at
     end
 
-    subject { maintainer.decorate.as_json }
+    subject { maintainer.decorate.as_json.symbolize_keys }
 
     its([:id]) { should eq(3) }
 
