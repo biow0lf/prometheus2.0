@@ -5,6 +5,9 @@ class Branch < ApplicationRecord
 
   validates :vendor, presence: true
 
+  #
+  # TODO: enable counter cache for me!!!
+  #
   has_many :srpms
 
   has_many :changelogs, through: :srpms

@@ -33,7 +33,7 @@ describe BranchDecorator do
       end
     end
 
-    subject { branch.decorate.as_json }
+    subject { branch.decorate.as_json.symbolize_keys }
 
     its([:id]) { should eq(123) }
 
