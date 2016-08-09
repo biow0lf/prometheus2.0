@@ -46,6 +46,7 @@ describe Srpm do
         .order(lastchange: :desc)
         .with_primary_key('name')
         .with_foreign_key('repo')
+        .dependent(:destroy)
     end
   end
 

@@ -33,7 +33,9 @@ class Srpm < ApplicationRecord
           foreign_key: 'id'
 
   has_many :gears, -> { order(lastchange: :desc) },
-           primary_key: 'name', foreign_key: 'repo'
+           primary_key: 'name',
+           foreign_key: 'repo',
+           dependent: :destroy
 
   validates :branch, presence: true
 
