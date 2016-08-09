@@ -19,11 +19,13 @@ class Srpm < ApplicationRecord
 
   has_many :repocops, -> { order(name: :asc) },
            primary_key: 'name',
-           foreign_key: 'srcname'
+           foreign_key: 'srcname',
+           dependent: :destroy
 
   has_one :repocop_patch,
           primary_key: 'name',
-          foreign_key: 'name'
+          foreign_key: 'name',
+          dependent: :destroy
 
   has_one :builder,
           class_name: 'Maintainer',

@@ -24,12 +24,14 @@ describe Srpm do
         .order(name: :asc)
         .with_primary_key('name')
         .with_foreign_key('srcname')
+        .dependent(:destroy)
     end
 
     it do
       should have_one(:repocop_patch)
         .with_primary_key('name')
         .with_foreign_key('name')
+        .dependent(:destroy)
     end
 
     it do
