@@ -22,7 +22,7 @@ describe Branch do
 
     it { should have_many(:teams) }
 
-    it { should have_many(:mirrors) }
+    it { should have_many(:mirrors).dependent(:destroy) }
 
     it { should have_many(:patches).through(:srpms) }
 

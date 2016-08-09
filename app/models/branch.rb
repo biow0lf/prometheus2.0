@@ -15,7 +15,7 @@ class Branch < ApplicationRecord
 
   has_many :teams
 
-  has_many :mirrors
+  has_many :mirrors, dependent: :destroy
 
   has_many :patches, through: :srpms
 
