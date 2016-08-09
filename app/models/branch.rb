@@ -5,15 +5,15 @@ class Branch < ApplicationRecord
 
   validates :vendor, presence: true
 
-  has_many :srpms
+  has_many :srpms, dependent: :destroy
 
   has_many :changelogs, through: :srpms
 
   has_many :packages, through: :srpms
 
-  has_many :groups
+  has_many :groups, dependent: :destroy
 
-  has_many :teams
+  has_many :teams, dependent: :destroy
 
   has_many :mirrors, dependent: :destroy
 

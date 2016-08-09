@@ -12,15 +12,15 @@ describe Branch do
   end
 
   describe 'Associations' do
-    it { should have_many(:srpms) }
+    it { should have_many(:srpms).dependent(:destroy) }
 
     it { should have_many(:changelogs).through(:srpms) }
 
     it { should have_many(:packages).through(:srpms) }
 
-    it { should have_many(:groups) }
+    it { should have_many(:groups).dependent(:destroy) }
 
-    it { should have_many(:teams) }
+    it { should have_many(:teams).dependent(:destroy) }
 
     it { should have_many(:mirrors).dependent(:destroy) }
 
