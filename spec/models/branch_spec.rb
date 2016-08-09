@@ -28,11 +28,11 @@ describe Branch do
 
     it { should have_many(:sources).through(:srpms) }
 
-    it { should have_many(:ftbfs).class_name('Ftbfs') }
+    it { should have_many(:ftbfs).class_name('Ftbfs').dependent(:destroy) }
 
-    it { should have_many(:repocops) }
+    it { should have_many(:repocops).dependent(:destroy) }
 
-    it { should have_many(:repocop_patches) }
+    it { should have_many(:repocop_patches).dependent(:destroy) }
   end
 
   describe '#counter' do

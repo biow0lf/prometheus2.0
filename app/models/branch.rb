@@ -21,11 +21,11 @@ class Branch < ApplicationRecord
 
   has_many :sources, through: :srpms
 
-  has_many :ftbfs, class_name: 'Ftbfs'
+  has_many :ftbfs, class_name: 'Ftbfs', dependent: :destroy
 
-  has_many :repocops
+  has_many :repocops, dependent: :destroy
 
-  has_many :repocop_patches
+  has_many :repocop_patches, dependent: :destroy
 
   counter :counter
 
