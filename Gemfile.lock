@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: a7483f48b0a18ba792e642a356e3b25cf30a354b
+  revision: 285275b42fa1bf096a5c9559b6cead2f31b65b66
   specs:
     sinatra (2.0.0.pre.alpha)
       mustermann (~> 0.4)
