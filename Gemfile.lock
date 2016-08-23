@@ -1,18 +1,13 @@
 GIT
-  remote: git://github.com/sinatra/rack-protection.git
-  revision: 7e723a74763bb83989d1249cdceb9cceb2ee6f01
-  specs:
-    rack-protection (2.0.0)
-      rack
-
-GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: 6b5a0ef3a4598366138fefe3f2b696ddeb371f3c
+  revision: 1b0edc0aeaaf4839cadfcec1b21da86e6af1d4c0
   specs:
-    sinatra (2.0.0.pre.alpha)
-      mustermann (~> 0.4)
+    rack-protection (2.0.0.beta2)
+      rack
+    sinatra (2.0.0.beta2)
+      mustermann (= 1.0.0.beta2)
       rack (~> 2.0)
-      rack-protection (~> 2.0)
+      rack-protection (= 2.0.0.beta2)
       tilt (~> 2.0)
 
 GEM
@@ -226,8 +221,7 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mustermann (0.4.0)
-      tool (~> 0.2)
+    mustermann (1.0.0.beta2)
     mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -388,7 +382,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
-    tool (0.2.3)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -467,7 +460,7 @@ DEPENDENCIES
   rack-force_domain
   rack-health
   rack-mini-profiler
-  rack-protection!
+  rack-protection (= 2.0.0.beta2)
   rack-timeout
   rails (~> 5.0.0)
   rails-controller-testing

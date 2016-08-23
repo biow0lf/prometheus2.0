@@ -40,7 +40,7 @@ gem 'rack-mini-profiler', require: false
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'sinatra', github: 'sinatra/sinatra' # tmp, for sidekiq
-gem 'rack-protection', github: 'sinatra/rack-protection' # tmp, for sinatra
+gem 'rack-protection', '2.0.0.beta2' # tmp, for sidekiq
 gem 'sidekiq'
 # gem 'oink'
 gem 'rectify'
