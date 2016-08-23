@@ -1,15 +1,3 @@
-GIT
-  remote: git://github.com/sinatra/sinatra.git
-  revision: 1b0edc0aeaaf4839cadfcec1b21da86e6af1d4c0
-  specs:
-    rack-protection (2.0.0.beta2)
-      rack
-    sinatra (2.0.0.beta2)
-      mustermann (= 1.0.0.beta2)
-      rack (~> 2.0)
-      rack-protection (= 2.0.0.beta2)
-      tilt (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -251,6 +239,8 @@ GEM
       rack (>= 1.2.0)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
+    rack-protection (2.0.0.beta2)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rack-timeout (0.4.2)
@@ -356,6 +346,11 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    sinatra (2.0.0.beta2)
+      mustermann (= 1.0.0.beta2)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0.beta2)
+      tilt (~> 2.0)
     sitemap_generator (5.1.0)
       builder
     slop (3.6.0)
@@ -480,7 +475,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simplecov
-  sinatra!
+  sinatra (= 2.0.0.beta2)
   sitemap_generator
   sqlite3
   swagger-blocks
