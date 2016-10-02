@@ -39,8 +39,6 @@ gem 'rouge'
 gem 'rack-mini-profiler', require: false
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
-gem 'sinatra', '2.0.0.beta2' # tmp, for sidekiq
-gem 'rack-protection', '2.0.0.beta2' # tmp, for sidekiq
 gem 'sidekiq'
 # gem 'oink'
 gem 'rectify'

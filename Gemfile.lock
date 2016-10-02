@@ -209,7 +209,6 @@ GEM
     minitest (5.9.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mustermann (1.0.0.beta2)
     mysql2 (0.4.4)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -239,7 +238,7 @@ GEM
       rack (>= 1.2.0)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
-    rack-protection (2.0.0.beta2)
+    rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -336,21 +335,16 @@ GEM
       activesupport (>= 3)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    sidekiq (4.1.4)
+    sidekiq (4.2.2)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (~> 1.5)
       redis (~> 3.2, >= 3.2.1)
-      sinatra (>= 1.4.7)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sinatra (2.0.0.beta2)
-      mustermann (= 1.0.0.beta2)
-      rack (~> 2.0)
-      rack-protection (= 2.0.0.beta2)
-      tilt (~> 2.0)
     sitemap_generator (5.1.0)
       builder
     slop (3.6.0)
@@ -455,7 +449,6 @@ DEPENDENCIES
   rack-force_domain
   rack-health
   rack-mini-profiler
-  rack-protection (= 2.0.0.beta2)
   rack-timeout
   rails (~> 5.0.0)
   rails-controller-testing
@@ -475,7 +468,6 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simplecov
-  sinatra (= 2.0.0.beta2)
   sitemap_generator
   sqlite3
   swagger-blocks
