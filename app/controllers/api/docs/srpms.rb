@@ -15,6 +15,13 @@ module Api
             key :type, :integer
             key :format, :int64
           end
+          parameter do
+            key :name, :page
+            key :in, :query
+            key :description, 'Page number for pagination'
+            key :type, :integer
+            key :format, :int64
+          end
           response 200 do
             key :description, 'Response with collection if srpms.'
             schema do
