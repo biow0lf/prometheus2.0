@@ -33,4 +33,31 @@ describe Api::SrpmsController do
 
     specify { expect { subject.send(:resource) }.not_to raise_error }
   end
+
+  describe '#collection' do
+    let(:params) { { page: '1' } }
+
+    before { expect(subject).to receive(:params).and_return(params) }
+
+    before do
+      #
+      # subject.branch.srpms.order('LOWER(name)').page(params[:page])
+      #
+      expect(subject).to receive(:branch) do
+        double.tap do |a|
+          expect(a).to receive(:srpms) do
+            double.tap do |b|
+              expect(b).to receive(:order).with('LOWER(name)') do
+                double.tap do |c|
+                  expect(c).to receive(:page).with('1')
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.send(:collection) }.not_to raise_error }
+  end
 end

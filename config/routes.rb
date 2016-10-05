@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     resources :bugs, only: :show
 
-    resources :srpms, id: /[^\/]+/, only: :show do
+    resources :srpms, id: /[^\/]+/, only: [:index, :show] do
       resources :packages, id: /[^\/]+/, only: :index
 
       resources :changelogs, id: /[^\/]+/, only: :index
