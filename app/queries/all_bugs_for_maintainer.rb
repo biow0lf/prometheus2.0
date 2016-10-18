@@ -17,10 +17,10 @@ class AllBugsForMaintainer < Rectify::Query
   private
 
   def components
-    branch.srpms.joins(:packages).where(name: maintainer_packages_name).pluck('packages.name').sort.uniq
+    branch.srpms.joins(:packages).where(name: maintainer_packages_names).pluck('packages.name').sort.uniq
   end
 
-  def maintainer_packages_name
+  def maintainer_packages_names
     Redis.current.smembers("#{ branch.name }:maintainers:#{ maintainer.login }")
   end
 end

@@ -54,19 +54,19 @@ describe AllBugsForMaintainer do
   # private methods
 
   describe '#components' do
-    let(:maintainer_packages_name) { double }
+    let(:maintainer_packages_names) { double }
 
-    before { expect(subject).to receive(:maintainer_packages_name).and_return(maintainer_packages_name) }
+    before { expect(subject).to receive(:maintainer_packages_names).and_return(maintainer_packages_names) }
 
     before do
       #
-      # branch.srpms.joins(:packages).where(name: maintainer_packages_name).pluck('packages.name').sort.uniq
+      # branch.srpms.joins(:packages).where(name: maintainer_packages_names).pluck('packages.name').sort.uniq
       #
       expect(branch).to receive(:srpms) do
         double.tap do |a|
           expect(a).to receive(:joins).with(:packages) do
             double.tap do |b|
-              expect(b).to receive(:where).with(name: maintainer_packages_name) do
+              expect(b).to receive(:where).with(name: maintainer_packages_names) do
                 double.tap do |c|
                   expect(c).to receive(:pluck).with('packages.name') do
                     double.tap do |d|
@@ -88,7 +88,7 @@ describe AllBugsForMaintainer do
     specify { expect { subject.send(:components) }.not_to raise_error }
   end
 
-  describe '#maintainer_packages_name' do
+  describe '#maintainer_packages_names' do
     before { expect(branch).to receive(:name).and_return('Sisyphus') }
 
     before { expect(maintainer).to receive(:login).and_return('icesik') }
@@ -104,6 +104,6 @@ describe AllBugsForMaintainer do
       end
     end
 
-    specify { expect { subject.send(:maintainer_packages_name) }.not_to raise_error }
+    specify { expect { subject.send(:maintainer_packages_names) }.not_to raise_error }
   end
 end
