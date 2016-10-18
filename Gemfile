@@ -9,8 +9,6 @@ gem 'turbolinks', '~> 5'
 
 gem 'puma'
 
-gem 'rake', require: false
-
 group :postgresql do
   gem 'pg'
 end
