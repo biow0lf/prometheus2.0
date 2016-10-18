@@ -5,12 +5,6 @@ describe Branch do
 
   it { should be_a(Redis::Objects) }
 
-  describe 'Validation' do
-    it { should validate_presence_of(:name) }
-
-    it { should validate_presence_of(:vendor) }
-  end
-
   describe 'Associations' do
     it { should have_many(:srpms).dependent(:destroy) }
 
@@ -33,6 +27,12 @@ describe Branch do
     it { should have_many(:repocops).dependent(:destroy) }
 
     it { should have_many(:repocop_patches).dependent(:destroy) }
+  end
+
+  describe 'Validation' do
+    it { should validate_presence_of(:name) }
+
+    it { should validate_presence_of(:vendor) }
   end
 
   describe '#counter' do

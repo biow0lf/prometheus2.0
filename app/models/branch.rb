@@ -1,10 +1,6 @@
 class Branch < ApplicationRecord
   include Redis::Objects
 
-  validates :name, presence: true
-
-  validates :vendor, presence: true
-
   has_many :srpms, dependent: :destroy
 
   has_many :changelogs, through: :srpms
@@ -26,6 +22,10 @@ class Branch < ApplicationRecord
   has_many :repocops, dependent: :destroy
 
   has_many :repocop_patches, dependent: :destroy
+
+  validates :name, presence: true
+
+  validates :vendor, presence: true
 
   counter :counter
 
