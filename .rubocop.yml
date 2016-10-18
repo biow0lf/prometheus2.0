@@ -7,6 +7,7 @@ AllCops:
     - 'bin/setup'
     - 'bin/capify'
     - 'bin/cap'
+    - 'spec/rails_helper.rb'
 
 Rails:
   Enabled: true
