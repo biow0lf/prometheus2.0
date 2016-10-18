@@ -38,11 +38,11 @@ class MaintainersController < ApplicationController
     order += ' ' + sort_order
 
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }"))
-                          .includes(:repocop_patch)
-                          .order(order)
-                          .page(params[:page])
-                          .per(100)
-                          .decorate
+                    .includes(:repocop_patch)
+                    .order(order)
+                    .page(params[:page])
+                    .per(100)
+                    .decorate
 
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
     @opened_bugs = OpenedBugsForMaintainer.new(@branch, @maintainer).decorate

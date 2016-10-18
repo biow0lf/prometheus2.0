@@ -8,12 +8,12 @@ class RepocopController < ApplicationController
 
   def invalid_url
     @branch = Branch.where(name: 'Sisyphus').first!
-    @srpms = @branch.srpms.where("url != ''").
-                           where("url NOT LIKE 'http://%'").
-                           where("url NOT LIKE 'https://%'").
-                           where("url NOT LIKE 'ftp://%'").
-                           where("url NOT LIKE 'rsync://%'").
-                           order('name ASC')
+    @srpms = @branch.srpms.where("url != ''")
+                    .where("url NOT LIKE 'http://%'")
+                    .where("url NOT LIKE 'https://%'")
+                    .where("url NOT LIKE 'ftp://%'")
+                    .where("url NOT LIKE 'rsync://%'")
+                    .order('name ASC')
   end
 
   def invalid_vendor
