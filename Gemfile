@@ -43,6 +43,7 @@ gem 'rectify'
 gem 'cocaine'
 gem 'browser'
 gem 'http_accept_language'
+gem 'doorkeeper'
 
 group :production, :development, :staging do
   gem 'redis'
