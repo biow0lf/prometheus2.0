@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  use_doorkeeper
   namespace :api, defaults: { format: 'json' } do
     resources :docs, only: :index
 
