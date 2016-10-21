@@ -65,8 +65,7 @@ group :staging do
 end
 
 group :development do
-  # gem 'listen', '~> 3.0.5'
-  # gem 'rb-fsevent', '0.9.3'
+  gem 'listen', '~> 3.0.5'
   gem 'bullet'
   gem 'capistrano'
   gem 'capistrano-rails'
