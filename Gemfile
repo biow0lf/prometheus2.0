@@ -60,10 +60,6 @@ group :production do
   gem 'rack-timeout'
 end
 
-group :staging do
-  gem 'active_sanity'
-end
-
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'bullet'
