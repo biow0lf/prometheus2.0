@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.4-head
+  - ruby-head
 env:
   - DB=postgresql TRAVIS=true
 
