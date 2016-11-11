@@ -1,10 +1,5 @@
-if ENV['TRAVIS']
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
-else
-  require 'simplecov'
-  SimpleCov.start 'rails'
-end
+require 'simplecov'
+SimpleCov.start 'rails'
 
 require 'fakeweb'
 FakeWeb.allow_net_connect = false
