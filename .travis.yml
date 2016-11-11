@@ -14,3 +14,8 @@ before_script:
   - cp config/redis.yml.sample config/redis.yml
   - psql -c 'create database prometheus_test;' -U postgres
   - bundle exec rake db:migrate
+
+script:
+  - bundle exec rake
+  - bundle exec codeclimate-test-reporter
+
