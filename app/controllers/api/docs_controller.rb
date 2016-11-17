@@ -48,22 +48,23 @@ module Api
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
-        Api::Docs::Models::OutputBranch,
-        Api::Docs::Models::OutputBug,
-        Api::Docs::Models::OutputChangelog,
-        Api::Docs::Models::OutputCollectionSrpms,
-        Api::Docs::Models::OutputMaintainer,
-        Api::Docs::Models::OutputPackage,
-        Api::Docs::Models::OutputSrpm,
+      Api::Docs::Models::OutputBranch,
+      Api::Docs::Models::OutputBug,
+      Api::Docs::Models::OutputChangelog,
+      Api::Docs::Models::OutputCollectionSrpms,
+      Api::Docs::Models::OutputMaintainer,
+      Api::Docs::Models::OutputPackage,
+      Api::Docs::Models::OutputSrpm,
 
-        Api::Docs::Branches,
-        Api::Docs::Bugs,
-        Api::Docs::Changelogs,
-        Api::Docs::Maintainers,
-        Api::Docs::Packages,
-        Api::Docs::Srpms,
-        Api::Docs::Package,
-        self
+      Api::Docs::Branches,
+      Api::Docs::Bugs,
+      Api::Docs::Changelogs,
+      Api::Docs::Maintainers,
+      Api::Docs::Packages,
+      Api::Docs::Srpms,
+      Api::Docs::Package,
+
+      self
     ].freeze
     # :nocov:
 
