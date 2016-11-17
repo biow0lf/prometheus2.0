@@ -29,9 +29,9 @@ class Branch < ApplicationRecord
 
   counter :counter
 
-  after_create :set_default_counter_value
+  after_create_commit :set_default_counter_value
 
-  after_destroy :destroy_counter
+  after_destroy_commit :destroy_counter
 
   def to_param
     name

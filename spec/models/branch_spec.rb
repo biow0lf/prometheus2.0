@@ -42,9 +42,9 @@ describe Branch do
   end
 
   describe 'Callbacks' do
-    it { should callback(:set_default_counter_value).after(:create) }
+    it { should callback(:set_default_counter_value).after(:commit).on(:create) }
 
-    it { should callback(:destroy_counter).after(:destroy) }
+    it { should callback(:destroy_counter).after(:commit).on(:destroy) }
   end
 
   describe '#to_param' do
