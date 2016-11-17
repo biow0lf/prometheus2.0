@@ -70,7 +70,8 @@ group :development do
   gem 'capistrano-faster-assets'
   gem 'capistrano3-puma'
   # gem 'xray-rails'
-  gem 'rubocop', require: false
+  # rubocop version locked due config. Update rubocop config on gem update.
+  gem 'rubocop', '0.45.0', require: false
   gem 'brakeman', require: false
   # gem 'lol_dba'
 end
