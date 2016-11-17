@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804143438) do
+ActiveRecord::Schema.define(version: 20161117220058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160804143438) do
     t.datetime "updated_at"
     t.integer  "order_id"
     t.string   "path"
+    t.string   "acls_url"
   end
 
   create_table "bugs", force: :cascade do |t|
