@@ -8,7 +8,8 @@ describe PatchDownloadController do
         action: 'show',
         branch: 'Sisyphus',
         srpm_id: 'pmount',
-        patch_id: 'pmount-0.9.23-alt-natspec.patch')
+        patch_id: 'pmount-0.9.23-alt-natspec.patch'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/patches/:patch_id/download to patch_download#show' do
@@ -18,7 +19,8 @@ describe PatchDownloadController do
         branch: 'Sisyphus',
         srpm_id: 'pmount',
         patch_id: 'pmount-0.9.23-alt-natspec.patch',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

@@ -7,7 +7,8 @@ describe Api::ChangelogsController do
         controller: 'api/changelogs',
         action: 'index',
         srpm_id: 'openbox',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/srpms/:srpm_id/changelogs.json to api/changelogs#index' do
@@ -15,7 +16,8 @@ describe Api::ChangelogsController do
         controller: 'api/changelogs',
         action: 'index',
         srpm_id: 'openbox',
-        format: 'json')
+        format: 'json'
+      )
     end
   end
 end

@@ -7,7 +7,8 @@ describe Api::PackagesController do
         controller: 'api/packages',
         action: 'index',
         srpm_id: 'openbox',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/srpms/:srpm_id/packages.json to api/packages#index' do
@@ -15,7 +16,8 @@ describe Api::PackagesController do
         controller: 'api/packages',
         action: 'index',
         srpm_id: 'openbox',
-        format: 'json')
+        format: 'json'
+      )
     end
   end
 end

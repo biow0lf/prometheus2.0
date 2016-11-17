@@ -7,7 +7,8 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'show',
         branch: 'Sisyphus',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:id to srpms#show' do
@@ -16,7 +17,8 @@ describe SrpmsController do
         action: 'show',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:branch/srpms/:id/changelog to srpms#show' do
@@ -24,7 +26,8 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'changelog',
         branch: 'Sisyphus',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:id/changelog to srpms#changelog' do
@@ -33,7 +36,8 @@ describe SrpmsController do
         action: 'changelog',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:branch/srpms/:id/spec to srpms#spec' do
@@ -41,7 +45,8 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'spec',
         branch: 'Sisyphus',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:id/spec to srpms#spec' do
@@ -50,7 +55,8 @@ describe SrpmsController do
         action: 'spec',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:branch/srpms/:id/rawspec to srpms#rawspec' do
@@ -58,7 +64,8 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'rawspec',
         branch: 'Sisyphus',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:id/rawspec to srpms#rawspec' do
@@ -67,7 +74,8 @@ describe SrpmsController do
         action: 'rawspec',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:branch/srpms/:id/get to srpms#get' do
@@ -75,7 +83,8 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'get',
         branch: 'Sisyphus',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:id/get to srpms#get' do
@@ -84,7 +93,8 @@ describe SrpmsController do
         action: 'get',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:branch/srpms/:id/gear to srpms#gear' do
@@ -92,7 +102,8 @@ describe SrpmsController do
         controller: 'srpms',
         action: 'gear',
         branch: 'Sisyphus',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:id/gear to srpms#gear' do
@@ -101,7 +112,8 @@ describe SrpmsController do
         action: 'gear',
         branch: 'Sisyphus',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

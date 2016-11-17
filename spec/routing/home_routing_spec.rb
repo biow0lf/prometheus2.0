@@ -10,7 +10,8 @@ describe HomeController do
       expect(get: '/en').to route_to(
         controller: 'home',
         action: 'index',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:locale/:branch/home to home#index' do
@@ -18,7 +19,8 @@ describe HomeController do
         controller: 'home',
         action: 'index',
         branch: 'Sisyphus',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

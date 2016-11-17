@@ -8,7 +8,8 @@ describe SearchesController do
         action: 'show',
         utf8: 'yes',
         branch: 'Sisyphus',
-        query: 'openbox')
+        query: 'openbox'
+      )
     end
 
     it 'should route /:locale/search?utf8=yes&branch=:branch&query=:query to searches#show' do
@@ -18,7 +19,8 @@ describe SearchesController do
         utf8: 'yes',
         branch: 'Sisyphus',
         query: 'openbox',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

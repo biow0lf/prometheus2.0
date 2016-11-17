@@ -10,7 +10,8 @@ describe MiscController do
       expect(get: '/en/misc/bugs').to route_to(
         controller: 'misc',
         action: 'bugs',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

@@ -6,7 +6,8 @@ describe RssController do
       expect(get: '/Sisyphus/rss').to route_to(
         controller: 'rss',
         action: 'index',
-        branch: 'Sisyphus')
+        branch: 'Sisyphus'
+      )
     end
 
     it 'should route /:locale/:branch/rss to rss#index' do
@@ -14,7 +15,8 @@ describe RssController do
         controller: 'rss',
         action: 'index',
         branch: 'Sisyphus',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

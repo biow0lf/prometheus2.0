@@ -7,7 +7,8 @@ describe MaintainerActivityController do
         controller: 'maintainer_activity',
         action: 'index',
         branch: 'Sisyphus',
-        maintainer_id: 'icesik')
+        maintainer_id: 'icesik'
+      )
     end
 
     it 'should route /:locale/:branch/maintainers/:maintainer_id/activity to maintainer_activity#index' do
@@ -16,7 +17,8 @@ describe MaintainerActivityController do
         action: 'index',
         branch: 'Sisyphus',
         maintainer_id: 'icesik',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

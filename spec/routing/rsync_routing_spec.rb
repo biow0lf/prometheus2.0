@@ -10,7 +10,8 @@ describe RsyncController do
       expect(get: '/en/rsync/new').to route_to(
         controller: 'rsync',
         action: 'new',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

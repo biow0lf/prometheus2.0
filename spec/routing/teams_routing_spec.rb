@@ -6,7 +6,8 @@ describe TeamsController do
       expect(get: '/Sisyphus/teams').to route_to(
         controller: 'teams',
         action: 'index',
-        branch: 'Sisyphus')
+        branch: 'Sisyphus'
+      )
     end
 
     it 'should route /:locale/:branch/teams to teams#index' do
@@ -14,7 +15,8 @@ describe TeamsController do
         controller: 'teams',
         action: 'index',
         branch: 'Sisyphus',
-        locale: 'en')
+        locale: 'en'
+      )
     end
 
     it 'should route /:branch/teams/:id to teams#show' do
@@ -22,7 +24,8 @@ describe TeamsController do
         controller: 'teams',
         action: 'show',
         branch: 'Sisyphus',
-        id: 'ruby')
+        id: 'ruby'
+      )
     end
 
     it 'should route /:locale/:branch/teams/:id to teams#show' do
@@ -31,7 +34,8 @@ describe TeamsController do
         action: 'show',
         branch: 'Sisyphus',
         id: 'ruby',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

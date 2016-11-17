@@ -6,7 +6,8 @@ describe SrpmRepocopsController do
       expect(get: '/Sisyphus/srpms/glibc/repocop').to route_to(
         controller: 'srpm_repocops',
         action: 'index',
-        id: 'glibc')
+        id: 'glibc'
+      )
     end
 
     it 'should route /:locale/Sisyphus/srpms/:id/repocop to srpm_repocops#index' do
@@ -14,7 +15,8 @@ describe SrpmRepocopsController do
         controller: 'srpm_repocops',
         action: 'index',
         id: 'glibc',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

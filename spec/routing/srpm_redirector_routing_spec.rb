@@ -6,7 +6,8 @@ describe SrpmRedirectorController do
       expect(get: '/src:glibc').to route_to(
         controller: 'srpm_redirector',
         action: 'index',
-        name: 'glibc')
+        name: 'glibc'
+      )
     end
   end
 end

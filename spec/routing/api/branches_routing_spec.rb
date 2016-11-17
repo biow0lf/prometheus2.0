@@ -6,14 +6,16 @@ describe Api::BranchesController do
       expect(get: '/api/branches').to route_to(
         controller: 'api/branches',
         action: 'index',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/branches.json to api/branches#index' do
       expect(get: '/api/branches.json').to route_to(
         controller: 'api/branches',
         action: 'index',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/branches/:id to api/branches#show' do
@@ -21,7 +23,8 @@ describe Api::BranchesController do
         controller: 'api/branches',
         action: 'show',
         format: 'json',
-        id: '1')
+        id: '1'
+      )
     end
 
     it 'should route GET /api/branches/:id.json to api/branches#show' do
@@ -29,7 +32,8 @@ describe Api::BranchesController do
         controller: 'api/branches',
         action: 'show',
         format: 'json',
-        id: '1')
+        id: '1'
+      )
     end
   end
 end

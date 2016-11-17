@@ -7,7 +7,8 @@ describe Api::BugsController do
         controller: 'api/bugs',
         action: 'show',
         format: 'json',
-        id: '22555')
+        id: '22555'
+      )
     end
 
     it 'should route GET /api/bugs/:id.json to api/bugs#show' do
@@ -15,7 +16,8 @@ describe Api::BugsController do
         controller: 'api/bugs',
         action: 'show',
         format: 'json',
-        id: '22555')
+        id: '22555'
+      )
     end
   end
 end

@@ -10,7 +10,8 @@ describe PagesController do
       expect(get: '/en/project').to route_to(
         controller: 'pages',
         action: 'project',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

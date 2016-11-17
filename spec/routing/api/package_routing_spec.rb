@@ -7,7 +7,8 @@ describe Api::PackageController do
         controller: 'api/package',
         action: 'show',
         format: 'json',
-        id: 'openbox')
+        id: 'openbox'
+      )
     end
 
     pending 'should route GET /api/packages/:id.json to api/package#show' do
@@ -15,7 +16,8 @@ describe Api::PackageController do
         controller: 'api/package',
         action: 'show',
         format: 'json',
-        id: 'openbox')
+        id: 'openbox'
+      )
     end
   end
 end

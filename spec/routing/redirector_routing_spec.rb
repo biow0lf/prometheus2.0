@@ -6,7 +6,8 @@ describe RedirectorController do
       expect(get: '/glibc').to route_to(
         controller: 'redirector',
         action: 'index',
-        name: 'glibc')
+        name: 'glibc'
+      )
     end
   end
 end

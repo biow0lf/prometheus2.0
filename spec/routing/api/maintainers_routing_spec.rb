@@ -6,14 +6,16 @@ describe Api::MaintainersController do
       expect(get: '/api/maintainers').to route_to(
         controller: 'api/maintainers',
         action: 'index',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/maintainers.json to api/maintainers#index' do
       expect(get: '/api/maintainers.json').to route_to(
         controller: 'api/maintainers',
         action: 'index',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/maintainers/:id to api/maintainers#show' do
@@ -21,7 +23,8 @@ describe Api::MaintainersController do
         controller: 'api/maintainers',
         action: 'show',
         id: 'icesik',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/maintainers/:id.json to api/maintainers#show' do
@@ -29,7 +32,8 @@ describe Api::MaintainersController do
         controller: 'api/maintainers',
         action: 'show',
         id: 'icesik',
-        format: 'json')
+        format: 'json'
+      )
     end
   end
 end

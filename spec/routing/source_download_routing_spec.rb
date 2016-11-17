@@ -8,7 +8,8 @@ describe SourceDownloadController do
         action: 'show',
         branch: 'Sisyphus',
         srpm_id: 'glibc',
-        source_id: 'glibc-2.16-alt4.tar')
+        source_id: 'glibc-2.16-alt4.tar'
+      )
     end
 
     it 'should route /:locale/:branch/srpms/:srpm_id/sources/:id/download to source_download#show' do
@@ -18,7 +19,8 @@ describe SourceDownloadController do
         branch: 'Sisyphus',
         srpm_id: 'glibc',
         source_id: 'glibc-2.16-alt4.tar',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end

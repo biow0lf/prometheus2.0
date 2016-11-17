@@ -10,7 +10,8 @@ describe RebuildController do
       expect(get: '/en/rebuild').to route_to(
         controller: 'rebuild',
         action: 'index',
-        locale: 'en')
+        locale: 'en'
+      )
     end
   end
 end
