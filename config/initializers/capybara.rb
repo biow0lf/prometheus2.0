@@ -3,4 +3,3 @@ if Rails.env.test?
     config.ignore_hidden_elements = false
   end
 end
-
