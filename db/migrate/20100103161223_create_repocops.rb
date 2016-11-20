@@ -1,5 +1,5 @@
 # rubocop:disable Metrics/MethodLength
-class CreateRepocops < ActiveRecord::Migration
+class CreateRepocops < ActiveRecord::Migration[4.2]
   def change
     create_table :repocops do |t|
       t.string :name

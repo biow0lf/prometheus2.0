@@ -1,4 +1,4 @@
-class UpdateObsoleteModel < ActiveRecord::Migration
+class UpdateObsoleteModel < ActiveRecord::Migration[4.2]
   def change
     remove_column :obsoletes, :type
     add_column :obsoletes, :epoch, :string

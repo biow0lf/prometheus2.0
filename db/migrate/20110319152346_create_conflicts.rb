@@ -1,4 +1,4 @@
-class CreateConflicts < ActiveRecord::Migration
+class CreateConflicts < ActiveRecord::Migration[4.2]
   def change
     create_table :conflicts do |t|
       t.integer :package_id

@@ -1,4 +1,4 @@
-class CreateSpecfiles < ActiveRecord::Migration
+class CreateSpecfiles < ActiveRecord::Migration[4.2]
   def change
     create_table :specfiles do |t|
       t.integer :srpm_id

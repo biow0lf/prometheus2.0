@@ -1,4 +1,4 @@
-class CreateFtbfs < ActiveRecord::Migration
+class CreateFtbfs < ActiveRecord::Migration[4.2]
   def change
     create_table :ftbfs do |t|
       t.string :name

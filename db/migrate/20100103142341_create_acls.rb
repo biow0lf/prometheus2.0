@@ -1,4 +1,4 @@
-class CreateAcls < ActiveRecord::Migration
+class CreateAcls < ActiveRecord::Migration[4.2]
   def change
     create_table :acls do |t|
       t.string :package

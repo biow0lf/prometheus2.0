@@ -1,4 +1,4 @@
-class CreateRequires < ActiveRecord::Migration
+class CreateRequires < ActiveRecord::Migration[4.2]
   def change
     create_table :requires do |t|
       t.integer :package_id

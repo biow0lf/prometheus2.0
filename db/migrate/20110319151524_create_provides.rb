@@ -1,4 +1,4 @@
-class CreateProvides < ActiveRecord::Migration
+class CreateProvides < ActiveRecord::Migration[4.2]
   def change
     create_table :provides do |t|
       t.integer :package_id

@@ -1,4 +1,4 @@
-class CreateMaintainerTeam < ActiveRecord::Migration
+class CreateMaintainerTeam < ActiveRecord::Migration[4.2]
   def change
     create_table :maintainer_teams do |t|
       t.string :name, null: false

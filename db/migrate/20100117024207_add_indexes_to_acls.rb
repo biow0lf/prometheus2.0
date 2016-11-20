@@ -1,4 +1,4 @@
-class AddIndexesToAcls < ActiveRecord::Migration
+class AddIndexesToAcls < ActiveRecord::Migration[4.2]
   def change
     add_index :acls, :branch
     add_index :acls, :vendor

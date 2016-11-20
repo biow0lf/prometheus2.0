@@ -1,5 +1,5 @@
 # rubocop:disable Metrics/MethodLength
-class CreateBugs < ActiveRecord::Migration
+class CreateBugs < ActiveRecord::Migration[4.2]
   def change
     create_table :bugs do |t|
       t.integer :bug_id

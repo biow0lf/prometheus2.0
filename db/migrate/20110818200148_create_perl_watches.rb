@@ -1,4 +1,4 @@
-class CreatePerlWatches < ActiveRecord::Migration
+class CreatePerlWatches < ActiveRecord::Migration[4.2]
   def change
     create_table :perl_watches do |t|
       t.string :name

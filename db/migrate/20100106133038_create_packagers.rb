@@ -1,4 +1,4 @@
-class CreatePackagers < ActiveRecord::Migration
+class CreatePackagers < ActiveRecord::Migration[4.2]
   def change
     create_table :packagers do |t|
       t.string :name

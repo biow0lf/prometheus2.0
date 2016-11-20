@@ -1,4 +1,4 @@
-class CreateMirrors < ActiveRecord::Migration
+class CreateMirrors < ActiveRecord::Migration[4.2]
   def change
     create_table :mirrors do |t|
       t.integer :branch_id

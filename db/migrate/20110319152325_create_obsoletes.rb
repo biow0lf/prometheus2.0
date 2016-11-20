@@ -1,4 +1,4 @@
-class CreateObsoletes < ActiveRecord::Migration
+class CreateObsoletes < ActiveRecord::Migration[4.2]
   def change
     create_table :obsoletes do |t|
       t.integer :package_id

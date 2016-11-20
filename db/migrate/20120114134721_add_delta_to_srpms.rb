@@ -1,4 +1,4 @@
-class AddDeltaToSrpms < ActiveRecord::Migration
+class AddDeltaToSrpms < ActiveRecord::Migration[4.2]
   def change
     add_column :srpms, :delta, :boolean, default: true, null: false
   end

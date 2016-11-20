@@ -1,4 +1,4 @@
-class CreateGitrepos < ActiveRecord::Migration
+class CreateGitrepos < ActiveRecord::Migration[4.2]
   def change
     create_table :gitrepos do |t|
       t.string :repo

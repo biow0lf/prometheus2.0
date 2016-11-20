@@ -1,4 +1,4 @@
-class AddSrpmIdToAclModel < ActiveRecord::Migration
+class AddSrpmIdToAclModel < ActiveRecord::Migration[4.2]
   def change
     add_column :acls, :srpm_id, :integer
     add_index :acls, :srpm_id

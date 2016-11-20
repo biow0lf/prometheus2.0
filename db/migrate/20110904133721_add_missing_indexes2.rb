@@ -1,4 +1,4 @@
-class AddMissingIndexes2 < ActiveRecord::Migration
+class AddMissingIndexes2 < ActiveRecord::Migration[4.2]
   def change
     add_index :conflicts, :package_id
     add_index :obsoletes, :package_id

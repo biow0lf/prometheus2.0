@@ -1,4 +1,4 @@
-class CreateChangelogs < ActiveRecord::Migration
+class CreateChangelogs < ActiveRecord::Migration[4.2]
   def change
     create_table :changelogs do |t|
       t.integer :srpm_id

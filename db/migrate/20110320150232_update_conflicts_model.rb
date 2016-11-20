@@ -1,4 +1,4 @@
-class UpdateConflictsModel < ActiveRecord::Migration
+class UpdateConflictsModel < ActiveRecord::Migration[4.2]
   def change
     remove_column :conflicts, :type
     add_column :conflicts, :epoch, :string

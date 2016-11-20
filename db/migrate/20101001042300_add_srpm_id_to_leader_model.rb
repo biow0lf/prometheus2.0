@@ -1,4 +1,4 @@
-class AddSrpmIdToLeaderModel < ActiveRecord::Migration
+class AddSrpmIdToLeaderModel < ActiveRecord::Migration[4.2]
   def change
     add_column :leaders, :srpm_id, :integer
     add_index :leaders, :srpm_id

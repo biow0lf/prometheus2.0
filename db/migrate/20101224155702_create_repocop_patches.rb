@@ -1,4 +1,4 @@
-class CreateRepocopPatches < ActiveRecord::Migration
+class CreateRepocopPatches < ActiveRecord::Migration[4.2]
   def change
     create_table :repocop_patches do |t|
       t.string :name
