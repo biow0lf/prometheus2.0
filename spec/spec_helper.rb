@@ -1,5 +1,12 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_group 'Channels', 'app/channels/application_cable'
+  add_group 'Commands', 'app/commands'
+  add_group 'Decorators', 'app/decorators'
+  add_group 'Jobs', 'app/jobs'
+  add_group 'Validators', 'app/validators'
+  add_group 'Queries', 'app/queries'
+end
 
 require 'fakeweb'
 FakeWeb.allow_net_connect = false
