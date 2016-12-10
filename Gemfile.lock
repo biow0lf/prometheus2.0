@@ -455,7 +455,7 @@ DEPENDENCIES
   rack-health
   rack-mini-profiler
   rack-timeout
-  rails (~> 5.0.1.rc2)
+  rails (~> 5.0.0)
   rails-controller-testing
   rectify
   redis
