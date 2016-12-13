@@ -1,7 +1,6 @@
 lock '3.7.0'
 
 set :application, 'prometheus2.0'
-set :scm, :git
 set :repo_url, 'git://github.com/biow0lf/prometheus2.0.git'
 
 set :rbenv_type, :user
