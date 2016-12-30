@@ -13,7 +13,7 @@ h3. Install:
 
 * Ruby 2.3.3
 * RubyGems 2.6.8
-* bundler 1.13.6
+* bundler 1.13.7
 * PostgreSQL 9.6 (some features will not work in other db)
 * nginx
 * gettext
