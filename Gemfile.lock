@@ -166,7 +166,7 @@ GEM
     faraday (0.10.0)
       multipart-post (>= 1.2, < 3)
     fast_gettext (1.3.0)
-    ffi (1.9.14)
+    ffi (1.9.17)
     gettext (3.2.2)
       locale (>= 2.0.5)
       text (>= 1.3.0)
