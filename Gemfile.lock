@@ -359,7 +359,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    sitemap_generator (5.2.0)
+    sitemap_generator (5.3.0)
       builder (~> 3.0)
     slop (3.6.0)
     sprockets (3.7.1)
