@@ -97,7 +97,7 @@ GEM
     capybara-email (2.5.0)
       capybara (~> 2.4)
       mail
-    chewy (0.8.4)
+    chewy (0.9.0)
       activesupport (>= 3.2)
       elasticsearch (>= 1.0.0)
     chronic (0.10.2)
