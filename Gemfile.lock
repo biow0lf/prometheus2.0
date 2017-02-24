@@ -227,7 +227,7 @@ GEM
     net-ssh (4.1.0)
     newrelic_rpm (3.18.1.330)
     nio4r (1.2.1)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     parser (2.3.3.1)
