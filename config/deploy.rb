@@ -1,4 +1,4 @@
-lock '3.7.1'
+lock '3.7.2'
 
 set :application, 'prometheus2.0'
 set :repo_url, 'git://github.com/biow0lf/prometheus2.0.git'
