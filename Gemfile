@@ -21,7 +21,6 @@ gem 'devise'
 gem 'redis-objects'
 gem 'kaminari'
 gem 'draper', '~> 3.0.0.pre1'
-# gem 'good_migrations'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
