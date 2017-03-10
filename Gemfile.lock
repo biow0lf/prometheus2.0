@@ -60,7 +60,7 @@ GEM
     brakeman (3.5.0)
     browser (2.3.0)
     builder (3.2.3)
-    bullet (5.5.0)
+    bullet (5.5.1)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     capistrano (3.7.2)
