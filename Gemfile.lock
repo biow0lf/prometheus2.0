@@ -405,7 +405,7 @@ GEM
     websocket-extensions (0.1.2)
     whenever (0.9.7)
       chronic (>= 0.6.3)
-    wisper (1.6.1)
+    wisper (2.0.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
