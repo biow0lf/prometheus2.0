@@ -81,7 +81,6 @@ end
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'

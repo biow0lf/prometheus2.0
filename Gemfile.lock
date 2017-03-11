@@ -451,7 +451,6 @@ DEPENDENCIES
   mysql2
   newrelic_rpm
   pg
-  pry
   pry-rails
   puma
   rack-cors
