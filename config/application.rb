@@ -31,10 +31,5 @@ module Prometheus20
     # http://batsov.com/articles/2012/09/12/setting-up-fallback-locale-s-in-rails-3/
     # Fallback for empty translations
     config.i18n.fallbacks = true
-
-    # TODO: extract to initializer
-    if Rails.env.production?
-      config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
-    end
   end
 end
