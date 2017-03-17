@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'rack-health'
 gem 'rack-force_domain', group: :production
+gem 'exception_notification', group: :production
 
 gem 'devise'
 gem 'redis-objects'
@@ -45,7 +46,6 @@ end
 
 group :production do
   gem 'newrelic_rpm'
-  gem 'exception_notification'
   gem 'lograge'
   gem 'rack-timeout'
 end
