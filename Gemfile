@@ -5,15 +5,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
-
 gem 'puma'
 
 group :postgresql do
   gem 'pg'
-end
-
-group :sqlite do
-  gem 'sqlite3'
 end
 
 gem 'rack-health'
