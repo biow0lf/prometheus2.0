@@ -7,7 +7,6 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'puma'
 gem 'pg'
-
 gem 'rack-health'
 gem 'devise'
 gem 'redis-objects'
