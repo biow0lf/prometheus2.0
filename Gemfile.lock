@@ -449,9 +449,9 @@ DEPENDENCIES
   lograge
   mysql2
   newrelic_rpm
-  pg
+  pg (~> 0.18)
   pry-rails
-  puma
+  puma (~> 3.0)
   rack-cors
   rack-force_domain
   rack-health
