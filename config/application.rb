@@ -28,8 +28,8 @@ module Prometheus20
       g.helper false
     end
 
-    # TODO: extract to initializer
-    # fallback for empty translations
+    # http://batsov.com/articles/2012/09/12/setting-up-fallback-locale-s-in-rails-3/
+    # Fallback for empty translations
     config.i18n.fallbacks = true
 
     # TODO: extract to initializer
