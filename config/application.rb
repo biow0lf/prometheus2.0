@@ -22,10 +22,10 @@ module Prometheus20
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # TODO: extract to initializer
     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl
+      g.helper false
     end
 
     # TODO: extract to initializer
