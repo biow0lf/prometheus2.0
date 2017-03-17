@@ -6,10 +6,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'puma'
-
-group :postgresql do
-  gem 'pg'
-end
+gem 'pg'
 
 gem 'rack-health'
 gem 'devise'
