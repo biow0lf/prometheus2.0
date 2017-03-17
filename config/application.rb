@@ -34,12 +34,6 @@ module Prometheus20
 
     # TODO: extract to initializer
     if Rails.env.production?
-      config.middleware.use ExceptionNotification::Rack,
-        email: {
-          email_prefix: '[ERROR] ',
-          sender_address: %('Sisyphus 2.0 Error' <prometheus-noreply@altlinux.org>),
-          exception_recipients: %w(igor.zubkov@gmail.com)
-        }
       config.middleware.use Rack::ForceDomain, 'packages.altlinux.org'
     end
   end
