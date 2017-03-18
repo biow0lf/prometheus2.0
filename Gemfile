@@ -11,6 +11,7 @@ gem 'rack-health'
 gem 'rack-force_domain', group: :production
 gem 'exception_notification', group: :production
 gem 'kaminari'
+gem 'kaminari-i18n'
 
 gem 'devise'
 gem 'redis-objects'
