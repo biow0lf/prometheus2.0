@@ -10,10 +10,10 @@ gem 'turbolinks', '~> 5'
 gem 'rack-health'
 gem 'rack-force_domain', group: :production
 gem 'exception_notification', group: :production
+gem 'kaminari'
 
 gem 'devise'
 gem 'redis-objects'
-gem 'kaminari'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
