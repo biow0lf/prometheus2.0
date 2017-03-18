@@ -28,8 +28,9 @@ module Prometheus20
       g.helper false
     end
 
+    config.i18n.available_locales = [:en, :uk, :ru, :'pt-BR', :br]
+
     # http://batsov.com/articles/2012/09/12/setting-up-fallback-locale-s-in-rails-3/
-    # Fallback for empty translations
-    config.i18n.fallbacks = true
+    config.i18n.fallbacks = { br: [:'pt-BR'] }
   end
 end
