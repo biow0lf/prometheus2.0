@@ -4,6 +4,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'Sisyphus'
 branch.order_id = 0
 branch.path = '/Sisyphus'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.sisyphus'
 # branch.srpm_path = ['/ALT/Sisyphus/files/SRPMS']
 branch.save!
 
@@ -13,6 +14,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'SisyphusARM'
 branch.order_id = 1
 branch.path = '/Sisyphus'
+branch.acls_url = nil
 # branch.srpm_path = []
 branch.save!
 
@@ -22,6 +24,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'p8'
 branch.order_id = 2
 branch.path = '/p8/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.p8'
 branch.save!
 
 # add Platform7 branch
@@ -30,6 +33,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'p7'
 branch.order_id = 3
 branch.path = '/p7/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.p7'
 branch.save!
 
 # add t7 branch
@@ -38,6 +42,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 't7'
 branch.order_id = 4
 branch.path = '/t7/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.t7'
 branch.save!
 
 # add Platform6 branch
@@ -46,6 +51,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'Platform6'
 branch.order_id = 5
 branch.path = '/p6/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.p6'
 branch.save!
 
 # add t6 branch
@@ -54,6 +60,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 't6'
 branch.order_id = 6
 branch.path = '/t6/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.t6'
 branch.save!
 
 # add Platform5 branch
@@ -62,6 +69,7 @@ branch.vendor = 'ALT Linux'
 branch.name = 'Platform5'
 branch.order_id = 7
 branch.path = '/p5/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.p5'
 branch.save!
 
 # add 5.1 branch
@@ -70,6 +78,7 @@ branch.vendor = 'ALT Linux'
 branch.name = '5.1'
 branch.order_id = 8
 branch.path = '/5.1/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.5.1'
 branch.save!
 
 # add 5.0 branch
@@ -78,6 +87,7 @@ branch.vendor = 'ALT Linux'
 branch.name = '5.0'
 branch.order_id = 9
 branch.path = '/5.0/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.5.0'
 branch.save!
 
 # add 4.1 branch
@@ -86,6 +96,7 @@ branch.vendor = 'ALT Linux'
 branch.name = '4.1'
 branch.order_id = 10
 branch.path = '/4.1/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.4.1'
 branch.save!
 
 # add 4.0 branch
@@ -94,6 +105,7 @@ branch.vendor = 'ALT Linux'
 branch.name = '4.0'
 branch.order_id = 11
 branch.path = '/4.0/branch'
+branch.acls_url = 'http://git.altlinux.org/acl/list.packages.4.0'
 branch.save!
 
 # add Fedora Rawhide
