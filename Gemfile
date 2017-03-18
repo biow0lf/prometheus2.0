@@ -13,6 +13,7 @@ gem 'exception_notification', group: :production
 gem 'rails-i18n'
 gem 'kaminari'
 gem 'kaminari-i18n'
+gem 'rack-mini-profiler', require: false
 
 gem 'devise'
 gem 'redis-objects'
@@ -28,7 +29,6 @@ gem 'chewy'
 gem 'sitemap_generator'
 gem 'rouge'
 # gem 'github-linguist'
-gem 'rack-mini-profiler', require: false
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'sidekiq'
