@@ -10,6 +10,7 @@ gem 'turbolinks', '~> 5'
 gem 'rack-health'
 gem 'rack-force_domain', group: :production
 gem 'exception_notification', group: :production
+gem 'rails-i18n'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
