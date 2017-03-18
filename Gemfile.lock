@@ -83,9 +83,10 @@ GEM
     capistrano-rbenv-install (1.2.0)
       capistrano (>= 3.0)
       capistrano-rbenv (>= 2.0)
-    capistrano3-puma (1.2.1)
-      capistrano (~> 3.0)
-      puma (>= 2.6)
+    capistrano3-puma (3.0.0)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
