@@ -37,11 +37,11 @@ gem 'cocaine'
 gem 'browser'
 gem 'http_accept_language'
 
-group :production, :development, :staging do
+group :production, :development do
   gem 'redis'
 end
 
-group :production, :staging do
+group :production do
   gem 'dalli'
 end
 
