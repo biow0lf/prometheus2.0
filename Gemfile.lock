@@ -302,10 +302,6 @@ GEM
       railties (>= 4.2.0, < 5.1)
     riddle (2.1.0)
     rouge (2.0.7)
-    rspec (3.5.0)
-      rspec-core (~> 3.5.0)
-      rspec-expectations (~> 3.5.0)
-      rspec-mocks (~> 3.5.0)
     rspec-activemodel-mocks (1.0.3)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
@@ -474,7 +470,6 @@ DEPENDENCIES
   redis
   redis-objects
   rouge
-  rspec
   rspec-activemodel-mocks
   rspec-its
   rspec-matchers-controller_filters
