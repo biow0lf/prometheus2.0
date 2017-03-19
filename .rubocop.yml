@@ -1,22 +1,19 @@
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
   Exclude:
-    - 'Capfile'
-    - 'db/schema.rb'
     - 'bin/brakeman'
+    - 'bin/cap'
+    - 'bin/capify'
+    - 'bin/puma'
+    - 'bin/pumactl'
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
-    - 'bin/update'
-    - 'bin/cap'
-    - 'bin/capify'
     - 'bin/sidekiq'
     - 'bin/sidekiqctl'
-    - 'config/initializers/assets.rb'
-    - 'config/initializers/backtrace_silencers.rb'
-    - 'config/initializers/new_framework_defaults.rb'
-    - 'config/initializers/rack-cors.rb'
-    - 'config/initializers/wrap_parameters.rb'
+    - 'bin/update'
+    - 'bin/whenever'
+    - 'bin/wheneverize'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
@@ -39,9 +36,9 @@ Style/DotPosition:
   StyleGuide: '#consistent-multi-line-chains'
   Enabled: true
 
-# Disable magic
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: never
 
 # Recheck this cop later
 Style/FlipFlop:
@@ -115,10 +112,6 @@ Style/MethodCalledOnDoEndBlock:
 
 # Check for a newline after the assignment operator in multi-line assignments
 Style/MultilineAssignmentLayout:
-  Enabled: true
-
-# Use %i or %I for arrays of symbols
-Style/SymbolArray:
   Enabled: true
 
 # Just ignore order of gems in Gemfile
