@@ -8,6 +8,7 @@ SimpleCov.start 'rails' do
   add_group 'Queries', 'app/queries'
 end
 
+# DEPRECATED: remove this stuff
 require 'fakeweb'
 FakeWeb.allow_net_connect = false
 FakeWeb.allow_net_connect = 'https://codeclimate.com/test_reports'
@@ -31,7 +32,7 @@ FakeWeb.allow_net_connect = 'https://codeclimate.com/test_reports'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.deprecation_stream = File.open('log/deprecations.txt', 'w')
+  # Turns deprecation warnings into errors
   config.raise_errors_for_deprecations!
 
   # rspec-expectations config goes here. You can use an alternate
@@ -57,21 +58,33 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
+  # have no way to turn it off -- the option exists only for backwards
+  # compatibility in RSpec 3). It causes shared context metadata to be
+  # inherited by the metadata hash of host groups and examples, rather than
+  # triggering implicit auto-inclusion in groups with matching metadata.
+  config.shared_context_metadata_behavior = :apply_to_host_groups
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
-  # These two settings work together to allow you to limit a spec run
-  # to individual examples or groups you care about by tagging them with
-  # `:focus` metadata. When nothing is tagged with `:focus`, all examples
-  # get run.
-  config.filter_run :focus
-  config.run_all_when_everything_filtered = true
+  # This allows you to limit a spec run to individual examples or groups
+  # you care about by tagging them with `:focus` metadata. When nothing
+  # is tagged with `:focus`, all examples get run. RSpec also provides
+  # aliases for `it`, `describe`, and `context` that include `:focus`
+  # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
+  config.filter_run_when_matching :focus
+
+  # Allows RSpec to persist some state between runs in order to support
+  # the `--only-failures` and `--next-failure` CLI options. We recommend
+  # you configure your source control system to ignore this file.
+  config.example_status_persistence_file_path = "spec/examples.txt"
 
   # Limits the available syntax to the non-monkey patched syntax that is
   # recommended. For more details, see:
-  #   - http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
-  #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
-  #   - http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3#new__config_option_to_disable_rspeccore_monkey_patching
+  #   - http://rspec.info/blog/2012/06/rspecs-new-expectation-syntax/
+  #   - http://www.teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
+  #   - http://rspec.info/blog/2014/05/notable-changes-in-rspec-3/#zero-monkey-patching-mode
   config.disable_monkey_patching!
 
   # Many RSpec users commonly either run the entire suite or an individual
