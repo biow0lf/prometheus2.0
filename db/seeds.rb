@@ -1161,7 +1161,7 @@ Mirror.create!(
   uri: 'http://ftp.altlinux.org/pub/distributions/ALTLinux',
   protocol: 'http'
 )
-Mirror.create(
+Mirror.create!(
   branch_id: branch.id,
   order_id: 1,
   name: 'ftp://ftp.altlinux.org',
