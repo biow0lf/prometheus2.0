@@ -14,6 +14,7 @@ AllCops:
     - 'bin/update'
     - 'bin/whenever'
     - 'bin/wheneverize'
+    - 'db/schema.rb'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
