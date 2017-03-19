@@ -70,7 +70,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails' # DONE
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
