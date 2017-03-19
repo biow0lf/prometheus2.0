@@ -3,6 +3,6 @@ class AddMaintainerIdToAclModel < ActiveRecord::Migration[4.2]
     remove_index :acls, :login
     add_column :acls, :maintainer_id, :integer
     add_index :acls, :maintainer_id
-    remove_column :acls, :login
+    remove_column :acls, :login, :string
   end
 end
