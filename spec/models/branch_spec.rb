@@ -36,7 +36,7 @@ describe Branch do
   end
 
   describe '#counter' do
-    subject { stub_model Branch, id: 42 }
+    subject { create(:branch) }
 
     specify { expect(subject.counter).to be_a(Redis::Counter) }
   end
@@ -48,28 +48,30 @@ describe Branch do
   end
 
   describe '#to_param' do
-    subject { stub_model Branch, name: 'Sisyphus' }
+    subject { create(:branch, name: 'Sisyphus') }
 
-    its(:to_param) { should eq('Sisyphus') }
+    specify { expect(subject.to_param).to eq('Sisyphus') }
   end
 
   # private methods
 
   describe '#set_default_counter_value' do
-    subject { stub_model Branch }
+    subject { create(:branch) }
 
-    before do
-      #
-      # subject.counter.value = 0
-      #
-      expect(subject).to receive(:counter) do
-        double.tap do |a|
-          expect(a).to receive(:value=).with(0)
-        end
-      end
-    end
+    specify { expect(subject.counter.value).to eq(0) }
 
-    specify { expect { subject.send(:set_default_counter_value) }.not_to raise_error }
+    # TODO: move to srpm_spec.rb
+    # context 'counter should be eq srpms.count' do
+    #   let!(:branch) { create(:branch) }
+    #
+    #   let!(:srpm1) { create(:srpm, branch: branch) }
+    #
+    #   let!(:srpm2) { create(:srpm, branch: branch) }
+    #
+    #   let!(:srpm3) { create(:srpm, branch: branch) }
+    #
+    #   specify { expect(branch.counter.value).to eq(branch.srpms.count) }
+    # end
   end
 
   describe '#destroy_counter' do
