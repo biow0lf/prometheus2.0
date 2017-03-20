@@ -15,9 +15,9 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'rack-mini-profiler', require: false
 gem 'dotenv-rails'
+gem 'redis-objects'
 
 gem 'devise'
-gem 'redis-objects'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
