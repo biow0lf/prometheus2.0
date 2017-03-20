@@ -1,1 +1,1 @@
-SUPPORTED_LOCALES = /(en|ru|uk|br)/
+SUPPORTED_LOCALES = /(en|uk|ru|br)/
