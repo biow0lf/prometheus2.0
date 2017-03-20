@@ -14,6 +14,7 @@ gem 'rails-i18n'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'rack-mini-profiler', require: false
+gem 'dotenv-rails'
 
 gem 'devise'
 gem 'redis-objects'
