@@ -75,19 +75,8 @@ describe Branch do
   end
 
   describe '#destroy_counter' do
-    subject { stub_model Branch, id: 14 }
+    subject { create(:branch) }
 
-    before do
-      #
-      # Redis.current.del("branch:#{ subject.id }:counter")
-      #
-      expect(Redis).to receive(:current) do
-        double.tap do |a|
-          expect(a).to receive(:del).with("branch:#{ subject.id }:counter")
-        end
-      end
-    end
-
-    specify { expect { subject.send(:destroy_counter) }.not_to raise_error }
+    specify { expect { subject.destroy }.to change { Redis.current.get("branch:#{ subject.id }:counter") }.from('0').to(nil) }
   end
 end
