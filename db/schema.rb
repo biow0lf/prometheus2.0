@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804143438) do
+ActiveRecord::Schema.define(version: 20170322115716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -198,6 +198,17 @@ ActiveRecord::Schema.define(version: 20160804143438) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["name"], name: "index_perl_watches_on_name", using: :btree
+  end
+
+  create_table "pghero_query_stats", force: :cascade do |t|
+    t.text     "database"
+    t.text     "user"
+    t.text     "query"
+    t.bigint   "query_hash"
+    t.float    "total_time"
+    t.bigint   "calls"
+    t.datetime "captured_at"
+    t.index ["database", "captured_at"], name: "index_pghero_query_stats_on_database_and_captured_at", using: :btree
   end
 
   create_table "provides", force: :cascade do |t|
