@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322142414) do
+ActiveRecord::Schema.define(version: 20170322142550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -269,6 +269,7 @@ ActiveRecord::Schema.define(version: 20170322142414) do
     t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "source"
     t.index ["srpm_id"], name: "index_sources_on_srpm_id", using: :btree
   end
 

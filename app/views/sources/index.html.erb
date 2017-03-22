@@ -43,19 +43,19 @@
   <% @sources.each do |source| %>
   <tr>
     <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
-      <%# if source.source? %>
-        <%#= link_to source.filename, srpm_source_download_path(@branch, @srpm, source), class: 'news' %>
-      <%# else %>
+      <% if source.source %>
+        <%= link_to source.filename, srpm_source_download_path(@branch, @srpm, source), class: 'news' %>
+      <% else %>
         <%= source.filename %>
-      <%# end %>
+      <% end %>
     </td>
     <td> <b><%= number_to_human_size(source.size) %></b> </td>
     <td>
-      <%# if source.source? %>
-        <%#= link_to _('Download'), srpm_source_download_path(@branch, @srpm, source), class: 'news' %>
-      <%# else %>
+      <% if source.source %>
+        <%= link_to _('Download'), srpm_source_download_path(@branch, @srpm, source), class: 'news' %>
+      <% else %>
         &nbsp;
-      <%# end %>
+      <% end %>
     </td>
   </tr>
   <% end %>
