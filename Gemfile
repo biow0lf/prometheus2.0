@@ -16,6 +16,7 @@ gem 'kaminari-i18n'
 gem 'rack-mini-profiler', require: false
 gem 'dotenv-rails'
 gem 'redis-objects'
+gem 'pghero'
 
 gem 'devise'
 gem 'draper', '~> 3.0.0.pre1'
