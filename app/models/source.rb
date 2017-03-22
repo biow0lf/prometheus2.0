@@ -20,7 +20,10 @@ class Source < ApplicationRecord
       # DON'T import source if size is more than 512k
       if hsh[filename].to_i <= 1024 * 512
         content = `rpm2cpio "#{ file }" | cpio -i --quiet --to-stdout "#{ filename }"`
-        source.source = content.force_encoding('BINARY')
+        source.content = content.force_encoding('BINARY')
+        source.source = true
+      else
+        source.source = false
       end
 
       source.size = hsh[filename].to_i
