@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322115716) do
+ActiveRecord::Schema.define(version: 20170322125251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170322115716) do
     t.text     "short_desc"
     t.index ["assigned_to"], name: "index_bugs_on_assigned_to", using: :btree
     t.index ["bug_status"], name: "index_bugs_on_bug_status", using: :btree
+    t.index ["component"], name: "index_bugs_on_component", using: :btree
     t.index ["product"], name: "index_bugs_on_product", using: :btree
   end
 
