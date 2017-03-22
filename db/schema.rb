@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322135032) do
+ActiveRecord::Schema.define(version: 20170322142414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -264,7 +264,7 @@ ActiveRecord::Schema.define(version: 20170322135032) do
 
   create_table "sources", force: :cascade do |t|
     t.integer  "srpm_id"
-    t.binary   "source"
+    t.binary   "content"
     t.string   "filename"
     t.integer  "size"
     t.datetime "created_at"
