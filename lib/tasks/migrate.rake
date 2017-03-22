@@ -65,4 +65,15 @@ namespace :migrate do
 
     ThinkingSphinx::Deltas.resume!
   end
+
+  desc 'Add Source#source'
+  task sources: :environment do
+    Source.find_each do |source|
+      if source.content?
+        source.update!(source: true)
+      else
+        source.update!(source: false)
+      end
+    end
+  end
 end
