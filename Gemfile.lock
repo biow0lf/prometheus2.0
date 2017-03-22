@@ -232,6 +232,8 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.20.0)
+    pg_query (0.11.4)
+      json (>= 1.8, < 3)
     pghero (1.6.4)
       activerecord
     powerpack (0.1.1)
@@ -461,6 +463,7 @@ DEPENDENCIES
   mysql2
   newrelic_rpm
   pg (~> 0.18)
+  pg_query
   pghero
   pry-rails
   puma (~> 3.0)

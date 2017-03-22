@@ -17,6 +17,7 @@ gem 'rack-mini-profiler', require: false
 gem 'dotenv-rails'
 gem 'redis-objects'
 gem 'pghero'
+gem 'pg_query'
 
 gem 'devise'
 gem 'draper', '~> 3.0.0.pre1'
