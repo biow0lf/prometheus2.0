@@ -64,7 +64,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-install'
   gem 'capistrano-faster-assets'
-  gem 'capistrano3-puma', '< 3.1.0'
+  gem 'capistrano3-puma'
   # gem 'xray-rails'
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.48.0', require: false # DONE
