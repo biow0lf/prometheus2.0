@@ -1,5 +1,5 @@
 class RemoveChangelogtimeFromSrpm < ActiveRecord::Migration[4.2]
   def change
-    remove_column :srpms, :changelogtime
+    remove_column :srpms, :changelogtime, :string
   end
 end
