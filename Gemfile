@@ -67,13 +67,13 @@ group :development do
   gem 'capistrano3-puma'
   # gem 'xray-rails'
   # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.48.1', require: false # DONE
+  gem 'rubocop', '0.48.1', require: false
   gem 'brakeman', require: false
   # gem 'lol_dba'
 end
 
 group :development, :test do
-  gem 'rspec-rails' # DONE
+  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
