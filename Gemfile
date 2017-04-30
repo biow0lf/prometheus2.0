@@ -91,9 +91,7 @@ group :test do
   gem 'capybara-email'
   gem 'launchy'
   gem 'database_cleaner'
-  gem 'fakeweb'
-  # TODO: replace fakeweb with webmock
-  gem 'webmock', require: false
+  gem 'webmock'
   gem 'fakeredis'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
