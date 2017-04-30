@@ -36,7 +36,7 @@ gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'sidekiq'
 # gem 'oink'
-gem 'rectify'
+# gem 'rectify' TODO: remove this gem
 gem 'cocaine'
 gem 'browser'
 gem 'http_accept_language'
