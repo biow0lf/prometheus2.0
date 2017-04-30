@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/biow0lf/awesome_nested_set
+  revision: 9f42e6affa871d29dc58192d294f09aa6bc50dbc
+  branch: master
+  specs:
+    awesome_nested_set (3.1.2)
+      activerecord (>= 4.0.0, < 5.2)
+
+GIT
   remote: https://github.com/plataformatec/devise
   revision: 83213569dd77551bb5cac493e2767457970905bc
   branch: master
@@ -431,6 +439,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_nested_set!
   awesome_print
   bcrypt_pbkdf
   brakeman

@@ -25,7 +25,7 @@ gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
 gem 'whenever', require: false
-# gem 'awesome_nested_set' TODO: update from git?
+gem 'awesome_nested_set', git: 'https://github.com/biow0lf/awesome_nested_set', branch: 'master'
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'chewy'
