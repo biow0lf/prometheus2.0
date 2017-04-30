@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.1.0'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -25,7 +25,7 @@ gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
 gem 'whenever', require: false
-gem 'awesome_nested_set'
+# gem 'awesome_nested_set' TODO: update from git?
 gem 'mysql2' # for thinking-sphinx
 gem 'thinking-sphinx'
 gem 'chewy'
@@ -53,7 +53,7 @@ group :production do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'bullet'
   # https://github.com/net-ssh/net-ssh/issues/478
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
