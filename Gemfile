@@ -19,7 +19,7 @@ gem 'redis-objects'
 gem 'pghero'
 gem 'pg_query'
 
-# gem 'devise' TODO: update from git?
+gem 'devise', git: 'https://github.com/plataformatec/devise', branch: 'master'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
