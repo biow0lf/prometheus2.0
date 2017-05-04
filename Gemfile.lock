@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/plataformatec/devise
-  revision: 83213569dd77551bb5cac493e2767457970905bc
+  revision: cc6a5824089ed2cbd015a6951ce6d43d00264486
   branch: master
   specs:
     devise (4.2.1)
