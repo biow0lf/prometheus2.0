@@ -68,6 +68,7 @@ group :development do
   # gem 'xray-rails'
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.48.1', require: false
+  gem 'mry'
   gem 'brakeman', require: false
   # gem 'lol_dba'
 end
