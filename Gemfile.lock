@@ -432,7 +432,7 @@ DEPENDENCIES
   database_rewinder
   devise!
   dotenv-rails
-  draper (~> 3.0.0.pre1)
+  draper
   exception_notification
   factory_girl_rails
   faker
