@@ -18,6 +18,7 @@ gem 'dotenv-rails'
 gem 'redis-objects'
 gem 'pghero'
 gem 'pg_query'
+gem 'bundler-audit'
 
 gem 'devise', git: 'https://github.com/plataformatec/devise', branch: 'master'
 gem 'draper'
