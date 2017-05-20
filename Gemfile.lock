@@ -54,7 +54,7 @@ GEM
     awesome_print (1.7.0)
     bcrypt (3.1.11)
     bcrypt_pbkdf (1.0.0)
-    brakeman (3.6.1)
+    brakeman (3.6.2)
     browser (2.4.0)
     builder (3.2.3)
     bullet (5.5.1)
@@ -485,4 +485,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.15.0.pre.4
+   1.15.0
