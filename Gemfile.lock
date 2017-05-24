@@ -244,7 +244,7 @@ GEM
     rack-force_domain (0.3.0)
     rack-health (0.1.2)
       rack (>= 1.2.0)
-    rack-mini-profiler (0.10.4)
+    rack-mini-profiler (0.10.5)
       rack (>= 1.2.0)
     rack-protection (2.0.0)
       rack
