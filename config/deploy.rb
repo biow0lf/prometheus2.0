@@ -27,8 +27,7 @@ set :conditionally_migrate, true
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
-set :linked_files, fetch(:linked_files, []).push('config/database.yml',
-                                                 'config/newrelic.yml',
+set :linked_files, fetch(:linked_files, []).push('config/newrelic.yml',
                                                  'config/redis.conf',
                                                  'config/redis.yml',
                                                  'config/initializers/devise.rb',

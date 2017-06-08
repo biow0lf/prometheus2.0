@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.1.0'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -18,9 +18,10 @@ gem 'dotenv-rails'
 gem 'redis-objects'
 gem 'pghero'
 gem 'pg_query'
+gem 'bundler-audit'
 
 gem 'devise'
-gem 'draper', '~> 3.0.0.pre1'
+gem 'draper'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
@@ -36,7 +37,7 @@ gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'sidekiq'
 # gem 'oink'
-gem 'rectify'
+# gem 'rectify' TODO: remove this gem
 gem 'cocaine'
 gem 'browser'
 gem 'http_accept_language'
@@ -53,7 +54,7 @@ group :production do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'bullet'
   # https://github.com/net-ssh/net-ssh/issues/478
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
@@ -67,13 +68,14 @@ group :development do
   gem 'capistrano3-puma'
   # gem 'xray-rails'
   # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.48.1', require: false # DONE
+  gem 'rubocop', '0.49.1', require: false
+  gem 'mry'
   gem 'brakeman', require: false
   # gem 'lol_dba'
 end
 
 group :development, :test do
-  gem 'rspec-rails' # DONE
+  gem 'rspec-rails'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
@@ -90,10 +92,8 @@ group :test do
   gem 'capybara'
   gem 'capybara-email'
   gem 'launchy'
-  gem 'database_cleaner'
-  gem 'fakeweb'
-  # TODO: replace fakeweb with webmock
-  gem 'webmock', require: false
+  gem 'database_rewinder'
+  gem 'webmock'
   gem 'fakeredis'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false

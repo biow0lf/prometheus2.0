@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe Branch do
   it { should be_a(ApplicationRecord) }
 
