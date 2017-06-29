@@ -70,6 +70,7 @@ group :development do
   gem 'rubocop', '0.48.1', require: false # DONE
   gem 'brakeman', require: false
   # gem 'lol_dba'
+  gem 'squasher'
 end
 
 group :development, :test do
