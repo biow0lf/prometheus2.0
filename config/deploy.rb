@@ -32,8 +32,7 @@ set :linked_files, fetch(:linked_files, []).push('.env',
                                                  'config/newrelic.yml',
                                                  'config/redis.conf',
                                                  'config/redis.yml',
-                                                 'config/initializers/devise.rb',
-                                                 'config/initializers/secret_token.rb')
+                                                 'config/initializers/devise.rb')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
