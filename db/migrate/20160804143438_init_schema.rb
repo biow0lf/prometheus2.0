@@ -48,8 +48,8 @@ class InitSchema < ActiveRecord::Migration
       t.string   "release"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.string   "epoch"
       t.integer  "flags"
+      t.integer  "epoch"
       t.index ["package_id"], name: "index_conflicts_on_package_id", using: :btree
     end
 
@@ -62,7 +62,6 @@ class InitSchema < ActiveRecord::Migration
 
     create_table "ftbfs", force: :cascade do |t|
       t.string   "name"
-      t.string   "epoch"
       t.string   "version"
       t.string   "release"
       t.integer  "weeks"
@@ -71,6 +70,7 @@ class InitSchema < ActiveRecord::Migration
       t.datetime "updated_at"
       t.string   "arch"
       t.integer  "maintainer_id"
+      t.integer  "epoch"
       t.index ["branch_id"], name: "index_ftbfs_on_branch_id", using: :btree
       t.index ["maintainer_id"], name: "index_ftbfs_on_maintainer_id", using: :btree
     end
@@ -138,8 +138,8 @@ class InitSchema < ActiveRecord::Migration
       t.string   "release"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.string   "epoch"
       t.integer  "flags"
+      t.integer  "epoch"
       t.index ["package_id"], name: "index_obsoletes_on_package_id", using: :btree
     end
 
@@ -186,6 +186,7 @@ class InitSchema < ActiveRecord::Migration
       t.string   "path"
       t.datetime "created_at"
       t.datetime "updated_at"
+      t.index ["name"], name: "index_perl_watches_on_name", using: :btree
     end
 
     create_table "provides", force: :cascade do |t|
@@ -195,8 +196,8 @@ class InitSchema < ActiveRecord::Migration
       t.string   "release"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.string   "epoch"
       t.integer  "flags"
+      t.integer  "epoch"
       t.index ["package_id"], name: "index_provides_on_package_id", using: :btree
     end
 
@@ -233,8 +234,8 @@ class InitSchema < ActiveRecord::Migration
       t.string   "release"
       t.datetime "created_at"
       t.datetime "updated_at"
-      t.string   "epoch"
       t.integer  "flags"
+      t.integer  "epoch"
       t.index ["package_id"], name: "index_requires_on_package_id", using: :btree
     end
 
