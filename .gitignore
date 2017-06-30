@@ -22,4 +22,4 @@ config/initializers/devise.rb
 coverage/
 doc/
 .idea/
-
+.env

@@ -27,7 +27,8 @@ set :conditionally_migrate, true
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
-set :linked_files, fetch(:linked_files, []).push('config/database.yml',
+set :linked_files, fetch(:linked_files, []).push('.env',
+                                                 'config/database.yml',
                                                  'config/newrelic.yml',
                                                  'config/redis.conf',
                                                  'config/redis.yml',
