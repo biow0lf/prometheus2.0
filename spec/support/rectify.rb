@@ -1,5 +1,5 @@
-require 'rectify/rspec'
+# require 'rectify/rspec'
 
-RSpec.configure do |config|
-  config.include Rectify::RSpec::Helpers
-end
+# RSpec.configure do |config|
+#   config.include Rectify::RSpec::Helpers
+# end
