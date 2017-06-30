@@ -244,7 +244,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (2.0.5)
-    puma (3.8.2)
+    puma (3.9.1)
     rack (2.0.3)
     rack-cors (0.4.1)
     rack-force_domain (0.3.0)
