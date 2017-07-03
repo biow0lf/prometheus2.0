@@ -35,7 +35,7 @@ gem 'rouge'
 # gem 'github-linguist'
 gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
-gem 'sidekiq'
+gem 'sidekiq', require: false
 # gem 'oink'
 gem 'rectify'
 gem 'cocaine'
