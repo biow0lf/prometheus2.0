@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: prometheus_production
-  username: prometheus2_0
-  password: <%= ENV['PROMETHEUS2_0_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
