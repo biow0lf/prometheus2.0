@@ -311,7 +311,7 @@ GEM
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
     riddle (2.2.0)
-    rouge (2.0.7)
+    rouge (2.1.1)
     rspec-activemodel-mocks (1.0.3)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
