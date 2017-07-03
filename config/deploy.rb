@@ -30,8 +30,6 @@ set :conditionally_migrate, true
 set :linked_files, fetch(:linked_files, []).push('.env',
                                                  'config/database.yml',
                                                  'config/newrelic.yml',
-                                                 'config/redis.conf',
-                                                 'config/redis.yml',
                                                  'config/initializers/devise.rb')
 
 # Default value for linked_dirs is []
