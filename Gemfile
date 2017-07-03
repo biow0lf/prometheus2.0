@@ -22,7 +22,7 @@ gem 'pghero'
 gem 'pg_query'
 
 gem 'devise'
-gem 'draper', '~> 3.0.0.pre1'
+gem 'draper'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext', require: false
