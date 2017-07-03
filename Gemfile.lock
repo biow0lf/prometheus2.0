@@ -229,6 +229,7 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
+    parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.21.0)
@@ -338,7 +339,8 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    rubocop (0.48.1)
+    rubocop (0.49.1)
+      parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
@@ -488,7 +490,7 @@ DEPENDENCIES
   rspec-its
   rspec-matchers-controller_filters
   rspec-rails
-  rubocop (= 0.48.1)
+  rubocop (= 0.49.1)
   sass-rails (~> 5.0)
   shoulda-callback-matchers
   shoulda-matchers

@@ -68,7 +68,7 @@ group :development do
   gem 'capistrano3-puma', require: false
   # gem 'xray-rails'
   # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.48.1', require: false # DONE
+  gem 'rubocop', '0.49.1', require: false # DONE
   gem 'brakeman', require: false
   # gem 'lol_dba'
   gem 'squasher', require: false
