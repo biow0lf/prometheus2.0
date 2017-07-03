@@ -92,7 +92,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-email'
   gem 'launchy'
-  gem 'database_cleaner'
+  gem 'database_rewinder'
   gem 'fakeweb'
   # TODO: replace fakeweb with webmock
   gem 'webmock', require: false
