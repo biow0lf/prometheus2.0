@@ -25,6 +25,7 @@ public/sitemap*.xml.gz
 dump.rdb
 db/sphinx/*
 config/development.sphinx.conf
+config/test.sphinx.conf
 config/database.yml
 config/initializers/devise.rb
 coverage/
