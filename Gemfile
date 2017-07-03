@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.4'
+gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
+gem 'jquery-rails' # TODO: remove later
 gem 'turbolinks', '~> 5'
+
 # gem 'rpm', git: 'https://github.com/dmacvicar/ruby-rpm-ffi.git'
 gem 'rack-health'
 gem 'rack-force_domain', group: :production
@@ -54,7 +55,7 @@ group :production do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'bullet'
   # https://github.com/net-ssh/net-ssh/issues/478
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
