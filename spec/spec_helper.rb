@@ -1,4 +1,5 @@
 require 'simplecov'
+
 SimpleCov.start 'rails' do
   add_group 'Channels', 'app/channels/application_cable'
   add_group 'Commands', 'app/commands'
@@ -10,6 +11,7 @@ end
 
 # DEPRECATED: remove this stuff
 require 'fakeweb'
+
 FakeWeb.allow_net_connect = false
 FakeWeb.allow_net_connect = 'https://codeclimate.com/test_reports'
 
@@ -26,9 +28,6 @@ FakeWeb.allow_net_connect = 'https://codeclimate.com/test_reports'
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-#
-# The `.rspec` file also contains a few flags that are not defaults but that
-# users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -94,7 +93,7 @@ RSpec.configure do |config|
     # Use the documentation formatter for detailed output,
     # unless a formatter has already been configured
     # (e.g. via a command-line flag).
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   # Print the 10 slowest examples and example groups at the
