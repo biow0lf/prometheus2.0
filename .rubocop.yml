@@ -3,6 +3,8 @@ AllCops:
   Exclude:
     - 'Capfile'
     - 'db/schema.rb'
+    - 'db/migrate/20160804143438_init_schema.rb'
+    - 'db/migrate/20170630161747_squasher_clean.rb'
     - 'bin/brakeman'
     - 'bin/bundle-audit'
     - 'bin/consistency_fail'
