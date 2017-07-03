@@ -7,6 +7,12 @@
  * HTTPS
  * Update sitemap
 
+    - 'bin/consistency_fail'
+    - 'bin/license_finder'
+    - 'bin/rubycritic'
+
+Drop validates :something, presence: true for belongs_to!
+
 
 Добавить в srpm поле repocop_status_prev в котором хранить предыдущий статус
 репокопа до обновления srpm.
