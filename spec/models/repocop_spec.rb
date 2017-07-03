@@ -37,10 +37,10 @@ describe Repocop do
     it { should have_db_index(:srcversion) }
   end
 
-  it 'should import repocops from url' do
-    page = File.read('spec/data/prometheus2.sql')
-    url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2.sql'
-    FakeWeb.register_uri(:get, url, response: page)
-    expect { Repocop.update_repocop }.to change(Repocop, :count).by(1)
-  end
+  # it 'should import repocops from url' do
+  #   page = File.read('spec/data/prometheus2.sql')
+  #   url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2.sql'
+  #   FakeWeb.register_uri(:get, url, response: page)
+  #   expect { Repocop.update_repocop }.to change(Repocop, :count).by(1)
+  # end
 end
