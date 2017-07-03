@@ -7,6 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
+# gem 'rpm', git: 'https://github.com/dmacvicar/ruby-rpm-ffi.git'
 gem 'rack-health'
 gem 'rack-force_domain', group: :production
 gem 'exception_notification', group: :production
