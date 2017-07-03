@@ -1,3 +1,3 @@
-server 'prometheus.altlinux.org', user: 'prometheusapp', roles: %w(app db web)
+server 'prometheus.altlinux.org', user: 'prometheusapp', roles: %w[app db web]
 
-set :ssh_options, { port: 222 }
+set :ssh_options, port: 222
