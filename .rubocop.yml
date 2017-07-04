@@ -164,3 +164,8 @@ Style/FileName:
     - 'spec/support/capybara-email.rb'
     - 'spec/support/shoulda-callback-matchers.rb'
     - 'spec/support/shoulda-matchers.rb'
+
+# Disable broken cop
+Style/FormatStringToken:
+  Description: 'Use a consistent style for format string tokens.'
+  Enabled: false
