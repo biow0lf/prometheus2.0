@@ -355,13 +355,59 @@ describe RPM::Base do
     end
   end
 
-  # def read_raw(tag)
-  #   cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
-  #
-  #   cocaine.run(tag: tag, file: file)
-  # rescue Cocaine::CommandNotFoundError
-  #   Rails.logger.info('rpm command not found')
-  # rescue Cocaine::ExitStatusError
-  #   Rails.logger.info('rpm exit status non zero')
-  # end
+  describe '#read_raw' do
+    context 'read tag' do
+      let(:tag) { '%{NAME}' }
+
+      specify { expect(subject.send(:read_raw, tag)).to eq('catpkt') }
+    end
+
+    context 'rpm command not found' do
+      let(:tag) { double }
+
+      before do
+        #
+        # Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
+        #
+        expect(Cocaine::CommandLine).to receive(:new).with('rpm', '-qp --queryformat=:tag :file').and_raise(Cocaine::CommandNotFoundError)
+      end
+
+      before do
+        #
+        # Rails.logger.info('rpm command not found')
+        #
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with('rpm command not found')
+          end
+        end
+      end
+
+      specify { expect { subject.send(:read_raw, tag) }.not_to raise_error }
+    end
+
+    context 'rpm exit status non zero' do
+      let(:tag) { double }
+
+      before do
+        #
+        # Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
+        #
+        expect(Cocaine::CommandLine).to receive(:new).with('rpm', '-qp --queryformat=:tag :file').and_raise(Cocaine::ExitStatusError)
+      end
+
+      before do
+        #
+        # Rails.logger.info('rpm exit status non zero')
+        #
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with('rpm exit status non zero')
+          end
+        end
+      end
+
+      specify { expect { subject.send(:read_raw, tag) }.not_to raise_error }
+    end
+  end
 end
