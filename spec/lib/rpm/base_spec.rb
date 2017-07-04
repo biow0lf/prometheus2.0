@@ -169,61 +169,146 @@ describe RPM::Base do
     end
   end
 
+  describe '#description' do
+    context '@description not set' do
+      specify { expect(subject.description).to start_with('Viewer for out/in-bound ftn-packets.') }
 
-#   def description
-#     @description ||= read('%{DESCRIPTION}')
-#   end
-#
-#   def buildhost
-#     @buildhost ||= read('%{BUILDHOST}')
-#   end
-#
-#   def changelogname
-#     @changelogname ||= read('%{CHANGELOGNAME}')
-#   end
-#
-#   def changelogtext
-#     @changelogtext ||= read('%{CHANGELOGTEXT}')
-#   end
-#
-#   def changelogtime
-#     @changelogtime ||= read_time('%{CHANGELOGTIME}')
-#   end
-#
-#   def buildtime
-#     @buildtime ||= read_time('%{BUILDTIME}')
-#   end
-#
-#   def epoch
-#     @epoch ||= read_int('%{EPOCH}')
-#   end
-#
-#   private
-#
-#   def read_int(tag)
-#     output = read(tag)
-#     output ? output.to_i : output
-#   end
-#
-#   def read_time(tag)
-#     Time.zone.at(read(tag).to_i)
-#   end
-#
-#   def read(tag)
-#     output = read_raw(tag)
-#
-#     output = nil if ['(none)', ''].include?(output)
-#
-#     output
-#   end
-#
-#   def read_raw(tag)
-#     cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
-#
-#     cocaine.run(tag: tag, file: file)
-#   rescue Cocaine::CommandNotFoundError
-#     Rails.logger.info('rpm command not found')
-#   rescue Cocaine::ExitStatusError
-#     Rails.logger.info('rpm exit status non zero')
-#   end
+      specify { expect(subject.description.length).to eq(352) }
+
+      specify { expect { subject.description }.to change { subject.instance_variable_get(:@description) }.from(nil) }
+    end
+
+    context '@description is set' do
+      let(:description) { double }
+
+      before { subject.instance_variable_set(:@description, description) }
+
+      specify { expect(subject.description).to eq(description) }
+    end
+  end
+
+  describe '#buildhost' do
+    context '@buildhost not set' do
+      specify { expect(subject.buildhost).to eq('icesik.hasher.altlinux.org') }
+
+      specify { expect { subject.buildhost }.to change { subject.instance_variable_get(:@buildhost) }.from(nil).to('icesik.hasher.altlinux.org') }
+    end
+
+    context '@buildhost is set' do
+      let(:buildhost) { double }
+
+      before { subject.instance_variable_set(:@buildhost, buildhost) }
+
+      specify { expect(subject.buildhost).to eq(buildhost) }
+    end
+  end
+
+  describe '#changelogname' do
+    context '@changelogname not set' do
+      specify { expect(subject.changelogname).to eq('Igor Zubkov <icesik@altlinux.org> 1.0-alt5') }
+
+      specify { expect { subject.changelogname }.to change { subject.instance_variable_get(:@changelogname) }.from(nil).to('Igor Zubkov <icesik@altlinux.org> 1.0-alt5') }
+    end
+
+    context '@changelogname is set' do
+      let(:changelogname) { double }
+
+      before { subject.instance_variable_set(:@changelogname, changelogname) }
+
+      specify { expect(subject.changelogname).to eq(changelogname) }
+    end
+  end
+
+  describe '#changelogtext' do
+    context '@changelogtext not set' do
+      specify { expect(subject.changelogtext).to eq('- rebuilt for debuginfo') }
+
+      specify { expect { subject.changelogtext }.to change { subject.instance_variable_get(:@changelogtext) }.from(nil).to('- rebuilt for debuginfo') }
+    end
+
+    context '@changelogtext is set' do
+      let(:changelogtext) { double }
+
+      before { subject.instance_variable_set(:@changelogtext, changelogtext) }
+
+      specify { expect(subject.changelogtext).to eq(changelogtext) }
+    end
+  end
+
+  describe '#changelogtime' do
+    context '@changelogtime not set' do
+      specify { expect(subject.changelogtime).to eq(Time.zone.local(2012, 10, 5, 12, 0)) }
+
+      specify { expect { subject.changelogtime }.to change { subject.instance_variable_get(:@changelogtime) }.from(nil).to(Time.zone.local(2012, 10, 5, 12, 0)) }
+    end
+
+    context '@changelogtime is set' do
+      let(:changelogtime) { double }
+
+      before { subject.instance_variable_set(:@changelogtime, changelogtime) }
+
+      specify { expect(subject.changelogtime).to eq(changelogtime) }
+    end
+  end
+
+  describe '#buildtime' do
+    context '@buildtime not set' do
+      specify { expect(subject.buildtime).to eq(Time.zone.local(2012, 10, 5, 14, 59, 45)) }
+
+      specify { expect { subject.buildtime }.to change { subject.instance_variable_get(:@buildtime) }.from(nil).to(Time.zone.local(2012, 10, 5, 14, 59, 45)) }
+    end
+
+    context '@buildtime is set' do
+      let(:buildtime) { double }
+
+      before { subject.instance_variable_set(:@buildtime, buildtime) }
+
+      specify { expect(subject.buildtime).to eq(buildtime) }
+    end
+  end
+
+  describe '#epoch' do
+    # context '@epoch not set' do
+    #   specify { expect(subject.epoch).to eq(nil) }
+    #
+    #   specify { expect { subject.epoch }.to change { subject.instance_variable_get(:@epoch) }.from(nil).to() }
+    # end
+    #
+    # context '@epoch is set' do
+    #   let(:epoch) { double }
+    #
+    #   before { subject.instance_variable_set(:@epoch, epoch) }
+    #
+    #   specify { expect(subject.epoch).to eq(epoch) }
+    # end
+  end
+
+  # private methods
+
+  # def read_int(tag)
+  #   output = read(tag)
+  #   output ? output.to_i : output
+  # end
+  #
+  # def read_time(tag)
+  #   Time.zone.at(read(tag).to_i)
+  # end
+  #
+  # def read(tag)
+  #   output = read_raw(tag)
+  #
+  #   output = nil if ['(none)', ''].include?(output)
+  #
+  #   output
+  # end
+  #
+  # def read_raw(tag)
+  #   cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
+  #
+  #   cocaine.run(tag: tag, file: file)
+  # rescue Cocaine::CommandNotFoundError
+  #   Rails.logger.info('rpm command not found')
+  # rescue Cocaine::ExitStatusError
+  #   Rails.logger.info('rpm exit status non zero')
+  # end
 end
