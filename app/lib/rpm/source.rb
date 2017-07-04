@@ -1,7 +1,7 @@
 module RPM
   class Source < Base
-    def source?
-      true
+    def filename
+      "#{ name }-#{ version }-#{ release }.src.rpm"
     end
   end
 end
