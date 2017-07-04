@@ -305,15 +305,39 @@ describe RPM::Base do
   # def read_time(tag)
   #   Time.zone.at(read(tag).to_i)
   # end
-  #
-  # def read(tag)
-  #   output = read_raw(tag)
-  #
-  #   output = nil if ['(none)', ''].include?(output)
-  #
-  #   output
-  # end
-  #
+
+  describe '#read' do
+    context '(none)' do
+      let(:tag) { double }
+
+      let(:read_raw) { '(none)' }
+
+      before { expect(subject).to receive(:read_raw).with(tag).and_return(read_raw) }
+
+      specify { expect(subject.send(:read, tag)).to eq(nil) }
+    end
+
+    context '"" (empty)' do
+      let(:tag) { double }
+
+      let(:read_raw) { '' }
+
+      before { expect(subject).to receive(:read_raw).with(tag).and_return(read_raw) }
+
+      specify { expect(subject.send(:read, tag)).to eq(nil) }
+    end
+
+    context 'ok' do
+      let(:tag) { double }
+
+      let(:read_raw) { 'raw' }
+
+      before { expect(subject).to receive(:read_raw).with(tag).and_return(read_raw) }
+
+      specify { expect(subject.send(:read, tag)).to eq('raw') }
+    end
+  end
+
   # def read_raw(tag)
   #   cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
   #
