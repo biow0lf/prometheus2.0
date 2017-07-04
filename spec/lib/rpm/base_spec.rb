@@ -301,10 +301,14 @@ describe RPM::Base do
   #   output = read(tag)
   #   output ? output.to_i : output
   # end
-  #
-  # def read_time(tag)
-  #   Time.zone.at(read(tag).to_i)
-  # end
+
+  describe '#read_time' do
+    let(:tag) { double }
+
+    before { expect(subject).to receive(:read).with(tag).and_return('1349449185') }
+
+    specify { expect(subject.send(:read_time, tag)).to eq(Time.zone.local(2012, 10, 5, 14, 59, 45)) }
+  end
 
   describe '#read' do
     context '(none)' do
