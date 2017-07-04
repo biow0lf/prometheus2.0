@@ -106,19 +106,25 @@ describe RPM::Base do
   end
 
   describe '#url' do
-    # context '@url not set' do
-    #   specify { expect(subject.url).to eq('BSD-like') }
-    #
-    #   specify { expect { subject.url }.to change { subject.instance_variable_get(:@license) }.from(nil).to('BSD-like') }
-    # end
+    context 'url is empty' do
+      specify { expect(subject.url).to eq(nil) }
+    end
 
-    # context '@url is set' do
-    #   let(:url) { double }
-    #
-    #   before { subject.instance_variable_set(:@url, url) }
-    #
-    #   specify { expect(subject.url).to eq(url) }
-    # end
+    context '@url not set' do
+      let(:file) { 'spec/data/xmms-1.2.11-alt11.src.rpm' }
+
+      specify { expect(subject.url).to eq('http://xmms.org') }
+
+      specify { expect { subject.url }.to change { subject.instance_variable_get(:@url) }.from(nil).to('http://xmms.org') }
+    end
+
+    context '@url is set' do
+      let(:url) { double }
+
+      before { subject.instance_variable_set(:@url, url) }
+
+      specify { expect(subject.url).to eq(url) }
+    end
   end
 
   describe '#packager' do
