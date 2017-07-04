@@ -132,7 +132,7 @@ class Srpm < ApplicationRecord
     Dir.glob(path).sort.each do |file|
       unless Redis.current.exists("#{ branch.name }:#{ File.basename(file) }")
         next unless File.exist?(file)
-        next unless Rpm.check_md5(file)
+        next unless RPMCheckMD5.check_md5(file)
         puts "#{ Time.now }: import '#{ File.basename(file) }'"
         Srpm.import(branch, RPMFile::Source.new(file), file)
       end

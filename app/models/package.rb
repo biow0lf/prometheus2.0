@@ -73,7 +73,7 @@ class Package < ApplicationRecord
       Dir.glob(path).sort.each do |file|
         unless Redis.current.exists("#{ branch.name }:#{ file.split('/')[-1] }")
           next unless File.exist?(file)
-          next unless Rpm.check_md5(file)
+          next unless RPMCheckMD5.check_md5(file)
           puts "#{ Time.now }: import '#{ file.split('/')[-1] }'"
           rpm = RPMFile::Binary.new(file)
           Package.import(branch, rpm)

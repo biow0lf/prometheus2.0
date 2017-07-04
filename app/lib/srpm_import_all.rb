@@ -21,6 +21,6 @@ class SrpmImportAll
   def file_can_be_imported?(file)
     return if file_already_imported?(file)
     return unless File.exist?(file)
-    Rpm.check_md5(file)
+    RPMCheckMD5.check_md5(file)
   end
 end

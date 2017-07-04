@@ -1,4 +1,4 @@
-class Rpm
+class RPMCheckMD5
   def self.check_md5(file)
     output = `export LANG=C && rpm -K --nogpg #{ file }`
     if !output.empty? && output.chop.split(': ').last == 'md5 OK'
@@ -8,5 +8,3 @@ class Rpm
     end
   end
 end
-
-RPM = Rpm
