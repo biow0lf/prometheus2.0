@@ -151,3 +151,14 @@ Style/IfUnlessModifier:
 Style/ConditionalAssignment:
   Enabled: true
   EnforcedStyle: assign_to_condition
+
+Style/FileName:
+  Enabled: true
+  Exclude:
+    - 'config/initializers/rack-cors.rb'
+    - 'config/initializers/rack-force_domain.rb'
+    - 'config/initializers/rack-mini-profiler.rb'
+    - 'config/initializers/rack-timeout.rb'
+    - 'spec/support/capybara-email.rb'
+    - 'spec/support/shoulda-callback-matchers.rb'
+    - 'spec/support/shoulda-matchers.rb'
