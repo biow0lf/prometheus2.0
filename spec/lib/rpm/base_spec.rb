@@ -297,10 +297,23 @@ describe RPM::Base do
 
   # private methods
 
-  # def read_int(tag)
-  #   output = read(tag)
-  #   output ? output.to_i : output
-  # end
+  describe '#read_int' do
+    context 'nil' do
+      let(:tag) { double }
+
+      before { expect(subject).to receive(:read).with(tag).and_return(nil) }
+
+      specify { expect(subject.send(:read_int, tag)).to eq(nil) }
+    end
+
+    context 'number' do
+      let(:tag) { double }
+
+      before { expect(subject).to receive(:read).with(tag).and_return('20131206') }
+
+      specify { expect(subject.send(:read_int, tag)).to eq(20131206) }
+    end
+  end
 
   describe '#read_time' do
     let(:tag) { double }
