@@ -136,6 +136,8 @@ Metrics/BlockLength:
   Exclude:
     - 'app/documentation/**/*.rb'
     - 'config/routes.rb'
+    - 'config/environments/production.rb'
+    - 'config/sitemap.rb'
     - 'spec/**/*.rb'
 
 Metrics/ClassLength:
