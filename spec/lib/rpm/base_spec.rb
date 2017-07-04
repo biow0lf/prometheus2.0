@@ -268,19 +268,25 @@ describe RPM::Base do
   end
 
   describe '#epoch' do
-    # context '@epoch not set' do
-    #   specify { expect(subject.epoch).to eq(nil) }
-    #
-    #   specify { expect { subject.epoch }.to change { subject.instance_variable_get(:@epoch) }.from(nil).to() }
-    # end
-    #
-    # context '@epoch is set' do
-    #   let(:epoch) { double }
-    #
-    #   before { subject.instance_variable_set(:@epoch, epoch) }
-    #
-    #   specify { expect(subject.epoch).to eq(epoch) }
-    # end
+    context 'epoch is empty' do
+      specify { expect(subject.epoch).to eq(nil) }
+    end
+
+    context '@epoch not set' do
+      let(:file) { 'spec/data/xmms-1.2.11-alt11.src.rpm' }
+
+      specify { expect(subject.epoch).to eq(20131206) }
+
+      specify { expect { subject.epoch }.to change { subject.instance_variable_get(:@epoch) }.from(nil).to(20131206) }
+    end
+
+    context '@epoch is set' do
+      let(:epoch) { double }
+
+      before { subject.instance_variable_set(:@epoch, epoch) }
+
+      specify { expect(subject.epoch).to eq(epoch) }
+    end
   end
 
   # private methods
