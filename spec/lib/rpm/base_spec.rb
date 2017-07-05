@@ -297,6 +297,22 @@ describe RPM::Base do
     end
   end
 
+  describe '#packagesize' do
+    context '@packagesize not set' do
+      specify { expect(subject.packagesize).to eq(14_216) }
+
+      specify { expect { subject.packagesize }.to change { subject.instance_variable_get(:@packagesize) }.from(nil).to(14_216) }
+    end
+
+    context '@packagesize is set' do
+      let(:packagesize) { double }
+
+      before { subject.instance_variable_set(:@packagesize, packagesize) }
+
+      specify { expect(subject.packagesize).to eq(packagesize) }
+    end
+  end
+
   # private methods
 
   describe '#read_int' do

@@ -78,6 +78,10 @@ module RPM
       @epoch ||= read_int('%{EPOCH}')
     end
 
+    def packagesize
+      @packagesize ||= read_int('%{PACKAGESIZE}')
+    end
+
     private
 
     def read_int(tag)
