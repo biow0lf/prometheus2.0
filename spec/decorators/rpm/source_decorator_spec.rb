@@ -38,6 +38,8 @@ describe RPM::SourceDecorator do
 
     before { expect(rpm).to receive(:packagesize).and_return(14_216) }
 
+    before { expect(rpm).to receive(:md5).and_return('35f0f45bfbcdaf8754713fc1c97f8068') }
+
     subject { rpm.decorate.as_json }
 
     its([:name]) { should eq('catpkt') }
@@ -73,5 +75,7 @@ describe RPM::SourceDecorator do
     its([:changelogtext]) { should eq('- rebuilt for debuginfo') }
 
     its([:size]) { should eq(14_216) }
+
+    its([:md5]) { should eq('35f0f45bfbcdaf8754713fc1c97f8068') }
   end
 end

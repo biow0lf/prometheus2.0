@@ -2,7 +2,7 @@ module RPM
   class SourceDecorator < Draper::Decorator
     delegate_all
 
-    # TODO: add buildhost, md5
+    # TODO: add buildhost
     def as_json(*)
       {
         name: name,
@@ -21,7 +21,8 @@ module RPM
         changelogtime: changelogtime,
         changelogname: changelogname,
         changelogtext: changelogtext,
-        size: packagesize
+        size: packagesize,
+        md5: md5
       }
     end
   end
