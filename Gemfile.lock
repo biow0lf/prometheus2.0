@@ -241,6 +241,7 @@ GEM
       json (>= 1.8, < 3)
     pghero (1.7.0)
       activerecord
+    posix-spawn (0.3.13)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -476,6 +477,7 @@ DEPENDENCIES
   pg (~> 0.18)
   pg_query
   pghero
+  posix-spawn
   pry-rails
   puma (~> 3.7)
   rack-cors
