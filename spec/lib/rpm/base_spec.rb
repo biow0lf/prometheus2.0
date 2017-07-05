@@ -313,6 +313,22 @@ describe RPM::Base do
     end
   end
 
+  describe '#md5' do
+    context '@md5 not set' do
+      specify { expect(subject.md5).to eq('35f0f45bfbcdaf8754713fc1c97f8068') }
+
+      specify { expect { subject.md5 }.to change { subject.instance_variable_get(:@md5) }.from(nil).to('35f0f45bfbcdaf8754713fc1c97f8068') }
+    end
+
+    context '@md5 is set' do
+      let(:md5) { double }
+
+      before { subject.instance_variable_set(:@md5, md5) }
+
+      specify { expect(subject.md5).to eq(md5) }
+    end
+  end
+
   # private methods
 
   describe '#read_int' do

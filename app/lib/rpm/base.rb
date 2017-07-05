@@ -82,6 +82,10 @@ module RPM
       @packagesize ||= read_int('%{PACKAGESIZE}')
     end
 
+    def md5
+      @md5 ||= Digest::MD5.file(file).hexdigest
+    end
+
     private
 
     def read_int(tag)
