@@ -2,6 +2,8 @@ require 'cocaine'
 
 module RPM
   class Base
+    include Draper::Decoratable
+
     attr_reader :file
 
     def initialize(file)

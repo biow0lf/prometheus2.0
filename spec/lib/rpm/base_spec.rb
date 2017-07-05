@@ -5,6 +5,8 @@ describe RPM::Base do
 
   subject { described_class.new(file) }
 
+  it { should be_a(Draper::Decoratable) }
+
   describe '#initialize' do
     its(:file) { should eq('spec/data/catpkt-1.0-alt5.src.rpm') }
   end
