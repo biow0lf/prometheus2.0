@@ -36,6 +36,8 @@ describe RPM::SourceDecorator do
 
     before { expect(rpm).to receive(:changelogtext).and_return('- rebuilt for debuginfo') }
 
+    before { expect(rpm).to receive(:packagesize).and_return(14_216) }
+
     subject { rpm.decorate.as_json }
 
     its([:name]) { should eq('catpkt') }
@@ -69,5 +71,7 @@ describe RPM::SourceDecorator do
     its([:changelogname]) { should eq('Igor Zubkov <icesik@altlinux.org> 1.0-alt5') }
 
     its([:changelogtext]) { should eq('- rebuilt for debuginfo') }
+
+    its([:size]) { should eq(14_216) }
   end
 end
