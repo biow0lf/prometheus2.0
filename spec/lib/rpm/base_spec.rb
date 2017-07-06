@@ -417,9 +417,9 @@ describe RPM::Base do
 
       before do
         #
-        # Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
+        # Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file', environment: { 'LANG' => 'C' })
         #
-        expect(Cocaine::CommandLine).to receive(:new).with('rpm', '-qp --queryformat=:tag :file').and_raise(Cocaine::CommandNotFoundError)
+        expect(Cocaine::CommandLine).to receive(:new).with('rpm', '-qp --queryformat=:tag :file', environment: { 'LANG' => 'C' }).and_raise(Cocaine::CommandNotFoundError)
       end
 
       before do
@@ -441,9 +441,9 @@ describe RPM::Base do
 
       before do
         #
-        # Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
+        # Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file', environment: { 'LANG' => 'C' })
         #
-        expect(Cocaine::CommandLine).to receive(:new).with('rpm', '-qp --queryformat=:tag :file').and_raise(Cocaine::ExitStatusError)
+        expect(Cocaine::CommandLine).to receive(:new).with('rpm', '-qp --queryformat=:tag :file', environment: { 'LANG' => 'C' }).and_raise(Cocaine::ExitStatusError)
       end
 
       before do

@@ -112,7 +112,7 @@ module RPM
     end
 
     def read_raw(tag)
-      cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file')
+      cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file', environment: { 'LANG' => 'C' })
 
       cocaine.run(tag: tag, file: file)
     rescue Cocaine::CommandNotFoundError
