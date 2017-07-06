@@ -313,6 +313,22 @@ describe RPM::Base do
     end
   end
 
+  describe '#size' do
+    context '@size not set' do
+      specify { expect(subject.size).to eq(14_216) }
+
+      specify { expect { subject.size }.to change { subject.instance_variable_get(:@size) }.from(nil).to(14_216) }
+    end
+
+    context '@size is set' do
+      let(:size) { double }
+
+      before { subject.instance_variable_set(:@size, size) }
+
+      specify { expect(subject.size).to eq(size) }
+    end
+  end
+
   describe '#md5' do
     context '@md5 not set' do
       specify { expect(subject.md5).to eq('35f0f45bfbcdaf8754713fc1c97f8068') }

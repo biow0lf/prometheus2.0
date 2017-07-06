@@ -78,8 +78,14 @@ module RPM
       @epoch ||= read_int('%{EPOCH}')
     end
 
+    # TODO: broken on alt rpm 4.0.4
     def packagesize
       @packagesize ||= read_int('%{PACKAGESIZE}')
+    end
+
+    # TODO: drop in flavor of #packagesize
+    def size
+      @size ||= File.size(file)
     end
 
     def md5
