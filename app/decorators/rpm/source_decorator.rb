@@ -21,7 +21,7 @@ module RPM
         changelogtime: changelogtime,
         changelogname: changelogname,
         changelogtext: changelogtext,
-        size: packagesize,
+        size: size, # TODO: change to #packagesize
         md5: md5
       }
     end

@@ -36,7 +36,7 @@ describe RPM::SourceDecorator do
 
     before { expect(rpm).to receive(:changelogtext).and_return('- rebuilt for debuginfo') }
 
-    before { expect(rpm).to receive(:packagesize).and_return(14_216) }
+    before { expect(rpm).to receive(:size).and_return(14_216) }
 
     before { expect(rpm).to receive(:md5).and_return('35f0f45bfbcdaf8754713fc1c97f8068') }
 
