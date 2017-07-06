@@ -50,10 +50,6 @@ describe Srpm do
   end
 
   describe 'Validation' do
-    it { should validate_presence_of(:branch) }
-
-    it { should validate_presence_of(:group) }
-
     it { should validate_presence_of(:groupname) }
 
     it { should validate_presence_of(:md5) }

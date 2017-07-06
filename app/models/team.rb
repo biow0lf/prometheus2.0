@@ -5,10 +5,6 @@ class Team < ApplicationRecord
 
   validates :name, presence: true
 
-  validates :branch, presence: true
-
-  validates :maintainer, presence: true
-
   def self.import_teams(vendor_name, branch_name, url)
     branch = Branch.where(name: branch_name, vendor: vendor_name).first
     if branch.teams.count(:all) == 0

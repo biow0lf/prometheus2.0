@@ -3,13 +3,9 @@ require 'rails_helper'
 describe Mirror do
   it { should be_a(ApplicationRecord) }
 
-  context 'Associations' do
-    it { should belong_to(:branch) }
-  end
+  it { should belong_to(:branch) }
 
   context 'Validation' do
-    it { should validate_presence_of(:branch) }
-
     it { should validate_presence_of(:order_id) }
 
     it { should validate_presence_of(:name) }

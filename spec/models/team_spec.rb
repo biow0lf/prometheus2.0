@@ -9,13 +9,7 @@ describe Team do
     it { should belong_to(:maintainer) }
   end
 
-  context 'Validation' do
-    it { should validate_presence_of(:name) }
-
-    it { should validate_presence_of(:branch) }
-
-    it { should validate_presence_of(:maintainer) }
-  end
+  it { should validate_presence_of(:name) }
 
   context 'DB Indexes' do
     it { should have_db_index(:branch_id) }

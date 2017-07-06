@@ -12,8 +12,6 @@ describe Group do
   end
 
   context 'Validation' do
-    it { should validate_presence_of(:branch) }
-
     it { should validate_presence_of(:name) }
   end
 

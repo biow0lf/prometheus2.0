@@ -1,8 +1,6 @@
 class Conflict < ApplicationRecord
   belongs_to :package
 
-  validates :package, presence: true
-
   validates :name, presence: true
 
 # FIXME: this code broken

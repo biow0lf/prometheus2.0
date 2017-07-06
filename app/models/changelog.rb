@@ -1,8 +1,6 @@
 class Changelog < ApplicationRecord
   belongs_to :srpm
 
-  validates :srpm, presence: true
-
   validates :changelogtime, presence: true
 
   validates :changelogname, presence: true

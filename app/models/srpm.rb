@@ -36,10 +36,6 @@ class Srpm < ApplicationRecord
            primary_key: 'name',
            foreign_key: 'repo' # dependent: :destroy
 
-  validates :branch, presence: true
-
-  validates :group, presence: true
-
   validates :groupname, presence: true
 
   validates :md5, presence: true

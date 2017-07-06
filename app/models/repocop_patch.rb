@@ -3,8 +3,6 @@ require 'open-uri'
 class RepocopPatch < ApplicationRecord
   belongs_to :branch
 
-  validates :branch, presence: true
-
   validates :name, presence: true
 
   validates :version, presence: true

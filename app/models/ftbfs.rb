@@ -3,10 +3,6 @@ class Ftbfs < ApplicationRecord
 
   belongs_to :maintainer
 
-  validates :branch, presence: true
-
-  validates :maintainer, presence: true
-
   validates :name, presence: true
 
   validates :version, presence: true

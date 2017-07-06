@@ -3,13 +3,9 @@ require 'rails_helper'
 describe Patch do
   it { should be_a(ApplicationRecord) }
 
-  context 'Associations' do
-    it { should belong_to(:srpm) }
-  end
+  it { should belong_to(:srpm) }
 
   context 'Validation' do
-    it { should validate_presence_of(:srpm) }
-
     it { should validate_presence_of(:filename) }
 
     it { should validate_presence_of(:size) }

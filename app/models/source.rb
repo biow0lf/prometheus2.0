@@ -1,8 +1,6 @@
 class Source < ApplicationRecord
   belongs_to :srpm
 
-  validates :srpm, presence: true
-
   validates :filename, presence: true
 
   validates :size, presence: true

@@ -13,10 +13,6 @@ class Package < ApplicationRecord
 
   has_many :conflicts, dependent: :destroy
 
-  validates :srpm, presence: true
-
-  validates :group, presence: true
-
   validates :groupname, presence: true
 
   validates :md5, presence: true

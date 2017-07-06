@@ -8,8 +8,6 @@ describe Changelog do
   end
 
   context 'Validation' do
-    it { should validate_presence_of(:srpm) }
-
     it { should validate_presence_of(:changelogtime) }
 
     it { should validate_presence_of(:changelogname) }

@@ -3,15 +3,9 @@ require 'rails_helper'
 describe Specfile do
   it { should be_a(ApplicationRecord) }
 
-  context 'Associations' do
-    it { should belong_to(:srpm) }
-  end
+  it { should belong_to(:srpm) }
 
-  context 'Validation' do
-    it { should validate_presence_of(:srpm) }
-
-    it { should validate_presence_of(:spec) }
-  end
+  it { should validate_presence_of(:spec) }
 
   it { should have_db_index(:srpm_id) }
 

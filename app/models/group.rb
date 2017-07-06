@@ -3,11 +3,11 @@ class Group < ApplicationRecord
 
   belongs_to :branch
 
-  validates :branch, presence: true
-  validates :name, presence: true
-
   has_many :srpms
+
   has_many :packages
+
+  validates :name, presence: true
 
   def full_name
     full = name
@@ -33,7 +33,7 @@ class Group < ApplicationRecord
 
   def self.import(branch, full_group)
     prev_id = nil
-    full_group.split('/').each_with_index  do |item, index|
+    full_group.split('/').each_with_index do |item, index|
       group = Group.where(branch_id: branch.id,
                           parent_id: prev_id,
                           name: item).first

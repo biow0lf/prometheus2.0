@@ -3,15 +3,9 @@ require 'rails_helper'
 describe Repocop do
   it { should be_a(ApplicationRecord) }
 
-  context 'Associations' do
-    it { should belong_to(:branch) }
-
-    pending { should belong_to(:srpm) }
-  end
+  it { should belong_to(:branch) }
 
   context 'Validation' do
-    it { should validate_presence_of(:branch) }
-
     it { should validate_presence_of(:name) }
 
     it { should validate_presence_of(:version) }

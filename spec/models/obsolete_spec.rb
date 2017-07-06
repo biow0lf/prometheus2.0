@@ -3,15 +3,9 @@ require 'rails_helper'
 describe Obsolete do
   it { should be_a(ApplicationRecord) }
 
-  context 'Associations' do
-    it { should belong_to(:package) }
-  end
+  it { should belong_to(:package) }
 
-  context 'Validation' do
-    it { should validate_presence_of(:package) }
-
-    it { should validate_presence_of(:name) }
-  end
+  it { should validate_presence_of(:name) }
 
   it { should have_db_index(:package_id) }
 end
