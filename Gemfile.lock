@@ -495,7 +495,7 @@ DEPENDENCIES
   rspec-its
   rspec-matchers-controller_filters
   rspec-rails
-  rubocop (= 0.49.1)
+  rubocop
   rubocop-thread_safety
   sass-rails (~> 5.0)
   shoulda-callback-matchers

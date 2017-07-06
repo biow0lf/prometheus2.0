@@ -67,8 +67,7 @@ group :development do
   gem 'capistrano-faster-assets', require: false
   gem 'capistrano3-puma', require: false
   # gem 'xray-rails'
-  # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'rubocop-thread_safety', require: false
   gem 'mry', require: false
   gem 'brakeman', require: false
