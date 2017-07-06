@@ -15,12 +15,6 @@ describe Gear do
     it { should validate_presence_of(:lastchange) }
   end
 
-  context 'DB Indexes' do
-    it { should have_db_index(:maintainer_id) }
-
-    it { should have_db_index(:srpm_id) }
-  end
-
   # it 'should import gear repos' do
   #   Branch.delete_all # TODO: check why this needed?
   #   branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')

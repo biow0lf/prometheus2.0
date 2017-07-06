@@ -15,8 +15,6 @@ describe RepocopPatch do
     it { should validate_presence_of(:url) }
   end
 
-  it { should have_db_index(:name) }
-
   # it 'should import repocops patches list from url' do
   #   page = File.read('spec/data/prometheus2-patches.sql')
   #   url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2-patches.sql'

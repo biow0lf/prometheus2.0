@@ -7,8 +7,6 @@ describe Specfile do
 
   it { should validate_presence_of(:spec) }
 
-  it { should have_db_index(:srpm_id) }
-
   it 'should import spec file' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)

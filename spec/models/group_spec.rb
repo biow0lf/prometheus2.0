@@ -11,15 +11,7 @@ describe Group do
     it { should have_many(:packages) }
   end
 
-  context 'Validation' do
-    it { should validate_presence_of(:name) }
-  end
-
-  context 'DB Indexes' do
-    it { should have_db_index(:branch_id) }
-
-    it { should have_db_index(:parent_id) }
-  end
+  it { should validate_presence_of(:name) }
 
   it 'should return full group name on #full_name' do
     branch = create(:branch)

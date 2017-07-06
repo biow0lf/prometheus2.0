@@ -3,9 +3,7 @@ require 'rails_helper'
 describe PerlWatch do
   it { should be_a(ApplicationRecord) }
 
-  context 'Validation' do
-    it { should validate_presence_of(:name) }
-  end
+  it { should validate_presence_of(:name) }
 
   # it 'should import data from CPAN' do
   #   page = File.read('spec/data/02packages.details.txt')

@@ -23,14 +23,6 @@ describe Repocop do
     it { should validate_presence_of(:testname) }
   end
 
-  context 'DB Indexes' do
-    it { should have_db_index(:srcname) }
-
-    it { should have_db_index(:srcrel) }
-
-    it { should have_db_index(:srcversion) }
-  end
-
   # it 'should import repocops from url' do
   #   page = File.read('spec/data/prometheus2.sql')
   #   url = 'http://repocop.altlinux.org/pub/repocop/prometheus2/prometheus2.sql'

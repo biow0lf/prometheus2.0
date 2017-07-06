@@ -14,6 +14,4 @@ describe Mirror do
 
     it { should validate_presence_of(:protocol) }
   end
-
-  it { should have_db_index(:branch_id) }
 end

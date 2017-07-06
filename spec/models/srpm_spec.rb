@@ -55,14 +55,6 @@ describe Srpm do
     it { should validate_presence_of(:md5) }
   end
 
-  describe 'DB Indexes' do
-    it { should have_db_index(:branch_id) }
-
-    it { should have_db_index(:group_id) }
-
-    it { should have_db_index(:name) }
-  end
-
   # describe 'delegated methods' do
   #   it { should delegate_method(:name).to(:branch).with_prefix(true) }
   # end

@@ -23,18 +23,6 @@ describe Package do
     it { should validate_presence_of(:md5) }
   end
 
-  describe 'DB Indexes' do
-    it { should have_db_index(:arch) }
-
-    it { should have_db_index(:group_id) }
-
-    it { should have_db_index(:name) }
-
-    it { should have_db_index(:sourcepackage) }
-
-    it { should have_db_index(:srpm_id) }
-  end
-
   describe 'Callbacks' do
     it { should callback(:set_srpm_delta_flag).after(:save) }
 

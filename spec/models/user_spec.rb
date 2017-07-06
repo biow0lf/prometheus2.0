@@ -3,14 +3,6 @@ require 'rails_helper'
 describe User do
   it { should be_a(ApplicationRecord) }
 
-  context 'DB Indexes' do
-    it { should have_db_index(:confirmation_token).unique(true) }
-
-    it { should have_db_index(:email).unique(true) }
-
-    it { should have_db_index(:reset_password_token).unique(true) }
-  end
-
   it 'should return true for @altlinux.org emails' do
     expect(User.new(email: 'icesik@altlinux.org').member?).to eq(true)
   end

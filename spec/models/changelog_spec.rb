@@ -15,8 +15,6 @@ describe Changelog do
     it { should validate_presence_of(:changelogtext) }
   end
 
-  it { should have_db_index(:srpm_id) }
-
   context '#email' do
     it 'should return email' do
       text = 'Igor Zubkov <icesik@altlinux.org> 1.0-alt5'
