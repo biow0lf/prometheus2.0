@@ -1,3 +1,5 @@
+require: rubocop-thread_safety
+
 AllCops:
   TargetRubyVersion: 2.4
   Exclude:
