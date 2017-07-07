@@ -1,7 +1,7 @@
 class BugDecorator < Draper::Decorator
   delegate_all
 
-  def as_json(*args)
+  def as_json(*)
     {
       bug_id: bug_id,
       bug_status: bug_status,

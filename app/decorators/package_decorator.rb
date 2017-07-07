@@ -1,7 +1,7 @@
 class PackageDecorator < Draper::Decorator
   delegate_all
 
-  def as_json(*args)
+  def as_json(*)
     {
       id: id,
       srpm_id: srpm_id,
