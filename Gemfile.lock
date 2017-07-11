@@ -220,7 +220,7 @@ GEM
     mry (0.49.0.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mysql2 (0.4.7)
+    mysql2 (0.4.8)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
