@@ -74,6 +74,7 @@ group :development do
   # gem 'lol_dba'
   gem 'squasher', require: false
   gem 'bundler-audit', require: false
+  gem 'license_finder', require: false
 end
 
 group :development, :test do
