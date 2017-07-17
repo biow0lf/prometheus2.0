@@ -27,6 +27,7 @@ AllCops:
     - 'bin/whenever'
     - 'bin/wheneverize'
     - 'bin/yarn'
+    - 'bin/license_finder'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
