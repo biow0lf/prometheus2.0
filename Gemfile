@@ -75,6 +75,7 @@ group :development do
   gem 'squasher', require: false
   gem 'bundler-audit', require: false
   gem 'license_finder', require: false
+  gem 'active_record_doctor'
 end
 
 group :development, :test do
