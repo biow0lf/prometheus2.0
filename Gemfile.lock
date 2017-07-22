@@ -103,9 +103,6 @@ GEM
     capybara-email (2.5.0)
       capybara (~> 2.4)
       mail
-    chewy (0.9.0)
-      activesupport (>= 3.2)
-      elasticsearch (>= 1.0.0)
     chronic (0.10.2)
     climate_control (0.2.0)
     cocaine (0.5.8)
@@ -141,14 +138,6 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
-    elasticsearch (5.0.4)
-      elasticsearch-api (= 5.0.4)
-      elasticsearch-transport (= 5.0.4)
-    elasticsearch-api (5.0.4)
-      multi_json
-    elasticsearch-transport (5.0.4)
-      faraday
-      multi_json
     equalizer (0.0.11)
     erubi (1.6.1)
     exception_notification (4.2.1)
@@ -164,8 +153,6 @@ GEM
       i18n (~> 0.5)
     fakeredis (0.6.0)
       redis (~> 3.2)
-    faraday (0.12.2)
-      multipart-post (>= 1.2, < 3)
     fast_gettext (1.4.1)
     ffi (1.9.18)
     gettext (3.2.3)
@@ -231,9 +218,7 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     mry (0.49.0.0)
-    multi_json (1.12.1)
     multi_xml (0.6.0)
-    multipart-post (2.0.0)
     mysql2 (0.4.8)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -470,7 +455,6 @@ DEPENDENCIES
   capistrano3-puma
   capybara
   capybara-email
-  chewy
   cocaine
   codeclimate-test-reporter
   dalli
@@ -536,4 +520,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.15.2
+   1.15.3
