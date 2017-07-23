@@ -56,9 +56,9 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'bullet'
   # https://github.com/net-ssh/net-ssh/issues/478
-  gem 'bcrypt_pbkdf' # for rbnacl-libsodium
-  gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
-  gem 'rbnacl-libsodium' # for ssh-ed25519 support
+  gem 'bcrypt_pbkdf', require: false # for rbnacl-libsodium
+  gem 'rbnacl', '< 4.0', require: false # for rbnacl-libsodium
+  gem 'rbnacl-libsodium', require: false # for ssh-ed25519 support
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
