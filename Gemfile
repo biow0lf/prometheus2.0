@@ -41,6 +41,7 @@ gem 'posix-spawn', require: false
 gem 'cocaine', require: false
 gem 'browser'
 gem 'http_accept_language'
+# gem 'molinillo', require: false
 
 group :production, :development do
   gem 'redis'
