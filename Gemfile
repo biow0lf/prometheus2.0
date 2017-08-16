@@ -56,6 +56,10 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
+
   gem 'bullet'
   # https://github.com/net-ssh/net-ssh/issues/478
   gem 'bcrypt_pbkdf', require: false # for rbnacl-libsodium
