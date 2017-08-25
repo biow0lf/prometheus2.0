@@ -27,7 +27,7 @@ module Api
             schema do
               key :type, :array
               items do
-                key :'$ref', :Package
+                key :'$ref', :OutputPackage
               end
             end
           end
