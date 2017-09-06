@@ -20,7 +20,6 @@
 ._*
 *~
 config/newrelic.yml
-locale/*/LC_MESSAGES/*.mo
 public/sitemap*.xml.gz
 dump.rdb
 db/sphinx/*
