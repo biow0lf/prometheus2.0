@@ -199,10 +199,10 @@ msgid "Archiving/Other"
 msgstr "Архивирование/Прочее"
 
 msgid "Are you sure?"
-msgstr ""
+msgstr "Вы уверены?"
 
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 msgid "Blog"
 msgstr "Блог"
@@ -259,7 +259,7 @@ msgid "Choose a mirror:"
 msgstr "Выберите зеркало:"
 
 msgid "Click the link below to unlock your account:"
-msgstr ""
+msgstr "Перейдите по ссылке ниже для разблокирования аккаунта:"
 
 msgid "Communications"
 msgstr "Коммуникации"
@@ -412,7 +412,7 @@ msgid "File tools"
 msgstr "Работа с файлами"
 
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Забыли пароль?"
 
 msgid "Games/Adventure"
 msgstr "Игры/Приключения"
@@ -508,7 +508,7 @@ msgid "Home page:"
 msgstr "Домашняя страница:"
 
 msgid "If you didn't request this, please ignore this email."
-msgstr ""
+msgstr "Если вы не запрашивали это действие, просто игнорируйте письмо."
 
 msgid "Igor Vlasenko"
 msgstr "Игорь Власенко"
@@ -554,10 +554,10 @@ msgid "List of packages which was built by this maintainer:"
 msgstr "Список пакетов, собранных майнтейнером:"
 
 msgid "List of packages:"
-msgstr "Список пакетов собранных командой:"
+msgstr "Список пакетов, собранных командой:"
 
 msgid "List of rpms provided by this srpm:"
-msgstr "Список rpm-пакетов, предоставляемый данным srpm-пакетом:"
+msgstr "Список rpm-пакетов, предоставляемых данным srpm-пакетом:"
 
 msgid "Location:"
 msgstr "Расположение:"
@@ -623,19 +623,19 @@ msgid "New SRPMs"
 msgstr "Новые пакеты"
 
 msgid "New password"
-msgstr ""
+msgstr "Новый пароль"
 
 msgid "No such branch!"
 msgstr "Нет такого бранча!"
 
 msgid "No such file."
-msgstr ""
+msgstr "Нет такого файла."
 
 msgid "No such group!"
 msgstr "Нет такой группы!"
 
 msgid "No such package!"
-msgstr ""
+msgstr "Нет такого пакета!"
 
 msgid "No such team!"
 msgstr "Нет такой команды!"
@@ -659,16 +659,16 @@ msgid "Packages"
 msgstr "Пакеты"
 
 msgid "Packages built by this maintainer:"
-msgstr "Всего пакетов собранных майнтейнером:"
+msgstr "Всего пакетов, собранных майнтейнером:"
 
 msgid "Packages to rebuild:"
 msgstr "Список пакетов на пересборку:"
 
 msgid "Page not found"
-msgstr ""
+msgstr "Страница не найдена"
 
 msgid "Patch is too large."
-msgstr ""
+msgstr "Патч слишком велик."
 
 msgid "Patches"
 msgstr "Патчи"
@@ -854,10 +854,10 @@ msgid "Security/Networking"
 msgstr "Безопасность/Сети"
 
 msgid "Select branch:"
-msgstr ""
+msgstr "Выберите бранч:"
 
 msgid "Send me reset password instructions"
-msgstr ""
+msgstr "Отправить инструкцию по сбросу пароля"
 
 msgid "Shells"
 msgstr "Интерпретаторы команд"
@@ -869,7 +869,7 @@ msgid "Sign out"
 msgstr "Выйти"
 
 msgid "Sign up"
-msgstr "Зарегистрироватся"
+msgstr "Зарегистрироваться"
 
 msgid ""
 "Sisyphus is not intended for end users and its usage may result in unpredictab"
@@ -921,7 +921,7 @@ msgstr "Размер архива:"
 msgid ""
 "Someone has requested a link to change your password. You can do this through "
 "the link below."
-msgstr ""
+msgstr "Был выполнен запрос на изменение вашего пароля. Перейдите по ссылке ниже для задания нового пароля."
 
 msgid "Sound"
 msgstr "Звук"
@@ -1086,17 +1086,17 @@ msgid "Wiki"
 msgstr "Вики"
 
 msgid "You can confirm your account email through the link below:"
-msgstr ""
+msgstr "Вы можете подтвердить ваш электронный адрес через ссылку ниже:"
 
 msgid ""
 "Your account has been locked due to an excessive number of unsuccessful sign i"
 "n attempts."
-msgstr ""
+msgstr "Ваш аккаунт был заблокирован из-за большого количества неудачных попыток входа."
 
 msgid ""
 "Your password won't change until you access the link above and create a new on"
 "e."
-msgstr ""
+msgstr "Пароль не будет изменён, пока не вы не перейдёте по ссылке выше и не зададите новый"
 
 msgid "about Prometheus project"
 msgstr "проект Prometheus"
@@ -1117,7 +1117,7 @@ msgid "blog"
 msgstr "блог о sisyphus"
 
 msgid "branch"
-msgstr ""
+msgstr "бранч"
 
 msgid "build"
 msgstr "сборка"
@@ -1180,10 +1180,10 @@ msgid "information about maintainer"
 msgstr "просмотреть информацию о майнтейнере"
 
 msgid "leader"
-msgstr ""
+msgstr "ведущий"
 
 msgid "leave blank if you don't want to change it"
-msgstr ""
+msgstr "оставьте пустым, если вы не хотите изменять это"
 
 msgid "list of bugs and feature requests"
 msgstr "список багов и предложений по улучшению"
@@ -1222,7 +1222,7 @@ msgid "repocop"
 msgstr ""
 
 msgid "repocop bugreports"
-msgstr "отчеты repocop о найденных ошибках и замечаниях"
+msgstr "отчёты repocop о найденных ошибках и замечаниях"
 
 msgid "repocop patch"
 msgstr ""
@@ -1255,7 +1255,7 @@ msgid "sort maintainers by amount of packages"
 msgstr "выборка лидеров по количеству пакетов"
 
 msgid "sort packages by amount of releases in the last half of year"
-msgstr "выборка пакетов по количеству релизов за последние пол-года"
+msgstr "выборка пакетов по количеству релизов за последние полгода"
 
 msgid "sources"
 msgstr "исходники"
