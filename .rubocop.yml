@@ -157,7 +157,7 @@ Style/ConditionalAssignment:
   Enabled: true
   EnforcedStyle: assign_to_condition
 
-Style/FileName:
+Naming/FileName:
   Enabled: true
   Exclude:
     - 'config/initializers/rack-cors.rb'
