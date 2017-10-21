@@ -88,7 +88,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 end
 
 group :test do
