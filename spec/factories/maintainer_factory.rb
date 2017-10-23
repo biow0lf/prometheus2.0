@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :maintainer do
     name { Faker::Name.name }
     sequence :login do |n|

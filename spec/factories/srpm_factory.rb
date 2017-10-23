@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :srpm do
     name 'openbox'
     version '3.4.11.1'

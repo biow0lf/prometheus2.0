@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :maintainer_team do
     name 'Ruby Maintainers Team'
     email 'ruby@packages.altlinux.org'
