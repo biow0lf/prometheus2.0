@@ -19,6 +19,7 @@ gem 'dotenv-rails'
 gem 'redis-objects'
 gem 'pghero'
 gem 'pg_query'
+gem 'http_logger'
 
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
 gem 'draper'
