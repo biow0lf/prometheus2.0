@@ -83,6 +83,8 @@ GEM
     bundler-audit (0.6.0)
       bundler (~> 1.2)
       thor (~> 0.18)
+    cacheflow (0.1.0)
+      activesupport
     capistrano (3.10.0)
       airbrussh (>= 1.0.0)
       i18n
@@ -466,6 +468,7 @@ DEPENDENCIES
   browser
   bullet
   bundler-audit
+  cacheflow
   capistrano
   capistrano-faster-assets
   capistrano-rails

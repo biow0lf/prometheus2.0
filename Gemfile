@@ -19,7 +19,6 @@ gem 'dotenv-rails'
 gem 'redis-objects'
 gem 'pghero'
 gem 'pg_query'
-gem 'http_logger'
 
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
 gem 'draper'
@@ -82,6 +81,8 @@ group :development do
   gem 'bundler-audit', require: false
   gem 'license_finder', require: false
   gem 'active_record_doctor'
+  gem 'http_logger'
+  gem 'cacheflow'
 end
 
 group :development, :test do
