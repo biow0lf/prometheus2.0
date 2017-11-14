@@ -232,7 +232,7 @@ GEM
       rubocop (>= 0.41.0)
     msgpack (1.1.0)
     multi_xml (0.6.0)
-    mysql2 (0.4.9)
+    mysql2 (0.4.10)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
