@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/plataformatec/devise.git
-  revision: 88e9a85d6a796a41f4dcf2528ed6d5f48916b5fd
+  revision: ce0414271a03b3ee9594dd76a5a4e766f1896981
   branch: master
   specs:
     devise (4.3.0)
@@ -267,7 +267,7 @@ GEM
       rack (>= 1.2.0)
     rack-protection (2.0.0)
       rack
-    rack-test (0.8.0)
+    rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rack-timeout (0.4.2)
     rails (5.1.4)
