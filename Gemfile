@@ -77,6 +77,7 @@ group :development do
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'rubocop-thread_safety', require: false
+  gem 'rubocop-rspec', require: false
   gem 'mry', require: false
   gem 'brakeman', require: false
   # gem 'lol_dba'
