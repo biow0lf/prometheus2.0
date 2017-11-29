@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.0.beta2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'rack-health'
@@ -36,7 +38,7 @@ gem 'swagger-blocks'
 gem 'rack-cors', require: 'rack/cors'
 gem 'sidekiq', require: false
 # gem 'oink'
-gem 'rectify'
+gem 'rectify', '0.8.0'
 gem 'posix-spawn', require: false
 gem 'cocaine', require: false
 gem 'browser'
@@ -56,11 +58,12 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
 
-  gem 'bullet'
+  # gem 'bullet' # bullet NOT ready for rails 5.2 yet
   # https://github.com/net-ssh/net-ssh/issues/478
   gem 'bcrypt_pbkdf', require: false # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0', require: false # for rbnacl-libsodium
@@ -74,6 +77,7 @@ group :development do
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'rubocop-thread_safety', require: false
+  gem 'rubocop-rspec', require: false
   gem 'mry', require: false
   gem 'brakeman', require: false
   # gem 'lol_dba'
