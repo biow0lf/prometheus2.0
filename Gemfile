@@ -63,7 +63,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
 
-  gem 'bullet'
+  # gem 'bullet' # bullet NOT ready for rails 5.2 yet
   # https://github.com/net-ssh/net-ssh/issues/478
   gem 'bcrypt_pbkdf', require: false # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0', require: false # for rbnacl-libsodium
