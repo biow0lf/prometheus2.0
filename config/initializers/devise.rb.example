@@ -90,6 +90,12 @@ Devise.setup do |config|
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
+  # When false, Devise will not attempt to reload routes on eager load.
+  # This can reduce the time taken to boot the app but if your application
+  # requires the Devise mappings to be loaded during boot time the application
+  # won't boot properly.
+  # config.reload_routes = true
+
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
   # using other algorithms, it sets how many times you want the password to be hashed.
@@ -104,7 +110,10 @@ Devise.setup do |config|
   # Set up a pepper to generate the hashed password.
   config.pepper = 'ed4b8294f2c3d590ec1404b5ab00396c1afe548a0f28d4967a1724f52ad56b8b789e53d08c39f6143f957cdaa0a3710dccae20005cbddaa8f0e7535a4f515ee2'
 
-  # Send a notification email when the user's password is changed
+  # Send a notification to the original email when the user's email is changed.
+  # config.send_email_changed_notification = false
+
+  # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
@@ -134,7 +143,6 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
   config.remember_for = 1.year
 
   # Invalidates all the remember me tokens when the user signs out.
