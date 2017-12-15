@@ -75,7 +75,7 @@ GEM
     blankslate (2.1.2.4)
     bootsnap (1.1.7)
       msgpack (~> 1.0)
-    brakeman (4.0.1)
+    brakeman (4.1.0)
     browser (2.5.2)
     builder (3.2.3)
     bullet (5.6.1)
