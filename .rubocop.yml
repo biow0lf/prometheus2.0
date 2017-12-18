@@ -6,3 +6,9 @@ inherit_from:
   - .rubocop_rspec.yml
   - .rubocop-thread_safety.yml
   - .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'vendor/cache/**/*'
