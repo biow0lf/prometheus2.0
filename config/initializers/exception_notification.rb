@@ -3,6 +3,6 @@ if Rails.env.production?
                                           email: {
                                             email_prefix: '[ERROR] ',
                                             sender_address: %('Sisyphus 2.0 Error' <prometheus-noreply@altlinux.org>),
-                                            exception_recipients: %w(igor.zubkov@gmail.com)
+                                            exception_recipients: ['igor.zubkov@gmail.com']
                                           }
 end

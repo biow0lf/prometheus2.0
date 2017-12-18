@@ -33,11 +33,11 @@ class ApplicationController < ActionController::Base
   end
 
   def sort_column
-    %w[status name age].include?(params[:sort]) ? params[:sort] : 'name'
+    ['status', 'name', 'age'].include?(params[:sort]) ? params[:sort] : 'name'
   end
 
   def sort_order
-    %w[asc desc].include?(params[:order]) ? params[:order] : 'asc'
+    ['asc', 'desc'].include?(params[:order]) ? params[:order] : 'asc'
   end
 
   def sort_order_next(column)

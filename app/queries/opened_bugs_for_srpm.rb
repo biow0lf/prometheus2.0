@@ -1,5 +1,5 @@
 class OpenedBugsForSrpm < Rectify::Query
-  BUG_STATUSES = %w(NEW ASSIGNED VERIFIED REOPENED).freeze
+  BUG_STATUSES = ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED'].freeze
 
   attr_reader :scope
 
