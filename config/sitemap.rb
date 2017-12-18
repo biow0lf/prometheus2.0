@@ -31,7 +31,7 @@ SitemapGenerator::Sitemap.create do
   add '/uk', changefreq: 'hourly'
   add '/br', changefreq: 'hourly'
 
-  %w(en ru uk br).each do |locale|
+  ['en', 'ru', 'uk', 'br'].each do |locale|
     Branch.find_each do |branch|
       add home_path(locale, branch)
       add packages_path(locale, branch)

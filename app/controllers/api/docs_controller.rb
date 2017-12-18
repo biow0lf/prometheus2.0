@@ -10,7 +10,7 @@ module Api
         key :title, 'Prometheus 2.0 API documentation'
         key :description, 'Prometheus 2.0 API documentation.'
       end
-      key :schemes, %w[https http]
+      key :schemes, ['https', 'http']
       key :host, 'packages.altlinux.org'
       # key :host, 'localhost:3000'
       key :basePath, '/api'

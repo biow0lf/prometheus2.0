@@ -73,6 +73,7 @@ group :development do
   gem 'capistrano3-puma', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
   gem 'rubocop-thread_safety', require: false
   gem 'mry', require: false
   gem 'brakeman', require: false

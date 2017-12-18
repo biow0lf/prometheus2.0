@@ -9,7 +9,7 @@ describe OpenedBugsForMaintainer do
 
   it { should be_a(Rectify::Query) }
 
-  specify { expect(described_class::BUG_STATUSES).to eq(%w(NEW ASSIGNED VERIFIED REOPENED)) }
+  specify { expect(described_class::BUG_STATUSES).to eq(['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED']) }
 
   describe '#initialize' do
     let(:scope) { double }

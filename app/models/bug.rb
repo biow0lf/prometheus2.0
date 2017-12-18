@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bug < ApplicationRecord
   validates :bug_id, presence: true
 

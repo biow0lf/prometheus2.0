@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Conflict < ApplicationRecord
   belongs_to :package
 

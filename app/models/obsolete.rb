@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Obsolete < ApplicationRecord
   belongs_to :package
 
