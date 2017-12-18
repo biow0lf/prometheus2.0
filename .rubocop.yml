@@ -11,4 +11,5 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
+    - 'db/migrate/20160804143438_init_schema.rb'
     - 'vendor/cache/**/*'
