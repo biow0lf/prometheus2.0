@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Require < ApplicationRecord
   belongs_to :package
 

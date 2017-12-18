@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RPMCheckMD5
   def self.check_md5(file)
     output = `export LANG=C && rpm -K --nogpg #{ file }`

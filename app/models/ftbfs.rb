@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ftbfs < ApplicationRecord
   belongs_to :branch
 

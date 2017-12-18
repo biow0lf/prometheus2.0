@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Provide < ApplicationRecord
   belongs_to :package
 
