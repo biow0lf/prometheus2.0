@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :srpm do
+    branch
+
     name 'openbox'
     version '3.4.11.1'
     release 'alt1.1.1'

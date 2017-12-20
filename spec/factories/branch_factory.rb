@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   sequence :name do |n|
     "Branch #{ n }"
@@ -6,7 +8,7 @@ FactoryBot.define do
   factory :branch do
     name
     vendor 'Vendor'
-    order_id 0
+    sequence(:order_id)
     path '/Anything'
   end
 end
