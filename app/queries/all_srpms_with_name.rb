@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AllSrpmsWithName < Rectify::Query
   attr_reader :name
 

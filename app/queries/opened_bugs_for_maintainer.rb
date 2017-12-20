@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OpenedBugsForMaintainer < Rectify::Query
   BUG_STATUSES = ['NEW', 'ASSIGNED', 'VERIFIED', 'REOPENED'].freeze
 

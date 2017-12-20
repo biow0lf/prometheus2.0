@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AllBugsForSrpm < Rectify::Query
   attr_reader :srpm
 

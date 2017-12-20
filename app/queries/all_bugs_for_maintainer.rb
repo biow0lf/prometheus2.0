@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AllBugsForMaintainer < Rectify::Query
   attr_reader :branch, :maintainer
 
