@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SrpmAllBugsController < ApplicationController
   # after_action :print_accessed_fields
 

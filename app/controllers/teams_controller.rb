@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TeamsController < ApplicationController
   def index
     @branch = Branch.find_by!(name: params[:branch])

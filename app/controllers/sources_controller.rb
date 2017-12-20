@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SourcesController < ApplicationController
   def index
     @branch = Branch.find_by!(name: params[:branch])

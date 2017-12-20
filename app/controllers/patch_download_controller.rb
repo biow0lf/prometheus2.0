@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PatchDownloadController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])

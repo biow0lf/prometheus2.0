@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RsyncController < ApplicationController
   def new
     @branch = Branch.find_by!(name: 'Sisyphus')

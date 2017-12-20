@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchesController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])

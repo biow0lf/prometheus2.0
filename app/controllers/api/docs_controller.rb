@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class DocsController < ActionController::Base
     include Swagger::Blocks
