@@ -5,9 +5,9 @@ class Branch < ApplicationRecord
 
   has_many :srpms, dependent: :destroy
 
-  has_many :changelogs, through: :srpms
+  has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
 
-  has_many :packages, through: :srpms
+  has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
 
   has_many :groups, dependent: :destroy
 
@@ -15,9 +15,9 @@ class Branch < ApplicationRecord
 
   has_many :mirrors, dependent: :destroy
 
-  has_many :patches, through: :srpms
+  has_many :patches, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
 
-  has_many :sources, through: :srpms
+  has_many :sources, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
 
   has_many :ftbfs, class_name: 'Ftbfs', dependent: :destroy
 
