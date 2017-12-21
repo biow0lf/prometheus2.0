@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RPMFile
   class Source < Base
     def filename

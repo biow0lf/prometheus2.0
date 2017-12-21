@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveSrpm < Rectify::Command
   attr_reader :srpm
 

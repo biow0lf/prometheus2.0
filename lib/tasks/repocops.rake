@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :sisyphus do
   desc 'Import repocop reports to database'
   task repocops: :environment do

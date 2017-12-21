@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImportSrpmFile < Rectify::Command
   attr_reader :branch, :file
 

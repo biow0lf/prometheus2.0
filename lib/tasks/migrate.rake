@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :migrate do
   desc 'Call Branch.recount! on each branch'
   task recount: :environment do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :sisyphus do
   desc 'Import all bugs to database'
   task bugs: :environment do

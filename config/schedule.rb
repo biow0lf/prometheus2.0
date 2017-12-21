@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # job_type :rake, 'cd /home/prometheusapp/www/current && RAILS_ENV=:environment bundle exec rake :task :output'
 
 # every 1.hour do

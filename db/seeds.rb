@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # add Sisyphus branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'

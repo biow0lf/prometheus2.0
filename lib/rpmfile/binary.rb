@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RPMFile
   class Binary < Base
     def filename

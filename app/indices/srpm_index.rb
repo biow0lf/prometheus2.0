@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ThinkingSphinx::Index.define :srpm, with: :active_record, delta: true do
   indexes name, sortable: true
   indexes summary

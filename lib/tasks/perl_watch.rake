@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :perlwatch do
   desc 'Import CPAN info to database'
   task update: :environment do

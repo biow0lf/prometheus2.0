@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SrpmsHelper
   def colorize_specfile(text)
     text.force_encoding('UTF-8')

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :p5 do
   desc 'Update p5 stuff'
   task update: :environment do

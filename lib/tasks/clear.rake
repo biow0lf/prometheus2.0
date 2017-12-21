@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :clear do
   desc 'Clear all cache'
   task cache: :environment do

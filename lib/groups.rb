@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 N_('Accessibility')
 N_('Archiving/Backup')
 N_('Archiving/Cd burning')

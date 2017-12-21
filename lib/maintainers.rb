@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 N_('Alexey Shabalin')
 N_('Andrey Cherepanov')
 N_('Andriy Stepanov')

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'open3'
 
 opts = ['-qp', '--queryformat="%{NAME}"', 'spec/data/catpkt-1.0-alt5.src.rpm']

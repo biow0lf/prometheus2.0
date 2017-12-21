@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :sisyphus do
   desc 'Update Sisyphus stuff'
   task update: :environment do

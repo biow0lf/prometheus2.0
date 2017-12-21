@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SrpmImportAll
   attr_reader :branch
 

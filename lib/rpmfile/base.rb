@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'console_reader'
 
 module RPMFile

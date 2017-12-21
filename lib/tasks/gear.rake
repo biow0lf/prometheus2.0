@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :gear do
   desc 'Import all git repos to database'
   task import: :environment do

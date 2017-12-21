@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :'51' do
   desc 'Update 5.1 stuff'
   task update: :environment do

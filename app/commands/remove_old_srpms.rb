@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveOldSrpms < Rectify::Command
   attr_reader :branch, :path
 
