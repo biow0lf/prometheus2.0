@@ -12,7 +12,7 @@ class SrpmsController < ApplicationController
     if @srpm.name[0..4] == 'perl-' && @srpm.name != 'perl'
       @perl_watch = PerlWatch.where(name: @srpm.name[5..-1].gsub('-', '::')).first
     end
-    @allsrpms = AllSrpmsWithName.new(params[:id]).decorate
+    @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     if Redis.current.exists("#{ @branch.name }:#{ @srpm.name }:acls")
       @maintainers = Maintainer.where(login: Redis.current.smembers("#{ @branch.name }:#{ @srpm.name }:acls").reject { |acl| acl[0] == '@' }).order(:name)
       @teams = MaintainerTeam.where(login: Redis.current.smembers("#{ @branch.name }:#{ @srpm.name }:acls").reject { |acl| acl[0] != '@' }).order(:name)
@@ -34,7 +34,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
-    @allsrpms = AllSrpmsWithName.new(params[:id]).decorate
+    @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
@@ -42,7 +42,7 @@ class SrpmsController < ApplicationController
   def spec
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
-    @allsrpms = AllSrpmsWithName.new(params[:id]).decorate
+    @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
@@ -61,7 +61,7 @@ class SrpmsController < ApplicationController
     @branch = Branch.find_by!(name: params[:branch])
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @mirrors = Mirror.where(branch_id: @branch).where("protocol != 'rsync'").order('mirrors.order_id ASC')
-    @allsrpms = AllSrpmsWithName.new(params[:id]).decorate
+    @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     @i586 = @srpm.packages.where(arch: 'i586').order('packages.name ASC')
     @noarch = @srpm.packages.where(arch: 'noarch').order('packages.name ASC')
     @x86_64 = @srpm.packages.where(arch: 'x86_64').order('packages.name ASC')
