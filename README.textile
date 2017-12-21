@@ -102,7 +102,7 @@ h2. Deploy
 
 h2. Tests
 
-* @bin/rspec@
+* @bin/rspec@ or @bundle exec rspec@
 
 h2. Useful links
 
