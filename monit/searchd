@@ -1,4 +1,0 @@
-check process searchd with pidfile /home/prometheusapp/www/shared/log/searchd.production.pid
-	start program = "/bin/su -l -c 'cd /home/prometheusapp/current && RAILS_ENV=production bundle exec rake thinking_sphinx:start' -s /bin/bash prometheusapp"
-	stop program = "/bin/su -l -c 'cd /home/prometheusapp/current && RAILS_ENV=production bundle exec rake thinking_sphinx:stop' -s /bin/bash prometheusapp"
-	if 5 restarts with 5 cycles then timeout
