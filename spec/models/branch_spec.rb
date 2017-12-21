@@ -7,35 +7,31 @@ describe Branch do
 
   it { should be_a(Redis::Objects) }
 
-  describe 'Associations' do
-    it { should have_many(:srpms).dependent(:destroy) }
+  it { should have_many(:srpms).dependent(:destroy) }
 
-    it { should have_many(:changelogs).through(:srpms) }
+  it { should have_many(:changelogs).through(:srpms) }
 
-    it { should have_many(:packages).through(:srpms) }
+  it { should have_many(:packages).through(:srpms) }
 
-    it { should have_many(:groups).dependent(:destroy) }
+  it { should have_many(:groups).dependent(:destroy) }
 
-    it { should have_many(:teams).dependent(:destroy) }
+  it { should have_many(:teams).dependent(:destroy) }
 
-    it { should have_many(:mirrors).dependent(:destroy) }
+  it { should have_many(:mirrors).dependent(:destroy) }
 
-    it { should have_many(:patches).through(:srpms) }
+  it { should have_many(:patches).through(:srpms) }
 
-    it { should have_many(:sources).through(:srpms) }
+  it { should have_many(:sources).through(:srpms) }
 
-    it { should have_many(:ftbfs).class_name('Ftbfs').dependent(:destroy) }
+  it { should have_many(:ftbfs).class_name('Ftbfs').dependent(:destroy) }
 
-    it { should have_many(:repocops).dependent(:destroy) }
+  it { should have_many(:repocops).dependent(:destroy) }
 
-    it { should have_many(:repocop_patches).dependent(:destroy) }
-  end
+  it { should have_many(:repocop_patches).dependent(:destroy) }
 
-  describe 'Validation' do
-    it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:name) }
 
-    it { should validate_presence_of(:vendor) }
-  end
+  it { should validate_presence_of(:vendor) }
 
   describe '#counter' do
     subject { create(:branch) }
@@ -43,11 +39,9 @@ describe Branch do
     specify { expect(subject.counter).to be_a(Redis::Counter) }
   end
 
-  describe 'Callbacks' do
-    it { should callback(:set_default_counter_value).after(:commit).on(:create) }
+  it { should callback(:set_default_counter_value).after(:commit).on(:create) }
 
-    it { should callback(:destroy_counter).after(:commit).on(:destroy) }
-  end
+  it { should callback(:destroy_counter).after(:commit).on(:destroy) }
 
   describe '#to_param' do
     subject { create(:branch, name: 'Sisyphus') }
