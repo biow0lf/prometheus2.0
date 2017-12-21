@@ -109,5 +109,4 @@ group :test do
   gem 'webmock', require: false
   gem 'fakeredis'
   gem 'simplecov', require: false
-  gem 'codeclimate-test-reporter', require: false
 end
