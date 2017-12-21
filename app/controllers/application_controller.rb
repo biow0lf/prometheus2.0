@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
   private
 
   def change_current_page_lang(url, lang)
-    return "/#{lang}" if url == '/'
+    return "/#{ lang }" if url == '/'
     url[1, 2] = lang
     url
   end

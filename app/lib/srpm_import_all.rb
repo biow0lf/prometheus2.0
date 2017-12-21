@@ -10,7 +10,7 @@ class SrpmImportAll
   def execute
     Dir.glob("#{ branch.srpm_path }/*.src.rpm").each do |file|
       if file_can_be_imported?(file)
-        puts "#{Time.now}: import '#{File.basename(file)}'"
+        puts "#{ Time.now }: import '#{ File.basename(file) }'"
         SrpmImport.new(branch, Srpm.new, RPMFile::Source.new(file)).import
       end
     end
