@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/plataformatec/devise.git
-  revision: 5f1c21051173a10ac7928b25bd7d6be44ba94d6b
+  revision: 0720bc72c3cd6b31bcb93ea9d50416fc73d11977
   branch: master
   specs:
     devise (4.3.0)
