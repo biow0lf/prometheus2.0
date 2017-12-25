@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.5.0-rc1
+  - 2.5.0
 env:
   - DB=postgresql TRAVIS=true
 
