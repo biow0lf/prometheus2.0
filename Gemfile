@@ -23,7 +23,7 @@ gem 'pghero'
 gem 'pg_query'
 # gem 'maily'
 
-gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
+gem 'devise'
 gem 'draper'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
