@@ -221,7 +221,7 @@ GEM
     middleware (0.1.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.1)
     mry (0.52.0.0)
       rubocop (>= 0.41.0)
     msgpack (1.2.0)
