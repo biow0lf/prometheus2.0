@@ -224,7 +224,7 @@ GEM
     minitest (5.11.1)
     mry (0.52.0.0)
       rubocop (>= 0.41.0)
-    msgpack (1.2.0)
+    msgpack (1.2.2)
     multi_xml (0.6.0)
     mysql2 (0.4.10)
     net-scp (1.2.1)
