@@ -239,8 +239,7 @@ GEM
       ast (~> 2.3)
     parslet (1.8.1)
     pg (0.21.0)
-    pg_query (1.0.0)
-      json (>= 1.8, < 3)
+    pg_query (1.0.1)
     pghero (2.1.0)
       activerecord
     posix-spawn (0.3.13)
