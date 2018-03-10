@@ -141,7 +141,7 @@ GEM
       activesupport (~> 5.0)
       request_store (~> 1.0)
     equalizer (0.0.11)
-    erubi (1.7.0)
+    erubi (1.7.1)
     exception_notification (4.2.2)
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
