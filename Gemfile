@@ -84,6 +84,7 @@ group :development do
   # gem 'lol_dba'
   gem 'squasher', require: false
   gem 'bundler-audit', require: false
+  gem 'bundler-stats', require: false
   gem 'license_finder', require: false
   gem 'active_record_doctor'
   gem 'http_logger'

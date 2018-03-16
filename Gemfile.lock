@@ -71,6 +71,9 @@ GEM
     bundler-audit (0.6.0)
       bundler (~> 1.2)
       thor (~> 0.18)
+    bundler-stats (1.1.0)
+      bundler (~> 1.9)
+      thor (~> 0.19)
     cacheflow (0.1.1)
       activesupport
     capistrano (3.10.1)
@@ -464,6 +467,7 @@ DEPENDENCIES
   browser
   bullet
   bundler-audit
+  bundler-stats
   cacheflow
   capistrano
   capistrano-faster-assets
