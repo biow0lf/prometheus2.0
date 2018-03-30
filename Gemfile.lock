@@ -170,7 +170,7 @@ GEM
     hashdiff (0.3.7)
     http_accept_language (2.1.1)
     http_logger (0.5.1)
-    httparty (0.16.1)
+    httparty (0.16.2)
       multi_xml (>= 0.5.2)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
