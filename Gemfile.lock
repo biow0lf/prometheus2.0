@@ -121,7 +121,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
-    dalli (2.7.7)
+    dalli (2.7.8)
     database_rewinder (0.8.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
