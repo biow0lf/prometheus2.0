@@ -22,7 +22,6 @@ namespace :'41' do
     Redis.current.set('__SYNC__', Process.pid)
     puts "#{ Time.zone.now }: update *.src.rpm from 4.1 to database"
     branch = Branch.find_by!(name: '4.1')
-    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/4.1/files/SRPMS/*.src.rpm')
     RemoveOldSrpms.call(branch, '/ALT/4.1/files/SRPMS/') do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
@@ -32,7 +31,6 @@ namespace :'41' do
               '/ALT/4.1/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/4.1/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
-    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{ Time.zone.now }: end"
     puts "#{ Time.zone.now }: update acls in redis cache"
     Acl.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.4.1')
@@ -53,7 +51,7 @@ namespace :'41' do
 #     Leader.import_leaders('ALT Linux', '4.1', 'http://git.altlinux.org/acl/list.packages.4.1')
 #     puts "#{ Time.now }: end"
 #   end
-# 
+#
 #   desc "Import all teams from 4.1 to database"
 #   task teams: :environment do
 #     require 'open-uri'

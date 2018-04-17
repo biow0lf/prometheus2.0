@@ -22,7 +22,6 @@ namespace :sisyphusarm do
     Redis.current.set('__SYNC__', Process.pid)
     puts "#{ Time.zone.now }: update *.src.rpm from SisyphusARM to database"
     branch = Branch.find_by!(name: 'SisyphusARM')
-    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/arm/SRPMS.all/*.src.rpm')
     RemoveOldSrpms.call(branch, '/ALT/Sisyphus/arm/SRPMS.all/') do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
@@ -30,7 +29,6 @@ namespace :sisyphusarm do
     puts "#{ Time.zone.now }: update *.arm.rpm/*.noarch.rpm from SisyphusARM to database"
     pathes = ['/ALT/Sisyphus/files/arm/RPMS/*.rpm']
     Package.import_all(branch, pathes)
-    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{ Time.zone.now }: end"
     puts "#{ Time.zone.now }: update time"
     Redis.current.set("#{ branch.name }:updated_at", Time.now.to_s)

@@ -22,7 +22,6 @@ namespace :t7 do
     Redis.current.set('__SYNC__', Process.pid)
     puts "#{ Time.zone.now }: update *.src.rpm from t7 to database"
     branch = Branch.find_by!(name: 't7')
-    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/t7/files/SRPMS/*.src.rpm')
     RemoveOldSrpms.call(branch, '/ALT/t7/files/SRPMS/') do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
@@ -32,7 +31,6 @@ namespace :t7 do
               '/ALT/t7/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/t7/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
-    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{ Time.zone.now }: end"
     puts "#{ Time.zone.now }: update acls in redis cache"
     Acl.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.t7')

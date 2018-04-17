@@ -41,10 +41,6 @@ h3. Init database:
 * @bundle exec rails db:migrate@
 * @bundle exec rails db:seed@
 
-h3. Enable bootstrap mode:
-
-* @export PROMETHEUS2_BOOTSTRAP=yes@
-
 h3. Import data:
 
 * @bundle exec rake sisyphus:update@
@@ -86,8 +82,6 @@ h3. Import data:
 
 * @bundle exec rake redis:cache@
 
-* @bundle exec rake ts:index@
-
 h2. Run
 
 * @bundle exec rake ts:start@
@@ -102,7 +96,7 @@ h2. Deploy
 
 h2. Tests
 
-* @bin/rspec@ or @bundle exec rspec@
+* @bin/rspec@
 
 h2. Useful links
 
