@@ -7,7 +7,9 @@ class SearchesController < ApplicationController
     if params[:query].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.none
+      @search = PgSearch.multisearch(params[:query]).page(params[:page])
+
+      # @srpms = Srpm.none
       # @srpms = Srpm.search(
       #   Riddle::Query.escape(params[:query]),
       #   order: :name,
