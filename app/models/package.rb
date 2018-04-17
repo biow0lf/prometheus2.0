@@ -3,6 +3,8 @@
 require 'rpmfile'
 
 class Package < ApplicationRecord
+  include PgSearch
+
   belongs_to :srpm
 
   belongs_to :group
@@ -24,6 +26,9 @@ class Package < ApplicationRecord
   after_create :add_filename_to_cache
 
   after_destroy :remove_filename_from_cache
+
+  multisearchable against: [:name, :summary, :description, :filename,
+                            :sourcepackage]
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
