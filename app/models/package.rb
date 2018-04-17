@@ -3,6 +3,8 @@
 require 'rpmfile'
 
 class Package < ApplicationRecord
+  include PgSearch
+
   belongs_to :srpm
 
   belongs_to :group
@@ -19,11 +21,12 @@ class Package < ApplicationRecord
 
   validates :md5, presence: true
 
-  after_save :set_srpm_delta_flag
-
   after_create :add_filename_to_cache
 
   after_destroy :remove_filename_from_cache
+
+  multisearchable against: [:name, :summary, :description, :filename,
+                            :sourcepackage]
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
@@ -81,10 +84,6 @@ class Package < ApplicationRecord
   end
 
   private
-
-  def set_srpm_delta_flag
-    srpm.update_attribute(:delta, true)
-  end
 
   def add_filename_to_cache
     Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)

@@ -4,6 +4,7 @@ require 'rpmfile'
 
 class Srpm < ApplicationRecord
   # include Redis::Objects
+  include PgSearch
 
   belongs_to :branch
 
@@ -59,6 +60,8 @@ class Srpm < ApplicationRecord
   after_destroy :remove_acls_from_cache
 
   after_destroy :remove_leader_from_cache
+
+  multisearchable against: [:name, :summary, :description, :filename, :url]
 
   def to_param
     name

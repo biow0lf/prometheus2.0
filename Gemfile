@@ -22,7 +22,7 @@ gem 'redis-objects'
 gem 'pghero'
 gem 'pg_query'
 # gem 'maily'
-
+gem 'pg_search'
 gem 'devise'
 gem 'draper'
 gem 'fast_gettext'
@@ -30,8 +30,6 @@ gem 'gettext_i18n_rails'
 gem 'gettext', require: false
 gem 'whenever', require: false
 gem 'awesome_nested_set'
-gem 'mysql2' # for thinking-sphinx
-gem 'thinking-sphinx'
 gem 'sitemap_generator'
 gem 'rouge'
 # gem 'github-linguist'

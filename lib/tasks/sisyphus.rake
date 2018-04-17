@@ -22,7 +22,6 @@ namespace :sisyphus do
     Redis.current.set('__SYNC__', Process.pid)
     puts "#{ Time.zone.now }: update *.src.rpm from Sisyphus to database"
     branch = Branch.find_by!(name: 'Sisyphus')
-    ThinkingSphinx::Deltas.suspend! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
     # Srpm.import_all(branch, '/Users/biow0lf/Sisyphus/files/SRPMS/*.src.rpm')
     RemoveOldSrpms.call(branch, '/ALT/Sisyphus/files/SRPMS/') do
@@ -39,7 +38,6 @@ namespace :sisyphus do
     #           '/Users/biow0lf/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
     #           '/Users/biow0lf/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
     Package.import_all(branch, pathes)
-    ThinkingSphinx::Deltas.resume! if ENV['PROMETHEUS2_BOOTSTRAP'] == 'yes'
     puts "#{ Time.zone.now }: end"
     puts "#{ Time.zone.now }: update acls in redis cache"
     Acl.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.sisyphus')
