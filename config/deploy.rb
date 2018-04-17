@@ -56,5 +56,5 @@ namespace :deploy do
     end
   end
 
-  after :finishing, 'systemd:restart'
+  # after :finishing, 'systemd:restart'
 end

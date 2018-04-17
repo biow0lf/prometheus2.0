@@ -17,7 +17,9 @@ require 'capistrano/rails/assets'
 require 'capistrano/faster_assets'
 require 'capistrano/rails/migrations'
 
-# require 'whenever/capistrano'
+require 'whenever/capistrano'
+
+# require 'thinking_sphinx/capistrano'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
