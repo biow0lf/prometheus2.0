@@ -1,6 +1,5 @@
 h1. Welcome to Prometheus 2.0
 
-!https://gemnasium.com/biow0lf/prometheus2.0.svg(Dependency Status)!:https://gemnasium.com/biow0lf/prometheus2.0
 !https://hakiri.io/github/biow0lf/prometheus2.0/master.svg!:https://hakiri.io/github/biow0lf/prometheus2.0/master
 !https://secure.travis-ci.org/biow0lf/prometheus2.0.svg(Build Status)!:http://travis-ci.org/biow0lf/prometheus2.0
 !http://online.swagger.io/validator?url=http://packages.altlinux.org/api/docs!:http://online.swagger.io/validator/debug?url=http://packages.altlinux.org/api/docs
