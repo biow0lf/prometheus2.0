@@ -260,7 +260,7 @@ GEM
       rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
-    rack-timeout (0.4.2)
+    rack-timeout (0.5.0)
     rails (5.1.6)
       actioncable (= 5.1.6)
       actionmailer (= 5.1.6)
