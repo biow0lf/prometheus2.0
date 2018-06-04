@@ -63,10 +63,11 @@ group :development do
   gem 'spring-commands-rubocop'
 
   gem 'bullet'
-  # https://github.com/net-ssh/net-ssh/issues/478
-  gem 'bcrypt_pbkdf', require: false # for rbnacl-libsodium
-  gem 'rbnacl', '< 4.0', require: false # for rbnacl-libsodium
-  gem 'rbnacl-libsodium', require: false # for ssh-ed25519 support
+
+  # See https://github.com/net-ssh/net-ssh/issues/565 for more information
+  gem 'ed25519', '>= 1.2', '< 2.0', require: false
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
+
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
