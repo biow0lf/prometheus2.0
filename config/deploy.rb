@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lock '3.10.2'
+lock '3.11.0'
 
 set :application, 'prometheus2.0'
 set :repo_url, 'git://github.com/biow0lf/prometheus2.0.git'
