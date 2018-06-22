@@ -47,7 +47,7 @@ class Package < ApplicationRecord
       package.group_id = group.id
       package.groupname = group_name
       package.summary = rpm.summary
-      package.summary = 'Broken' if package.name == 'openmoko_dfu-util'
+      # package.summary = 'Broken' if package.name == 'openmoko_dfu-util' TODO hardcode?
       package.license = rpm.license
       package.url = rpm.url
       package.description = rpm.description
