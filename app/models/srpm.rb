@@ -39,10 +39,6 @@ class Srpm < ApplicationRecord
            primary_key: 'name',
            foreign_key: 'repo' # dependent: :destroy
 
-  pg_search_scope :query,
-                  against: %i[name summary description filename url],
-                  using: { tsearch: { prefix: true}}
-
   validates :groupname, presence: true
 
   validates :md5, presence: true
@@ -64,6 +60,10 @@ class Srpm < ApplicationRecord
   after_destroy :remove_acls_from_cache
 
   after_destroy :remove_leader_from_cache
+
+  pg_search_scope :query,
+                  against: [:name, :summary, :description, :filename, :url],
+                  using: { tsearch: { prefix: true } }
 
   multisearchable against: [:name, :summary, :description, :filename, :url]
 
