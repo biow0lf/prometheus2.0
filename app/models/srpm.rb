@@ -39,6 +39,10 @@ class Srpm < ApplicationRecord
            primary_key: 'name',
            foreign_key: 'repo' # dependent: :destroy
 
+  pg_search_scope :query,
+                  against: %i[name summary description filename url],
+                  using: { tsearch: { prefix: true}}
+
   validates :groupname, presence: true
 
   validates :md5, presence: true
