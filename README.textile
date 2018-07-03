@@ -28,9 +28,19 @@ h3. Install:
 * GNU coreutils
 * GNU cpio
 
+or with the single line:
+
+    apt-get install postgresql9.6-server postgresql9.6-contrib postgresql9.6 bzip2 \
+                    gettext graphviz memcached /usr/bin/md5sum npm nodejs curl sphinx \
+                    libruby-devel ruby redis zlib-devel postgresql9.6-devel
+
 h3. Then:
 
 * @bundle install@
+* @service postgresql start@
+* @service redis start@
+* @memcached -d -m 128@ (as a user)
+
 * @bin/rake secret@
 * @bin/rake gettext:pack@
 
@@ -43,11 +53,11 @@ h3. Init database:
 h3. Import data:
 
 * @bundle exec rake sisyphus:update@
-* @bundle exec rake sisyphus:teams@
 
 * @bundle exec rake sisyphus:bugs@
 * @bundle exec rake sisyphus:repocops@
 * @bundle exec rake sisyphus:repocop_patches@
+* @bundle exec rake sisyphus:sisyphus:update_repocop_cache@
 * @bundle exec rake gear:import@
 * @bundle exec rake perlwatch:update@
 * @bundle exec rake ftbfs:update@
@@ -68,34 +78,24 @@ h3. Import data:
 * @bundle exec rake p5:update@
 
 * @bundle exec rake 51:update@
-* @bundle exec rake 51:teams@
-
 * @bundle exec rake 50:update@
-* @bundle exec rake 50:teams@
-
 * @bundle exec rake 41:update@
-* @bundle exec rake 41:teams@
-
 * @bundle exec rake 40:update@
-* @bundle exec rake 40:teams@
 
 * @bundle exec rake redis:cache@
-
-h2. Run
-
-* @bundle exec rake ts:start@
-* @bundle exec rake assets:precompile@
-* @redis-server redis.conf@
-* @service postgresql start@
-* @memcached -d -m 128@ (as a user)
 
 h2. Deploy
 
 * @bundle exec cap production deploy@
 
+h2. Run on production
+
+* @bundle exec rake assets:precompile@
+* @redis-server redis.conf@
+
 h2. Tests
 
-* @bin/rspec@
+* @bundle exec rspec@
 
 h2. Useful links
 
