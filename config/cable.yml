@@ -7,4 +7,9 @@ test:
 production:
   adapter: redis
   url: redis://localhost:6379/1
+  channel_prefix: prometheus_staging
+
+production:
+  adapter: redis
+  url: redis://localhost:6379/1
   channel_prefix: prometheus_production

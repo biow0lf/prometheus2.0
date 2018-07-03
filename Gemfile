@@ -13,8 +13,6 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'rack-health'
-gem 'rack-force_domain', group: :production
-gem 'exception_notification', group: :production
 gem 'rails-i18n'
 gem 'kaminari'
 gem 'kaminari-i18n'
@@ -49,15 +47,17 @@ gem 'http_accept_language'
 # model
 gem 'activerecord-import'
 
-group :production, :development do
+group :production, :development, :staging do
   gem 'redis'
 end
 
-group :production do
+group :production, :staging do
   gem 'newrelic_rpm'
   gem 'lograge'
   gem 'rack-timeout'
   gem 'dalli'
+  gem 'rack-force_domain'
+  gem 'exception_notification'
 end
 
 group :development do

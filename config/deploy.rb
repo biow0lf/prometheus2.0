@@ -3,16 +3,11 @@
 lock '3.11.0'
 
 set :application, 'prometheus2.0'
-set :repo_url, 'git://github.com/biow0lf/prometheus2.0.git'
 
 set :rbenv_type, :user
-set :rbenv_ruby, File.read('.ruby-version').strip
+# set :rbenv_ruby, File.read('.ruby-version').strip
 
 set :branch, :master
-
-set :deploy_to, '/home/prometheusapp/www'
-
-set :rails_env, 'production'
 
 # Defaults to false
 # Skip migration if files in db/migrate were not modified
