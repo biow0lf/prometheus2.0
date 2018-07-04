@@ -5,9 +5,6 @@ lock '3.11.0'
 set :application, 'prometheus2.0'
 set :deploy_user, 'apache'
 
-set :rbenv_type, :user
-# set :rbenv_ruby, File.read('.ruby-version').strip
-
 set :branch, ENV['BRANCH'] || "master"
 
 # Defaults to false
@@ -47,17 +44,28 @@ set :nginx_service_path, "/etc/init.d/nginx"
 set :nginx_sites_available_dir, "/etc/nginx/sites-available.d"
 set :nginx_sites_enabled_dir, "/etc/nginx/sites-enabled.d"
 set :nginx_application_name, "#{fetch :application}-#{fetch :stage}"
-set :nginx_template, "#{current_path}/config/environments/#{fetch :stage}/nginx.conf.erb"
+set :nginx_template, "config/environments/#{fetch :stage}/nginx.conf.erb"
 set :app_server_socket, "#{shared_path}/sockets//puma-#{fetch :application}.sock"
 set :app_server_host, "localhost"
 set :app_server_port, 80
 
 # set :rvm_type, :user                      # Defaults to: :auto
-# set :rvm_ruby_version, '2.3.4@dneslov'    # Defaults to: 'default'
+# set :rvm_ruby_version, 'ext-ruby-2.5.1'    # Defaults to: 'default'
 # set :rvm_custom_path, '~/.rvm'          # only needed if not detected
 set :rvm_roles, %i[app web]
 
+task :after_update_code do
+  on release_roles :all do
+    within release_path do
+      with fetch(:bundle_env_variables, { RAILS_ENV: fetch(:stage) }) do
+        execute "rm -rf #{release_path}/vendor/cache/" #TODO remove after removoval vendor/cache
+      end
+    end
+  end
+end
+
 namespace :deploy do
+  before 'deploy:finishing', 'nginx:site:add'
   after :finishing, 'deploy:cleanup'
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
@@ -69,8 +77,9 @@ namespace :deploy do
   end
 
   # before 'deploy:setup_config', 'nginx:remove_default_vhost'
-  before 'deploy:finishing', 'nginx:site:add'
-  before 'deploy:finishing', 'nginx:site:enable'
+  before 'bundler:install', 'after_update_code'
+  after 'deploy:updated', 'nginx:site:add'
+  before 'deploy:publishing', 'nginx:site:enable'
   after 'deploy:finishing', 'nginx:restart'
   after 'deploy:finished', 'deploy:restart'
   # after :finishing, 'systemd:restart'
