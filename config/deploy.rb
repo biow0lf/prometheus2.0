@@ -24,18 +24,18 @@ set :conditionally_migrate, true
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('.env',
-                                                 'config/secrets.yml',
-                                                 'config/newrelic.yml',
-                                                 'config/database.yml',
-                                                 'config/initializers/devise.rb')
+append :linked_files, '.env',
+                      'config/secrets.yml',
+                      'config/newrelic.yml',
+                      'config/database.yml',
+                      'config/initializers/devise.rb'
 
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('log',
-                                               'tmp/pids',
-                                               'tmp/cache',
-                                               'tmp/sockets',
-                                               'public/system')
+append :linked_dirs, 'log',
+                     'tmp/pids',
+                     'tmp/cache',
+                     'tmp/sockets',
+                     'public/system'
 
 # Default value for keep_releases is 5
 set :keep_releases, 3
