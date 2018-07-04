@@ -81,9 +81,8 @@ group :development do
   gem 'capistrano-rvm', require: false
   gem 'capistrano3-nginx', require: false
   gem 'capistrano-faster-assets', require: false
-  #  gem 'capistrano-bundler'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma", require: false
   gem 'capistrano-rake'
-  # gem 'capistrano3-puma', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false

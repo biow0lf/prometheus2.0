@@ -54,6 +54,10 @@ set :app_server_port, 80
 # set :rvm_custom_path, '~/.rvm'          # only needed if not detected
 set :rvm_roles, %i[app web]
 
+set :puma_rackup, -> { File.join(current_path, 'config.ru') }
+set :puma_conf, "#{current_path}/config/puma.rb"
+
+
 task :after_update_code do
   on release_roles :all do
     within release_path do
@@ -81,6 +85,6 @@ namespace :deploy do
   after 'deploy:updated', 'nginx:site:add'
   before 'deploy:publishing', 'nginx:site:enable'
   after 'deploy:finishing', 'nginx:restart'
-  after 'deploy:finished', 'deploy:restart'
+  after 'deploy:finished', 'puma:restart'
   # after :finishing, 'systemd:restart'
 end
