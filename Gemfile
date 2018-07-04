@@ -51,8 +51,11 @@ group :production, :development, :staging do
   gem 'redis'
 end
 
-group :production, :staging do
+group :production do
   gem 'newrelic_rpm'
+end
+
+group :production, :staging do
   gem 'lograge'
   gem 'rack-timeout'
   gem 'dalli'
