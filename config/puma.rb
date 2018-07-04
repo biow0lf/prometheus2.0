@@ -41,11 +41,11 @@ threads threads_count, threads_count
 
 preload_app!
 
-on_worker_boot do
+#on_worker_boot do
    # Worker specific setup for Rails 4.1+
    # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
-   ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
-   ActiveRecord::Base.establish_connection(YAML.load_file("#{shared_dir}/config/database.yml")[rails_env])
-end
+#   ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
+#   ActiveRecord::Base.establish_connection(YAML.load_file("#{shared_dir}/config/database.yml")[rails_env])
+#end
 
 $stdout.puts "{puma.rb}: booted"
