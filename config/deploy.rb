@@ -3,6 +3,7 @@
 lock '3.11.0'
 
 set :application, 'prometheus2.0'
+set :deploy_user, 'apache'
 
 set :rbenv_type, :user
 # set :rbenv_ruby, File.read('.ruby-version').strip
@@ -24,7 +25,9 @@ set :conditionally_migrate, true
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('.env',
+                                                 'config/secrets.yml',
                                                  'config/newrelic.yml',
+                                                 'config/database.yml',
                                                  'config/initializers/devise.rb')
 
 # Default value for linked_dirs is []
@@ -32,7 +35,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log',
                                                'tmp/pids',
                                                'tmp/cache',
                                                'tmp/sockets',
-                                               'vendor/bundle',
                                                'public/system')
 
 # Default value for keep_releases is 5
@@ -41,7 +43,23 @@ set :keep_releases, 3
 set :bundle_jobs, 4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
+set :nginx_domains, "packages.altlinux.org"
+set :nginx_service_path, "/etc/init.d/nginx"
+set :nginx_sites_available_dir, "/etc/nginx/sites-available.d"
+set :nginx_sites_enabled_dir, "/etc/nginx/sites-enabled.d"
+set :nginx_application_name, "#{fetch :application}-#{fetch :stage}"
+set :nginx_template, "#{current_path}/config/environments/#{fetch :stage}/nginx.conf.erb"
+set :app_server_socket, "#{shared_path}/sockets//puma-#{fetch :application}.sock"
+set :app_server_host, "localhost"
+set :app_server_port, 80
+
+# set :rvm_type, :user                      # Defaults to: :auto
+# set :rvm_ruby_version, '2.3.4@dneslov'    # Defaults to: 'default'
+# set :rvm_custom_path, '~/.rvm'          # only needed if not detected
+set :rvm_roles, %i[app web]
+
 namespace :deploy do
+  after :finishing, 'deploy:cleanup'
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -51,5 +69,10 @@ namespace :deploy do
     end
   end
 
+  after 'deploy:publishing', 'deploy:restart'
+  # before 'deploy:setup_config', 'nginx:remove_default_vhost'
+  before 'deploy:setup_config', 'nginx:site:add'
+  before 'deploy:setup_config', 'nginx:site:enable'
+  after 'deploy:setup_config', 'nginx:reload'
   # after :finishing, 'systemd:restart'
 end

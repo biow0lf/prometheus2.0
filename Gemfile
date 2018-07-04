@@ -73,11 +73,13 @@ group :development do
   gem 'ed25519', '>= 1.2', '< 2.0', require: false
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
 
-  gem 'capistrano', require: false
+  gem 'capistrano', '~> 3.6', require: false
   gem 'capistrano-rails', require: false
-  gem 'capistrano-rbenv', require: false
-  gem 'capistrano-rbenv-install', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano3-nginx', require: false
   gem 'capistrano-faster-assets', require: false
+  #  gem 'capistrano-bundler'
+  gem 'capistrano-rake'
   # gem 'capistrano3-puma', require: false
   # gem 'xray-rails'
   gem 'rubocop', require: false
