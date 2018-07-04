@@ -8,7 +8,7 @@ set :deploy_user, 'apache'
 set :rbenv_type, :user
 # set :rbenv_ruby, File.read('.ruby-version').strip
 
-set :branch, :master
+set :branch, ENV['BRANCH'] || "master"
 
 # Defaults to false
 # Skip migration if files in db/migrate were not modified
@@ -69,10 +69,10 @@ namespace :deploy do
     end
   end
 
-  after 'deploy:publishing', 'deploy:restart'
   # before 'deploy:setup_config', 'nginx:remove_default_vhost'
-  before 'deploy:setup_config', 'nginx:site:add'
-  before 'deploy:setup_config', 'nginx:site:enable'
-  after 'deploy:setup_config', 'nginx:reload'
+  before 'deploy:finishing', 'nginx:site:add'
+  before 'deploy:finishing', 'nginx:site:enable'
+  after 'deploy:finishing', 'nginx:restart'
+  after 'deploy:finished', 'deploy:restart'
   # after :finishing, 'systemd:restart'
 end
