@@ -14,7 +14,8 @@ environment rails_env
 
 if Rails.env.production? || Rails.env.staging?
    app_dir = File.expand_path("../..", __FILE__)
-   shared_dir = File.expand_path("#{app_dir}/../../shared")
+   shared_dir = File.expand_path("#{app_dir}/../shared")
+   $stdout.puts "{puma.rb}: shared_dir #{shared_dir}"
    threads_count = Integer(ENV['MAX_THREADS'] || 5)
 
    workers Integer(ENV['WEB_CONCURRENCY'] || 2)
