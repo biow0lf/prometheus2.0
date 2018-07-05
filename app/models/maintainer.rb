@@ -78,7 +78,7 @@ class Maintainer < ApplicationRecord
       Maintainer.select('login, name').each do |maintainer|
         m = [maintainer.login, maintainer.name, Redis.current.smembers("#{ branch.name }:maintainers:#{ maintainer.login }").count]
         maintainers << m
-      end
+      end if branch
 
       maintainers.sort! { |a, b| b[2] <=> a[2] }
       maintainers[0..14]

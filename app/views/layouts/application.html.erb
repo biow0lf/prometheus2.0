@@ -89,7 +89,7 @@
 
   <div id='top-line'>
     <div id='vinfo'>
-      <b><%= _('Last update:') %> </b> <%= Redis.current.get("#{ @branch.name }:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter.value %> | 
+      <b><%= _('Last update:') %> </b> <%= Redis.current.get("#{ @branch.name }:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter_value %> |
       <% if user_signed_in? %>
         <b><%= "Welcome, #{ current_user.email }! | " %></b>
         <%= link_to _('Sign out'), destroy_user_session_path, method: :delete %>
@@ -109,6 +109,7 @@
     </div>
   </div>
 
+  <%- if @branch.persisted? %>
   <div id='menu' style='text-align: center'>
     <ul>
       <li id='li1' onmouseout="m_off('li1')" onmouseover="m_on('li1')">
@@ -177,6 +178,7 @@
 
     <!--<span id="siteseal"><script type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=ieZLMPwOodpPSCAR5I21qWYk5RmWMlaj0LAmqwapj0dQdM3cioq8Lt6MbX6g"></script></span>-->
   </div>
+  <%- end %>
 
   <div id='main-offset'>
     <%= yield %>

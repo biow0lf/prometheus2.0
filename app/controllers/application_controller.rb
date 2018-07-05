@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :redirect_to_localized
   before_action :set_default_locale
-  before_action :set_default_branch
+  before_action :set_default_branch, except: %i[index]
   before_action :authorizer_for_profiler
 
   helper_method :sort_column, :sort_order, :sort_order_next
@@ -52,7 +52,9 @@ class ApplicationController < ActionController::Base
     Rack::MiniProfiler.authorize_request if current_user.try(:admin?)
   end
 
-  rescue_from ActiveRecord::RecordNotFound do
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    Rails.logger.debug "E: #{e}"
+
     render status: 404, file: "#{ Rails.root }/public/404.html", layout: false
   end
 

@@ -39,6 +39,10 @@ class Branch < ApplicationRecord
     name
   end
 
+  def counter_value
+    self.persisted? && counter.value || 0
+  end
+
   private
 
   def set_default_counter_value
