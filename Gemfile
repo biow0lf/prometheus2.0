@@ -61,6 +61,7 @@ group :production, :staging do
   gem 'dalli'
   gem 'rack-force_domain'
   gem 'exception_notification'
+  gem 'puma_worker_killer'
 end
 
 group :development do

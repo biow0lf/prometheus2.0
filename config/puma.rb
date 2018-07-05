@@ -1,5 +1,4 @@
 require "rails"
-require "active_record"
 
 rails_env = Rails.env.to_s
 
@@ -25,6 +24,18 @@ if Rails.env.production? || Rails.env.staging?
    state_path "#{shared_dir}/tmp/pids/puma.state"
    activate_control_app
    daemonize true
+
+   before_fork do
+      require 'puma_worker_killer'
+
+      PumaWorkerKiller.config do |config|
+         config.ram           = 1024 # mb
+         config.frequency     = 30    # seconds
+         config.percent_usage = 0.98
+         config.rolling_restart_frequency = 12 * 3600 # 12 hours in seconds
+      end
+      PumaWorkerKiller.start
+   end
 elsif Rails.env.development?
    shared_dir = '.'
    threads_count = Integer(ENV['MAX_THREADS'] || 1)
@@ -40,12 +51,5 @@ end
 threads threads_count, threads_count
 
 preload_app!
-
-#on_worker_boot do
-   # Worker specific setup for Rails 4.1+
-   # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
-#   ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
-#   ActiveRecord::Base.establish_connection(YAML.load_file("#{shared_dir}/config/database.yml")[rails_env])
-#end
 
 $stdout.puts "{puma.rb}: booted"
