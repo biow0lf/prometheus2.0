@@ -324,4 +324,17 @@ describe Srpm do
 
     specify { expect { subject.send(:remove_leader_from_cache) }.not_to raise_error }
   end
+
+  describe '#by_branch' do
+    let(:branch) { create(:branch) }
+
+    before do
+      create(:branch)
+      create_list(:srpm, 10, branch: branch)
+      create_list(:srpm, 10)
+    end
+
+    it { expect(described_class.by_branch_name(branch.name).count).to eq(10)  }
+  end
+
 end
