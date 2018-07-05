@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/seuros/capistrano-puma.git
-  revision: 81647bc8402ff1cb485e81d9ec803dfec31aa851
-  specs:
-    capistrano3-puma (3.1.1)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (~> 3.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -474,7 +465,6 @@ DEPENDENCIES
   capistrano-rake
   capistrano-rvm
   capistrano3-nginx
-  capistrano3-puma!
   capybara
   capybara-email
   cocaine

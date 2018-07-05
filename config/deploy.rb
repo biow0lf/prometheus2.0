@@ -39,7 +39,7 @@ set :keep_releases, 3
 set :bundle_jobs, 4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
-#set :nginx_domains, "packages.altlinux.org"
+set :nginx_domains, "packages.altlinux.org"
 set :nginx_domains, "10.10.3.49"
 set :nginx_service_path, "/etc/init.d/nginx"
 set :nginx_sites_available_dir, "/etc/nginx/sites-available.d"
@@ -55,8 +55,7 @@ set :app_server_port, 80
 # set :rvm_custom_path, '~/.rvm'          # only needed if not detected
 set :rvm_roles, %i[app web]
 
-set :puma_rackup, -> { File.join(current_path, 'config.ru') }
-set :puma_conf, "#{current_path}/config/puma.rb"
+set :puma_conf, "#{release_path}/config/puma.rb"
 
 
 task :after_update_code do
@@ -68,6 +67,18 @@ task :after_update_code do
     end
   end
 end
+
+task :restart_puma do
+  on release_roles :all do
+    within release_path do
+      with fetch(:bundle_env_variables, { RAILS_ENV: fetch(:stage) }) do
+        execute "kill -9 $(ps aux|grep puma| sed \"s/^[^0-9]*\\([0-9]*\\).*/\\1/\")"
+        execute :bundle, :exec, "puma -e #{fetch(:stage)} --config #{fetch :puma_conf}"
+      end
+    end
+  end
+end
+
 
 namespace :deploy do
   before 'deploy:finishing', 'nginx:site:add'
@@ -86,6 +97,6 @@ namespace :deploy do
   after 'deploy:updated', 'nginx:site:add'
   before 'deploy:publishing', 'nginx:site:enable'
   after 'deploy:finishing', 'nginx:restart'
-  after 'deploy:finished', 'puma:restart'
+  after 'deploy:finished', 'restart_puma'
   # after :finishing, 'systemd:restart'
 end
