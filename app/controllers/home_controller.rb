@@ -2,6 +2,7 @@
 
 class HomeController < ApplicationController
   def index
+    Rails.logger.debug "III"
     @branch = Branch.find_by!(name: params[:branch])
     logger.debug "1"
     @branches = Branch.order('order_id')
