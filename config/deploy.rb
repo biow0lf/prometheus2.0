@@ -39,7 +39,8 @@ set :keep_releases, 3
 set :bundle_jobs, 4
 set :bundle_binstubs, -> { shared_path.join('bin') }
 
-set :nginx_domains, "packages.altlinux.org"
+#set :nginx_domains, "packages.altlinux.org"
+set :nginx_domains, "10.10.3.49"
 set :nginx_service_path, "/etc/init.d/nginx"
 set :nginx_sites_available_dir, "/etc/nginx/sites-available.d"
 set :nginx_sites_enabled_dir, "/etc/nginx/sites-enabled.d"

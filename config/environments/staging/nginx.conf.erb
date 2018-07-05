@@ -1,25 +1,64 @@
-upstream prometheus2_0 {
-   server unix://<%= fetch :app_server_socket %> fail_timeout=0;
+upstream app_server {
+    server unix:///var/www/prometheus2.0/shared/sockets//puma-prometheus2.0.sock fail_timeout=0;
+#   server unix://<%= fetch :app_server_socket %> fail_timeout=0;
 }
 
 server {
-   listen <%= fetch :app_server_port %>;
-   listen [::]:<%= fetch :app_server_port %>;
+   listen 80;
+   #listen <%= fetch :app_server_port %>;
+   #listen [::]:<%= fetch :app_server_port %>;
+
+   server_name 10.10.3.49;
+
+   add_header X-Frame-Options "DENY";
 
    root /var/www/prometheus2.0/current/public;
 
-   server_name <%= fetch :app_server_host %>;
+   try_files $uri/index.html $uri.html $uri @app;
+   #server_name <%= fetch :app_server_host %>;
 
-   try_files $uri/index.html $uri @prometheus2_0;
+   #try_files $uri/index.html $uri @prometheus2_0;
 
-   location @prometheus2_0 {
-      proxy_pass http://packages.altlinux.org;
+   location @app {
+      # an HTTP header important enough to have its own Wikipedia entry:
+      #   http://en.wikipedia.org/wiki/X-Forwarded-For
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+      # enable this if and only if you use HTTPS, this helps Rack
+      # set the proper protocol for doing redirects:
+      # proxy_set_header X-Forwarded-Proto https;
+      proxy_set_header X-Forwarded-Proto $scheme;
+
+      # pass the Host: header from the client right along so redirects
+      # can be set properly within the Rack application
       proxy_set_header Host $http_host;
+
+      # we don't want nginx trying to do something clever with
+      # redirects, we set the Host: header above already.
       proxy_redirect off;
-   }
+
+      # set "proxy_buffering off" *only* for Rainbows! when doing
+      # Comet/long-poll/streaming.  It's also safe to set if you're using
+      # only serving fast clients with Unicorn + nginx, but not slow
+      # clients.  You normally want nginx to buffer responses to slow
+      # clients, even with Rails 3.1 streaming because otherwise a slow
+      # client can become a bottleneck of Unicorn.
+      #
+      # The Rack application may also set "X-Accel-Buffering (yes|no)"
+      # in the response headers do disable/enable buffering on a
+      # per-response basis.
+      proxy_buffering off;
+
+      proxy_read_timeout 10s;
+
+      proxy_pass http://app_server;
+    }
 
    error_page 500 502 503 504 /500.html;
+   location = /500.html {
+      root /var/www/prometheus2.0/current/public;
+    }
+
    client_max_body_size 4G;
-   keepalive_timeout 10;
+   keepalive_timeout 5;
 }
