@@ -3,15 +3,19 @@
 require 'rails_helper'
 
 describe RPMCheckMD5 do
+  let(:valid_file) { './spec/data/catpkt-1.0-alt5.src.rpm' }
+  let(:non_exist_file) { './spec/data/invalid-0.0-alt0.src.rpm' }
+  let(:broken_file) { './spec/data/broken-1.0-alt5.src.rpm' }
+
   it 'should verify md5 sum of srpm before import and return true for good srpm' do
-    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    expect(RPMCheckMD5).to receive(:`).with("export LANG=C && rpm -K --nogpg #{ file }").and_return("openbox-3.5.0-alt1.src.rpm: md5 OK\n")
-    expect(RPMCheckMD5.check_md5(file)).to eq(true)
+    expect(RPMCheckMD5.check_md5(valid_file)).to be_truthy
+  end
+
+  it 'should verify md5 sum of srpm before import and return false for non exist srpm' do
+    expect(RPMCheckMD5.check_md5(non_exist_file)).to be_falsey
   end
 
   it 'should verify md5 sum of srpm before import and return false for broken srpm' do
-    file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
-    expect(RPMCheckMD5).to receive(:`).with("export LANG=C && rpm -K --nogpg #{ file }").and_return('')
-    expect(RPMCheckMD5.check_md5(file)).to eq(false)
+    expect(RPMCheckMD5.check_md5(broken_file)).to be_falsey
   end
 end
