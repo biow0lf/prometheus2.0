@@ -113,14 +113,8 @@ class Srpm < ApplicationRecord
 
     srpm.changelogtext = rpm.changelogtext
 
-    email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
-
-    if email
-      email.downcase!
-      email = FixMaintainerEmail.new(email).execute
-      Maintainer.import_from_changelogname(changelogname)
-      maintainer = Maintainer.where(email: email).first
-      srpm.builder_id = maintainer.id
+    if srpm.changelog.email
+      srpm.builder_id = Maintainer.import_from_changelog(srpm.changelog).id
     end
 
     if srpm.save
@@ -151,6 +145,12 @@ class Srpm < ApplicationRecord
       logins << changelog.login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
+  end
+
+  def changelog
+    @changelog ||= Changelog.new(changelogname: changelogname,
+                                 changelogtime: changelogtime.to_i,
+                                 changelogtext: changelogtext)
   end
 
   private
