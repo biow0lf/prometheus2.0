@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Changelog < ApplicationRecord
+  PROPS = %i(changelogtime changelogname changelogtext)
+
   belongs_to :srpm
 
   validates :changelogtime, presence: true
@@ -21,18 +23,11 @@ class Changelog < ApplicationRecord
     email.split('@').first
   end
 
-  def self.import(file, srpm)
-    changelogs = `export LANG=C && rpm -qp --queryformat='[%{CHANGELOGTIME}\n**********\n%{CHANGELOGNAME}\n**********\n%{CHANGELOGTEXT}\n**********\n]' #{ file }`
-    changelogs.force_encoding('binary')
-    changelogs = changelogs.split("\n**********\n")
-    while !changelogs.empty?
-      record = changelogs.slice!(0..2)
-      changelog = Changelog.new
-      changelog.srpm_id = srpm.id
-      changelog.changelogtime = record[0]
-      changelog.changelogname = record[1]
-      changelog.changelogtext = record[2]
-      changelog.save!
-    end
+  def self.import_from file, srpm
+    changelogs = RPM::Base.new(file).change_log
+
+    attrs = changelogs.map { |line| [ PROPS, line ].transpose.to_h.merge(srpm_id: srpm.id) }
+
+    Changelog.import(attrs)
   end
 end
