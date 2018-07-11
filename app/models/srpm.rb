@@ -39,6 +39,8 @@ class Srpm < ApplicationRecord
            primary_key: 'name',
            foreign_key: 'repo' # dependent: :destroy
 
+  scope :by_branch_name, ->(name) { joins(:branch).where(branches: { name: name }) }
+
   validates :groupname, presence: true
 
   validates :md5, presence: true
