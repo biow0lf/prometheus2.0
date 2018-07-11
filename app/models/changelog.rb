@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Changelog < ApplicationRecord
+
   belongs_to :srpm
 
   validates :changelogtime, presence: true
@@ -9,16 +10,37 @@ class Changelog < ApplicationRecord
 
   validates :changelogtext, presence: true
 
+  def domain
+    parse_changelogname[:domain]
+  end
+
   def email
-    # TODO: add test for this
-    FixMaintainerEmail.new(changelogname.slice(/<.+>/)[1..-2]).execute
-  rescue
-    nil
+    parse_changelogname[:email]
   end
 
   def login
-    return unless email
-    email.split('@').first
+    parse_changelogname[:login]
+  end
+
+  def name
+    parse_changelogname[:name]
+  end
+
+  def maintainer
+    maintainer = Maintainer.find_or_initialize_by(login: login) do |m|
+       m.email = email
+       m.name = name
+    end
+
+    case domain
+    when 'altlinux.org'
+      maintainer
+    when 'packages.altlinux.org'
+      MaintainerTeam.find_or_initialize_by(login: maintainer.login) do |m|
+         m.email = maintainer.email
+         m.name = maintainer.name
+      end
+    end
   end
 
   def self.import(file, srpm)
@@ -34,5 +56,25 @@ class Changelog < ApplicationRecord
       changelog.changelogtext = record[2]
       changelog.save!
     end
+  end
+
+  private
+
+  def parse_changelogname
+    @data ||= (
+      if /(?<_name>.*)<(?<_login>.*)(@|\s*at\s*)(?<_domain>.*)(\.|\s*dot\s*)(org|com|ru|net)>/i =~ changelogname
+        domain = "#{_domain.gsub(/\s*dot\s*/i, '.').strip}.org".downcase
+        login = _login.strip.downcase
+
+        @data = {
+          name: _name.strip,
+          login: login,
+          email: "#{login}@#{domain}",
+          domain: domain
+        }
+      else
+        {}
+      end
+    )
   end
 end

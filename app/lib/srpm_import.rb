@@ -45,14 +45,8 @@ class SrpmImport
 
     srpm.changelogtext = rpm.changelogtext
 
-    email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
-
-    if email
-      email.downcase!
-      email = FixMaintainerEmail.new(email).execute
-      Maintainer.import_from_changelogname(changelogname)
-      maintainer = Maintainer.where(email: email).first
-      srpm.builder_id = maintainer.id
+    if srpm.changelog.email
+      srpm.builder = Maintainer.import_from_changelog(srpm.changelog)
     end
 
     if srpm.save

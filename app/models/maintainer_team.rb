@@ -22,10 +22,4 @@ class MaintainerTeam < ApplicationRecord
   def to_param
     login
   end
-
-  class << self
-    def team_exists?(login)
-      MaintainerTeam.where(login: login.downcase).count > 0
-    end
-  end
 end

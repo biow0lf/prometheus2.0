@@ -53,22 +53,4 @@ describe MaintainerTeam do
     maintainer_team.name = 'Not Ruby Team'
     expect(maintainer_team.save).to eq(false)
   end
-
-  it 'should return true if MaintainerTeam exists' do
-    MaintainerTeam.create!(name: 'Ruby Maintainers Team',
-                           email: 'ruby@packages.altlinux.org',
-                           login: 'ruby')
-    expect(MaintainerTeam.team_exists?('ruby')).to eq(true)
-  end
-
-  it 'should return false if Maintainer team not exists' do
-    expect(MaintainerTeam.team_exists?('non_exists_team')).to eq(false)
-  end
-
-  it 'should downcase login before checking for exists' do
-    MaintainerTeam.create!(name: 'Ruby Maintainers Team',
-                           email: 'ruby@packages.altlinux.org',
-                           login: 'ruby')
-    expect(MaintainerTeam.team_exists?('RUBY')).to eq(true)
-  end
 end

@@ -25,51 +25,32 @@ class Maintainer < ApplicationRecord
     login
   end
 
+  def domain
+    email.split('@').last
+  end
+
+  def initialize options = {}
+    if changelogname = options.delete(:changelogname)
+      o = self.parse_changelogname(changelogname)
+      options = options.merge(o) if o
+    end
+
+    super(options)
+  end
+
   class << self
-    def login_exists?(login)
-      Maintainer.where(login: login.downcase).count > 0
-    end
-
-    def import(maintainer)
-      name = maintainer.split('<')[0].chomp
-      name.strip!
-      email = maintainer.chop.split('<')[1].split('>')[0]
-      email.downcase!
-      email = FixMaintainerEmail.new(email).execute
-      login = email.split('@')[0]
-      domain = email.split('@')[1]
-      if domain == 'altlinux.org'
-        unless login_exists?(login)
-          Maintainer.create(login: login, name: name, email: email)
-        end
-      elsif domain == 'packages.altlinux.org'
-        unless MaintainerTeam.team_exists?(login)
-          MaintainerTeam.create(login: login, name: name, email: email)
-        end
-      else
-        raise 'Broken domain in Packager: tag'
-      end
-    end
-
-    def import_from_changelogname(changelogname)
-      name = changelogname.split('<')[0].chomp
-      name.strip!
-      email = changelogname.chop.split('<')[1].split('>')[0]
-      email.downcase!
-      email = FixMaintainerEmail.new(email).execute
-      login = email.split('@')[0]
-      domain = email.split('@')[1]
-      if domain == 'altlinux.org'
-        unless login_exists?(login)
-          Maintainer.create(login: login, name: name, email: email)
-        end
-      elsif domain == 'packages.altlinux.org'
-        unless MaintainerTeam.team_exists?(login)
-          MaintainerTeam.create(login: login, name: name, email: email)
-        end
+    def import_from_changelog(changelog)
+      if maintainer = changelog.maintainer
+        maintainer.save!
       else
         raise 'Broken domain in CHANGELOGNAME: tag'
       end
+
+      maintainer
+    end
+
+    def import changelogname
+      import_from_changelog(Changelog.new(changelogname: changelogname))
     end
 
     def top15(branch)

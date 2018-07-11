@@ -56,24 +56,6 @@ describe Maintainer do
     expect(maintainer.save).to eq(false)
   end
 
-  it 'should return true if Maintainer exists' do
-    Maintainer.create!(name: 'Igor Zubkov',
-                       email: 'icesik@altlinux.org',
-                       login: 'icesik')
-    expect(Maintainer.login_exists?('icesik')).to eq(true)
-  end
-
-  it 'should return false if Maintainer not exists' do
-    expect(Maintainer.login_exists?('ice')).to eq(false)
-  end
-
-  it 'should downcase login before checking for exists' do
-    Maintainer.create!(name: 'Igor Zubkov',
-                       email: 'icesik@altlinux.org',
-                       login: 'icesik')
-    expect(Maintainer.login_exists?('ICESIK')).to eq(true)
-  end
-
   it 'should create one Maintainer' do
     expect {
       Maintainer.import('Igor Zubkov <icesik@altlinux.org>')

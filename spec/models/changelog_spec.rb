@@ -17,6 +17,56 @@ describe Changelog do
     it { should validate_presence_of(:changelogtext) }
   end
 
+  context '#parse_changelogname' do
+    context 'should fix " at " to "@"' do
+      subject { described_class.new(changelogname: 'User <icesik at altlinux.org>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix " dot " to "."' do
+      subject { described_class.new(changelogname: 'User <icesik@altlinux dot org>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix "altlinux.ru" to "altlinux.org"' do
+      subject { described_class.new(changelogname: 'User <icesik@altlinux.ru>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix "altlinux.net" to "altlinux.org"' do
+      subject { described_class.new(changelogname: 'User <icesik@altlinux.ru>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix "altlinux.com" to "altlinux.org"' do
+      subject { described_class.new(changelogname: 'User <icesik@altlinux.ru>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix UPPERCASE values' do
+      subject { described_class.new(changelogname: 'User <ICESIK@ALTLINUX.RU>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix everything' do
+      subject { described_class.new(changelogname: 'User <ICESIK AT ALTLINUX DOT RU>') }
+
+      it { expect(subject.email).to eq('icesik@altlinux.org') }
+    end
+
+    context 'should fix everything in packages domain' do
+      subject { described_class.new(changelogname: 'User <RUBY AT PACKAGES DOT ALTLINUX DOT RU>') }
+
+      it { expect(subject.email).to eq('ruby@packages.altlinux.org') }
+    end
+  end
+
   context '#email' do
     it 'should return email' do
       text = 'Igor Zubkov <icesik@altlinux.org> 1.0-alt5'
@@ -31,18 +81,17 @@ describe Changelog do
   end
 
   context '#login' do
-    it 'should return login extracted from email' do
-      text = 'Igor Zubkov <icesik@altlinux.org> 1.0-alt5'
-      changelog = Changelog.new(changelogname: text)
-      expect(changelog).to receive(:email).twice.and_return('icesik@altlinux.org')
-      expect(changelog.login).to eq('icesik')
+    context 'should return login extracted from email' do
+      subject { Changelog.new(changelogname: 'Igor Zubkov <icesik@altlinux.org> 1.0-alt5') }
+
+      it { expect(subject.login).to eq('icesik') }
     end
 
-    it 'should return nil if email is nil' do
-      text = 'Igor Zubkov'
-      changelog = Changelog.new(changelogname: text)
-      expect(changelog).to receive(:email).and_return(nil)
-      expect(changelog.login).to eq(nil)
+    context 'should return nil if email is nil' do
+      subject { Changelog.new(changelogname: 'Igor Zubkov') }
+
+      it { expect(subject.email).to be_nil }
+      it { expect(subject.login).to be_nil }
     end
   end
 
