@@ -58,16 +58,6 @@ set :rvm_roles, %i[app web]
 set :puma_conf, "#{release_path}/config/puma.rb"
 
 
-task :after_update_code do
-  on release_roles :all do
-    within release_path do
-      with fetch(:bundle_env_variables, { RAILS_ENV: fetch(:stage) }) do
-        execute "rm -rf #{release_path}/vendor/cache/" #TODO remove after removoval vendor/cache
-      end
-    end
-  end
-end
-
 task :restart_puma do
   on release_roles :all do
     within release_path do
@@ -93,7 +83,6 @@ namespace :deploy do
   end
 
   # before 'deploy:setup_config', 'nginx:remove_default_vhost'
-  before 'bundler:install', 'after_update_code'
   after 'deploy:updated', 'nginx:site:add'
   before 'deploy:publishing', 'nginx:site:enable'
   after 'deploy:finishing', 'nginx:restart'
