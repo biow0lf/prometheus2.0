@@ -2,12 +2,11 @@
 
 class SearchesController < ApplicationController
   def show
-    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     if params[:query].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.query(params[:query]).page(params[:page]).includes(:branch)
+      @srpms = Srpm.query(params[:query]).by_branch_name(params[:branch]).page(params[:page]).includes(:branch)
 
       # @srpms = Srpm.none
       # @srpms = Srpm.search(

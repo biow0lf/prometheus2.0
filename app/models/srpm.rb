@@ -39,6 +39,8 @@ class Srpm < ApplicationRecord
            primary_key: 'name',
            foreign_key: 'repo' # dependent: :destroy
 
+  scope :by_branch_name, ->(name) { joins(:branch).where(branches: { name: name }) }
+
   validates :groupname, presence: true
 
   validates :md5, presence: true
@@ -128,7 +130,7 @@ class Srpm < ApplicationRecord
       Changelog.import(file, srpm)
       Specfile.import(file, srpm)
       Patch.import(file, srpm)
-      Source.import(file, srpm)
+      #Source.import(file, srpm)
     else
       puts "#{ Time.now }: failed to update '#{ srpm.filename }'"
     end

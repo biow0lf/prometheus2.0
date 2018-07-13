@@ -177,5 +177,5 @@ module RPM
         nil
       end
     end
-  end
+ end
 end

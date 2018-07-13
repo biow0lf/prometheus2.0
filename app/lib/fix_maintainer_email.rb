@@ -10,8 +10,8 @@ class FixMaintainerEmail
   def execute
     return unless email
 
-    @email = email.downcase.gsub(' at ', '@')
-                           .gsub(' dot ', '.')
-                           .gsub(/altlinux\.(ru|net|com)/, 'altlinux.org')
+    email.downcase.gsub(' at ', '@')
+                  .gsub(' dot ', '.')
+                  .gsub(/altlinux\.(ru|net|com)/, 'altlinux.org')
   end
 end

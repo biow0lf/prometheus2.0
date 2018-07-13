@@ -47,6 +47,9 @@ gem 'http_accept_language'
 # model
 gem 'activerecord-import'
 
+# view
+gem 'slim'
+
 group :production, :development, :staging do
   gem 'redis'
 end
