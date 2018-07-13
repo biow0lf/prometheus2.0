@@ -44,6 +44,7 @@ class Srpm < ApplicationRecord
   validates :groupname, presence: true
 
   validates :md5, presence: true
+  validates_presence_of :buildtime
 
   # delegate :name, to: :branch, prefix: true
 
