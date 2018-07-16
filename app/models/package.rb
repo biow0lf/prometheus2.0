@@ -32,7 +32,7 @@ class Package < ApplicationRecord
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
-    if branch.srpms.where(filename: sourcerpm).count == 1
+    if branch.srpms.where(filename: sourcerpm).present?
       package = Package.new
       package.filename = rpm.filename
       package.sourcepackage = sourcerpm
