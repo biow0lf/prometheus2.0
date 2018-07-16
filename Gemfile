@@ -43,6 +43,9 @@ gem 'cocaine', require: false
 gem 'browser'
 gem 'http_accept_language'
 # gem 'molinillo', require: false
+#
+# model
+gem 'activerecord-import'
 
 group :production, :development do
   gem 'redis'

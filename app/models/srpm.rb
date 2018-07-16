@@ -44,6 +44,7 @@ class Srpm < ApplicationRecord
   validates :groupname, presence: true
 
   validates :md5, presence: true
+  validates_presence_of :buildtime
 
   # delegate :name, to: :branch, prefix: true
 
@@ -126,7 +127,7 @@ class Srpm < ApplicationRecord
     end
 
     if srpm.save
-      Changelog.import(file, srpm)
+      Changelog.import_from(file, srpm)
       Specfile.import(file, srpm)
       Patch.import(file, srpm)
       Source.import(file, srpm)
