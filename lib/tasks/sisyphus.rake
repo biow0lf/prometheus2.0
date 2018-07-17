@@ -33,8 +33,7 @@ namespace :sisyphus do
     puts "#{ Time.zone.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
               '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
-              '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm',
-              '/ALT/Sisyphus/files/aarch64/RPMS/*.x86_64.rpm']
+              '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
     # pathes = ['/Users/biow0lf/Sisyphus/files/i586/RPMS/*.i586.rpm',
     #           '/Users/biow0lf/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
     #           '/Users/biow0lf/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
