@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :update do
-  task stopredis: :environment do
+  task lock: :environment do
     if Redis.current.get('__SYNC__')
       exist = begin
                 Process.kill(0, Redis.current.get('__SYNC__').to_i)
