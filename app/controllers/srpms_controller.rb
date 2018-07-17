@@ -62,10 +62,7 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
     @mirrors = Mirror.where(branch_id: @branch).where("protocol != 'rsync'").order('mirrors.order_id ASC')
     @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
-    @i586 = @srpm.packages.where(arch: 'i586').order('packages.name ASC')
-    @noarch = @srpm.packages.where(arch: 'noarch').order('packages.name ASC')
-    @x86_64 = @srpm.packages.where(arch: 'x86_64').order('packages.name ASC')
-    @arm = @srpm.packages.where(arch: 'arm').order('packages.name ASC')
+    @packages = @srpm.packages.order('packages.name ASC').group("packages.arch, packages.id").includes(:branch).decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end

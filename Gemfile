@@ -44,6 +44,9 @@ gem 'browser'
 gem 'http_accept_language'
 # gem 'molinillo', require: false
 
+# view
+gem 'slim'
+
 group :production, :development do
   gem 'redis'
 end

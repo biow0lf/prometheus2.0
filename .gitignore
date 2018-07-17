@@ -19,8 +19,11 @@
 .DS_Store
 ._*
 *~
+*.sw*
+*.patch
 config/newrelic.yml
 public/sitemap*.xml.gz
+spec/examples.txt
 dump.rdb
 db/sphinx/*
 config/development.sphinx.conf

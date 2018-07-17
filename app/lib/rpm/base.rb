@@ -8,6 +8,10 @@ module RPM
 
     attr_reader :file
 
+    def rpm
+      self.class
+    end
+
     def initialize(file)
       @file = file
     end
@@ -94,6 +98,14 @@ module RPM
       @md5 ||= Digest::MD5.file(file).hexdigest
     end
 
+    def has_valid_md5?
+      output = rpm.exec(
+        line: " -K #{rpm.no_signature_key} :file",
+        file: file)
+
+      output && !(output.strip.split(': ').last.force_encoding('utf-8') !~ rpm.valid_signature_answer)
+    end
+
     private
 
     def read_int(tag)
@@ -106,21 +118,53 @@ module RPM
     end
 
     def read(tag)
-      output = read_raw(tag)
-
-      output = nil if ['(none)', ''].include?(output)
+      output = rpm.exec(
+        line: '-qp --queryformat=:tag :file',
+        tag: tag,
+        file: file)
 
       output
     end
 
-    def read_raw(tag)
-      cocaine = Cocaine::CommandLine.new('rpm', '-qp --queryformat=:tag :file', environment: { 'LANG' => 'C' })
+    class << self
+      def no_signature_key
+        @no_signature_key ||= exec('--nosignature').present? && '--nosignature' || '--nogpg'
+      end
 
-      cocaine.run(tag: tag, file: file)
-    rescue Cocaine::CommandNotFoundError
-      Rails.logger.info('rpm command not found')
-    rescue Cocaine::ExitStatusError
-      Rails.logger.info('rpm exit status non zero')
+      def use_common_signature?
+        no_signature_key == '--nosignature'
+      end
+
+      def valid_signature_answer
+        use_common_signature? && /sha1 md5 O[KК]/ || /md5 O[KК]/
+      end
+
+      def hash_of args
+        if args.is_a?(String)
+          { line: args }
+        elsif args.is_a?(Hash)
+          args
+        else
+          raise
+        end
+      end
+
+      def exec args
+        a_hash = hash_of(args)
+
+        wrapper = Cocaine::CommandLine.new('rpm', a_hash[:line], environment: { 'LANG' => 'C' })
+
+        result = wrapper.run(a_hash)
+        result !~ /\A(\(none\)|)\z/ && result || nil
+      rescue Cocaine::CommandNotFoundError
+        Rails.logger.info('rpm command not found')
+
+        nil
+      rescue Cocaine::ExitStatusError
+        Rails.logger.info('rpm exit status non zero')
+
+        nil
+      end
     end
-  end
+ end
 end

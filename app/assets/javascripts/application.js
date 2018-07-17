@@ -13,3 +13,20 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//
+
+let changeHref = (e) => {
+   let index = e.target.options.selectedIndex,
+       url = e.target.options[index].getAttribute('value')
+
+   document.querySelectorAll('a.download').forEach((a) => {
+      let href = a.getAttribute('data-path')
+
+      a.setAttribute('href', url + href)
+   })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+   let input = document.querySelector('.mirror-url')
+   input.addEventListener('change', changeHref)
+})
