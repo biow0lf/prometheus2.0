@@ -1,0 +1,37 @@
+.group {
+   & > .group-title {
+      cursor: pointer;
+      padding-left: 20px;
+      background: url(<%= asset_path 'plus.gif' %>) 4px 4px no-repeat;
+
+      &:only-child {
+         background: none;
+      }
+   }
+
+   .name {
+      font-weight: bold;
+      color: #202040;
+      text-decoration: none;
+
+      &:hover {
+         color: #b01804;
+         text-decoration: underline;
+      }
+   }
+
+   & > .group-content {
+      margin-left: 1.5em;
+      display: none;
+   }
+
+   &.open {
+      & > .group-title {
+         background-image: url(<%= asset_path 'minus.gif' %>);
+      }
+
+      & > .group-content {
+         display: block;
+      }
+   }
+}

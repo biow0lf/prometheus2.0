@@ -1,69 +1,53 @@
 <% title _('Prometheus 2.0 - Groups') %>
 
-<script>
-  //<![CDATA[
-  offImg = new Image(); offImg.src = "<%= asset_path 'plus.gif' %>";
-  onImg  = new Image(); onImg.src = "<%= asset_path 'minus.gif' %>";
-
-  function showGrp(dirid) {
-    if (el = document.getElementById("dir" + dirid)) {
-      if (el.style.display == "none") {
-        el.style.display = "block";
-        document.images['img' + dirid].src = onImg.src;
-      } else {
-        el.style.display = "none";
-        document.images['img' + dirid].src = offImg.src;
-      };
-    };
-  };
-  //]]>
-</script>
-
 <div id='main-content'>
   <div class='header'><%= _('Package groups') %></div>
   <p class='break'></p>
 
   <div style='font-size: 12pt;'>
-    <% index = 0 %>
-
     <% @groups.each do |group| %>
-      <% if group.leaf? %>
-        <%= link_to _(group.name), group_path(group: group.name), class: 'news', style: 'margin-left: 14px;' %>
-          (<%= group.srpms.count %>)
-        <br>
-      <% else %>
-        <% index += 1 %>
-        <div onclick="showGrp('<%= index %>')" class='grplist'>
-          <%= image_tag('plus.gif', name: "img#{ index }", style: 'text-align: left; margin: 4px 4px 4px 0px; float: left;', size: '10x10', title: '', alt: '') %>
-          <%= _(group.name) %>
-        </div>
-        <div id="dir<%= index %>" class='grphid' style='display: none'>
-          <% group.children.each do |child| %>
-            <% if child.leaf? %>
-              <%= link_to _(child.name), group_path(group: group.name, group2: child.name), class: 'news', style: 'margin-left: 14px;' %>
-              (<%= child.srpms.count %>)
-              <br>
-            <% else %>
-              <% index += 1 %>
-              <div onclick="showGrp('<%= index %>')" class='grplist'>
-                <%= image_tag('plus.gif', name: "img#{ index }", style: 'text-align: left; margin: 4px 4px 4px 0px; float: left;', size: '10x10', title: '', alt: '') %>
-                <%= _(child.name) %>
-              </div>
-              <div id="dir<%= index %>" class='grphid' style='display: none'>
-                <% child.children.each do |c| %>
-                  <% if c.leaf? %>
-                    <%= link_to _(c.name), group_path(group: group.name, group2: child.name, group3: c.name), class: 'news', style: 'margin-left: 14px;', title: '', alt: '' %>
-                    (<%= c.srpms.count %>)
-                    <br>
-                  <% else %>
-                    TODO
-                  <% end %>
+      <div class='group'>
+        <% if group.leaf? %>
+          <div class='group-title'>
+            <%= link_to _(group.name), group_path(group: group.name), class: 'name' %>
+            (<%= group.srpms.count %>)
+          </div>
+        <% else %>
+          <div class='group-title name'>
+            <%= _(group.name) %>
+          </div>
+          <div class='group-content'>
+            <% group.children.each do |child| %>
+              <div class='group'>
+                <% if child.leaf? %>
+                  <div class='group-title'>
+                    <%= link_to _(child.name), group_path(group: group.name, group2: child.name), class: 'name' %>
+                    (<%= child.srpms.count %>)
+                  </div>
+                <% else %>
+                  <div class='group-title name'>
+                    <%= _(child.name) %>
+                  </div>
+                  <div class='group-content'>
+                    <% child.children.each do |c| %>
+                      <div class='group'>
+                        <% if c.leaf? %>
+                          <div class='group-title'>
+                            <%= link_to _(c.name), group_path(group: group.name, group2: child.name, group3: c.name), class: 'name' %>
+                            (<%= c.srpms.count %>)
+                          </div>
+                        <% else %>
+                          TODO
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
                 <% end %>
               </div>
             <% end %>
-          <% end %>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
