@@ -1,0 +1,14 @@
+tr.arch {
+   & > td {
+      padding-top: 1em;
+   }
+
+   td.package {
+      border-bottom: dotted 1px #aaa;
+      padding-right: 1em;
+   }
+
+   td.size {
+      text-align: right;
+   }
+}

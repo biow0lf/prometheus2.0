@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PackageDecorator < Draper::Decorator
+  include ActionView::Helpers::NumberHelper
+
   delegate_all
 
   def as_json(*)
@@ -26,5 +28,17 @@ class PackageDecorator < Draper::Decorator
       created_at: created_at.iso8601,
       updated_at: updated_at.iso8601
     }
+  end
+
+  def href
+    "http://ftp.altlinux.org/pub/distributions/ALTLinux#{path}"
+  end
+
+  def human_size
+    number_to_human_size(size)
+  end
+
+  def path
+    "#{branch.path}/files/#{arch}/RPMS/#{filename}"
   end
 end
