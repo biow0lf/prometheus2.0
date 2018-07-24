@@ -23,20 +23,17 @@ namespace :sisyphus do
     puts "#{ Time.zone.now }: update *.src.rpm from Sisyphus to database"
     branch = Branch.find_by!(name: 'Sisyphus')
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
-    # Srpm.import_all(branch, '/Users/biow0lf/Sisyphus/files/SRPMS/*.src.rpm')
-    RemoveOldSrpms.call(branch, '/ALT/Sisyphus/files/SRPMS/') do
+
+    branches = Branch.where(name: [ 'Sisyphus MIPS', 'Sisyphus' ])
+    RemoveOldSrpms.call(branches, %w(/ALTmips/files/SRPMS/ /ALT/Sisyphus/files/SRPMS/)) do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
     end
-    # RemoveOldSrpms.call(branch, '/Users/biow0lf/Sisyphus/files/SRPMS/') do
-    #   on(:ok) { puts "#{ Time.now }: Old srpms removed" }
-    # end
+
     puts "#{ Time.zone.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from Sisyphus to database"
     pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm',
               '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
               '/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
-    # pathes = ['/Users/biow0lf/Sisyphus/files/i586/RPMS/*.i586.rpm',
-    #           '/Users/biow0lf/Sisyphus/files/noarch/RPMS/*.noarch.rpm',
-    #           '/Users/biow0lf/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm']
+
     Package.import_all(branch, pathes)
     puts "#{ Time.zone.now }: end"
     puts "#{ Time.zone.now }: update acls in redis cache"

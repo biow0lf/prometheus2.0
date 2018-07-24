@@ -23,7 +23,7 @@ namespace :p7 do
     puts "#{ Time.zone.now }: update *.src.rpm from p7 to database"
     branch = Branch.find_by!(name: 'p7')
     Srpm.import_all(branch, '/ALT/p7/files/SRPMS/*.src.rpm')
-    RemoveOldSrpms.call(branch, '/ALT/p7/files/SRPMS/') do
+    RemoveOldSrpms.call(branch, %w(/ALT/p7/files/SRPMS/)) do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
     end
     puts "#{ Time.zone.now }: update *.i586.rpm/*.noarch.rpm/*.x86_64.rpm from p7 to database"
