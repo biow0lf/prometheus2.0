@@ -4,15 +4,18 @@ namespace :mips do
   desc 'Update Sisyphus MIPS stuff'
   task update: [:environment, :'update:lock'] do
     puts "#{ Time.zone.now }: update *.src.rpm from Sisyphus MIPS to database"
-    branch = Branch.find_by!(name: 'SisyphusMips')
-    Srpm.import_all(branch, '/ALT/SisyphusMips/files/SRPMS/*.src.rpm')
-    RemoveOldSrpms.call(branch, '/ALT/SisyphusMips/files/SRPMS/') do
+    branch = Branch.find_by!(name: 'Sisyphus MIPS')
+    Srpm.import_all(branch, '/ALTmips/files/SRPMS/*.src.rpm')
+
+    branches = Branch.where(name: [ 'Sisyphus MIPS', 'Sisyphus' ])
+    RemoveOldSrpms.call(branches, %w(/ALTmips/files/SRPMS/ /ALT/Sisyphus/files/SRPMS/)) do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
     end
-    puts "#{ Time.zone.now }: update *.mips.rpm/*.noarch.rpm from Sisyphus to database"
-    pathes = ['/ALT/Sisyphus/files/mips/RPMS/*.i586.rpm',
-              '/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm']
-    Package.import_all(branch, pathes)
+
+    puts "#{ Time.zone.now }: update *.mipsel.rpm/*.noarch.rpm from Sisyphus to database"
+    paths = %w(/ALTmips/files/mipsel/RPMS/*.mipsel.rpm
+               /ALTmips/files/noarch/RPMS/*.noarch.rpm)
+    Package.import_all(branch, paths)
     puts "#{ Time.zone.now }: end"
     puts "#{ Time.zone.now }: update acls in redis cache"
     Acl.update_redis_cache(branch, 'http://git.altlinux.org/acl/list.packages.sisyphus')

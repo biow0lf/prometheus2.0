@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180710172200) do
+ActiveRecord::Schema.define(version: 20180723104300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,12 +200,13 @@ ActiveRecord::Schema.define(version: 20180710172200) do
     t.datetime "updated_at"
     t.integer "srpm_id"
     t.integer "group_id"
-    t.string "md5", limit: 255
+    t.string "md5", limit: 255, null: false
     t.string "groupname", limit: 255
     t.integer "size"
     t.integer "epoch"
     t.index ["arch"], name: "index_packages_on_arch"
     t.index ["group_id"], name: "index_packages_on_group_id"
+    t.index ["md5"], name: "index_packages_on_md5", unique: true
     t.index ["name"], name: "index_packages_on_name"
     t.index ["sourcepackage"], name: "index_packages_on_sourcepackage"
     t.index ["srpm_id"], name: "index_packages_on_srpm_id"
@@ -340,7 +341,7 @@ ActiveRecord::Schema.define(version: 20180710172200) do
     t.string "distribution", limit: 255
     t.string "changelogname", limit: 255
     t.text "changelogtext"
-    t.string "md5", limit: 255
+    t.string "md5", limit: 255, null: false
     t.boolean "delta", default: true, null: false
     t.integer "builder_id"
     t.string "groupname", limit: 255
@@ -348,9 +349,12 @@ ActiveRecord::Schema.define(version: 20180710172200) do
     t.datetime "changelogtime"
     t.integer "epoch"
     t.string "buildhost"
+    t.string "alias"
+    t.index ["alias"], name: "index_srpms_on_alias"
     t.index ["branch_id", "created_at"], name: "index_srpms_on_branch_id_and_created_at"
     t.index ["branch_id"], name: "index_srpms_on_branch_id"
     t.index ["group_id"], name: "index_srpms_on_group_id"
+    t.index ["md5"], name: "index_srpms_on_md5", unique: true
     t.index ["name"], name: "index_srpms_on_name"
   end
 
@@ -389,5 +393,6 @@ ActiveRecord::Schema.define(version: 20180710172200) do
   end
 
   add_foreign_key "branch_arches", "branches", on_delete: :cascade
+  add_foreign_key "packages", "srpms", on_delete: :cascade
   add_foreign_key "srpms", "branches"
 end

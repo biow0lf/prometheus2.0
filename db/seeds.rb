@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+if Branch.all.blank?
 # add Sisyphus branch
 branch = Branch.new
 branch.vendor = 'ALT Linux'
@@ -1609,3 +1610,15 @@ MaintainerTeam.create!(
   email: 'qa_p5@packages.altlinux.org',
   login: '@qa_p5'
 )
+end
+
+
+if Branch.where(name: "Sisyphus MIPS").blank?
+   # add MIPS branch
+   branch = Branch.new
+   branch.vendor = 'ALT Linux'
+   branch.name = 'Sisyphus MIPS'
+   branch.order_id = 11
+   branch.path = '/ALTmips/'
+   branch.save!
+end

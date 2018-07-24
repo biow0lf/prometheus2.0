@@ -32,39 +32,43 @@ class Package < ApplicationRecord
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
-    if branch.srpms.where(filename: sourcerpm).count == 1
-      package = Package.new
-      package.filename = rpm.filename
-      package.sourcepackage = sourcerpm
-      package.name = rpm.name
-      package.version = rpm.version
-      package.release = rpm.release
-      package.epoch = rpm.epoch
-      package.arch = rpm.arch
+    srpm_id = Srpm.where(filename: sourcerpm).or(branch.srpms.where(alias: sourcerpm)).first&.id
 
-      group_name = rpm.group
-      Group.import(branch, group_name)
-      group = Group.in_branch(branch, group_name)
+    if srpm_id
+      package = Package.find_or_initialize_by(md5: rpm.md5) do |package|
+        package.filename = rpm.filename
+        package.sourcepackage = sourcerpm
+        package.name = rpm.name
+        package.version = rpm.version
+        package.release = rpm.release
+        package.epoch = rpm.epoch
+        package.arch = rpm.arch
 
-      package.group_id = group.id
-      package.groupname = group_name
-      package.summary = rpm.summary
-      # package.summary = 'Broken' if package.name == 'openmoko_dfu-util' TODO hardcode?
-      package.license = rpm.license
-      package.url = rpm.url
-      package.description = rpm.description
-      package.buildtime = rpm.buildtime
-      package.size = rpm.size
-      package.md5 = rpm.md5
-      srpm = branch.srpms.where(filename: sourcerpm).first
-      package.srpm_id = srpm.id
-      if package.save
-        # Provide.import_provides(rpm, package)
-        # Require.import_requires(rpm, package)
-        # Conflict.import_conflicts(rpm, package)
-        # Obsolete.import_obsoletes(rpm, package)
-      else
-        puts "#{ Time.now }: failed to import '#{ package.filename }'"
+        group_name = rpm.group
+        Group.import(branch, group_name)
+        group = Group.in_branch(branch, group_name)
+
+        package.group_id = group.id
+        package.groupname = group_name
+        package.summary = rpm.summary
+        package.license = rpm.license
+        package.url = rpm.url
+        package.description = rpm.description
+        package.buildtime = rpm.buildtime
+        package.size = rpm.size
+        package.srpm_id = srpm_id
+      end
+
+      if package.new_record?
+        if package.save
+          # Provide.import_provides(rpm, package)
+          # Require.import_requires(rpm, package)
+          # Conflict.import_conflicts(rpm, package)
+          # Obsolete.import_obsoletes(rpm, package)
+          puts "#{ Time.now }: imported '#{ package.filename }'"
+        else
+          puts "#{ Time.now }: failed to import '#{ package.filename }'"
+        end
       end
     else
       puts "#{ Time.now }: srpm '#{ sourcerpm }' not found in db"
@@ -77,7 +81,6 @@ class Package < ApplicationRecord
         unless Redis.current.exists("#{ branch.name }:#{ file.split('/')[-1] }")
           next unless File.exist?(file)
           next unless RPMCheckMD5.check_md5(file)
-          puts "#{ Time.now }: import '#{ file.split('/')[-1] }'"
           rpm = RPMFile::Binary.new(file)
           Package.import(branch, rpm)
         end

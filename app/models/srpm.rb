@@ -40,6 +40,7 @@ class Srpm < ApplicationRecord
            foreign_key: 'repo' # dependent: :destroy
 
   scope :by_branch_name, ->(name) { joins(:branch).where(branches: { name: name }) }
+  scope :by_branch_id, ->(id) { joins(:branch).where(branch_id: id) }
 
   validates :groupname, presence: true
 
@@ -80,59 +81,63 @@ class Srpm < ApplicationRecord
   end
 
   def self.import(branch, rpm, file)
-    srpm = Srpm.new
-    # TODO: add srpm.buildhost
-    srpm.name = rpm.name
-    srpm.version = rpm.version
-    srpm.release = rpm.release
-    srpm.epoch = rpm.epoch
-    srpm.filename = rpm.filename
+    srpm = Srpm.find_or_initialize_by(md5: rpm.md5) do |srpm|
+      # TODO: add srpm.buildhost
+      srpm.name = rpm.name
+      srpm.version = rpm.version
+      srpm.release = rpm.release
+      srpm.epoch = rpm.epoch
+      srpm.filename = rpm.filename
 
-    group_name = rpm.group
-    Group.import(branch, group_name)
-    group = Group.in_branch(branch, group_name)
+      group_name = rpm.group
+      Group.import(branch, group_name)
+      group = Group.in_branch(branch, group_name)
 
-    Maintainer.import(rpm.packager)
+      Maintainer.import(rpm.packager)
 
-    srpm.group_id = group.id
-    srpm.groupname = group_name
-    srpm.summary = rpm.summary
-    # TODO: test for this
-    # hack for very long summary in openmoko_dfu-util src.rpm
-    srpm.summary = 'Broken' if srpm.name == 'openmoko_dfu-util'
-    srpm.license = rpm.license
-    srpm.url = rpm.url
-    srpm.description = rpm.description
-    srpm.vendor = rpm.vendor
-    srpm.distribution = rpm.distribution
-    srpm.buildtime = rpm.buildtime
-    srpm.size = rpm.size
-    srpm.md5 = rpm.md5
-    srpm.branch_id = branch.id
-    srpm.changelogtime = rpm.changelogtime
+      srpm.group_id = group.id
+      srpm.groupname = group_name
+      srpm.summary = rpm.summary
+      # TODO: test for this
+      srpm.license = rpm.license
+      srpm.url = rpm.url
+      srpm.description = rpm.description
+      srpm.vendor = rpm.vendor
+      srpm.distribution = rpm.distribution
+      srpm.buildtime = rpm.buildtime
+      srpm.size = rpm.size
+      srpm.branch_id = branch.id
+      srpm.changelogtime = rpm.changelogtime
 
-    changelogname = rpm.changelogname
-    srpm.changelogname = changelogname
+      changelogname = rpm.changelogname
+      srpm.changelogname = changelogname
 
-    srpm.changelogtext = rpm.changelogtext
+      srpm.changelogtext = rpm.changelogtext
 
-    email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
+      email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
 
-    if email
-      email.downcase!
-      email = FixMaintainerEmail.new(email).execute
-      Maintainer.import_from_changelogname(changelogname)
-      maintainer = Maintainer.where(email: email).first
-      srpm.builder_id = maintainer.id
+      if email
+        email.downcase!
+        email = FixMaintainerEmail.new(email).execute
+        Maintainer.import_from_changelogname(changelogname)
+        maintainer = Maintainer.where(email: email).first
+        srpm.builder_id = maintainer.id
+      end
     end
 
-    if srpm.save
-      Changelog.import_from(file, srpm)
-      Specfile.import(file, srpm)
-      Patch.import(file, srpm)
-      Source.import(file, srpm)
+    if srpm.new_record?
+      if srpm.save
+        Changelog.import_from(file, srpm)
+        Specfile.import(file, srpm)
+        Patch.import(file, srpm)
+        Source.import(file, srpm)
+        puts "#{ Time.now }: imported '#{ srpm.filename }'"
+      else
+        puts "#{ Time.now }: failed to update '#{ srpm.filename }'"
+      end
     else
-      puts "#{ Time.now }: failed to update '#{ srpm.filename }'"
+      srpm.update(alias: rpm.filename)
+      puts "#{ Time.now }: updated '#{ srpm.filename }'"
     end
   end
 
@@ -141,7 +146,6 @@ class Srpm < ApplicationRecord
       unless Redis.current.exists("#{ branch.name }:#{ File.basename(file) }")
         next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
-        puts "#{ Time.now }: import '#{ File.basename(file) }'"
         Srpm.import(branch, RPMFile::Source.new(file), file)
       end
     end
