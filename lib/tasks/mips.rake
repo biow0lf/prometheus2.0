@@ -4,10 +4,10 @@ namespace :mips do
   desc 'Update Sisyphus MIPS stuff'
   task update: [:environment, :'update:lock'] do
     puts "#{ Time.zone.now }: update *.src.rpm from Sisyphus MIPS to database"
-    branch = Branch.find_by!(name: 'Sisyphus MIPS')
+    branch = Branch.find_by!(name: 'Sisyphus_MIPS')
     Srpm.import_all(branch, '/ALTmips/files/SRPMS/*.src.rpm')
 
-    branches = Branch.where(name: [ 'Sisyphus MIPS', 'Sisyphus' ])
+    branches = Branch.where(name: [ 'Sisyphus_MIPS', 'Sisyphus' ])
     RemoveOldSrpms.call(branches, %w(/ALTmips/files/SRPMS/ /ALT/Sisyphus/files/SRPMS/)) do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
     end

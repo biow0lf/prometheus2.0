@@ -24,7 +24,7 @@ namespace :sisyphus do
     branch = Branch.find_by!(name: 'Sisyphus')
     Srpm.import_all(branch, '/ALT/Sisyphus/files/SRPMS/*.src.rpm')
 
-    branches = Branch.where(name: [ 'Sisyphus MIPS', 'Sisyphus' ])
+    branches = Branch.where(name: [ 'Sisyphus_MIPS', 'Sisyphus' ])
     RemoveOldSrpms.call(branches, %w(/ALTmips/files/SRPMS/ /ALT/Sisyphus/files/SRPMS/)) do
       on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
     end

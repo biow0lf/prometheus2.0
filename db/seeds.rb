@@ -1613,12 +1613,12 @@ MaintainerTeam.create!(
 end
 
 
-if Branch.where(name: "Sisyphus MIPS").blank?
+if Branch.where(name: "Sisyphus_MIPS").blank?
    # add MIPS branch
    branch = Branch.new
    branch.vendor = 'ALT Linux'
-   branch.name = 'Sisyphus MIPS'
+   branch.name = 'Sisyphus_MIPS'
    branch.order_id = 11
-   branch.path = '/ALTmips/'
+   branch.path = '/ALTmips'
    branch.save!
 end
