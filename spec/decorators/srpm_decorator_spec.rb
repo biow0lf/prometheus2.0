@@ -11,47 +11,45 @@ describe SrpmDecorator do
     let(:buildtime) { '2014-01-15T18:59:48Z' }
 
     let(:branch) do
-      stub_model Branch,
-                 id: 1,
-                 name: 'Sisyphus'
+      create(:branch, id: 1,
+                      name: 'Sisyphus')
+    end
+
+    let(:group) do
+      create(:group, id: 1_083)
     end
 
     let(:srpm) do
-      stub_model Srpm,
-                 id: 336_994,
-                 branch: branch,
-                 name: 'glibc',
-                 version: '2.17',
-                 release: 'alt8',
-                 epoch: 6,
-                 summary: 'The GNU libc libraries',
-                 license: 'LGPLv2+, LGPLv2+ with exceptions, GPLv2+',
-                 group_id: 1_083,
-                 groupname: 'System/Base',
-                 url: 'http://www.gnu.org/software/glibc/',
-                 description: 'The GNU C library defines...',
-                 buildtime: buildtime,
-                 filename: 'glibc-2.17-alt8.src.rpm',
-                 vendor: 'ALT Linux Team',
-                 distribution: 'ALT Linux',
-                 # changelogname: changelogname,
-                 # changelogtext: changelogtext,
-                 # changelogtime: changelogtime,
-                 md5: '8bad93ffb43f9486cd7e17eff1c19389',
-                 builder_id: 25,
-                 size: 11_417_028,
-                 repocop: 'warn',
-                 created_at: created_at,
-                 updated_at: updated_at
+      create(:srpm, id: 336_994,
+                    branch: branch,
+                    name: 'glibc',
+                    version: '2.17',
+                    release: 'alt8',
+                    epoch: 6,
+                    summary: 'The GNU libc libraries',
+                    license: 'LGPLv2+, LGPLv2+ with exceptions, GPLv2+',
+                    group: group,
+                    groupname: 'System/Base',
+                    url: 'http://www.gnu.org/software/glibc/',
+                    description: 'The GNU C library defines...',
+                    buildtime: buildtime,
+                    filename: 'glibc-2.17-alt8.src.rpm',
+                    vendor: 'ALT Linux Team',
+                    distribution: 'ALT Linux',
+                    # changelogname: changelogname,
+                    # changelogtext: changelogtext,
+                    # changelogtime: changelogtime,
+                    md5: '8bad93ffb43f9486cd7e17eff1c19389',
+                    builder_id: 25,
+                    size: 11_417_028,
+                    repocop: 'warn',
+                    created_at: created_at,
+                    updated_at: updated_at)
     end
 
     subject { srpm.decorate.as_json }
 
     its([:id]) { should eq(336_994) }
-
-    its([:branch_id]) { should eq(1) }
-
-    its([:branch]) { should eq('Sisyphus') }
 
     its([:name]) { should eq('glibc') }
 
@@ -74,8 +72,6 @@ describe SrpmDecorator do
     its([:description]) { should eq('The GNU C library defines...') }
 
     its([:buildtime]) { should eq(buildtime) }
-
-    its([:filename]) { should eq('glibc-2.17-alt8.src.rpm') }
 
     its([:vendor]) { should eq('ALT Linux Team') }
 

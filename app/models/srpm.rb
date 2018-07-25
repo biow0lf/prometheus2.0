@@ -3,49 +3,37 @@
 require 'rpmfile'
 
 class Srpm < ApplicationRecord
+  class AlreadyExistError < StandardError; end
+  class AttachedNewBranchError < StandardError; end
+
   # include Redis::Objects
   include PgSearch
 
-  belongs_to :branch
-
   belongs_to :group
 
-  has_many :packages, dependent: :destroy
-
-  has_many :changelogs, dependent: :destroy
-
   has_one :specfile, dependent: :destroy
-
-  has_many :patches, dependent: :destroy
-
-  has_many :sources, dependent: :destroy
-
-  has_many :repocops, -> { order(name: :asc) },
-           primary_key: 'name',
-           foreign_key: 'srcname',
-           dependent: :destroy
-
   has_one :repocop_patch,
           primary_key: 'name',
           foreign_key: 'name',
           dependent: :destroy
-
   has_one :builder,
           class_name: 'Maintainer',
           primary_key: 'builder_id',
           foreign_key: 'id'
 
-  has_many :gears, -> { order(lastchange: :desc) },
-           primary_key: 'name',
-           foreign_key: 'repo' # dependent: :destroy
+  has_many :packages, dependent: :destroy
+  has_many :named_srpms, dependent: :destroy
+  has_many :branches, through: :named_srpms
+  has_many :changelogs, dependent: :destroy
+  has_many :patches, dependent: :destroy
+  has_many :sources, dependent: :destroy
+  has_many :repocops, -> { order(name: :asc) }, primary_key: 'name',
+                                                foreign_key: 'srcname',
+                                                dependent: :destroy
+  has_many :gears, -> { order(lastchange: :desc) }, primary_key: 'name',
+                                                    foreign_key: 'repo'
 
-  scope :by_branch_name, ->(name) { joins(:branch).where(branches: { name: name }) }
-  scope :by_branch_id, ->(id) { joins(:branch).where(branch_id: id) }
-
-  validates :groupname, presence: true
-
-  validates :md5, presence: true
-  validates_presence_of :buildtime
+  scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
 
   # delegate :name, to: :branch, prefix: true
 
@@ -53,23 +41,21 @@ class Srpm < ApplicationRecord
 
   # value :leader
 
-  after_create :add_filename_to_cache
-
-  after_create :increment_branch_counter
+  after_save    :add_filename_to_cache
+  after_create  :increment_branch_counter
 
   after_destroy :decrement_branch_counter
-
   after_destroy :remove_filename_from_cache
-
   after_destroy :remove_acls_from_cache
-
   after_destroy :remove_leader_from_cache
 
   pg_search_scope :query,
-                  against: [:name, :summary, :description, :filename, :url],
+                  against: [:name, :summary, :description, :url],
                   using: { tsearch: { prefix: true } }
 
-  multisearchable against: [:name, :summary, :description, :filename, :url]
+  multisearchable against: [:name, :summary, :description, :url]
+
+  validates_presence_of :buildtime, :md5, :groupname, :named_srpms
 
   def to_param
     name
@@ -87,7 +73,6 @@ class Srpm < ApplicationRecord
       srpm.version = rpm.version
       srpm.release = rpm.release
       srpm.epoch = rpm.epoch
-      srpm.filename = rpm.filename
 
       group_name = rpm.group
       Group.import(branch, group_name)
@@ -106,7 +91,6 @@ class Srpm < ApplicationRecord
       srpm.distribution = rpm.distribution
       srpm.buildtime = rpm.buildtime
       srpm.size = rpm.size
-      srpm.branch_id = branch.id
       srpm.changelogtime = rpm.changelogtime
 
       changelogname = rpm.changelogname
@@ -123,21 +107,26 @@ class Srpm < ApplicationRecord
         maintainer = Maintainer.where(email: email).first
         srpm.builder_id = maintainer.id
       end
+
+      srpm.named_srpms << NamedSrpm.new(branch_id: branch.id,
+                                        name: rpm.filename)
     end
 
     if srpm.new_record?
-      if srpm.save
-        Changelog.import_from(file, srpm)
-        Specfile.import(file, srpm)
-        Patch.import(file, srpm)
-        # Source.import(file, srpm)
-        puts "#{ Time.now }: imported '#{ srpm.filename }'"
-      else
-        puts "#{ Time.now }: failed to update '#{ srpm.filename }'"
-      end
+      srpm.save!
+
+      Changelog.import_from(file, srpm)
+      Specfile.import(file, srpm)
+      Patch.import(file, srpm)
+      Source.import(file, srpm)
     else
-      srpm.update(alias: rpm.filename)
-      puts "#{ Time.now }: updated '#{ srpm.filename }'"
+      if srpm.branches.include?(branch)
+        raise AlreadyExistError
+      else
+        srpm.named_srpms << NamedSrpm.new(branch_id: branch.id,
+                                          name: rpm.filename)
+        raise AttachedNewBranchError
+      end
     end
   end
 
@@ -146,7 +135,21 @@ class Srpm < ApplicationRecord
       unless Redis.current.exists("#{ branch.name }:#{ File.basename(file) }")
         next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
-        Srpm.import(branch, RPMFile::Source.new(file), file)
+
+        info = "file '#{ file }' "
+
+        (method, state) = begin
+          Srpm.import(branch, RPMFile::Source.new(file), file)
+          [ :info, "imported to branch #{branch.name}" ]
+        rescue AttachedNewBranchError
+          [ :info, "added to branch #{branch.name}" ]
+        rescue AlreadyExistError
+          [ :info, "exists in #{branch.name}" ]
+        rescue => e
+          [ :error, "failed to update, reason: #{e.message}" ]
+        end
+
+        Rails.logger.send(method, info + state)
       end
     end
   end
@@ -163,26 +166,38 @@ class Srpm < ApplicationRecord
   private
 
   def add_filename_to_cache
-    Redis.current.set("#{ branch.name }:#{ filename }", 1)
+    named_srpms.each do |named_srpm|
+      Redis.current.set("#{ named_srpm.branch.name }:#{ named_srpm.name }", 1)
+    end
   end
 
   def increment_branch_counter
-    branch.counter.increment
+    named_srpms.each do |named_srpm|
+      named_srpm.branch.counter.increment
+    end
   end
 
   def decrement_branch_counter
-    branch.counter.decrement
+    named_srpms.each do |named_srpm|
+      named_srpm.branch.counter.decrement
+    end
   end
 
   def remove_filename_from_cache
-    Redis.current.del("#{ branch.name }:#{ filename }")
+    named_srpms.each do |named_srpm|
+      Redis.current.del("#{ named_srpm.branch.name }:#{ named_srpm.name }")
+    end
   end
 
   def remove_acls_from_cache
-    Redis.current.del("#{ branch.name }:#{ name }:acls")
+    named_srpms.each do |named_srpm|
+      Redis.current.del("#{ named_srpm.branch.name }:#{ name }:acls")
+    end
   end
 
   def remove_leader_from_cache
-    Redis.current.del("#{ branch.name }:#{ name }:leader")
+    named_srpms.each do |named_srpm|
+      Redis.current.del("#{ named_srpm.branch.name }:#{ name }:leader")
+    end
   end
 end

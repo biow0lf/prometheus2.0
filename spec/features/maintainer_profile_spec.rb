@@ -8,7 +8,7 @@ describe 'Maintainer profile' do
   context 'user' do
     it 'should not see "edit my maintainer profile link"' do
       create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-      user = create(:user_confirmed)
+      user = create(:user, :confirmed)
 
       login_as user
 
@@ -20,7 +20,7 @@ describe 'Maintainer profile' do
   context 'maintainer' do
     it 'should see "edit my maintainer profile link"' do
       create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-      user = create(:user_confirmed, email: 'icesik@altlinux.org')
+      user = create(:user, :confirmed, email: 'icesik@altlinux.org')
       login_as user
 
       visit '/'
@@ -29,7 +29,7 @@ describe 'Maintainer profile' do
 
     it 'should able update maintainer profile' do
       create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-      user = create(:user_confirmed, email: 'icesik@altlinux.org')
+      user = create(:user, :confirmed, email: 'icesik@altlinux.org')
       create(:maintainer, login: 'icesik', email: 'icesik@altlinux.org')
       login_as user
 

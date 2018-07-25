@@ -5,7 +5,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
 
-    factory :user_confirmed do
+    trait :confirmed do
       confirmed_at { Time.zone.now }
     end
   end

@@ -11,8 +11,8 @@ describe Specfile do
 
   it 'should import spec file' do
     branch = create(:branch)
-    group = create(:group, branch_id: branch.id)
-    srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
+    group = create(:group, branch: branch)
+    srpm = create(:srpm, branch: branch, group: group)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
 
     expect(Specfile).to receive(:`).with("rpm -qp --queryformat=\"[%{FILEFLAGS} %{FILENAMES}\n]\" \"#{ file }\" | grep \"32 \" | sed -e 's/32 //'").and_return('openbox.spec')

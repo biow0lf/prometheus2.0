@@ -48,8 +48,8 @@ describe Changelog do
 
   it 'should import changelogs' do
     branch = create(:branch)
-    group = create(:group, branch_id: branch.id)
-    srpm = create(:srpm, branch_id: branch.id, group_id: group.id)
+    group = create(:group, branch: branch)
+    srpm = create(:srpm, branch: branch, group: group)
 
     file = './spec/data/catpkt-1.0-alt5.src.rpm'
 

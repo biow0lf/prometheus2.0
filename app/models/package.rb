@@ -17,7 +17,7 @@ class Package < ApplicationRecord
 
   has_many :conflicts, dependent: :destroy
 
-  has_one :branch, through: :srpm
+  has_many :branches, through: :srpm
 
   validates :groupname, presence: true
 
@@ -32,7 +32,7 @@ class Package < ApplicationRecord
 
   def self.import(branch, rpm)
     sourcerpm = rpm.sourcerpm
-    srpm_id = Srpm.where(filename: sourcerpm).or(branch.srpms.where(alias: sourcerpm)).first&.id
+    srpm_id = NamedSrpm.where(name: sourcerpm, branch_id: branch.id).first&.srpm_id
 
     if srpm_id
       package = Package.find_or_initialize_by(md5: rpm.md5) do |package|
@@ -65,13 +65,13 @@ class Package < ApplicationRecord
           # Require.import_requires(rpm, package)
           # Conflict.import_conflicts(rpm, package)
           # Obsolete.import_obsoletes(rpm, package)
-          puts "#{ Time.now }: imported '#{ package.filename }'"
+          Rails.logger.info "imported '#{ package.filename }'"
         else
-          puts "#{ Time.now }: failed to import '#{ package.filename }'"
+          Rails.logger.error "failed to import '#{ package.filename }'"
         end
       end
     else
-      puts "#{ Time.now }: srpm '#{ sourcerpm }' not found in db"
+      Rails.logger.error "srpm '#{ sourcerpm }' not found in db"
     end
   end
 
@@ -91,10 +91,14 @@ class Package < ApplicationRecord
   private
 
   def add_filename_to_cache
-    Redis.current.set("#{ srpm.branch.name }:#{ filename }", 1)
+    srpm.named_srpms.each do |named_srpm|
+      Redis.current.set("#{ named_srpm.branch.name }:#{ filename }", 1)
+    end
   end
 
   def remove_filename_from_cache
-    Redis.current.del("#{ srpm.branch.name }:#{ filename }")
+    srpm.named_srpms.each do |named_srpm|
+      Redis.current.del("#{ named_srpm.branch.name }:#{ filename }")
+    end
   end
 end

@@ -1,24 +1,28 @@
 # frozen_string_literal: true
 
 class RemoveOldSrpms < Rectify::Command
-  attr_reader :branches, :paths
+  attr_reader :branch, :path
 
-  def initialize branches, paths
-    @branches = [ branches ].flatten
-    @paths = paths
+  def initialize branch, path
+    @branch = branch
+    @path = path
   end
 
-  def branch_ids
-    branches.map(&:id)
+  def log *args
+    Rails.logger.info *args
   end
 
   def call
-    Srpm.by_branch_id(branch_ids).each do |srpm|
-      exists = paths.any? { |path| File.exist?("#{ path }#{ srpm.filename }") }
+    NamedSrpm.by_branch_id(branch.id).each do |nsrpm|
+      if !File.exist?("#{ path }#{ nsrpm.name }")
+        srpm = nsrpm.srpm
 
-      if !exists
-        srpm.destroy
-        puts "SRPM #{srpm.filename} has been removed"
+        nsrpm.destroy
+        if srpm.reload.named_srpms.blank?
+          srpm.destroy
+        end
+
+        log "SRPM #{nsrpm.name} has been removed from #{branch.name}"
       end
     end
 

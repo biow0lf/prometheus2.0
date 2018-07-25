@@ -7,7 +7,9 @@ describe Branch do
 
   it { should be_a(Redis::Objects) }
 
-  it { should have_many(:srpms).dependent(:destroy) }
+  it { should have_many(:srpms).through(:named_srpms) }
+
+  it { should have_many(:named_srpms).dependent(:destroy) }
 
   it { should have_many(:changelogs).through(:srpms) }
 
