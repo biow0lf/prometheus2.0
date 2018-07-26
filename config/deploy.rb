@@ -62,7 +62,7 @@ task :restart_puma do
   on release_roles :all do
     within release_path do
       with fetch(:bundle_env_variables, { RAILS_ENV: fetch(:stage) }) do
-        execute "kill -9 $(ps aux|grep puma| sed \"s/^[^0-9]*\\([0-9]*\\).*/\\1/\"); sleep 2"
+        execute "kill -9 $(ps aux|egrep \(rake\|puma\)| sed \"s/^[^0-9]*\\([0-9]*\\).*/\\1/\"); sleep 2"
         execute :bundle, :exec, "puma -e #{fetch(:stage)} --config #{fetch :puma_conf}"
       end
     end
