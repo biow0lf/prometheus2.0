@@ -22,9 +22,10 @@ class CreateNamedSrpms < ActiveRecord::Migration[5.1]
                end
             end
 
-            srpms = Srpm.where.not(branch_id: nil).select(:branch_id, :filename)
-            attrs = srpms.as_json.map { |x| x.merge(name: x.delete("filename")) }
-            NamedSrpm.import(attrs)
+            srpms = Srpm.where.not(branch_id: nil).select(:id, :branch_id, :filename)
+            attrs = srpms.as_json.map { |x| x.merge(name: x.delete("filename")).merge(srpm_id: x.delete("id")) }
+            NamedSrpm.import!(attrs)
+            NamedSrpm.connection.reset_pk_sequence!("named_srpms")
          end
       end
 

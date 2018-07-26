@@ -17,20 +17,6 @@ ActiveRecord::Schema.define(version: 20180724105937) do
   enable_extension "pg_stat_statements"
   enable_extension "btree_gin"
 
-  create_table "branch_arches", force: :cascade do |t|
-    t.string "path"
-    t.string "arch"
-    t.string "kind"
-    t.boolean "active", default: false
-    t.bigint "branch_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["active"], name: "index_branch_arches_on_active"
-    t.index ["arch"], name: "index_branch_arches_on_arch"
-    t.index ["branch_id"], name: "index_branch_arches_on_branch_id"
-    t.index ["kind"], name: "index_branch_arches_on_kind"
-  end
-
   create_table "branches", id: :serial, force: :cascade do |t|
     t.string "vendor", limit: 255
     t.string "name", limit: 255
@@ -79,20 +65,6 @@ ActiveRecord::Schema.define(version: 20180724105937) do
     t.integer "flags"
     t.integer "epoch"
     t.index ["package_id"], name: "index_conflicts_on_package_id"
-  end
-
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer "priority", default: 0
-    t.integer "attempts", default: 0
-    t.text "handler"
-    t.text "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string "locked_by"
-    t.string "queue"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "freshmeats", id: :serial, force: :cascade do |t|
@@ -400,7 +372,6 @@ ActiveRecord::Schema.define(version: 20180724105937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "branch_arches", "branches", on_delete: :cascade
   add_foreign_key "named_srpms", "branches"
   add_foreign_key "named_srpms", "srpms"
   add_foreign_key "packages", "srpms", on_delete: :cascade

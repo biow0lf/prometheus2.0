@@ -34,6 +34,7 @@ class Srpm < ApplicationRecord
                                                     foreign_key: 'repo'
 
   scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
+  scope :ordered, -> { order('srpms.buildtime DESC') }
 
   # delegate :name, to: :branch, prefix: true
 
@@ -161,6 +162,10 @@ class Srpm < ApplicationRecord
       logins << changelog.login
     end
     Maintainer.where(login: logins.sort.uniq).order(:name)
+  end
+
+  def filename_in branch
+    named_srpms.by_branch_id(branch).first&.name
   end
 
   private

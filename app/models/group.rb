@@ -23,12 +23,13 @@ class Group < ApplicationRecord
 
   def self.find_groups_in_sisyphus
     find_by_sql("SELECT COUNT(srpms.name) AS counter, groups.name
-                 FROM srpms, groups, branches
+                 FROM srpms, named_srpms, groups, branches
                  WHERE groups.branch_id = branches.id
                  AND branches.name = 'Sisyphus'
                  AND branches.vendor = 'ALT Linux'
                  AND srpms.group_id = groups.id
-                 AND srpms.branch_id = branches.id
+                 AND srpms.id = named_srpms.srpm_id
+                 AND named_srpms.branch_id = branches.id
                  GROUP BY groups.name
                  ORDER BY groups.name")
   end

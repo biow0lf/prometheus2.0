@@ -12,7 +12,7 @@
       <th><%= _('ACL:') %></th>
     </tr>
     <% @specfiles.each do |specfile| %>
-      <% if specfile.srpm.branch.name == 'Sisyphus' %>
+      <% if specfile.srpm.branches.map(&:name).include?('Sisyphus') %>
         <tr>
           <td><%= link_to specfile.srpm.name, srpm_path(id: specfile.srpm.name, branch: 'Sisyphus'), class: 'news', title: _('detailed information about RPM') %></td>
           <td><%= "#{ specfile.srpm.version }-#{ specfile.srpm.release }" %></td>

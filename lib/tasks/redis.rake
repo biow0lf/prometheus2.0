@@ -32,7 +32,7 @@ namespace :redis do
     end
 
     branches.each do |branch|
-      srpms = Srpm.where(branch_id: branch).select('filename')
+      srpms = NamedSrpm.where(branch_id: branch).select('filename')
       srpms.each { |srpm| Redis.current.set("#{ branch.name }:#{ srpm.filename }", 1) }
     end
     puts "#{ Time.zone.now }: end"
