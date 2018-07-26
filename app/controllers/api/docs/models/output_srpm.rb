@@ -8,24 +8,15 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputSrpm do
-          key :required, [:id, :branch_id, :branch, :name, :version, :release,
+          key :required, [:id, :name, :version, :release,
                           :epoch, :summary, :license, :group, :group_id, :url,
-                          :description, :buildtime, :filename, :vendor,
+                          :description, :buildtime, :vendor,
                           :distribution, :md5, :builder_id, :size, :repocop,
                           :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64
             key :description, 'Srpm ID'
-          end
-          property :branch_id do
-            key :type, :integer
-            key :format, :int64
-            key :description, 'Branch ID'
-          end
-          property :branch do
-            key :type, :string
-            key :description, 'Branch name'
           end
           property :name do
             key :type, :string
@@ -73,10 +64,6 @@ module Api
             key :type, :string
             key :format, :'date-time'
             key :description, 'Buildtime in ISO8601 format'
-          end
-          property :filename do
-            key :type, :string
-            key :description, 'Srpm filename'
           end
           property :vendor do
             key :type, :string

@@ -19,7 +19,7 @@
 <div class="header"><%= _('New SRPMs') %></div>
 <p class="news" />
 
-<%= render partial: 'srpms' %>
+<%= render partial: 'srpms', locals: { current_branch: @branch } %>
 
 <div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
   <div class="headleft">

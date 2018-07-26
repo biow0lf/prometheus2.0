@@ -101,7 +101,7 @@ module RPM
     def change_log
       output = read("[%{CHANGELOGTIME}\n#{'+'*10}\n%{CHANGELOGNAME}\n#{'+'*10}\n%{CHANGELOGTEXT}\n#{'@'*10}\n]")
 
-      records = output.dup.force_encoding('binary').split("\n#{'@'*10}\n")
+      records = output.to_s.dup.force_encoding('binary').split("\n#{'@'*10}\n")
       records.map { |r| r.split("\n#{'+'*10}\n") }
     end
 

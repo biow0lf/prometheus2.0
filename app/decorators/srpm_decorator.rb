@@ -6,8 +6,6 @@ class SrpmDecorator < Draper::Decorator
   def as_json(*)
     {
       id: id,
-      branch_id: branch_id,
-      branch: branch.name,
       name: name,
       version: version,
       release: release,
@@ -19,7 +17,6 @@ class SrpmDecorator < Draper::Decorator
       url: url,
       description: description,
       buildtime: buildtime.iso8601,
-      filename: filename,
       vendor: vendor,
       distribution: distribution,
       # changelogname: changelogname,

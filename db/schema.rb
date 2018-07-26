@@ -10,25 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723104300) do
+ActiveRecord::Schema.define(version: 20180724105937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pg_stat_statements"
-
-  create_table "branch_arches", force: :cascade do |t|
-    t.string "path"
-    t.string "arch"
-    t.string "kind"
-    t.boolean "active", default: false
-    t.bigint "branch_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["active"], name: "index_branch_arches_on_active"
-    t.index ["arch"], name: "index_branch_arches_on_arch"
-    t.index ["branch_id"], name: "index_branch_arches_on_branch_id"
-    t.index ["kind"], name: "index_branch_arches_on_kind"
-  end
+  enable_extension "btree_gin"
 
   create_table "branches", id: :serial, force: :cascade do |t|
     t.string "vendor", limit: 255
@@ -78,20 +65,6 @@ ActiveRecord::Schema.define(version: 20180723104300) do
     t.integer "flags"
     t.integer "epoch"
     t.index ["package_id"], name: "index_conflicts_on_package_id"
-  end
-
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer "priority", default: 0
-    t.integer "attempts", default: 0
-    t.text "handler"
-    t.text "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string "locked_by"
-    t.string "queue"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "freshmeats", id: :serial, force: :cascade do |t|
@@ -170,6 +143,19 @@ ActiveRecord::Schema.define(version: 20180723104300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["branch_id"], name: "index_mirrors_on_branch_id"
+  end
+
+  create_table "named_srpms", force: :cascade do |t|
+    t.bigint "branch_id", null: false, comment: "Отошение к ветви"
+    t.bigint "srpm_id", null: false, comment: "Отношение к содержимому srpm"
+    t.string "name", null: false, comment: "Имя файла srpm, такое, как он представлен в заданной ветви"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id", "name"], name: "index_named_srpms_on_branch_id_and_name", unique: true
+    t.index ["branch_id", "srpm_id"], name: "index_named_srpms_on_branch_id_and_srpm_id", unique: true
+    t.index ["branch_id"], name: "index_named_srpms_on_branch_id"
+    t.index ["name"], name: "index_named_srpms_on_name", using: :gin
+    t.index ["srpm_id"], name: "index_named_srpms_on_srpm_id"
   end
 
   create_table "obsoletes", id: :serial, force: :cascade do |t|
@@ -323,7 +309,6 @@ ActiveRecord::Schema.define(version: 20180723104300) do
   end
 
   create_table "srpms", id: :serial, force: :cascade do |t|
-    t.string "filename", limit: 255
     t.string "name", limit: 255
     t.string "version", limit: 255
     t.string "release", limit: 255
@@ -335,7 +320,6 @@ ActiveRecord::Schema.define(version: 20180723104300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "repocop", limit: 255, default: "skip"
-    t.integer "branch_id"
     t.integer "group_id"
     t.string "vendor", limit: 255
     t.string "distribution", limit: 255
@@ -349,10 +333,6 @@ ActiveRecord::Schema.define(version: 20180723104300) do
     t.datetime "changelogtime"
     t.integer "epoch"
     t.string "buildhost"
-    t.string "alias"
-    t.index ["alias"], name: "index_srpms_on_alias"
-    t.index ["branch_id", "created_at"], name: "index_srpms_on_branch_id_and_created_at"
-    t.index ["branch_id"], name: "index_srpms_on_branch_id"
     t.index ["group_id"], name: "index_srpms_on_group_id"
     t.index ["md5"], name: "index_srpms_on_md5", unique: true
     t.index ["name"], name: "index_srpms_on_name"
@@ -392,7 +372,7 @@ ActiveRecord::Schema.define(version: 20180723104300) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "branch_arches", "branches", on_delete: :cascade
+  add_foreign_key "named_srpms", "branches"
+  add_foreign_key "named_srpms", "srpms"
   add_foreign_key "packages", "srpms", on_delete: :cascade
-  add_foreign_key "srpms", "branches"
 end

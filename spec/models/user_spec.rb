@@ -18,7 +18,7 @@ describe User do
   end
 
   it 'should deny change email' do
-    user = create(:user_confirmed)
+    user = create(:user, :confirmed)
     user.email = 'icesik@altlinux.org'
     expect(user.save).to eq(false)
   end

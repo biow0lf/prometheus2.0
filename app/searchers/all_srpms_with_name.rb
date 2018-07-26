@@ -9,7 +9,7 @@ class AllSrpmsWithName
 
   def search
     Srpm.where(name: name)
-        .includes(:branch)
+        .includes(:branches)
         .order('branches.order_id')
   end
 end

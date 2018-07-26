@@ -7,7 +7,7 @@ describe 'Sign in' do
     create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     email = 'me@example.com'
     password = 'password'
-    create(:user_confirmed, email: email, password: password)
+    create(:user, :confirmed, email: email, password: password)
 
     visit '/'
     click_link 'Sign in'

@@ -3,7 +3,7 @@
 class SrpmsController < ApplicationController
   def show
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages, :branch).first!.decorate
+    @srpm = @branch.srpms.where(name: params[:id]).includes(:packages).first!.decorate
     @ftbfs = @branch.ftbfs.where(name: @srpm.name,
                                  version: @srpm.version,
                                  release: @srpm.release,
@@ -32,7 +32,7 @@ class SrpmsController < ApplicationController
 
   def changelog
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).first!
     @changelogs = @srpm.changelogs.order('changelogs.created_at ASC')
     @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
@@ -41,7 +41,7 @@ class SrpmsController < ApplicationController
 
   def spec
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).first!
+    @srpm = @branch.srpms.where(name: params[:id]).first!
     @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
@@ -59,7 +59,7 @@ class SrpmsController < ApplicationController
 
   def get
     @branch = Branch.find_by!(name: params[:branch])
-    @srpm = @branch.srpms.where(name: params[:id]).includes(:branch).last!
+    @srpm = @branch.srpms.where(name: params[:id]).last!
     @mirrors = Mirror.where(branch_id: @branch.id).where("protocol != 'rsync'").order('mirrors.order_id ASC')
     @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
     @packages = @srpm.packages.order('packages.name ASC').group("packages.arch, packages.id").includes(:branch).decorate
