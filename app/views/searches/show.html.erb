@@ -33,8 +33,8 @@
     </tr>
 
     <% @srpms.each do |srpm| %>
-      <% srpm = srpm.decorate %>
       <% if srpm %>
+        <%- srpm = srpm.decorate %>
         <tr>
           <% if @branch.name == 'Sisyphus' %>
             <td>
@@ -49,8 +49,8 @@
           <td><%= "#{ time_ago_in_words(srpm.buildtime) } #{ _('ago') }" %></td>
           <td><%= srpm.short_url %></td>
           <td><%= srpm.summary %></td>
-        </tr>
-      <% end %>
+        <% end %>
+      </tr>
     <% end %>
   </table>
 
