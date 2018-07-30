@@ -11,6 +11,8 @@ describe Branch do
 
   it { should have_many(:named_srpms).dependent(:destroy) }
 
+  it { should have_many(:branch_paths).dependent(:delete_all) }
+
   it { should have_many(:changelogs).through(:srpms) }
 
   it { should have_many(:packages).through(:srpms) }
@@ -49,6 +51,12 @@ describe Branch do
     subject { create(:branch, name: 'Sisyphus') }
 
     specify { expect(subject.to_param).to eq('Sisyphus') }
+  end
+
+  describe '#arches' do
+    subject { create(:branch, arches: %w(i586 x86_64 noarch aarch64 mipsel armh)) }
+
+    specify { expect(subject.arches).to match_array(%w(i586 x86_64 noarch aarch64 mipsel armh)) }
   end
 
   # private methods

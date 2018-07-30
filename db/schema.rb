@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180724105937) do
+ActiveRecord::Schema.define(version: 20180730090848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "pg_stat_statements"
   enable_extension "btree_gin"
+
+  create_table "branch_paths", force: :cascade do |t|
+    t.string "arch", comment: "Архитектура, используемая для ветви"
+    t.string "path", comment: "Путь ко хранилищу rpm-пакетов для архитектуры"
+    t.bigint "branch_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["arch", "path"], name: "index_branch_paths_on_arch_and_path", unique: true
+    t.index ["arch"], name: "index_branch_paths_on_arch", using: :gin
+    t.index ["branch_id", "arch"], name: "index_branch_paths_on_branch_id_and_arch", unique: true
+    t.index ["branch_id"], name: "index_branch_paths_on_branch_id"
+    t.index ["path"], name: "index_branch_paths_on_path", using: :gin
+  end
 
   create_table "branches", id: :serial, force: :cascade do |t|
     t.string "vendor", limit: 255
@@ -372,6 +385,7 @@ ActiveRecord::Schema.define(version: 20180724105937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "branch_paths", "branches"
   add_foreign_key "named_srpms", "branches"
   add_foreign_key "named_srpms", "srpms"
   add_foreign_key "packages", "srpms", on_delete: :cascade

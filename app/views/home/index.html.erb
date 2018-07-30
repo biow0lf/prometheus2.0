@@ -15,6 +15,10 @@
 </p>
 <p class="break" />
 
+<%= render partial: "shared/search_form", locals: { branch: @branch, arch: @arch, arches: @branch.arches, query: @query } %>
+
+<p class="break" />
+
 <p class="news" />
 <div class="header"><%= _('New SRPMs') %></div>
 <p class="news" />

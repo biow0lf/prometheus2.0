@@ -5,6 +5,7 @@ class Branch < ApplicationRecord
 
   has_many :named_srpms, dependent: :destroy
   has_many :srpms, through: :named_srpms
+  has_many :branch_paths, dependent: :delete_all
   has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :groups, dependent: :destroy
@@ -30,6 +31,10 @@ class Branch < ApplicationRecord
 
   def counter_value
     self.persisted? && counter.value || 0
+  end
+
+  def arches
+     branch_paths.select(:arch).pluck(:arch)
   end
 
   private

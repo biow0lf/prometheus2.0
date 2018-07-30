@@ -1,0 +1,6 @@
+<%= form_tag search_path, method: :get do %>
+  <%= hidden_field_tag :branch, branch.name %>
+  <%= select_tag :arch, branch.options_for(arch) %>
+  <%= text_field_tag :query, query, placeholder: _('Search...'), size: '20' %>
+  <%= submit_tag _('find'), name: nil, class: 'top-go' %>
+<%- end %>

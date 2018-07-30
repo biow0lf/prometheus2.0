@@ -1621,4 +1621,37 @@ if Branch.where(name: "Sisyphus_MIPS").blank?
    branch.order_id = 11
    branch.path = '/ALTmips'
    branch.save!
+
+   Mirror.create! branch_id: branch.id,
+                  order_id: 1,
+                  name: 'ftp://ftp.altlinux.org',
+                  country: 'ru',
+                  uri: 'ftp://ftp.altlinux.org/pub/distributions/ALTLinux/ports/mipsel/Sisyphus/',
+                  protocol: 'ftp'
+end
+
+if BranchPath.all.blank?
+   scheme = { "Sisyphus"      => %w(/ALT/Sisyphus/files/#{arch}/RPMS/ i586 x86_64 noarch aarch64),
+              "Sisyphus_MIPS" => %w(/ALTmips/files/#{arch}/RPMS/ mipsel noarch),
+              "SisyphusARM"   => %w(/ALT/Sisyphus-armh/files/armh/RPMS/ armh noarch),
+              "p8"            => %w(/ALT/p8/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "p7"            => %w(/ALT/p7/files/#{arch}/RPMS/ i586 x86_64 noarch ),
+              "t7"            => %w(/ALT/t7/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "Platform6"     => %w(/ALT/p6/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "t6"            => %w(/ALT/t6/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "Platform5"     => %w(/ALT/p5/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "5.1"           => %w(/ALT/5.1/files/#{arch}/RPMS/ i586 x86_64 noarch),
+   }
+
+   scheme.each do |branch_name, arches|
+      path = arches.shift
+
+      branch = Branch.where(name: branch_name).first
+
+      arches.each do |arch|
+         FactoryBot.create(:branch_path, branch: branch,
+                                         arch: arch,
+                                         path: eval("\"#{path}\""))
+      end
+   end
 end
