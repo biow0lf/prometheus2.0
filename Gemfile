@@ -50,6 +50,9 @@ gem 'activerecord-import'
 # view
 gem 'slim'
 
+# seed
+gem 'factory_bot_rails'
+
 group :production, :development, :staging do
   gem 'redis'
 end
@@ -108,7 +111,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
   gem 'faker'
-  gem 'factory_bot_rails'
 end
 
 group :test do
