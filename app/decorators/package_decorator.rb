@@ -39,6 +39,6 @@ class PackageDecorator < Draper::Decorator
   end
 
   def path
-    "#{branch.path}/files/#{arch}/RPMS/#{filename}"
+    "#{branches.first.path}/files/#{arch}/RPMS/#{filename}"
   end
 end
