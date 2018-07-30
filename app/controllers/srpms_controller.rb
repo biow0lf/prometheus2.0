@@ -62,7 +62,7 @@ class SrpmsController < ApplicationController
     @srpm = @branch.srpms.where(name: params[:id]).last!
     @mirrors = Mirror.where(branch_id: @branch.id).where("protocol != 'rsync'").order('mirrors.order_id ASC')
     @allsrpms = AllSrpmsWithName.new(params[:id]).search.decorate
-    @packages = @srpm.packages.order('packages.name ASC').group("packages.arch, packages.id").includes(:branch).decorate
+    @packages = @srpm.packages.order('packages.name ASC').group("packages.arch, packages.id").includes(:branches).decorate
     @all_bugs = AllBugsForSrpm.new(@srpm).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@srpm).decorate
   end
