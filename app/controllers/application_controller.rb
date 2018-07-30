@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def set_default_branch
     params[:branch] ||= 'Sisyphus'
-    @branch = Branch.find_by!(name: params[:branch])
+    @branch = Branch.find_by!(name: params[:branch]).decorate
   end
 
   def default_url_options(_options = {})

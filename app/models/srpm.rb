@@ -35,6 +35,7 @@ class Srpm < ApplicationRecord
 
   scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
   scope :ordered, -> { order('srpms.buildtime DESC') }
+  scope :by_arch, ->(arch) { arch.blank? && self || joins(:packages).where(packages: { arch: arch }) }
 
   # delegate :name, to: :branch, prefix: true
 
