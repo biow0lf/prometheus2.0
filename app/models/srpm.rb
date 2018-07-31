@@ -36,6 +36,10 @@ class Srpm < ApplicationRecord
   scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
   scope :ordered, -> { order('srpms.buildtime DESC') }
   scope :by_arch, ->(arch) { arch.blank? && self || joins(:packages).where(packages: { arch: arch }) }
+  scope :q, ->(text) { joins(:packages).merge(Package.query(text)).or(self.query(text))
+  }
+  singleton_class.send(:alias_method, :b, :by_branch_name)
+  singleton_class.send(:alias_method, :a, :by_arch)
 
   # delegate :name, to: :branch, prefix: true
 
@@ -52,7 +56,7 @@ class Srpm < ApplicationRecord
   after_destroy :remove_leader_from_cache
 
   pg_search_scope :query,
-                  against: [:name, :summary, :description, :url],
+                  against: %i(name summary description url),
                   using: { tsearch: { prefix: true } }
 
   multisearchable against: [:name, :summary, :description, :url]
