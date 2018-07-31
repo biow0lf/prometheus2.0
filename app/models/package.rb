@@ -27,6 +27,10 @@ class Package < ApplicationRecord
 
   after_destroy :remove_filename_from_cache
 
+  pg_search_scope :query,
+                  against: %i(name summary description filename sourcepackage),
+                  using: { tsearch: { prefix: true } }
+
   multisearchable against: [:name, :summary, :description, :filename,
                             :sourcepackage]
 
