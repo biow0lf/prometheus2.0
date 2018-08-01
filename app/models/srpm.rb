@@ -35,9 +35,8 @@ class Srpm < ApplicationRecord
 
   scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
   scope :ordered, -> { order('srpms.buildtime DESC') }
-  scope :by_arch, ->(arch) { arch.blank? && self || joins(:packages).where(packages: { arch: arch }) }
-  scope :q, ->(text) { joins(:packages).merge(Package.query(text)).or(self.query(text))
-  }
+  scope :by_arch, ->(arch) { arch.blank? && all || joins(:packages).where(packages: { arch: arch }) }
+  scope :q, ->(text) { text.blank? && all || joins(:packages).merge(Package.query(text)).or(self.query(text)) }
   singleton_class.send(:alias_method, :b, :by_branch_name)
   singleton_class.send(:alias_method, :a, :by_arch)
 

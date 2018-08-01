@@ -6,16 +6,7 @@ class SearchesController < ApplicationController
     if params[:query].blank? and params[:arch].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.b(params[:branch]).q(params[:query])
-
-      srpm_ids = @srpms.group_by {|s| s.name}.map {|(_, s)| s.last.id } #TODO remove
-
-      #TODO remove
-      @srpms = Srpm.b(params[:branch]).a(params[:arch])
-      if params[:query].present?
-        @srpms = @srpms.where(id: srpm_ids).q(params[:query])
-      end
-      @srpms = @srpms.page(params[:page]).reorder("srpms.name").distinct
+      @srpms = Srpm.b(params[:branch]).a(params[:arch]).q(params[:query]).page(params[:page]).reorder("srpms.name").distinct
       # @srpms = Srpm.none
       # @srpms = Srpm.search(
       #   Riddle::Query.escape(params[:query]),
