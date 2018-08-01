@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :platforms
 
-    resources :users
+    # resources :users
 
     # resources :branches
     # resources :bugs
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     # resources :specfiles
     # resources :teams
 
-    root to: 'users#index'
+    root to: 'platforms#index'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
