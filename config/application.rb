@@ -32,7 +32,7 @@ module Prometheus20
 
     config.generators do |g|
       g.test_framework :rspec, fixture: true
-      g.fixture_replacement :factory_girl
+      g.fixture_replacement :factory_bot
       g.helper false
     end
 

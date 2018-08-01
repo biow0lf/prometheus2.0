@@ -43,6 +43,7 @@ gem 'cocaine', require: false
 gem 'browser'
 gem 'http_accept_language'
 # gem 'molinillo', require: false
+gem 'administrate'
 
 group :production, :development do
   gem 'redis'

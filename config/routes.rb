@@ -1,6 +1,38 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :platforms
+
+    # resources :users
+
+    # resources :branches
+    # resources :bugs
+    # resources :changelogs
+    # resources :maintainers
+    # resources :packages
+    # resources :srpms
+    # resources :conflicts
+    # resources :freshmeats
+    # resources :ftbfs
+    # resources :gears
+    # resources :groups
+    # resources :maintainer_teams
+    # resources :mirrors
+    # resources :obsoletes
+    # resources :patches
+    # resources :perl_watches
+    # resources :provides
+    # resources :repocops
+    # resources :repocop_patches
+    # resources :requires
+    # resources :sources
+    # resources :specfiles
+    # resources :teams
+
+    root to: 'platforms#index'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   authenticate :user, ->(user) { user.admin? } do
