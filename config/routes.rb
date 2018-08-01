@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :platforms
 
-    # resources :users
+    resources :users
+
     # resources :branches
     # resources :bugs
     # resources :changelogs
