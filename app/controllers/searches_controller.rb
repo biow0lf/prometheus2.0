@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
       #   with: { branch_id: @branch.id },
       #   include: :branch
       # ).page(params[:page]).per(100)
-      if @srpms.count == 1
+      if @srpms[1].blank?
         redirect_to(srpm_path(@branch, @srpms.first), status: 302)
       end
     end
