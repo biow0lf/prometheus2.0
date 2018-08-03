@@ -2,16 +2,14 @@
 
 require 'rails_helper'
 
-describe Platform do
+describe Architecture do
   it { should be_an(ApplicationRecord) }
 
-  it { should have_many(:architectures).dependent(:destroy) }
+  it { should belong_to(:platform) }
 
-  # it { should have_many(:sources).through(:architectures) }
-  #
+  # it { should have_many(:sources).dependent(:destroy) }
+
   # it { should have_many(:binaries).through(:sources) }
 
   it { should validate_presence_of(:name) }
-
-  it { should validate_presence_of(:version) }
 end
