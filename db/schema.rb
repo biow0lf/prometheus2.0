@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180801193058) do
+ActiveRecord::Schema.define(version: 20180803104140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "architectures", force: :cascade do |t|
+    t.bigint "platform_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["platform_id"], name: "index_architectures_on_platform_id"
+  end
 
   create_table "branches", id: :serial, force: :cascade do |t|
     t.string "vendor"
@@ -366,5 +374,6 @@ ActiveRecord::Schema.define(version: 20180801193058) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "architectures", "platforms"
   add_foreign_key "srpms", "branches"
 end

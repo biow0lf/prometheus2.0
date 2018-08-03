@@ -2,7 +2,7 @@
 
 require 'administrate/base_dashboard'
 
-class PlatformDashboard < Administrate::BaseDashboard
+class ArchitectureDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,10 +10,9 @@ class PlatformDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    platform: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
-    version: Field::String,
-    architectures: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -25,35 +24,33 @@ class PlatformDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :platform,
     :name,
-    :version,
-    :architectures
+    :created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :platform,
     :id,
     :name,
-    :version,
     :created_at,
-    :updated_at,
-    :architectures
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
-    :version,
-    :architectures
+    :platform,
+    :name
   ].freeze
 
-  # Overwrite this method to customize how platforms are displayed
+  # Overwrite this method to customize how architectures are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(platform)
-  #   "Platform ##{platform.id}"
+  # def display_resource(architecture)
+  #   "Architecture ##{architecture.id}"
   # end
 end
