@@ -49,8 +49,7 @@ class ArchitectureDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how architectures are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(architecture)
-  #   "Architecture ##{architecture.id}"
-  # end
+  def display_resource(architecture)
+    "#{ architecture.platform.name } #{ architecture.platform.version } #{ architecture.name }"
+  end
 end

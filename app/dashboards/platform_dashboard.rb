@@ -56,7 +56,6 @@ class PlatformDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how platforms are displayed
   # across all pages of the admin dashboard.
-
   def display_resource(platform)
     "#{ platform.name } #{ platform.version }"
   end
