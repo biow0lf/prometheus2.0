@@ -13,6 +13,7 @@ class PlatformDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     version: Field::String,
+    archived: Field::Boolean,
     architectures: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -27,6 +28,7 @@ class PlatformDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :version,
+    :archived,
     :architectures
   ].freeze
 
@@ -36,6 +38,7 @@ class PlatformDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :version,
+    :archived,
     :created_at,
     :updated_at,
     :architectures
@@ -47,6 +50,7 @@ class PlatformDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :version,
+    :archived,
     :architectures
   ].freeze
 
