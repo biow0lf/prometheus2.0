@@ -26,8 +26,6 @@ describe Package do
   end
 
   describe 'Callbacks' do
-    it { should callback(:set_srpm_delta_flag).after(:save) }
-
     it { should callback(:add_filename_to_cache).after(:create) }
 
     it { should callback(:remove_filename_from_cache).after(:destroy) }
@@ -105,23 +103,6 @@ describe Package do
   end
 
   # private methods
-
-  describe '#set_srpm_delta_flag' do
-    subject { stub_model Package }
-
-    before do
-      #
-      # srpm.update_attribute(:delta, true)
-      #
-      expect(subject).to receive(:srpm) do
-        double.tap do |a|
-          expect(a).to receive(:update_attribute).with(:delta, true)
-        end
-      end
-    end
-
-    specify { expect { subject.send(:set_srpm_delta_flag) }.not_to raise_error }
-  end
 
   describe '#add_filename_to_cache' do
     subject { stub_model Package, filename: 'openbox-1.0.i588.rpm' }
