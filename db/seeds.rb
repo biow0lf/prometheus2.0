@@ -1613,7 +1613,13 @@ MaintainerTeam.create!(
 end
 
 
-if Branch.where(name: "Sisyphus_MIPS").blank?
+has_branch_path =
+   begin
+      BranchPath
+   rescue NameError
+   end
+
+if Branch.where(name: "Sisyphus_MIPS").blank? and !has_branch_path
    # add MIPS branch
    branch = Branch.new
    branch.vendor = 'ALT Linux'
@@ -1689,4 +1695,20 @@ if BranchPath.source.blank?
    BranchPath.where(branch: branches).update_all(branch_id: branch_id)
    BranchPath.where(source_path_id: BranchPath.source.where(active: false).first).update_all(active: false)
    branches.delete_all
+end
+
+BranchPath.transaction do
+   BranchPath.where(name: nil).each do |branch_path|
+      base = case branch_path.path
+             when /^\/ALT\/([\w\-\.]+)\//
+                $1
+             when /^\/(\w+)\//
+                $1 == "ALTmips" && "Sisyphus MIPSEL" || $1
+             else
+                raise branch_path.path
+             end
+
+      name = branch_path.arch == "src" && base || "#{base} (#{branch_path.arch})"
+      branch_path.update!(name: name)
+   end
 end

@@ -36,9 +36,8 @@ class Srpm < ApplicationRecord
 
   scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
   scope :ordered, -> { order('srpms.buildtime DESC') }
-  scope :by_arch, ->(arch) { arch.blank? && self || joins(:packages).where(packages: { arch: arch }) }
-  scope :q, ->(text) { joins(:packages).merge(Package.query(text)).or(self.query(text))
-  }
+  scope :by_arch, ->(arch) { arch.blank? && all || joins(:packages).where(packages: { arch: arch }) }
+  scope :q, ->(text) { text.blank? && all || joins(:packages).merge(Package.query(text)).or(self.query(text)) }
   singleton_class.send(:alias_method, :b, :by_branch_name)
   singleton_class.send(:alias_method, :a, :by_arch)
 
@@ -131,15 +130,17 @@ class Srpm < ApplicationRecord
   end
 
   def self.import_all branch
+    Rails.logger.info "IMPORT: in"
     branch.branch_paths.source.each do |branch_path|
+      Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
       next if !branch_path.active?
 
       Dir.glob(branch_path.glob).sort.each do |file|
+        Rails.logger.info "IMPORT: file #{file}"
         next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
 
-        info = "file '#{ file }' "
-
+        info = "IMPORT: file '#{ file }' "
         (method, state) = begin
           Srpm.import(branch_path, RPMFile::Source.new(file), file)
           [ :info, "imported to branch #{branch_path.branch.name}" ]
