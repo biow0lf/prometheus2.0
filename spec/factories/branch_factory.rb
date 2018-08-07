@@ -15,9 +15,13 @@ FactoryBot.define do
       arches nil
     end
 
-    after(:build) do |b, e|
-      if e.arches
-        b.branch_paths = e.arches.map { |a| build(:branch_path, arch: a, path: a) }
+    trait :with_paths do
+      after(:create) do |b, e|
+        source_path = create(:src_branch_path, branch: b, path: "/path/to/src/for/#{b.name}")
+
+        if e.arches
+          e.arches.each { |a| create(:branch_path, arch: a, path: a, branch: b, source_path: source_path)}
+        end
       end
     end
   end

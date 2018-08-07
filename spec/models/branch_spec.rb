@@ -9,9 +9,11 @@ describe Branch do
 
   it { should have_many(:srpms).through(:named_srpms) }
 
-  it { should have_many(:named_srpms).dependent(:destroy) }
+  it { should have_many(:branch_paths) }
 
-  it { should have_many(:branch_paths).dependent(:delete_all) }
+  it { should have_many(:named_srpms).through(:branch_paths) }
+
+  it { should have_many(:srpms).through(:named_srpms) }
 
   it { should have_many(:changelogs).through(:srpms) }
 
@@ -54,9 +56,9 @@ describe Branch do
   end
 
   describe '#arches' do
-    subject { create(:branch, arches: %w(i586 x86_64 noarch aarch64 mipsel armh)) }
+    subject { create(:branch, :with_paths, arches: %w(i586 x86_64 noarch aarch64 mipsel armh)) }
 
-    specify { expect(subject.arches).to match_array(%w(i586 x86_64 noarch aarch64 mipsel armh)) }
+    specify { expect(subject.arches).to match_array(%w(i586 x86_64 aarch64 mipsel armh)) }
   end
 
   # private methods

@@ -11,16 +11,13 @@ FactoryBot.define do
 
     transient do
       filename nil
-      branchname { Faker::App.name }
       branch nil
     end
 
     after(:build) do |o, e|
       filename = e.filename || "#{o.name}-#{o.version}-#{o.release}.src.rpm"
-      o.named_srpms << build(:named_srpm, name: filename,
-                                          branch: e.branch,
-                                          branchname: e.branchname)
-      o.group ||= create(:group, branch: o.named_srpms.first.branch)
+
+      o.group ||= create(:group)
     end
   end
 end
