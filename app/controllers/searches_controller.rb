@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class SearchesController < ApplicationController
+  before_action :fix_arches
+
   def show
     @branches = Branch.order('order_id')
     if params[:query].blank? and params[:arch].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.b(params[:branch]).a(params[:arch]).q(params[:query]).page(params[:page]).reorder("srpms.name").distinct
+      @srpms = Srpm.b(params[:branch]).a(@arches).q(params[:query]).page(params[:page]).reorder("srpms.name").distinct
       # @srpms = Srpm.none
       # @srpms = Srpm.search(
       #   Riddle::Query.escape(params[:query]),
@@ -30,5 +32,13 @@ class SearchesController < ApplicationController
   #   render 'search_is_not_available'
   # rescue ThinkingSphinx::ConnectionError
   #   render 'search_is_not_available'
+  end
+
+  protected
+
+  # fixes noarch arch call when blank TODO
+  def fix_arches
+    arches = [ params[:arch] ].flatten.compact.select { |a| a.present? }
+    @arches = arches.any? { |a| a != 'noarch' } && arches || nil
   end
 end
