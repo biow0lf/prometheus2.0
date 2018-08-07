@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180806144400) do
+ActiveRecord::Schema.define(version: 20180807124500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 20180806144400) do
     t.datetime "updated_at", null: false
     t.bigint "source_path_id", comment: "Указатель на путь к ветви родительских пакетов"
     t.boolean "active", default: true, comment: "Флаг задействования пути ветви, если установлен, то путь активен"
+    t.string "name", comment: "Имя пути ветви"
     t.index ["arch", "branch_id", "source_path_id"], name: "index_branch_paths_on_arch_and_branch_id_and_source_path_id", unique: true
     t.index ["arch", "path"], name: "index_branch_paths_on_arch_and_path", unique: true
     t.index ["arch"], name: "index_branch_paths_on_arch", using: :gin
     t.index ["branch_id"], name: "index_branch_paths_on_branch_id"
+    t.index ["name"], name: "index_branch_paths_on_name"
     t.index ["path"], name: "index_branch_paths_on_path", using: :gin
     t.index ["source_path_id"], name: "index_branch_paths_on_source_path_id"
   end

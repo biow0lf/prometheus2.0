@@ -82,15 +82,17 @@ class Package < ApplicationRecord
   end
 
   def self.import_all branch
+    Rails.logger.info "IMPORT: in"
     branch.branch_paths.package.each do |branch_path|
+      Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
       next if !branch_path.active?
 
       Dir.glob(branch_path.glob).sort.each do |file|
+        Rails.logger.info "IMPORT: file #{file}"
         next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
 
         info = "file '#{ file }' "
-
         (method, state) = begin
           rpm = RPMFile::Binary.new(file)
           Package.import(branch_path, rpm)

@@ -8,6 +8,8 @@ class BranchPath < ApplicationRecord
   scope :package, -> { where.not(arch: "src") }
   scope :active, -> { where(active: true) }
   scope :phys, -> { where.not(arch: %w(src noarch)) }
+  scope :unanonimous, -> { where.not(name: nil) }
+  scope :for_branch, ->(branch) { where(branch_id: branch) }
 
   validates_presence_of :branch, :arch, :path
   validates_presence_of :source_path, if: -> { arch != "src" }
