@@ -4,12 +4,8 @@
 
   <div class="header" style="letter-spacing: 1px;"><%= _('Search') %></div>
   <p class="break"></p>
-  <%= form_tag search_path(branch: @branch.name), method: :get do %>
-    <%= select_tag :branch, options_from_collection_for_select(@branches, 'name', 'name', @branch.name) %>
-    <%= select_tag :arch, @branch.options_for(params[:arch]) %>
-    <%= text_field_tag :query, params[:query] ? params[:query] : 'Search...', size: '20' %>
-    <%= submit_tag 'Search', name: nil, class: 'top-go', id: 'subOn', value: _('find'), onmouseover: "m_on('subOn')", onmouseout: "m_off('subOn')" %>
-  <% end %>
+
+  <%= render partial: "shared/search_form", locals: { branches: @branches, branch: @branch, arch: @arch, arches: @branch.arches, query: @query || params[:query]} %>
 
   <br>
   <br>
