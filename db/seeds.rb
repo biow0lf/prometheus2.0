@@ -1655,3 +1655,38 @@ if BranchPath.all.blank?
       end
    end
 end
+
+if BranchPath.source.blank?
+   scheme = { "Sisyphus"      => %w(/ALT/Sisyphus/files/SRPMS/ true),
+              "Sisyphus_MIPS" => %w(/ALTmips/files/SRPMS/ true),
+              "SisyphusARM"   => %w(/ALT/Sisyphus-armh/files/armh/SRPMS/ false),
+              "p8"            => %w(/ALT/p8/files/SRPMS/ true),
+              "p7"            => %w(/ALT/p7/files/SRPMS/ true),
+              "t7"            => %w(/ALT/t7/files/SRPMS/ true),
+              "Platform6"     => %w(/ALT/p6/files/SRPMS/ true),
+              "t6"            => %w(/ALT/t6/files/SRPMS/ true),
+              "Platform5"     => %w(/ALT/p5/files/SRPMS/ true),
+              "5.1"           => %w(/ALT/5.1/files/SRPMS/ true),
+   }
+
+   scheme.each do |branch_name, arches|
+      path = arches.shift
+      active = eval(arches.shift)
+
+      branch = Branch.where(name: branch_name).first
+
+      bp = FactoryBot.create(:branch_path, branch: branch,
+                                           arch: "src",
+                                           path: path,
+                                           active: active)
+      # update source_path
+      BranchPath.where(branch: branch).where.not(arch: "src").update_all(source_path_id: bp.id)
+   end
+
+   # merge SisyphusARM and Sisyphus_MIPS to Sisyphus
+   branch_id = Branch.where(name: %w(Sisyphus)).pluck(:id).first
+   branches = Branch.where(name: %w(SisyphusARM Sisyphus_MIPS))
+   BranchPath.where(branch: branches).update_all(branch_id: branch_id)
+   BranchPath.where(source_path_id: BranchPath.source.where(active: false).first).update_all(active: false)
+   branches.delete_all
+end

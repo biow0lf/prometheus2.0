@@ -3,9 +3,9 @@
 class Branch < ApplicationRecord
   include Redis::Objects
 
-  has_many :named_srpms, dependent: :destroy
-  has_many :srpms, through: :named_srpms
-  has_many :branch_paths, dependent: :delete_all
+  has_many :branch_paths
+  has_many :named_srpms, through: :branch_paths
+  has_many :srpms, -> { distinct }, through: :named_srpms
   has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :groups, dependent: :destroy
@@ -34,7 +34,11 @@ class Branch < ApplicationRecord
   end
 
   def arches
-     branch_paths.select(:arch).pluck(:arch)
+    branch_paths.phys.active.select(:arch).distinct.pluck(:arch)
+  end
+
+  def acl_name
+    name.downcase
   end
 
   private

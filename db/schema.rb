@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730090848) do
+ActiveRecord::Schema.define(version: 20180806144400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,14 @@ ActiveRecord::Schema.define(version: 20180730090848) do
     t.bigint "branch_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "source_path_id", comment: "Указатель на путь к ветви родительских пакетов"
+    t.boolean "active", default: true, comment: "Флаг задействования пути ветви, если установлен, то путь активен"
+    t.index ["arch", "branch_id", "source_path_id"], name: "index_branch_paths_on_arch_and_branch_id_and_source_path_id", unique: true
     t.index ["arch", "path"], name: "index_branch_paths_on_arch_and_path", unique: true
     t.index ["arch"], name: "index_branch_paths_on_arch", using: :gin
-    t.index ["branch_id", "arch"], name: "index_branch_paths_on_branch_id_and_arch", unique: true
     t.index ["branch_id"], name: "index_branch_paths_on_branch_id"
     t.index ["path"], name: "index_branch_paths_on_path", using: :gin
+    t.index ["source_path_id"], name: "index_branch_paths_on_source_path_id"
   end
 
   create_table "branches", id: :serial, force: :cascade do |t|
@@ -159,14 +162,14 @@ ActiveRecord::Schema.define(version: 20180730090848) do
   end
 
   create_table "named_srpms", force: :cascade do |t|
-    t.bigint "branch_id", null: false, comment: "Отошение к ветви"
     t.bigint "srpm_id", null: false, comment: "Отношение к содержимому srpm"
     t.string "name", null: false, comment: "Имя файла srpm, такое, как он представлен в заданной ветви"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_id", "name"], name: "index_named_srpms_on_branch_id_and_name", unique: true
-    t.index ["branch_id", "srpm_id"], name: "index_named_srpms_on_branch_id_and_srpm_id", unique: true
-    t.index ["branch_id"], name: "index_named_srpms_on_branch_id"
+    t.bigint "branch_path_id", null: false, comment: "Указатель на путь к ветви, откуда пакет был истянут"
+    t.index ["branch_path_id", "name"], name: "index_named_srpms_on_branch_path_id_and_name", unique: true
+    t.index ["branch_path_id", "srpm_id"], name: "index_named_srpms_on_branch_path_id_and_srpm_id", unique: true
+    t.index ["branch_path_id"], name: "index_named_srpms_on_branch_path_id"
     t.index ["name"], name: "index_named_srpms_on_name", using: :gin
     t.index ["srpm_id"], name: "index_named_srpms_on_srpm_id"
   end
@@ -385,8 +388,15 @@ ActiveRecord::Schema.define(version: 20180730090848) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "branch_paths", "branches"
-  add_foreign_key "named_srpms", "branches"
+  add_foreign_key "branch_paths", "branch_paths", column: "source_path_id", on_delete: :cascade
+  add_foreign_key "branch_paths", "branches", on_delete: :cascade
+  add_foreign_key "ftbfs", "branches", on_delete: :cascade
+  add_foreign_key "groups", "branches", on_delete: :cascade
+  add_foreign_key "mirrors", "branches", on_delete: :cascade
+  add_foreign_key "named_srpms", "branch_paths", on_delete: :cascade
   add_foreign_key "named_srpms", "srpms"
   add_foreign_key "packages", "srpms", on_delete: :cascade
+  add_foreign_key "repocop_patches", "branches", on_delete: :cascade
+  add_foreign_key "repocops", "branches", on_delete: :cascade
+  add_foreign_key "teams", "branches", on_delete: :cascade
 end
