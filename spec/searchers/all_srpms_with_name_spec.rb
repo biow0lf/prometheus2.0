@@ -20,6 +20,6 @@ describe AllSrpmsWithName do
 
     let!(:srpm3) { create(:srpm, name: 'glibc') }
 
-    specify { expect(subject.search).to eq([srpm1, srpm2, srpm3]) }
+    specify { expect(subject.search).to match_array([srpm1, srpm2, srpm3]) }
   end
 end

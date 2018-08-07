@@ -7,13 +7,9 @@
 #   rake 'ts:index'
 # end
 
-every '5 1-23 * * *' do
-  rake 'sisyphus:update update:sisyphus:aarch64 mips:update p8:update p7:update t7:update p6:update t6:update p5:update 51:update 50:update 41:update 40:update gear:update'
+every 2.hours do
+  rake 'update:branches gear:update'
 end
-
-# every 1.day, at: '05:30' do
-#   rake 'sisyphusarm:update'
-# end
 
 every 1.day, at: '05:00' do
   rake 'sisyphus:bugs'

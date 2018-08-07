@@ -6,6 +6,18 @@ require 'rpmfile'
 describe Srpm do
   it { should be_a(ApplicationRecord) }
 
+  let(:named_srpm) { create(:named_srpm) }
+  let(:srpm) { named_srpm.srpm }
+  let(:branch) { create(:branch, :with_paths, name: 'Sisyphus', vendor: 'ALT Linux') }
+  let(:branch_path) { branch.branch_paths.source.first }
+
+  subject { srpm }
+
+  before do
+    # fix "uninitialized constant RSpec::Support::Differ"
+    allow(File).to receive(:exist?).and_call_original
+  end
+
   describe 'Associations' do
     it { should belong_to(:group) }
 
@@ -60,7 +72,6 @@ describe Srpm do
     it { is_expected.to validate_presence_of(:groupname) }
     it { is_expected.to validate_presence_of(:md5) }
     it { is_expected.to validate_presence_of(:buildtime) }
-    it { is_expected.to validate_presence_of(:named_srpms) }
   end
 
   # describe 'delegated methods' do
@@ -92,7 +103,6 @@ describe Srpm do
   end
 
   it 'should import srpm file' do
-    branch = create(:branch)
     file = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'f87ff0eaa4e16b202539738483cd54d1'
     maintainer = Maintainer.create!(
@@ -137,7 +147,7 @@ describe Srpm do
     expect(Patch).to receive(:import).and_return(true)
     expect(Source).to receive(:import).and_return(true)
 
-    expect { Srpm.import(branch, rpm, file) }
+    expect { Srpm.import(branch_path, rpm, file) }
       .to change(Srpm, :count).by(1)
 
     srpm = Srpm.first
@@ -164,22 +174,21 @@ describe Srpm do
   end
 
   it 'should import all srpms from path' do
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
     path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
+    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    _branch_path = create(:src_branch_path, path: '/ALT/Sisyphus/files/SRPMS/', branch: branch)
     expect(Redis.current.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
     expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
     expect(File).to receive(:exist?).with('glibc-2.11.3-alt6.src.rpm').and_return(true)
     expect(RPMCheckMD5).to receive(:check_md5).and_return(true)
     expect(Srpm).to receive(:import).and_return(true)
 
-    Srpm.import_all(branch, path)
+    Srpm.import_all(branch)
   end
 
   # private methods
 
   describe '#add_filename_to_cache' do
-    subject { create(:srpm) }
-
     it { expect { subject.send(:add_filename_to_cache) }.not_to raise_error }
   end
 
@@ -214,12 +223,10 @@ describe Srpm do
   end
 
   describe '#by_branch' do
-    let(:branch) { create(:branch) }
-
     before do
+      create_list(:named_srpm, 10, branch: branch)
       create(:branch)
-      create_list(:srpm, 10, branch: branch)
-      create_list(:srpm, 10)
+      create_list(:named_srpm, 10)
     end
 
     it { expect(described_class.by_branch_name(branch.name).count).to eq(10)  }

@@ -5,28 +5,25 @@ require 'rails_helper'
 describe RemoveOldSrpms do
   let(:branch) { create(:branch) }
 
-  let(:path) { '/Sisyphus/' }
+  let(:branch_path) { create(:src_branch_path, path: '/Sisyphus', branch: branch) }
 
-  subject { described_class.new(branch, path) }
+  subject { described_class.new(branch_path) }
 
   it { should be_a(Rectify::Command) }
 
   describe '#initialize' do
-    its(:branch) { should eq(branch) }
-
-    its(:path) { should eq(path) }
+    its(:branch_path) { should eq(branch_path) }
   end
 
   describe '#call' do
-    let!(:srpm) { create(:srpm, filename: 'openbox-1.0-alt1.src.rpm', branch: branch) }
-
-    subject { described_class.new(branch, path) }
+    let!(:srpm) { create(:named_srpm, name: 'openbox-1.0-alt1.src.rpm', branch_path: branch_path) }
 
     context 'srpm file exists' do
       before do
         #
         # File.exist?("#{ path }#{ srpm.filename }")
         #
+        allow(File).to receive(:exist?).and_call_original
         expect(File).to receive(:exist?)
           .with('/Sisyphus/openbox-1.0-alt1.src.rpm')
           .and_return(true)
@@ -45,6 +42,7 @@ describe RemoveOldSrpms do
         #
         # File.exist?("#{ path }#{ srpm.filename }")
         #
+        allow(File).to receive(:exist?).and_call_original
         expect(File).to receive(:exist?)
           .with('/Sisyphus/openbox-1.0-alt1.src.rpm')
           .and_return(false)

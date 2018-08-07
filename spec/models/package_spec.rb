@@ -5,6 +5,14 @@ require 'rails_helper'
 describe Package do
   it { should be_a(ApplicationRecord) }
 
+  let(:branch) { create(:branch, :with_paths) }
+  let(:srcfilename) { 'openbox-3.4.11.1-alt1.1.1.src.rpm' }
+  let(:group) { create(:group, branch: branch) }
+  let(:named_srpm) { create(:named_srpm, branch: branch, group: group, name: srcfilename) }
+  let(:srpm) { named_srpm.srpm }
+  let(:branch_path) { branch.branch_paths.source.first }
+  let(:package) { Package.first }
+
   describe 'Associations' do
     it { should belong_to(:srpm) }
 
@@ -32,12 +40,9 @@ describe Package do
   end
 
   it 'should import package to database' do
-    branch = create(:branch)
-    group = create(:group, branch: branch)
+    srpm
     file = 'openbox-3.4.11.1-alt1.1.1.i586.rpm'
-    filename = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'fd0100efb65fa82af3028e356a6f6304'
-    srpm = create(:srpm, branch: branch, group: group, filename: filename)
     rpm = RPMFile::Binary.new(file)
 
     expect(rpm).to receive(:name).and_return('openbox')
@@ -63,9 +68,8 @@ describe Package do
     expect(rpm).to receive(:filename).and_return(file)
     expect(rpm).to receive(:sourcerpm).and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
 
-    expect { Package.import(branch, rpm) }.to change(Package, :count).by(1)
+    expect { Package.import(branch_path, rpm) }.to change(Package, :count).by(1)
 
-    package = Package.first
     expect(package.name).to eq('openbox')
     expect(package.version).to eq('3.4.11.1')
     expect(package.release).to eq('alt1.1.1')
@@ -94,13 +98,13 @@ describe Package do
   it 'should import all packages from path' do
     # TODO: add path to branch and branch factory
     branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    pathes = ['/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm']
+    _branch_path = create(:branch_path, arch: "i586", path: '/ALT/Sisyphus/files/i586/RPMS/', branch: branch)
     expect(Redis.current.get("#{ branch.name }:gcc-1.0-alt1.i586.rpm")).to be_nil
     expect(Dir).to receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
     expect(File).to receive(:exist?).with('gcc-1.0-alt1.i586.rpm').and_return(true)
     expect(RPMCheckMD5).to receive(:check_md5).and_return(true)
     expect(Package).to receive(:import).and_return(true)
-    Package.import_all(branch, pathes)
+    Package.import_all(branch)
   end
 
   # private methods
