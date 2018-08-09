@@ -24,6 +24,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.7)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     active_record_doctor (1.5.0)
       activerecord (>= 4.2)
       railties (>= 4.2)
@@ -108,6 +113,8 @@ GEM
     capybara-email (2.5.0)
       capybara (~> 2.4)
       mail
+    case_transform (0.2)
+      activesupport
     chronic (0.10.2)
     climate_control (0.2.0)
     cocaine (0.5.8)
@@ -176,6 +183,7 @@ GEM
     ice_nine (0.11.2)
     jaro_winkler (1.5.1)
     json (2.1.0)
+    jsonapi-renderer (0.2.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -451,6 +459,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   active_record_doctor
   activerecord-import
   awesome_nested_set

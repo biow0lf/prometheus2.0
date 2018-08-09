@@ -3,29 +3,9 @@
 <% keywords @srpm.summary %>
 
 <div id='main-content'>
-
-<div id="rightbar">
-<div class="headleft">
-<div class="headright" title="<%= _('ALT Linux repositories') %>">
-  <%= _('ALT Linux repositories') %>
-</div>
-<%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
-</div>
-<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
-<table style="font-size:8pt;" width="100%">
-
-<% @allsrpms.each do |srpm| %>
-<tr>
-  <td style="text-align: left;">
-    <%= link_to "#{ @branch.name }:", changelog_srpm_path(id: srpm.name, branch: @branch.name), class: 'news' %>
-  </td>
-  <td style="text-align: right;"><%= srpm.evr %></td>
-</tr>
-<% end %>
-
-</table>
-</div><br>
-</div>
+   <div class="rightbar fat">
+      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @srpms_by_name.as_json } %>
+   </div>
 
 <div style="height:3em;">
   <div id="rpmtop">

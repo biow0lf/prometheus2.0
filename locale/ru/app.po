@@ -1209,8 +1209,15 @@ msgstr ""
 msgid "weeks"
 msgstr ""
 
-msgid "Choose arch"
-msgstr "Выбери архитектуру"
+msgid "All arches"
+msgstr "Все архитектуры"
 
 msgid "Branch paths"
-msgstr "Пути к ветвям"́
+msgstr "Пути к ветвям"
+
+msgid "SRPMs in branches"
+msgstr "Исходные пакеты в ветвях"
+
+
+msgid "Branches"
+msgstr "Ветви"

@@ -1,0 +1,50 @@
+.table {
+   .frame {
+      border: dotted gray 1px;
+      margin: 0px 4px 4px 4px;
+      text-align: justify;
+      padding: 2px;
+
+      table {
+         font-size: 8pt;
+         width: 100%;
+      }
+
+      ul {
+         margin: 0;
+         padding: 0;
+
+         li {
+            width: 100%;
+            display: inline-table;
+
+         }
+
+         &.line {
+            li {
+               margin-left: 0;
+            }
+         }
+      }
+
+      .line {
+         padding: 0;
+      }
+
+      .left {
+         &.float {
+            float: left;
+         }
+
+         text-align: left;
+      }
+
+      .right {
+         &.float {
+            float: right;
+         }
+
+         text-align: right;
+      }
+   }
+}

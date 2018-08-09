@@ -1,0 +1,19 @@
+- if branches.present?
+   .table
+      .headleft
+         .headright { title=_('Branches') } = _('Branches') + ":"
+         = image_tag('collapse.gif', id: 'top-branches', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9')
+      .frame#top-branches
+         table
+            - branches.each do |branch, branch_paths|
+               ul
+                  li
+                     .line
+                        .left.float = link_to "#{ branch[:name] }:", home_path(branch: branch[:name]), class: 'b'
+                        .right.float = branch[:srpm_count]
+                     - if !branch_paths.one?
+                        ul.line.left
+                           - branch_paths.each do |branch_path|
+                              li
+                                 .left.float.i = branch_path[:name]
+                                 .right.float = branch_path[:count]

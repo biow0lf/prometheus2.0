@@ -59,26 +59,8 @@
     <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
       <b><%= _('Sisyphus sync') %></b><br><%= raw _('<b>Q:</b> How can I skip heap of packages if I even don\'t know why I need them?') %><br><%= raw _('<b>A:</b> Create filter for rsync with the help of this') %> <%= link_to _('form'), new_rsync_path, class: 'news' %>
     </div><br>
-    <div class="headleft">
-      <div class="headright" title="<%= _('select branch') %>">
-        <%= _('Select branch:') %>
-      </div>
-      <%= image_tag('collapse.gif', id: 'topBranches', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
-    </div>
-    <div id="topBranchesDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-      <table style="font-size:8pt;" width="100%">
-      <% @branches.each do |branch| %>
-          <tr>
-            <td style="text-align: left;">
-              <%= link_to branch.name, home_path(branch: branch.name), class: 'news', title: _('switch branch to it') %>
-            </td>
-            <td style="text-align: right;"><%= branch.srpms.count(:all) %></td>
-          </tr>
-      <% end %>
-    </table>
-    </div>
 
-    <%= render partial: "home/branch_paths" %>
+    <%= render partial: "shared/tables/branches", locals: { branches: @branches_s.as_json } %>
 </div>
 
 <!--#include virtual="/inc/bottom.shtml?skipit" -->

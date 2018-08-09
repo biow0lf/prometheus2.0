@@ -18,7 +18,7 @@ class BranchDecorator < Draper::Decorator
   end
 
   def options_for arch
-    h.content_tag(:option, _("Choose arch"), value: '') +
+    h.content_tag(:option, _("All arches"), value: '') +
       options_from_collection_for_select(arches, :freeze, :freeze, arch)
   end
 end

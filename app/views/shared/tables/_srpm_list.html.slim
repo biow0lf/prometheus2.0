@@ -1,0 +1,21 @@
+- if branched_srpms.present?
+   .table
+      .headleft
+         .headright { title=_('SRPMs in branches') }
+            = _('SRPMs in branches')
+         = image_tag('collapse.gif', id: 'top-rpms', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9')
+      .frame#top-rpms
+         table { width="100%" }
+            - branched_srpms.each do |branch, rpms|
+               ul
+                  li
+                     - if rpms.one?
+                        .left.float = link_to "#{ branch }:", srpm_path(branch, rpms.first[:name]), class: 'b'
+                        .right.float = rpms.first[:evr]
+                     - else
+                        .left = link_to "#{ branch }:", srpm_path(branch, rpms.first[:name]), class: 'b'
+                        ul.left
+                           - rpms.each do |rpm|
+                              li
+                                 .left.float.i = rpm[:path_name]
+                                 .right.float = rpm[:evr]
