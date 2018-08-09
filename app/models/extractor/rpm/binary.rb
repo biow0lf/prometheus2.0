@@ -21,6 +21,7 @@ module Extractor
           filename: filename,
           filesize: filesize,
           md5: md5,
+          buildtime: buildtime,
 
           arch: arch,
           sourcerpm: sourcerpm

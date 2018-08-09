@@ -62,6 +62,10 @@ module Extractor
         @buildhost ||= read('%{BUILDHOST}')
       end
 
+      def buildtime
+        @buildtime ||= read_time('%{BUILDTIME}')
+      end
+
       def filesize
         @filesize ||= File.size(@file)
       end
@@ -78,7 +82,7 @@ module Extractor
       end
 
       def read_time(query)
-        Time.zone.at(read(query).to_i)
+        Time.at(read(query).to_i) # rubocop:disable Rails/TimeZone
       end
 
       def read(query)

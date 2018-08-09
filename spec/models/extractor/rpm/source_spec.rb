@@ -44,6 +44,8 @@ module Extractor
 
         let(:md5) { double }
 
+        let(:buildtime) { double }
+
         let(:source) { Extractor::RPM::Source.new(file) }
 
         subject { source.as_json }
@@ -80,10 +82,12 @@ module Extractor
 
         before { expect(source).to receive(:md5).and_return(md5) }
 
+        before { expect(source).to receive(:buildtime).and_return(buildtime) }
+
         its(:keys) { should eq([:name, :version, :release, :epoch, :summary,
                                 :group, :license, :url, :packager, :vendor,
                                 :distribution, :description, :buildhost,
-                                :filename, :filesize, :md5]) }
+                                :filename, :filesize, :md5, :buildtime]) }
 
         its([:name]) { should eq(name) }
 
@@ -116,6 +120,8 @@ module Extractor
         its([:filesize]) { should eq(filesize) }
 
         its([:md5]) { should eq(md5) }
+
+        its([:buildtime]) { should eq(buildtime) }
       end
 
       describe '#name' do
@@ -185,6 +191,10 @@ Linux system will not function."""
         it { expect(subject.md5).to eq('9c8ee5a0c47cd137028fc4a03ef64347') }
       end
 
+      describe '#buildtime' do
+        it { expect(subject.buildtime).to eq(Time.zone.local(2018, 06, 20, 12, 33, 44)) }
+      end
+
       describe '#filename' do
         it { expect(subject.filename).to eq('glibc-2.27-19.fc28.src.rpm') }
       end
@@ -194,11 +204,11 @@ Linux system will not function."""
           expect(subject.build_requires.size).to eq(29)
         end
 
-        it 'parse dependecies without version and release' do
+        it 'parse dependencies without version and release' do
           expect(subject.build_requires.last).to eq(['zlib-devel'])
         end
 
-        it 'parse dependecies with version and release' do
+        it 'parse dependencies with version and release' do
           expect(subject.build_requires.first).to eq(['audit-libs-devel', '>=', '1.1.3'])
         end
       end

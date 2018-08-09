@@ -44,6 +44,8 @@ module Extractor
 
         let(:md5) { double }
 
+        let(:buildtime) { double }
+
         let(:arch) { double }
 
         let(:sourcerpm) { double }
@@ -84,6 +86,8 @@ module Extractor
 
         before { expect(binary).to receive(:md5).and_return(md5) }
 
+        before { expect(binary).to receive(:buildtime).and_return(buildtime) }
+
         before { expect(binary).to receive(:arch).and_return(arch) }
 
         before { expect(binary).to receive(:sourcerpm).and_return(sourcerpm) }
@@ -91,7 +95,8 @@ module Extractor
         its(:keys) { should eq([:name, :version, :release, :epoch, :summary,
                                 :group, :license, :url, :packager, :vendor,
                                 :distribution, :description, :buildhost,
-                                :filename, :filesize, :md5, :arch, :sourcerpm]) }
+                                :filename, :filesize, :md5, :buildtime, :arch,
+                                :sourcerpm]) }
 
         its([:name]) { should eq(name) }
 
@@ -122,6 +127,8 @@ module Extractor
         its([:filename]) { should eq(filename) }
 
         its([:md5]) { should eq(md5) }
+
+        its([:buildtime]) { should eq(buildtime) }
 
         its([:filesize]) { should eq(filesize) }
 
@@ -195,6 +202,10 @@ Linux system will not function."""
 
       describe '#md5' do
         it { expect(subject.md5).to eq('6ae9f8d4108c372a26c6c1853eb167e3') }
+      end
+
+      describe '#buildtime' do
+        it { expect(subject.buildtime).to eq(Time.zone.local(2018, 06, 20, 12, 53, 47)) }
       end
 
       describe '#filename' do
@@ -294,11 +305,11 @@ Linux system will not function."""
           expect(subject.requires.size).to eq(38)
         end
 
-        it 'parse dependecies without version and release' do
+        it 'parse dependencies without version and release' do
           expect(subject.requires.last).to eq(['rtld(GNU_HASH)'])
         end
 
-        it 'parse dependecies with version and release' do
+        it 'parse dependencies with version and release' do
           expect(subject.requires[4]).to eq(['glibc-langpack', '=', '2.27-19.fc28'])
         end
       end
@@ -308,11 +319,11 @@ Linux system will not function."""
           expect(subject.provides.size).to eq(95)
         end
 
-        it 'parse dependecies without version and release' do
+        it 'parse dependencies without version and release' do
           expect(subject.provides.last).to eq(['rtld(GNU_HASH)'])
         end
 
-        it 'parse dependecies with version and release' do
+        it 'parse dependencies with version and release' do
           expect(subject.provides[1]).to eq(['glibc', '=', '2.27-19.fc28'])
         end
       end
@@ -322,7 +333,7 @@ Linux system will not function."""
           expect(subject.obsoletes.size).to eq(1)
         end
 
-        it 'parse dependecies with version and release' do
+        it 'parse dependencies with version and release' do
           expect(subject.obsoletes.first).to eq(['glibc-profile', '<', '2.4'])
         end
       end
@@ -332,7 +343,7 @@ Linux system will not function."""
           expect(subject.conflicts.size).to eq(2)
         end
 
-        it 'parse dependecies with version and release' do
+        it 'parse dependencies with version and release' do
           expect(subject.conflicts.first).to eq(['kernel', '<', '3.2'])
         end
       end
