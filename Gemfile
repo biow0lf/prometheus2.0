@@ -53,6 +53,9 @@ gem 'slim'
 # seed
 gem 'factory_bot_rails'
 
+# serialization
+gem 'active_model_serializers'
+
 group :production, :development, :staging do
   gem 'redis'
 end
