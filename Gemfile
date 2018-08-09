@@ -45,6 +45,7 @@ gem 'http_accept_language'
 # gem 'molinillo', require: false
 gem 'administrate'
 gem 'terrapin', require: false
+gem 'server_timing'
 
 group :production, :development do
   gem 'redis'

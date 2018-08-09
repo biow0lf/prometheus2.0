@@ -1,0 +1,8 @@
+common: &defaults
+  monitor: true
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
