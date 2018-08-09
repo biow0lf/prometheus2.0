@@ -20,9 +20,9 @@ module Extractor
           buildhost: buildhost,
           filename: filename,
           filesize: filesize,
-          md5: md5
+          md5: md5,
+          buildtime: buildtime
 
-          # buildtime: buildtime,
           # lastchangelogtime: lastchangelogtime,
           # lastchangelogname: lastchangelogname,
           # lastchangelogtext: lastchangelogtext,
