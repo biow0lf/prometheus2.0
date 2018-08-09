@@ -11,11 +11,24 @@
       }
 
       ul {
-         padding-left: 10px;
+         margin: 0;
+         padding: 0;
 
          li {
             width: 100%;
+            display: inline-table;
+
          }
+
+         &.line {
+            li {
+               margin-left: 0;
+            }
+         }
+      }
+
+      .line {
+         padding: 0;
       }
 
       .left {
