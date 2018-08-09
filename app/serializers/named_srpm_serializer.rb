@@ -1,8 +1,12 @@
 class NamedSrpmSerializer < RecordSerializer
-   attributes :name, :evr, :path_name
+   attributes :pure_name, :evr, :path_name
 
    def path_name
       object.branch_path.name
+   end
+
+   def pure_name
+      object.srpm.name
    end
 
    def evr
