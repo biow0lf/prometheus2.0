@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_action :set_default_locale
   before_action :set_default_branch
   before_action :authorizer_for_profiler
+  before_action :authorizer_for_scout_server_timing_profiler
 
   helper_method :sort_column, :sort_order, :sort_order_next
 
@@ -50,6 +51,16 @@ class ApplicationController < ActionController::Base
 
   def authorizer_for_profiler
     Rack::MiniProfiler.authorize_request if current_user.try(:admin?)
+  end
+
+  def authorizer_for_scout_server_timing_profiler
+    if current_user && current_user.admin?
+      ServerTiming::Auth.ok!
+    elsif Rails.env.development?
+      ServerTiming::Auth.ok!
+    else
+      ServerTiming::Auth.deny!
+    end
   end
 
   rescue_from ActiveRecord::RecordNotFound do
