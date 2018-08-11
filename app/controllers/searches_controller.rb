@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     if params[:query].blank? and params[:arch].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.b(params[:branch]).a(@arches).q(params[:query]).page(params[:page]).reorder("srpms.name").distinct
+      @srpms = Srpm.b(params[:branch]).a(@arches).q(params[:query]).reorder("srpms.name").distinct.page(params[:page])
       # @srpms = Srpm.none
       # @srpms = Srpm.search(
       #   Riddle::Query.escape(params[:query]),
@@ -24,7 +24,8 @@ class SearchesController < ApplicationController
       #   with: { branch_id: @branch.id },
       #   include: :branch
       # ).page(params[:page]).per(100)
-      if @srpms[1].blank? && @srpms.total_count == 1
+
+      if @srpms.total_count == 1
         redirect_to(srpm_path(@branch, @srpms.first), status: 302)
       end
     end

@@ -6,8 +6,6 @@ class Package < ApplicationRecord
   class AlreadyExistError < StandardError; end
   class SourceIsntFound < StandardError; end
 
-  include PgSearch
-
   belongs_to :srpm
 
   belongs_to :group
@@ -22,6 +20,15 @@ class Package < ApplicationRecord
 
   has_many :branches, through: :srpm
 
+  scope :query, ->(text) do
+     subquery = "
+        SELECT id FROM (SELECT DISTINCT id, tsv, ts_rank_cd(tsv, plainto_tsquery('#{text}'))
+        FROM packages, plainto_tsquery('#{text}') AS q
+        WHERE (tsv @@ q)
+        ORDER BY ts_rank_cd(tsv, plainto_tsquery('#{text}')) DESC) as t1"
+     where("packages.id IN (#{subquery})")
+  end
+
   validates :groupname, presence: true
 
   validates :md5, presence: true
@@ -29,13 +36,6 @@ class Package < ApplicationRecord
   after_create :add_filename_to_cache
 
   after_destroy :remove_filename_from_cache
-
-  pg_search_scope :query,
-                  against: %i(name summary description filename sourcepackage),
-                  using: { tsearch: { prefix: true } }
-
-  multisearchable against: [:name, :summary, :description, :filename,
-                            :sourcepackage]
 
   def self.import branch_path, rpm
     sourcerpm = rpm.sourcerpm

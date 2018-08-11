@@ -3,6 +3,7 @@ class BranchPath < ApplicationRecord
   belongs_to :source_path, foreign_key: :source_path_id, class_name: :BranchPath, optional: true
 
   has_many :named_srpms
+  has_many :srpms, through: :named_srpms, counter_cache: :srpms_count
 
   scope :source, -> { where(arch: "src") }
   scope :package, -> { where.not(arch: "src") }

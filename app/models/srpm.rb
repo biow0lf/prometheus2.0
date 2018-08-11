@@ -6,9 +6,6 @@ class Srpm < ApplicationRecord
   class AlreadyExistError < StandardError; end
   class AttachedNewBranchError < StandardError; end
 
-  # include Redis::Objects
-  include PgSearch
-
   belongs_to :group
 
   has_one :specfile, dependent: :destroy
@@ -38,6 +35,16 @@ class Srpm < ApplicationRecord
   scope :ordered, -> { order('srpms.buildtime DESC') }
   scope :by_arch, ->(arch) { arch.blank? && all || joins(:packages).where(packages: { arch: arch }) }
   scope :q, ->(text) { text.blank? && all || joins(:packages).merge(Package.query(text)).or(self.query(text)) }
+
+  scope :query, ->(text) do
+     subquery = "
+        SELECT id FROM (SELECT DISTINCT id, tsv, ts_rank_cd(tsv, plainto_tsquery('#{text}'))
+        FROM srpms, plainto_tsquery('#{text}') AS q
+        WHERE (tsv @@ q)
+        ORDER BY ts_rank_cd(tsv, plainto_tsquery('#{text}')) DESC) as t1"
+     where("srpms.id IN (#{subquery})")
+  end
+
   singleton_class.send(:alias_method, :b, :by_branch_name)
   singleton_class.send(:alias_method, :a, :by_arch)
 
@@ -46,12 +53,6 @@ class Srpm < ApplicationRecord
   # set :acls
 
   # value :leader
-
-  pg_search_scope :query,
-                  against: %i(name summary description url),
-                  using: { tsearch: { prefix: true } }
-
-  multisearchable against: [:name, :summary, :description, :url]
 
   validates_presence_of :buildtime, :md5, :groupname
 
@@ -168,5 +169,33 @@ class Srpm < ApplicationRecord
 
   def filename_in branch
     named_srpms.by_branch_path(branch.branch_paths).first&.name
+  end
+
+  class ActiveRecord_Relation
+    def page value
+      @page = (value || 1).to_i
+      @total_count = self[0] && self.size
+
+      self.class_eval do
+        def total_count
+          @total_count
+        end
+
+        def total_pages
+          (@total_count + 24) / 25
+        end
+
+        def current_page
+          @page
+        end
+
+        def each &block
+          range = ((@page - 1) * 25...@page * 25)
+          self[range].each(&block)
+        end
+      end
+
+      self
+    end
   end
 end

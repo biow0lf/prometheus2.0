@@ -2,6 +2,6 @@ class BranchPathSerializer < RecordSerializer
    attributes :name, :count
 
    def count
-      object.named_srpms.count(:all)
+      object.srpms_count
    end
 end

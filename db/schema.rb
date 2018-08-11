@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180807124500) do
+ActiveRecord::Schema.define(version: 20180811153600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180807124500) do
     t.bigint "source_path_id", comment: "Указатель на путь к ветви родительских пакетов"
     t.boolean "active", default: true, comment: "Флаг задействования пути ветви, если установлен, то путь активен"
     t.string "name", comment: "Имя пути ветви"
+    t.integer "srpms_count", comment: "Счётчик именованных исходных пакетов для пути ветви"
     t.index ["arch", "branch_id", "source_path_id"], name: "index_branch_paths_on_arch_and_branch_id_and_source_path_id", unique: true
     t.index ["arch", "path"], name: "index_branch_paths_on_arch_and_path", unique: true
     t.index ["arch"], name: "index_branch_paths_on_arch", using: :gin
@@ -42,6 +43,8 @@ ActiveRecord::Schema.define(version: 20180807124500) do
     t.datetime "updated_at"
     t.integer "order_id"
     t.string "path", limit: 255
+    t.integer "srpms_count", comment: "Счётчик уникальных исходных пакетов для ветви"
+    t.index ["name"], name: "index_branches_on_name"
   end
 
   create_table "bugs", id: :serial, force: :cascade do |t|
@@ -208,12 +211,14 @@ ActiveRecord::Schema.define(version: 20180807124500) do
     t.string "groupname", limit: 255
     t.integer "size"
     t.integer "epoch"
+    t.tsvector "tsv"
     t.index ["arch"], name: "index_packages_on_arch"
     t.index ["group_id"], name: "index_packages_on_group_id"
     t.index ["md5"], name: "index_packages_on_md5", unique: true
     t.index ["name"], name: "index_packages_on_name"
     t.index ["sourcepackage"], name: "index_packages_on_sourcepackage"
     t.index ["srpm_id"], name: "index_packages_on_srpm_id"
+    t.index ["tsv"], name: "index_packages_on_tsv", using: :gin
   end
 
   create_table "patches", id: :serial, force: :cascade do |t|
@@ -351,9 +356,11 @@ ActiveRecord::Schema.define(version: 20180807124500) do
     t.datetime "changelogtime"
     t.integer "epoch"
     t.string "buildhost"
+    t.tsvector "tsv"
     t.index ["group_id"], name: "index_srpms_on_group_id"
     t.index ["md5"], name: "index_srpms_on_md5", unique: true
     t.index ["name"], name: "index_srpms_on_name"
+    t.index ["tsv"], name: "index_srpms_on_tsv", using: :gin
   end
 
   create_table "teams", id: :serial, force: :cascade do |t|
