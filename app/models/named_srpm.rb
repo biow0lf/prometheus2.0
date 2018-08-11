@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NamedSrpm < ApplicationRecord
-  belongs_to :branch_path
+  belongs_to :branch_path, counter_cache: :srpms_count
   belongs_to :srpm
 
   has_one :branch, through: :branch_path

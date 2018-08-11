@@ -5,7 +5,7 @@ class Branch < ApplicationRecord
 
   has_many :branch_paths
   has_many :named_srpms, through: :branch_paths
-  has_many :srpms, -> { distinct }, through: :named_srpms
+  has_many :srpms, -> { distinct }, through: :named_srpms, counter_cache: :srpms_count
   has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :groups, dependent: :destroy
