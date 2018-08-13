@@ -12,6 +12,8 @@ class BranchPathsToBranchesSerializer < ActiveModel::Serializer::CollectionSeria
       adapter_opts = adapter_options.merge(include_directive: include_directive)
 
       object.reduce({}) do |sum, branch_path|
+         next sum if branch_path.empty?
+
          branch_s = BranchSerializer.new(branch_path.branch).serializable_hash(adapter_opts, options, adapter_instance)
          branch_path_s = BranchPathSerializer.new(branch_path).serializable_hash(adapter_opts, options, adapter_instance)
 

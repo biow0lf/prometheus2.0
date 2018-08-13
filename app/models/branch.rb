@@ -17,6 +17,8 @@ class Branch < ApplicationRecord
   has_many :repocops, dependent: :destroy
   has_many :repocop_patches, dependent: :destroy
 
+  scope :filled, -> { where.not(srpms_count: 0) }
+
   validates :name, presence: true
   validates :vendor, presence: true
 
