@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     get 'project' => 'pages#project'
 
     scope '(:branch)', branch: SUPPORTED_BRANCHES do
+      get 'srpms/:id/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'bugs_srpm'
+      get 'srpms/:id/allbugs' => 'srpm_all_bugs#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'allbugs_srpm'
+      get 'srpms/:id/repocop' => 'srpm_repocops#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'repocop_srpm'
+
       resources :srpms, id: /[^\/]+/, only: :show do
         member do
           get 'changelog'
@@ -51,6 +55,21 @@ Rails.application.routes.draw do
         end
       end
 
+      get 'srpms/:id/:version' => 'srpms#show', id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm'
+      get 'srpms/:id/:version/changelog' => 'srpms#changelog', id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_changelog_srpm'
+      get 'srpms/:id/:version/spec' => 'srpms#spec', id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_spec_srpm'
+      get 'srpms/:id/:version/rawspec' => 'srpms#rawspec', id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_rawspec_srpm'
+      get 'srpms/:id/:version/get' => 'srpms#get', id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_get_srpm'
+      get 'srpms/:id/:version/gear' => 'srpms#gear', id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_gear_srpm'
+      get 'patches/:srpm_id/:version/index' => 'patches#index', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_patches'
+      get 'patches/:srpm_id/:version/show' => 'patches#show', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_patch'
+      get 'patches/:srpm_id/:version/download' => 'patches#download', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_patch_download'
+      get 'sources/:srpm_id/:version/index' => 'sources#index', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_sources'
+      get 'sources/:srpm_id/:version/download' => 'sources#download', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_source_download'
+      get 'srpms/:id/:version/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, version: /[^\/]+/, branch: /Sisyphus/, as: 'versioned_bugs_srpm'
+      get 'srpms/:id/:version/allbugs' => 'srpm_all_bugs#index',  id: /[^\/]+/, version: /[^\/]+/, branch: /Sisyphus/, as: 'versioned_allbugs_srpm'
+      get 'srpms/:id/:version/repocop' => 'srpm_repocops#index',  id: /[^\/]+/, version: /[^\/]+/, branch: /Sisyphus/, as: 'versioned_repocop_srpm'
+
       get 'rss' => 'rss#index', as: 'rss'
       resources :teams, only: [:index, :show]
 
@@ -58,12 +77,6 @@ Rails.application.routes.draw do
 
       get 'packages/:group(/:group2(/:group3))' => 'group#show', as: 'group'
       get 'packages' => 'group#index', as: 'packages'
-    end
-
-    scope 'Sisyphus', id: /[^\/]+/ do
-      get 'srpms/:id/bugs' => 'srpm_opened_bugs#index', as: 'bugs_srpm'
-      get 'srpms/:id/allbugs' => 'srpm_all_bugs#index', as: 'allbugs_srpm'
-      get 'srpms/:id/repocop' => 'srpm_repocops#index', as: 'repocop_srpm'
     end
 
     resource :maintainer_profile, only: [:edit, :update]

@@ -11,7 +11,7 @@ class NamedSrpmSerializer < RecordSerializer
 
    def evr
       if object.srpm.epoch
-         "#{object.srpm.epoch}:#{objectsrpm.srpm.version}-#{object.srpm.elease}"
+         "#{object.srpm.epoch}:#{objectsrpm.srpm.version}-#{object.srpm.release}"
       else
          "#{object.srpm.version}-#{object.srpm.release}"
       end

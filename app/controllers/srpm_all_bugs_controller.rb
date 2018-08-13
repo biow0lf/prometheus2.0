@@ -2,6 +2,7 @@
 
 class SrpmAllBugsController < ApplicationController
   # after_action :print_accessed_fields
+  before_action :set_version
 
   def index
     @branch = Branch.find_by!(name: params[:branch])
@@ -23,4 +24,9 @@ class SrpmAllBugsController < ApplicationController
   #
   #   p @opened_bugs.first.accessed_fields
   # end
+  protected
+
+  def set_version
+    @version = params[:version]
+  end
 end

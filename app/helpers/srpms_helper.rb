@@ -44,4 +44,63 @@ module SrpmsHelper
     text.html_safe
     text
   end
+
+  def menu_data branch, srpm, opened_bugs, all_bugs, version
+    map = {
+      main: {
+         path: 'srpm_path',
+         args: [branch, srpm],
+         popup: 'information about SRPM'
+      },
+      changelog: {
+         path: 'changelog_srpm_path',
+         args: [branch, srpm],
+         popup: 'full changelog',
+      },
+      spec: {
+         path: 'spec_srpm_path',
+         args: [branch, srpm],
+         popup: 'spec',
+      },
+      patches: {
+         path: 'srpm_patches_path',
+         args: [branch, srpm],
+         popup: 'patches',
+      },
+      sources: {
+         path: 'srpm_sources_path',
+         args: [branch, srpm],
+         popup: 'sources',
+      },
+      download: {
+         path: 'get_srpm_path',
+         args: [branch, srpm],
+         popup: 'download latest version',
+      },
+      gear: {
+         path: 'gear_srpm_path',
+         args: [branch, srpm],
+         popup: 'this package in gear repositories',
+      },
+      bugs: {
+         title: _('Bugs and FR (%s/%s)') % [opened_bugs.count, all_bugs.count],
+         path: 'bugs_srpm_path',
+         args: [branch, srpm],
+         popup: 'list of bugs and feature requests',
+      },
+      repocop: {
+         path: 'repocop_srpm_path',
+         args: [branch, srpm],
+         popup: 'repocop bugreports',
+      }
+    }
+
+    map.map do |(title, data)|
+      data[:path] = version && "versioned_" + data[:path] || data[:path]
+
+      data[:title] ||= _(title.to_s.capitalize)
+
+      [title, data]
+    end.to_h
+  end
 end
