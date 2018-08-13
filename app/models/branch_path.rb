@@ -19,4 +19,8 @@ class BranchPath < ApplicationRecord
   def glob
     "*.#{arch}.rpm"
   end
+
+  def empty?
+    srpms_count == 0
+  end
 end
