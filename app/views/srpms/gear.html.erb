@@ -12,8 +12,7 @@
 </div>
 
 <div>
-<p class="break" />
-<span class="vkladka">&nbsp;<%= link_to _('Main'), srpm_path(@branch, @srpm), class: 'news', title: _('information about SRPM') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Changelog'), changelog_srpm_path(@branch, @srpm), class: 'news', title: _('full changelog') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Spec'), spec_srpm_path(@branch, @srpm), class: 'news', title: _('spec') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Patches'), srpm_patches_path(@branch, @srpm), class: 'news', title: _('patches') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Sources'), srpm_sources_path(@branch, @srpm), class: 'news', title: _('sources') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Download'), get_srpm_path(@branch, @srpm), class: 'news', title: _('download latest version') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _('Gear') %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Bugs and FR (%s/%s)') % [@opened_bugs.count, @all_bugs.count], bugs_srpm_path(@srpm), class: 'news', title: _('list of bugs and feature requests') %>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<%= link_to _('Repocop'), repocop_srpm_path(@srpm), class: 'news', title: _('repocop bugreports') %>&nbsp;</span><div>
+<%= render partial: "shared/srpms_menu", locals: { current_page: :gear, branch: @branch, srpm: @srpm, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
 
 <% if @srpm.gears.present? %>
 <table id="bugs" cellspacing="0" cellpadding="3" class="gear">

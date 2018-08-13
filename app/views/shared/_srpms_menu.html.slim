@@ -1,0 +1,7 @@
+.page-menu
+   - menu_data(branch, srpm, opened_bugs, all_bugs, version).each do |page, data|
+      .tab
+         - if page == current_page
+            span = _(page.to_s.capitalize)
+         - else
+            = link_to(data[:title], send(data[:path], *data[:args]), title: _(data[:popup]))

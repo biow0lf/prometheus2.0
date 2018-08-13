@@ -31,10 +31,23 @@ class Srpm < ApplicationRecord
   has_many :gears, -> { order(lastchange: :desc) }, primary_key: 'name',
                                                     foreign_key: 'repo'
 
+  scope :q, ->(text) { text.blank? && all || joins(:packages).merge(Package.query(text)).or(self.query(text)) }
   scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
   scope :ordered, -> { order('srpms.buildtime DESC') }
   scope :by_arch, ->(arch) { arch.blank? && all || joins(:packages).where(packages: { arch: arch }) }
-  scope :q, ->(text) { text.blank? && all || joins(:packages).merge(Package.query(text)).or(self.query(text)) }
+  scope :by_evr, ->(evr) do
+     if evr.blank?
+        all
+     else
+        evrs = evr.split(/[:\-]/)
+
+        if evrs.size == 2
+           where(version: evrs[0], release: evrs[1])
+        else
+           where(epoch: evrs[0], version: evrs[1], release: evrs[2])
+        end
+     end
+  end
 
   scope :query, ->(text) do
      subquery = "

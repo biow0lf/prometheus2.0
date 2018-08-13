@@ -9,12 +9,12 @@
             - branched_srpms.each do |branch, rpms|
                ul
                   li
-                     .left.float = link_to "#{ branch }:", srpm_path(branch, rpms.first[:pure_name]), class: 'b'
-                     - if rpms.one?
+                     .left.float.b = link_to "#{ branch }:", srpm_path(branch, rpms.first[:pure_name])
+                     - if rpms.map { |r| r[:evr] }.uniq.one?
                         .right.float = rpms.first[:evr]
                      - else
                         ul.left
                            - rpms.each do |rpm|
                               li
-                                 .left.float.i = rpm[:path_name]
+                                 .left.float.i = link_to rpm[:path_name], versioned_srpm_path(branch, rpms.first[:pure_name], version: rpm[:evr])
                                  .right.float = rpm[:evr]
