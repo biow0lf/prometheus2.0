@@ -35,7 +35,7 @@
         <tr>
           <% if @branch.name == 'Sisyphus' %>
             <td>
-              <%= link_to image_tag("#{ srpm.repocop }.png", size: '20x20', alt: srpm.repocop), repocop_srpm_path(srpm), class: 'repocoplink', title: _('repocop') %>
+              <%= link_to image_tag("#{ srpm.repocop }.png", size: '20x20', alt: srpm.repocop), repocop_srpm_path(@branch, srpm), class: 'repocoplink', title: _('repocop') %>
             </td>
           <% end %>
           <td class="strange">
