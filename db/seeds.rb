@@ -1712,3 +1712,12 @@ BranchPath.transaction do
       branch_path.update!(name: name)
    end
 end
+
+BranchPath.transaction do
+   BranchPath.where.not(srpms_count: 0).each do |branch_path|
+      time = Time.gm(2018, 8, 6, 0, 0, 0)
+      if branch_path.imported_at < time
+         branch_path.update(imported_at: time)
+      end
+   end
+end
