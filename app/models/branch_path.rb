@@ -17,6 +17,6 @@ class BranchPath < ApplicationRecord
   validates_inclusion_of :arch, in: %w(i586 x86_64 aarch64 mipsel armh src noarch)
 
   def glob
-    File.join(path, "*.#{arch}.rpm")
+    "*.#{arch}.rpm"
   end
 end

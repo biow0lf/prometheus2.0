@@ -131,12 +131,16 @@ class Srpm < ApplicationRecord
   end
 
   def self.import_all branch
-    Rails.logger.info "IMPORT: in"
+    time = Time.zone.now
+    Rails.logger.info "IMPORT: at #{time} in"
     branch.branch_paths.source.each do |branch_path|
       Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
       next if !branch_path.active?
 
-      Dir.glob(branch_path.glob).sort.each do |file|
+      mins = (time - branch_path.imported_at + 59).to_i / 60
+      find = "find #{branch_path.path} -mmin -#{mins} -name '#{branch_path.glob}' | sort"
+      Rails.logger.info "IMPORT: search with: #{find}"
+      `#{find}`.split("\n").each do |file|
         Rails.logger.info "IMPORT: file #{file}"
         next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
@@ -153,6 +157,7 @@ class Srpm < ApplicationRecord
           [ :error, "failed to update, reason: #{e.message}" ]
         end
 
+        branch_path.update(imported_at: time)
         Rails.logger.send(method, info + state)
       end
     end
