@@ -13,3 +13,6 @@ set :ssh_options, port: 22
 set :rvm_type, :system
 
 set :app_server_host, "10.10.3.163"
+
+#set :nginx_domains, "packages.altlinux.org"
+set :nginx_domains, "10.10.3.163"

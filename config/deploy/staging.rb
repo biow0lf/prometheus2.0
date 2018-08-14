@@ -12,4 +12,7 @@ set :ssh_options, port: 22
 
 set :rvm_type, :system
 
-set :app_server_host, "10.10.3.49"
+set :app_server_host, "staging.office.basealt.ru"
+#set :app_server_host, "10.10.3.49"
+
+set :nginx_domains, "staging.office.basealt.ru"
