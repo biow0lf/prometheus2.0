@@ -26,7 +26,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true, compress: false, mangle: false)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -96,7 +96,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { host: 'packages.altlinux.org' }
+  config.action_mailer.default_url_options = { host: '10.10.3.163' }
 
   # Enable lograge (rails logs squasher)
   config.lograge.enabled = true

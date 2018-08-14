@@ -46,7 +46,7 @@ set :nginx_sites_available_dir, "/etc/nginx/sites-available.d"
 set :nginx_sites_enabled_dir, "/etc/nginx/sites-enabled.d"
 set :nginx_application_name, "#{fetch :application}-#{fetch :stage}.conf"
 set :nginx_template, "config/environments/#{fetch :stage}/nginx.conf.erb"
-set :app_server_socket, "#{shared_path}/sockets//puma-#{fetch :application}.sock"
+set :app_server_socket, "#{shared_path}/sockets/puma-#{fetch :application}.sock"
 set :app_server_host, "localhost"
 set :app_server_port, 80
 

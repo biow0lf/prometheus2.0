@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-set :repo_url, 'git://github.com/biow0lf/prometheus2.0.git'
+set :repo_url, 'git://10.10.3.49/prometheus2.0.git'
 
-set :deploy_to, '/home/prometheusapp/www'
+set :deploy_to, '/var/www/prometheus2.0'
 
 set :rails_env, 'production'
 
-server 'prometheus.altlinux.org', user: 'prometheusapp', roles: ['app', 'db', 'web']
+server '10.10.3.163', user: 'apache', roles: ['app', 'db', 'web']
 
-set :ssh_options, port: 222
+set :ssh_options, port: 22
