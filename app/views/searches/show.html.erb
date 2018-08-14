@@ -39,7 +39,7 @@
             </td>
           <% end %>
           <td class="strange">
-            <%= link_to srpm.name, srpm_path(@branch, srpm), class: 'news' %>
+            <%= link_to srpm.name, versioned_srpm_path(@branch, srpm, version: srpm.evr), class: 'news' %>
           </td>
           <td><%= srpm.evr %></td>
           <td><%= srpm.buildtime %></td>
