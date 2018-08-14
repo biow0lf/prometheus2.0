@@ -1721,3 +1721,36 @@ BranchPath.transaction do
       end
    end
 end
+
+if Branch.where("name ~* 'c.*'").blank?
+   Branch.transaction do
+      {
+         'c8' => {
+            'src' => %w(/mnt/ftp/c8/armh/SRPMS /mnt/ftp/c8/SRPMS),
+            'armh' => '/mnt/ftp/c8/armh/RPMS',
+            'i586' => '/mnt/ftp/c8/i586/RPMS',
+            'x86_64' => '/mnt/ftp/c8/x86_64/RPMS',
+            'noarch' => '/mnt/ftp/c8/noarch6/RPMS',
+         },
+         'c7' => {
+            'src' => %w(/mnt/ftp/c7/armh/SRPMS /mnt/ftp/c7/SRPMS),
+            'i586' => '/mnt/ftp/c7/i586/RPMS',
+            'x86_64' => '/mnt/ftp/c7/x86_64/RPMS',
+            'noarch' => '/mnt/ftp/c7/noarch/RPMS',
+            'armh' => '/mnt/ftp/c7armh//RPMS',
+            'arm' => '/mnt/ftp/c7/arm/RPMS',
+         }
+      }.each do |name, arches|
+         branch = Branch.create!(name: name, vendor: "ALT Linux")
+         arches.each do |arch, paths|
+            pname = arch == "src" && name || "#{name} (#{arch})"
+            [ paths ].flatten.each do |path|
+               attrs = { name: pname, arch: arch, path: path, branch_id: branch.id }
+               attrs[:source_path_id] = BranchPath.where(path: arches['src'].first).first.id if arch != "src"
+
+               BranchPath.create!(attrs)
+            end
+         end
+      end
+   end
+end

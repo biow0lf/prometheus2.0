@@ -14,7 +14,7 @@ class BranchPath < ApplicationRecord
 
   validates_presence_of :branch, :arch, :path
   validates_presence_of :source_path, if: -> { arch != "src" }
-  validates_inclusion_of :arch, in: %w(i586 x86_64 aarch64 mipsel armh src noarch)
+  validates_inclusion_of :arch, in: %w(i586 x86_64 aarch64 mipsel armh arm src noarch)
 
   def glob
     "*.#{arch}.rpm"
