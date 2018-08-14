@@ -39,7 +39,7 @@ class Package < ApplicationRecord
 
   def self.import branch_path, rpm
     sourcerpm = rpm.sourcerpm
-    srpm_id = NamedSrpm.where(name: sourcerpm, branch_path_id: branch_path.id).first&.srpm_id
+    srpm_id = NamedSrpm.where(name: sourcerpm, branch_path_id: branch_path.source_path_id).first&.srpm_id
 
     if srpm_id
       package = Package.find_or_initialize_by(md5: rpm.md5) do |package|
@@ -96,9 +96,9 @@ class Package < ApplicationRecord
         next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
 
-        info = "file '#{ file }' "
+        info = "IMPORT: file '#{ file }' "
+        rpm = RPMFile::Binary.new(file)
         (method, state) = begin
-          rpm = RPMFile::Binary.new(file)
           Package.import(branch_path, rpm)
           [ :info, "imported to branch #{branch_path.branch.name}" ]
         rescue AlreadyExistError
@@ -106,12 +106,14 @@ class Package < ApplicationRecord
         rescue SourceIsntFound => e
           [ :error, "#{e.message} source isn't found for #{branch_path.branch.name}" ]
         rescue => e
+          time = time < rpm.buildtime && time || rpm.buildtime
           [ :error, "failed to update, reason: #{e.message}" ]
         end
 
-        branch_path.update(imported_at: time)
         Rails.logger.send(method, info + state)
       end
+
+      branch_path.update(imported_at: time)
     end
   end
 

@@ -159,20 +159,23 @@ class Srpm < ApplicationRecord
         next unless RPMCheckMD5.check_md5(file)
 
         info = "IMPORT: file '#{ file }' "
+        rpm = RPMFile::Source.new(file)
         (method, state) = begin
-          Srpm.import(branch_path, RPMFile::Source.new(file), file)
+          Srpm.import(branch_path, rpm, file)
           [ :info, "imported to branch #{branch_path.branch.name}" ]
         rescue AttachedNewBranchError
           [ :info, "added to branch #{branch_path.branch.name}" ]
         rescue AlreadyExistError
           [ :info, "exists in #{branch_path.branch.name}" ]
         rescue => e
+          time = time < rpm.buildtime && time || rpm.buildtime
           [ :error, "failed to update, reason: #{e.message}" ]
         end
 
-        branch_path.update(imported_at: time)
         Rails.logger.send(method, info + state)
       end
+
+      branch_path.update(imported_at: time)
     end
   end
 
