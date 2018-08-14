@@ -9,3 +9,7 @@ set :rails_env, 'production'
 server '10.10.3.163', user: 'apache', roles: ['app', 'db', 'web']
 
 set :ssh_options, port: 22
+
+set :rvm_type, :system
+
+set :app_server_host, "10.10.3.163"

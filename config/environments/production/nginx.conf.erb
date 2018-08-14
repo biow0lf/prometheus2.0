@@ -1,23 +1,18 @@
 upstream app_server {
-    server unix:///var/www/prometheus2.0/shared/sockets//puma-prometheus2.0.sock fail_timeout=0;
-#   server unix://<%= fetch :app_server_socket %> fail_timeout=0;
+   server unix://<%= fetch :app_server_socket %> fail_timeout=0;
 }
 
 server {
-   listen 80;
-   #listen <%= fetch :app_server_port %>;
-   #listen [::]:<%= fetch :app_server_port %>;
+   listen <%= fetch :app_server_port %>;
+   listen [::]:<%= fetch :app_server_port %>;
 
-   server_name 10.10.3.49;
+   server_name <%= fetch :app_server_host %>;
 
    add_header X-Frame-Options "DENY";
 
-   root /var/www/prometheus2.0/current/public;
+   root <%= fetch :deploy_to %>/current/public;
 
    try_files $uri/index.html $uri.html $uri @app;
-   #server_name <%= fetch :app_server_host %>;
-
-   #try_files $uri/index.html $uri @prometheus2_0;
 
    location @app {
       # an HTTP header important enough to have its own Wikipedia entry:
@@ -56,7 +51,7 @@ server {
 
    error_page 500 502 503 504 /500.html;
    location = /500.html {
-      root /var/www/prometheus2.0/current/public;
+      root <%= fetch :deploy_to %>/current/public;
     }
 
    client_max_body_size 4G;
