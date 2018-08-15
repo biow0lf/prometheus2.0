@@ -16,11 +16,21 @@ class BranchPath < ApplicationRecord
   validates_presence_of :source_path, if: -> { arch != "src" }
   validates_inclusion_of :arch, in: %w(i586 x86_64 aarch64 mipsel armh arm src noarch)
 
+  validate :validate_path_existence
+
   def glob
     "*.#{arch}.rpm"
   end
 
   def empty?
     srpms_count == 0
+  end
+
+  protected
+
+  def validate_path_existence
+     if !File.directory?(self.path)
+        self.errors.add(:path, "#{self.path} is not exist or folder")
+     end
   end
 end

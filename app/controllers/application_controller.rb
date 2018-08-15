@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :redirect_to_localized
   before_action :set_default_locale
-  before_action :set_default_branch, except: %i[index]
+  before_action :set_default_branch
   before_action :authorizer_for_profiler
 
   helper_method :sort_column, :sort_order, :sort_order_next
@@ -26,8 +26,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_branch
-    params[:branch] ||= 'Sisyphus'
-    @branch = Branch.find_by!(name: params[:branch]).decorate
+    @branch = Branch.find_by!(name: params[:branch] || 'Sisyphus').decorate
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   def default_url_options(_options = {})

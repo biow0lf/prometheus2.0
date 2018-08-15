@@ -23,6 +23,8 @@ class Acl
         end
       end
       Redis.current.exec
+    rescue OpenURI::HTTPError
+      nil
     end
   end
 end

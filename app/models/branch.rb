@@ -43,6 +43,10 @@ class Branch < ApplicationRecord
     name.downcase
   end
 
+  def perpetual?
+    name == "Sisyphus"
+  end
+
   private
 
   def set_default_counter_value

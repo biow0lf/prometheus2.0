@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
     get 'project' => 'pages#project'
 
-    scope '(:branch)', branch: SUPPORTED_BRANCHES do
+    scope '(:branch)' do
       get 'srpms/:id/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'bugs_srpm'
       get 'srpms/:id/allbugs' => 'srpm_all_bugs#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'allbugs_srpm'
       get 'srpms/:id/repocop' => 'srpm_repocops#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'repocop_srpm'
@@ -84,7 +84,7 @@ Rails.application.routes.draw do
     resources :rebuild, controller: :rebuild, only: :index
     resources :rsync, controller: :rsync, only: :new
 
-    scope ':branch', branch: SUPPORTED_BRANCHES do
+    scope ':branch' do
       resources :maintainers, only: :show do
         get 'srpms', on: :member
         resources :activity, only: :index, controller: :maintainer_activity
@@ -101,7 +101,7 @@ Rails.application.routes.draw do
   end
 
   scope ':locale', locale: SUPPORTED_LOCALES do
-    scope ':branch', branch: SUPPORTED_BRANCHES do
+    scope ':branch' do
       get 'home' => 'home#index'
     end
   end
@@ -109,8 +109,7 @@ Rails.application.routes.draw do
   get '(/:locale)/misc/bugs' => 'misc#bugs', locale: SUPPORTED_LOCALES
 
   get '(/:locale)/:branch/security' => 'security#index', as: 'security',
-                                                         locale: SUPPORTED_LOCALES,
-                                                         branch: SUPPORTED_BRANCHES
+                                                         locale: SUPPORTED_LOCALES
 
   # TODO: drop this later
   # get '/repocop' => 'repocop#index'

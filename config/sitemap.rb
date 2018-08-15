@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = 'https://packages.altlinux.org'
+SitemapGenerator::Sitemap.default_host = Rails.configuration.action_mailer.default_url_options[:host]
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -50,9 +50,12 @@ SitemapGenerator::Sitemap.create do
         add srpm_sources_path(locale, branch, srpm)
         add get_srpm_path(locale, branch, srpm)
         add gear_srpm_path(locale, branch, srpm)
-        add bugs_srpm_path(locale, srpm)
-        add allbugs_srpm_path(locale, srpm)
-        add repocop_srpm_path(locale, srpm)
+
+        if branch.perpetual?
+          add bugs_srpm_path(locale, branch, srpm)
+          add allbugs_srpm_path(locale, branch, srpm)
+          add repocop_srpm_path(locale, branch, srpm)
+        end
       end
     end
   end

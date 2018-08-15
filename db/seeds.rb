@@ -1641,10 +1641,13 @@ if BranchPath.all.blank?
               "Sisyphus_MIPS" => %w(/ALTmips/files/#{arch}/RPMS/ mipsel noarch),
               "SisyphusARM"   => %w(/ALT/Sisyphus-armh/files/armh/RPMS/ armh noarch),
               "p8"            => %w(/ALT/p8/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "c8.1"          => %w(/ALT/c8.1/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "c8"            => %w(/ALT/c8/files/#{arch}/RPMS/ i586 x86_64 noarch),
               "p7"            => %w(/ALT/p7/files/#{arch}/RPMS/ i586 x86_64 noarch ),
-              "t7"            => %w(/ALT/t7/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "c7.1"          => %w(/ALT/c7.1/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "c7"            => %w(/ALT/c7/files/#{arch}/RPMS/ i586 x86_64 noarch),
               "Platform6"     => %w(/ALT/p6/files/#{arch}/RPMS/ i586 x86_64 noarch),
-              "t6"            => %w(/ALT/t6/files/#{arch}/RPMS/ i586 x86_64 noarch),
+              "c6"            => %w(/ALT/c6/files/#{arch}/RPMS/ i586 x86_64 noarch),
               "Platform5"     => %w(/ALT/p5/files/#{arch}/RPMS/ i586 x86_64 noarch),
               "5.1"           => %w(/ALT/5.1/files/#{arch}/RPMS/ i586 x86_64 noarch),
    }
@@ -1722,26 +1725,65 @@ BranchPath.transaction do
    end
 end
 
-if Branch.where("name ~* 'c.*'").blank?
+#if BranchPath.source.blank?
    Branch.transaction do
       {
+         'c8.1' => {
+            'src' => %w(/ALT/c8.1/files/SRPMS),
+            'i586' => %w(/ALT/c8.1/files/i586/RPMS),
+            'x86_64' => %w(/ALT/c8.1/files/x86_64/RPMS),
+            'noarch' => %w(/ALT/c8.1/files/noarch/RPMS),
+         },
          'c8' => {
-            'src' => %w(/mnt/ftp/c8/armh/SRPMS /mnt/ftp/c8/SRPMS),
-            'armh' => '/mnt/ftp/c8/armh/RPMS',
-            'i586' => '/mnt/ftp/c8/i586/RPMS',
-            'x86_64' => '/mnt/ftp/c8/x86_64/RPMS',
-            'noarch' => '/mnt/ftp/c8/noarch6/RPMS',
+            'src' => %w(/mnt/ftp/c8/files/SRPMS /mnt/ftp/c8/files/armh/SRPMS),
+            'i586' => %w(/mnt/ftp/c8/files/i586/RPMS),
+            'x86_64' => %w(/mnt/ftp/c8/files/x86_64/RPMS),
+            'armh' => %(/mnt/ftp/c8/files/armh/RPMS),
+            'noarch' => %w(/mnt/ftp/c8/files/noarch/RPMS),
+         },
+         'c7.1' => {
+            'src' => %w(/ALT/c7.1/files/SRPMS),
+            'i586' => %w(/ALT/c7.1/files/i586/RPMS),
+            'x86_64' => %w(/ALT/c7.1/files/x86_64/RPMS),
+            'noarch' => %w(/ALT/c7.1/files/noarch/RPMS),
          },
          'c7' => {
-            'src' => %w(/mnt/ftp/c7/armh/SRPMS /mnt/ftp/c7/SRPMS),
-            'i586' => '/mnt/ftp/c7/i586/RPMS',
-            'x86_64' => '/mnt/ftp/c7/x86_64/RPMS',
-            'noarch' => '/mnt/ftp/c7/noarch/RPMS',
-            'armh' => '/mnt/ftp/c7armh//RPMS',
-            'arm' => '/mnt/ftp/c7/arm/RPMS',
+            'src' => %w(/mnt/ftp/c7/SRPMS /mnt/ftp/c7/armh/SRPMS),
+            'i586' => %w(/mnt/ftp/c7/i586/RPMS),
+            'x86_64' => %w(/mnt/ftp/c7/x86_64/RPMS),
+            'arm' => '/mnt/ftp/c7arm/RPMS',
+            'armh' => '/mnt/ftp/c7armh/RPMS',
+            'noarch' => %w(/mnt/ftp/c7/noarch/RPMS),
+         },
+         't7' => {
+            'src' => %w(/mnt/ftp/t7/SRPMS),
+            'i586' => %w(/mnt/ftp/t7/i586/RPMS),
+            'x86_64' => %w(/mnt/ftp/t7/x86_64/RPMS),
+            'arm' => '/mnt/ftp/t7arm/RPMS',
+            'armh' => '/mnt/ftp/t7armh/RPMS',
+            'noarch' => %w(/mnt/ftp/t7/noarch/RPMS),
+         },
+         't6' => {
+            'src' => %w(/mnt/ftp/t6/SRPMS),
+            'i586' => %w(/mnt/ftp/t6/i586/RPMS),
+            'x86_64' => %w(/mnt/ftp/t6/x86_64/RPMS),
+            'noarch' => %w(/mnt/ftp/t6/noarch/RPMS),
+         },
+         '5.1' => {
+            'src' => %w(/ALT/5.1/files/SRPMS),
+            'i586' => %w(/ALT/5.1/files/i586/RPMS),
+            'x86_64' => %w(/ALT/5.1/files/x86_64/RPMS),
+            'noarch' => %w(/ALT/5.1/files/noarch/RPMS),
+         },
+         'p5' => {
+            'src' => %w(/mirror/p5/files/SRPMS),
+            'i586' => %w(/mirror/p5/files/i586/RPMS),
+            'x86_64' => %w(/mirror/p5/files/x86_64/RPMS),
+            'noarch' => %w(/mirror/p5/files/noarch/RPMS),
          }
       }.each do |name, arches|
-         branch = Branch.create!(name: name, vendor: "ALT Linux")
+         branch = Branch.find_or_create_by!(name: name, vendor: "ALT Linux")
+
          arches.each do |arch, paths|
             pname = arch == "src" && name || "#{name} (#{arch})"
             [ paths ].flatten.each do |path|
@@ -1753,4 +1795,4 @@ if Branch.where("name ~* 'c.*'").blank?
          end
       end
    end
-end
+#end

@@ -23,6 +23,8 @@ class Leader
       end
 
       Redis.current.exec
+    rescue OpenURI::HTTPError
+      nil
     end
   end
 end
