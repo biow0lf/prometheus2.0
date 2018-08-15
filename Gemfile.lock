@@ -131,7 +131,7 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
     dalli (2.7.8)
-    database_rewinder (0.8.3)
+    database_rewinder (0.9.0)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     descendants_tracker (0.0.4)
