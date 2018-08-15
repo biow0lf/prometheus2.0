@@ -1763,6 +1763,12 @@ end
             'armh' => '/mnt/ftp/t7armh/RPMS',
             'noarch' => %w(/mnt/ftp/t7/noarch/RPMS),
          },
+         'c6' => {
+            'src' => %w(/ALT/c6/files/SRPMS),
+            'i586' => %w(/ALT/c6/files/i586/RPMS),
+            'x86_64' => %w(/ALT/c6/files/x86_64/RPMS),
+            'noarch' => %w(/ALT/c6/files/noarch/RPMS),
+         },
          't6' => {
             'src' => %w(/mnt/ftp/t6/SRPMS),
             'i586' => %w(/mnt/ftp/t6/i586/RPMS),
