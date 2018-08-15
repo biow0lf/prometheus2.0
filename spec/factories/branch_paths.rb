@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :branch_path do
     arch { %w(i586 x86_64 noarch aarch64 mipsel armh)[rand(6)] }
-    path { "/path/to/#{@instance.arch}/#{@cached_attributes[:branchname]}" }
+    path { Dir.mktmpdir("#{@instance.arch}/#{@cached_attributes[:branchname]}") }
 
     branch nil
 
@@ -20,6 +20,6 @@ FactoryBot.define do
 
   factory :src_branch_path, parent: :branch_path do
     arch "src"
-    path { "/path/to/src/#{@cached_attributes[:branchname]}" }
+    path { Dir.mktmpdir(@cached_attributes[:branchname]) }
   end
 end

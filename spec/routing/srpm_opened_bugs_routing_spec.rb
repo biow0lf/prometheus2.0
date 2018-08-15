@@ -8,7 +8,8 @@ describe SrpmOpenedBugsController do
       expect(get: '/Sisyphus/srpms/glibc/bugs').to route_to(
         controller: 'srpm_opened_bugs',
         action: 'index',
-        id: 'glibc'
+        id: 'glibc',
+        branch: 'Sisyphus'
       )
     end
 
@@ -17,7 +18,8 @@ describe SrpmOpenedBugsController do
         controller: 'srpm_opened_bugs',
         action: 'index',
         id: 'glibc',
-        locale: 'en'
+        locale: 'en',
+        branch: 'Sisyphus'
       )
     end
   end

@@ -1725,7 +1725,7 @@ BranchPath.transaction do
    end
 end
 
-#if BranchPath.source.blank?
+if BranchPath.source.blank?
    Branch.transaction do
       {
          'c8.1' => {
@@ -1735,11 +1735,11 @@ end
             'noarch' => %w(/ALT/c8.1/files/noarch/RPMS),
          },
          'c8' => {
-            'src' => %w(/mnt/ftp/c8/files/SRPMS /mnt/ftp/c8/files/armh/SRPMS),
-            'i586' => %w(/mnt/ftp/c8/files/i586/RPMS),
-            'x86_64' => %w(/mnt/ftp/c8/files/x86_64/RPMS),
+            'src' => %w(/mnt/ftp/c8/SRPMS /mnt/ftp/c8/armh/SRPMS),
+            'i586' => %w(/mnt/ftp/c8/i586/RPMS),
+            'x86_64' => %w(/mnt/ftp/c8/x86_64/RPMS),
             'armh' => %(/mnt/ftp/c8/files/armh/RPMS),
-            'noarch' => %w(/mnt/ftp/c8/files/noarch/RPMS),
+            'noarch' => %w(/mnt/ftp/c8/noarch/RPMS),
          },
          'c7.1' => {
             'src' => %w(/ALT/c7.1/files/SRPMS),
@@ -1751,16 +1751,16 @@ end
             'src' => %w(/mnt/ftp/c7/SRPMS /mnt/ftp/c7/armh/SRPMS),
             'i586' => %w(/mnt/ftp/c7/i586/RPMS),
             'x86_64' => %w(/mnt/ftp/c7/x86_64/RPMS),
-            'arm' => '/mnt/ftp/c7arm/RPMS',
-            'armh' => '/mnt/ftp/c7armh/RPMS',
+            'arm' => %w(/mnt/ftp/c7arm/RPMS),
+            'armh' => %w(/mnt/ftp/c7armh/RPMS),
             'noarch' => %w(/mnt/ftp/c7/noarch/RPMS),
          },
          't7' => {
             'src' => %w(/mnt/ftp/t7/SRPMS),
             'i586' => %w(/mnt/ftp/t7/i586/RPMS),
             'x86_64' => %w(/mnt/ftp/t7/x86_64/RPMS),
-            'arm' => '/mnt/ftp/t7arm/RPMS',
-            'armh' => '/mnt/ftp/t7armh/RPMS',
+            'arm' => %w(/mnt/ftp/t7/arm/RPMS),
+            'armh' => %w(/mnt/ftp/t7/armh/RPMS),
             'noarch' => %w(/mnt/ftp/t7/noarch/RPMS),
          },
          'c6' => {
@@ -1801,4 +1801,4 @@ end
          end
       end
    end
-#end
+end

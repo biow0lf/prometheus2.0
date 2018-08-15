@@ -8,7 +8,8 @@ describe SrpmRepocopsController do
       expect(get: '/Sisyphus/srpms/glibc/repocop').to route_to(
         controller: 'srpm_repocops',
         action: 'index',
-        id: 'glibc'
+        id: 'glibc',
+        branch: 'Sisyphus'
       )
     end
 
@@ -17,7 +18,8 @@ describe SrpmRepocopsController do
         controller: 'srpm_repocops',
         action: 'index',
         id: 'glibc',
-        locale: 'en'
+        locale: 'en',
+        branch: 'Sisyphus'
       )
     end
   end

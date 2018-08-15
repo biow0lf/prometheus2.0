@@ -5,7 +5,7 @@ require 'rails_helper'
 describe RemoveOldSrpms do
   let(:branch) { create(:branch) }
 
-  let(:branch_path) { create(:src_branch_path, path: '/Sisyphus', branch: branch) }
+  let(:branch_path) { create(:src_branch_path, path: 'spec/data', branch: branch) }
 
   subject { described_class.new(branch_path) }
 
@@ -25,7 +25,7 @@ describe RemoveOldSrpms do
         #
         allow(File).to receive(:exist?).and_call_original
         expect(File).to receive(:exist?)
-          .with('/Sisyphus/openbox-1.0-alt1.src.rpm')
+          .with('spec/data/openbox-1.0-alt1.src.rpm')
           .and_return(true)
       end
 
@@ -44,7 +44,7 @@ describe RemoveOldSrpms do
         #
         allow(File).to receive(:exist?).and_call_original
         expect(File).to receive(:exist?)
-          .with('/Sisyphus/openbox-1.0-alt1.src.rpm')
+          .with('spec/data/openbox-1.0-alt1.src.rpm')
           .and_return(false)
       end
 

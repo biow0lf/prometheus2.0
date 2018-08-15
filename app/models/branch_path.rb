@@ -29,7 +29,7 @@ class BranchPath < ApplicationRecord
   protected
 
   def validate_path_existence
-     if !File.directory?(self.path)
+     if self.path && !File.directory?(self.path)
         self.errors.add(:path, "#{self.path} is not exist or folder")
      end
   end

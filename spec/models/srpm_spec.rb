@@ -82,20 +82,6 @@ describe Srpm do
 
   # value :leader
 
-  describe 'Callbacks' do
-    it { should callback(:add_filename_to_cache).after(:save) }
-
-    it { should callback(:increment_branch_counter).after(:create) }
-
-    it { should callback(:decrement_branch_counter).after(:destroy) }
-
-    it { should callback(:remove_filename_from_cache).after(:destroy) }
-
-    it { should callback(:remove_acls_from_cache).after(:destroy) }
-
-    it { should callback(:remove_leader_from_cache).after(:destroy) }
-  end
-
   describe '#to_param' do
     subject { stub_model Srpm, name: 'openbox' }
 
@@ -174,52 +160,10 @@ describe Srpm do
   end
 
   it 'should import all srpms from path' do
-    path = '/ALT/Sisyphus/files/SRPMS/*.src.rpm'
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    _branch_path = create(:src_branch_path, path: '/ALT/Sisyphus/files/SRPMS/', branch: branch)
-    expect(Redis.current.get("#{ branch.name }:glibc-2.11.3-alt6.src.rpm")).to be_nil
-    expect(Dir).to receive(:glob).with(path).and_return(['glibc-2.11.3-alt6.src.rpm'])
-    expect(File).to receive(:exist?).with('glibc-2.11.3-alt6.src.rpm').and_return(true)
-    expect(RPMCheckMD5).to receive(:check_md5).and_return(true)
-    expect(Srpm).to receive(:import).and_return(true)
+    branch_path = create(:src_branch_path, path: Rails.root.join("spec/data"), branch: branch)
 
-    Srpm.import_all(branch)
-  end
-
-  # private methods
-
-  describe '#add_filename_to_cache' do
-    it { expect { subject.send(:add_filename_to_cache) }.not_to raise_error }
-  end
-
-  describe '#increment_branch_counter' do
-    subject { create(:srpm) }
-
-    specify { expect { subject.send(:increment_branch_counter) }.not_to raise_error }
-  end
-
-  describe '#decrement_branch_counter' do
-    subject { create(:srpm) }
-
-    specify { expect { subject.send(:decrement_branch_counter) }.not_to raise_error }
-  end
-
-  describe '#remove_filename_from_cache' do
-    subject { create(:srpm) }
-
-    specify { expect { subject.send(:remove_filename_from_cache) }.not_to raise_error }
-  end
-
-  describe '#remove_acls_from_cache' do
-    subject { create(:srpm) }
-
-    specify { expect { subject.send(:remove_acls_from_cache) }.not_to raise_error }
-  end
-
-  describe '#remove_leader_from_cache' do
-    subject { create(:srpm) }
-
-    specify { expect { subject.send(:remove_leader_from_cache) }.not_to raise_error }
+    expect(Redis.current.get("#{ branch.name }:catpkt-1.0-alt5.src.rpm")).to be_nil
+    expect(Srpm.import_all(branch)).to_not be_nil
   end
 
   describe '#by_branch' do

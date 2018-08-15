@@ -45,7 +45,7 @@ describe RPMFile::Base do
       rpm = RPMFile::Base.new(file)
       tag = RPMFile::Base::RPM_INT_TAGS.first
       expect { rpm.send(tag) }.not_to raise_exception
-      expect(rpm.send(tag)).to be_instance_of(Fixnum)
+      expect(rpm.send(tag)).to be_instance_of(Integer)
     end
 
     it 'does return time' do

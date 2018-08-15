@@ -5,12 +5,13 @@ require 'rails_helper'
 describe Package do
   it { should be_a(ApplicationRecord) }
 
-  let(:branch) { create(:branch, :with_paths) }
-  let(:srcfilename) { 'openbox-3.4.11.1-alt1.1.1.src.rpm' }
+  let(:branch) { create(:branch) }
+  let(:srcfilename) { 'catpkt-1.0-alt5.src.rpm' }
   let(:group) { create(:group, branch: branch) }
   let(:named_srpm) { create(:named_srpm, branch: branch, group: group, name: srcfilename) }
   let(:srpm) { named_srpm.srpm }
-  let(:branch_path) { branch.branch_paths.source.first }
+  let(:source_path) { create(:src_branch_path, path: Rails.root.join("spec/data"), branch: branch) }
+  let(:branch_path) { create(:branch_path, arch: "i586", path: Rails.root.join("spec/data"), branch: branch, source_path_id: source_path.id) }
   let(:package) { Package.first }
 
   describe 'Associations' do
@@ -40,10 +41,10 @@ describe Package do
   end
 
   it 'should import package to database' do
-    srpm
-    file = 'openbox-3.4.11.1-alt1.1.1.i586.rpm'
-    md5 = 'fd0100efb65fa82af3028e356a6f6304'
-    rpm = RPMFile::Binary.new(file)
+    Srpm.import_all(source_path.branch)
+
+    file = 'catpkt-1.0-alt5.x86_64.rpm'
+    rpm = RPMFile::Binary.new(Rails.root.join("spec/data", file))
 
     expect(rpm).to receive(:name).and_return('openbox')
     expect(rpm).to receive(:version).and_return('3.4.11.1')
@@ -62,11 +63,11 @@ describe Package do
     # expect(rpm).to receive(:changelogname)
     # expect(rpm).to receive(:changelogtext)
     # expect(rpm).to receive(:changelogtime)
-    expect(rpm).to receive(:md5).and_return(md5)
+    expect(rpm).to receive(:md5).and_return("76b89daa110858faf4481b4011e9a9e6")
     expect(rpm).to receive(:size).and_return(236_554)
     expect(rpm).to receive(:arch).and_return('i586')
     expect(rpm).to receive(:filename).and_return(file)
-    expect(rpm).to receive(:sourcerpm).and_return('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    expect(rpm).to receive(:sourcerpm).and_return('catpkt-1.0-alt5.src.rpm')
 
     expect { Package.import(branch_path, rpm) }.to change(Package, :count).by(1)
 
@@ -88,23 +89,16 @@ describe Package do
     # expect(package.changelogname).to eq('')
     # expect(package.changelogtext).to eq('')
     # expect(package.changelogtime).to eq('')
-    expect(package.md5).to eq(md5)
+    expect(package.md5).to eq("76b89daa110858faf4481b4011e9a9e6")
     expect(package.size).to eq(236_554)
     expect(package.arch).to eq('i586')
     expect(package.filename).to eq(file)
-    expect(package.sourcepackage).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    expect(package.sourcepackage).to eq('catpkt-1.0-alt5.src.rpm')
   end
 
   it 'should import all packages from path' do
-    # TODO: add path to branch and branch factory
-    branch = create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
-    _branch_path = create(:branch_path, arch: "i586", path: '/ALT/Sisyphus/files/i586/RPMS/', branch: branch)
     expect(Redis.current.get("#{ branch.name }:gcc-1.0-alt1.i586.rpm")).to be_nil
-    expect(Dir).to receive(:glob).and_return(['gcc-1.0-alt1.i586.rpm'])
-    expect(File).to receive(:exist?).with('gcc-1.0-alt1.i586.rpm').and_return(true)
-    expect(RPMCheckMD5).to receive(:check_md5).and_return(true)
-    expect(Package).to receive(:import).and_return(true)
-    Package.import_all(branch)
+    expect(Package.import_all(branch)).to_not be_nil
   end
 
   # private methods
