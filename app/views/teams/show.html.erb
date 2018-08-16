@@ -38,7 +38,7 @@
   <% if @leader %>
     <b><%= _('Team leader:') %></b>
     <% @leader.each do |leader| %>
-      <%= link_to leader.name, maintainer_path(id: leader.login, branch: @branch.name), class: 'news', title: _('information about maintainer') %>
+      <%= link_to leader.name, maintainer_path(id: leader.login, branch: @branch.slug), class: 'news', title: _('information about maintainer') %>
     <% end %>
     <p class="break"></p>
   <% end %>
@@ -61,7 +61,7 @@
 
   <table id='bugs' cellspacing='0' cellpadding='3'>
     <tr>
-      <% if @branch.name == 'Sisyphus' %>
+      <% if @branch.perpetual? %>
         <th><%= raw _('repo<br>cop') %></th>
       <% end %>
       <th><%= _('package') %></th>
@@ -74,7 +74,7 @@
 
     <% @srpms.each do |srpm| %>
       <tr>
-        <% if @branch.name == 'Sisyphus' %>
+        <% if @branch.perpetual? %>
           <td>
             <%= link_to image_tag("#{ srpm.repocop }.png", size: '20x20', alt: srpm.repocop), repocop_srpm_path(srpm), class: 'repocoplink', title: _('repocop') %>
             <% if srpm.repocop_patch %>

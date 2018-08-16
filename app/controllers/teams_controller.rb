@@ -2,13 +2,11 @@
 
 class TeamsController < ApplicationController
   def index
-    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @teams = MaintainerTeam.order(:name)
   end
 
   def show
-    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @team = MaintainerTeam.find_by!(login: "@#{ params[:id] }")
     @srpms_counter = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:@#{ params[:id] }")).count

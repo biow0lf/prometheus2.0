@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'Sign in' do
   it 'should successfully sign in user' do
-    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux', slug: "sisyphus")
     email = 'me@example.com'
     password = 'password'
     create(:user, :confirmed, email: email, password: password)

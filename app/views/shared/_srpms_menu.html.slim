@@ -1,5 +1,6 @@
 .page-menu
    - menu_data(branch, srpm, opened_bugs, all_bugs, version).each do |page, data|
+      - next if data[:valid] && !branch.send(data[:valid])
       .tab
          - if page == current_page
             span = _(page.to_s.capitalize)

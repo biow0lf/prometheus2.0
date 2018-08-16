@@ -33,9 +33,9 @@ Rails.application.routes.draw do
     get 'project' => 'pages#project'
 
     scope '(:branch)' do
-      get 'srpms/:id/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'bugs_srpm'
-      get 'srpms/:id/allbugs' => 'srpm_all_bugs#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'allbugs_srpm'
-      get 'srpms/:id/repocop' => 'srpm_repocops#index', id: /[^\/]+/, branch: /Sisyphus/, as: 'repocop_srpm'
+      get 'srpms/:id/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, branch: /sisyphus/, as: 'bugs_srpm'
+      get 'srpms/:id/allbugs' => 'srpm_all_bugs#index', id: /[^\/]+/, branch: /sisyphus/, as: 'allbugs_srpm'
+      get 'srpms/:id/repocop' => 'srpm_repocops#index', id: /[^\/]+/, branch: /sisyphus/, as: 'repocop_srpm'
 
       resources :srpms, id: /[^\/]+/, only: :show do
         member do
@@ -66,9 +66,9 @@ Rails.application.routes.draw do
       get 'patches/:srpm_id/:version/download' => 'patches#download', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_patch_download'
       get 'sources/:srpm_id/:version/index' => 'sources#index', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_sources'
       get 'sources/:srpm_id/:version/download' => 'sources#download', srpm_id: /[^\/]+/, version: /[^\/]+/, as: 'versioned_srpm_source_download'
-      get 'srpms/:id/:version/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, version: /[^\/]+/, branch: /Sisyphus/, as: 'versioned_bugs_srpm'
-      get 'srpms/:id/:version/allbugs' => 'srpm_all_bugs#index',  id: /[^\/]+/, version: /[^\/]+/, branch: /Sisyphus/, as: 'versioned_allbugs_srpm'
-      get 'srpms/:id/:version/repocop' => 'srpm_repocops#index',  id: /[^\/]+/, version: /[^\/]+/, branch: /Sisyphus/, as: 'versioned_repocop_srpm'
+      get 'srpms/:id/:version/bugs' => 'srpm_opened_bugs#index', id: /[^\/]+/, version: /[^\/]+/, branch: /sisyphus/, as: 'versioned_bugs_srpm'
+      get 'srpms/:id/:version/allbugs' => 'srpm_all_bugs#index',  id: /[^\/]+/, version: /[^\/]+/, branch: /sisyphus/, as: 'versioned_allbugs_srpm'
+      get 'srpms/:id/:version/repocop' => 'srpm_repocops#index',  id: /[^\/]+/, version: /[^\/]+/, branch: /sisyphus/, as: 'versioned_repocop_srpm'
 
       get 'rss' => 'rss#index', as: 'rss'
       resources :teams, only: [:index, :show]
@@ -91,7 +91,7 @@ Rails.application.routes.draw do
       end
     end
 
-    scope 'Sisyphus' do
+    scope 'sisyphus' do
       get 'maintainers/:id/gear' => 'maintainers#gear', as: 'gear_maintainer'
       get 'maintainers/:id/bugs' => 'maintainers#bugs', as: 'bugs_maintainer'
       get 'maintainers/:id/allbugs' => 'maintainers#allbugs', as: 'allbugs_maintainer'

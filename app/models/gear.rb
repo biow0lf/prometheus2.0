@@ -19,7 +19,7 @@ class Gear < ApplicationRecord
   end
 
   def self.import_gitrepos(url)
-    branch = Branch.where(name: 'Sisyphus').first
+    branch = Branch.where(slug: 'sisyphus').first
     file = open(URI.escape(url)).read
     file.each_line do |line|
       gitrepo = line.split[0]

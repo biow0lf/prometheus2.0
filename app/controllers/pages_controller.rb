@@ -2,6 +2,6 @@
 
 class PagesController < ApplicationController
   def project
-    @branch = Branch.find_by!(name: 'Sisyphus')
+    @branch = Branch.find_by!(slug: 'sisyphus')
   end
 end

@@ -28,8 +28,8 @@
     </div>
     <div id='top-auth'>
       <div id='div1' style='display: block; margin-top: 20px'>
-        <%= form_tag search_path(branch: @branch.name), method: :get do %>
-          <%= hidden_field_tag('branch', @branch.name) %>
+        <%= form_tag search_path(branch: @branch.slug), method: :get do %>
+          <%= hidden_field_tag('branch', @branch.slug) %>
           <table>
             <tr>
               <td>
@@ -71,25 +71,25 @@
   <div id='menu' style='text-align: center'>
     <ul>
       <li>
-        <%= link_to_unless_current _('Home'), home_path(branch: @branch.name), title: _('site home page') %>
+        <%= link_to_unless_current _('Home'), home_path(branch: @branch.slug), title: _('site home page') %>
       </li>
       <li>
-        <%= link_to_unless_current _('Packages'), packages_path(branch: @branch.name), title: _('packages information') %>
+        <%= link_to_unless_current _('Packages'), packages_path(branch: @branch.slug), title: _('packages information') %>
       </li>
       <li>
-        <%= link_to_unless_current _('Maintainers'), maintainers_path(branch: @branch.name), title: _('maintainers information') %>
+        <%= link_to_unless_current _('Maintainers'), maintainers_path(branch: @branch.slug), title: _('maintainers information') %>
       </li>
       <li>
-        <%= link_to_unless_current _('Teams'), teams_path(branch: @branch.name), title: _('teams information') %>
+        <%= link_to_unless_current _('Teams'), teams_path(branch: @branch.slug), title: _('teams information') %>
       </li>
       <li>
-        <%= link_to_unless_current _('Security'), security_path(branch: @branch.name), title: _('security fixes') %>
+        <%= link_to_unless_current _('Security'), security_path(branch: @branch.slug), title: _('security fixes') %>
       </li>
       <li>
         <%= link_to_unless_current _('About'), project_path, title: _('about Prometheus project') %>
       </li>
       <li>
-        <%= link_to_unless_current _('RSS'), rss_path(branch: @branch.name), title: _('RSS') %>
+        <%= link_to_unless_current _('RSS'), rss_path(branch: @branch.slug), title: _('RSS') %>
       </li>
       <li>
         <%= link_to _('Wiki'), _('http://en.altlinux.org/Sisyphus'), title: _('sisyphus public site') %>

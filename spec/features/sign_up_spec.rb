@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'Sign up' do
   it 'should successfully sign up user and confirm them' do
-    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux', slug: "sisyphus")
 
     visit '/'
     click_link 'Sign up'

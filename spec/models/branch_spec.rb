@@ -50,9 +50,9 @@ describe Branch do
   it { should callback(:destroy_counter).after(:commit).on(:destroy) }
 
   describe '#to_param' do
-    subject { create(:branch, name: 'Sisyphus') }
+    subject { create(:branch, name: 'Sisyphus', slug: "sisyphus") }
 
-    specify { expect(subject.to_param).to eq('Sisyphus') }
+    specify { expect(subject.to_param).to eq('sisyphus') }
   end
 
   describe '#arches' do

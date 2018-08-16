@@ -7,6 +7,7 @@ FactoryBot.define do
 
   factory :branch do
     name
+    slug { Faker::Internet.slug }
     vendor { Faker::App.name }
     sequence(:order_id)
     path '/Anything'

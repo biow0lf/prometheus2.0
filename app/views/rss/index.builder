@@ -10,13 +10,13 @@ xml.rss "version" => "2.0", "xmlns:atom" => "http://www.w3.org/2005/Atom" do
                           href: url_for(only_path: false,
                                         controller: 'rss',
                                         action: 'index',
-                                        branch: @branch.name)
+                                        branch: @branch.slug)
     xml.description "Fresh packages in #{ @branch.name }"
     xml.ttl 60
     for srpm in @srpms do
       xml.item do
         xml.title "#{ srpm.name }-#{ srpm.evr }"
-        xml.link url_for(only_path: false, controller: 'srpms', action: 'show', id: srpm.name, branch: @branch.name)
+        xml.link url_for(only_path: false, controller: 'srpms', action: 'show', id: srpm.name, branch: @branch.slug)
         xml.description simple_format(srpm.changelogtext)
         xml.guid "#{ srpm.name }-#{ srpm.evr }", isPermaLink: false
       end

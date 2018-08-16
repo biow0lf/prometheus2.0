@@ -12,13 +12,13 @@ class SrpmBranchesSerializer < ActiveModel::Serializer::CollectionSerializer
       adapter_opts = adapter_options.merge(include_directive: include_directive)
 
       object.reduce({}) do |sum, named_srpm|
-         nss = NamedSrpmSerializer.new(named_srpm).serializable_hash(adapter_opts, options, adapter_instance)
-         branch_name = named_srpm.branch.name
+         ns_s = NamedSrpmSerializer.new(named_srpm).serializable_hash(adapter_opts, options, adapter_instance)
+         branch_s = BranchSerializer.new(named_srpm.branch).serializable_hash(adapter_opts, options, adapter_instance)
 
-         if sum[branch_name]
-            sum[branch_name] << nss
+         if sum[branch_s]
+            sum[branch_s] << ns_s
          else
-            sum[branch_name] = [ nss ]
+            sum[branch_s] = [ ns_s ]
          end
 
          sum

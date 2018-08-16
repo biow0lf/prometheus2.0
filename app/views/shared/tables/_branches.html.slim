@@ -9,8 +9,8 @@
                ul
                   li
                      .line
-                        .left.float = link_to "#{ branch[:name] }:", home_path(branch: branch[:name]), class: 'b'
-                        .right.float = branch[:srpm_count]
+                        .left.float = link_to "#{ branch[:name] }:", home_path(branch: branch[:slug]), class: 'b'
+                        .right.float = branch[:srpms_count]
                      - if !branch_paths.one?
                         ul.line.left
                            - branch_paths.each do |branch_path|

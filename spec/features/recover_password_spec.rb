@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'Recover password' do
   it 'should recover password' do
-    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux', slug: "sisyphus")
     user = create(:user, :confirmed,
                   email: 'me@example.com',
                   password: 'password')

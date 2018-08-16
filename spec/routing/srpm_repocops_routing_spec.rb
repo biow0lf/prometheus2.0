@@ -4,22 +4,22 @@ require 'rails_helper'
 
 describe SrpmRepocopsController do
   describe 'routing' do
-    it 'should route /Sisyphus/srpms/:id/repocop to srpm_repocops#index' do
-      expect(get: '/Sisyphus/srpms/glibc/repocop').to route_to(
+    it 'should route /sisyphus/srpms/:id/repocop to srpm_repocops#index' do
+      expect(get: '/sisyphus/srpms/glibc/repocop').to route_to(
         controller: 'srpm_repocops',
         action: 'index',
         id: 'glibc',
-        branch: 'Sisyphus'
+        branch: 'sisyphus'
       )
     end
 
-    it 'should route /:locale/Sisyphus/srpms/:id/repocop to srpm_repocops#index' do
-      expect(get: '/en/Sisyphus/srpms/glibc/repocop').to route_to(
+    it 'should route /:locale/sisyphus/srpms/:id/repocop to srpm_repocops#index' do
+      expect(get: '/en/sisyphus/srpms/glibc/repocop').to route_to(
         controller: 'srpm_repocops',
         action: 'index',
         id: 'glibc',
         locale: 'en',
-        branch: 'Sisyphus'
+        branch: 'sisyphus'
       )
     end
   end

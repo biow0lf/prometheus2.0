@@ -39,7 +39,7 @@ class Package < ApplicationRecord
 
   def self.import branch_path, rpm
     sourcerpm = rpm.sourcerpm
-    srpm_id = NamedSrpm.where(name: sourcerpm, branch_path_id: branch_path.source_path_id).first&.srpm_id
+    srpm_id = NamedSrpm.where(name: sourcerpm, branch_path_id: branch_path.branch.branch_paths.source.select(:id)).first&.srpm_id
 
     if srpm_id
       package = Package.find_or_initialize_by(md5: rpm.md5) do |package|

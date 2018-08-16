@@ -6,7 +6,7 @@ include Warden::Test::Helpers
 
 describe 'Sign out' do
   it 'should successfully sign out user' do
-    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux')
+    create(:branch, name: 'Sisyphus', vendor: 'ALT Linux', slug: "sisyphus")
     user = create(:user, :confirmed)
     login_as user
 

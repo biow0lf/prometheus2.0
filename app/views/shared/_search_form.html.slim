@@ -1,8 +1,8 @@
 = form_tag search_path, method: :get do
    - if defined?(branches)
-      = select_tag :branch, options_from_collection_for_select(branches, 'name', 'name', branch.name)
+      = select_tag :branch, options_from_collection_for_select(branches, 'name', 'slug', branch.slug)
    - else
-      = hidden_field_tag :branch, branch.name
+      = hidden_field_tag :branch, branch.slug
    = select_tag :arch, branch.options_for(arch), name: 'arch[]'
    = hidden_field_tag :arch, 'noarch', name: 'arch[]'
    = text_field_tag :query, query, placeholder: _('Search...'), size: '20'

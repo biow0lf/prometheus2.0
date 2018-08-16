@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_branch
-    @branch = Branch.find_by!(name: params[:branch] || 'Sisyphus').decorate
+    @branch = Branch.find_by!(slug: params[:branch] || 'sisyphus').decorate
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end

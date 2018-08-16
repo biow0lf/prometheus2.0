@@ -146,6 +146,7 @@ class Srpm < ApplicationRecord
   def self.import_all branch
     time = Time.zone.now
     Rails.logger.info "IMPORT: at #{time} in"
+
     branch.branch_paths.source.each do |branch_path|
       Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
       next if !branch_path.active?
@@ -173,10 +174,13 @@ class Srpm < ApplicationRecord
         end
 
         Rails.logger.send(method, info + state)
+
       end
 
-      branch_path.update(imported_at: time)
+      branch_path.update(imported_at: time, srpms_count: branch_path.named_srpms.count)
     end
+
+    branch.update(srpms_count: branch.srpms.count)
   end
 
   def contributors

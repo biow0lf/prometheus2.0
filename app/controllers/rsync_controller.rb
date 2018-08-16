@@ -2,7 +2,7 @@
 
 class RsyncController < ApplicationController
   def new
-    @branch = Branch.find_by!(name: 'Sisyphus')
+    @branch = Branch.find_by!(slug: 'sisyphus')
     @groups = @branch.groups.where(parent_id: nil).order('LOWER(name)')
   end
 end

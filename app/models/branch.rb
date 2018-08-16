@@ -19,8 +19,7 @@ class Branch < ApplicationRecord
 
   scope :filled, -> { where.not(srpms_count: 0) }
 
-  validates :name, presence: true
-  validates :vendor, presence: true
+  validates_presence_of :slug, :name, :vendor
 
   counter :counter
 
@@ -28,7 +27,7 @@ class Branch < ApplicationRecord
   after_destroy_commit :destroy_counter
 
   def to_param
-    name
+    slug
   end
 
   def counter_value
@@ -44,7 +43,7 @@ class Branch < ApplicationRecord
   end
 
   def perpetual?
-    name == "Sisyphus"
+    slug == "sisyphus"
   end
 
   private

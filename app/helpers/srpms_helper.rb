@@ -87,11 +87,13 @@ module SrpmsHelper
          path: 'bugs_srpm_path',
          args: [branch, srpm],
          popup: 'list of bugs and feature requests',
+         valid: 'perpetual?'
       },
       repocop: {
          path: 'repocop_srpm_path',
          args: [branch, srpm],
          popup: 'repocop bugreports',
+         valid: 'perpetual?'
       }
     }
 

@@ -14,7 +14,7 @@ module Api
       if params[:branch_id]
         @branch ||= Branch.find_by!(id: params[:branch_id])
       else
-        @branch ||= Branch.find_by!(name: 'Sisyphus')
+        @branch ||= Branch.find_by!(slug: 'sisyphus')
       end
     end
   end

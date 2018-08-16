@@ -25,7 +25,7 @@ class Group < ApplicationRecord
     find_by_sql("SELECT COUNT(srpms.name) AS counter, groups.name
                  FROM srpms, named_srpms, groups, branches
                  WHERE groups.branch_id = branches.id
-                 AND branches.name = 'Sisyphus'
+                 AND branches.slug = 'sisyphus'
                  AND branches.vendor = 'ALT Linux'
                  AND srpms.group_id = groups.id
                  AND srpms.id = named_srpms.srpm_id

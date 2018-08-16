@@ -2,13 +2,11 @@
 
 class MaintainersController < ApplicationController
   def index
-    @branch = Branch.find_by!(name: params[:branch])
     @branches = Branch.order('order_id')
     @maintainers = Maintainer.order(:name)
   end
 
   def show
-    @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase).decorate
     @branches = Branch.order('order_id')
     # TODO: move @acls to maintainer or branch...
@@ -18,7 +16,6 @@ class MaintainersController < ApplicationController
   end
 
   def srpms
-    @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @branches = Branch.order('order_id')
 
@@ -63,7 +60,7 @@ class MaintainersController < ApplicationController
 #  end
 
   def gear
-    @branch = Branch.find_by!(name: 'Sisyphus')
+    @branch = Branch.find_by!(slug: 'sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @gears = Gear.where(maintainer_id: @maintainer).includes(:maintainer).order('LOWER(repo)')
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
@@ -73,7 +70,7 @@ class MaintainersController < ApplicationController
   def bugs
     # TODO: add Branch support
     # @branch = Branch.find_by!(name: params[:branch])
-    @branch = Branch.find_by!(name: 'Sisyphus')
+    @branch = Branch.find_by!(slug: 'sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
@@ -83,7 +80,7 @@ class MaintainersController < ApplicationController
   def allbugs
     # TODO: add Branch support
     # @branch = Branch.find_by!(name: params[:branch])
-    @branch = Branch.find_by!(name: 'Sisyphus')
+    @branch = Branch.find_by!(slug: 'sisyphus')
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:packages)
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
@@ -91,7 +88,6 @@ class MaintainersController < ApplicationController
   end
 
   def ftbfs
-    @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @ftbfs = Ftbfs.where(maintainer_id: @maintainer).includes(:branch)
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate
@@ -99,7 +95,6 @@ class MaintainersController < ApplicationController
   end
 
   def repocop
-    @branch = Branch.find_by!(name: params[:branch])
     @maintainer = Maintainer.find_by!(login: params[:id].downcase)
     @srpms = @branch.srpms.where(name: Redis.current.smembers("#{ @branch.name }:maintainers:#{ @maintainer.login }")).includes(:repocops).order('LOWER(srpms.name)')
     @all_bugs = AllBugsForMaintainer.new(@branch, @maintainer).decorate

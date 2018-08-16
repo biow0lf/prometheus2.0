@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815150600) do
+ActiveRecord::Schema.define(version: 20180816124700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 20180815150600) do
     t.integer "order_id"
     t.string "path", limit: 255
     t.integer "srpms_count", default: 0, comment: "Счётчик уникальных исходных пакетов для ветви"
+    t.string "slug", null: false, comment: "Плашка для обращения к ветви в строке пути браузера"
     t.index ["name"], name: "index_branches_on_name"
+    t.index ["slug"], name: "index_branches_on_slug", unique: true
   end
 
   create_table "bugs", id: :serial, force: :cascade do |t|

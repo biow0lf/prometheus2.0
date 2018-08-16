@@ -2,7 +2,6 @@
 
 class SrpmsController < ApplicationController
   before_action :set_version
-  before_action :fetch_branch
   before_action :fetch_srpm
   before_action :fetch_srpms_by_name, only: %i(show changelog spec get)
 
@@ -64,10 +63,6 @@ class SrpmsController < ApplicationController
   end
 
   protected
-
-  def fetch_branch
-    @branch = Branch.find_by!(name: params[:branch])
-  end
 
   def fetch_srpm
     includes = {

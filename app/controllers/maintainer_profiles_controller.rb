@@ -10,7 +10,7 @@ class MaintainerProfilesController < ApplicationController
   def update
     @maintainer = Maintainer.find_by!(login: current_user.login)
     if @maintainer.update_attributes(maintainer_params)
-      redirect_to maintainer_path(id: current_user.login, branch: 'Sisyphus', locale: I18n.locale)
+      redirect_to maintainer_path(id: current_user.login, branch: 'sisyphus', locale: I18n.locale)
     else
       render text: 'Fail'
     end

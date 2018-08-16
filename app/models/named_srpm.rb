@@ -11,15 +11,25 @@ class NamedSrpm < ApplicationRecord
 
   validates_presence_of :branch_path, :name
 
-  after_save    :add_filename_to_cache
-  after_create  :increment_branch_counter
+  before_create   :increment_branch_path_counter
+  before_destroy  :decrement_branch_path_counter
+  after_save      :add_filename_to_cache
+  after_create    :increment_branch_counter
 
-  after_destroy :decrement_branch_counter
-  after_destroy :remove_filename_from_cache
-  after_destroy :remove_acls_from_cache
-  after_destroy :remove_leader_from_cache
+  after_destroy   :decrement_branch_counter
+  after_destroy   :remove_filename_from_cache
+  after_destroy   :remove_acls_from_cache
+  after_destroy   :remove_leader_from_cache
 
-  private
+  protected
+
+  def decrement_branch_path_counter
+    BranchPath.decrement_counter(:srpms_count, branch_path.id)
+  end
+
+  def increment_branch_path_counter
+    BranchPath.increment_counter(:srpms_count, branch_path.id)
+  end
 
   def add_filename_to_cache
     Redis.current.set("#{ branch.name }:#{ name }", 1)
