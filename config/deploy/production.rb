@@ -10,7 +10,7 @@ server '10.10.3.163', user: 'apache', roles: ['app', 'db', 'web']
 
 set :ssh_options, port: 22
 
-set :rvm_type, :system
+set :rvm_type, :user
 
 set :app_server_host, "10.10.3.163"
 
