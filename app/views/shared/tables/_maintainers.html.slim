@@ -1,0 +1,15 @@
+- if maintainers.present?
+   .table
+      .headleft
+         .headright { title=_('sort maintainers by amount of packages') } = _('TOP maintainers')
+         = image_tag('collapse.gif', id: 'top-branches', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9')
+      .frame#top-maintainers
+         table
+            - maintainers.each do |maintainer|
+               ul
+                  li
+                     .line
+                        .left.float.b = link_to(_(maintainer['name']), maintainer_path(branch.slug, maintainer['login']), title: _('information about maintainer'))
+                        .right.float = maintainer['srpms_count']
+         .footer
+            .center = '…'

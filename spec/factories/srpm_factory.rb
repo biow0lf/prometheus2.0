@@ -8,6 +8,7 @@ FactoryBot.define do
     buildtime { Time.zone.now }
     md5 { Digest::MD5.hexdigest("#{@instance.name}-#{@instance.version}-#{@instance.release}-#{@instance.buildtime}") }
     groupname 'Graphical desktop/Other'
+    association :builder, factory: :maintainer
 
     transient do
       filename nil

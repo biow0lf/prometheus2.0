@@ -3,6 +3,7 @@ FactoryBot.define do
     sequence(:name) { |n| "#{Faker::App.name.downcase}-#{n}" }
     srpm nil
     branch_path nil
+    filename { "#{@instance.name}-1.0.0-alt1.src.rpm" }
 
     transient do
       branchname { Faker::App.name }

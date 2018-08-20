@@ -19,6 +19,8 @@ describe SrpmDecorator do
       create(:group, id: 1_083)
     end
 
+    let(:maintainer) { create(:maintainer) }
+
     let(:srpm) do
       create(:srpm, id: 336_994,
                     branch: branch,
@@ -40,7 +42,7 @@ describe SrpmDecorator do
                     # changelogtext: changelogtext,
                     # changelogtime: changelogtime,
                     md5: '8bad93ffb43f9486cd7e17eff1c19389',
-                    builder_id: 25,
+                    builder: maintainer,
                     size: 11_417_028,
                     repocop: 'warn',
                     created_at: created_at,
@@ -83,7 +85,7 @@ describe SrpmDecorator do
 
     its([:md5]) { should eq('8bad93ffb43f9486cd7e17eff1c19389') }
 
-    its([:builder_id]) { should eq(25) }
+    its([:builder_id]) { should eq(maintainer.id) }
 
     its([:size]) { should eq(11_417_028) }
 

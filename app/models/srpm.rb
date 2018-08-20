@@ -7,16 +7,13 @@ class Srpm < ApplicationRecord
   class AttachedNewBranchError < StandardError; end
 
   belongs_to :group
+  belongs_to :builder, class_name: 'Maintainer', inverse_of: :srpms, counter_cache: :srpms_count
 
   has_one :specfile, dependent: :destroy
   has_one :repocop_patch,
           primary_key: 'name',
           foreign_key: 'name',
           dependent: :destroy
-  has_one :builder,
-          class_name: 'Maintainer',
-          primary_key: 'builder_id',
-          foreign_key: 'id'
 
   has_many :packages, dependent: :destroy
   has_many :named_srpms, dependent: :destroy
@@ -67,7 +64,7 @@ class Srpm < ApplicationRecord
 
   # value :leader
 
-  validates_presence_of :buildtime, :md5, :groupname
+  validates_presence_of :buildtime, :md5, :groupname, :builder
 
   def to_param
     name
@@ -112,16 +109,12 @@ class Srpm < ApplicationRecord
 
       email = srpm.changelogname.chop.split('<')[1].split('>')[0] rescue nil
 
-      if email
-        email.downcase!
-        email = FixMaintainerEmail.new(email).execute
-        Maintainer.import_from_changelogname(changelogname)
-        maintainer = Maintainer.where(email: email).first
-        srpm.builder_id = maintainer.id
-      end
+      srpm.builder = Maintainer.import_from_changelogname(changelogname)
+
+      BranchingMaintainer.find_or_create_by!(maintainer: srpm.builder, branch: branch_path.branch)
 
       srpm.named_srpms << NamedSrpm.new(branch_path: branch_path,
-                                        name: rpm.filename)
+                                        filename: rpm.filename)
     end
 
     if srpm.new_record?
@@ -136,7 +129,7 @@ class Srpm < ApplicationRecord
         raise AlreadyExistError
       else
         NamedSrpm.create!(branch_path: branch_path,
-                          name: rpm.filename,
+                          filename: rpm.filename,
                           srpm: srpm)
         raise AttachedNewBranchError
       end

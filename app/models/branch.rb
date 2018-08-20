@@ -16,6 +16,8 @@ class Branch < ApplicationRecord
   has_many :ftbfs, class_name: 'Ftbfs', dependent: :destroy
   has_many :repocops, dependent: :destroy
   has_many :repocop_patches, dependent: :destroy
+  has_many :branching_maintainers, dependent: :delete_all
+  has_many :maintainers, through: :branching_maintainers
 
   scope :filled, -> { where.not(srpms_count: 0) }
 

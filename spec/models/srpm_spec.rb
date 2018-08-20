@@ -20,6 +20,7 @@ describe Srpm do
 
   describe 'Associations' do
     it { should belong_to(:group) }
+    it { is_expected.to belong_to(:builder).class_name('Maintainer').inverse_of(:srpms).counter_cache(:srpms_count) }
 
     it { should have_many(:packages).dependent(:destroy) }
 
@@ -44,13 +45,6 @@ describe Srpm do
         .with_primary_key('name')
         .with_foreign_key('name')
         .dependent(:destroy)
-    end
-
-    it do
-      should have_one(:builder)
-        .class_name('Maintainer')
-        .with_primary_key('builder_id')
-        .with_foreign_key('id')
     end
 
     it do
@@ -156,13 +150,13 @@ describe Srpm do
     expect(srpm.changelogtext).to eq('- 3.4.11.1')
     expect(srpm.size).to eq(831_617)
     expect(srpm.md5).to eq(md5)
-    expect(srpm.named_srpms.first.name).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    expect(srpm.named_srpms.first.filename).to eq('openbox-3.4.11.1-alt1.1.1.src.rpm')
+    expect(srpm.named_srpms.first.name).to eq('openbox')
   end
 
   it 'should import all srpms from path' do
     branch_path = create(:src_branch_path, path: Rails.root.join("spec/data"), branch: branch)
 
-    expect(Redis.current.get("#{ branch.name }:catpkt-1.0-alt5.src.rpm")).to be_nil
     expect(Srpm.import_all(branch)).to_not be_nil
   end
 

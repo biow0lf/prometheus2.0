@@ -26,18 +26,7 @@
 <%= render partial: 'srpms', locals: { current_branch: @branch } %>
 
 <div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
-  <div class="headleft">
-    <div class="headright" title="<%= _('sort maintainers by amount of packages') %>">
-      <%= _('TOP maintainers') %>
-    </div>
-    <%= image_tag('collapse.gif', id: 'topMain', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
-  </div>
-  <div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
-  <table style="font-size:8pt;" width="100%">
-    <%= render partial: 'top15' %>
-    <tr><td colspan="2" align="center">&hellip;</td></tr>
-  </table>
-</div><br>
+   <%= render partial: "shared/tables/maintainers", locals: { maintainers: @maintainers_s.as_json, branch: @branch } %>
     <div class="headleft">
       <div class="headright" title="<%= _('sort packages by amount of releases in the last half of year') %>">
         <%= _('TOP RPMs') %>
