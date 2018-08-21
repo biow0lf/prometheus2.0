@@ -138,18 +138,23 @@ class Srpm < ApplicationRecord
 
   def self.import_all branch
     time = Time.zone.now
-    Rails.logger.info "IMPORT: at #{time} in"
+    Rails.logger.info "IMPORT: at #{time} for #{branch.name} in"
 
-    branch.branch_paths.source.each do |branch_path|
+    branch.branch_paths.active.source.each do |branch_path|
       Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
-      next if !branch_path.active?
 
       mins = (time - branch_path.imported_at + 59).to_i / 60
-      find = "find #{branch_path.path} -mmin -#{mins} -name '#{branch_path.glob}' | sort"
+      find = "find #{branch_path.path} -mmin -#{mins} -name '#{branch_path.glob}' | sed 's|#{branch_path.path}/*||' | sort"
       Rails.logger.info "IMPORT: search with: #{find}"
-      `#{find}`.split("\n").each do |file|
+
+      current_list = `#{find}`.split("\n")
+      stored_list = branch_path.named_srpms.where(filename: current_list).select(:filename).pluck(:filename)
+
+      nonexist_list = current_list - stored_list
+      Rails.logger.info "IMPORT: will be imported #{nonexist_list.size} files"
+
+      nonexist_list.each do |file|
         Rails.logger.info "IMPORT: file #{file}"
-        next unless File.exist?(file)
         next unless RPMCheckMD5.check_md5(file)
 
         info = "IMPORT: file '#{ file }' "
@@ -167,13 +172,12 @@ class Srpm < ApplicationRecord
         end
 
         Rails.logger.send(method, info + state)
-
       end
 
       branch_path.update(imported_at: time, srpms_count: branch_path.named_srpms.count)
     end
 
-    branch.update(srpms_count: branch.srpms.count)
+    branch.update(srpms_count: branch.srpm_filenames.count)
   end
 
   def contributors

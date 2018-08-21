@@ -5,6 +5,8 @@ class Branch < ApplicationRecord
 
   has_many :branch_paths
   has_many :named_srpms, through: :branch_paths
+  has_many :srpm_names, -> { select(:name).distinct }, through: :branch_paths, source: :named_srpms
+  has_many :srpm_filenames, -> { select(:filename).distinct }, through: :branch_paths, source: :named_srpms
   has_many :srpms, -> { distinct }, through: :named_srpms, counter_cache: :srpms_count
   has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
@@ -46,6 +48,12 @@ class Branch < ApplicationRecord
 
   def perpetual?
     slug == "sisyphus"
+  end
+
+  def imported_at
+    branch_paths.source.active.select(:imported_at, "max(imported_at) as imported_at")
+                              .group(:imported_at)
+                              .pluck(:imported_at).first
   end
 
   private
