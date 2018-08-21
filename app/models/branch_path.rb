@@ -4,6 +4,7 @@ class BranchPath < ApplicationRecord
 
   has_many :named_srpms
   has_many :srpms, through: :named_srpms, counter_cache: :srpms_count
+  has_many :builders, -> { distinct }, through: :srpms
 
   scope :source, -> { where(arch: "src") }
   scope :package, -> { where.not(arch: "src") }

@@ -47,7 +47,7 @@
 
   <div id='top-line'>
     <div id='vinfo'>
-      <b><%= _('Last update:') %> </b> <%= Redis.current.get("#{ @branch.name }:updated_at") %> | <b><%= _('SRPMs:') %> </b> <%= @branch.counter_value %> |
+      <b><%= _('Last update:') %> </b> <%= @branch.imported_at %> | <b><%= _('SRPMs:') %> </b> <%= @branch.srpms_count %> |
       <% if user_signed_in? %>
         <b><%= "Welcome, #{ current_user.email }! | " %></b>
         <%= link_to _('Sign out'), destroy_user_session_path, method: :delete %>

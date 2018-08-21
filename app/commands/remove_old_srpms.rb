@@ -11,17 +11,39 @@ class RemoveOldSrpms < Rectify::Command
     Rails.logger.info *args
   end
 
+  def list
+    find = "find #{branch_path.path} -name '#{branch_path.glob}' | sed 's|#{branch_path.path}/*||' | sort"
+
+    current_list = `#{find}`.split("\n")
+    stored_list = branch_path.named_srpms.select(:filename).pluck(:filename)
+
+    stored_list - current_list
+  end
+
+  def count
+    list.count
+  end
+
   def call
-    NamedSrpm.by_branch_path(branch_path).each do |nsrpm|
-      if !File.exist?("#{ branch_path.path }/#{ nsrpm.name }")
-        srpm = nsrpm.srpm
+    list = self.list
 
-        nsrpm.destroy
-        if srpm.reload.named_srpms.blank?
-          srpm.destroy
+    list_to_remove = branch_path.named_srpms.where(filename: list)
+    builder_ids = Srpm.where(id: list_to_remove.select(:srpm_id)).select(:builder_id).distinct.pluck(:builder_id)
+
+    list_to_remove.delete_all
+    list.each { |f| Rails.logger.info "IMPORT: removed file #{f} for #{branch_path.name}" }
+
+    BranchPath.reset_counters(branch_path.id, :srpms_count)
+    branch_path.branch.update!(srpms_count: branch_path.branch.srpm_filenames.count)
+
+    branch_path.builders.where(id: builder_ids).find_each do |maintainer|
+      maintainer.branching_maintainers.where(branch_id: branch_path.branch).each do |branching_maintainer|
+        srpms_count = maintainer.srpm_names.joins(:branch_path).where(branch_paths: { branch_id: branch_path.branch }).count
+        if srpms_count != branching_maintainer.srpms_count
+          Rails.logger.info "IMPORT: difference for counter for #{branch_path.name} in #{srpms_count - branching_maintainer.srpms_count}"
+
+          branching_maintainer.update!(srpms_count: srpms_count)
         end
-
-        log "SRPM #{nsrpm.name} has been removed from #{branch_path.path} of #{branch_path.branch.name}"
       end
     end
 

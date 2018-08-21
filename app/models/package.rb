@@ -83,13 +83,12 @@ class Package < ApplicationRecord
 
   def self.import_all branch
     time = Time.zone.now
-    Rails.logger.info "IMPORT: at #{time} in"
-    branch.branch_paths.package.each do |branch_path|
+    Rails.logger.info "IMPORT: at #{time} for #{branch.name} in"
+    branch.branch_paths.package.active.each do |branch_path|
       Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
-      next if !branch_path.active?
-
       mins = (time - branch_path.imported_at + 59).to_i / 60
       find = "find #{branch_path.path} -mmin -#{mins} -name '#{branch_path.glob}' | sort"
+
       Rails.logger.info "IMPORT: search with: #{find}"
       `#{find}`.split("\n").each do |file|
         Rails.logger.info "IMPORT: file #{file}"
