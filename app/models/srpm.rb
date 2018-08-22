@@ -204,7 +204,7 @@ class Srpm < ApplicationRecord
   class ActiveRecord_Relation
     def page value
       @page = (value || 1).to_i
-      @total_count = self[0] && self.size
+      @total_count = self[0] && self.size || 0
 
       self.class_eval do
         def total_count
