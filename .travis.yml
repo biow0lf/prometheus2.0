@@ -3,8 +3,14 @@ rvm:
   - 2.5.1
 env:
   - DB=postgresql TRAVIS=true
-
-before_install: bundle install
+addons:
+  apt_packages:
+    - rpm
+before_install:
+  - echo $INIT
+  - $($INIT)
+  - rpm --help
+  - bundle install
 
 before_script:
   - gem update --system
