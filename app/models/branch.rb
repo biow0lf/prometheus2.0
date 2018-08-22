@@ -5,9 +5,11 @@ class Branch < ApplicationRecord
 
   has_many :branch_paths
   has_many :named_srpms, through: :branch_paths
+  has_many :all_named_srpms, -> { unscope(where: :obsoleted_at) }, through: :branch_paths, class_name: :NamedSrpm, source: :named_srpms
   has_many :srpm_names, -> { select(:name).distinct }, through: :branch_paths, source: :named_srpms
   has_many :srpm_filenames, -> { select(:filename).distinct }, through: :branch_paths, source: :named_srpms
   has_many :srpms, -> { distinct }, through: :named_srpms, counter_cache: :srpms_count
+  has_many :all_srpms, -> { distinct }, through: :all_named_srpms, class_name: :Srpm, source: :srpm
   has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
   has_many :groups, dependent: :destroy

@@ -7,6 +7,8 @@ class NamedSrpm < ApplicationRecord
   has_one :branch, through: :branch_path
   has_one :builder, through: :srpm
 
+  default_scope -> { where(obsoleted_at: nil) }
+
   scope :by_branch_path, ->(id) { where(branch_path: id) }
   scope :by_srpm_name, ->(name) { joins(:srpm).where(srpms: { name: name })}
 
