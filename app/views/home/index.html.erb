@@ -26,29 +26,9 @@
 <%= render partial: 'srpms', locals: { current_branch: @branch } %>
 
 <div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
-   <%= render partial: "shared/tables/maintainers", locals: { maintainers: @maintainers_s.as_json, branch: @branch } %>
-    <div class="headleft">
-      <div class="headright" title="<%= _('sort packages by amount of releases in the last half of year') %>">
-        <%= _('TOP RPMs') %>
-      </div>
-      <%= image_tag('collapse.gif', id: 'topRPM', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
-    </div>
-  <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
-  <table style="font-size:8pt;" width="100%">
-<!--#include virtual="/cgi-bin/stats.pl?type=activity" -->
-  <tr><td colspan="2" align="center">&hellip;</td></tr>
-  </table>
-</div><br>
-    <div class="headleft">
-      <div class="headright" title="<%= _('tips and tricks') %>">
-        <%= raw _('tips &amp; tricks') %>
-      </div>
-      <%= image_tag('collapse.gif', id: 'topTips', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9') %>
-    </div>
-    <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
-      <b><%= _('Sisyphus sync') %></b><br><%= raw _('<b>Q:</b> How can I skip heap of packages if I even don\'t know why I need them?') %><br><%= raw _('<b>A:</b> Create filter for rsync with the help of this') %> <%= link_to _('form'), new_rsync_path, class: 'news' %>
-    </div><br>
-
+    <%= render partial: "shared/tables/maintainers", locals: { maintainers: @maintainers_s.as_json, branch: @branch } %>
+    <%= render partial: "shared/tables/top_srpms", locals: { srpms: @srpm_builds.as_json, branch: @branch } %>
+    <%= render partial: "shared/tables/hints" %>
     <%= render partial: "shared/tables/branches", locals: { branches: @branches_s.as_json } %>
 </div>
 

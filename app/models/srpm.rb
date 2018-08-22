@@ -55,6 +55,14 @@ class Srpm < ApplicationRecord
      where("srpms.id IN (#{subquery})")
   end
 
+  scope :top_rebuilds_after, ->(date) do
+     where("buildtime > ?", date)
+        .select(:name, 'count(srpms.name) as id')
+        .group(:name)
+        .having('count(srpms.name) > 5')
+        .order('id DESC', :name)
+  end
+
   singleton_class.send(:alias_method, :b, :by_branch_name)
   singleton_class.send(:alias_method, :a, :by_arch)
 

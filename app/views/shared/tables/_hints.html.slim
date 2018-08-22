@@ -1,0 +1,10 @@
+.table
+   .headleft
+      .headright { title=_('tips and tricks') } = _('tips & tricks')
+      = image_tag('collapse.gif', id: 'top-branches', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9')
+   .frame#hints
+      b.text = _('Sisyphus sync')
+      span.text = raw _('<b>Q:</b> How can I skip heap of packages if I even don\'t know why I need them?')
+      span.text
+         = raw _('<b>A:</b> Create filter for rsync with the help of this ')
+         = link_to _('form'), new_rsync_path, class: 'news'

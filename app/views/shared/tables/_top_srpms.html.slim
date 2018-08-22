@@ -1,0 +1,16 @@
+- if srpms.present?
+   .table
+      .headleft
+         .headright { title=_('sort packages by amount of releases in the last half of year') } = _('TOP RPMs')
+         = image_tag('collapse.gif', id: 'top-branches', class: 'close', title: _('hide window'), alt: _('hide window'), size: '10x9')
+      .frame#top-srpms
+         table
+            - srpms.each do |srpm|
+               ul
+                  li
+                     .line
+                        .left.float.b = link_to(_(srpm['name']), srpm_path(branch.slug, srpm['name']), title: _('information about srpm'))
+                        .right.float = srpm['id']
+         - if srpms.count > 15
+            .footer
+               .center = '…'
