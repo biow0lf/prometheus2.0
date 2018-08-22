@@ -1194,7 +1194,7 @@ msgstr "тест"
 msgid "this package in gear repositories"
 msgstr "наличие пакета в репозитариях gear"
 
-msgid "tips &amp; tricks"
+msgid "Tips & tricks"
 msgstr "полезные советы"
 
 msgid "tips and tricks"

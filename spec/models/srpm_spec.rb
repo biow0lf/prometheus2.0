@@ -167,6 +167,6 @@ describe Srpm do
       create_list(:named_srpm, 10)
     end
 
-    it { expect(described_class.by_branch_name(branch.name).count).to eq(10)  }
+    it { expect(described_class.by_branch_slug(branch.slug).count).to eq(10)  }
   end
 end

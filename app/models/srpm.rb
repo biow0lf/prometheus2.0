@@ -29,7 +29,7 @@ class Srpm < ApplicationRecord
                                                     foreign_key: 'repo'
 
   scope :q, ->(text) { text.blank? && all || joins(:packages).merge(Package.query(text)).or(self.query(text)) }
-  scope :by_branch_name, ->(name) { joins(:branches).where(named_srpms: { branches: { name: name }}) }
+  scope :by_branch_slug, ->(slug) { joins(:branches).where(named_srpms: { branches: { slug: slug }}) }
   scope :ordered, -> { order('srpms.buildtime DESC') }
   scope :by_arch, ->(arch) { arch.blank? && all || joins(:packages).where(packages: { arch: arch }) }
   scope :by_evr, ->(evr) do
@@ -63,7 +63,7 @@ class Srpm < ApplicationRecord
         .order('id DESC', :name)
   end
 
-  singleton_class.send(:alias_method, :b, :by_branch_name)
+  singleton_class.send(:alias_method, :b, :by_branch_slug)
   singleton_class.send(:alias_method, :a, :by_arch)
 
   # delegate :name, to: :branch, prefix: true
@@ -162,13 +162,14 @@ class Srpm < ApplicationRecord
       Rails.logger.info "IMPORT: will be imported #{nonexist_list.size} files"
 
       nonexist_list.each do |file|
-        Rails.logger.info "IMPORT: file #{file}"
-        next unless RPMCheckMD5.check_md5(file)
+        filepath = File.join(branch_path.path, file)
+        Rails.logger.info "IMPORT: file #{filepath}"
+        next unless RPMCheckMD5.check_md5(filepath)
 
-        info = "IMPORT: file '#{ file }' "
-        rpm = RPMFile::Source.new(file)
+        info = "IMPORT: file '#{ filepath }' "
+        rpm = RPMFile::Source.new(filepath)
         (method, state) = begin
-          Srpm.import(branch_path, rpm, file)
+          Srpm.import(branch_path, rpm, filepath)
           [ :info, "imported to branch #{branch_path.branch.name}" ]
         rescue AttachedNewBranchError
           [ :info, "added to branch #{branch_path.branch.name}" ]
