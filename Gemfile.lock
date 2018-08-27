@@ -251,7 +251,7 @@ GEM
     parser (2.5.1.2)
       ast (~> 2.4.0)
     parslet (1.8.2)
-    pg (0.21.0)
+    pg (1.1.1)
     pg_query (1.0.2)
     pg_search (2.1.2)
       activerecord (>= 4.2)
@@ -509,7 +509,7 @@ DEPENDENCIES
   lograge
   mry
   newrelic_rpm
-  pg (~> 0.18)
+  pg (~> 1.1)
   pg_query
   pg_search
   pghero
