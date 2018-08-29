@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Patch do
   it { should be_a(ApplicationRecord) }
 
-  it { should belong_to(:srpm) }
+  it { should belong_to(:package) }
 
   context 'Validation' do
     it { should validate_presence_of(:filename) }

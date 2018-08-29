@@ -26,9 +26,9 @@ describe BranchDecorator do
 
     before do
       #
-      # branch.srpms.count
+      # branch.spkgs.count
       #
-      expect(branch).to receive(:srpms) do
+      expect(branch).to receive(:spkgs) do
         double.tap do |a|
           expect(a).to receive(:count).and_return(43)
         end

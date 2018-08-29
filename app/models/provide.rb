@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Provide < ApplicationRecord
-  belongs_to :package
+   belongs_to :package
 
-  validates :name, presence: true
+   validates :name, presence: true
 
 # FIXME: this code is broken
 #  def self.import_provides(rpm, package)

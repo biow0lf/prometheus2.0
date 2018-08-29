@@ -1,22 +1,21 @@
 # frozen_string_literal: true
 
 class Branch < ApplicationRecord
-  include Redis::Objects
-
   has_many :branch_paths
-  has_many :named_srpms, through: :branch_paths
-  has_many :all_named_srpms, -> { unscope(where: :obsoleted_at) }, through: :branch_paths, class_name: :NamedSrpm, source: :named_srpms
-  has_many :srpm_names, -> { select(:name).distinct }, through: :branch_paths, source: :named_srpms
-  has_many :srpm_filenames, -> { select(:filename).distinct }, through: :branch_paths, source: :named_srpms
-  has_many :srpms, -> { distinct }, through: :named_srpms, counter_cache: :srpms_count
-  has_many :all_srpms, -> { distinct }, through: :all_named_srpms, class_name: :Srpm, source: :srpm
-  has_many :changelogs, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
-  has_many :packages, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
+  has_many :rpms, through: :branch_paths
+  has_many :packages, through: :branch_paths#, counter_cache: :srpms_count
+  has_many :spkgs, through: :rpms, class_name: 'Package::Src', source: :package
+  has_many :all_rpms, -> { unscope(where: :obsoleted_at) }, through: :branch_paths, class_name: :Rpm, source: :rpms
+  has_many :all_spkgs, through: :all_rpms, class_name: 'Package::Src', source: :package
+  has_many :rpm_names, -> { select(:name).distinct }, through: :branch_paths, source: :rpms
+  has_many :srpm_filenames, -> { src.select(:filename).distinct }, through: :branch_paths, source: :rpms
+  has_many :all_packages, -> { distinct }, through: :all_rpms, class_name: :Package, source: :package
+#  has_many :changelogs, through: :packages # rubocop:disable Rails/InverseOf (false positive)
   has_many :groups, dependent: :destroy
   has_many :teams, dependent: :destroy
   has_many :mirrors, dependent: :destroy
-  has_many :patches, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
-  has_many :sources, through: :srpms # rubocop:disable Rails/InverseOf (false positive)
+#  has_many :patches, through: :packages # rubocop:disable Rails/InverseOf (false positive)
+#  has_many :sources, through: :packages # rubocop:disable Rails/InverseOf (false positive)
   has_many :ftbfs, class_name: 'Ftbfs', dependent: :destroy
   has_many :repocops, dependent: :destroy
   has_many :repocop_patches, dependent: :destroy
@@ -27,17 +26,8 @@ class Branch < ApplicationRecord
 
   validates_presence_of :slug, :name, :vendor
 
-  counter :counter
-
-  after_create_commit :set_default_counter_value
-  after_destroy_commit :destroy_counter
-
   def to_param
     slug
-  end
-
-  def counter_value
-    self.persisted? && counter.value || 0
   end
 
   def arches
@@ -53,18 +43,8 @@ class Branch < ApplicationRecord
   end
 
   def imported_at
-    branch_paths.source.active.select(:imported_at, "max(imported_at) as imported_at")
-                              .group(:imported_at)
-                              .pluck(:imported_at).first
-  end
-
-  private
-
-  def set_default_counter_value
-    counter.value = 0
-  end
-
-  def destroy_counter
-    Redis.current.del("branch:#{ id }:counter")
+    branch_paths.src.active.select(:imported_at, "max(imported_at) as imported_at")
+                            .group(:imported_at)
+                            .pluck(:imported_at).first
   end
 end

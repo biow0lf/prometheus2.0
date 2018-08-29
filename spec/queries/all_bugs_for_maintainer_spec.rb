@@ -62,21 +62,17 @@ describe AllBugsForMaintainer do
 
     before do
       #
-      # branch.srpms.joins(:packages).where(name: maintainer_packages_names).pluck('packages.name').sort.uniq
+      # branch.spkgs.where(name: maintainer_packages_names).pluck('name').sort.uniq
       #
-      expect(branch).to receive(:srpms) do
+      expect(branch).to receive(:spkgs) do
         double.tap do |a|
-          expect(a).to receive(:joins).with(:packages) do
+          expect(a).to receive(:where).with(name: maintainer_packages_names) do
             double.tap do |b|
-              expect(b).to receive(:where).with(name: maintainer_packages_names) do
+              expect(b).to receive(:pluck).with('name') do
                 double.tap do |c|
-                  expect(c).to receive(:pluck).with('packages.name') do
+                  expect(c).to receive(:sort) do
                     double.tap do |d|
-                      expect(d).to receive(:sort) do
-                        double.tap do |e|
-                          expect(e).to receive(:uniq)
-                        end
-                      end
+                      expect(d).to receive(:uniq)
                     end
                   end
                 end

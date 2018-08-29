@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180820173400) do
+ActiveRecord::Schema.define(version: 2018_08_23_105700) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
   enable_extension "btree_gin"
+  enable_extension "plpgsql"
 
   create_table "branch_paths", force: :cascade do |t|
     t.string "arch", comment: "Архитектура, используемая для ветви"
@@ -38,12 +37,12 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "branches", id: :serial, force: :cascade do |t|
-    t.string "vendor", limit: 255
-    t.string "name", limit: 255
+    t.string "vendor"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "order_id"
-    t.string "path", limit: 255
+    t.string "path"
     t.integer "srpms_count", default: 0, comment: "Счётчик уникальных исходных пакетов для ветви"
     t.string "slug", null: false, comment: "Плашка для обращения к ветви в строке пути браузера"
     t.index ["name"], name: "index_branches_on_name"
@@ -60,13 +59,13 @@ ActiveRecord::Schema.define(version: 20180820173400) do
 
   create_table "bugs", id: :serial, force: :cascade do |t|
     t.integer "bug_id"
-    t.string "bug_status", limit: 255
-    t.string "resolution", limit: 255
-    t.string "bug_severity", limit: 255
-    t.string "product", limit: 255
-    t.string "component", limit: 255
-    t.string "assigned_to", limit: 255
-    t.string "reporter", limit: 255
+    t.string "bug_status"
+    t.string "resolution"
+    t.string "bug_severity"
+    t.string "product"
+    t.string "component"
+    t.string "assigned_to"
+    t.string "reporter"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "short_desc"
@@ -77,21 +76,22 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "changelogs", id: :serial, force: :cascade do |t|
-    t.integer "srpm_id"
-    t.string "changelogtime", limit: 255
+    t.string "changelogtime"
     t.binary "changelogname"
     t.binary "changelogtext"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "delta", default: true, null: false
-    t.index ["srpm_id"], name: "index_changelogs_on_srpm_id"
+    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.index ["changelogtime", "changelogname", "changelogtext"], name: "three_in_one_index", unique: true
+    t.index ["package_id"], name: "index_changelogs_on_package_id"
   end
 
   create_table "conflicts", id: :serial, force: :cascade do |t|
     t.integer "package_id"
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "flags"
@@ -100,21 +100,21 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "freshmeats", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "version"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ftbfs", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
     t.integer "weeks"
     t.integer "branch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "arch", limit: 255
+    t.string "arch"
     t.integer "maintainer_id"
     t.integer "epoch"
     t.index ["branch_id"], name: "index_ftbfs_on_branch_id"
@@ -122,18 +122,18 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "gears", id: :serial, force: :cascade do |t|
-    t.string "repo", limit: 255
+    t.string "repo"
     t.datetime "lastchange"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "maintainer_id"
-    t.integer "srpm_id"
-    t.index ["maintainer_id"], name: "index_gitrepos_on_maintainer_id"
-    t.index ["srpm_id"], name: "index_gitrepos_on_srpm_id"
+    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.index ["maintainer_id"], name: "index_gears_on_maintainer_id"
+    t.index ["package_id"], name: "index_gears_on_package_id"
   end
 
   create_table "groups", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "branch_id"
@@ -145,60 +145,44 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "maintainer_teams", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255, null: false
-    t.string "email", limit: 255, null: false
-    t.string "login", limit: 255, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "login", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "maintainers", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "email", limit: 255
-    t.string "login", limit: 255
+    t.string "name"
+    t.string "email"
+    t.string "login"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "time_zone", limit: 255, default: "UTC"
-    t.string "jabber", limit: 255, default: ""
+    t.string "time_zone", default: "UTC"
+    t.string "jabber", default: ""
     t.text "info", default: ""
-    t.string "website", limit: 255, default: ""
-    t.string "location", limit: 255, default: ""
+    t.string "website", default: ""
+    t.string "location", default: ""
     t.integer "srpms_count", default: 0, comment: "Счётчик уникальных исходных пакетов, собранных поставщиком"
   end
 
   create_table "mirrors", id: :serial, force: :cascade do |t|
     t.integer "branch_id"
     t.integer "order_id"
-    t.string "name", limit: 255
-    t.string "country", limit: 255
-    t.string "uri", limit: 255
-    t.string "protocol", limit: 255
+    t.string "name"
+    t.string "country"
+    t.string "uri"
+    t.string "protocol"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["branch_id"], name: "index_mirrors_on_branch_id"
   end
 
-  create_table "named_srpms", force: :cascade do |t|
-    t.bigint "srpm_id", null: false, comment: "Отношение к содержимому srpm"
-    t.string "filename", null: false, comment: "Имя файла srpm, такое, как он представлен в заданной ветви"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "branch_path_id", null: false, comment: "Указатель на путь к ветви, откуда пакет был истянут"
-    t.string "name", null: false, comment: "Имя исходного пакета"
-    t.datetime "obsoleted_at", comment: "Время устаревания пакета, если установлено, то пакет более не находится в ветви"
-    t.index ["branch_path_id", "filename"], name: "index_named_srpms_on_branch_path_id_and_filename", unique: true
-    t.index ["branch_path_id", "srpm_id"], name: "index_named_srpms_on_branch_path_id_and_srpm_id", unique: true
-    t.index ["branch_path_id"], name: "index_named_srpms_on_branch_path_id"
-    t.index ["filename"], name: "index_named_srpms_on_filename"
-    t.index ["name"], name: "index_named_srpms_on_name"
-    t.index ["srpm_id"], name: "index_named_srpms_on_srpm_id"
-  end
-
   create_table "obsoletes", id: :serial, force: :cascade do |t|
     t.integer "package_id"
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "flags"
@@ -207,49 +191,52 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "packages", id: :serial, force: :cascade do |t|
-    t.string "filename", limit: 255
-    t.string "sourcepackage", limit: 255
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
-    t.string "arch", limit: 255
-    t.string "summary", limit: 255
-    t.string "license", limit: 255
-    t.string "url", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
+    t.string "arch", null: false
+    t.string "summary"
+    t.string "license"
+    t.string "url"
     t.text "description"
     t.datetime "buildtime"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "srpm_id"
     t.integer "group_id"
-    t.string "md5", limit: 255, null: false
-    t.string "groupname", limit: 255
+    t.string "md5", null: false
+    t.string "groupname"
     t.integer "size"
     t.integer "epoch"
     t.tsvector "tsv"
+    t.string "repocop", default: "skip", comment: "Статус проверки репокопом"
+    t.string "vendor", comment: "Распространитель пакета"
+    t.string "distribution", comment: "Срез набора пакетов"
+    t.string "buildhost", comment: "Место сборки пакета"
+    t.string "type", null: false, comment: "Вид пакета: исходник или двояк"
+    t.bigint "builder_id", null: false, comment: "Собиратель пакета"
+    t.integer "src_id", null: false, comment: "Родительский исходный пакет"
     t.index ["arch"], name: "index_packages_on_arch"
+    t.index ["builder_id"], name: "index_packages_on_builder_id"
     t.index ["group_id"], name: "index_packages_on_group_id"
     t.index ["md5"], name: "index_packages_on_md5", unique: true
     t.index ["name"], name: "index_packages_on_name"
-    t.index ["sourcepackage"], name: "index_packages_on_sourcepackage"
-    t.index ["srpm_id"], name: "index_packages_on_srpm_id"
     t.index ["tsv"], name: "index_packages_on_tsv", using: :gin
   end
 
   create_table "patches", id: :serial, force: :cascade do |t|
-    t.integer "srpm_id"
     t.binary "patch"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "filename", limit: 255
+    t.string "filename"
     t.integer "size"
-    t.index ["srpm_id"], name: "index_patches_on_srpm_id"
+    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.index ["package_id"], name: "index_patches_on_package_id"
   end
 
   create_table "perl_watches", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "path", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "path"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["name"], name: "index_perl_watches_on_name"
@@ -279,9 +266,9 @@ ActiveRecord::Schema.define(version: 20180820173400) do
 
   create_table "provides", id: :serial, force: :cascade do |t|
     t.integer "package_id"
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "flags"
@@ -290,24 +277,24 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "repocop_patches", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
-    t.string "url", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
+    t.string "url"
     t.integer "branch_id"
     t.index ["name"], name: "index_repocop_patches_on_name"
   end
 
   create_table "repocops", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
-    t.string "arch", limit: 255
-    t.string "srcname", limit: 255
-    t.string "srcversion", limit: 255
-    t.string "srcrel", limit: 255
-    t.string "testname", limit: 255
-    t.string "status", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
+    t.string "arch"
+    t.string "srcname"
+    t.string "srcversion"
+    t.string "srcrel"
+    t.string "testname"
+    t.string "status"
     t.text "message"
     t.integer "branch_id"
     t.index ["srcname"], name: "index_repocops_on_srcname"
@@ -317,9 +304,9 @@ ActiveRecord::Schema.define(version: 20180820173400) do
 
   create_table "requires", id: :serial, force: :cascade do |t|
     t.integer "package_id"
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
+    t.string "name"
+    t.string "version"
+    t.string "release"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "flags"
@@ -327,59 +314,43 @@ ActiveRecord::Schema.define(version: 20180820173400) do
     t.index ["package_id"], name: "index_requires_on_package_id"
   end
 
-  create_table "sources", id: :serial, force: :cascade do |t|
-    t.integer "srpm_id"
-    t.binary "content"
-    t.string "filename", limit: 255
-    t.integer "size"
+  create_table "rpms", force: :cascade do |t|
+    t.string "filename", null: false, comment: "Имя файла srpm, такое, как он представлен в заданной ветви"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "branch_path_id", null: false, comment: "Указатель на путь к ветви, откуда пакет был истянут"
+    t.datetime "obsoleted_at", comment: "Время устаревания пакета, если установлено, то пакет более не находится в ветви"
+    t.string "name", null: false, comment: "Имя исходного пакета"
+    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.index ["branch_path_id", "filename"], name: "index_rpms_on_branch_path_id_and_filename", unique: true
+    t.index ["branch_path_id", "package_id"], name: "index_rpms_on_branch_path_id_and_package_id", unique: true
+    t.index ["branch_path_id"], name: "index_rpms_on_branch_path_id"
+    t.index ["filename"], name: "index_rpms_on_filename"
+    t.index ["name"], name: "index_rpms_on_name"
+    t.index ["package_id"], name: "index_rpms_on_package_id"
+  end
+
+  create_table "sources", id: :serial, force: :cascade do |t|
+    t.binary "content"
+    t.string "filename"
+    t.integer "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean "source"
-    t.index ["srpm_id"], name: "index_sources_on_srpm_id"
+    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.index ["package_id"], name: "index_sources_on_package_id"
   end
 
   create_table "specfiles", id: :serial, force: :cascade do |t|
-    t.integer "srpm_id"
     t.binary "spec"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["srpm_id"], name: "index_specfiles_on_srpm_id"
-  end
-
-  create_table "srpms", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
-    t.string "summary", limit: 255
-    t.string "license", limit: 255
-    t.string "url", limit: 255
-    t.text "description"
-    t.datetime "buildtime"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string "repocop", limit: 255, default: "skip"
-    t.integer "group_id"
-    t.string "vendor", limit: 255
-    t.string "distribution", limit: 255
-    t.string "changelogname", limit: 255
-    t.text "changelogtext"
-    t.string "md5", limit: 255, null: false
-    t.boolean "delta", default: true, null: false
-    t.integer "builder_id"
-    t.string "groupname", limit: 255
-    t.integer "size"
-    t.datetime "changelogtime"
-    t.integer "epoch"
-    t.string "buildhost"
-    t.tsvector "tsv"
-    t.index ["group_id"], name: "index_srpms_on_group_id"
-    t.index ["md5"], name: "index_srpms_on_md5", unique: true
-    t.index ["name"], name: "index_srpms_on_name"
-    t.index ["tsv"], name: "index_srpms_on_tsv", using: :gin
+    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.index ["package_id"], name: "index_specfiles_on_package_id"
   end
 
   create_table "teams", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
     t.boolean "leader"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -390,22 +361,22 @@ ActiveRecord::Schema.define(version: 20180820173400) do
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.string "email", limit: 255, default: "", null: false
-    t.string "encrypted_password", limit: 128, default: "", null: false
-    t.string "reset_password_token", limit: 255
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip", limit: 255
-    t.string "last_sign_in_ip", limit: 255
-    t.string "confirmation_token", limit: 255
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "unconfirmed_email", limit: 255
+    t.string "unconfirmed_email"
     t.boolean "admin", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -414,13 +385,18 @@ ActiveRecord::Schema.define(version: 20180820173400) do
 
   add_foreign_key "branch_paths", "branch_paths", column: "source_path_id", on_delete: :cascade
   add_foreign_key "branch_paths", "branches", on_delete: :cascade
+  add_foreign_key "changelogs", "packages", on_delete: :restrict
   add_foreign_key "ftbfs", "branches", on_delete: :cascade
+  add_foreign_key "gears", "packages", on_delete: :restrict
   add_foreign_key "groups", "branches", on_delete: :cascade
   add_foreign_key "mirrors", "branches", on_delete: :cascade
-  add_foreign_key "named_srpms", "branch_paths", on_delete: :cascade
-  add_foreign_key "named_srpms", "srpms", on_delete: :cascade
-  add_foreign_key "packages", "srpms", on_delete: :cascade
+  add_foreign_key "packages", "maintainers", column: "builder_id", on_delete: :restrict
+  add_foreign_key "patches", "packages", on_delete: :restrict
   add_foreign_key "repocop_patches", "branches", on_delete: :cascade
   add_foreign_key "repocops", "branches", on_delete: :cascade
+  add_foreign_key "rpms", "branch_paths", on_delete: :cascade
+  add_foreign_key "rpms", "packages", on_delete: :cascade
+  add_foreign_key "sources", "packages", on_delete: :restrict
+  add_foreign_key "specfiles", "packages", on_delete: :restrict
   add_foreign_key "teams", "branches", on_delete: :cascade
 end

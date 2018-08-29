@@ -6,11 +6,10 @@ describe Group do
   it { should be_a(ApplicationRecord) }
 
   context 'Associations' do
-    it { should belong_to(:branch) }
+    it { is_expected.to belong_to(:branch) }
 
-    it { should have_many(:srpms) }
-
-    it { should have_many(:packages) }
+    it { is_expected.to have_many(:packages) }
+    it { is_expected.to have_many(:rpms).through(:packages) }
   end
 
   it { should validate_presence_of(:name) }

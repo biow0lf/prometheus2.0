@@ -3,33 +3,33 @@
 class Maintainer < ApplicationRecord
   # include Redis::Objects
 
-  validates :name, presence: true
+   validates :name, presence: true
 
-  validates :email, presence: true
+   validates :email, presence: true
 
-  validates :login, presence: true, uniqueness: true
+   validates :login, presence: true, uniqueness: true
 
-  validates :name, immutable: true
+   validates :name, immutable: true
 
-  validates :email, immutable: true
+   validates :email, immutable: true
 
-  validates :login, immutable: true
+   validates :login, immutable: true
 
-  has_many :srpms, foreign_key: :builder_id, inverse_of: :builder, counter_cache: :srpms_count
-  has_many :srpm_names, -> { select(:name).distinct }, through: :srpms, source: :named_srpms
-  has_many :named_srpms, through: :srpms
-  has_many :branches_paths, -> { distinct }, through: :named_srpms
-  has_many :branches, -> { distinct}, through: :named_srpms
-  has_many :branching_maintainers, dependent: :delete_all
-  has_many :teams
-  has_many :gears
-  has_many :ftbfs, class_name: 'Ftbfs'
+   has_many :packages, foreign_key: :builder_id, inverse_of: :builder
+   has_many :rpms, through: :packages
+   has_many :branch_paths, -> { distinct }, through: :rpms
+   has_many :branches, -> { distinct }, through: :branch_paths
+   has_many :branching_maintainers, dependent: :delete_all
+   has_many :teams
+   has_many :gears
+   has_many :ftbfs, class_name: 'Ftbfs'
+   has_many :srpm_names, -> { src.select(:name).distinct }, through: :packages, source: :rpms
 
-  scope :top, ->(limit) { order(srpms_count: :desc).limit(limit) }
+   scope :top, ->(limit) { order(srpms_count: :desc).limit(limit) }
 
-  def to_param
-    login
-  end
+   def to_param
+      login
+   end
 
   class << self
     def login_exists?(login)
