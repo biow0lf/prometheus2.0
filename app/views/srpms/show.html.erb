@@ -1,12 +1,12 @@
-<% title _('Prometheus 2.0 - Package &laquo;%s&raquo;') % @srpm.name %>
-<% description "#{@srpm.name} - #{@srpm.summary}" %>
-<% keywords @srpm.summary %>
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo;') % @spkg.name %>
+<% description "#{@spkg.name} - #{@spkg.summary}" %>
+<% keywords @spkg.summary %>
 
 <div id='main-content'>
 
    <div class="rightbar fat">
 
-      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @srpms_by_name.as_json } %>
+      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @spkgs_by_name.as_json } %>
 
 <% if @perl_watch %>
 <div class="headleft">
@@ -31,17 +31,17 @@
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.groupname) %></b><br>
-    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@spkg.groupname) %></b><br>
+    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @spkg.name %></div>
   </div>
 </div>
 
 <div>
 
-<%= render partial: "shared/srpms_menu", locals: { current_page: :main, branch: @branch, srpm: @srpm, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
+<%= render partial: "shared/srpms_menu", locals: { current_page: :main, branch: @branch, srpm: @spkg, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
 
-<b><%= _('Current version:') %></b> <%= @srpm.evr %><br>
-<b><%= _('Built:') %></b> <abbr title="<%= @srpm.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@srpm.buildtime) %> <%= _('ago') %></abbr><br>
+<b><%= _('Current version:') %></b> <%= @spkg.evr %><br>
+<b><%= _('Built:') %></b> <abbr title="<%= @spkg.buildtime %>" style="border-bottom: 1px dotted gray;"><%= time_ago_in_words(@spkg.buildtime) %> <%= _('ago') %></abbr><br>
 <% unless @ftbfs.empty? %>
   <b><%= _('<abbr title="Fails To Build From Source">FTBFS:</abbr>').html_safe %></b>
   <% if @ftbfs.size == 2 %>
@@ -54,24 +54,24 @@
     <%= @ftbfs.last.weeks %> weeks on <%= @ftbfs.last.arch %><br>
   <% end %>
 <% end %>
-<b><%= _('Size:') %></b> <%= number_to_human_size(@srpm.size) %><br>
-<b><%= _('Repocop status:') %></b> <%= image_tag("#{ @srpm.repocop }.png", size: '20x20', alt: @srpm.repocop) %>
-<% if @srpm.repocop_patch %>
-  <%= link_to image_tag('patch.jpg', alt: _('repocop patch')), @srpm.repocop_patch.url, class: 'repocoplink', title: _('repocop patch for the package') %>
+<b><%= _('Size:') %></b> <%= number_to_human_size(@spkg.size) %><br>
+<b><%= _('Repocop status:') %></b> <%= image_tag("#{ @spkg.repocop }.png", size: '20x20', alt: @spkg.repocop) %>
+<% if @spkg.repocop_patch %>
+  <%= link_to image_tag('patch.jpg', alt: _('repocop patch')), @spkg.repocop_patch.url, class: 'repocoplink', title: _('repocop patch for the package') %>
 <% end %>
 <br><br>
 
-<% if @srpm.url %>
-<b><%= _('Home page:') %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, class: 'news', rel: 'nofollow' %><br><br>
+<% if @spkg.url %>
+<b><%= _('Home page:') %></b> &nbsp; <%= link_to @spkg.url, @spkg.url, class: 'news', rel: 'nofollow' %><br><br>
 <% end %>
 
-<b><%= _('License:') %></b> <span class="news-text"><%= @srpm.license %></span><br>
+<b><%= _('License:') %></b> <span class="news-text"><%= @spkg.license %></span><br>
 <!-- TODO:
-<b><%= _('Group:') %></b> <span class="news-text"><%= @srpm.groupname %></span><br>
+<b><%= _('Group:') %></b> <span class="news-text"><%= @spkg.groupname %></span><br>
 -->
 
-<b><%= _('Summary:') %></b> <span class="news-text"><%= @srpm.summary %></span><br>
-<b><%= _('Description:') %></b> <div class="para"><%= simple_format h(@srpm.description) %></div>
+<b><%= _('Summary:') %></b> <span class="news-text"><%= @spkg.summary %></span><br>
+<b><%= _('Description:') %></b> <div class="para"><%= simple_format h(@spkg.description) %></div>
 <p class="news" />
 
 <% if @leader %>
@@ -84,11 +84,11 @@
 </div><br>
 <% end %>
 
-<% if @srpm.contributors %>
+<% if @spkg.contributors %>
 <b><%= _('List of contributors:').html_safe %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-    <% @srpm.contributors.each do |contributor| %>
+    <% @spkg.contributors.each do |contributor| %>
       <li>
         <%= link_to _(contributor.name), maintainer_path(@branch, contributor), class: 'news',
             title: _('information about maintainer') %>
@@ -117,11 +117,11 @@
 </div>
 <% end %>
 
-<% if @srpm.packages %>
+<% if @spkg.packages %>
 <b><%= _('List of rpms provided by this srpm:') %></b>
 <div class="para" style="margin-left: 0em;">
   <ul>
-    <% @srpm.packages.map { |p| p.name }.sort.uniq.each do |name| %>
+    <% @spkg.packages.map { |p| p.name }.sort.uniq.each do |name| %>
       <li><%= name %></li>
     <% end %>
   </ul>

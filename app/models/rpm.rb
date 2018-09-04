@@ -29,19 +29,6 @@ class Rpm < ApplicationRecord
 
    before_save :fill_name_in, on: :create
 
-   def contributors
-    logins = []
-    changelogs.each do |changelog|
-      next unless changelog.email
-      logins << changelog.login
-    end
-    Maintainer.where(login: logins.sort.uniq).order(:name)
-   end
-
-   def filename_in branch
-      named_srpms.by_branch_path(branch.branch_paths).first&.name
-   end
-
    protected
 
    def update_branching_maintainer_counter

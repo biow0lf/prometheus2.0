@@ -1,33 +1,33 @@
-<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Gear') % @srpm.name %>
-<% description "#{ @srpm.name } - #{ @srpm.summary }" %>
-<% keywords @srpm.summary %>
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Gear') % @spkg.name %>
+<% description "#{ @spkg.name } - #{ @spkg.summary }" %>
+<% keywords @spkg.summary %>
 
 <div id='main-content'>
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.groupname) %></b><br>
-    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@spkg.groupname) %></b><br>
+    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @spkg.name %></div>
   </div>
 </div>
 
 <div>
-<%= render partial: "shared/srpms_menu", locals: { current_page: :gear, branch: @branch, srpm: @srpm, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
+<%= render partial: "shared/srpms_menu", locals: { current_page: :gear, branch: @branch, srpm: @spkg, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
 
-<% if @srpm.gears.present? %>
+<% if @spkg.gears.present? %>
 <table id="bugs" cellspacing="0" cellpadding="3" class="gear">
   <tr>
     <th><%= _('Git repo') %></th>
     <th><%= _('Time') %></th>
   </tr>
 
-  <% @srpm.gears.each do |gear| %>
+  <% @spkg.gears.each do |gear| %>
     <tr>
       <td style="text-align: left">
         <% login = gear.maintainer.login %>
         <% login = 'php_coder' if gear.maintainer.login == 'php-coder' %>
         <% login = 'psolntsev' if gear.maintainer.login == 'p_solntsev' %>
-        <%= link_to _(gear.maintainer.name), "http://git.altlinux.org/people/#{ login }/packages/?p=#{ @srpm.name }.git", class: 'news' %> (<%= gear.maintainer.login %>@)
+        <%= link_to _(gear.maintainer.name), "http://git.altlinux.org/people/#{ login }/packages/?p=#{ @spkg.name }.git", class: 'news' %> (<%= gear.maintainer.login %>@)
       </td>
       <td><%= gear.lastchange %></td>
     </tr>

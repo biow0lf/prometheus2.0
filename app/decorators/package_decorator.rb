@@ -32,6 +32,22 @@ class PackageDecorator < Draper::Decorator
     }
   end
 
+  def short_url
+    if url
+      create_link
+    else
+      '&ndash;'.html_safe
+    end
+  end
+
+  def evr
+    if epoch
+      "#{ epoch }:#{ version }-#{ release }"
+    else
+      "#{ version }-#{ release }"
+    end
+  end
+
   def href
     "http://ftp.altlinux.org/pub/distributions/ALTLinux#{path}"
   end
@@ -41,6 +57,22 @@ class PackageDecorator < Draper::Decorator
   end
 
   def path
-    "#{branches.first.path}/files/#{arch}/RPMS/#{filename}"
+     if branch_paths.first
+        File.join(branch_paths.first.path, filename)
+     end
+  end
+
+  private
+
+  def create_link
+    if url.length > 27
+      local_link_to("#{ url[0..26] }...")
+    else
+      local_link_to(url)
+    end
+  end
+
+  def local_link_to(text)
+    h.link_to(text, url, class: 'news', rel: 'nofollow')
   end
 end

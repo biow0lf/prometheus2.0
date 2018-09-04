@@ -8,7 +8,7 @@ class Leader
       file = open(URI.escape(url)).read
       Redis.current.multi
 
-      branch.srpms.select('name').all.each do |srpm|
+      branch.spkgs.select('name').each do |srpm|
         Redis.current.del("#{ branch.name }:#{ srpm.name }:leader")
       end
 

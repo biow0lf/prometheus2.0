@@ -24,8 +24,13 @@ class Package::Src < Package
          .order('id DESC', :name)
    end
 
-   def to_param
-      name
+   def contributors
+      logins = []
+      changelogs.each do |changelog|
+         next unless changelog.email
+         logins << changelog.login
+      end
+      Maintainer.where(login: logins.sort.uniq).order(:name)
    end
 
    def acls

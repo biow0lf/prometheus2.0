@@ -1,22 +1,22 @@
-<% @srpms.each do |srpm| %>
+<% @spkgs.each do |spkg| %>
   <span class="news-date-new">
-    <%= link_to "#{ srpm.name }-#{ srpm.evr }", srpm_path(current_branch, srpm), class: 'news', title: _('detailed information about the package') %>
+    <%= link_to "#{ spkg.name }-#{ spkg.evr }", srpm_path(current_branch, spkg.name), class: 'news', title: _('detailed information about the package') %>
   </span>
 
-  <% if srpm.builder %>
+  <% if spkg.builder %>
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
-    <%= link_to _(srpm.builder.name), maintainer_path(current_branch, srpm.builder), class: 'news', title: _('information about maintainer') %>, <%= srpm.buildtime %>
+    <%= link_to _(spkg.builder.name), maintainer_path(current_branch, spkg.builder), class: 'news', title: _('information about maintainer') %>, <%= spkg.buildtime %>
   </span>
   <% else %>
   <span class="news-text" style="border-bottom: dotted 1px #f0f0f0">&nbsp;<%= _('build') %>
-    <%= srpm.buildtime %>
+    <%= spkg.buildtime %>
   </span>
   <% end %>
 
-  <div id="pkg-<%= srpm.name %>" style="display:block;margin-top:1em;">
-    <b><%= _('Group:') %></b> <span class="news-text"><%= _(srpm.groupname) %></span><br>
-    <b><%= _('Summary:') %></b> <span class="news-text"><%= srpm.summary %></span><br>
-    <b><%= _('Changes:') %></b> <div class="para"><%= simple_format(srpm.changelogtext) %></div>
+  <div id="pkg-<%= spkg.name %>" style="display:block;margin-top:1em;">
+    <b><%= _('Group:') %></b> <span class="news-text"><%= _(spkg.groupname) %></span><br>
+    <b><%= _('Summary:') %></b> <span class="news-text"><%= spkg.summary %></span><br>
+    <b><%= _('Changes:') %></b> <div class="para"><%= simple_format(spkg.changelogs.last.changelogtext) %></div>
   </div>
   <p class="news" />
 
@@ -24,6 +24,6 @@
 
 <p class="break" />
   <div style="text-align:center">
-    <%= paginate @srpms %>
+    <%= paginate @spkgs %>
   </div>
 </div>

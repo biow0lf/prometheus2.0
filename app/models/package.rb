@@ -14,6 +14,7 @@ class Package < ApplicationRecord
    validates_presence_of :buildtime, :md5, :group, :builder, :name, :arch
 
    scope :ordered, -> { order('packages.buildtime DESC') }
+   scope :by_name, ->(name) { where(name: name) }
    scope :src, -> { where(arch: 'src') }
    scope :built, -> { where.not(arch: 'src') }
    scope :by_branch_slug, ->(slug) { joins(:branches).where(branches: { slug: slug }) }
@@ -51,6 +52,10 @@ class Package < ApplicationRecord
 
    def to_param
       name
+   end
+
+   def filename_in branch
+      rpms.by_branch_path(branch.branch_paths).first&.name
    end
 
    def self.source

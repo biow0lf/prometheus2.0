@@ -22,6 +22,8 @@ class Branch < ApplicationRecord
   has_many :branching_maintainers, dependent: :delete_all
   has_many :maintainers, through: :branching_maintainers
 
+  default_scope -> { order(:order_id) }
+
   scope :filled, -> { where.not(srpms_count: 0) }
 
   validates_presence_of :slug, :name, :vendor
