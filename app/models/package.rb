@@ -125,7 +125,7 @@ class Package < ApplicationRecord
             Source.import(rpm, package)
          end
       else
-         if spkg.branch_paths.include?(branch_path)
+         if package.branch_paths.include?(branch_path)
             raise AlreadyExistError
          else
             Rpm.create!(branch_path: branch_path,
@@ -144,7 +144,7 @@ class Package < ApplicationRecord
          Rails.logger.info "IMPORT: Branch path #{branch_path.path}"
 
          mins = (time - branch_path.imported_at + 59).to_i / 60
-         find = "find #{branch_path.path} -mmin -#{mins} -name '#{branch_path.glob}' | sed 's|#{branch_path.path}/*||' | sort"
+         find = "find #{branch_path.path} -name '#{branch_path.glob}' | sed 's|#{branch_path.path}/*||' | sort"
          Rails.logger.info "IMPORT: search with: #{find}"
 
          current_list = `#{find}`.split("\n")

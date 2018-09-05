@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_23_105800) do
+ActiveRecord::Schema.define(version: 2018_08_23_110200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -191,12 +191,10 @@ ActiveRecord::Schema.define(version: 2018_08_23_105800) do
   end
 
   create_table "packages", id: :serial, force: :cascade do |t|
-    t.string "filename", limit: 255
-    t.string "sourcepackage", limit: 255
     t.string "name", limit: 255
     t.string "version", limit: 255
     t.string "release", limit: 255
-    t.string "arch", limit: 255
+    t.string "arch", limit: 255, null: false
     t.string "summary", limit: 255
     t.string "license", limit: 255
     t.string "url", limit: 255
@@ -204,7 +202,6 @@ ActiveRecord::Schema.define(version: 2018_08_23_105800) do
     t.datetime "buildtime"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer "srpm_id"
     t.integer "group_id"
     t.string "md5", limit: 255, null: false
     t.string "groupname", limit: 255
@@ -215,18 +212,16 @@ ActiveRecord::Schema.define(version: 2018_08_23_105800) do
     t.string "vendor", comment: "Распространитель пакета"
     t.string "distribution", comment: "Срез набора пакетов"
     t.string "buildhost", comment: "Место сборки пакета"
-    t.string "type", comment: "Вид пакета: исходник или двояк"
-    t.bigint "builder_id", comment: "Собиратель пакета"
-    t.integer "src_id", comment: "Ссылка на исходный пакет, может указывать на самого себя"
-    t.integer "_src_id"
+    t.string "type", null: false, comment: "Вид пакета: исходник или двояк"
+    t.bigint "builder_id", null: false, comment: "Собиратель пакета"
+    t.integer "src_id", null: false, comment: "Ссылка на исходный пакет, может указывать на самого себя"
     t.index ["arch"], name: "index_packages_on_arch"
     t.index ["builder_id"], name: "index_packages_on_builder_id"
     t.index ["group_id"], name: "index_packages_on_group_id"
     t.index ["md5"], name: "index_packages_on_md5", unique: true
     t.index ["name"], name: "index_packages_on_name"
-    t.index ["sourcepackage"], name: "index_packages_on_sourcepackage"
-    t.index ["srpm_id"], name: "index_packages_on_srpm_id"
     t.index ["tsv"], name: "index_packages_on_tsv", using: :gin
+    t.index ["type"], name: "index_packages_on_type"
   end
 
   create_table "patches", id: :serial, force: :cascade do |t|
@@ -324,10 +319,10 @@ ActiveRecord::Schema.define(version: 2018_08_23_105800) do
     t.string "filename", null: false, comment: "Имя файла srpm, такое, как он представлен в заданной ветви"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "branch_path_id", comment: "Указатель на путь к ветви, откуда пакет был истянут"
-    t.string "name", null: false, comment: "Имя исходного пакета"
+    t.bigint "branch_path_id", null: false, comment: "Указатель на путь к ветви, откуда пакет был истянут"
     t.datetime "obsoleted_at", comment: "Время устаревания пакета, если установлено, то пакет более не находится в ветви"
-    t.bigint "package_id", comment: "Ссылка на пакет"
+    t.string "name", null: false, comment: "Имя исходного пакета"
+    t.bigint "package_id", null: false, comment: "Ссылка на пакет"
     t.index ["branch_path_id", "filename"], name: "index_rpms_on_branch_path_id_and_filename", unique: true
     t.index ["branch_path_id", "package_id"], name: "index_rpms_on_branch_path_id_and_package_id", unique: true
     t.index ["branch_path_id"], name: "index_rpms_on_branch_path_id"
@@ -353,38 +348,6 @@ ActiveRecord::Schema.define(version: 2018_08_23_105800) do
     t.datetime "updated_at"
     t.bigint "package_id", comment: "Ссылка на пакет"
     t.index ["package_id"], name: "index_specfiles_on_package_id"
-  end
-
-  create_table "srpms", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.string "version", limit: 255
-    t.string "release", limit: 255
-    t.string "summary", limit: 255
-    t.string "license", limit: 255
-    t.string "url", limit: 255
-    t.text "description"
-    t.datetime "buildtime"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string "repocop", limit: 255, default: "skip"
-    t.integer "group_id"
-    t.string "vendor", limit: 255
-    t.string "distribution", limit: 255
-    t.string "changelogname", limit: 255
-    t.text "changelogtext"
-    t.string "md5", limit: 255, null: false
-    t.boolean "delta", default: true, null: false
-    t.integer "builder_id"
-    t.string "groupname", limit: 255
-    t.integer "size"
-    t.datetime "changelogtime"
-    t.integer "epoch"
-    t.string "buildhost"
-    t.tsvector "tsv"
-    t.index ["group_id"], name: "index_srpms_on_group_id"
-    t.index ["md5"], name: "index_srpms_on_md5", unique: true
-    t.index ["name"], name: "index_srpms_on_name"
-    t.index ["tsv"], name: "index_srpms_on_tsv", using: :gin
   end
 
   create_table "teams", id: :serial, force: :cascade do |t|

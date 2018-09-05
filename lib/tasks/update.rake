@@ -52,7 +52,7 @@ namespace :update do
     Branch.all.each do |branch|
       puts "#{ Time.zone.now }: remove lost *.src.rpm from #{branch.name} branch"
 
-      branch.branch_paths.source.active.each do |branch_path|
+      branch.branch_paths.src.active.each do |branch_path|
         if remove
           RemoveOldSrpms.call(branch_path) do
             on(:ok) { puts "#{ Time.zone.now }: Old srpms removed" }
