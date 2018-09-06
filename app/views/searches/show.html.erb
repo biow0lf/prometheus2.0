@@ -11,8 +11,8 @@
   <br>
   <%= _('On your query &quot;').html_safe %><b><%= params[:query] %></b>
   <%= (_('&quot; in branch <b>%s</b> were found') % @branch.name).html_safe %>
-  <b><%= @srpms.total_count %></b>
-  <%= n_('RPM:', 'RPMs:', @srpms.total_count) %>
+  <b><%= @spkgs.total_count %></b>
+  <%= n_('RPM:', 'RPMs:', @spkgs.total_count) %>
 
   <p class="break"></p>
   <br>
@@ -29,7 +29,7 @@
       <th><%= _('summary') %></th>
     </tr>
 
-    <% @srpms.each do |srpm| %>
+    <% @spkgs.each do |srpm| %>
       <% if srpm %>
         <%- srpm = srpm.decorate %>
         <tr>
@@ -52,7 +52,7 @@
   </table>
 
   <div style="text-align:center">
-    <%= paginate @srpms %>
+    <%= paginate @spkgs %>
   </div>
 
 <div id="bottom-offset-l">

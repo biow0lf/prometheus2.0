@@ -41,7 +41,7 @@ class Package < ApplicationRecord
             FROM packages, plainto_tsquery('#{text}') AS q
             WHERE (tsv @@ q)
             ORDER BY ts_rank_cd(tsv, plainto_tsquery('#{text}')) DESC) as t1"
-         where("packages.id IN (#{subquery})")
+         where("packages.src_id IN (#{subquery})").distinct
       end
    end
    singleton_class.send(:alias_method, :q, :query)
@@ -82,14 +82,8 @@ class Package < ApplicationRecord
          package.arch = rpm.arch
          package.buildhost = rpm.buildhost
 
-         group_name = rpm.group
-         Group.import(branch_path.branch, group_name)
-         group = Group.in_branch(branch_path.branch, group_name)
-
          Maintainer.import(rpm.packager)
 
-         package.group_id = group.id
-         package.groupname = group_name
          package.summary = rpm.summary
          package.license = rpm.license
          package.url = rpm.url
@@ -110,9 +104,16 @@ class Package < ApplicationRecord
                                  filename: rpm.filename)
       end
 
+      if !package.group
+         group_name = rpm.group
+         Group.import(branch_path.branch, group_name)
+         group = Group.in_branch(branch_path.branch, group_name)
+         package.group = group
+         package.groupname = group_name
+      end
+
       if package.new_record?
          package.save!
-
          if rpm.sourcerpm
             #Provide.import_provides(rpm, package)
             #Require.import_requires(rpm, package)
@@ -125,6 +126,10 @@ class Package < ApplicationRecord
             Source.import(rpm, package)
          end
       else
+         if package.changed?
+            package.save!
+         end
+         
          if package.branch_paths.include?(branch_path)
             raise AlreadyExistError
          else
@@ -182,6 +187,34 @@ class Package < ApplicationRecord
     
       if source.downcase == 'src'
          branch.update(srpms_count: branch.srpm_filenames.count)
+      end
+   end
+
+   class ActiveRecord_Relation
+      def page value
+         @page = (value || 1).to_i
+         @total_count = self[0] && self.size || 0
+
+         self.class_eval do
+            def total_count
+               @total_count
+            end
+
+            def total_pages
+               (@total_count + 24) / 25
+            end
+
+            def current_page
+               @page
+            end
+
+            def each &block
+               range = ((@page - 1) * 25...@page * 25)
+               self[range].each(&block)
+            end
+         end
+
+         self
       end
    end
 end

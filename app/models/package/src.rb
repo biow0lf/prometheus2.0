@@ -37,32 +37,4 @@ class Package::Src < Package
       return unless Redis.current.exists("#{ branch.name }:#{ name }:acls")
       Maintainer.where(login: Redis.current.smembers("#{ branch.name }:#{ name }:acls")).order(:name).select('login').map(&:login).join(',')
    end
-
-   class ActiveRecord_Relation
-      def page value
-         @page = (value || 1).to_i
-         @total_count = self[0] && self.size || 0
-
-         self.class_eval do
-            def total_count
-               @total_count
-            end
-
-            def total_pages
-               (@total_count + 24) / 25
-            end
-
-            def current_page
-               @page
-            end
-
-            def each &block
-               range = ((@page - 1) * 25...@page * 25)
-               self[range].each(&block)
-            end
-         end
-
-         self
-      end
-   end
 end
