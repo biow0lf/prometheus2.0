@@ -30,11 +30,11 @@ class AddTsvToPackages < ActiveRecord::Migration[5.1]
                 ON packages FOR EACH ROW EXECUTE PROCEDURE packages_search_trigger()"
             ]
 
-            queries.each { |q| Srpm.connection.execute(q) }
+            queries.each { |q| Branch.connection.execute(q) }
          end
 
          dir.down do
-            Srpm.connection.execute("DROP FUNCTION packages_search_trigger() CASCADE")
+            Branch.connection.execute("DROP FUNCTION packages_search_trigger() CASCADE")
          end
       end
    end

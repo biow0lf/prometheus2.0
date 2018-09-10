@@ -79,13 +79,13 @@ describe Rpm::Base do
 
   describe '#group' do
     context '@group not set' do
-      specify { expect(subject.group.force_encoding('UTF-8')).to eq('Работа с текстами') }
+      specify { expect(subject.group.force_encoding('UTF-8')).to eq('Text tools') }
 
-      xspecify { expect { subject.group.force_encoding('UTF-8') }.to change { subject.instance_variable_get(:@group) }.from(nil).to('Работа с текстами') }
+      xspecify { expect { subject.group.force_encoding('UTF-8') }.to change { subject.instance_variable_get(:@group) }.from(nil).to('Text tools') }
     end
 
     context '@group is set' do
-      let(:group) { "Работа с текстами" }
+      let(:group) { "Text tools" }
 
       before { subject.instance_variable_set(:@group, group) }
 

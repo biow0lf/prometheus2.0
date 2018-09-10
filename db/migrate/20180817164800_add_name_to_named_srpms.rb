@@ -12,7 +12,12 @@ class AddNameToNamedSrpms < ActiveRecord::Migration[5.1]
 
       reversible do |dir|
          dir.up do
-            NamedSrpm.update_all("name = substring(filename from '^(.*)-[^-]+-[^-]+$')")
+            queries = [
+               "UPDATE named_srpms
+                SET name = substring(filename from '^(.*)-[^-]+-[^-]+$')",
+            ]
+
+            queries.each { |q| Branch.connection.execute(q) }
          end
       end
 
