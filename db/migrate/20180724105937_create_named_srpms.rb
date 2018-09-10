@@ -16,16 +16,18 @@ class CreateNamedSrpms < ActiveRecord::Migration[5.1]
 
       reversible do |dir|
          dir.up do
-            NamedSrpm.class_eval do
-               def filename= value
-                  self.name = value
+            if defined? NamedSrpm
+               NamedSrpm.class_eval do
+                  def filename= value
+                     self.name = value
+                  end
                end
-            end
 
-            srpms = Srpm.where.not(branch_id: nil).select(:id, :branch_id, :filename)
-            attrs = srpms.as_json.map { |x| x.merge(name: x.delete("filename")).merge(srpm_id: x.delete("id")) }
-            NamedSrpm.import!(attrs)
-            NamedSrpm.connection.reset_pk_sequence!("named_srpms")
+               srpms = Srpm.where.not(branch_id: nil).select(:id, :branch_id, :filename)
+               attrs = srpms.as_json.map { |x| x.merge(name: x.delete("filename")).merge(srpm_id: x.delete("id")) }
+               NamedSrpm.import!(attrs)
+               NamedSrpm.connection.reset_pk_sequence!("named_srpms")
+            end
          end
       end
 

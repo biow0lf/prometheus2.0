@@ -11,7 +11,7 @@ describe ChangelogDecorator do
     let(:changelog) do
       stub_model Changelog,
                  id: 321,
-                 srpm_id: 43,
+                 package_id: 43,
                  changelogtime: '1264248000',
                  changelogname: 'Igor Zubkov <icesik@altlinux.org> 3.4.10-alt2',
                  changelogtext: '- update Url:',
@@ -23,7 +23,7 @@ describe ChangelogDecorator do
 
     its([:id]) { should eq(321) }
 
-    its([:srpm_id]) { should eq(43) }
+    its([:package_id]) { should eq(43) }
 
     its([:changelogtime]) { should eq('1264248000') }
 

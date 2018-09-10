@@ -13,7 +13,7 @@ FactoryBot.define do
       o.branch ||= create(:branch, name: e.branchname)
 
       if o.arch != "src"
-         o.source_path ||= BranchPath.source.first || build(:src_branch_path, branchname: e.branchname)
+         o.source_path ||= BranchPath.src.first || build(:src_branch_path, branchname: e.branchname)
       end
     end
   end

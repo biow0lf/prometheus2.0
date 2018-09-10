@@ -15,7 +15,7 @@ class RemoveOldSrpms < Rectify::Command
     find = "find #{branch_path.path} -name '#{branch_path.glob}' | sed 's|#{branch_path.path}/*||' | sort"
 
     current_list = `#{find}`.split("\n")
-    stored_list = branch_path.named_srpms.select(:filename).pluck(:filename)
+    stored_list = branch_path.rpms.select(:filename).pluck(:filename)
 
     stored_list - current_list
   end
@@ -27,8 +27,8 @@ class RemoveOldSrpms < Rectify::Command
   def call
     list = self.list
 
-    list_to_remove = branch_path.named_srpms.where(filename: list)
-    builder_ids = Srpm.where(id: list_to_remove.select(:srpm_id)).select(:builder_id).distinct.pluck(:builder_id)
+    list_to_remove = branch_path.rpms.where(filename: list)
+    builder_ids = Package.where(id: list_to_remove.select(:package_id)).select(:builder_id).distinct.pluck(:builder_id)
 
     list_to_remove.update_all(obsoleted_at: Time.zone.now)
     list.each { |f| Rails.logger.info "IMPORT: removed file #{f} for #{branch_path.name}" }

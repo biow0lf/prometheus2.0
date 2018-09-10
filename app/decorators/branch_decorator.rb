@@ -13,7 +13,7 @@ class BranchDecorator < Draper::Decorator
       path: path,
       created_at: created_at.iso8601,
       updated_at: updated_at.iso8601,
-      count: srpms.count
+      count: spkgs.count
     }
   end
 

@@ -6,7 +6,7 @@ class ChangelogDecorator < Draper::Decorator
   def as_json(*)
     {
       id: id,
-      srpm_id: srpm_id,
+      package_id: package_id,
       changelogtime: changelogtime,
       changelogname: changelogname,
       changelogtext: changelogtext,

@@ -1,21 +1,21 @@
-<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Download') % @srpm.name %>
-<% description "#{ @srpm.name } - #{ @srpm.summary }" %>
-<% keywords @srpm.summary %>
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Download') % @spkg.name %>
+<% description "#{ @spkg.name } - #{ @spkg.summary }" %>
+<% keywords @spkg.summary %>
 
 <div id='main-content'>
    <div class="rightbar fat">
-      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @srpms_by_name.as_json } %>
+      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @spkgs_by_name.as_json } %>
    </div>
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.groupname) %></b><br>
-    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@spkg.groupname) %></b><br>
+    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @spkg.name %></div>
   </div>
 </div>
 
 <div>
-<%= render partial: "shared/srpms_menu", locals: { current_page: :download, branch: @branch, srpm: @srpm, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
+<%= render partial: "shared/srpms_menu", locals: { current_page: :download, branch: @branch, srpm: @spkg, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
 
 &nbsp;<b><%= _('Choose a mirror:') %></b>
 <select name="mirror" class="mirror-url" style="margin-left: 1em;">
@@ -30,13 +30,13 @@
     <td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
       <b>&middot;</b>
       <% if @branch.name == 'SisyphusARM' %>
-        <a id="pack_0" href="http://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/SRPMS.all/<%= @srpm.filename_in(@branch) %>" class="news download"><%= @srpm.filename_in(@branch) %></a> (md5: <%= @srpm.md5 %>)
+        <a id="pack_0" href="http://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/SRPMS.all/<%= @spkg.filename_in(@branch) %>" class="news download"><%= @spkg.filename_in(@branch) %></a> (md5: <%= @spkg.md5 %>)
       <% else %>
-        <a id="pack_0" href="http://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/SRPMS/<%= @srpm.filename_in(@branch) %>" class="news download"><%= @srpm.filename_in(@branch) %></a> (md5: <%= @srpm.md5 %>)
+        <a id="pack_0" href="http://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/SRPMS/<%= @spkg.filename_in(@branch) %>" class="news download"><%= @spkg.filename_in(@branch) %></a> (md5: <%= @spkg.md5 %>)
       <% end %>
     </td>
     <td style="text-align: right;">
-      <b><%= number_to_human_size(@srpm.size) %></b>
+      <b><%= number_to_human_size(@spkg.size) %></b>
     </td>
   </tr>
 

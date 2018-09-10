@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     if params[:query].blank? and params[:arch].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.b(params[:branch]).a(@arches).q(params[:query]).reorder("srpms.name").distinct.page(params[:page])
+      @spkgs = Package.b(params[:branch]).a(@arches).q(params[:query]).reorder("packages.name").distinct.page(params[:page])
       # @srpms = Srpm.none
       # @srpms = Srpm.search(
       #   Riddle::Query.escape(params[:query]),
@@ -25,8 +25,8 @@ class SearchesController < ApplicationController
       #   include: :branch
       # ).page(params[:page]).per(100)
 
-      if @srpms.total_count == 1
-        redirect_to(srpm_path(@branch, @srpms.first), status: 302)
+      if @spkgs.total_count == 1
+        redirect_to(srpm_path(@branch, @spkgs.first), status: 302)
       end
     end
   # rescue Mysql2::Error

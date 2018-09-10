@@ -6,7 +6,7 @@ describe Changelog do
   it { should be_a(ApplicationRecord) }
 
   context 'Associations' do
-    it { should belong_to(:srpm) }
+    it { should belong_to(:package) }
   end
 
   context 'Validation' do
@@ -47,13 +47,13 @@ describe Changelog do
   end
 
   it 'should import changelogs' do
-    branch = create(:branch)
+    branch = create(:branch, :with_paths)
     group = create(:group, branch: branch)
     srpm = create(:srpm, branch: branch, group: group)
 
     file = './spec/data/catpkt-1.0-alt5.src.rpm'
 
-    expect { Changelog.import_from(file, srpm) }
+    expect { Changelog.import_from(Rpm::Base.new(file), srpm.package) }
       .to change(Changelog, :count).by(5)
   end
 end

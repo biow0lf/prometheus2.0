@@ -1,21 +1,21 @@
-<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog') % @srpm.name %>
-<% description "#{@srpm.name} - #{@srpm.summary}" %>
-<% keywords @srpm.summary %>
+<% title _('Prometheus 2.0 - Package &laquo;%s&raquo; - Changelog') % @spkg.name %>
+<% description "#{@spkg.name} - #{@spkg.summary}" %>
+<% keywords @spkg.summary %>
 
 <div id='main-content'>
    <div class="rightbar fat">
-      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @srpms_by_name.as_json } %>
+      <%= render partial: "shared/tables/srpm_list", locals: { branched_srpms: @spkgs_by_name.as_json } %>
    </div>
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@srpm.groupname) %></b><br>
-    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @srpm.name %></div>
+    <b style="font-size:9pt;"><%= _('Group') %> :: <%= _(@spkg.groupname) %></b><br>
+    <div class="header" style="letter-spacing:1px;"><%= _('Source RPM:') %> <%= @spkg.name %></div>
   </div>
 </div>
 
 <div>
-<%= render partial: "shared/srpms_menu", locals: { current_page: :changelog, branch: @branch, srpm: @srpm, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
+<%= render partial: "shared/srpms_menu", locals: { current_page: :changelog, branch: @branch, srpm: @spkg, opened_bugs: @opened_bugs, all_bugs: @all_bugs, version: @version } %>
 
 <% @changelogs.each do |changelog| %>
   <% if changelog.changelogname.force_encoding("UTF-8").valid_encoding? &&

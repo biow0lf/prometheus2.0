@@ -5,9 +5,8 @@ class Group < ApplicationRecord
 
   belongs_to :branch
 
-  has_many :srpms
-
   has_many :packages
+  has_many :rpms, through: :packages
 
   validates :name, presence: true
 

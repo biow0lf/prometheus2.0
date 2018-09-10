@@ -3,18 +3,16 @@
 require 'rails_helper'
 
 describe Gear do
-  it { should be_a(ApplicationRecord) }
+  it { is_expected.to be_a(ApplicationRecord) }
 
   context 'Associations' do
-    it { should belong_to(:maintainer) }
-
-    it { should belong_to(:srpm) }
+    it { is_expected.to belong_to(:maintainer) }
+    it { is_expected.to belong_to(:package) }
   end
 
   context 'Validation' do
-    it { should validate_presence_of(:repo) }
-
-    it { should validate_presence_of(:lastchange) }
+    it { is_expected.to validate_presence_of(:repo) }
+    it { is_expected.to validate_presence_of(:lastchange) }
   end
 
   # it 'should import gear repos' do

@@ -4,12 +4,9 @@ require 'open-uri'
 
 class Gear < ApplicationRecord
   belongs_to :maintainer
+  belongs_to :package
 
-  belongs_to :srpm
-
-  validates :repo, presence: true
-
-  validates :lastchange, presence: true
+  validates_presence_of :repo, :lastchange
 
   def self.update_gitrepos(url)
     ActiveRecord::Base.transaction do
@@ -30,7 +27,7 @@ class Gear < ApplicationRecord
       time = Time.at(line.split[1].to_i)
 
       maintainer = Maintainer.where(login: login).first
-      srpm = Srpm.where(name: package.gsub(/\.git/, ''), branch_id: branch).first
+      srpm = Package.where(name: package.gsub(/\.git/, ''), branch_id: branch).first
 
       # puts "#{ Time.now }: maintainer not found '#{ login }'" unless maintainer
       # puts "#{ Time.now }: srpm not found '#{ package.gsub(/\.git/, '') }'" unless srpm

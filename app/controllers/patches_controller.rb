@@ -25,14 +25,14 @@ class PatchesController < ApplicationController
        index: %i(patches),
     }[action_name.to_sym]
 
-    srpms = @branch.srpms.where(name: params[:srpm_id]).by_evr(params[:version])
+    srpms = @branch.spkgs.by_name(params[:srpm_id]).by_evr(params[:version])
     srpms = srpms.includes(*includes) if includes
     
     @srpm = srpms.first!.decorate
   end
 
   def fetch_srpms_by_name
-    @srpms_by_name = SrpmBranchesSerializer.new(NamedSrpm.by_srpm_name(params[:srpm_id]).includes(:branch_path, :srpm, :branch).order('branches.order_id'))
+    @srpms_by_name = SrpmBranchesSerializer.new(Rpm.by_name(params[:srpm_id]).includes(:branch_path, :package, :branch).order('branches.order_id'))
   end
 
   def set_version

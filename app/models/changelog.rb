@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
 class Changelog < ApplicationRecord
-  PROPS = %i(changelogtime changelogname changelogtext)
+   PROPS = %i(changelogtime changelogname changelogtext)
 
-  belongs_to :srpm
+   belongs_to :package, class_name: 'Package::Src'
 
-  validates :changelogtime, presence: true
-
-  validates :changelogname, presence: true
-
-  validates :changelogtext, presence: true
+   validates_presence_of :changelogtime, :changelogname, :changelogtext
 
   def email
     # TODO: add test for this
@@ -23,10 +19,10 @@ class Changelog < ApplicationRecord
     email.split('@').first
   end
 
-  def self.import_from file, srpm
-    changelogs = RPM::Base.new(file).change_log
+  def self.import_from rpm, package
+    changelogs = rpm.change_log
 
-    attrs = changelogs.map { |line| [ PROPS, line ].transpose.to_h.merge(srpm_id: srpm.id) }
+    attrs = changelogs.map { |line| [ PROPS, line ].transpose.to_h.merge(package_id: package.id) }
 
     Changelog.import(attrs)
   end
