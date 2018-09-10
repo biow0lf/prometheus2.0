@@ -26,8 +26,8 @@ class Rpm::Base
 
    def get method
       @info ||= (
-         data = read(TAGS.keys.map { |k| "%{#{k}}".upcase }.join("\uFFFE"))
-         [ TAGS.keys, data.split("\uFFFE") ].transpose.map {|key, value| [key, TAGS[key][value]] }.to_h )
+         data = read(TAGS.keys.map { |k| "%{#{k}}".upcase }.join("\x01\x02"))
+         [ TAGS.keys, data.split("\u0001\u0002") ].transpose.map {|key, value| [key, TAGS[key][value]] }.to_h )
 
       @info[method]
    end
@@ -82,7 +82,9 @@ class Rpm::Base
         tag: tag,
         file: file)
 
-      output
+      output.split("\uFFFE").first
+   rescue ArgumentError
+      output.unpack("C*").reject {|x| x > 127 }.pack("C*").force_encoding("UTF-8")
    end
 
    class << self
@@ -115,7 +117,7 @@ class Rpm::Base
       def exec args
          a_hash = hash_of(args)
 
-         wrapper = Cocaine::CommandLine.new('rpm', a_hash[:line], environment: { 'LANG' => 'C' })
+         wrapper = Cocaine::CommandLine.new('rpm', a_hash[:line], environment: { 'LANG' => 'C', 'LC_ALL' => 'en_US.UTF-8' })
 
          result = wrapper.run(a_hash)
          result !~ /\A(\(none\)|)\z/ && result.force_encoding('utf-8') || nil
