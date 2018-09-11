@@ -4,6 +4,7 @@ class Package < ApplicationRecord
    class AlreadyExistError < StandardError; end
    class SourceIsntFound < StandardError; end
    class AttachedNewBranchError < StandardError; end
+   class InvalidMd5SumError < StandardError; end
 
    belongs_to :group
    belongs_to :builder, class_name: 'Maintainer', inverse_of: :rpms, counter_cache: :srpms_count
@@ -54,15 +55,15 @@ class Package < ApplicationRecord
       name
    end
 
-   def filename_in branch
-      rpms.by_branch_path(branch.branch_paths).first&.name
-   end
-
    def self.source
       @source ||= self.to_s.split('::').last
    end
 
    def self.import branch_path, rpm
+      if !rpm.has_valid_md5?
+         raise InvalidMd5SumError
+      end
+
       package = Package.find_or_initialize_by(md5: rpm.md5) do |package|
          if rpm.sourcerpm
             spkg_id = Rpm.where(filename: rpm.sourcerpm,
@@ -162,7 +163,6 @@ class Package < ApplicationRecord
             filepath = File.join(branch_path.path, file)
             Rails.logger.info "IMPORT: file #{filepath}"
             rpm = Rpm::Base.new(filepath)
-            next unless rpm.has_valid_md5?
 
             info = "IMPORT: file '#{ filepath }' "
             (method, state) = begin
@@ -173,7 +173,11 @@ class Package < ApplicationRecord
             rescue AlreadyExistError
                [ :info, "exists in #{branch_path.branch.name}... skipping" ]
             rescue SourceIsntFound => e
+               binding.pry if rpm.file !~ /arm/
                [ :error, "#{e.message} source isn't found for #{branch_path.branch.name}" ]
+            rescue InvalidMd5SumError => e
+               binding.pry
+               [ :error, "has invalid MD5 sum" ]
             rescue => e
                time = time < rpm.buildtime && time || rpm.buildtime
                [ :error, "failed to update, reason: #{e.message}" ]

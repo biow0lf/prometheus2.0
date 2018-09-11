@@ -5,9 +5,8 @@
          - packages.each.with_index do |package, index|
             tr
                td.package
-                  b
-                     = "· "
-                     a.news.download { id="pack_#{index + 1}" href=package.href data={path: package.path} } = package.filename
-                     = " (md5: #{package.md5})"
+                  b = "· "
+                  a.news.download { id="pack_#{index + 1}" href=package[:href] data={path: package[:path]} } = package[:filename]
+                  = " (md5: #{package[:md5]})"
                td.size
-                  b = package.human_size
+                  = package[:human_size]

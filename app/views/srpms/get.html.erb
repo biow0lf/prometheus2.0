@@ -25,22 +25,18 @@
 </select>
 <p />
 
-<table>
+<table class="sources">
   <tr>
-    <td style="border-bottom: dotted 1px #aaa; padding-right: 1em;">
+    <td class="package">
       <b>&middot;</b>
-      <% if @branch.name == 'SisyphusARM' %>
-        <a id="pack_0" href="http://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/arm/SRPMS.all/<%= @spkg.filename_in(@branch) %>" class="news download"><%= @spkg.filename_in(@branch) %></a> (md5: <%= @spkg.md5 %>)
-      <% else %>
-        <a id="pack_0" href="http://ftp.altlinux.org/pub/distributions/ALTLinux<%= @branch.path %>/files/SRPMS/<%= @spkg.filename_in(@branch) %>" class="news download"><%= @spkg.filename_in(@branch) %></a> (md5: <%= @spkg.md5 %>)
-      <% end %>
+        <a href="<%= @spkg.href %>" class="news download"><%= @spkg.filename_in(@branch) %></a> (md5: <%= @spkg.md5 %>)
     </td>
-    <td style="text-align: right;">
+    <td class="size">
       <b><%= number_to_human_size(@spkg.size) %></b>
     </td>
   </tr>
 
-  <%= render partial: 'shared/arches', locals: { arches: @packages.arched_packages }  %>
+  <%= render partial: 'shared/arches', locals: { arches: @arched_packages_s.as_json }  %>
 
 </table>
 </div>

@@ -1,14 +1,24 @@
-tr.arch {
-   & > td {
-      padding-top: 1em;
-   }
+.sources {
+   tr {
+      &.arch {
+         & > td {
+            padding-top: 1em;
+            font-weight: bold;
+         }
+      }
 
-   td.package {
-      border-bottom: dotted 1px #aaa;
-      padding-right: 1em;
-   }
+      .package {
+         border-bottom: dotted 1px #aaa;
+         padding-right: 1em;
 
-   td.size {
-      text-align: right;
+         a {
+            font-weight: bold;
+         }
+      }
+
+      .size {
+         text-align: right;
+         font-weight: bold;
+      }
    }
 }

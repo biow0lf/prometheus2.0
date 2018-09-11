@@ -52,7 +52,8 @@ class SrpmsController < ApplicationController
 
   def get
     @mirrors = Mirror.where(branch_id: @branch.id).where("protocol != 'rsync'").order('mirrors.order_id ASC')
-    @packages = @spkg.packages.order('packages.name ASC').group("packages.arch, packages.id").decorate
+    packages = @spkg.packages.order('packages.name ASC').group("packages.arch, packages.id")
+    @arched_packages_s = PackagesAsArchedPackagesSerializer.new(packages, branch: @branch)
     @all_bugs = AllBugsForSrpm.new(@spkg).decorate
     @opened_bugs = OpenedBugsForSrpm.new(@spkg).decorate
   end

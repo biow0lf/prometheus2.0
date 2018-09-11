@@ -5,6 +5,7 @@ class Package::Src < Package
    has_one :specfile, foreign_key: :package_id, inverse_of: :package, dependent: :destroy
 
    has_many :packages, foreign_key: :src_id, class_name: 'Package::Built', dependent: :destroy
+   has_many :built_rpms, through: :packages, source: :rpms, class_name: 'Rpm'
    has_many :changelogs, foreign_key: :package_id, inverse_of: :package, dependent: :destroy
    has_many :patches, foreign_key: :package_id, inverse_of: :package, dependent: :destroy
    has_many :sources, foreign_key: :package_id, inverse_of: :package, dependent: :destroy
