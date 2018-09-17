@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     if params[:query].blank? and params[:arch].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @spkgs = Package.b(params[:branch]).a(@arches).q(params[:query]).reorder("packages.name").distinct.page(params[:page])
+      @spkgs = Package::Src.b(params[:branch]).a(@arches).q(params[:query]).reorder("packages.name").distinct.page(params[:page])
       # @srpms = Srpm.none
       # @srpms = Srpm.search(
       #   Riddle::Query.escape(params[:query]),
