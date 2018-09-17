@@ -38,11 +38,11 @@ class Package < ApplicationRecord
          all
       else
          subquery = "
-            SELECT id FROM (SELECT DISTINCT id, tsv, ts_rank_cd(tsv, plainto_tsquery('#{text}'))
+            SELECT DISTINCT src_id FROM (SELECT src_id, tsv, ts_rank_cd(tsv, plainto_tsquery('#{text}'))
             FROM packages, plainto_tsquery('#{text}') AS q
             WHERE (tsv @@ q)
             ORDER BY ts_rank_cd(tsv, plainto_tsquery('#{text}')) DESC) as t1"
-         where("packages.src_id IN (#{subquery})").distinct
+         where("packages.id IN (#{subquery})")
       end
    end
    singleton_class.send(:alias_method, :q, :query)
