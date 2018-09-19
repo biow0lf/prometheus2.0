@@ -383,7 +383,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    scout_apm (2.4.18)
+    scout_apm (2.4.19)
     selectize-rails (0.12.5)
     server_timing (1.0.2)
       scout_apm
@@ -555,4 +555,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.16.4
+   1.16.5
