@@ -96,7 +96,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { host: '10.10.3.163' }
+  config.action_mailer.default_url_options = { host: 'geyser.altlinux.org' }
 
   # Enable lograge (rails logs squasher)
   config.lograge.enabled = true
