@@ -191,6 +191,10 @@ class Package < ApplicationRecord
     
       if source.downcase == 'src'
          branch.update(srpms_count: branch.srpm_filenames.count)
+
+         Group.find_each do |group|
+            group.update!(srpms_count: group.srpms.count)
+         end
       end
    end
 

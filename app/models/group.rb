@@ -8,6 +8,7 @@ class Group < ApplicationRecord
   has_many :packages
   has_many :spkgs, class_name: 'Package::Src'
   has_many :rpms, through: :packages
+  has_many :srpms, through: :spkgs, source: :rpms, class_name: 'Rpm'
 
   validates :name, presence: true
 

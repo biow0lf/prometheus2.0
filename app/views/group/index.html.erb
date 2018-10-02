@@ -10,7 +10,7 @@
         <% if group.leaf? %>
           <div class='group-title'>
             <%= link_to _(group.name), group_path(group: group.name), class: 'name' %>
-            (<%= group.spkgs.count %>)
+            (<%= group.srpms_count %>)
           </div>
         <% else %>
           <div class='group-title name'>
@@ -22,7 +22,7 @@
                 <% if child.leaf? %>
                   <div class='group-title'>
                     <%= link_to _(child.name), group_path(group: group.name, group2: child.name), class: 'name' %>
-                    (<%= child.spkgs.count %>)
+                    (<%= child.srpms_count %>)
                   </div>
                 <% else %>
                   <div class='group-title name'>
@@ -34,7 +34,7 @@
                         <% if c.leaf? %>
                           <div class='group-title'>
                             <%= link_to _(c.name), group_path(group: group.name, group2: child.name, group3: c.name), class: 'name' %>
-                            (<%= c.spkgs.count %>)
+                            (<%= c.srpms_count %>)
                           </div>
                         <% else %>
                           TODO
