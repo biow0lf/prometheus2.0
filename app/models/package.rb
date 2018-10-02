@@ -173,10 +173,8 @@ class Package < ApplicationRecord
             rescue AlreadyExistError
                [ :info, "exists in #{branch_path.branch.name}... skipping" ]
             rescue SourceIsntFound => e
-               binding.pry if rpm.file !~ /arm/
                [ :error, "#{e.message} source isn't found for #{branch_path.branch.name}" ]
             rescue InvalidMd5SumError => e
-               binding.pry
                [ :error, "has invalid MD5 sum" ]
             rescue => e
                time = time < rpm.buildtime && time || rpm.buildtime
@@ -191,6 +189,10 @@ class Package < ApplicationRecord
     
       if source.downcase == 'src'
          branch.update(srpms_count: branch.srpm_filenames.count)
+
+         Group.find_each do |group|
+            group.update!(srpms_count: group.srpms.count)
+         end
       end
    end
 
