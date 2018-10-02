@@ -6,6 +6,7 @@ class Group < ApplicationRecord
   belongs_to :branch
 
   has_many :packages
+  has_many :spkgs, class_name: 'Package::Src'
   has_many :rpms, through: :packages
 
   validates :name, presence: true

@@ -1,0 +1,3 @@
+создавать папку /var/www/prometheus2.0/shared/sockets
+менять разрешения chmod a+rx /var/www
+

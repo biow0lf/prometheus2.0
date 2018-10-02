@@ -1,7 +1,7 @@
 <% @changelogs.each do |changelog| %>
   <span class="news-date-new">
-    <%= link_to "#{ changelog.srpm.name }-#{ changelog.changelogname.split('>')[1].strip rescue nil }",
-                srpm_path(@branch, changelog.srpm),
+    <%= link_to "#{ changelog.package.name }-#{ changelog.changelogname.split('>')[1].strip rescue nil }",
+                srpm_path(@branch, changelog.package.name),
                 class: 'news',
                 title: _('detailed information about the package') %>
   </span>
@@ -10,9 +10,9 @@
     <%= Time.at(changelog.changelogtime.to_i).to_date %>
   </span>
 
-  <div id="pkg-<%= changelog.srpm.name %>" style="display:block;margin-top:1em;">
-    <b><%= _('Group:') %></b> <span class="news-text"><%= _(changelog.srpm.groupname) %></span><br>
-    <b><%= _('Summary:') %></b> <span class="news-text"><%= changelog.srpm.summary %></span><br>
+  <div id="pkg-<%= changelog.package.name %>" style="display:block;margin-top:1em;">
+    <b><%= _('Group:') %></b> <span class="news-text"><%= _(changelog.package.groupname) %></span><br>
+    <b><%= _('Summary:') %></b> <span class="news-text"><%= changelog.package.summary %></span><br>
     <b><%= _('Changes:') %></b> <div class="para"><%= simple_format(changelog.changelogtext) %></div>
   </div>
   <p class="news" />
