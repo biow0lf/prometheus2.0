@@ -33,7 +33,7 @@ class RemoveOldSrpms < Rectify::Command
     list_to_remove.update_all(obsoleted_at: Time.zone.now)
     list.each { |f| Rails.logger.info "IMPORT: removed file #{f} for #{branch_path.name}" }
 
-    BranchPath.reset_counters(branch_path.id, :srpms_count)
+    branch_path.update!(srpms_count: branch_path.srpm_filenames.count)
     branch_path.branch.update!(srpms_count: branch_path.branch.srpm_filenames.count)
 
     branch_path.builders.where(id: builder_ids).find_each do |maintainer|
