@@ -31,7 +31,17 @@ namespace :update do
 
       puts "#{ Time.zone.now }: import all built rpms from #{branch.name} branch to database"
       Package::Built.import_all(branch)
+    end
 
+    Redis.current.del('__SYNC__')
+  end
+
+  desc 'Update redis'
+  task redis: %i(environment lock) do
+    puts "#{ Time.zone.now }: Update branch stuffes"
+    Redis.current.set('__SYNC__', Process.pid)
+
+    Branch.all.each do |branch|
       puts "#{ Time.zone.now }: update acls in redis cache"
       Acl.update_redis_cache(branch, "http://git.altlinux.org/acl/list.packages.#{branch.acl_name}")
 
