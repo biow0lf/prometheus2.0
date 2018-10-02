@@ -4,7 +4,7 @@ upstream app_server {
 
 server {
    listen <%= fetch :app_server_port %>;
-   listen [::]:<%= fetch :app_server_port %>;
+   # listen [::]:<%= fetch :app_server_port %>;
 
    server_name <%= fetch :app_server_host %>;
 
