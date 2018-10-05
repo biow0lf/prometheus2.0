@@ -252,7 +252,7 @@ GEM
       ast (~> 2.4.0)
     parslet (1.8.2)
     pg (0.21.0)
-    pg_query (1.0.2)
+    pg_query (1.1.0)
     pg_search (2.1.2)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
