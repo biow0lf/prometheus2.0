@@ -208,7 +208,7 @@ GEM
       rails
     launchy (2.4.3)
       addressable (~> 2.3)
-    license_finder (5.4.1)
+    license_finder (5.5.0)
       bundler
       rubyzip
       thor
