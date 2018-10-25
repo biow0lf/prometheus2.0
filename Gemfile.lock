@@ -236,7 +236,7 @@ GEM
     minitest (5.11.3)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
-    mry (0.58.0.0)
+    mry (0.59.0.0)
       rubocop (>= 0.41.0)
     msgpack (1.2.4)
     net-scp (1.2.1)
