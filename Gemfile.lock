@@ -120,8 +120,8 @@ GEM
       mail
     chronic (0.10.2)
     climate_control (0.2.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
+    cocaine (0.6.0)
+      terrapin (= 0.6.0)
     coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
