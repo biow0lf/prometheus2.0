@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
     if params[:query].blank?
       redirect_to controller: 'home', action: 'index'
     else
-      @srpms = Srpm.query(params[:query]).by_branch_name(params[:branch]).page(params[:page]).includes(:branch)
+      @srpms = Srpm.includes(:branch).b(params[:branch]).q(params[:query]).page(params[:page]).reorder("srpms.name").distinct
 
       # @srpms = Srpm.none
       # @srpms = Srpm.search(

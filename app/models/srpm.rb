@@ -41,6 +41,10 @@ class Srpm < ApplicationRecord
 
   scope :by_branch_name, ->(name) { joins(:branch).where(branches: { name: name }) }
 
+  scope :q, ->(text) { joins(:packages).merge(Package.query(text)).or(self.query(text)) }
+
+  singleton_class.send(:alias_method, :b, :by_branch_name)
+
   validates :groupname, presence: true
 
   validates :md5, presence: true
