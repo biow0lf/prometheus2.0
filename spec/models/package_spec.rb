@@ -34,9 +34,10 @@ describe Package do
   it 'should import package to database' do
     branch = create(:branch)
     group = create(:group, branch_id: branch.id)
-    create(:srpm, branch_id: branch.id, group_id: group.id)
     file = 'openbox-3.4.11.1-alt1.1.1.i586.rpm'
+    filename = 'openbox-3.4.11.1-alt1.1.1.src.rpm'
     md5 = 'fd0100efb65fa82af3028e356a6f6304'
+    srpm = create(:srpm, branch_id: branch.id, group_id: group.id, filename: filename)
     rpm = RPMFile::Binary.new(file)
 
     expect(rpm).to receive(:name).and_return('openbox')
